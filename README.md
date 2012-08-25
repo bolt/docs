@@ -1,4 +1,8 @@
 pilex-docs
 ==========
 
-Pilex documentation
+Set up:
+
+  curl -s http://getcomposer.org/installer | php
+  php composer.phar install
+
