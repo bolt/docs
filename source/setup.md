@@ -3,10 +3,10 @@ Installing Pilex
 
 For now, the easiest way to install Pilex, is using composer, on the command line:
 
-  git clone git://github.com/bobdenotter/pilex.git pilex
-  cd pilex 
-  curl -s http://getcomposer.org/installer | php
-  php composer.phar install
+	git clone git://github.com/bobdenotter/pilex.git pilex
+	cd pilex 
+	curl -s http://getcomposer.org/installer | php
+	php composer.phar install
 
 This will get the Pilex files, the Silex framework, and all requires components. 
 
