@@ -1,0 +1,90 @@
+
+p.note {
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    color: #A73;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-color: #FCF8E3;
+    border: 1px solid #FBEED5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+p.tip {
+    background-color: #D9EDF7;
+    color: #3A87AD;
+    border: 1px solid #BCE8F1;
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 20px;
+    padding: 8px 35px 8px 14px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+p.note strong {
+    color: inherit;
+}
+
+a, a:visited {
+    color: #05A;
+}
+
+a:hover {
+    color: #27C;
+}
+
+code {
+
+    background-color: #EEE;
+    font-family: "Consolas",​ "Bitstream Vera Sans Mono",​ "Courier New",​ Courier,​ monospace;
+}
+
+/* Highlighter overrides.. */
+.syntaxhighlighter {
+    border: 1px solid #F2F2F2;
+    width: 90%;
+    box-shadow: 1px 1px 1px 0 rgba(128, 128, 128, 0.1);
+
+}
+
+.syntaxhighlighter .line.alt1 {
+    background-color: #FAFAFA !important;
+}
+
+.syntaxhighlighter table td div {
+    font-size: 13px !important;
+    line-height: 17px !important;
+}
+
+.syntaxhighlighter .gutter .line {
+    border-right: 2px solid #DDD !important;
+    background-color: #EEE !important;   
+    color: #CCC !important;   
+}
+
+.syntaxhighlighter td.gutter {
+    padding: 3px 0 !important;
+    background-color: #EEE !important; 
+}
+    
+.syntaxhighlighter .plain, .syntaxhighlighter .plain a {
+    color: #444 !important;
+} 
+
+/* Added for Twig syntax highlighting.. */
+
+.syntaxhighlighter .twigtag, .syntaxhighlighter .twigtag a {
+  color: #258440 !important;
+  font-weight: bold !important;
+}
+
+.syntaxhighlighter .twigcomment, .syntaxhighlighter .twigcomment a {
+  color: #999 !important;
+  font-style: italic !important;
+}
+
+.syntaxhighlighter .twigprint, .syntaxhighlighter .twigprint a {
+  color: #a84b3a !important;
+  font-weight: bold !important;
+
+}

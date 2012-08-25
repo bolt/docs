@@ -5,43 +5,44 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
 
-	<!-- Basic Page Needs
-  ================================================== -->
 	<meta charset="utf-8">
 	<title>Pilex documentation </title>
 	<meta name="description" content="">
 	<meta name="author" content="">
-
-	<!-- Mobile Specific Metas
-  ================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<!-- CSS
-  ================================================== -->
+	<!-- Skeleton -->
 	<link rel="stylesheet" href="/view/css/base.css">
 	<link rel="stylesheet" href="/view/css/skeleton.css">
 	<link rel="stylesheet" href="/view/css/layout.css">
+
+	<!-- Highlighter --> 
+	<script type="text/javascript" src="/view/js/shCore.js"></script>
+	<script type="text/javascript" src="/view/js/shBrushJScript.js"></script>
+	<script type="text/javascript" src="/view/js/shBrushPlain.js"></script>
+	<script type="text/javascript" src="/view/js/shBrushPhp.js"></script>
+	<script type="text/javascript" src="/view/js/shBrushXml.js"></script>
+	<link href="/view/css/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="/view/css/shThemeDefault.css" rel="Stylesheet" type="text/css" />	
+{#	<link href="/view/css/shThemeMidnight.css" rel="Stylesheet" type="text/css" />	#}
+	<script type="text/javascript">
+		SyntaxHighlighter.defaults['auto-links'] = false;
+		SyntaxHighlighter.all();
+	</script>
+
+	<link rel="stylesheet" href="/view/css/pilex.css">
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<!-- Favicons
-	================================================== -->
-	<link rel="shortcut icon" href="/view/images/favicon.ico">
-	<link rel="apple-touch-icon" href="view/images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="view/images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="view/images/apple-touch-icon-114x114.png">
+	<script src="/view/js/jquery-1.8.0.min.js"></script>
+
+
 
 </head>
 <body>
 
-
-
-	<!-- Primary Page Layout
-	================================================== -->
-
-	<!-- Delete everything in this .container and get started on your own site! -->
 
 	<div class="container">
 		<div class="sixteen columns">
@@ -51,7 +52,11 @@
 		</div>
 		<div class="four columns sidebar">
 			<h3>Contents</h3>
-			<p>This is where the navigation will be.</p>
+			<ul>
+			{% for link,name in menu %}
+				<li><a href="/{{link}}">{{name}}</a></li>
+			{% endfor %}
+			</ul>
 		</div>
 
 		<div class="eleven columns offset-by-one content">
@@ -62,8 +67,5 @@
 
 	</div><!-- container -->
 
-
-<!-- End Document
-================================================== -->
 </body>
 </html>
