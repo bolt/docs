@@ -58,7 +58,7 @@
 			{ regex: new XRegExp('(&lt;|<)[\\s\\/\\?]*(\\w+)(?<attributes>.*?)[\\s\\/\\?]*(&gt;|>)', 'sg'), func: process },
 
 			// Added for Twig..
-			{ regex: new XRegExp('{{(.)*}}', 'gm'),			css: 'twigprint' },	// {{ ... }}
+			{ regex: new XRegExp('{{([^}])*}}', 'gm'),			css: 'twigprint' },	// {{ ... }}
 			{ regex: new XRegExp('{%(.)*%}', 'gm'),			css: 'twigtag' },	// {% ... %}
 			{ regex: new XRegExp('{#(.)*#}', 'gm'),			css: 'twigcomment' }	// {# ... #}
 

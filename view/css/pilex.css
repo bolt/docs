@@ -1,3 +1,8 @@
+ul li {
+    padding: 0;
+    margin: 0 0 3px 24px;
+    list-style: disc;
+}
 
 p.note {
     padding: 8px 35px 8px 14px;
@@ -34,9 +39,14 @@ a:hover {
 }
 
 code {
-
+    padding: 1px 3px;
     background-color: #EEE;
-    font-family: "Consolas",​ "Bitstream Vera Sans Mono",​ "Courier New",​ Courier,​ monospace;
+    font-family: "Consolas",​ Courier,​ monospace;
+}
+
+
+.container {
+    padding-bottom: 40px;
 }
 
 /* Highlighter overrides.. */
@@ -84,7 +94,6 @@ code {
 }
 
 .syntaxhighlighter .twigprint, .syntaxhighlighter .twigprint a {
-  color: #a84b3a !important;
-  font-weight: bold !important;
+  color: #009 !important;
 
 }
