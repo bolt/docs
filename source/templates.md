@@ -1,7 +1,7 @@
 Building templates in Pilex
 ===========================
 
-To show HTML pages with dynamic content, Pilex uses the [Twig](http://twig.sensiolabs.org/documentation) templating language. This means that everybody who is familiar with Twig can easily get started with building Pilex templates. 
+To render HTML pages with dynamic content, Pilex uses the [Twig](http://twig.sensiolabs.org/documentation) templating language. This means that everybody who is familiar with Twig can easily get started with building Pilex templates. 
 
 In short, Twig is described as a 'flexible, fast, and secure template engine for PHP.' Primarily, it seperates the markup of your templates from the PHP code in the CMS. It does this elegantly and quickly, which means that writing your HTML templates in Twig will give you clean and legible templates. That means you don't have to use PHP-like statements in your markup, so there's less code like this: 
 <pre class="brush: html">
@@ -100,8 +100,14 @@ There are basically three different types of Twig tags that you can use in your 
   - `{{ foo }}` is a simple output tag. Whatever is in the variable `foo` gets sent to the browser. 
   - `{# foo #}` is a comment. Use it to add comments to your templates, that don't do anything. they are comparible to the HTML comments like `<!-- foo -->`, except for the fact that Twig comments don't get sent to the browser, so you can't see them using 'view source'.
 
+Inside these tags you can use expressions, statements, variables, functions and modifiers. We'll give some quick examples here, but for in-depth coverage you should read the Twig manual. 
 
-
+  - `{{ foo }}` outputs the variable `foo`. Nothing more, nothing less.
+  - `{{ bar(foo) }}` outputs the results of the function 'bar()'. In this case, 'foo' is used as an argument in the function, so the output is most likely dependant on the contents of 'foo'.
+  - `{{ foo|bar }}` Outputs the variable 'foo', but with 'bar' as a modifier. If 'foo' is "hello", `{{ foo|upper }}` would output "HELLO". 
+  - `{% if foo == "bar" %}` is a statement that tests if the variable 'foo' is equal to the value "bar". If so, the part that's between the opening statement and the corresponding `{% endif %}` will be rendered to the browser.
+ 
+ 
 <h3>Strict variables</h3>
 
 Pilex sets 'strict_variables' in Twig to `false` by default. This will mean you will get not warnings if you try to use a variable that doesn't exist. This makes it easier to use conditional outputting, because it will allow you to do the following, regardless if `content` or `content.image` exist in the current page.
