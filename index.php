@@ -4,6 +4,8 @@ require_once('lib/markdown.php');
 require_once('lib/smartypants.php');
 require_once './vendor/autoload.php';
 
+$version = 0.5;
+
 $request = basename($_SERVER['REQUEST_URI']);
 
 //echo "<pre>";
@@ -34,12 +36,14 @@ $menu = array(
 	'using' => "Using Pilex",
 	'content' => "Working with Content and Content types",
 	'templates' => "Building templates",
+	'templatetags' => "Pilex template tags",
 	'credits' => "Credits and Contributing",
 	);
 
 echo $twig->render('index.twig', array(
 	'title' => 'Pilex docs',
 	'source' => $source,
-	'menu' => $menu
+	'menu' => $menu,
+	'version' => $version
 ));
 

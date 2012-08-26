@@ -36,6 +36,8 @@ The current default theme contains the following files and folders:
   - `js/` - a folder with some javascript files
   - `css/` - .. and similarly, some css files.
 
+The filenames of the 'helper' templates all start with an underscore. This is just a convention, to make it easier to instantly recognize which template does what. If your contenttypes have a 'template select', Pilex will skip helper templates by default, if you name them like this. 
+
 <p class="tip">
 Tip: the default template set uses includes to insert the header, footer and such, but you're free to use <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> if you prefer. 
 </p>
@@ -51,23 +53,23 @@ A simple `entry.twig` template could look something like the example you see bel
 <pre class="brush: html">
 {% include '_header.twig' %}
 
-<article>
+&lt;article>
 
-    <h1><a href="{{ content|link }}">{{ content.title }}</a></h1>
+    &lt;h1>&lt;a href="{{ content|link }}">{{ content.title }}&lt;/a>&lt;/h1>
     
     {# Only display the image, if there's an actual image to display #}
     {% if content.image!="" %}
-        <div class='imageholder-wide'>
-        	<img src="{{ content.image|thumbnail(320, 240) }}">
-        </div>
+        &lt;div class='imageholder-wide'>
+        	&lt;img src="{{ content.image|thumbnail(320, 240) }}">
+        &lt;/div>
     {% endif %}
     
     {{ content.body|raw }}
 
-    <p class="meta">
+    &lt;p class="meta">
     	Posted by {{ content.username }} on 
     	{{ content.datecreated|date("M d, ’y")}}
-    </p>
+    &lt;/p>
     
 </article>  
 
@@ -88,7 +90,7 @@ What happens in this example is the following:
 
   - `{{ content.image|thumbnail(320, 240) }}`, line 10: By using the `thumbnail` modifier, we can creat thumbnail images on the fly. In this case, the image source attribute in the HTML will be something like '/thumbs/300x240/imagename.jpg'. Pilex has a built-in image resizer that will create the image with the exact dimensions, and caches it for further use. 
 
-  - `{{ content.body|raw }}`, line 14: This renders the 'body' field of the content to the browser. By default, Twig escapes all HTML to the browser. If we didn't add the `raw` modifier, all '<' and '>' characters in the body would be output as '&lt;' and '&gt;' respectively. If 'body' is an HTML field in our contenttype, we want it to be output as normal HTML, so we have to add the `raw` modifier.
+  - `{{ content.body|raw }}`, line 14: This renders the 'body' field of the content to the browser. By default, Twig escapes all HTML to the browser. If we didn't add the `raw` modifier, all '<' and '>' characters in the body would be output as '&amp;lt;' and '&amp;gt;' respectively. If 'body' is an HTML field in our contenttype, we want it to be output as normal HTML, so we have to add the `raw` modifier.
 
   - `{{ content.datecreated|date("M d, ’y")}}`, line 18: `datecreated` is one of the elements that is always present in all content types, and it contains the date the record was created. It's stored in a machine-readable format, so to display it the way we want, we use the `date()` modifier. In this case, it will output something like 'August 26, ’12'.
 
@@ -107,7 +109,7 @@ Inside these tags you can use expressions, statements, variables, functions and 
   - `{{ foo|bar }}` Outputs the variable 'foo', but with 'bar' as a modifier. If 'foo' is "hello", `{{ foo|upper }}` would output "HELLO". 
   - `{% if foo == "bar" %}` is a statement that tests if the variable 'foo' is equal to the value "bar". If so, the part that's between the opening statement and the corresponding `{% endif %}` will be rendered to the browser.
  
- 
+
 <h3>Strict variables</h3>
 
 Pilex sets 'strict_variables' in Twig to `false` by default. This will mean you will get not warnings if you try to use a variable that doesn't exist. This makes it easier to use conditional outputting, because it will allow you to do the following, regardless if `content` or `content.image` exist in the current page.
@@ -138,3 +140,4 @@ If you do this, you will have to do more strict checking on your variables, beca
 		(do something with the image..)
 	{% endif %}
 </pre>
+
