@@ -82,17 +82,17 @@ What happens in this example is the following:
 
   - `{{ content.title }}`, line 5: Since this is a generic template, 'content' contains the record of the current requested page. For example, if the current page is <a>domain.com/news/the-website-is-live</a>, `content` would contain the record from 'news' that has 'the-website-is-live' as a slug. 'content' is an array, so to output the 'title' field, we use the '.'-notation. 
 
-  - `{{ content|link }}`, line 5: Here we use the 'link'-modifier to get the link for the content array. 
+  - `{{ content|link }}`, line 5: Here we use the 'link'-filter to get the link for the content array. 
 
   - `{# Only display .. #}`, line 7: This is a simple comment. It will be removed when the template is rendered to the browser, so it will not show up in 'view source'.
 
   - `{% if content.image!="" %} .. {% endif %}`, lines 8 - 12: The if-statement only parses the part between the start and end tag, if the given condition is true. So, in this case, the image is only rendered to the browser, if content.image does not equal "", i.e. if it is not empty. 
 
-  - `{{ content.image|thumbnail(320, 240) }}`, line 10: By using the `thumbnail` modifier, we can creat thumbnail images on the fly. In this case, the image source attribute in the HTML will be something like '/thumbs/300x240/imagename.jpg'. Pilex has a built-in image resizer that will create the image with the exact dimensions, and caches it for further use. 
+  - `{{ content.image|thumbnail(320, 240) }}`, line 10: By using the `thumbnail` filter, we can create thumbnail images on the fly. In this case, the image source attribute in the HTML will be something like '/thumbs/300x240/imagename.jpg'. Pilex has a built-in image resizer that will create the image with the exact dimensions, and caches it for further use. 
 
-  - `{{ content.body|raw }}`, line 14: This renders the 'body' field of the content to the browser. By default, Twig escapes all HTML to the browser. If we didn't add the `raw` modifier, all '<' and '>' characters in the body would be output as '&amp;lt;' and '&amp;gt;' respectively. If 'body' is an HTML field in our contenttype, we want it to be output as normal HTML, so we have to add the `raw` modifier.
+  - `{{ content.body|raw }}`, line 14: This renders the 'body' field of the content to the browser. By default, Twig escapes all HTML to the browser. If we didn't add the `raw` filter, all '<' and '>' characters in the body would be output as '&amp;lt;' and '&amp;gt;' respectively. If 'body' is an HTML field in our contenttype, we want it to be output as normal HTML, so we have to add the `raw` filter.
 
-  - `{{ content.datecreated|date("M d, ’y")}}`, line 18: `datecreated` is one of the elements that is always present in all content types, and it contains the date the record was created. It's stored in a machine-readable format, so to display it the way we want, we use the `date()` modifier. In this case, it will output something like 'August 26, ’12'.
+  - `{{ content.datecreated|date("M d, ’y")}}`, line 18: `datecreated` is one of the elements that is always present in all content types, and it contains the date the record was created. It's stored in a machine-readable format, so to display it the way we want, we use the `date()` filter. In this case, it will output something like 'August 26, ’12'.
 
 <h3>Twig basics</h3>
 
@@ -102,11 +102,11 @@ There are basically three different types of Twig tags that you can use in your 
   - `{{ foo }}` is a simple output tag. Whatever is in the variable `foo` gets sent to the browser. 
   - `{# foo #}` is a comment. Use it to add comments to your templates, that don't do anything. they are comparible to the HTML comments like `<!-- foo -->`, except for the fact that Twig comments don't get sent to the browser, so you can't see them using 'view source'.
 
-Inside these tags you can use expressions, statements, variables, functions and modifiers. We'll give some quick examples here, but for in-depth coverage you should read the Twig manual. 
+Inside these tags you can use expressions, statements, variables, functions and filters. We'll give some quick examples here, but for in-depth coverage you should read the Twig manual. 
 
   - `{{ foo }}` outputs the variable `foo`. Nothing more, nothing less.
   - `{{ bar(foo) }}` outputs the results of the function 'bar()'. In this case, 'foo' is used as an argument in the function, so the output is most likely dependant on the contents of 'foo'.
-  - `{{ foo|bar }}` Outputs the variable 'foo', but with 'bar' as a modifier. If 'foo' is "hello", `{{ foo|upper }}` would output "HELLO". 
+  - `{{ foo|bar }}` Outputs the variable 'foo', but with 'bar' as a filter. If 'foo' is "hello", `{{ foo|upper }}` would output "HELLO". 
   - `{% if foo == "bar" %}` is a statement that tests if the variable 'foo' is equal to the value "bar". If so, the part that's between the opening statement and the corresponding `{% endif %}` will be rendered to the browser.
  
 
