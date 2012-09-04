@@ -10,7 +10,7 @@ For now, the easiest way to install Pilex, is using composer, on the command lin
 	php composer.phar install
 </pre>
 
-This will get the Pilex files, the Silex framework, and all requires components. 
+This will get the Pilex files, the Silex framework, and all required components. 
 
 Next, edit the database configuration, in 'app/config/config.yml'. At this time, only MySQL is supported. Set the database, username and password:
 
