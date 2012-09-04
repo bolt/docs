@@ -133,7 +133,7 @@ While this facilitates writing generic templates, it also makes debugging harder
 strict_variables: true
 </pre> 
 
-If you do this, you will have to do more strict checking on your variables, because an error will be output, if you try tu use a non-existing variable: 
+If you do this, you will have to do more strict checking on your variables, because an error will be output, if you try to use a non-existing variable: 
 
 <pre class="brush: html">
 	{% if content.image is defined and content.image != "" %}
