@@ -38,6 +38,10 @@ a:hover {
     color: #27C;
 }
 
+li.current a {
+    color: #000;
+}
+
 code {
     padding: 1px 3px;
     background-color: #EEE;

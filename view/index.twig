@@ -6,7 +6,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>Pilex documentation </title>
+	<title>{{ title }} - Pilex documentation </title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -46,7 +46,7 @@
 
 	<div class="container">
 		<div class="sixteen columns">
-			<h1 class="remove-bottom" style="margin-top: 40px">{{ title }}</h1>
+			<h1 class="remove-bottom" style="margin-top: 40px">Pilex documentation</h1>
 			<h5>Version {{ version }}</h5>
 			<hr />
 		</div>
@@ -54,9 +54,19 @@
 			<h3>Contents</h3>
 			<ul>
 			{% for link,name in menu %}
-				<li><a href="/{{link}}">{{name}}</a></li>
+				<li {% if current==link %}class='current'{% endif %}><a href="/{{link}}">{{name}}</a>
+					{% if current==link %}
+					<ul>
+						{% for link,name in submenu %}
+							<li><a href="#{{link}}">{{name}}</a>
+						{% endfor %}
+					</ul>
+					{% endif %}
+				</li>
 			{% endfor %}
 			</ul>
+
+
 		</div>
 
 		<div class="eleven columns offset-by-one content">
