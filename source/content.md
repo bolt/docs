@@ -3,11 +3,11 @@ Contenttypes and records
 
 All content in Bolt is stored in the database in a logical and flexible fashion. In general, when you're building a website, you have an idea what kind of content you're going to be managing with the website. Most websites have some sort of 'pages' for generic stuff like 'about us' or 'Company History'. Most websites will also have some form of news-like items, that are shown based on the date that they were published. Some other sites might have 'book reviews' or 'event dates' or even completely different content. All of these different types of content are called **Contenttypes** in Bolt, and you can add as many different types as you need. 
 
-Each contenttype is defined by a few fixed **Fields** that are used internally, but otherwise you're free to define how the content in a Contenttype is structured. For instance, in an 'event', you'll need a date on which the event takes place. For a 'book review', you'll need an author and publisher of the book. Other commonly used fields are 'title', 'introduction' or 'image'. Some of the Fields are Fixed, which means that every content type has them. For example, every contenttype has a Field for 'id', 'slug', 'date_created' and 'user'. Below we'll describe how to define the Contenttypes and the Fields that you can use to store the desired information in them. 
+Each contenttype is defined by a few fixed **Fields** that are used internally, but otherwise you're free to define how the content in a Contenttype is structured. For instance, in an 'event', you'll need a date on which the event takes place. For a 'book review', you'll need an author and publisher of the book. Other commonly used fields are 'title', 'introduction' or 'image'. Some of the Fields are Fixed, which means that every contenttype has them. For example, every contenttype has a Field for 'id', 'slug', 'date_created' and 'user'. Below we'll describe how to define the Contenttypes and the Fields that you can use to store the desired information in them. 
 
 All content in your website is part of one Contenttype, which automatically defines which fields that piece of content has, and that automatically specifies how that piece of content is structured. Each one of those pieces of content is called a **Record**, and is stored in the database together. For example, a single 'book review' is a Record of Contenttype 'reviews' and a single 'page' is a Record of Contenttype Pages. 
 
-When you're building a site that shows listings of several Records, that's called an Array of Records. For instance, if you create a page that has 'the five latest book reviews', you'll be using an Array of 5 'book review' Records of Contenttype 'book reviews'. 
+When you're creating a page on a website that shows listings of several Records, you're using an **Array of Records**. For instance, if you create a page that has 'the five latest book reviews', you'll be using an Array of 5 'book review' Records of Contenttype 'book reviews'. 
 
 Before we'll dive into the details, we'll give you a quick example of a simple Contenttype, how it's stored, and how you can access it in the templates to display on your site. 
 
@@ -41,7 +41,7 @@ news:
 
 This creates a new contenttype 'news'. Its name is 'News', and a single record is named 'Newsitem'. We've defined fields for 'title', 'slug', 'image' and 'text'. The 'template' defines the default template to use, when displaying a single template in the browser. 
 
-After you've saved the file and Refresh the Dashboard screen in your browser, you'll be greeted by a warning that the Database needs to be updated. If we do this, the new contenttyp will be added to the database, with the fields that we defined in our `contenttypes.yml` file. 
+After you've saved the file and Refresh the Dashboard screen in your browser, you'll be greeted by a warning that the Database needs to be updated. If we do this, the new contenttype will be added to the database, with the fields that we defined in our `contenttypes.yml` file. 
 
 <a href="/files/content-example1.png" class="fancybox"><img src="/files/content-example1.png" width="500"></a>
 
