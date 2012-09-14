@@ -37,7 +37,10 @@ news:
     template: newsitem.twig
 </pre> 
 
+<p class="tip"><strong>Tip:</strong> For easier copy/pasting of the samples, doubleclick the code.</p>
+
 <p class="note"><strong>Note:</strong> This file is in the YAML format, which means that the indentation is important. Make sure you leave leading spaces intact.</p>
+
 
 This creates a new contenttype 'news'. Its name is 'News', and a single record is named 'Newsitem'. We've defined fields for 'title', 'slug', 'image' and 'text'. The 'template' defines the default template to use, when displaying a single template in the browser. 
 
