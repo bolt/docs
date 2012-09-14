@@ -90,8 +90,6 @@ I.e. `{{ page.title }}` for the title of a page or `{{ events.4.date }}` for the
 
 If you're building a template and are unsure of what a certain variable contains or how the fields are named, use `{{ print(foo) }}`, where 'foo' is the name of your record or array. 
 
-<a href="/files/content-example3.png" class="fancybox"><img src="/files/content-example3.png" width="500"></a>
-
 Below, in the section [The structure of a Record](#the-structure-of-a-record), this is explained in detail.
 
 Defining contenttypes
@@ -173,8 +171,11 @@ Most fields have a few extra optional values, to further customize them.
 The structure of a Record
 -------------------------
 
+Every record is an object, that contains the information of that record, as well as some meta-information and its taxonomy. 
 
-Each record contains similar information:
+<a href="/files/content-example3.png" class="fancybox"><img src="/files/content-example3.png" width="500"></a>
+
+At the topmost level, it contains the following items:
 
   - `id`: The unique identifying  number of this record in the database, for this Contenttype. Note: there are duplicate ids for records in different contenttypes. For example, there can be a record with id `1` for Pages, and also a record with id `1` for News.
   - `values`: An array with the values of this record.
@@ -192,4 +193,4 @@ The values contain the fields that are defined in the contenttype, together with
 
 If you're building a template and are unsure of what a certain variable contains or how the fields are named, use `{{ print(foo) }}`, where 'foo' is the name of your record or array.
 
-For detailed information on how to access the various fields and values in your templates, view the section (Content on the Template tags page)[/templatetags#content].
+For detailed information on how to access the various fields and values in your templates, view the section [Content on the Template tags page](/templatetags#content).

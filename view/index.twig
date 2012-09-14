@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="/view/css/skeleton.css">
 	<link rel="stylesheet" href="/view/css/layout.css">
 
+	<script src="/view/js/jquery-1.8.1.min.js"></script>
+
 	<!-- Highlighter --> 
 	<script type="text/javascript" src="/view/js/shCore.js"></script>
 	<script type="text/javascript" src="/view/js/shBrushJScript.js"></script>
@@ -24,19 +26,18 @@
 	<script type="text/javascript" src="/view/js/shBrushXml.js"></script>
 	<link href="/view/css/shCore.css" rel="stylesheet" type="text/css" />
 	<link href="/view/css/shThemeDefault.css" rel="Stylesheet" type="text/css" />	
-{#	<link href="/view/css/shThemeMidnight.css" rel="Stylesheet" type="text/css" />	#}
-	<script type="text/javascript">
-		SyntaxHighlighter.defaults['auto-links'] = false;
-		SyntaxHighlighter.all();
-	</script>
+
+
+	<script type="text/javascript" src="/view/js/jquery.fancybox.js"></script>
+	<script type="text/javascript" src="/view/js/jquery.stickem.js"></script>
+	<script type="text/javascript" src="/view/js/docs.js"></script>
+
 
 	<link rel="stylesheet" href="/view/css/pilex.css">
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-
-	<script src="/view/js/jquery-1.8.0.min.js"></script>
 
 
 
@@ -50,7 +51,9 @@
 			<h5>Version {{ version }}</h5>
 			<hr />
 		</div>
-		<div class="four columns sidebar">
+
+			<div class="four columns sidebar">
+
 			<h3>Contents</h3>
 			<ul>
 			{% for link,name in menu %}
@@ -65,16 +68,15 @@
 				</li>
 			{% endfor %}
 			</ul>
+			</div>
 
 
-		</div>
+			<div class="eleven columns offset-by-one content">
+				
+				{{ source|raw }}
 
-		<div class="eleven columns offset-by-one content">
-			
-			{{ source|raw }}
-
-			<hr style='margin-top: 36px;'>
-		</div>
+				<hr style='margin-top: 36px;'>
+			</div>
 
 	</div><!-- container -->
 

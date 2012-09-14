@@ -47,9 +47,13 @@ $menu = array(
 	'setup' => "Installing Pilex",
 	'using' => "Using Pilex",
 	'content' => "Working with Content and Content types",
+    'taxonomies' => "Taxonomies",
 	'templates' => "Building templates",
+    'content-in-templates' => "Content in templates",
 	'templatetags' => "Pilex template tags",
+    'snippets' => "Twig Code snippets",
 	'credits' => "Credits and Contributing",
+    'roadmap' => "Roadmap"
 	);
 
 echo $twig->render('index.twig', array(

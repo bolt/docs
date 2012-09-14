@@ -167,22 +167,6 @@ Function: print()
 </pre>
 
 
-Snippet:simple menu
--------------------
-
-<pre class="brush: html">
-    &lt;nav id="main">
-    {% set pages = content('pages', {'limit': 4, 'order': 'datecreated desc', 'taxonomy/chapter': 'main'}) %}
-    
-    {% for page in pages %}
-        {% if loop.first %}&lt;ul>{% endif %}
-        &lt;li>&lt;a href="{{ page|link }}" {% if page|current %}class="current"{% endif %}>{{ page.title|trimtext(12) }}&lt;/a>&lt;/li>  		      
-        {% if loop.last %}&lt;/ul>{% endif %}
-    {% else %}
-        &lt;em>No main navigation items. Add some Pages, and set the 'Chapter' to 'Main'.&lt;/em>
-    {% endfor %}
-    &lt;/nav>
-</pre>
 
 <pre class="brush: html">
 

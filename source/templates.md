@@ -1,9 +1,9 @@
 Building templates in Pilex
 ===========================
 
-To render HTML pages with dynamic content, Pilex uses the [Twig](http://twig.sensiolabs.org/documentation) templating language. This means that everybody who is familiar with Twig can easily get started with building Pilex templates. 
+To render HTML pages with dynamic content, Pilex uses the [Twig](http://twig.sensiolabs.org/documentation) templating language. This means that everybody who is familiar with Twig can easily get started with building templates in Pilex. 
 
-In short, Twig is described as a 'flexible, fast, and secure template engine for PHP.' Primarily, it seperates the markup of your templates from the PHP code in the CMS. It does this elegantly and quickly, which means that writing your HTML templates in Twig will give you clean and legible templates. That means you don't have to use PHP-like statements in your markup, so there's less code like this: 
+In short, Twig can be described as a 'flexible, fast, and secure template engine for PHP.' Primarily, it seperates the markup of your templates from the PHP code in the CMS. It does this elegantly and quickly, which means that writing your HTML templates in Twig will give you clean and legible templates. That means you don't have to use PHP-like statements in your markup, so there's less code like this: 
 <pre class="brush: html">
 	&lt;?php if ( the_something('3') ) { ?>
 		&lt;h1>Title is: &lt;?php echo the\_title() ?>.&lt;/h1> 
@@ -22,27 +22,27 @@ A template in Pilex can use all of the standard Twig tags, with a few additions 
 File Structure
 --------------
 
-A Pilex site consists of a set of twig templates, that are located in the 'view'-folder in the root of your site. You can always add more templates, if you want to. By default, the `index.twig` template is the homepage, but you can override it, using the configuration settings. 
+A Pilex website theme consists of a set of twig templates, that are located in the `view`-folder in the root of your site. You can always add more templates, if you want to. By default, the `index.twig` template is the homepage, but you can override it using the configuration settings. 
 
 The current default theme contains the following files and folders:
 
-  - `index.twig` - template front page of the website
-  - `entry.twig` - template for a single Entry
-  - `page.twig` - template for a single Page
-  - `error.twig` - template for a single entry
-  - `_aside.twig` - helper template that gets included as the sidebar
-  - `_header.twig` - same, but for the header
-  - `_header.twig` - same, but for the footer
-  - `js/` - a folder with some javascript files
+  - `index.twig` - template frontpage of the website.
+  - `entry.twig` - template for a single Entry.
+  - `page.twig` - template for a single Page.
+  - `error.twig` - template for displaying errors (including 404's).
+  - `_aside.twig` - helper template that gets included as the sidebar.
+  - `_header.twig` - same, but for the header.
+  - `_header.twig` - same, but for the footer.
+  - `js/` - a folder with some javascript files.
   - `css/` - .. and similarly, some css files.
 
-The filenames of the 'helper' templates all start with an underscore. This is just a convention, to make it easier to instantly recognize which template does what. If your contenttypes have a 'template select', Pilex will skip helper templates by default, if you name them like this. 
+The filenames of the 'helper' templates all start with an underscore. This is just a convention, to make it easier to recognize which template does what. If one of your contenttypes have a 'template select' field, Pilex will skip these helper templates by default. 
 
 <p class="tip">
 Tip: the default template set uses includes to insert the header, footer and such, but you're free to use <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> if you prefer. 
 </p>
 
-By default, Pilex creates links to single pages based on the contenttypes, and it uses a template based on its name. For instance, if your site has a contenttype `foos`, a single record in that contenttype will be available under <a>domain.com/foo/slug-of-record</a>, where `slug-of-record` is the sluggified version of the title. Pilex will try to use `foo.twig` as the template to render the page. You can change this by either defining another template in `contenttypes.yml`, or using a `templateselect` field in the contenttype. More information about this can be found in the chapter [Working with Content and Content types](/content).
+By default, Pilex creates links to single pages based on the contenttypes, and it uses a template based on its name. For instance, if your site has a contenttype `foos`, a single record in that contenttype will be available under <a>domain.com/foo/slug-of-record</a>, where `slug-of-record` is the sluggified version of the title. Pilex will try to use `foo.twig` as the template to render the page. You can change this by either defining another template in `contenttypes.yml`, or using a 'template select' field in the contenttype. More information about this can be found in the chapter [Working with Content and Content types](/content).
 
 
 Template tags
