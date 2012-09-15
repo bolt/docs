@@ -124,6 +124,110 @@ To get content from the database, you can use the `setcontent` tag. The followin
 {{ print(about) }}
 </pre>
 
+There are a lot of options for the `setcontent` tag. Most are optional, and all can be used together any way you'd like. The most basic syntax is: 
+
+<code>
+{% setcontent _variable_ = '_contenttype_' %}
+</code>
+
+This will set a _variable_ to contain the records of the given _contenttype_. For example: `{% setcontent mypages = 'pages' %}` will set `{{ mypages }}` to an array of all the records in 'pages'.
+
+Normally, you don't need _all_ records, but a subset. You can limit the number of records by using a 'where' clause (more on that below), but often it's easier to use the shortcut Bolt provides. 
+
+If you need a single record, and know its id or slug, you can do this:
+
+<pre class="brush: html">
+{# get all pages with username 'bob' #}
+{% setcontent about = 'page/about' %}
+
+{# get the newsitem with id 12 #}
+{% setcontent news = 'news/12' %}
+</pre>
+
+If you need the '5 latest pages' or '3 first reviews', there's also a shortcut for that:
+
+<pre class="brush: html">
+{% setcontent latestpages = 'pages/latest/5' %}
+
+{{ print(latestpages) }}
+</pre>
+
+and: 
+
+<pre class="brush: html">
+{% setcontent firstreviews = 'reviews/first/3' %}
+
+{{ print(firstreviews) }}
+</pre>
+
+If you need a more specific criteria to select the records on, you can use the `where` clause. The parameters must be listed as a hash, so you can include more than one, if needed.
+
+<pre class="brush: html">
+{# get all pages with username 'bob' #}
+{% setcontent mypages = 'pages' where { username: 'bob' } %}
+
+{# get all events with eventdate '2012-10-15' #}
+{% setcontent myevents = 'events' where { eventdate: '2012-10-15' } %}
+
+</pre>
+
+The above examples selected records based on the parameter being **equal** to the matching field in the available records. It's also possible to use modifiers for the values, to select based on 'smaller than' or 'does not equal' 
+
+<pre class="brush: html">
+{# get all pages not created by 'bob' #}
+{% setcontent mypages = 'pages' where { username: '!bob' } %}
+
+{# get all events with eventdate before '2012-10-15' #}
+{% setcontent myevents = 'pages' where { eventdate: '&lt;2012-10-15' } %}
+
+{# get all books with amountsold over 1,000 #}
+{% setcontent mybooks = 'books' where { amountsold: '&gt;1000' } %}
+
+{# get all pages with a title that contains 'ipsum' #}
+{% setcontent mypages = 'pages' where { title: '%ipsum%' } %}
+</pre>
+
+The `%like%` option is case-insensitive, and does not take word boundaries into account. So, this last example will return the pages with these titles: 
+
+  - 'Lorum ipsum dolor'
+  - 'LORUM IPSUM DOLOR'
+  - 'Lorumipsumdolor'
+  - 'ipsumdolor'
+
+But not:
+
+  - 'Lorum ipsüm dolor'
+  - 'Lorum ips um dolor'
+
+Like mentioned above, you can add more than one parameter to the where clause:
+
+<pre class="brush: html">
+{# get all pages not created by 'pete', and created after july 2012 #}
+{% setcontent mypages = 'pages' where { username: '!pete', datecreated: '>2012-07-31' } %}
+</pre>
+
+There's no built-in limit to the amount of records returned. It is good practice to limit the maximum number of records, by adding a `limit` clause. 
+
+<pre class="brush: html">
+{# get 10 pages created by 'bob' #}
+{% setcontent mypages = 'pages' where { username: 'bob' } limit 10 %}
+</pre>
+
+The results can be sorted by any of the fields of the contenttype, using the `orderby` clause. You can sort either ascending or descending.
+
+
+<pre class="brush: html">
+{# get 10 pages, sorted alphabetically on title #}
+{% setcontent mypages = 'pages' limit 10 orderby 'title' %}
+
+{# get the 10 latest modified pages, sorted datechanged descending #}
+{% setcontent mypages = 'pages' limit 10 orderby '-datechanged' %}
+
+</pre>
 
 
 
+
+TODO: add documentation about magic 'one record' or 'multiple records'.
+
+TODO: add documentation about paging.
