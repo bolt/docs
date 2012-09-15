@@ -187,6 +187,10 @@ The above examples selected records based on the parameter being **equal** to th
 {% setcontent mypages = 'pages' where { title: '%ipsum%' } %}
 </pre>
 
+
+
+<p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code> Bolt only selects dates before or equal to <code>'2012-12-01 00:00:00'</code>. If you want to include december 1st, use <code>'&lt;2012-12-02'</code>. </p>
+
 The `%like%` option is case-insensitive, and does not take word boundaries into account. So, this last example will return the pages with these titles: 
 
   - 'Lorum ipsum dolor'
@@ -198,6 +202,10 @@ But not:
 
   - 'Lorum ipsüm dolor'
   - 'Lorum ips um dolor'
+
+
+<p class="tip"><strong>Tip:</strong> When using only one <code>%</code>, Bolt will match only the beginning or the end of the field. For example: <code>'lore%'</code> end <code>'olor%'</code> will both match "Lorem Ipsum Dolor". </p>
+
 
 Like mentioned above, you can add more than one parameter to the where clause:
 
