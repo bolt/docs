@@ -7,7 +7,7 @@ Basically, there are three groups of users we've created Pilex for:
 
  - End users (read 'editors') that want to focus on producing and editing content, and not on clicking buttons in the CMS. 
  - Front-end designers and developers who like to write clean markup, and who want to build websites where the CMS doesn't dictate what the templates or site should look like.
- - Developers who need a system that's easy to set up and configure, that's easy to manage and maintain, but is also flexible and 
+ - Developers who need a system that's easy to set up and configure, that's easy to manage and maintain, but is also flexible and versatile.
 
 To use Pilex as a content editor, you don't have to know anything about HTML, CSS, PHP or any of the other technical stuff we used to build Pilex. Using Pilex should be about writing and editing content, so that's the focus of Pilex' user interface. Much more information about how Pilex works can be found in the chapter [Using Pilex](/using).
 

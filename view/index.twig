@@ -45,11 +45,15 @@
 
 
 	<div class="container">
-		<div class="sixteen columns">
-			<h1 class="remove-bottom" style="margin-top: 40px">Pilex documentation</h1>
-			<h5>Version {{ version }}</h5>
-			<hr />
-		</div>
+
+        <header class="sixteen columns">
+            <h1 class="">
+                <a href="{{ paths.root }}">Bolt <span>documentation</span></a>
+            </h1>
+            <h5>Version {{ version }}</h5>
+            <hr />
+            {# {{ menu() }} #} 
+        </header>
 
 			<div class="four columns sidebar">
 
