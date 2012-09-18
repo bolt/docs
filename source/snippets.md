@@ -1,4 +1,4 @@
-Snippets
+piSnippets
 ========
 
 This page contains some handy code snippets. 
@@ -24,4 +24,4 @@ The following creates a simple menu in HTML, based on the last 4 pages. Only pag
 </pre>
 
 
-<p class="note"><strong>Note:</strong> This is a specific sample. In general, you're probably better off using Pilex' built in <a href="/menus">menu functionality</a>.</p>
+<p class="note"><strong>Note:</strong> This is a specific sample. In general, you're probably better off using Bolt's built in <a href="/menus">menu functionality</a>.</p>

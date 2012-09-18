@@ -1,9 +1,9 @@
-Pilex Template tags
-===================
+Bolt Template tags
+==================
 
-As mentioned before, a template in Pilex can use all of the standard Twig tags, with a few additions that are specific to working with Pilex. If you're not familiar with Twig yet, you should read "[Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html)", on the official Twig website. 
+As mentioned before, a template in Bolt can use all of the standard Twig tags, with a few additions that are specific to working with Bolt. If you're not familiar with Twig yet, you should read "[Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html)", on the official Twig website. 
 
-Below you'll find the tags we've added specifically for Pilex, along with some commonly used snippets, like menus. 
+Below you'll find the tags we've added specifically for Bolt, along with some commonly used snippets, like menus. 
 
 Tag: include
 ------------

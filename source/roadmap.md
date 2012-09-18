@@ -1,7 +1,7 @@
 Roadmap
 =======
 
-The current roadmap for Pilex is as follows:
+The current roadmap for Bolt is as follows:
 
   - October: Release version 0.7 beta. This will be the first public release.
   - November: Release version 0.8 beta. The major new feature will be plugins/extensions, and user levels will be enforced properly.

@@ -1,7 +1,7 @@
-Building templates in Pilex
+Building templates in Bolt
 ===========================
 
-To render HTML pages with dynamic content, Pilex uses the [Twig](http://twig.sensiolabs.org/documentation) templating language. This means that everybody who is familiar with Twig can easily get started with building templates in Pilex. 
+To render HTML pages with dynamic content, Bolt uses the [Twig](http://twig.sensiolabs.org/documentation) templating language. This means that everybody who is familiar with Twig can easily get started with building templates in Bolt. 
 
 In short, Twig can be described as a 'flexible, fast, and secure template engine for PHP.' Primarily, it seperates the markup of your templates from the PHP code in the CMS. It does this elegantly and quickly, which means that writing your HTML templates in Twig will give you clean and legible templates. That means you don't have to use PHP-like statements in your markup, so there's less code like this: 
 <pre class="brush: html">
@@ -17,12 +17,12 @@ And more like this:
 	{% endif %}
 </pre>
 
-A template in Pilex can use all of the standard Twig tags, with a few additions that are specific to working with Pilex. If you're not familiar with Twig yet, you should read "[Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html)", on the official Twig website. 
+A template in Bolt can use all of the standard Twig tags, with a few additions that are specific to working with Bolt. If you're not familiar with Twig yet, you should read "[Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html)", on the official Twig website. 
 
 File Structure
 --------------
 
-A Pilex website theme consists of a set of twig templates, that are located in the `view`-folder in the root of your site. You can always add more templates, if you want to. By default, the `index.twig` template is the homepage, but you can override it using the configuration settings. 
+A Bolt website theme consists of a set of twig templates, that are located in the `view`-folder in the root of your site. You can always add more templates, if you want to. By default, the `index.twig` template is the homepage, but you can override it using the configuration settings. 
 
 The current default theme contains the following files and folders:
 
@@ -36,13 +36,13 @@ The current default theme contains the following files and folders:
   - `js/` - a folder with some javascript files.
   - `css/` - .. and similarly, some css files.
 
-The filenames of the 'helper' templates all start with an underscore. This is just a convention, to make it easier to recognize which template does what. If one of your contenttypes have a 'template select' field, Pilex will skip these helper templates by default. 
+The filenames of the 'helper' templates all start with an underscore. This is just a convention, to make it easier to recognize which template does what. If one of your contenttypes have a 'template select' field, Bolt will skip these helper templates by default. 
 
 <p class="tip">
 Tip: the default template set uses includes to insert the header, footer and such, but you're free to use <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> if you prefer. 
 </p>
 
-By default, Pilex creates links to single pages based on the contenttypes, and it uses a template based on its name. For instance, if your site has a contenttype `foos`, a single record in that contenttype will be available under <a>domain.com/foo/slug-of-record</a>, where `slug-of-record` is the sluggified version of the title. Pilex will try to use `foo.twig` as the template to render the page. You can change this by either defining another template in `contenttypes.yml`, or using a 'template select' field in the contenttype. More information about this can be found in the chapter [Working with Content and Content types](/content).
+By default, Bolt creates links to single pages based on the contenttypes, and it uses a template based on its name. For instance, if your site has a contenttype `foos`, a single record in that contenttype will be available under <a>domain.com/foo/slug-of-record</a>, where `slug-of-record` is the sluggified version of the title. Bolt will try to use `foo.twig` as the template to render the page. You can change this by either defining another template in `contenttypes.yml`, or using a 'template select' field in the contenttype. More information about this can be found in the chapter [Working with Content and Content types](/content).
 
 
 Template tags
@@ -88,7 +88,7 @@ What happens in this example is the following:
 
   - `{% if content.image!="" %} .. {% endif %}`, lines 8 - 12: The if-statement only parses the part between the start and end tag, if the given condition is true. So, in this case, the image is only rendered to the browser, if content.image does not equal "", i.e. if it is not empty. 
 
-  - `{{ content.image|thumbnail(320, 240) }}`, line 10: By using the `thumbnail` filter, we can create thumbnail images on the fly. In this case, the image source attribute in the HTML will be something like '/thumbs/300x240/imagename.jpg'. Pilex has a built-in image resizer that will create the image with the exact dimensions, and caches it for further use. 
+  - `{{ content.image|thumbnail(320, 240) }}`, line 10: By using the `thumbnail` filter, we can create thumbnail images on the fly. In this case, the image source attribute in the HTML will be something like '/thumbs/300x240/imagename.jpg'. Bolt has a built-in image resizer that will create the image with the exact dimensions, and caches it for further use. 
 
   - `{{ content.body|raw }}`, line 14: This renders the 'body' field of the content to the browser. By default, Twig escapes all HTML to the browser. If we didn't add the `raw` filter, all '<' and '>' characters in the body would be output as '&amp;lt;' and '&amp;gt;' respectively. If 'body' is an HTML field in our contenttype, we want it to be output as normal HTML, so we have to add the `raw` filter.
 
@@ -112,7 +112,7 @@ Inside these tags you can use expressions, statements, variables, functions and 
 
 <h3>Strict variables</h3>
 
-Pilex sets 'strict_variables' in Twig to `false` by default. This will mean you will get not warnings if you try to use a variable that doesn't exist. This makes it easier to use conditional outputting, because it will allow you to do the following, regardless if `content` or `content.image` exist in the current page.
+Bolt sets 'strict_variables' in Twig to `false` by default. This will mean you will get not warnings if you try to use a variable that doesn't exist. This makes it easier to use conditional outputting, because it will allow you to do the following, regardless if `content` or `content.image` exist in the current page.
 
 <pre class="brush: html">
 	{% if content.image != "" %}

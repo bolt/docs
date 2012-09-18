@@ -1,20 +1,20 @@
-Installing Pilex
-================
+Installing Bolt
+===============
 
-For now, the easiest way to install Pilex, is using composer, on the command line:
+For now, the easiest way to install Bolt, is using composer, on the command line:
 
 <pre class="brush: plain">
-	git clone git://github.com/bobdenotter/pilex.git pilex
-	cd pilex 
+	git clone git://github.com/bobdenotter/bolt.git bolt
+	cd bolt 
 	curl -s http://getcomposer.org/installer | php
 	php composer.phar install
 </pre>
 
-This will get the Pilex files, the Silex framework, and all required components. 
+This will get the Bolt files, the Silex framework, and all required components. 
 
-By default, Pilex is configured to use an SQLite database. If you want to change this, see the section below. If not, just leave it as it is. 
+By default, Bolt is configured to use an SQLite database. If you want to change this, see the section below. If not, just leave it as it is. 
 
-Open your Pilex site in your browser, and you should be greeted by the screen to set up the first user. Do so, and log in to the Pilex Backend. You should now be instructed to go to 'database repair', and you'll be able to add some dummy pages, using the built-in Loripsum tool. After you've done this, you should see some dummy content, and you're good to go! 
+Open your Bolt site in your browser, and you should be greeted by the screen to set up the first user. Do so, and log in to the Bolt Backend. You should now be instructed to go to 'database repair', and you'll be able to add some dummy pages, using the built-in Loripsum tool. After you've done this, you should see some dummy content, and you're good to go! 
 
 Configuring the database
 ------------------------
@@ -24,17 +24,17 @@ To edit the database configuration, you have to change the settings in 'app/conf
 <pre class="brush: plain">
   database:
     driver: mysql
-    username: pilex
+    username: bolt
     password: password
-    databasename: pilex
+    databasename: bolt
 </pre> 
 
 <pre class="brush: plain">
   database:
     driver: postgres
-    username: pilex
+    username: bolt
     password: password
-    databasename: pilex
+    databasename: bolt
 </pre> 
 
 Support for Postgres is experimental, so use with caution.
@@ -47,16 +47,16 @@ If the hostname or port are something else than 'localhost:3306', you can add th
 
 <pre class="brush: plain">
 	database:
-	  username: pilex
-	  password: pilex%1
-	  databasename: pilex
+	  username: bolt
+	  password: bolt%1
+	  databasename: bolt
 	  host: database.example.org
 	  port: 3307
 </pre>
 
-The other settings in the config.yml file can be changed later on, directly from the Pilex backend.
+The other settings in the config.yml file can be changed later on, directly from the Bolt backend.
 
-Open your Pilex site in your browser, and you should be greeted by the screen to set up the first user. Do so, and log in to the Pilex Backend. You should now be instructed to go to 'database repair', and you'll be able to add some dummy pages, using the built-in Loripsum tool. 
+Open your Bolt site in your browser, and you should be greeted by the screen to set up the first user. Do so, and log in to the Bolt Backend. You should now be instructed to go to 'database repair', and you'll be able to add some dummy pages, using the built-in Loripsum tool. 
 
-The other settings in the config.yml file can be changed later on, directly from the Pilex backend.
+The other settings in the config.yml file can be changed later on, directly from the Bolt backend.
 

@@ -12,7 +12,7 @@ For example, if you have a 'Pages' contenttype, with 'Page' as a singular_name, 
   - `http://example.org/pages` - Uses `pages.twig`, and displays several records of contenttype 'Pages'.
   - `http://example.org/page/lorem-ipsum-dolor` - Uses `page.twig`, and displays the record of contenttype 'Pages' with the slug 'lorem-ipsum-dolor'.
 
-Unless specified, Pilex will determine the names of these templates automatically. Both of these default templates can be overridden by defining `template` and `singletemplate` in `contenttypes.yml`. 
+Unless specified, Bolt will determine the names of these templates automatically. Both of these default templates can be overridden by defining `template` and `singletemplate` in `contenttypes.yml`. 
 If the contenttype has a 'template select' field type, the template can be set on a per-record basis. 
 
 In the default template for a single record, it is available as both `{{ record }}` and also by the name of the singular name. So, in the above example, you can also use `{{ page }}`, without having to set it specifically.
@@ -57,7 +57,7 @@ Get a short excerpt of the record:
 
 
 
-<p class="note"><strong>Note:</strong> Before Pilex 1.0 is released, it'll be possible to create one-to-one and one-to-many relatrionships between records. The record object will provide access to records that are related to it.</p>
+<p class="note"><strong>Note:</strong> Before Bolt 1.0 is released, it'll be possible to create one-to-one and one-to-many relatrionships between records. The record object will provide access to records that are related to it.</p>
 
 
 Using {{ records }}
