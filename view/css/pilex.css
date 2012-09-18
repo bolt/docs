@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 header h1 {
     font-family: Candara, "Helvetica Neue", Helvetica,Arial, sans-serif;
@@ -29,6 +30,9 @@ header {
 
 
 h2 {
+=======
+.content h2, .content h3 {
+>>>>>>> c06701815cac08aef0315a98d5b3facfa0d162eb
     margin-top: 30px;
 }
 
@@ -88,6 +92,11 @@ code {
     padding-bottom: 40px;
 }
 
+.content h2, .content h3 {
+    margin-top: 30px;
+}
+
+
 /* Highlighter overrides.. */
 .syntaxhighlighter {
     border: 1px solid #E8E8E8;
@@ -137,3 +146,19 @@ code {
 
 }
 
+
+.sticky {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  top: 40px;
+}
+
+
+@media only screen and (max-width: 767px) {
+
+    .sticky {
+        position: relative;
+    }
+}

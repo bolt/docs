@@ -161,6 +161,7 @@ The following fields are available:
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML markup. 
   - `date`: Datepicker widget, to set/select a date.
   - `datetime`: Similar to the `date` field, but adds an additional field so specify a time. 
+  - `number`: A field to store numbers. Internally stored so that they can be sorted numerically. (note: the maximum precision is 9 digits beofre the decimal mark, and 9 digits after)
   - `divider`: To seperate fields visually, you can add dividers. A divider can have a label, show a horizontal line, or both. Add a label with `label: This is a label` and a line with `line: true`.
 
 
