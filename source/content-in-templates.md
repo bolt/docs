@@ -18,6 +18,8 @@ If the contenttype has a 'template select' field type, the template can be set o
 In the default template for a single record, it is available as both `{{ record }}` and also by the name of the singular name. So, in the above example, you can also use `{{ page }}`, without having to set it specifically.
 Likewise, in the default template for multiple records, the content is available as `{{ records }}` and also by the name of the contenttype, for example `{{ pages }}`.
 
+<p class="note"><strong>Note:</strong> As you might've noticed, sometimes the examples use {{ page }}, sometimes {{ entry }} and sometimes something altogether. These are just the names of the variables containing the content, or the array with several records of content. By default you can use the singular name of your contenttype, so be sure to replace them with whatever the names of your content types or variables are.</p>
+
 Using a {{ record }}
 ----------------------
 
@@ -55,7 +57,40 @@ Get a short excerpt of the record:
 &lt;p>{{ page.excerpt(250) }}&lt;/p> 
 </pre>
 
+If you're using the 'video' field type, more information about the video is available. To see the values that are stored, use `{{ print(page.video) }}`. To insert the `<embed>`-code for the video, use: 
 
+<pre class="brush: html">
+{{ page.video.html }}
+</pre>
+
+There's also a special 'responsive' HTML snippet available for videos. To insert it, use the following, and add the required CSS to your stylesheet:
+
+<pre class="brush: html">
+{{ page.video.responsive }}
+</pre>
+
+<pre class="brush: css">
+/**
+ * Styles for 'responsive video embeds'
+ */
+.responsive-video {
+  height: 0; padding-top: 25px; padding-bottom: 67.5%; margin-bottom: 10px; position: relative; overflow: hidden;
+}
+.responsive-video.vimeo {
+  padding-top: 0;
+}
+.responsive-video.widescreen {
+  padding-bottom: 57.25%;
+}
+.responsive-video embed, .responsive-video iframe, .responsive-video object, .responsive-video video {
+  top: 0; left: 0; width: 100%; height: 100%; position: absolute;
+}
+@media (max-width: 767px) {
+  .responsive-video {
+    padding-top: 0;
+  }
+}
+</pre>
 
 <p class="note"><strong>Note:</strong> Before Bolt 1.0 is released, it'll be possible to create one-to-one and one-to-many relatrionships between records. The record object will provide access to records that are related to it.</p>
 

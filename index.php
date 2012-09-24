@@ -4,7 +4,7 @@ require_once('lib/markdown.php');
 require_once('lib/smartypants.php');
 require_once './vendor/autoload.php';
 
-$version = 0.5;
+$version = 0.6;
 
 $request = basename($_SERVER['REQUEST_URI']);
 
@@ -30,10 +30,11 @@ foreach ($matches[1] as $key => $title) {
 	$submenu[ makeSlug($title) ] = $title;
 }
 
-$source = preg_replace_callback("/<h2>(.*)<\/h2>/i", function($matches) {
-	$output = sprintf("<h2 id='%s'>%s</h2>", makeSlug($matches[1]), $matches[1]);
+$source = preg_replace_callback("/<h([23])>(.*)<\/h([23])>/i", function($matches) {
+	$output = sprintf("<h%s id='%s'>%s</h%s>", $matches[1], makeSlug($matches[2]), $matches[2], $matches[1]);
 	return $output;
 }, $source);
+
 
 
 $loader = new Twig_Loader_Filesystem('./view');
