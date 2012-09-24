@@ -23,5 +23,4 @@ The following creates a simple menu in HTML, based on the last 4 pages. Only pag
     &lt;/nav>
 </pre>
 
-
 <p class="note"><strong>Note:</strong> This is a specific sample. In general, you're probably better off using Bolt's built in <a href="/menus">menu functionality</a>.</p>
