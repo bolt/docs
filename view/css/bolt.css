@@ -27,7 +27,12 @@ header {
 }
 
 
-.content h2, .content h3 {
+.content h2 {
+    margin-top: 30px;
+}
+
+.content h3 {
+    font-size: 20px;
     margin-top: 30px;
 }
 

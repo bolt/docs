@@ -185,6 +185,7 @@ At the topmost level, it contains the following items:
   - `values`: An array with the values of this record.
   - `taxonomy`: An array (or `NULL`) for the taxonomy of this record. 
   - `contenttype`: An array representation of the contenttype that this record belongs to, complete with the fields that the record should have. 
+  - `user`: an array, containing information about the user, like the displayname, email-address, etcetera.
 
 The values contain the fields that are defined in the contenttype, together with a few other fixed fields. The fixed fields are:
 
