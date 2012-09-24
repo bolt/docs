@@ -22,7 +22,7 @@ Use one of the three methods described below to get the Bolt source files, and s
 If you have command-line access, you can easily install Bolt by executing the following commands:
 
 <pre class="brush: plain">
-wget http://bolt.cm/distribution/bolt_latest.tgz 
+curl -O http://bolt.cm/distribution/bolt_latest.tgz 
 tar -xzf bolt_latest.tgz
 cd bolt
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
@@ -30,7 +30,7 @@ chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
 
 <p class="tip"><strong>Tip:</strong> For easier copy/pasting of the samples, doubleclick the code.</p>
 
-That's all! After you've done this, skip to the section [Setting up Bolt](#setting-up-bolt). Alternatively, if this didn't work because your server doesn't have `wget`, use `curl -O` instead. 
+That's all! After you've done this, skip to the section [Setting up Bolt](#setting-up-bolt). Alternatively, if this didn't work because your server doesn't have `curl`, use `wget` instead. 
 
 ### Option 2: The traditional way, using (S)FTP.
 
@@ -57,7 +57,7 @@ After you've done this, skip to the section [Setting up Bolt](#setting-up-bolt).
 ### Option 3: The developer way, using git and composer.
 
 
-If you want to install Bolt using git and composer, execute the following commands:
+If you want to install Bolt using Git and Composer, execute the following commands:
 
 <pre class="brush: plain">
 git clone git://github.com/bobdenotter/bolt.git bolt
@@ -73,7 +73,7 @@ chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
 </pre>
 
 
-You can easily update your install, by execting the following commands. Whoohoo, living on the edge!!
+You can easily update your install, by executing the following commands. Whoohoo, living on the edge!!
 
 <pre class="brush: plain">
 git pull
@@ -129,7 +129,7 @@ If the hostname or port are something else than 'localhost:3306', you can add th
 	  password: bolt%1
 	  databasename: bolt
 	  host: database.example.org
-	  port: 3307
+	  port: 3306
 </pre>
 
 The other settings in the `config.yml` file can be changed later on, directly from the Bolt backend.
