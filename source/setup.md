@@ -91,6 +91,7 @@ By default, Bolt is configured to use an SQLite database. If you want to change 
 
 Open your Bolt site in your browser, and you should be greeted by the screen to set up the first user. Do so, and log in to the Bolt Backend. You should now see the (empty) Dashboard screen, and you'll be able to add some dummy pages, using the built-in Loripsum tool. After you've done this, you should see some dummy content, and you're good to go! 
 
+If you're getting unspecified "Internal Server Errors", the most likely cause is a missing or malfunctioning `.htaccess` file. See [here](#tweaking-the-htaccess-file) for tips. 
 
 Configuring the Database
 ------------------------
@@ -136,3 +137,42 @@ The other settings in the `config.yml` file can be changed later on, directly fr
 
 Open your Bolt site in your browser, and you should be greeted by the screen to set up the first user. Do so, and log in to the Bolt Backend. You should now see the (empty) Dashboard screen, and you'll be able to add some dummy pages, using the built-in Loripsum tool. After you've done this, you should see some dummy content, and you're good to go! 
 
+Tweaking the .htaccess file
+---------------------------
+
+Bolt requires the use of a .htaccess file to make sure requests like `page/about-this-website` get routed to the index.php, so it can be handled by Bolt. By default, the file looks like this: 
+
+<pre class="brush: plain">
+# Set the default handler.
+DirectoryIndex index.php index.html index.htm
+
+&lt;FilesMatch "\.(yml)$">
+    Order deny,allow
+    Deny from all
+&lt;/FilesMatch>
+
+&lt;IfModule mod_rewrite.c>
+  RewriteEngine on
+
+  # Some servers require the RewriteBase to be set. If so, set to the correct folder.
+  # RewriteBase /
+  RewriteRule ^thumbs/(.*)?$ ./app/timthumb.php [L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !=/favicon.ico
+  RewriteRule ^ ./index.php [L]
+
+&lt;/IfModule>
+
+</pre>
+
+In some cases it won't work without the `RewriteBase` line, and in some cases it won't work _with_ it, depending on how your Apache is configured, and the location on your site on the server. Isn't Apache configuration great? 
+
+Anyhow, if your site doesn't work, try uncommenting the `RewriteBase` line, and set it to the correct folder. For instance, if your Bolt site is located at `example.org/test/`, set it to `RewriteBase /test/`.
+
+Alternatively, if your server is running Apache 2.2.16 or higher, you might be able to replace the entire `mod_rewrite` block with this single line: 
+
+<pre class="brush: plain">
+FallbackResource /index.php
+</pre>
