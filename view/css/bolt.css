@@ -2,6 +2,22 @@ h1, h2, h3, h4, h5 {
     font-family: 'allerregular', Candara, "Helvetica Neue", Helvetica,Arial, sans-serif;
 }
 
+h1 {
+    font-size: 40px;
+    line-height: 46px;
+}
+
+
+h2 {
+    font-size: 33px;
+    line-height: 37px;
+}
+
+h3 {
+    font-size: 28px;
+    line-height: 33px;
+}
+
 header h1 {
     font-family: 'alleritalic', Candara, "Helvetica Neue", Helvetica,Arial, sans-serif;
     font-size: 64px;
