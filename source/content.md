@@ -52,7 +52,10 @@ When you go to Settings > Check Database, the database will be updated, and you'
 
 <a href="/files/content-example2.png" class="fancybox"><img src="/files/content-example2.png" width="500"></a>
 
-To add a listing of these news items to the website, edit the twig template `view/index.twig`. Most likely, it'll contain an include for a header and some other things. Add the following to the HTML-code, preferably somewhere below the header section:
+<p class="note"><strong>Note:</strong>In the following examples we're going to tell you to make modifications to the default theme. This is actually a very bad practice, and if you're going to make your own theme, make a copy of the default theme, and do your modifications in the copy.</p>
+
+
+To add a listing of these news items to the website, edit the twig template `theme/default/index.twig`. Most likely, it'll contain an include for a header and some other things. Add the following to the HTML-code, preferably somewhere below the header section:
 
 <pre class="brush: html">
 {% setcontent newsitems = "news/latest/4" %}
@@ -73,7 +76,7 @@ To add a listing of these news items to the website, edit the twig template `vie
 
 Most of the above example will seem pretty straightforward, but all of the specific template tags are explained in detail in the chapter about [Content in templates](content-in-templates).
 
-When you refresh the front page of the website, you should see four news items listed on the page. You can click the title to go to the news item on a seperate page, but you'll get an error. In the contenttype we defined the template as `newsitem.twig`, but it doesn't exist. Create the file in the `view/` folder, and add the following HTML-code:
+When you refresh the front page of the website, you should see four news items listed on the page. You can click the title to go to the news item on a seperate page, but you'll get an error. In the contenttype we defined the template as `newsitem.twig`, but it doesn't exist. Create the file in the `theme/default/` folder, and add the following HTML-code:
 
 <pre class="brush: html">
 &lt;!DOCTYPE html&gt;
@@ -152,7 +155,7 @@ The available options are:
   - `singular_slug` (optional): This determines the slug of the a single record in this contenttype, and therefore the URLs that are generated for these records. When omitted, the slug will be automatically generated.
   - `fields`: The fields that make up the content in this contenttype. See the [section below](#field-definitions) for details. 
   - `taxonomy`: An array listing the different taxonomies used by this contenttype. For example `[ categories, tags ]`. See the page on [Taxonomies](/taxonomies) for details.
-  - `template`: The default template to use, when displaying a single Record of this Contenttype. The template itself should be located in the `view/` folder, in Bolt's root folder. This can be overridden on a per-record base, if one of the fields is defined as type `templateselect`.
+  - `template`: The default template to use, when displaying a single Record of this Contenttype. The template itself should be located in your `theme/default/` folder, in Bolt's root folder. This can be overridden on a per-record base, if one of the fields is defined as type `templateselect`.
   - `sort` (optional): The default sorting of this contenttype, in the overview in Bolt's backend interface. For example `datecreated DESC`.
   - `recordsperpage` (optional): the amount of records shown on each page in the Bolt backend. If there are more records, they will be paginated.
 
