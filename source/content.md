@@ -52,7 +52,7 @@ When you go to Settings > Check Database, the database will be updated, and you'
 
 <a href="/files/content-example2.png" class="fancybox"><img src="/files/content-example2.png" width="500"></a>
 
-To add a listing of these news items to the website, edit the twig template `view/index.twig`. Most likeley, it'll contain an include for a header and some other things. Add the following to the HTML-code, preferable somewhere below the header section:
+To add a listing of these news items to the website, edit the twig template `view/index.twig`. Most likely, it'll contain an include for a header and some other things. Add the following to the HTML-code, preferably somewhere below the header section:
 
 <pre class="brush: html">
 {% setcontent newsitems = "news/latest/4" %}
