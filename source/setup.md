@@ -89,7 +89,7 @@ Setting up Bolt
 
 By default, Bolt is configured to use an SQLite database. If you want to change this to MySQL or PostgreSQL, see the section [below](#configuring-the-database). If not, just leave it as it is. 
 
-Open your Bolt site in your browser, and you should be greeted by the screen to set up the first user. Do so, and log in to the Bolt Backend. You should now see the (empty) Dashboard screen, and you'll be able to add some dummy pages, using the built-in Loripsum tool. After you've done this, you should see some dummy content, and you're good to go! 
+Open your Bolt site in your browser, and you should be greeted by the screen to set up the first user. If not, see below. If you do see the 'Create the first user'-screen, create a new user, and log in to the Bolt Backend. You should now see the (empty) Dashboard screen, and you'll be able to add some dummy pages, using the built-in Loripsum tool. After you've done this, you should see some dummy content, and you're good to go! 
 
 If you're getting unspecified "Internal Server Errors", the most likely cause is a missing or malfunctioning `.htaccess` file. See [here](#tweaking-the-htaccess-file) for tips. 
 
