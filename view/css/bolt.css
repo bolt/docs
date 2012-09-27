@@ -189,11 +189,11 @@ code {
 
 @font-face {
     font-family: 'allerregular';
-    src: url('aller_rg-webfont.eot');
-    src: url('aller_rg-webfont.eot?#iefix') format('embedded-opentype'),
-         url('aller_rg-webfont.woff') format('woff'),
-         url('aller_rg-webfont.ttf') format('truetype'),
-         url('aller_rg-webfont.svg#allerregular') format('svg');
+    src: url('fonts/aller_rg-webfont.eot');
+    src: url('fonts/aller_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/aller_rg-webfont.woff') format('woff'),
+         url('fonts/aller_rg-webfont.ttf') format('truetype'),
+         url('fonts/aller_rg-webfont.svg#allerregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -201,11 +201,11 @@ code {
 
 @font-face {
     font-family: 'allerbold';
-    src: url('aller_bd-webfont.eot');
-    src: url('aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
-         url('aller_bd-webfont.woff') format('woff'),
-         url('aller_bd-webfont.ttf') format('truetype'),
-         url('aller_bd-webfont.svg#allerbold') format('svg');
+    src: url('fonts/aller_bd-webfont.eot');
+    src: url('fonts/aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/aller_bd-webfont.woff') format('woff'),
+         url('fonts/aller_bd-webfont.ttf') format('truetype'),
+         url('fonts/aller_bd-webfont.svg#allerbold') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -213,11 +213,11 @@ code {
 
 @font-face {
     font-family: 'allerbold_italic';
-    src: url('aller_bdit-webfont.eot');
-    src: url('aller_bdit-webfont.eot?#iefix') format('embedded-opentype'),
-         url('aller_bdit-webfont.woff') format('woff'),
-         url('aller_bdit-webfont.ttf') format('truetype'),
-         url('aller_bdit-webfont.svg#allerbold_italic') format('svg');
+    src: url('fonts/aller_bdit-webfont.eot');
+    src: url('fonts/aller_bdit-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/aller_bdit-webfont.woff') format('woff'),
+         url('fonts/aller_bdit-webfont.ttf') format('truetype'),
+         url('fonts/aller_bdit-webfont.svg#allerbold_italic') format('svg');
     font-weight: normal;
     font-style: normal;
 
