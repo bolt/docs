@@ -54,6 +54,24 @@ When you go to Settings > Check Database, the database will be updated, and you'
 
 To add a listing of these news items to the website, edit the twig template `view/index.twig`. Most likeley, it'll contain an include for a header and some other things. Add the following to the HTML-code, preferable somewhere below the header section:
 
+<pre class="brush: html">
+{% setcontent newsitems = "news/latest/4" %}
+
+{% for newsitem in newsitems %}
+&lt;article>
+    &lt;h2>&lt;a href="{{ newsitem.link }}">{{ newsitem.title }}&lt;/a>&lt;/h2>
+    
+    {{ newsitem.excerpt }}
+
+    &lt;p class="meta">&lt;a href="{{ newsitem.link }}">Link&lt;/a> - 
+    Posted by {{ newsitem.user.displayname }} 
+    on {{ newsitem.datecreated|date("M d, ’y")}}&lt;/p>
+    
+&lt;/article>    
+{% endfor %}
+</pre>
+
+Most of the above example will seem pretty straightforward, but all of the specific template tags are explained in detail in the chapter about [Content in templates](content-in-templates).
 
 When you refresh the front page of the website, you should see four news items listed on the page. You can click the title to go to the news item on a seperate page, but you'll get an error. In the contenttype we defined the template as `newsitem.twig`, but it doesn't exist. Create the file in the `view/` folder, and add the following HTML-code:
 
