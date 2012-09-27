@@ -16,24 +16,24 @@ header h1 {
     font-weight: bold;
     color: #444;
     margin: 36px 0 12px;
-    border: 1px solid #0F0;
+
     vertical-align: baseline;
 }
 
 header h1 span {
     font-size: 36px;
     color: #888;
-    border: 1px solid #F00;
     display: inline-block;
 }
 
 header h1 a {
     text-decoration: none;
     color: #444;
+    line-height: 1;
 }
 
 header h1 img {
-    margin-bottom: -20px;
+    margin-bottom: -12px;
 }
 
 header hr {
