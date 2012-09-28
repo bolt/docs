@@ -66,7 +66,28 @@
             </h1>
             <h5>Version {{ version }}</h5>
             <hr />
-            {# {{ menu() }} #} 
+
+{# Menu, taken directly from bolt.cm #}
+<nav class="main">
+    <ul class="dd_menu">
+        <li>
+            <a href="http://bolt.cm" title='The Bolt Homepage' class=''>Home</a>
+                </li>
+        <li>
+            <a href="/screenshots" title='An overview of the features in Bolt. With screenshots!' {% if title == "Screenshots" %}class='current'{% endif %}>Screenshots & Features</a>
+                </li>
+        <li>
+            <a href="/" title='Documentation for installation, configuration and working with Bolt' {% if title != "Screenshots" %}class='current'{% endif %}>Documentation</a>
+                </li>
+        <li>
+            <a href="http://bolt.cm/page/news" title='The latest news' class=''>News</a>
+                </li>
+        <li>
+            <a href="http://bolt.cm/page/download" title='Download the latest release of Bolt.' class=''>Download</a>
+                </li>
+        </ul>
+</nav>
+{# end of menu #}
         </header>
 
 			<div class="four columns sidebar sticky">
