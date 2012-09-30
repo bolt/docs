@@ -3,23 +3,6 @@ Content in templates
 
 Perhaps the thing you'll do most in templates, is access records of content. Either by requesting specific content, or implicitly when requesting pages that are the defaults for certain contenttypes. 
 
-
-Default routes for content
---------------------------
-
-For example, if you have a 'Pages' contenttype, with 'Page' as a singular_name, your site will automatically have pages like:
-
-  - `http://example.org/pages` - Uses `pages.twig`, and displays several records of contenttype 'Pages'.
-  - `http://example.org/page/lorem-ipsum-dolor` - Uses `page.twig`, and displays the record of contenttype 'Pages' with the slug 'lorem-ipsum-dolor'.
-
-Unless specified, Bolt will determine the names of these templates automatically. Both of these default templates can be overridden by defining `template` and `singletemplate` in `contenttypes.yml`. 
-If the contenttype has a 'template select' field type, the template can be set on a per-record basis. 
-
-In the default template for a single record, it is available as both `{{ record }}` and also by the name of the singular name. So, in the above example, you can also use `{{ page }}`, without having to set it specifically.
-Likewise, in the default template for multiple records, the content is available as `{{ records }}` and also by the name of the contenttype, for example `{{ pages }}`.
-
-<p class="note"><strong>Note:</strong> As you might've noticed, sometimes the examples use {{ page }}, sometimes {{ entry }} and sometimes something altogether. These are just the names of the variables containing the content, or the array with several records of content. By default you can use the singular name of your contenttype, so be sure to replace them with whatever the names of your content types or variables are.</p>
-
 Using a {{ record }}
 ----------------------
 
@@ -91,6 +74,27 @@ There's also a special 'responsive' HTML snippet available for videos. To insert
   }
 }
 </pre>
+
+### Gettig the type of a certain field
+
+If you're iterating over an array of record.values, it's sometimes useful to know what type of field you're dealing with. This is where the `fieldkey()` function comes in handy:
+
+<pre class="brush: html">
+{% for key,value in record.values %}
+
+  {% if record.fieldtype(key) == "image" %}
+
+      <div class='imageholder-wide'><img src="{{ record.image|thumbnail(800, 600) }}"></div>
+
+  {% elseif record.fieldtype(key) not in ['templateselect'] and value != "" %}
+
+      {{ value }}
+
+  {%  endif %}
+
+{% endfor %}
+</pre>
+
 
 <p class="note"><strong>Note:</strong> Before Bolt 1.0 is released, it'll be possible to create one-to-one and one-to-many relatrionships between records. The record object will provide access to records that are related to it.</p>
 

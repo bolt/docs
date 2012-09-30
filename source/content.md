@@ -155,7 +155,9 @@ The available options are:
   - `singular_slug` (optional): This determines the slug of the a single record in this contenttype, and therefore the URLs that are generated for these records. When omitted, the slug will be automatically generated.
   - `fields`: The fields that make up the content in this contenttype. See the [section below](#field-definitions) for details. 
   - `taxonomy`: An array listing the different taxonomies used by this contenttype. For example `[ categories, tags ]`. See the page on [Taxonomies](/taxonomies) for details.
-  - `template`: The default template to use, when displaying a single Record of this Contenttype. The template itself should be located in your `theme/default/` folder, in Bolt's root folder. This can be overridden on a per-record base, if one of the fields is defined as type `templateselect`.
+  - `record_template`: The default template to use, when displaying a single Record of this Contenttype. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. This can be overridden on a per-record base, if one of the fields is defined as type `templateselect`.
+  - `listing_template`: The default template to use, when displaying an overview of Records of this Contenttype. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder.
+  - `listing_records`: The amount of records to show on a single overview page in the frontend. If there are more records, the results will be paginated.
   - `sort` (optional): The default sorting of this contenttype, in the overview in Bolt's backend interface. For example `datecreated DESC`.
   - `recordsperpage` (optional): the amount of records shown on each page in the Bolt backend. If there are more records, they will be paginated.
 
@@ -178,8 +180,9 @@ The following fields are available:
   - `slug`: Even though the slug is a fixed field, you can include it in the fields list, so that it can be customized. Add a `uses: title` value to specify the field it should use to automatically generate a suited slug from the title (or another field).
   - `image`: Simple image upload/select field.
   - `file`: Simple image upload/select field.
-  - `html`: Wysiwyg HTML field. 
+  - `html`: Wysiwyg HTML field.
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML markup. 
+  - `video`: A field for embedding videos from websites like Youtube and Vimeo. 
   - `date`: Datepicker widget, to set/select a date.
   - `datetime`: Similar to the `date` field, but adds an additional field so specify a time. 
   - `number`: A field to store numbers. Internally stored so that they can be sorted numerically. (note: the maximum precision is 9 digits beofre the decimal mark, and 9 digits after)
@@ -196,7 +199,8 @@ Most fields have a few extra optional values, to further customize them.
 The structure of a Record
 -------------------------
 
-Every record is an object, that contains the information of that record, as well as some meta-information and its taxonomy. 
+Every record is an object, that contains the information of that record, as well as 
+some meta-information and its taxonomy. 
 
 <a href="/files/content-example3.png" class="fancybox"><img src="/files/content-example3.png" width="500"></a>
 

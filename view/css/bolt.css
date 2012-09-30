@@ -50,7 +50,7 @@ header hr {
 }
 
 header {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 
 
@@ -190,13 +190,13 @@ nav.main ul {
     padding: 0px;
     margin: 0px;
     list-style: none;
-    height: 30px;
+    min-height: 36px;
     float: right;
 }
 nav.main ul li {
     list-style: none;
     float: left;
-    height: 30px;
+    height: 36px;
     margin: 0;
     line-height: 18px;
 }
@@ -252,9 +252,32 @@ nav.main .first {
 @media only screen and (max-width: 767px) {
 
     .sticky {
+        padding-top: 20px;
         position: relative;
+        top: 0;
     }
+
+    h1 {
+        font-size: 32px;
+        line-height: 38px;
+    }
+
+    h2 {
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    h3 {
+        font-size: 18px;
+        line-height: 24px;
+    }    
+
+    nav.main ul li a {
+        padding: 6px 6px;
+    }
+
 }
+
 
 
 @font-face {

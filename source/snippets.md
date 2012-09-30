@@ -1,4 +1,4 @@
-piSnippets
+Snippets
 ========
 
 This page contains some handy code snippets. 
