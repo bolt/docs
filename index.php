@@ -4,7 +4,7 @@ require_once('lib/markdown.php');
 require_once('lib/smartypants.php');
 require_once './vendor/autoload.php';
 
-$version = 0.6;
+$version = 0.7;
 
 $request = basename($_SERVER['REQUEST_URI']);
 
