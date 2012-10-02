@@ -1,7 +1,7 @@
 Installing Bolt
 ===============
 
-This page explains the various ways of installing Bolt. You can either use the command-line, or your FTP-client to install it. The system requirements for Bolt are modest, and it should run on any fairly modern webserver: 
+This page explains the various ways of installing Bolt. You can either use the command-line or your FTP-client to install it. The system requirements for Bolt are modest, and it should run on any fairly modern webserver: 
 
   - PHP 5.3.2 or higher
   - Access to SQLite (which comes bundled with PHP 5.3), _or_ MySQL _or_ PostgreSQL.
@@ -25,7 +25,7 @@ If you have command-line access, you can easily install Bolt by executing the fo
 curl -O http://bolt.cm/distribution/bolt_latest.tgz 
 tar -xzf bolt_latest.tgz
 cd bolt
-chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
+chmod -R 755 files/ app/database/ app/cache/ app/config/ theme/
 </pre>
 
 <p class="tip"><strong>Tip:</strong> For easier copy/pasting of the samples, doubleclick the code.</p>
@@ -38,7 +38,7 @@ Download the latest version of Bolt from this location:
 
 [http://bolt.cm/distribution/bolt_latest.zip](http://bolt.cm/distribution/bolt_latest.zip)
 
-Extract the .zip file, and upload to your webhost using the (S)FTP client of your choice. After you've done this, be sure to chmod the following folders (_with_ containing files) to 777, so they are readable and writable by Bolt:
+Extract the .zip file, and upload to your webhost using the (S)FTP client of your choice. After you've done this, be sure to chmod the following folders (_with_ containing files) to 755, so they are readable and writable by Bolt:
 
 - `app/cache/`
 - `app/config/`
@@ -46,7 +46,7 @@ Extract the .zip file, and upload to your webhost using the (S)FTP client of you
 - `files/`
 - `theme/`
 
-Most FTP clients will allow you to do this quickly, using a 'include files' or 'apply to closed' option. 
+Most FTP clients will allow you to do this quickly, using a 'include files' or 'apply to enclosed' option. 
 
 <a href="/files/ftp-chmod.png" class="fancybox"><img src="/files/ftp-chmod.png" width="590"></a><br>
 
@@ -69,7 +69,7 @@ php composer.phar install
 This will get the Bolt files, the Silex framework, and all required components. Most likely all files and folders will have the correct filerights, but if they don't, (re)set them using the following command in the `bolt/` folder: 
 
 <pre class="brush: plain">
-chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
+chmod -R 755 files/ app/database/ app/cache/ app/config/ theme/
 </pre>
 
 
@@ -89,7 +89,7 @@ Setting up Bolt
 
 By default, Bolt is configured to use an SQLite database. If you want to change this to MySQL or PostgreSQL, see the section [below](#configuring-the-database). If not, just leave it as it is. 
 
-Open your Bolt site in your browser, and you should be greeted by the screen to set up the first user. If not, see below. If you do see the 'Create the first user'-screen, create a new user, and log in to the Bolt Backend. You should now see the (empty) Dashboard screen, and you'll be able to add some dummy pages, using the built-in Loripsum tool. After you've done this, you should see some dummy content, and you're good to go! 
+Open your Bolt site in your browser, and you should be greeted by the screen to set up the first user. If not, see below. If you do see the 'Create the first user'-screen, do accordingly, and log in to the Bolt Backend. You should now see the (empty) Dashboard screen, and you are able to add some dummy pages using the built-in Loripsum tool. After you've done this, you should see some dummy content, and you're good to go! 
 
 If you're getting unspecified "Internal Server Errors", the most likely cause is a missing or malfunctioning `.htaccess` file. See [here](#tweaking-the-htaccess-file) for tips. 
 
@@ -167,9 +167,9 @@ DirectoryIndex index.php index.html index.htm
 
 </pre>
 
-In some cases it won't work without the `RewriteBase` line, and in some cases it won't work _with_ it, depending on how your Apache is configured, and the location on your site on the server. Isn't Apache configuration great? 
+In some cases it won't work without the `RewriteBase` line, and in some cases it won't work _with_ it, depending on how your Apache is configured and the location on your site on the server. Isn't Apache configuration great? 
 
-Anyhow, if your site doesn't work, try uncommenting the `RewriteBase` line, and set it to the correct folder. For instance, if your Bolt site is located at `example.org/test/`, set it to `RewriteBase /test/`.
+Anyhow, if your site doesn't work, try uncommenting the `RewriteBase` line and set it to the correct folder. For instance, if your Bolt site is located at `example.org/test/`, set it to `RewriteBase /test/`.
 
 Alternatively, if your server is running Apache 2.2.16 or higher, you might be able to replace the entire `mod_rewrite` block with this single line: 
 

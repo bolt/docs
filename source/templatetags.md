@@ -35,7 +35,7 @@ or:
 Modifier: current
 -----------------
 
-Check if a given record corresponds to the page being shown in the browser. Useful for adding 'active' states to menus and such. 
+Checks if a given record corresponds to the page being shown in the browser. Useful for adding 'active' states to menus and such. 
 
 <pre class="brush: html">
 {% if page|current %}class="current"{% endif %}
@@ -67,7 +67,7 @@ You can specifiy three parameters: the width, height, and the mode of cropping. 
 
   -  'f' ('fit') - The image will not be cropped but resized to fit within the given maximum width and height. This means that you can get an image with different width and height than you specified, to make it fit within the boundaries. 
   - 'c' (crop, default) - Makes sure you always get an image that is the specified width and height. The image is not transformed, so it will be cropped to fit the boundaries is necessary. 
-  - 'b' (borders) - Will add a border to the image, in order to make it fir within the given boundaries. 
+  - 'b' (borders) - Will add a border to the image, in order to make it fit within the given boundaries. 
   - 'r' (resize) - Will resize the image to fit the boundaries, without cropping. This means your thumbnail might de deformed, if the aspect ratio of the thumbnail differs from the original image. 
 
 

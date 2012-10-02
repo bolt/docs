@@ -1,9 +1,9 @@
 Templates and routes
 ====================
 
-Whenever your browser gets a page on a Bolt website, it uses an URL like `/entries` or `/page/lorem-ipsum`. Bolt knows how to handle URLs like this, and displays the information the browser requested. Bolt does this by mapping the URL to a so-called Route. This Route is the controller that (when called) fetches the content from the database, selects the template to use, renders the HTML page according to that template and the content, and serves it to the browser.
+Whenever your browser gets a page on a Bolt website, it uses an URL like `/entries` or `/page/lorem-ipsum`. Bolt knows how to handle URLs like this, and displays the information the browser requested. Bolt does this by mapping the URL to a so-called Route. This Route is the controller that (when called) fetches the content from the database, selects the template to use, renders the HTML page according to that template and the content and serves it to the browser.
 
-At the same time, if you create a new record, Bolt will know what the URL for that content is, so that when that URL is requested by a browser, it can map it back to the correct content.
+At the same time, if you create a new record, Bolt will know what the URL for that content is. So when that URL is requested by a browser, it can map it back to the correct content.
 
 For example, if you have a 'Pages' contenttype, with 'Page' as a singular_name, your site will automatically have pages like:
 

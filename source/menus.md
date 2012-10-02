@@ -7,7 +7,7 @@ To change one or more of the menus, edit the file `app/config/menu.yml`. You can
 	{{ menu() }}
 </pre>
 
-If you have more than one menu, use it's name to make sure you get the intended one:
+If you have more than one menu, use its name to make sure you get the intended one:
 
 <pre class="brush: html">
 	{{ menu('foo') }}

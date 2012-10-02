@@ -1,7 +1,7 @@
 Content in templates
 ====================
 
-Perhaps the thing you'll do most in templates, is access records of content. Either by requesting specific content, or implicitly when requesting pages that are the defaults for certain contenttypes. 
+Perhaps the thing you'll do most in templates is access records of content. Either by requesting specific content, or implicitly when requesting pages that are the defaults for certain contenttypes. 
 
 Using a {{ record }}
 ----------------------
@@ -96,7 +96,7 @@ If you're iterating over an array of record.values, it's sometimes useful to kno
 </pre>
 
 
-<p class="note"><strong>Note:</strong> Before Bolt 1.0 is released, it'll be possible to create one-to-one and one-to-many relatrionships between records. The record object will provide access to records that are related to it.</p>
+<p class="note"><strong>Note:</strong> Before Bolt 1.0 is released, it'll be possible to create one-to-one and one-to-many relationships between records. The record object will provide access to records that are related to it.</p>
 
 
 Using {{ records }}
@@ -296,7 +296,7 @@ If you use 'limit 1', you will get an array with 1 record. Unless, of course, on
 Paging 
 ------
 
-When you have records than you'd like to display one one page, you can add paging.
+When you have more records than you'd like to display on one page, you can add paging.
 
 If you want to add paging to your template, add `allowpaging` to your `setcontent` tag, and add a `pager` tag.
 
