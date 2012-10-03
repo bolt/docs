@@ -1,3 +1,14 @@
+body {
+	background: #f5f5f5 url(../images/grey.png) center top;
+}
+	
+.container {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+	
+	
+
 h1, h2, h3, h4, h5 {
     font-family: 'allerregular', Candara, "Helvetica Neue", Helvetica,Arial, sans-serif;
 }
@@ -28,7 +39,7 @@ header h1 {
 }
 
 header h1 span {
-    font-size: 40px;
+    font-size: 28px;
     color: #888;
     font-style: normal;
     font-weight: normal;
@@ -46,11 +57,13 @@ header h1 img {
 }
 
 header hr {
-    margin-bottom: 0;
+    margin-bottom: 20px;
+    border-color: #e5e5e5;
+    border-style: dotted;
 }
 
 header {
-    margin-bottom: 24px;
+    margin-bottom: 40px;
 }
 
 
@@ -96,7 +109,7 @@ p.note strong {
 }
 
 a, a:visited {
-    color: #05A;
+    color: #08c;
 }
 
 a:hover {
@@ -120,7 +133,8 @@ code {
 }
 
 .content h2, .content h3 {
-    margin-top: 30px;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 
@@ -197,18 +211,23 @@ nav.main ul li {
     list-style: none;
     float: left;
     height: 36px;
-    margin: 0;
+    margin: 0 2px;
     line-height: 18px;
+    
 }
 nav.main ul li a {
-    padding: 9px 20px;
+    padding: 6px 20px;
     display: block;
     font-weight: bold;
     text-decoration: none;
+    color: #333;
 }
 nav.main ul li:hover a {
     text-decoration: underline;
-    background-color: #EEE;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #EEE;
 }
 nav.main ul ul {
     position: absolute;
@@ -242,15 +261,66 @@ nav.main ul li:hover ul li:hover a {
 }
 nav.main ul li a.current,
 nav.main ul li:hover a.current {
-    background-color: #CdF;
+    background-color: #77E0FF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    
+    
 }
 nav.main .first {
     background-color: #FFC;
 }
 
 
+/**
+ * Styles for the sidebar
+ */
+
+.sidebar {
+	padding-top: 11px;
+}
+
+.sidebar ul {
+	list-style: none;
+	margin: 0;
+	padding:0;
+}
+
+.sidebar ul li {
+	list-style: none;
+	margin: 0 0 0 5px;
+	padding:0;
+	line-height: 2;
+}
+
+.sidebar ul li a{
+	color: #666;
+	text-decoration: none;
+}
+
+.sidebar ul ul{
+	margin-left: 10px;
+}
+
+.sidebar ul li.current a{
+	color: #0088CC;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+}
+
 @media only screen and (max-width: 767px) {
 
+    body {
+		background:#fff;    
+    }
+    
+    .container {
+	    box-shadow: none;
+    }
+    
     .sticky {
         padding-top: 20px;
         position: relative;
@@ -272,13 +342,24 @@ nav.main .first {
         line-height: 24px;
     }    
 
+    .sidebar {
+	    padding-bottom: 40px;
+    }
+    
+    nav.main ul {
+	    float: left;
+    }
+    
     nav.main ul li a {
         padding: 6px 6px;
     }
 
 }
 
-
+ @media only screen and (min-width: 480px) and (max-width: 767px) {
+ }
+ 
+ 
 
 @font-face {
     font-family: 'alleritalic';
