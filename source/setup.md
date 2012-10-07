@@ -79,7 +79,7 @@ sure, ask your hosting provider.
 <a href="/files/ftp-chmod.png" class="fancybox"><img src="/files/ftp-chmod.png" width="590"></a><br>
 
 <p class="note"><strong>Note:</strong> Don't forget to upload the .htaccess file! 
-  Bolt won't work without it.</p>
+  Bolt won't work without it. If you can't find the file on your filesystem, download this <a href="http://bolt.cm/distribution/default.htaccess"><code>default.htaccess</code></a> file. Upload it to your server, and then rename it to <code>.htaccess.</code></p>
 
 After you've done this, skip to the section [Setting up Bolt](#setting-up-bolt).
 
