@@ -182,7 +182,8 @@ The following fields are available:
   - `file`: Simple image upload/select field.
   - `html`: Wysiwyg HTML field.
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML markup. 
-  - `video`: A field for embedding videos from websites like Youtube and Vimeo. 
+  - `video`: A set of fields for embedding videos from websites like Youtube and Vimeo. 
+  - `geolocation`: A set of fields for easy selection of a geolocation (latitude/longitude) with an address.
   - `date`: Datepicker widget, to set/select a date.
   - `datetime`: Similar to the `date` field, but adds an additional field so specify a time. 
   - `number`: A field to store numbers. Internally stored so that they can be sorted numerically. (note: the maximum precision is 9 digits beofre the decimal mark, and 9 digits after)

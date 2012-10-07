@@ -40,6 +40,18 @@ Get a short excerpt of the record:
 &lt;p>{{ page.excerpt(250) }}&lt;/p> 
 </pre>
 
+The 'Geolocation' field type allows you to easily pick and use geolocations. You can use the given address, the latitude, longitude, and the reverse geocoded address. To see the values that are stored, use `{{ print(page.geolocation) }}`. To insert a simple map from google with a marker at the given location, use:
+
+<pre class="brush: html">
+&lt;div>
+<img src="http://maps.googleapis.com/maps/api/staticmap?center={{ page.geolocation.latitude }},{{ page.geolocation.longitude }}&zoom=14&size=617x300&sensor=false&markers={{ page.geolocation.latitude }},{{ page.geolocation.longitude }}">
+&lt;/div>
+
+More info about these static maps, can be found at [Static Maps API V2 Developer Guide](https://developers.google.com/maps/documentation/staticmaps). Of course, you can use the geolocations with any mapping service you like, since the latitude and longitude are universal. 
+
+</pre>
+
+
 If you're using the 'video' field type, more information about the video is available. To see the values that are stored, use `{{ print(page.video) }}`. To insert the `<embed>`-code for the video, use: 
 
 <pre class="brush: html">
@@ -75,7 +87,9 @@ There's also a special 'responsive' HTML snippet available for videos. To insert
 }
 </pre>
 
-### Gettig the type of a certain field
+
+
+### Getting the type of a certain field
 
 If you're iterating over an array of record.values, it's sometimes useful to know what type of field you're dealing with. This is where the `fieldkey()` function comes in handy:
 
