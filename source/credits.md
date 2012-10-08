@@ -1,12 +1,16 @@
 Credits and contributing
 ========================
 
-Bolt is Open Source, and as such it uses other Open Source components. If you are a developer you're very welcome to help in the further development of Bolt. Bolt is written mostly by Bob den Otter, and the continuing development of Bolt is backed by [Two Kings webdelopment](http://www.twokings.nl). Contact me at bob [@] twokings.nl. 
+Bolt is Open Source, and as such it uses other Open Source components. If you are a developer you're very welcome to
+help in the further development of Bolt. Bolt is written mostly by Bob den Otter, and the continuing development of Bolt
+is backed by [Two Kings webdelopment](http://www.twokings.nl). Contact me at bob [@] twokings.nl.
 
-All parts of Bolt are free to use under the open-source MIT license. The full licensing text can be [found here](http://www.opensource.org/licenses/mit-license.php). 
+All parts of Bolt are free to use under the open-source MIT license. The full licensing text can be [found
+here](http://www.opensource.org/licenses/mit-license.php).
 
   - <a href="https://github.com/bobdenotter/bolt" class="btn btn-info" target="_blank">Bolt on Github</a>
-  - <a href="https://github.com/bobdenotter/bolt-docs" class="btn btn-info" target="_blank">Bolt documentation on Github</a>
+  - <a href="https://github.com/bobdenotter/bolt-docs" class="btn btn-info" target="_blank">Bolt documentation on
+    Github</a>
 
 Used Libraries / Components
 ---------------------------
@@ -17,15 +21,15 @@ Below are the third party libraries that are used by Bolt.
 <a href="http://symfony.com/">Symfony components</a>.
   - The <a href="http://www.doctrine-project.org">Doctrine DBAL</a> for database access and abstraction.
   - <a href="http://twig.sensiolabs.org/">Twig, flexible, fast, and secure template engine</a>.
-  - Various other PHP libraries, like: <a href="http://www.openwall.com/phpass/">Phpass</a>, 
-    <a href="http://brandonwamboldt.github.com/utilphp/">Util.php</a>, 
-    <a href="http://guzzlephp.org/">Guzzle</a> and 
+  - Various other PHP libraries, like: <a href="http://www.openwall.com/phpass/">Phpass</a>,
+    <a href="http://brandonwamboldt.github.com/utilphp/">Util.php</a>,
+    <a href="http://guzzlephp.org/">Guzzle</a> and
     <a href="http://www.binarymoon.co.uk/projects/timthumb/">Timthumb</a>
-  - <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a> and 
+  - <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a> and
     <a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>
   - <a href="http://jquery.com/">jQuery</a> (and parts of <a href="http://jqueryui.com/">jQuery UI</a>)
-  - jQuery plugins, like: <a href="http://blueimp.github.com/jQuery-File-Upload/">jQuery File Upload</a>, 
-    <a href="http://aehlke.github.com/tag-it/">Tag-it</a>, 
+  - jQuery plugins, like: <a href="http://blueimp.github.com/jQuery-File-Upload/">jQuery File Upload</a>,
+    <a href="http://aehlke.github.com/tag-it/">Tag-it</a>,
     <a href="http://www.shadowbox-js.com/">Shadowbox</a>.
   - <a href="http://codemirror.net/">Codemirror</a> for in-browser editing of text-files and templates.
   - <a href="http://redactorjs.com/">Redactor</a> for the clean HTML5 Wysywig editor areas.
