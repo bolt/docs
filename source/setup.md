@@ -4,7 +4,7 @@ Installing Bolt
 This page explains the various ways of installing Bolt. You can either use the command-line or your FTP-client to
 install it. The system requirements for Bolt are modest, and it should run on any fairly modern webserver:
 
-  - PHP 5.3.2 or higher
+  - PHP 5.3.3 or higher
   - Access to SQLite (which comes bundled with PHP 5.3), _or_ MySQL _or_
     PostgreSQL.
   - Apache with Mod_rewrite (.htaccess files)
@@ -30,17 +30,13 @@ If you have command-line access, you can easily install Bolt by executing the fo
 curl -O http://bolt.cm/distribution/bolt_latest.tgz
 tar -xzf bolt_latest.tgz
 cd bolt
+chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
 </pre>
 
 <p class="tip"><strong>Tip:</strong> For easier copy/pasting of the samples, doubleclick the code.</p>
 
-Bolt needs to be able to read and write certain folders like the cache and the template folders, if you wish to be able
-to edit them in your browser. On most servers the webserver runs in a different group than your useraccount, so to give
-Bolt write access to these files, do the following:
-
-<pre class="brush: plain">
-chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
-</pre>
+Bolt needs to be able to read and write certain folders like the cache and the template folders. On most servers the webserver runs in a different group than your useraccount, so to give
+Bolt write access to these files you have to use the chmod statement.
 
 It depends on the exact server configuration if you will need to use `777` or if another setting is better. If you wish
 to know for sure, ask your hosting provider.
