@@ -1,13 +1,13 @@
 body {
 	background: #f5f5f5 url(../images/grey.png) center top;
 }
-	
+
 .container {
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
-	
-	
+
+
 
 h1, h2, h3, h4, h5 {
     font-family: 'allerregular', Candara, "Helvetica Neue", Helvetica,Arial, sans-serif;
@@ -157,18 +157,18 @@ code {
 
 .syntaxhighlighter .gutter .line {
     border-right: 2px solid #DDD !important;
-    background-color: #EEE !important;   
-    color: #CCC !important;   
+    background-color: #EEE !important;
+    color: #CCC !important;
 }
 
 .syntaxhighlighter td.gutter {
     padding: 3px 0 !important;
-    background-color: #EEE !important; 
+    background-color: #EEE !important;
 }
-    
+
 .syntaxhighlighter .plain, .syntaxhighlighter .plain a {
     color: #444 !important;
-} 
+}
 
 /* Added for Twig syntax highlighting.. */
 
@@ -213,7 +213,7 @@ nav.main ul li {
     height: 36px;
     margin: 0 2px;
     line-height: 18px;
-    
+
 }
 nav.main ul li a {
     padding: 6px 20px;
@@ -265,8 +265,8 @@ nav.main ul li:hover a.current {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    
-    
+
+
 }
 nav.main .first {
     background-color: #FFC;
@@ -289,9 +289,10 @@ nav.main .first {
 
 .sidebar ul li {
 	list-style: none;
-	margin: 0 0 0 5px;
+	margin: 0 0 0.5em 5px;
 	padding:0;
-	line-height: 2;
+	line-height: 1.3em;
+
 }
 
 .sidebar ul li a{
@@ -300,6 +301,7 @@ nav.main .first {
 }
 
 .sidebar ul ul{
+    margin-top: 0.5em;
 	margin-left: 10px;
 }
 
@@ -314,13 +316,13 @@ nav.main .first {
 @media only screen and (max-width: 767px) {
 
     body {
-		background:#fff;    
+		background:#fff;
     }
-    
+
     .container {
 	    box-shadow: none;
     }
-    
+
     .sticky {
         padding-top: 20px;
         position: relative;
@@ -340,16 +342,16 @@ nav.main .first {
     h3 {
         font-size: 18px;
         line-height: 24px;
-    }    
+    }
 
     .sidebar {
 	    padding-bottom: 40px;
     }
-    
+
     nav.main ul {
 	    float: left;
     }
-    
+
     nav.main ul li a {
         padding: 6px 6px;
     }
@@ -358,8 +360,8 @@ nav.main .first {
 
  @media only screen and (min-width: 480px) and (max-width: 767px) {
  }
- 
- 
+
+
 
 @font-face {
     font-family: 'alleritalic';
