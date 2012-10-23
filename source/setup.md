@@ -24,12 +24,11 @@ you've done this, skip to the section for [Setting up Bolt](#setting-up-bolt).
 
 ### Option 1: The easy way, using the command-line.
 
-If you have command-line access, you can easily install Bolt by executing the following commands:
+If you have command-line access, you can easily install Bolt by executing a few commands. First, create the folder where you want to install Bolt, if it doesn't already exist. Enter the folder, and execute the following commands:
 
 <pre class="brush: plain">
 curl -O http://bolt.cm/distribution/bolt_latest.tgz
 tar -xzf bolt_latest.tgz
-cd bolt
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
 </pre>
 
