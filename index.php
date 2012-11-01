@@ -54,7 +54,9 @@ $menu = array(
     'content-in-templates' => "Content in templates",
 	'templatetags' => "Bolt template tags",
     'menus' => "Using menus",
-    'snippets' => "Twig Code snippets",
+    'extensions' => "Creating Bolt Extensions",
+    'internals' => "Bolt Internals",
+//    'snippets' => "Twig Code snippets",
 	'credits' => "Credits and Contributing",
     'roadmap' => "Roadmap"
 	);
