@@ -27,11 +27,11 @@ $maintitle = $maintitle[1];
 preg_match_all("/<h2>(.*)<\/h2>/i", $source, $matches);
 $submenu = array();
 foreach ($matches[1] as $key => $title) {
-	$submenu[ makeSlug($title) ] = $title;
+	$submenu[ makeSlug(strip_tags($title)) ] = strip_tags($title);
 }
 
 $source = preg_replace_callback("/<h([23])>(.*)<\/h([23])>/i", function($matches) {
-	$output = sprintf("<h%s id='%s'>%s</h%s>", $matches[1], makeSlug($matches[2]), $matches[2], $matches[1]);
+	$output = sprintf("<h%s id='%s'>%s</h%s>", $matches[1], makeSlug(strip_tags($matches[2])), $matches[2], $matches[1]);
 	return $output;
 }, $source);
 

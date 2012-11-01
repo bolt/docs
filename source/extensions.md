@@ -40,14 +40,13 @@ Coding your extensions
 
 Because Bolt is written in PHP, it should be no surprise that the extensions must also be written in PHP. Bolt is built
 upon the awesome [Silex micro-framework](http://silex.sensiolabs.org), and uses a lot of components from the [Symfony
-framework](http://symfony.com). When coding your extensions, you should use as much of the functionality provided by
+framework](http://symfony.com/components). When coding your extensions, you should use as much of the functionality provided by
 Silex and the included components as possible. Don't re-invent the wheel, and things like that.
 
 See the chapter on [Bolt internals](/internals) for a detailed overview of the provided Bolt functionality, Silex
 objects and included libraries.
 
-Bolt strives to adhere to [the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2
--coding-style-guide.md). When writing your extensions, you should try to do the same.
+Bolt strives to adhere to [the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md). When writing your extensions, you should try to do the same.
 
 The `info()` and `init()` functions
 -----------------------------------
@@ -124,7 +123,8 @@ In the case of `init()` it's often used to do the following:
 
 If you use our [Extension Wizard](http://extension-wizard.bolt.cm/) to create the boilerplate code for your extension, the `init()` function will be already set up with the correct functionality.
 
-#### Initialise a snippet
+Initialise a snippet
+--------------------
 
 A 'snippet' in the context of Bolt extensions is nothing more than a short fragment of code, that gets inserted in a certain place in the theme templates on the frontend of the website. This fragment can either be a string to be inserted directly, or it can be the return value of a callback string. The `insertSnippet()` function takes three parameters, with the third being optional. The first is the position of the insertion point. The second one is either a string to insert or the name of a callback function. The third, optional parameter will be passed on to the callback function. 
 
@@ -194,7 +194,8 @@ function snippetbar($foo)
 
 </pre>
 
-#### Add a CSS or Javascript file
+Add a CSS or Javascript file
+----------------------------
 
 You can use the `init()` function to add CSS or Javascript files to the outputted HTML in the frontend. To do so, use the `addJavascript()` and `addCSS()` functions: 
 
@@ -280,7 +281,9 @@ function twigBar($var1, $var2)
 
 Since these are just regular Twig functions/filters, you should familiarize yourself with how Twig works. Read the chapter [Extending Twig](http://twig.sensiolabs.org/doc/advanced.html) in the Twig documentation. 
 
-### Using your own `config.yml` file
+
+Using your own `config.yml` file
+--------------------------------
 
 Extensions can use their own config files using the YAML format. It should be named `config.yml`, and it should be in the folder of your extension. To use it in a snippet callback, or a Twig function or modifier, use it like this: 
 
@@ -303,7 +306,8 @@ function foo()
 }
 </pre>
 
-### Further reading
+Further reading
+---------------
 
 If you want to delve deeper into what you can and cannot do with extensions, see the chapter on [Bolt internals](/internals) for a detailed overview of the provided Bolt functionality, Silex objects and included libraries.
 

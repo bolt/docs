@@ -103,7 +103,7 @@
 					{% if current==link %}
 					<ul>
 						{% for link,name in submenu %}
-							<li><a href="#{{link}}">{{name}}</a>
+							<li><a href="#{{link}}">{{name|raw}}</a>
 						{% endfor %}
 					</ul>
 					{% endif %}
