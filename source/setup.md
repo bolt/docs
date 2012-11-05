@@ -115,6 +115,7 @@ you've done this, you should see some dummy content, and you're good to go!
 
 If you're getting unspecified "Internal Server Errors", the most likely cause is a missing or malfunctioning `.htaccess`
 file. See [here](#tweaking-the-htaccess-file) for tips.
+If you still encounter errors, check your vhost configuration and be sure that the AllowOverride option is enabled.
 
 Configuring the Database
 ------------------------
