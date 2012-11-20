@@ -50,14 +50,14 @@ print(page.geolocation) }}`. To insert a simple map from google with a marker at
 
 <pre class="brush: html">
 &lt;div>
-<img src="http://maps.googleapis.com/maps/api/staticmap?center={{ page.geolocation.latitude }},{{ page.geolocation.longitude }}&zoom=14&size=617x300&sensor=false&markers={{ page.geolocation.latitude }},{{ page.geolocation.longitude }}">
+&lt;img src="http://maps.googleapis.com/maps/api/staticmap?center={{ page.geolocation.latitude }},{{ page.geolocation.longitude }}&zoom=14&size=617x300&sensor=false&markers={{ page.geolocation.latitude }},{{ page.geolocation.longitude }}">
 &lt;/div>
+</pre>
 
 More info about these static maps, can be found at [Static Maps API V2 Developer
 Guide](https://developers.google.com/maps/documentation/staticmaps). Of course, you can use the geolocations with any
 mapping service you like, since the latitude and longitude are universal.
 
-</pre>
 
 
 If you're using the 'video' field type, more information about the video is available. To see the values that are
@@ -204,8 +204,9 @@ The most basic syntax is:
 This will set a _variable_ to contain the records of the given _contenttype_. For example: `{% setcontent mypages =
 'pages' %}` will set `{{ mypages }}` to an array of all the records in 'pages'.
 
-Normally, you don't need _all_ records, but a subset. You can limit the number of records by using a 'where' clause
-(more on that below), but often it's easier to use the shortcut Bolt provides.
+### Limiting the results, using `where`
+
+Normally, you don't need _all_ records, but a subset of the available records.. You can limit the number of records by using a 'where' clause (more on that below), but often it's easier to use the shortcut Bolt provides.
 
 If you need a single record, and know its id or slug, you can do this:
 
@@ -262,8 +263,6 @@ records. It's also possible to use modifiers for the values, to select based on 
 {% setcontent mypages = 'pages' where { title: '%ipsum%' } %}
 </pre>
 
-
-
 <p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code> Bolt only selects dates before or equal
 to <code>'2012-12-01 00:00:00'</code>. If you want to include december 1st, use <code>'&lt;2012-12-02'</code>. </p>
 
@@ -285,13 +284,40 @@ But not:
 of the field. For example: <code>'lore%'</code> end <code>'olor%'</code> will both match "Lorem Ipsum Dolor", but
 <code>'ipsu%'</code> won't. </p>
 
+You can use several 'shortcuts' for selecting records with dates in the past or future. These are:
+
+  - `NOW` - The current date and time.
+  - `TODAY` - The current date, today at midnight.
+  - `TOMORROW` - The date of tomorrow, at midnight.
+  - `YESTERDAY` - The date of yesterday, at midnight.
+
+Some examples of these are:
+
+<pre class="brush: html">
+{# Selecting pages published _before_ yesterday #}
+{% setcontent mypages = 'pages' where { datepublish: '&lt;YESTERDAY' } %}
+
+{# If you want to include yesterday in your `where`, use 'before today' #}
+{% setcontent mypages = 'pages' where { datepublish: '&lt;TODAY' } %}
+
+{# Selecting pages published earlier today, or in the future #}
+{% setcontent mypages = 'pages' where { datepublish: '&gt;TODAY' } %}
+
+{# Selecting pages published today only #}
+{% setcontent mypages = 'pages' where { datepublish: '&gt;TODAY', datepublish: '&lt;TOMORROW' } %}
+</pre>
+
+<p class="note"><strong>Note:</strong> These shortcuts are case sensitive, so you must use CAPS. <code>'&lt;today'</code>
+will not work.</p>
 
 Like mentioned above, you can add more than one parameter to the where clause:
 
 <pre class="brush: html">
 {# get all pages not created by 'pete', and created after july 2012 #}
-{% setcontent mypages = 'pages' where { username: '!pete', datecreated: '>2012-07-31' } %}
+{% setcontent mypages = 'pages' where { username: '!pete', datecreated: '>2012-07-31', image: '%.jpg%' } %}
 </pre>
+
+### Using `limit`.
 
 There's no built-in limit to the amount of records returned. It is good practice to limit the maximum number of records,
 by adding a `limit` clause.
@@ -301,9 +327,10 @@ by adding a `limit` clause.
 {% setcontent mypages = 'pages' where { username: 'bob' } limit 10 %}
 </pre>
 
+### Ordering results.
+
 The results can be sorted by any of the fields of the contenttype, using the `orderby` clause. You can sort either
 ascending or descending.
-
 
 <pre class="brush: html">
 {# get 10 pages, sorted alphabetically on title #}
@@ -311,6 +338,8 @@ ascending or descending.
 
 {# get the 10 latest modified pages, sorted datechanged descending #}
 {% setcontent mypages = 'pages' limit 10 orderby '-datechanged' %}
+
+Note that the records are fetched from the database, according to the `orderby` parameter. If you use `orderby 'title'`, you will get records with titles starting with 'a', and not just some records, that are sorted after fetching them from the database.
 
 </pre>
 
