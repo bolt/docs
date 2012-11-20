@@ -20,7 +20,7 @@ inside the included templates.
 
 For more information, see [include](http://twig.sensiolabs.org/doc/tags/include.html)
 
-Modifier: link
+Filter: link
 --------------
 
 Create a link to the current record.
@@ -36,7 +36,7 @@ or:
 </pre>
 
 
-Modifier: current
+Filter: current
 -----------------
 
 Checks if a given record corresponds to the page being shown in the browser. Useful for adding 'active' states to menus and such.
@@ -56,8 +56,8 @@ or:
 </pre>
 
 
-Modifier: thumbnail
--------------------
+Filter: thumbnail
+-----------------
 
 Use this modifier to create a link to an automatically generated thumbnail of a size of your choosing. For example:
 
@@ -65,7 +65,7 @@ Use this modifier to create a link to an automatically generated thumbnail of a 
     &lt;img src="{{ content.image|thumbnail(320, 240) }}">
 </pre>
 
-If `content.image` is an image in your files/ folder, like 'foo.jpg', this modifier will output a link like '/thumbs/320x240/foo.jpg'
+If `content.image` is an image in your `files/` folder, like `foo.jpg`, this modifier will output a link like `/thumbs/320x240/foo.jpg`. This is useful for creating absolute links to a thumbnail, regardless of whether Bolt is installed in the root of your domain, a subdomain or a folder.
 
 You can specify three parameters: the width, height, and the mode of cropping. The mode of croppingis important if
 you're requesting a thumbnail that has different proportions than the original image. Valid options for cropping are:
@@ -79,26 +79,45 @@ you're requesting a thumbnail that has different proportions than the original i
   - 'r' (resize) - Will resize the image to fit the boundaries, without cropping. This means your thumbnail might de
     deformed, if the aspect ratio of the thumbnail differs from the original image.
 
-Use the cropping parameter like this: 
+Use the cropping parameter like this:
 
 <pre class="brush: html">
     &lt;img src="{{ content.image|thumbnail(100, 100, r) }}">
 </pre>
 
-If you omit the width and height altogether, the thumbnail will use the 'default' size and cropping mode. 
+If you omit the width and height altogether, the thumbnail will use the 'default' size and cropping mode.
 
 <pre class="brush: html">
     &lt;img src="{{ content.image|thumbnail }}">
 </pre>
 
-You can set the size in your `config.yml`, like this: 
+You can set the size in your `config.yml`, like this:
 
 <pre class="brush: plain">
 thumbnails: [ 160, 120, c ]
 </pre>
 
-Modifier: raw
+
+Filter: image
 -------------
+
+Use this modifier to create a link to an image of your choosing. For example:
+
+<pre class="brush: html">
+    &lt;img src="{{ content.photo|image }}">
+</pre>
+
+If `content.photo` is an image in your `files/` folder, like `2012-11/foo.jpg`, this modifier will output a link like `/files/2012-11/foo.jpg`. This is useful for creating absolute links to an image, regardless of whether Bolt is installed in the root of your domain, a subdomain or a folder.
+
+You can specify three parameters: the width, height, and the mode of cropping. By doing so, the image will be resized, and it behave exactly like the [thumbnail filter](#filter-thumbnail).
+
+<pre class="brush: html">
+    &lt;img src="{{ content.photo|image(100, 100, r) }}">
+</pre>
+
+
+Filter: raw
+-----------
 
 If the content contains HTML-fields, they will be rendered with escaped characters by default. If you want to use the
 HTML as-is, add the raw modifier:
@@ -112,8 +131,8 @@ respectively. If 'body' is an HTML field in our contenttype, we want it to be ou
 the `raw` modifier.
 
 
-Modifier: date
---------------
+Filter: date
+------------
 
 <pre class="brush: html">
 {{ content.datecreated|date("M d, ’y")}}
@@ -134,6 +153,7 @@ Variable: app
 {{ print(app.config.general) }}
 </pre>
 
+For more info on `app`, see the chapter on [Bolt Internals](/internals).
 
 
 Tag: set / content
@@ -198,11 +218,9 @@ Function: print()
 {{ print(about) }}
 </pre>
 
+For more info on debugging your Bolt site, see the chapter on [Bolt Internals](/internals).
 
 
-<pre class="brush: html">
-
-</pre>
 
 
 
