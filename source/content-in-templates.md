@@ -44,6 +44,8 @@ Get a short excerpt of the record:
 &lt;p>{{ page.excerpt(250) }}&lt;/p>
 </pre>
 
+#### Geolocation
+
 The 'Geolocation' field type allows you to easily pick and use geolocations. You can use the given address, the
 latitude, longitude, and the reverse geocoded address. To see the values that are stored, use `{{
 print(page.geolocation) }}`. To insert a simple map from google with a marker at the given location, use:
@@ -58,7 +60,7 @@ More info about these static maps, can be found at [Static Maps API V2 Developer
 Guide](https://developers.google.com/maps/documentation/staticmaps). Of course, you can use the geolocations with any
 mapping service you like, since the latitude and longitude are universal.
 
-
+#### Video
 
 If you're using the 'video' field type, more information about the video is available. To see the values that are
 stored, use `{{ print(page.video) }}`. To insert the `<embed>`-code for the video, use:
@@ -97,6 +99,33 @@ required CSS to your stylesheet:
 }
 </pre>
 
+#### Imagelist
+
+The imagelist fieldtype is accessible as an array. This is convenient for most cases, because this makes it easy to output them as lists in your HTML. This simple example for an imagelist field named 'slider' will output thumnbails for each of the images, with links to the full sized versions. 
+
+<pre class="brush: html">
+{% for image in page.slider %}
+  &lt;a href="{{ image.filename|image }}" title="{{ image.title }}">
+    &lt;img src="{{ image.filename|thumbnail(100,100) }}">
+  &lt;/a>
+{% endfor %}
+</pre>
+
+The next example outputs a wrapping div and an unordered list, but only if the list actually contains elements. The first and last item in the list also get a custom 'first' and 'last' class added to them.
+
+<pre class="brush: html">
+  {% if page.slider|length > 0 %}
+  &lt;div class='imageslider'>
+    &lt;ul>
+      {% for image in page.slider %}
+      &lt;li class="{% if loop.first %}first {% endif %}{% if loop.last %}last {% endif %}">
+        &lt;img src="{{ image.filename|thumbnail(320,240) }}" alt="{{ image.title }}">
+      &lt;/li>
+      {% endfor %}
+    &lt;/ul>
+  &lt;/div>
+  {% endif %}
+</pre>
 
 
 ### Getting the type of a certain field

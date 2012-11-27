@@ -233,6 +233,7 @@ The following fields are available:
     Add a `uses: title` value to specify the field it should use to automatically generate a suited slug from the title
     (or another field).
   - `image`: Simple image upload/select field.
+  - `imagelist`: A field to create a list of images. Useful for slideshows and imagesliders.
   - `file`: Simple image upload/select field.
   - `html`: Wysiwyg HTML field.
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML markup.
@@ -249,6 +250,8 @@ The following fields are available:
 Most fields have a few extra optional values, to further customize them.
 
   - `class: large`: Will show the field in a larger font, for `text` fields.
+  - `class: wide`: Will show the field extra wide, for filling out the column. For `text` fields only.
+  - `class: narrow`: Will show the field extra wide, for filling out the column. For `text` fields only.
   - `label: Foo`: If omitted, the name of the field will be used as a label in the edit-screen. Replace 'Foo' with the
     desired label of the field.
   - `height: 150px`: For `html` and `textarea` fields, this will determine the height in the edit-screen.
