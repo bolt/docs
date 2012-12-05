@@ -73,11 +73,10 @@ you're requesting a thumbnail that has different proportions than the original i
   - 'c' (crop, default) - Makes sure you always get an image that is the specified width and height. The image is not
     transformed, so it will be cropped to fit the boundaries is necessary.
   -  'f' ('fit') - The image will not be cropped but resized to fit within the given maximum width and height. This
-     means that you can get an image with different width and height than you specified, to make it fit within the
-     boundaries.
+     means that you will always get an image with the exact same width and height that you specified. The resulting image might be deformed, and will _not_ have the same aspect ratio as the original. 
   - 'b' (borders) - Will add a border to the image, in order to make it fit within the given boundaries.
   - 'r' (resize) - Will resize the image to fit the boundaries, without cropping. This means your thumbnail might de
-    deformed, if the aspect ratio of the thumbnail differs from the original image.
+    smaller than the widht/height given, but the the image will always maintain the aspect ratio of the original image.
 
 Use the cropping parameter like this:
 
