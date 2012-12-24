@@ -4,7 +4,7 @@ require_once('lib/markdown.php');
 require_once('lib/smartypants.php');
 require_once './vendor/autoload.php';
 
-$version = "0.8";
+$version = "0.9";
 
 $request = basename($_SERVER['REQUEST_URI']);
 
@@ -48,7 +48,7 @@ $menu = array(
 	'setup' => "Installing Bolt",
 	'using' => "Using Bolt",
 	'content' => "Working with Content and Content types",
-    'taxonomies' => "Taxonomies",
+    'taxonomies' => "Relations and Taxonomies",
     'templates-routes' => "Templates and Routes",
 	'templates' => "Building templates",
     'content-in-templates' => "Content in templates",
