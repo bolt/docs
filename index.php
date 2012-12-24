@@ -30,7 +30,7 @@ foreach ($matches[1] as $key => $title) {
 	$submenu[ makeSlug(strip_tags($title)) ] = strip_tags($title);
 }
 
-$source = preg_replace_callback("/<h([23])>(.*)<\/h([23])>/i", function($matches) {
+$source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function($matches) {
 	$output = sprintf("<h%s id='%s'>%s</h%s>", $matches[1], makeSlug(strip_tags($matches[2])), $matches[2], $matches[1]);
 	return $output;
 }, $source);
