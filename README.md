@@ -1,7 +1,7 @@
 bolt-docs
 =========
 
-These are the docs for [Bolt](http://bolt.cm/). 
+These are the docs for [Bolt](http://bolt.cm/). This repository is the documentation counterpart of the [Bolt repository](https://github.com/bobdenotter/bolt).
 
 Installation 
 ------------
