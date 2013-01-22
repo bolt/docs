@@ -81,10 +81,10 @@ you're requesting a thumbnail that has different proportions than the original i
 Use the cropping parameter like this:
 
 <pre class="brush: html">
-    &lt;img src="{{ content.image|thumbnail(100, 100, r) }}">
+    &lt;img src="{{ content.image|thumbnail(100, 100, "r") }}">
 </pre>
 
-If you omit the width and height altogether, the thumbnail will use the 'default' size and cropping mode.
+If you omit the width and height altogether, the thumbnail will use the 'default' size and cropping mode. Remember to add quotes around the cropping mode.
 
 <pre class="brush: html">
     &lt;img src="{{ content.image|thumbnail }}">
@@ -111,7 +111,7 @@ If `content.photo` is an image in your `files/` folder, like `2012-11/foo.jpg`, 
 You can specify three parameters: the width, height, and the mode of cropping. By doing so, the image will be resized, and it behave exactly like the [thumbnail filter](#filter-thumbnail).
 
 <pre class="brush: html">
-    &lt;img src="{{ content.photo|image(100, 100, r) }}">
+    &lt;img src="{{ content.photo|image(100, 100, "r") }}">
 </pre>
 
 
