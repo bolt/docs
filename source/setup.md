@@ -7,10 +7,10 @@ install it. The system requirements for Bolt are modest, and it should run on an
   - PHP 5.3.2 or higher
   - Access to SQLite (which comes bundled with PHP 5.3), _or_ MySQL _or_
     PostgreSQL.
-  - Apache with Mod_rewrite (.htaccess files)
+  - Apache with Mod_rewrite (.htaccess files) or Nginx (virtual host configuration covered below)
 
-<p class="note"><strong>Note:</strong> Currently we only support Apache.
-  Support for Lighttpd and/or Nginx will come in the near future, if there's
+<p class="note"><strong>Note:</strong> Currently we only support Apache and Nginx.
+  Support for Lighttpd will come in the near future, if there's
   demand.</p>
 
 There are three ways to install Bolt:
@@ -167,7 +167,7 @@ to the Bolt Backend. You should now see the (empty) Dashboard screen, and you'll
 the built-in Loripsum tool. After you've done this, you should see some dummy
 content, and you're good to go!
 
-Tweaking the .htaccess file
+Apache: Tweaking the .htaccess file
 ---------------------------
 
 Bolt requires the use of a .htaccess file to make sure requests like `page/about-this-website` get routed to the
@@ -210,4 +210,62 @@ block with this single line:
 
 <pre class="brush: plain">
 FallbackResource /index.php
+</pre>
+
+Nginx: Configuring the virtual host
+----------------------------
+
+Nginx is a high-performance web server that is capable of serving thousands of request while using fewer resources than other servers like Apache. However, it does not support .htaccess configuration, which many applications, such as Bolt, require to work properly. Instead, we can configure the virtual server block to handle the rewrites and such that Bolt requires.
+
+Modify the virtual server block below to fit your needs:
+
+<pre class="brush: plain">
+# Bolt virtual server
+server {
+    server_name mycoolsite.com www.mycoolsite.com;
+    root /home/mycoolsite.com/public_html;
+    index index.php;
+
+    location / {
+        try_files $uri $uri/ /index.php$query_string;
+    }
+
+    location ~* /thumbs/(.*)$ {
+        try_files $uri $uri/ /app/classes/timthumb.php$query_string;
+    }
+
+    location ~* \.(?:ico|css|js|gif|jpe?g|png|ttf|woff)$ {
+        access_log off;
+        expires 30d;
+        add_header Pragma public;
+        add_header Cache-Control "public, mustrevalidate, proxy-revalidate";
+    }
+
+    location = /robots.txt { access_log off; log_not_found off; }
+    location = /favicon.ico { access_log off; log_not_found off; }
+
+    location ~ \.php$ {
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param HTTPS off;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    location /app {
+        deny all;
+    }
+
+    location ~ /vendor {
+        deny all;
+    }
+
+    location ~ \.db$ {
+        deny all;
+    }
+}
 </pre>
