@@ -241,11 +241,9 @@ The following fields are available:
   - `geolocation`: A set of fields for easy selection of a geolocation (latitude/longitude) with an address.
   - `date`: Datepicker widget, to set/select a date.
   - `datetime`: Similar to the `date` field, but adds an additional field so specify a time.
-  - `number`: A field to store numbers. Internally stored so that they can be sorted numerically. (note: the maximum
-    precision is 9 digits beofre the decimal mark, and 9 digits after)
-  - `divider`: To seperate fields visually, you can add dividers. A divider can have a label, show a horizontal line, or
-    both. Add a label with `label: This is a label` and a line with `line: true`.
-
+  - `integer`: A field to store whole, integer numbers. The value must be between -2147483648 and 2147483647.
+  - `float`: A field to store numbers. Internally stored so that they can be sorted numerically. (note: the maximum
+    precision is 9 digits before the decimal mark, and 9 digits after)
 
 Most fields have a few extra optional values, to further customize them.
 
@@ -256,6 +254,17 @@ Most fields have a few extra optional values, to further customize them.
     desired label of the field.
   - `height: 150px`: For `html` and `textarea` fields, this will determine the height in the edit-screen.
 
+Sometimes it can be beneficial to add some extra text, labels or other markup to how a field is displayed in the Bolt backend, when editing a record. You can use the optional `prefix` and `postfix` values to add some markup before or after a field. For example:
+
+<pre class="brush: plain">
+        subtitle:
+            type: text
+            class: large
+            prefix: "<p>Add a subtitle, if you want.</p>";
+            postfix: "<hr>"
+</pre>
+
+As you can see, using `postfix: "<hr>"` gives a simple and effective way of adding a divider in the edit screen.
 
 The structure of a Record
 -------------------------
