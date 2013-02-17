@@ -188,7 +188,7 @@ DirectoryIndex index.php index.html index.htm
   # Some servers require the RewriteBase to be set. If so, set to the correct
   folder.
   # RewriteBase /
-  RewriteRule ^thumbs/(.*)?$ ./app/timthumb.php [L]
+  RewriteRule ^thumbs/(.*)?$ ./app/classes/timthumb.php [L]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -206,11 +206,13 @@ Anyhow, if your site doesn't work, try uncommenting the `RewriteBase` line and s
 instance, if your Bolt site is located at `example.org/test/`, set it to `RewriteBase /test/`.
 
 Alternatively, if your server is running Apache 2.2.16 or higher, you might be able to replace the entire `mod_rewrite`
-block with this single line:
+block from lines 17-20 with this single line:
 
 <pre class="brush: plain">
 FallbackResource /index.php
 </pre>
+
+If you have misplaced your `.htaccess` file, you can get a <a href="http://bolt.cm/distribution/default.htaccess">new one here</a>, from our <a href="http://bolt.cm/distribution/">files distribution page</a>. Be sure to rename it to `.htaccess`, though. 
 
 Nginx: Configuring the virtual host
 ----------------------------
