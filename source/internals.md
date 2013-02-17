@@ -51,6 +51,19 @@ If you're logged in, and 'debug: true' is set in `config.yml`, you'll see the 'D
 
 This debug bar contains a lot of useful information to see what's going on behind the screens. Click the different tabs to see information about the current request, used templates, matched routes, used queries, server variables and a lot more. 
 
+Note that the debug bar is appended to all your frontend templates by default. If you don't want the bar in a custom template, just use this, anywhere in the template:
+
+<pre class="brush: html">
+    {{ debugbar(false) }}
+</pre>
+
+When creating an extension or custom controller, the debug is not added by default. In your code you can enable or disable it using the following:
+
+<pre class="brush: php">
+$this->app['debugbar'] = false;
+$this->app['debugbar'] = true;
+</pre>
+
 ### {{ print() }} and \util::var_dump()
 
 If you're coding and you want to get a quick look at whatever variable or object you're trying to manipulate, you can dump it's contents to the browser. In templates, use the following: 
@@ -59,17 +72,17 @@ If you're coding and you want to get a quick look at whatever variable or object
     {{ print(variable) }}
 </pre>
 
-The `variable` can be a normal variable, a Record or multiple records of Content, or other stuff. Don't try to {{ print(app) }}, because it'll probably bring your browser to a screeching halt. 
+The `variable` can be a normal variable, a Record or multiple records of Content, or other stuff. 
 
 <a href="/files/content-example3.png" class="fancybox"><img src="/files/content-example3.png" style="width: 400px"></a><br>
 
 In your code you can also dump variables and objects, like this:
 
 <pre class="brush: php">
-    echo "&lt;pre>\n" . \util::var_dump($variable, true) . "&lt;/pre>\n";
+    \util::var_dump($variable);
 </pre>
 
-Like above, the `$variable` can be a normal variable, an object or whatever. The same caveat applies: Don't try to var_dump($app), because here it will also bring your browser to a screeching halt. 
+Like above, the `$variable` can be a normal variable, an object or whatever. Note that Bolt has built-in protection for when you're tyring to 'dump' Silex or Symfony objects like `$app` or a variable that's `\Bolt\Content`. Since these would be too large to render because of internal references and recursion, they are not expanded further. 
 
 
 Object Reference
