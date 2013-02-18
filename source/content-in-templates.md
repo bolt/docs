@@ -101,7 +101,7 @@ required CSS to your stylesheet:
 
 #### Imagelist
 
-The imagelist fieldtype is accessible as an array. This is convenient for most cases, because this makes it easy to output them as lists in your HTML. This simple example for an imagelist field named 'slider' will output thumnbails for each of the images, with links to the full sized versions. 
+The imagelist fieldtype is accessible as an array. This is convenient for most cases, because this makes it easy to output them as lists in your HTML. This simple example for an imagelist field named 'slider' will output thumnbails for each of the images, with links to the full sized versions.
 
 <pre class="brush: html">
 {% for image in page.slider %}
@@ -342,9 +342,32 @@ will not work.</p>
 Like mentioned above, you can add more than one parameter to the where clause:
 
 <pre class="brush: html">
-{# get all pages not created by 'pete', and created after july 2012 #}
+{# get all pages not created by 'pete', and created after july 2012, with a .jpg image #}
 {% setcontent mypages = 'pages' where { username: '!pete', datecreated: '>2012-07-31', image: '%.jpg%' } %}
 </pre>
+
+You can use the `&&` and `||`-parameters to select on two criteria for any field. However, you can't use something like `where { username: '!pete', username: '!mike'}` because of the way hashes work in twig: The second `username` would overwrite the first.
+Instead, you can use the `&&` and `||`-parameters to either select using `AND` or `OR`. examples:
+
+<pre class="brush: html">
+{# get all pages created by 'pete' or 'mike' #}
+{% setcontent mypages = 'pages' where { username: 'pete || mike' } %}
+
+{# get all pages with an id greater than 29, but smaller or equal to 37 #}
+{% setcontent mypages = 'pages' where { id: '>29 && &lt;=37' } %}
+</pre>
+
+Please note that using these operators, it'll be quite easy to create a where statement that will never give good results:
+
+<pre class="brush: html">
+{# This will _always_ match: #}
+{% setcontent mypages = 'pages' where { username: '!pete || !mike' } %}
+
+{# This will never work: #}
+{% setcontent mypages = 'pages' where { id: '&lt;29 && &gt37' } %}
+</pre>
+
+
 
 ### Using `limit`.
 
