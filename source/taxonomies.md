@@ -4,7 +4,7 @@ Relations and Taxonomies
 Relations
 ---------
 
-You can use relationships between records by adding a relation to `contenttype.yml`. 
+You can use relationships between records by adding a relation to `contenttype.yml`.
 
 <pre class="brush: plain">
 entries:
@@ -22,11 +22,11 @@ entries:
 
 The `relations:` is defined by the slug of the contenttype that it's related to. In the example above `pages`. It takes a few parameters:
 
- - `multiple` - true or false, to indicate whether the user can pick one related record, or more than one. 
+ - `multiple` - true or false, to indicate whether the user can pick one related record, or more than one.
  - `label` - The label to show on the edit screen.
- - `order` - The orde in which the items are listed on the edit screen. This can be any field in the contenttype. Prefix with `-` to reverse the sorting. In the case of the example `-id` means that the records that were created last are at the top. 
+ - `order` - The orde in which the items are listed on the edit screen. This can be any field in the contenttype. Prefix with `-` to reverse the sorting. In the case of the example `-id` means that the records that were created last are at the top.
 
-Editing a record that has relations defined looks like this: 
+Editing a record that has relations defined looks like this:
 
 <a href="/files/relations1.png" class="fancybox"><img src="/files/relations1.png" width="350"></a>
 
@@ -35,7 +35,7 @@ If you define a relation only one way, for example from 'entries' to 'pages'), b
 <a href="/files/relations2.png" class="fancybox"><img src="/files/relations2.png" width="350"></a>
 
 
-If you see this, you might consider adding the reverse relation to the contenttype.yml as well. 
+If you see this, you might consider adding the reverse relation to the contenttype.yml as well.
 
 ### Relations in templates
 
@@ -48,13 +48,13 @@ Internally, relations are stored and accessible in the `Bolt\Record` object. How
 Output:
 
 <pre class="brush: plain">
-arr(2) 
+arr(2)
 [
-    "pages"        => arr(1) 
+    "pages"        => arr(1)
         [
             0 => str(2) "45"
         ]
-    "kitchensinks" => arr(2) 
+    "kitchensinks" => arr(2)
         [
             0 => str(2) "12"
             1 => str(2) "23"
@@ -88,12 +88,85 @@ To request only one specific related record, pass the id as the second parameter
     {% set relatedrecords = record.related('pages', 45) %}
 </pre>
 
-<p class="note"><strong>Note:</strong> The <code>related()</code> function <em>always</em> returns an array of records, even if you request only a single record. In general, it's best to always use a <code>{{ for }}</code>-loop, to iterate over the results.</p>
+<p class="note"><strong>Note:</strong> The <code>related()</code> function <em>always</em> returns an array of records, even if you request only a single record. In general, it's best to always use a <code>{% for %}</code>-loop, to iterate over the results.</p>
 
 Taxonomies
 ----------
 
-Currently, the ground work for Taxonomies in Bolt is done, but it needs work. In version 0.8 or 0.9 taxonomies will be
-fully functional, complete with proper documentation.
+You can create taxonomies by adding them to `taxonomy.yml`. Basically, taxonomies can be created to create automatic 'groupings' between different content, regardless of their contenttypes. Common examples of taxonomies on websites are 'categories' or 'tags'. In Bolt, taxonomies are a bit more generic: You can define your own taxonomies, and choose how they behave. There are three main types of taxonomy, that are:
 
-Check the template `theme/default/record.twig`, for an example of how to access the taxonomies in your templates.
+  - `tags`: Tags are a sort of 'freeform' labelling. Each record can have several tags, that do not have to be selected from a predefined list. Just add tags, as you go! Examples of websites that use tags extensively are [Flickr](http://www.flickr.com/search/?q=tag%3Akitten) or [Delicious](https://delicious.com/tag/kittens).
+  - `categories`: Categories are chosen pre-defined categorisations for your record. These are often found on weblogging sites, to define the different types of blogpostings. The taxonomy can be limited to either one or more categories for each record.
+  - `grouping`: Grouping is like categories but it is - by definition - more strict. When a grouping applies to a certain record, that record should be viewed as a part of the other records with the same grouping. As such, a record can have only one 'grouping' at most.
+
+The default `taxonomy.yml` has good examples of all three types. Note that each taxonomy has a `behaves_like` value, that defined the type of the taxonomy. If `name` and `singular_name` are omitted, they are generated automatically by Bolt.
+
+<pre class="brush:plain">
+tags:
+    slug: tags
+    singular_slug: tag
+    behaves_like: tags
+
+chapters:
+    slug: chapters
+    singular_slug: chapter
+    behaves_like: grouping
+    options: [ main, meta, other ]
+
+categories:
+    name: Categories
+    slug: categories
+    singular_name: Category
+    singular_slug: category
+    behaves_like: categories
+    multiple: 1
+    options: [ news, events, movies, music, books, life, love, fun ]
+</pre>
+
+Once the taxonomies are added, you need to add them to your contenttypes in `contenttypes.yml`, so you can use them in your content. For example:
+
+<pre class="brush:plain">
+entries:
+    name: Pages
+    singular_name: Page
+    fields:
+        ..
+    taxonomy: chapters
+..
+</pre>
+
+If you'd like to use more than one taxonomy for any contenttype, be sure to use an array:
+
+<pre class="brush:plain">
+pages:
+    ..
+    taxonomy: [ categories, tags ]
+..
+</pre>
+
+After updating your content with taxonomies, you can edit your templates to show the taxonomies it has, and to link to automatically generated listing pages for each taxonomy:
+
+<pre class="brush:html">
+{% if record.taxonomy is defined %}
+    {% for type, values in record.taxonomy %}
+        <em>{{ type }}:</em>
+        {% for value in values %}
+                <a href="{{ paths.root }}{{ type }}/{{ value }}">{{ value }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+        {% if not loop.last %} - {% endif %}
+    {% endfor %}
+{% endif %}
+</pre>
+
+If you'd like to show only one specific taxonomy, for example 'tags', use something like this:
+
+<pre class="brush:html">
+{% if record.taxonomy.tags is defined %}
+    {% for tag in record.taxonomy.tags %}
+        {{ tag }}{% if not loop.last %}, {% endif %}
+    {% endfor %}
+{% endif %}
+</pre>
+
+<p class="note"><strong>Note:</strong> Before Bolt 1.0 is released, it'll be possible to create one-to-one and one-to-
+many relationships between records. The record object will provide access to records that are related to it.</p>

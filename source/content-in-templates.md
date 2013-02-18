@@ -150,8 +150,7 @@ with. This is where the `fieldkey()` function comes in handy:
 </pre>
 
 
-<p class="note"><strong>Note:</strong> Before Bolt 1.0 is released, it'll be possible to create one-to-one and one-to-
-many relationships between records. The record object will provide access to records that are related to it.</p>
+<p class="note"><strong>Note:</strong> To create connections between different records of the same or different contenttypes, see the page on [Relations and Taxonomies](/taxonomies).</p>
 
 
 Using {{ records }}
