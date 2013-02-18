@@ -20,8 +20,14 @@ inside the included templates.
 
 For more information, see [include](http://twig.sensiolabs.org/doc/tags/include.html)
 
+Filter: localdate
+-----------------
+
+
+
+
 Filter: link
---------------
+------------
 
 Create a link to the current record.
 
