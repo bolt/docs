@@ -167,6 +167,3 @@ If you'd like to show only one specific taxonomy, for example 'tags', use someth
     {% endfor %}
 {% endif %}
 </pre>
-
-<p class="note"><strong>Note:</strong> Before Bolt 1.0 is released, it'll be possible to create one-to-one and one-to-
-many relationships between records. The record object will provide access to records that are related to it.</p>
