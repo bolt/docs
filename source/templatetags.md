@@ -23,7 +23,49 @@ For more information, see [include](http://twig.sensiolabs.org/doc/tags/include.
 Filter: localdate
 -----------------
 
+Outputs a localised, readable version of a timestamp, based on the `locale` setting in the `config.yml`-file. See the [Locales](/locales) page for more information on locales.
 
+In Bolt dates are stored with each record for the date the record was created, when it was last edited, and optionally when it was published. These dates are stored in a way that makes it easier for the database to work with them when it comes to sorting or selecting a specific period. They look like: `2013-02-18 09:41:10`, which isn't suitable to output on the website itself. The localdate filter transforms the ugly timestamp to a readable, localised text. Examples:
+
+<pre class="brush: html">
+    '{{ record.datepublish }}' is the same as 
+    '{{ record.datepublish|localdate("%A %B %e") }}'
+</pre>
+
+Outputs: 
+
+  - '2012-12-05 06:51:16' is the same as 'mánudagur desember 5', if your locale is set to `is_IS`,  or
+  - '2012-12-05 06:51:16' is the same as 'Monday December 5', if it's set to `en_GB`. Note that it correctly uses capitals according to the chosen language's conventions. 
+
+Some other examples: 
+
+<pre class="brush:html">
+&lt;ul>
+    &lt;li> Created: {{ record.datecreated|localdate("%c") }}&lt;/li>
+    &lt;li> Published: {{ record.datepublish|localdate("The %A in week %V of %Y") }}&lt;/li>
+    &lt;li> Last changed: {{ record.datechanged|localdate("%B %e, %Y %r ") }}&lt;/li>
+&lt;/ul>
+</pre>
+
+Outputs: 
+
+  - Created: Fri 9 Nov 10:55:19 2012
+  - Published: The Sunday in week 07 of 2013
+  - Last changed: February 17, 2013 01:09:30 pm
+
+The `localdate`-filter uses the PHP `strftime()` function internally. For all possible options, see the official [strftime()](http://php.net/manual/en/function.strftime.php) page on php.net. 
+
+
+Filter: date
+------------
+
+<pre class="brush: html">
+{{ content.datecreated|date("M d, ’y")}}
+</pre>
+
+See the various options for 'date' on the [PHP website](http://nl3.php.net/manual/en/function.date.php).
+
+<p class="note"><strong>Note:</strong> This tag does <em>not</em> display a localised version of the date. Use the <code>{{ localdate }}</code>-filter if you want to display dates in other languages than english.</p>
 
 
 Filter: link
@@ -135,15 +177,6 @@ If we didn't add the `raw` modifier, all '<' and '>' characters in the body woul
 respectively. If 'body' is an HTML field in our contenttype, we want it to be output as normal HTML, so we have to add
 the `raw` modifier.
 
-
-Filter: date
-------------
-
-<pre class="brush: html">
-{{ content.datecreated|date("M d, ’y")}}
-</pre>
-
-See the various options for 'date' on the [PHP website](http://nl3.php.net/manual/en/function.date.php).
 
 
 Variable: app
