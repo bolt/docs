@@ -56,6 +56,7 @@ $menu = array(
     'menus' => "Using menus",
     'extensions' => "Creating Bolt Extensions",
     'internals' => "Bolt Internals",
+    'locales' => "Locales",
 //    'snippets' => "Twig Code snippets",
 	'credits' => "Credits and Contributing",
     'roadmap' => "Roadmap"
