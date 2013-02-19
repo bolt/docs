@@ -32,7 +32,7 @@ All access to the content and the contentypes is done through the Storage class.
 Bootstrapping
 -------------
 <<<<<<< HEAD
-As mentioned before, Bolt is a Silex application. As such, it is a good idea to familiarize yourself with Silex, because when hacking the code or creating your own extenions, you can basically do whatever can be done in Silex in general. In the Bolt code, there is an ubiquitous `$app`, which is an instance of `Bolt\Application`, which extends `\Silex\Application`. Basically, this is 'the application', and most of the components that are used in Bolt are created as services via Dependancy Injection. If you want to know more about these subjects, we heartily recommend these articles about Dependency Injection: 
+As mentioned before, Bolt is a Silex application. As such, it is a good idea to familiarize yourself with Silex, because when hacking the code or creating your own extenions, you can basically do whatever can be done in Silex in general. In the Bolt code, there is an ubiquitous `$app`, which is an instance of `Bolt\Application`, which extends `\Silex\Application`. Basically, this is 'the application', and most of the components that are used in Bolt are created as services via Dependancy Injection. If you want to know more about these subjects, we heartily recommend these articles about Dependency Injection:
 =======
 As mentioned before, Bolt is a Silex application. In the code, there is an ubiquitous `$app`, which is an instance of `\Bolt\Application`, which extends the `\Silex\Aplication` class. Basically, this is 'the application', and most of the components that are used in Bolt are created as services via Dependancy Injection. If you want to know more about these subjects, we heartily recommend these articles about Dependency Injection:
 >>>>>>> Wokring on docs for internals.
@@ -131,11 +131,35 @@ The path variables are also accessible in your templates:
     {{ print(paths) }}
 </pre>
 
+A sample printout of the 'paths' might look like this:
+
+<pre class="brush: plain">
+arr(17)
+[
+    "hostname"     => str(14) "bolt.localhost"
+    "root"         => str(1) "/"
+    "rootpath"     => str(29) "/var/www/bolt"
+    "theme"        => str(17) "/theme/base-2013/"
+    "themepath"    => str(45) "/var/www/bolt/theme/base-2013"
+    "app"          => str(5) "/app/"
+    "apppath"      => str(33) "/var/www/bolt/app"
+    "bolt"         => str(6) "/bolt/"
+    "async"        => str(7) "/async/"
+    "files"        => str(7) "/files/"
+    "filespath"    => str(35) "/var/www/bolt/files"
+    "canonical"    => str(14) "bolt.localhost"
+    "current"      => str(22) "/entry/age-sane-inquam"
+    "hosturl"      => str(21) "http://bolt.localhost"
+    "rooturl"      => str(22) "http://bolt.localhost/"
+    "canonicalurl" => str(43) "http://bolt.localhost/entry/age-sane-inquam"
+    "currenturl"   => str(43) "http://bolt.localhost/entry/age-sane-inquam"
+]
+</pre>
 
 
 ### $app['db']
 
-The 'db' object is Doctrine Database Abstraction Layer object. Use it to query stuff in the database. Because of the DBAL, you don't need to worry about whether the site is set up as MySQL, Postgres or SQLite. Just make sure to use SQL/DQL that Doctrine understands. For more information, see this page on the Doctrine DBAL: [Data Retrieval And Manipulation](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html)
+The 'db' object is a Doctrine Database Abstraction Layer object. Use it to query "stuff" in the database. Because of the DBAL, you don't need to worry about whether the site is set up as MySQL, Postgres or SQLite. Just make sure to use SQL/DQL that Doctrine understands. For more information, see this page on the Doctrine DBAL: [Data Retrieval And Manipulation](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html)
 
 Example:
 
@@ -147,7 +171,7 @@ $stmt->bindValue(1, $value);
 $stmt->bindValue(2, $id);
 $res = $stmt->execute();
 
-echo "Result was: " . var_dump($res);
+echo "Result was: " . \util::var_dump($res);
 </pre>
 
 Check `app/src/Bolt/Storage.php` for a lot of examples using the DBAL.
