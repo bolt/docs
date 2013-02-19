@@ -15,5 +15,4 @@ If you have more than one menu, use its name to make sure you get the intended o
 </pre>
 
 For now, the menu is always rendered using the template
-`/app/view/_sub_menu.twig`. In one of the upcoming betas, this will be made
-configurable.
+`/app/theme_defaults/_sub_menu.twig`. if you wish to modify this file, just copy it to your own theme folder. Bolt will pick your own version, and then it will not be overwritten in a future update.
