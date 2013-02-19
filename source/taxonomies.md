@@ -167,3 +167,5 @@ If you'd like to show only one specific taxonomy, for example 'tags', use someth
     {% endfor %}
 {% endif %}
 </pre>
+
+<p class="note"><strong>Note:</strong> If you'd like to just display the 'default' taxonomies in your templates, you can use this to include it: <code>{% include '_sub_taxonomylinks.twig' with {record: record} %}</code>.</p>
