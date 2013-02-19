@@ -58,6 +58,7 @@ $menu = array(
     'internals' => "Bolt Internals",
     'locales' => "Locales",
 //    'snippets' => "Twig Code snippets",
+    'nut' => "Nut (command line utility)",
 	'credits' => "Credits and Contributing",
     'roadmap' => "Roadmap"
 	);
