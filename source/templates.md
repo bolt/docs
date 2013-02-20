@@ -31,14 +31,16 @@ can override it using the configuration settings.
 The current default theme contains the following files and folders:
 
   - `index.twig` - template frontpage of the website.
-  - `entry.twig` - template for a single Entry.
-  - `page.twig` - template for a single Page.
-  - `error.twig` - template for displaying errors (including 404's).
+  - `entry.twig` - template for a single 'Entry'.
+  - `listing.twig` - Template for displaying listings, like 'latest pages', but also taxonomy overview pages.
+  - `record.twig` - template for a 'generic' Record page, if the content type has no template specified.
+  - `searchresults.twig` - template for displaying search results.
   - `_aside.twig` - helper template that gets included as the sidebar.
   - `_header.twig` - same, but for the header.
-  - `_header.twig` - same, but for the footer.
-  - `js/` - a folder with some javascript files.
-  - `css/` - .. and similarly, some css files.
+  - `_footer.twig` - same, but for the footer.
+  - `_recordfooter.twig`, `_sub_menu.twig`, `_sub_searchbox.twig` - small utility files, that are included in the other templates
+  - `javascripts/` - a folder with some javascript files.
+  - `stylesheets/` - .. and similarly, some css files.
 
 The filenames of the 'helper' templates all start with an underscore. This is just a convention, to make it easier to
 recognize which template does what. If one of your contenttypes have a 'template select' field, Bolt will skip these
