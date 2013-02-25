@@ -1,8 +1,8 @@
 Creating menus
 ==============
 
-Bolt has built-in functionality to create menu's in your frontend templates. Using this functionality, you can define
-one or more menu's in the file `app/config/menu.yml`, which can then be inserted in your templates using the `{{ menu()
+Bolt has built-in functionality to create menus in your frontend templates. Using this functionality, you can define
+one or more menus in the file `app/config/menu.yml`, which can then be inserted in your templates using the `{{ menu()
 }}` tag.
 
 To change one or more of the menus, edit the file `app/config/menu.yml`. You can add more seperate menus, if you wish,
@@ -26,12 +26,20 @@ main:
 
 In this case `main` is the name of the menu. The options are:
 
-  - `label` - override the 'title' of the record with a defined label. If omitted, the 'title' of the record is used.
-  - `title` - used as a 'title'-attribute in the rendered HTML. If omitted this can be substituted for the `subtitle`-field in a record.
+  - `label` - override the 'title' of the record with a defined label. If
+    omitted, the 'title' of the record is used.
+  - `title` - used as a 'title'-attribute in the rendered HTML. If omitted this
+    can be substituted for the `subtitle`-field in a record.
   - `class` - used to define an HTML `class`-attribute
-  - `path` - The 'path' to a record in Bolt, or a group of records. For example `path: page/about` will make this item link to a record of type 'page' with the slug 'about'. `path: page/1` will link to the 'page' with id '1'. `path: entries` will link to the `/entries` overview page.
-  - `link` - define an external link to another site. For example `link: http://bolt.cm`. Do not use `link` together with `path`!
-  - `submenu` - defines a submenu. In the submenu you can define other items, with the same options as before.
+  - `path` - The 'path' to a record in Bolt, or a group of records. For example
+    `path: page/about` will make this item link to a record of type 'page' with
+    the slug 'about'. `path: page/1` will link to the 'page' with id '1'. `path:
+    entries` will link to the `/entries` overview page.
+  - `link` - define an external link to another site. For example `link:
+    http://bolt.cm`. Do not use `link` together with `path`!
+  - `submenu` - defines a submenu. In the submenu you can define other items,
+    with the same options as before.
+
 
 
 To insert a menu in your templates, use
@@ -59,14 +67,14 @@ Doing this will render the menu `foo`, using the template `_menu_foo.twig`. The 
 practice to prefix it with `_menu`, so it's always easily recognizable later, or to other people working with your HTML.
 
 <p class="note"><strong>Note:</strong> You can define more than one menu in your <code>menu.yml</code> file, but you
-should define <em>only one</em> menu in each template file. So, if you have multiple menu's that should be rendered with
+should define <em>only one</em> menu in each template file. So, if you have multiple menus that should be rendered with
 different HTML, you should have as many <code>_menu_<em>menuname</em>.twig</code> files in your theme.</p>
 
 
 A detailed example
 ------------------
 
-In this section we'll show you a somewhat more elaborate example of how you can create a menu, with submenu's. First,
+In this section we'll show you a somewhat more elaborate example of how you can create a menu, with submenus. First,
 start by adding a small menu to your `app/config/menu.yml`-file:
 
 <pre class="brush: plain">
@@ -80,7 +88,7 @@ test:
 </pre>
 
 As you can probably guess, this menu does nothing but provide links to three external websites. To get started, edit the
-template where you want this menu. Usually, menu's are used in 'headers', 'footers' or 'aside' includes, but you can use
+template where you want this menu. Usually, menus are used in 'headers', 'footers' or 'aside' includes, but you can use
 them anywhere. For now, just insert this code, somewhere:
 
 <pre class="brush: html">
@@ -193,11 +201,11 @@ The output in HTML might look like this now:
 &lt;/ul>
 </pre>
 
-That's basically all there's to it. Since the menu's use standard Twig tags, we
+That's basically all there's to it. Since the menus use standard Twig tags, we
 can enhance the lists with extra features, to automatically give special classes
 to the first or last item, or highlight the 'current' page.
 
-Some of the more commonlu used 'tricks' are:
+Some of the more commonly used 'tricks' are:
 
   - `index-{{ loop.index }}` - Add the current index of the loop, like
     'index-1', 'index-2', etc.
@@ -215,7 +223,7 @@ Some of the more commonlu used 'tricks' are:
     `.yml`-file.
 
 See the default `/app/theme_defaults/_menu_default.twig` file for an in-depth
-example of all of the things you can do with menu's. Remember that you should
+example of all of the things you can do with menus. Remember that you should
 always copy this file to your own theme folder, or create your own from scratch.
 If you modify the default file, it will most likely get overwritten when you
 update Bolt to a newer version.
