@@ -162,6 +162,37 @@ You can specify three parameters: the width, height, and the mode of cropping. B
     &lt;img src="{{ content.photo|image(100, 100, "r") }}">
 </pre>
 
+Tag: fancybox
+-------------
+
+Use this tag to insert an image in the HTML, which functions as a Fancybox popup. You can optionally provide the width, height and cropping parameters, like you can do with the `thumbnail`-tag.
+
+<pre class="brush: html">
+    {{ record.photo|fancybox(100, 100, "r") }}">
+    or
+    {{ fancybox("2013-03/foo.jpg", 100, 100) }}">
+</pre>
+
+Note that you should include the fancybox `.js` and `.css` yourself.
+
+<pre class="brush: html">
+    &lt;script src="{{ paths.app }}view/lib/fancybox/jquery.fancybox.pack.js">&lt;/script>
+    &lt;link rel="stylesheet" type="text/css" href="{{ paths.app }}view/lib/fancybox/jquery.fancybox.css">
+</pre>
+
+Tag: showimage
+-------------
+
+Use this tag to insert an image in the HTML. You can optionally provide the width, height and cropping parameters, like you can do with the `thumbnail`-tag.
+
+<pre class="brush: html">
+    {{ record.photo|sowimage(800, 600) }}">
+    or
+    {{ sowimage("2013-03/foo.jpg", 800, 600) }}">
+</pre>
+
+Note that you should include the fancybox `.js` and `.css` yourself.
+
 
 Filter: raw
 -----------
