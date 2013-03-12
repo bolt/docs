@@ -154,9 +154,14 @@ Use this modifier to create a link to an image of your choosing. For example:
     &lt;img src="{{ content.photo|image }}">
 </pre>
 
-If `content.photo` is an image in your `files/` folder, like `2012-11/foo.jpg`, this modifier will output a link like `/files/2012-11/foo.jpg`. This is useful for creating absolute links to an image, regardless of whether Bolt is installed in the root of your domain, a subdomain or a folder.
+If `content.photo` is an image in your `files/` folder, like `2012-11/foo.jpg`, 
+this modifier will output a link like `/files/2012-11/foo.jpg`. This is useful 
+for creating absolute links to an image, regardless of whether Bolt is installed 
+in the root of your domain, a subdomain or a folder.
 
-You can specify three parameters: the width, height, and the mode of cropping. By doing so, the image will be resized, and it behave exactly like the [thumbnail filter](#filter-thumbnail).
+You can specify three parameters: the width, height, and the mode of cropping. 
+By doing so, the image will be resized, and it behave exactly like the 
+[thumbnail filter](#filter-thumbnail).
 
 <pre class="brush: html">
     &lt;img src="{{ content.photo|image(100, 100, "r") }}">
@@ -165,7 +170,9 @@ You can specify three parameters: the width, height, and the mode of cropping. B
 Tag: fancybox
 -------------
 
-Use this tag to insert an image in the HTML, which functions as a Fancybox popup. You can optionally provide the width, height and cropping parameters, like you can do with the `thumbnail`-tag.
+Use this tag to insert an image in the HTML, which functions as a Fancybox popup. 
+You can optionally provide the width, height and cropping parameters, like you can 
+do with the `thumbnail`-tag.
 
 <pre class="brush: html">
     {{ record.photo|fancybox(100, 100, "r") }}">
@@ -183,7 +190,8 @@ Note that you should include the fancybox `.js` and `.css` yourself.
 Tag: showimage
 -------------
 
-Use this tag to insert an image in the HTML. You can optionally provide the width, height and cropping parameters, like you can do with the `thumbnail`-tag.
+Use this tag to insert an image in the HTML. You can optionally provide the width, 
+height and cropping parameters, like you can do with the `thumbnail`-tag.
 
 <pre class="brush: html">
     {{ record.photo|sowimage(800, 600) }}">
@@ -193,21 +201,81 @@ Use this tag to insert an image in the HTML. You can optionally provide the widt
 
 Note that you should include the fancybox `.js` and `.css` yourself.
 
+Tag: redirect
+-------------
+
+Use this tag to redirect from a page to another page or domain. Commonly used in 
+an if/else clause, to redirect visitors based on some criteria. 
+
+<pre class="brush: html">
+    {% if record.image!="" %}
+        &lt;a href="{{ image(record.image) }}">
+            &lt;img src="{{ thumbnail(record.image, 400, 260) }}">
+        &lt;/a>
+    {% else %}
+        {# passive-aggressive way to tell people to find their own image #}
+        {{ redirect('http://http://images.google.com/') }}
+    {% endif %}
+</pre>
+
+<pre class="brush: html">
+    {% setcontent records = "pages/latest/5" %}
+    {% for record in records %}
+
+        &lt;h2>&lt;a href="{{ record.link }}">{{ record.title }}&lt;/a>&lt;/h2>
+        &lt;p>{{ record.excerpt() }}&lt;/p>
+
+    {% else %}
+
+        {{ redirect(paths.root) }} or {{ redirect('page/some-page') }}
+
+    {% endfor %}
+  </pre>
 
 Filter: raw
 -----------
 
-If the content contains HTML-fields, they will be rendered with escaped characters by default. If you want to use the
+If the content contains HTML-fields, they will be rendered with escaped characters 
+by default. If you want to use the
 HTML as-is, add the raw modifier:
 
 <pre class="brush: html">
 	{{ page|raw }}
 </pre>
 
-If we didn't add the `raw` modifier, all '<' and '>' characters in the body would be output as '&amp;lt;' and '&amp;gt;'
-respectively. If 'body' is an HTML field in our contenttype, we want it to be output as normal HTML, so we have to add
+If we didn't add the `raw` modifier, all '<' and '>' characters in the body would 
+be output as '&amp;lt;' and '&amp;gt;'
+respectively. If 'body' is an HTML field in our contenttype, we want it to be 
+output as normal HTML, so we have to add
 the `raw` modifier.
 
+Filter: order
+-------------
+
+In most cases the results of `{% setcontent %}` or `{{ record.related() }}` are in the desired order. In some cases you might want to reorder them, by using the `order`-filter. The filter takes one parameter: the name of the field you wish to order the results on:
+
+<pre class="brush: html">
+    {% set relatedrecords = record.related() %}
+    &lt;p class="meta">Related content:
+        &lt;ul>
+        {% for related in relatedrecords|order('datepublish') %}
+            &lt;li>&lt;a href="{{ related.link }}">{{ related.title }}&lt;/a>&lt;/li>
+        {%  endfor %}
+        &lt;/ul>
+    &lt;/p>
+</pre>
+
+or: 
+
+<pre class="brush: html">
+    {# get the 10 latest entries by date, but sort them on the title field %}
+    {% setcontent entries = "entries/latest/10" %}
+    &lt;ul>
+    {% for entry in entries|order('title') %}
+        &lt;li>&lt;a href="{{ entry.link }}">{{ entry.title }}&lt;/a>&lt;/li>
+    {%  endfor %}
+    &lt;/ul>
+</pre>
 
 
 Variable: app
@@ -278,7 +346,7 @@ Tag: for
 &lt;/ul>
 </pre>
 
-Function: print()
+Tag: print()
 -----------------
 
 <pre class="brush: html">
