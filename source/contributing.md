@@ -1,0 +1,84 @@
+Contributing to Bolt code or docs
+=================================
+
+Whether your a user of Bolt, a developer or both: contributing to Bolt is easy!
+This document shows what you can contribute and how to contribute to make it an even better
+product!
+
+How you can contribute
+----------------------
+
+- Discuss topics on the [wiki](https://github.com/bolt/bolt/wiki)
+- Comment on, or add [issues](https://github.com/bolt/bolt/issues?state=open)
+- Contribute docs to [bolt-docs](https://github.com/bolt/bolt-docs).
+- Contribute code to [bolt](https://github.com/bolt/bolt)
+- Write [extensions](https://github.com/bolt/bolt-docs/blob/master/source/extensions.md)
+
+Contributing docs or code
+-------------------------
+
+Basically this comes down to forking, branching and issueing pull requests. For some background information your can read this [help/manual](https://help.github.com/articles/fork-a-repo) of Github.
+
+Fixing particular issues
+------------------------
+
+When you're going to work on a particular issue, be sure to make a separate branch for it as this allows for better separation between the issues you're working on. This also helps us analyzing pull requests and we simply cannot accept pull requests with a lot of fixes running across each other.
+We try to work in the following way (which is pretty common on Github projects):
+
+- Branch the repo you're basing the fix on. (This is often the master branch). A commonly used name for branches looks like `"issue-<issue number>-<issue title>"`. This can then easily be identified.
+- Fix the issue and commit the files to your created branch. If needed, you can [refer](https://github.com/blog/831-issues-2-0-the-next-generation) (see the supported synonyms or use `#<issue number>` to just refer to issues) to Github issue numbers in your commit message.
+- Push the branch to your own github account.
+- Go to your github account, switch to the branch you pushed and look for the pull request button.
+- Double-check if the changed files are correct.
+- Fill in a descriptive title and a description. In this field you can also refer to issues in the same way as in commits, shown above.
+- Now the waiting begins until your pull request is reviewed. This will result in the pull request either being discussed, accepted or rejected.
+
+Step by step guide to forking, branching and pushing
+----------------------------------------------------
+
+If you didn't get it yet how to fork, branch and push your fix, here's a step by step guide:
+This example assumes that you have a github account and uses the **bolt code repository**. The commands also hold for the other repositories. The only thing which should be changed is the repository url. The steps cover this [help/manual](https://help.github.com/articles/fork-a-repo) of Github.
+Lines starting with # are comments, lines with $ are commands which you need to execute in your terminal.
+
+	# Step 1: Go to https://github.com/bolt/bolt and click the fork button
+	#         You now have your own bolt repository, named <your github username>/bolt
+	#         In my case this is pvankouteren/bolt
+	# Step 2: You now need to clone the project from your personal repository to your local 
+	#		   machine to be able to work on it. Open up a terminal and navigate to the folder 
+	#		   you'd like to put your project in.
+	# 		   Clone the repository to your machine, like so:
+	
+	$ git clone https://github.com/<your github username>/bolt.git
+	
+	# 		   Enter the project you've just cloned by changing to the folder just created:
+	
+	$ cd bolt
+	
+	# Step 3: Now you're in the project folder, you have a git root here. 
+	#         This is not visible by default.
+	#		  You now need to configure the bolt repository to be the source you want to get
+	#		  updates from. This is a remote repository called the 'upstream'. 
+	#		  Add the upstream like so:
+	
+	$ git remote add upstream https://github.com/bolt/bolt.git
+	
+	#		  You can now update your local version of bolt with the latest version of bolt of 
+	#		  the official repository by fetching the code from the 'upstream' you've just
+	#		  added.
+	
+	$ git fetch upstream
+	
+	#		  Now that the latest data is downloaded, you need to merge them in your own
+	#		  branch. If you're stepping through this, the following command is okay for now:
+	
+	$ git merge upstream/master
+	
+	#		  The changes have now been applied and you've got the latest version of bolt.
+	# Step 4: Although this isn't that useful, you can now push this version to your own 
+	#		  Github account like so:
+	
+	$ git push origin master
+	
+	#		  Where 'master' stands for your local branch (it is called the 'master' branch)
+	#		  and origin is the repository you've cloned from, which is your own Github repo.
+	
