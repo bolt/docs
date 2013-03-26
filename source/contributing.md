@@ -55,7 +55,7 @@ Lines starting with # are comments, lines with $ are commands which you need to 
 	$ cd bolt
 	
 	# Step 3: Now you're in the project folder, you have a git root here. 
-	#         This is not visible by default.
+	#         This root is in a hidden folder '.git/'.
 	#		  You now need to configure the bolt repository to be the source you want to get
 	#		  updates from. This is a remote repository called the 'upstream'. 
 	#		  Add the upstream like so:
@@ -81,4 +81,32 @@ Lines starting with # are comments, lines with $ are commands which you need to 
 	
 	#		  Where 'master' stands for your local branch (it is called the 'master' branch)
 	#		  and origin is the repository you've cloned from, which is your own Github repo.
+	# Step 5: Branching
+	#		  When you're ready to take on an issue, you should create a branch. If you're
+	#		  creating a branch of your master branch, make sure it's up to date (step 3).
+	#		  Let's say we want to take on issue #123 called "create login form". A branch name
+	#	      which can easily be identified would be "issue-123-create-login-form". You can 
+	#		  create it like so:
 	
+	$ git branch issue-123-create-login-form
+	
+	#		  You're now working in a branch. Any commit you do while you're in this branch 
+	#		  will be done in this branch.
+	#
+	# Step 6: When you're done fixing, you can push your branch to a **new** branch in your
+	#         Github repository by pushing your branch 'issue-123-create-login-form' to a
+	#         new branch 'issue-123-login-form' to the destination 'origin' (your Github repo):
+
+	$ git push origin issue-123-create-login-form:issue-123-create-login-form
+
+	# Step 7: Go to the right repository (here: `<your github username>/bolt`) and switch to
+	#         the branch 'issue-123-create-login-form'. Then find the pull request button to
+	#         create a pull request. In the pull request screen, you can do three things:
+	#         you can view your commits, the changed files and fill in a title and description.
+	#         First double-check if the changed files are the ones you've changed and want to
+	#         contribute. (You can check the commits as well if you like to). Then fill in a
+	#         descriptive title and a description.
+	# Step 8: When your pull request has been accepted and merged, you can delete the branch
+	#         'issue-123-create-login-form' as the files are now part of the 'upstream'
+	#         repository of bolt. This means that you and the rest of the world automatically
+	#         get those files when updating from upstream (`git fetch upstream` and merging it)
