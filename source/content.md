@@ -253,7 +253,8 @@ Most fields have a few extra optional values, to further customize them.
   - `label: Foo`: If omitted, the name of the field will be used as a label in the edit-screen. Replace 'Foo' with the
     desired label of the field.
   - `height: 150px`: For `html` and `textarea` fields, this will determine the height in the edit-screen.
-  - `index: true`: Add a database index for this field, only add if you know what this means. Does not work on `html`, `textarea`, `video`, `markdown`, `geolocation` and `imagelist`. [added in 1.1]
+  - `index: true`: Add a database index for this field, only add if you know what this means.
+    Does not work on `html`, `textarea`, `video`, `markdown`, `geolocation` and `imagelist`. [added in 1.1]
 
 Sometimes it can be beneficial to add some extra text, labels or other markup to how a field is displayed in the Bolt backend, when editing a record. You can use the optional `prefix` and `postfix` values to add some markup before or after a field. For example:
 
