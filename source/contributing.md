@@ -17,7 +17,7 @@ How you can contribute
 Contributing docs or code
 -------------------------
 
-Basically this comes down to forking, branching and issueing pull requests. For some background information your can read this [help/manual](https://help.github.com/articles/fork-a-repo) of Github.
+Basically this comes down to forking, branching and issuing pull requests. For some background information your can read this [help/manual](https://help.github.com/articles/fork-a-repo) of Github.
 
 Fixing particular issues
 ------------------------
@@ -27,8 +27,8 @@ We try to work in the following way (which is pretty common on Github projects):
 
 - Branch the repo you're basing the fix on. (This is often the master branch). A commonly used name for branches looks like `"issue-<issue number>-<issue title>"`. This can then easily be identified.
 - Fix the issue and commit the files to your created branch. If needed, you can [refer](https://github.com/blog/831-issues-2-0-the-next-generation) (see the supported synonyms or use `#<issue number>` to just refer to issues) to Github issue numbers in your commit message.
-- Push the branch to your own github account.
-- Go to your github account, switch to the branch you pushed and look for the pull request button.
+- Push the branch to your own Github account.
+- Go to your Github account, switch to the branch you pushed and look for the pull request button.
 - Double-check if the changed files are correct.
 - Fill in a descriptive title and a description. In this field you can also refer to issues in the same way as in commits, shown above.
 - Now the waiting begins until your pull request is reviewed. This will result in the pull request either being discussed, accepted or rejected.
@@ -37,20 +37,20 @@ Step by step guide to forking, branching and pushing
 ----------------------------------------------------
 
 If you didn't get it yet how to fork, branch and push your fix, here's a step by step guide:
-This example assumes that you have a github account and uses the **bolt code repository**. The commands also hold for the other repositories. The only thing which should be changed is the repository url. The steps cover this [help/manual](https://help.github.com/articles/fork-a-repo) of Github.
+This example assumes that you have a Github account and uses the **bolt code repository**. The commands also hold for the other repositories. The only thing which should be changed is the repository url. The steps cover this [help/manual](https://help.github.com/articles/fork-a-repo) of Github.
 Lines starting with # are comments, lines with $ are commands which you need to execute in your terminal.
 
 	# Step 1: Go to https://github.com/bolt/bolt and click the fork button
 	#         You now have your own bolt repository, named <your github username>/bolt
 	#         In my case this is pvankouteren/bolt
 	# Step 2: You now need to clone the project from your personal repository to your local 
-	#		   machine to be able to work on it. Open up a terminal and navigate to the folder 
-	#		   you'd like to put your project in.
-	# 		   Clone the repository to your machine, like so:
+	#		  machine to be able to work on it. Open up a terminal and navigate to the folder
+	#		  you'd like to put your project in.
+	# 		  Clone the repository to your machine, like so:
 	
 	$ git clone https://github.com/<your github username>/bolt.git
 	
-	# 		   Enter the project you've just cloned by changing to the folder just created:
+	# 		  Enter the project you've just cloned by changing to the folder just created:
 	
 	$ cd bolt
 	
@@ -99,7 +99,7 @@ Lines starting with # are comments, lines with $ are commands which you need to 
 
 	$ git push origin issue-123-create-login-form:issue-123-create-login-form
 
-	# Step 7: Go to the right repository (here: `<your github username>/bolt`) and switch to
+	# Step 7: Go to the right repository (here: '<your github username>/bolt') and switch to
 	#         the branch 'issue-123-create-login-form'. Then find the pull request button to
 	#         create a pull request. In the pull request screen, you can do three things:
 	#         you can view your commits, the changed files and fill in a title and description.
