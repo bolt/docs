@@ -249,7 +249,8 @@ Most fields have a few extra optional values, to further customize them.
 
   - `class: large`: Will show the field in a larger font, for `text` fields.
   - `class: wide`: Will show the field extra wide, for filling out the column. For `text` fields only.
-  - `class: narrow`: Will show the field extra wide, for filling out the column. For `text` fields only.
+  - `class: narrow`: Will show the field narrow, for fields that should take only a couple of characters. For `text` fields only.
+  - `variant: inline`: Will show the field to the right of the label, taking up less spave vertically. For `text` fields only.
   - `label: Foo`: If omitted, the name of the field will be used as a label in the edit-screen. Replace 'Foo' with the
     desired label of the field.
   - `height: 150px`: For `html` and `textarea` fields, this will determine the height in the edit-screen.
