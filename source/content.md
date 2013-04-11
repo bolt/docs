@@ -232,6 +232,13 @@ The following fields are available:
   - `slug`: Even though the slug is a fixed field, you can include it in the fields list, so that it can be customized.
     Add a `uses: title` value to specify the field it should use to automatically generate a suited slug from the title
     (or another field).
+    It's also possible to specify multiple fields to use, these values will be concatenated and used for the slug. Syntax
+    for multiple fields: 
+<pre class="brush: plain">
+    slug:
+        type: slug
+        uses: [field1,field2]
+</pre>
   - `image`: Simple image upload/select field.
   - `imagelist`: A field to create a list of images. Useful for slideshows and imagesliders.
   - `file`: Simple image upload/select field.
