@@ -106,6 +106,7 @@ tags:
     slug: tags
     singular_slug: tag
     behaves_like: tags
+    #listing_template: tag-listing.twig #custom template
 
 chapters:
     slug: chapters
