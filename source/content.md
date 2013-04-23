@@ -270,7 +270,7 @@ Sometimes it can be beneficial to add some extra text, labels or other markup to
         subtitle:
             type: text
             class: large
-            prefix: "<p>Add a subtitle, if you want.</p>";
+            prefix: "<p>Add a subtitle, if you want.</p>"
             postfix: "<hr>"
 </pre>
 
