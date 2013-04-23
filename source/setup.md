@@ -167,6 +167,18 @@ to the Bolt Backend. You should now see the (empty) Dashboard screen, and you'll
 the built-in Loripsum tool. After you've done this, you should see some dummy
 content, and you're good to go!
 
+Different configs per environment
+---------------------------
+
+When you have multiple environments for the same site, like development/staging/production, you'll want parts of the
+config to be the same, and some different per environment. You'll probably have different database info and debug settings.
+This can be accomplished by splitting the `config.yml` file. Put all settings you shared over all environments in the
+default `config.yml`, you can commit this in your version control system if wanted. Every setting which is different per
+environment, or which you do not want in version control (like database info), you put in `config_local.yml` and this file
+differs per environment and is NOT added to version control. First `config.yml` is loaded and then `config_local.yml`, both
+files are merged so `config_local.yml` can override any setting in `config.yml`. You might disable debug in `config.yml`
+and only in development enable debug in `config_local.yml`.
+
 Apache: Tweaking the .htaccess file
 ---------------------------
 
