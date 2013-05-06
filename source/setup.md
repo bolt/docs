@@ -241,11 +241,11 @@ server {
     index index.php;
 
     location / {
-        try_files $uri $uri/ /index.php$query_string;
+        try_files $uri $uri/ /index.php?$query_string;
     }
 
     location ~* /thumbs/(.*)$ {
-        try_files $uri $uri/ /app/classes/timthumb.php$query_string;
+        try_files $uri $uri/ /app/classes/timthumb.php?$query_string;
     }
 
     location ~* \.(?:ico|css|js|gif|jpe?g|png|ttf|woff)$ {
