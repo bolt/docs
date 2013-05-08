@@ -117,6 +117,10 @@ If you're getting unspecified "Internal Server Errors", the most likely cause is
 file. See [here](#tweaking-the-htaccess-file) for tips.
 If you still encounter errors, check your vhost configuration and be sure that the AllowOverride option is enabled.
 
+<p class="tip"><strong>Tip:</strong> The Bolt backend is located at <code>/bolt</code>, relative from the 'home' 
+location of your website. </p>
+
+
 Configuring the Database
 ------------------------
 

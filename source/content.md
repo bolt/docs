@@ -69,6 +69,10 @@ After you've saved the file and Refresh the Dashboard screen in your browser, yo
 Database needs to be updated. If we do this, the new contenttype will be added to the database, with the fields that we
 defined in our `contenttypes.yml` file.
 
+<p class="tip"><strong>Tip:</strong> The Bolt backend is located at <code>/bolt</code>, relative from the 'home' 
+location of your website. </p>
+
+
 <a href="/files/content-example1.png" class="fancybox"><img src="/files/content-example1.png" width="500"></a>
 
 When you go to Settings > Check Database, the database will be updated, and you'll be given the option to add some
