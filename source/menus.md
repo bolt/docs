@@ -228,3 +228,4 @@ always copy this file to your own theme folder, or create your own from scratch.
 If you modify the default file, it will most likely get overwritten when you
 update Bolt to a newer version.
 
+Normally you will only need the basic properties of each of the menu items, but sometimes you might need to do more with the items. For this reason, each `item` has access to the entire record. You can use `{{ item.record }}` like you would use any other record. For instance, `{{ item.record.taxonomy }}`, or `{{ print(item.record) }}`.
