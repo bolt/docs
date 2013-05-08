@@ -78,11 +78,10 @@ new Contenttype with some example news items. Sweet!
 <a href="/files/content-example2.png" class="fancybox"><img src="/files/content-example2.png" width="500"></a>
 
 <p class="note"><strong>Note:</strong>In the following examples we're going to tell you to make modifications to the
-default theme. This is actually a very bad practice, and if you're going to make your own theme, make a copy of the
-default theme, and do your modifications in the copy.</p>
+default `base-2013` theme. This is actually a very bad practice, and if you're going to make your own theme, make a copy of the
+`base-2013` theme, and do your modifications in the copy.</p>
 
-
-To add a listing of these news items to the website, edit the twig template `theme/default/index.twig`. Most likely,
+To add a listing of these news items to the website, edit the twig template `theme/base-2013/index.twig`. Most likely,
 it'll contain an include for a header and some other things. Add the following to the HTML-code, preferably somewhere
 below the header section:
 
@@ -263,6 +262,9 @@ Most fields have a few extra optional values, to further customize them.
   - `height: 150px`: For `html` and `textarea` fields, this will determine the height in the edit-screen.
   - `index: true`: Add a database index for this field, only add if you know what this means.
     Does not work on `html`, `textarea`, `video`, `markdown`, `geolocation` and `imagelist`. [added in 1.1]
+  - `prefix: ..`: Text to add before the field. See below for an example.
+  - `postfix: ..`: Text to add after the field. See below for an example.
+  - `default: ..`: The default value for a field, if applicable. See below for an example.
 
 Sometimes it can be beneficial to add some extra text, labels or other markup to how a field is displayed in the Bolt backend, when editing a record. You can use the optional `prefix` and `postfix` values to add some markup before or after a field. For example:
 
@@ -275,6 +277,8 @@ Sometimes it can be beneficial to add some extra text, labels or other markup to
 </pre>
 
 As you can see, using `postfix: "<hr>"` gives a simple and effective way of adding a divider in the edit screen.
+
+When you want to give a record a default value, use `default:`. For most fields this will set the initial value of the field, when you're creating a new record of this contenttype. For `date` and `datetime` fields, the value is passed through [strtotime](php.net/manual/en/function.strtotime.php), meaning that you can use a fixed date as default, like "1900-01-01 12:00:00", but also relative dates like "first day of this month", "next monday" or "yesterday".
 
 The structure of a Record
 -------------------------
