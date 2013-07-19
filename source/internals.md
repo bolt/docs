@@ -49,7 +49,7 @@ articles about Dependency Injection:
   - [What is Dependency Injection?](http://fabien.potencier.org/article/11/what-is-dependency-injection)
 
 In Bolt, this `$app` will be available in the majority of the code, and so are all of the services, libraries and
-ariables that are part of the application.
+variables that are part of the application.
 
 All of these are created in `app/bootstrap.php`. Read the code in that file, to get a feeling for what can be accessed through the `$app` object. Most of the services definged there are Symfony components, about which you can read on the Silex Documentation page on [Service Providers](http://silex.sensiolabs.org/documentation), or on the [Symfony Components page](http://symfony.com/components). The next largest group are the Bolt components. These can be recognized by the `Bolt\` namespace. These components are autoloaded, and can be found in `app/src/Bolt/`.
 
