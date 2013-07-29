@@ -201,8 +201,8 @@ DirectoryIndex index.php index.html index.htm
 &lt;IfModule mod_rewrite.c>
   RewriteEngine on
 
-  # Some servers require the RewriteBase to be set. If so, set to the correct
-  folder.
+  # Some servers require the RewriteBase to be set.
+  # If so, set to the correct folder.
   # RewriteBase /
   RewriteRule ^thumbs/(.*)?$ ./app/classes/timthumb.php [L]
 
