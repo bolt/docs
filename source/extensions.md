@@ -282,6 +282,37 @@ function twigBar($var1, $var2)
 Since these are just regular Twig functions/filters, you should familiarize yourself with how Twig works. Read the chapter [Extending Twig](http://twig.sensiolabs.org/doc/advanced.html) in the Twig documentation. 
 
 
+Storage Events
+--------------
+
+These events are dispatched when content objects are saved or deleted.
+Currently there are 4 events defined:
+
+  - preSave - called before a content save
+  - postSave - called after a content save
+  - preDelete - called before a content delete
+  - postDelete - called after a content delete
+
+There are no events for specific content types. However you can use the passed \Bolt\StorageEvent to retrieve the following information:
+
+  - $event->getId() - returns the id of the content
+  - $event->getContentType() - returns the content type
+  - $event->getContent() - returns the content (only available in preSave/postSave)
+
+An example to log whenever a content has been saved.
+
+<pre class="brush: php">
+$app['dispatcher']->addListener(\Bolt\StorageEvents::postSave, 'postSave');
+
+function postSave(\Bolt\StorageEvent $event)
+{
+    $entry = date('Y-m-d H:i:s').' '.$event->getContentType().' with id '.$event->getId().' has been saved'."\n";
+    file_put_contents('storage.log', $entry, FILE_APPEND);
+}
+</pre>
+
+
+
 Using your own `config.yml` file
 --------------------------------
 
