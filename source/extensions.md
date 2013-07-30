@@ -282,8 +282,8 @@ function twigBar($var1, $var2)
 Since these are just regular Twig functions/filters, you should familiarize yourself with how Twig works. Read the chapter [Extending Twig](http://twig.sensiolabs.org/doc/advanced.html) in the Twig documentation. 
 
 
-Storage Events
---------------
+Adding storage events
+---------------------
 
 These events are dispatched when content objects are saved or deleted.
 Currently there are 4 events defined:
@@ -297,7 +297,7 @@ There are no events for specific content types. However you can use the passed \
 
   - $event->getId() - returns the id of the content
   - $event->getContentType() - returns the content type
-  - $event->getContent() - returns the content (only available in preSave/postSave)
+  - $event->getContent() - returns the content object (only available in preSave/postSave)
 
 An example to log whenever a content has been saved.
 
