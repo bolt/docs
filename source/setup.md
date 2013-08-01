@@ -193,7 +193,10 @@ index.php, so it can be handled by Bolt. By default, the file looks like this:
 # Set the default handler.
 DirectoryIndex index.php index.html index.htm
 
-&lt;FilesMatch "\.(yml)$">
+# Prevent directory listing
+Options -Indexes
+
+&lt;FilesMatch "\.(yml|db|twig)$">
     Order deny,allow
     Deny from all
 &lt;/FilesMatch>
@@ -201,17 +204,16 @@ DirectoryIndex index.php index.html index.htm
 &lt;IfModule mod_rewrite.c>
   RewriteEngine on
 
-  # Some servers require the RewriteBase to be set.
-  # If so, set to the correct folder.
+  RewriteRule cache/ - [F]
+
+  # Some servers require the RewriteBase to be set. If so, set to the correct folder.
   # RewriteBase /
-  RewriteRule ^thumbs/(.*)?$ ./app/classes/timthumb.php [L]
+  RewriteRule ^thumbs/(.*)$ ./app/classes/timthumb.php [L]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !=/favicon.ico
   RewriteRule ^ ./index.php [L]
-
-&lt;/IfModule>
 
 </pre>
 
