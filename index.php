@@ -59,6 +59,7 @@ $menu = array(
     'locales' => "Locales",
 //    'snippets' => "Twig Code snippets",
     'nut' => "Nut (command line utility)",
+//    'offlinemode' => "Offline (maintenance) mode",
 	'credits' => "Credits and Contributing",
     'roadmap' => "Roadmap"
 	);
