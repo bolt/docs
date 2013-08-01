@@ -24,7 +24,5 @@ create a working site out of your static HTML, you'll need to know about how Bol
 to make templates using Twig. Information about those topics can be found in the chapters [Working with Content and
 Content types](/content) and [Building templates](/templates).
 
-Creating Bolt we wanted to focus on creating something simple, straightforward and enjoyable. If you need to build a
-site with 'enterprise' features, you'll quickly find that there are better tools. The team behind Bolt is working on
-Pivot 4, which will be awesome. And otherwise you might look into Drupal or Expression Engine. If, however, you need to
-build a site without a billion modules or huge datastructures, nothing beats Bolt for ease of use.
+With creating Bolt we wanted to focus on creating something simple, straightforward and enjoyable. If you need to build a site with 'enterprise' features, you'll quickly find that there are better tools. If you need something like this, you might look into Drupal or Expression Engine. 
+If, however, you need to build a site without a billion modules or huge datastructures, nothing beats Bolt for ease of use.
