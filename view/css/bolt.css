@@ -39,6 +39,7 @@ header h1 {
     color: #444;
     margin: 36px 0 12px;
     vertical-align: baseline;
+    display: inline-block;
 }
 
 header h1 span {
@@ -59,6 +60,10 @@ header h1 img {
     margin-bottom: -12px;
 }
 
+header h5 {
+    width: 25%;
+}
+
 header hr {
     margin-bottom: 20px;
     border-color: #e5e5e5;
@@ -69,6 +74,16 @@ header {
     margin-bottom: 40px;
 }
 
+header div.kop {
+    float: left;
+    width: 48%;
+}
+
+header div.search {
+    float: right;
+    width: 35%;
+    margin-top: 3.5em;
+}
 
 .content h2 {
     margin-top: 30px;
@@ -376,6 +391,17 @@ nav.main .first {
     nav.main ul li a {
         padding: 6px 6px;
     }
+
+header div.kop {
+    float: left;
+}
+
+header div.search {
+    width: 100%;
+    float: left;
+    margin-top: 1em;
+}
+
 
 }
 
