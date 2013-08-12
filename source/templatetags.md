@@ -307,6 +307,7 @@ These queries are currently possible:
   * <code>news/first/5</code> - get first 5 newsitems
   * <code>quote/random/5</code> - get 5 random quotes
   * <code>animal/search/5</code> - search for animals and return 5 of them (use where parameter 'filter' to specify searchstring)
+  * <code>(animal,plant)/search/20</code> - search for animals and plants and return 20 of them (use where parameter 'filter' to specify searchstring)
 
 <pre class="brush: html">
 {% setcontent about = 'page/about' %}
