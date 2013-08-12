@@ -293,6 +293,34 @@ Variable: app
 For more info on `app`, see the chapter on [Bolt Internals](/internals).
 
 
+Tag: setcontent
+---------------
+
+This tag is used to perform various queries on the database. It converts a human-readable query
+to actual records.
+
+These queries are currently possible:
+
+  * <code>entry/12</code> - get entry with id 12
+  * <code>page/about</code> - get page with slug about
+  * <code>event/latest/5</code> - get latest 5 events
+  * <code>news/first/5</code> - get first 5 newsitems
+  * <code>quote/random/5</code> - get 5 random quotes
+  * <code>animal/search/5</code> - search for animals and return 5 of them (use where parameter 'filter' to specify searchstring)
+
+<pre class="brush: html">
+{% setcontent about = 'page/about' %}
+
+&lt;h3>{{ about.title }}&lt;/h3>
+{{ about.introduction|raw }}
+
+&lt;a href="{{ about|link }}">link&lt;/a>
+</pre>
+
+Additional query arguments, pagination, sorting and other options you can find in the previous chapter [Content in template / Fetching content](content-in-templates#fetching-content). 
+
+
+
 Tag: set / content
 ------------------
 
