@@ -9,7 +9,7 @@ All parts of Bolt are free to use under the open-source MIT license. The full li
 here](http://www.opensource.org/licenses/mit-license.php).
 
   - <a href="https://github.com/bobdenotter/bolt" class="btn btn-info" target="_blank">Bolt on Github</a>
-  - <a href="https://github.com/bobdenotter/bolt-docs" class="btn btn-info" target="_blank">Bolt documentation on
+  - <a href="https://github.com/bolt/bolt-docs" class="btn btn-info" target="_blank">Bolt documentation on
     Github</a>
 
 If you'd like to use Bolt under another license, or would like continous commercial support, feel free to contact us at commercialsupport [@] bolt.cm. 
