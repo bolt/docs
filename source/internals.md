@@ -235,7 +235,7 @@ This is an instance of Bolt\Extensions. See the page on [Bolt extensions](/exten
 This is an instance of Twig. A lot more information on this can be found both in the Bolt documentation, as well as on the Twig website:
 
   - The [Twig website](http://twig.sensiolabs.org/)
-  - [Templates in Bolt](http://bolt-docs.localhost/templates)
+  - [Templates in Bolt](templates)
 
 Most controllers return a rendered Twig template as a result, but you can also render a (sub)template as HTML, process it further if needed, and return that as part of an extension or callback.
 
