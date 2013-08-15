@@ -12,21 +12,18 @@ Routing
 -------
 Every request to a page on a Bolt website is routed to a Silex controller, regardless of whether the request is for a page in the backend, frontend or 'asynchronous'.
 
-There are three files that contain the controller collections: `app/src/Bolt/Controllers/Backend.php`,
-`app/src/Bolt/Controllers/Frontend.php`
-and `app/src/Bolt/ControllersAsync.php`.
-As such, they are all in the `\Bolt\Controllers` namespace. They are 'set up' in
-`app/app.php`. The routes in `Backend.php` are all pretty straightforward. The ones in
-`Frontend.php` are a bit more exotic, since they get matched based on the contenttypes that
-the developer has set up. The ones in `Async.php` are used for 'ajaxy' requests, like the
-'latest activity' widget on the dashboard.
+There are four files that contain the controller collections: `app/src/Bolt/Controllers/Backend.php`, `app/src/Bolt/Controllers/Frontend.php`, `app/src/Bolt/Controllers/Routes.php` and `app/src/Bolt/Controllers/Routes.php`.
+As such, they are all in the `\Bolt\Controllers` namespace. They are 'set up' in `app/app.php`. The routes in `Backend.php` are all pretty straightforward.
+The ones in `Async.php` are used for 'ajaxy' requests, like the 'latest activity' widget on the dashboard.
+Next we have `Routes.php` and `Frontend.php`. The first one is the actual Controller that parses the routes found in 'routes.yml' and the latter contains the methods for all standard routes as defined in 'routes.yml'.
+You can modify the 'routes.yml' to suit your own needs. Examples are included.
 
 Templating
 ----------
 All templating in Bolt is done through [Twig](http://twig.sensiolabs.org/). Twig is a template library that's not only secure, fast and flexible, but it's also elegant and concise, so it's easy to use for both 'developer' and 'frontend' type persons.
 Basically, everything that you can do 'vanilla' Twig, you can do in the Bolt templates. We've added a few tags of our own. Browse `app/src/Bolt/TwigExtension.php` and `app/src/Bolt/SetcontentTokenParser.php` for details.
 
-More information on this subject can be found in [Templates and Routes](http://bolt-docs.localhost/templates-routes) and [Content in Templates](http://bolt-docs.localhost/content-in-templates)
+More information on this subject can be found in [Templates and Routes](templates-routes) and [Content in Templates](content-in-templates)
 
 The "Model"
 -----------
