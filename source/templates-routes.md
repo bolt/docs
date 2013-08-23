@@ -48,3 +48,47 @@ contenttype, for example `{{ pages }}`.
 entry }} and sometimes something altogether. These are just the names of the variables containing the content, or the
 array with several records of content. By default you can use the singular name of your contenttype, so be sure to
 replace them with whatever the names of your content types or variables are.</p>
+
+
+Routing
+-------
+
+The URLs mentioned in the previous paragraphs are actually just defaults. Each can be adjusted to your own liking.
+There are some caveats with regards to correct canonical URLs, but otherwise you can change it to anything you like.
+
+Below you will find a complete description of the definition in the YAML file.
+
+The easiest way to add your own is to follow the examples defined in the distributed `routes.yml.dist` file.
+Do take care to order the routes correctly because it is a first-come first-serve architecture.
+
+
+The complete format of a single route in YAML is as follows:
+
+<pre class="brush: plain">
+bind-name:
+    path:       /{parameter..}/
+    defaults:
+        _controller:    'controller'
+        _before:        'before'            # optional
+        _after:         'after'             # optional
+    requirements:
+        parameter..:    required-regexp
+    host:      :        hostname            # optional
+    contenttype:        contenttypeslug     # optional
+</pre>
+
+
+Explanation of each argument:
+
+  - `bind-name`  - name to bind the route to, used for generating URLs.
+  - `path` - URL of this route, use {..} for parameters.
+  - `_controller` - controller method which will be called when this route matches.
+  - `_before`  - called before the controller action will be called.
+    if not set the method `before()` will be called in the controller.
+  - `_after` - called after the controller action is called.
+    if not set the method `after()` will be called in the controller.
+  - `parameter..` - name of the named parameter see `path`.
+  - `required-regexp` - regular expression which should be true for this route to be matched.
+  - `hostname` - hostname to match for this route.
+  - `contenttypeslug` - if this route represent a new route for a contenttype, the contenttype should be specified.
+
