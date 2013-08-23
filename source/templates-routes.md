@@ -56,10 +56,10 @@ Routing
 The URLs mentioned in the previous paragraphs are actually just defaults. Each can be adjusted to your own liking.
 There are some caveats with regards to correct canonical URLs, but otherwise you can change it to anything you like.
 
-Below you will find a complete description of the definition in the YAML file.
+Below you will find a complete description of the route definition in the YAML file.
 
 The easiest way to add your own is to follow the examples defined in the distributed `routes.yml.dist` file.
-Do take care to order the routes correctly because it is a first-come first-serve architecture.
+The order of the routes is important because it is a first-come first-serve architecture. So if you add your own contenttype routes it will probably need to be defined before the general **contentlink** route.
 
 
 The complete format of a single route in YAML is as follows:
@@ -73,7 +73,7 @@ bind-name:
         _after:         'after'             # optional
     requirements:
         parameter..:    required-regexp
-    host:      :        hostname            # optional
+    host:               hostname            # optional
     contenttype:        contenttypeslug     # optional
 </pre>
 
