@@ -269,7 +269,10 @@ Most fields have a few extra optional values, to further customize them.
   - `prefix: ..`: Text to add before the field. See below for an example.
   - `postfix: ..`: Text to add after the field. See below for an example.
   - `default: ..`: The default value for a field, if applicable. See below for an example.
+  - `required: true`: Use this to make a field required. See below for examples.
+  - `pattern: ..`: Use this to validate a field against a certain pattern. See below for examples.
 
+### Prefix and Postfix
 Sometimes it can be beneficial to add some extra text, labels or other markup to how a field is displayed in the Bolt backend, when editing a record. You can use the optional `prefix` and `postfix` values to add some markup before or after a field. For example:
 
 <pre class="brush: plain">
@@ -282,7 +285,61 @@ Sometimes it can be beneficial to add some extra text, labels or other markup to
 
 As you can see, using `postfix: "<hr>"` gives a simple and effective way of adding a divider in the edit screen.
 
+### Default values
+
 When you want to give a record a default value, use `default:`. For most fields this will set the initial value of the field, when you're creating a new record of this contenttype. For `date` and `datetime` fields, the value is passed through [strtotime](php.net/manual/en/function.strtotime.php), meaning that you can use a fixed date as default, like "1900-01-01 12:00:00", but also relative dates like "first day of this month", "next monday" or "yesterday".
+
+### Required and patterns
+
+You can use the `required` option to make a field required. Combine it with the `pattern` option to make sure that a field contains an email-address, or that a title is no longer than a certain amount of characters. Note that the requirements are only enforced in the browser, so don't "trust" any data that's been entered by an editor. 
+
+Currently, you can use the `required` option for fields of type `text`, `textarea`, `html`, `float` and `integer`.
+
+For example, to make a title required, you can do this: 
+
+<pre class="brush: plain">
+        title:
+            type: text
+            prefix: "<p>A title is required.</p>"
+            required: true
+            class: large
+</pre>
+
+If combined with a `pattern`, you can add frontend validation to the field. By doing this, you can require that the values of a field are within certain parameters. You can use either one of the predetermined patterns like `email` or `url`, or any regular expression. Currently, the `pattern` option is allowed for fields of type `text`, `float` and `integer`. 
+Examples of patterns to be used can be found on the website [html5pattern.com](http://html5pattern.com/). Some common use-cases are: 
+
+- `email`: the input must be a valid email address. The email address must be _possible_ syntactically, but it's not required that it actually exists. 
+- `url`: the input must be a valid email url, starting with `http://` or `https://`. The URL address must be _possible_ syntactically, but it's not required that it actually exists. 
+- `.{1,50}`: The input can contain any character, and should be between 1 and 50 characters in length.
+- `[0-9_ -]*`: The input can contain numbers, dashes, underscores and spaces.
+- `[a-zA-Z0-9 ]{10,20}`: The input can contain uppercase and lowercase letters and numbers, and should be between 10 and 20 characters in length.
+- `[1-9][0-9]{3}[\s]?[A-Za-z]{2}`: The input should be a Dutch postal code: four numbers with no leading '0', an optional space, and two letters. `1234 ab` or `2518HL` are valid inputs.  
+
+For example, use this to make sure a title is no longer than 80 characters: 
+
+<pre class="brush: plain">
+        title:
+            type: text
+            prefix: "<p>A title is required. The maximum length is 80 characters</p>"
+            required: true
+            pattern: ".{1,80}"
+            class: large
+</pre>
+
+<p class="note"><strong>Note:</strong>You should not try to use a pattern to match an email address. Always use <code>email</code> to validate an email address. </p>
+
+You can also make fields that are not required, but that _do_ have a pattern. Doing this, the field can be left blank, 
+but if it _is_ filled, it must match the pattern. For example, you could make an optional email-address like this: 
+
+<pre class="brush: plain">
+        person:
+            type: text
+            prefix: "<p>An optional email address.</p>"
+            required: false
+            pattern: email
+</pre>
+
+<p class="note"><strong>Note:</strong> If you have a required field, you should always include a postfix. Otherwise the editor might not know what's expected of them. </p>
 
 The structure of a Record
 -------------------------
