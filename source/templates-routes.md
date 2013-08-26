@@ -1,5 +1,5 @@
-Templates and routes
-====================
+Templates and routing
+=====================
 
 Whenever your browser gets a page on a Bolt website, it uses an URL like `/entries` or `/page/lorem-ipsum`. Bolt knows
 how to handle URLs like this, and displays the information the browser requested. Bolt does this by mapping the URL to a
@@ -58,7 +58,7 @@ There are some caveats with regards to correct canonical URLs, but otherwise you
 
 Below you will find a complete description of the route definition in the YAML file.
 
-The easiest way to add your own is to follow the examples defined in the distributed `routes.yml.dist` file.
+The easiest way to add your own is to follow the examples defined in the distributed `routing.yml.dist` file.
 The order of the routes is important because it is a first-come first-serve architecture. So if you add your own contenttype routes it will probably need to be defined before the general **contentlink** route.
 
 
@@ -88,7 +88,11 @@ Explanation of each argument:
   - `_after` - called after the controller action is called.
     if not set the method `after()` will be called in the controller.
   - `parameter..` - name of the named parameter see `path`.
-  - `required-regexp` - regular expression which should be true for this route to be matched.
+  - `required-regexp` - regular expression which should be true for this route to be matched. it's also possible to add a callback here. it should return a regular expression which should match **&#42;1**.
   - `hostname` - hostname to match for this route.
   - `contenttypeslug` - if this route represent a new route for a contenttype, the contenttype should be specified.
 
+Notes:
+
+  - **&#42;1a** the default frontend routes already use this callback to return either plural, singular or both versions of contenttype- and taxonomyslugs.
+  - **&#42;1b** the callback should always be a static method call. always use the following signature 'class::method'.
