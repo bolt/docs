@@ -61,6 +61,49 @@ Below you will find a complete description of the route definition in the YAML f
 The easiest way to add your own is to follow the examples defined in the distributed `routing.yml.dist` file.
 The order of the routes is important because it is a first-come first-serve architecture. So if you add your own contenttype routes it will probably need to be defined before the general **contentlink** route.
 
+#### Some routing examples
+
+
+##### Make old .html pages work
+
+Here we add routes to make old `/contact.html` links work with your new Bolt system.
+
+<pre class="brush: plain">
+oldpages:
+    path:           /{slug}.html
+    defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
+    requirements:
+        slug:       '[a-z0-9-_]+'
+</pre>
+
+
+##### Host requirement
+
+In this example we use the host requirement to show a specific page on the home of a particular host.
+The _defaults_ are set to the regular record-action with a specific contenttype and slug set up.
+
+<pre class="brush: plain">
+example:
+    path:     /
+    defaults: { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page', 'slug': 'example' }
+    host:     'example.mydomain.org'
+</pre>
+
+
+##### Contenttype override
+
+This case overrides the default routing for contenttype **page**. Bolt will no longer create `/page/{slug}` links but will now create `/{slug}` routes. The old routes will still work, but the canonicals will be fixed to the new routes.
+The _defaults_ are set to the regular record-action but we also added an extract `contenttype: page` line to tell Bolt to use this route for all records with contenttype **page**.
+
+<pre class="brush: plain">
+pagebinding:
+    path:           /{slug}
+    defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
+    contenttype:    page
+</pre>
+
+
+#### YAML description of a routing entry
 
 The complete format of a single route in YAML is as follows:
 
