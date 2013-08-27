@@ -93,13 +93,27 @@ example:
 ##### Contenttype override
 
 This case overrides the default routing for contenttype **page**. Bolt will no longer create `/page/{slug}` links but will now create `/{slug}` routes. The old routes will still work, but the canonicals will be fixed to the new routes.
-The _defaults_ are set to the regular record-action but we also added an extract `contenttype: page` line to tell Bolt to use this route for all records with contenttype **page**.
+The _defaults_ are set to the regular record-action but we also added an additional `contenttype: page` line to tell Bolt to use this route for all records with contenttype **page**.
 
 <pre class="brush: plain">
 pagebinding:
     path:           /{slug}
     defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
     contenttype:    page
+</pre>
+
+
+##### Single record override
+
+This example overrides a single record to a specific URL. Useful if you only want to exempt a few pages and not a complete contenttype.
+Don't forget to add the `recordslug: page/about` line.
+This route should be high in the route list for it to work correctly.
+
+<pre class="brush: plain">
+aboutbinding:
+    path:           /about
+    defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page', 'slug': 'about' }
+    recordslug:     page/about
 </pre>
 
 
