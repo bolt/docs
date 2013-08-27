@@ -203,5 +203,6 @@ returned, unless one of the following is the case:
     one is returned.
   - `{% setcontent foo = 'page' where { .. } %}`: If 'page' is the singular slug of the contenttype 'pages', Bolt
     assumes you only need one.
+  - `{% setcontent foo = 'pages' .. returnsingle %}`: If the 'returnsingle' parameter is passed, Bolt assumes you only need one result.    
 
 If you use 'limit 1', you will get an array with 1 record. Unless, of course, one of the above criteria was met.
