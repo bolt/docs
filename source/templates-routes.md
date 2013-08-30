@@ -90,7 +90,7 @@ example:
 </pre>
 
 
-##### Contenttype override
+##### Contenttype overrides
 
 This case overrides the default routing for contenttype **page**. Bolt will no longer create `/page/{slug}` links but will now create `/{slug}` routes. The old routes will still work, but the canonicals will be fixed to the new routes.
 The _defaults_ are set to the regular record-action but we also added an additional `contenttype: page` line to tell Bolt to use this route for all records with contenttype **page**.
@@ -99,6 +99,17 @@ The _defaults_ are set to the regular record-action but we also added an additio
 pagebinding:
     path:           /{slug}
     defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
+    contenttype:    page
+</pre>
+
+An alternative is to also add the creation date:
+
+<pre class="brush: plain">
+pagebinding:
+    path:           /{datecreated}/{slug}
+    defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
+    requirements:
+        datecreated:    '\d{4}-\d{2}-\d{2}'
     contenttype:    page
 </pre>
 
@@ -145,11 +156,24 @@ Explanation of each argument:
   - `_after` - called after the controller action is called.
     if not set the method `after()` will be called in the controller.
   - `parameter..` - name of the named parameter see `path`.
-  - `required-regexp` - regular expression which should be true for this route to be matched. it's also possible to add a callback here. it should return a regular expression which should match **&#42;1**.
+  - `required-regexp` - regular expression which should be true for this route to be matched. it's also possible to add a callback here. it should return a regular expression which should match
   - `hostname` - hostname to match for this route.
   - `contenttypeslug` - if this route represent a new route for a contenttype, the contenttype should be specified.
 
-Notes:
+##### Path
 
-  - **&#42;1a** the default frontend routes already use this callback to return either plural, singular or both versions of contenttype- and taxonomyslugs.
-  - **&#42;1b** the callback should always be a static method call. always use the following signature 'class::method'.
+You are free to specify your own parameters, however when you are adding routes for contenttypes' or recordslugs you are limited to which parameters you can add. At least when you don't want to code your own Content-object.
+The following fields from a contenttype can be used as a parameter:
+
+  - **contenttypeslug**
+  - **id**
+  - **slug**
+  - **datecreated** - only the date part is returned (so yyyy-mm-dd)
+  - **datepublish** - only the date part is returned (so yyyy-mm-dd)
+
+##### Required regular expressions
+
+When the routing is processed no content has been loaded yet, so validation cannot be based on actual database checks. Therefore the check is purely a syntax check using regular expressions.
+Bolt adds the ability to specify a callback which returns a regular expression. This allows us to dynamically enter contenttype slugs as valid URL parts.
+
+You can either enter your own regular expression or use the callback notation which is `class::method`.
