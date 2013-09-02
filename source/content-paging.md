@@ -1,9 +1,9 @@
 Paging
 ======
 
-When you have more records than you'd like to display on one page, you can add paging.
-
-If you want to add paging to your template, add `allowpaging` to your `setcontent` tag, and add a `pager` tag.
+When you have more records than you'd like to display on one page, you can add
+paging. If you want to add paging to your template, add `allowpaging` to your
+`setcontent` tag, and add a `pager` tag.
 
 <pre class="brush: html">
 {% setcontent entries = "entries/latest/3" allowpaging %}
@@ -15,8 +15,12 @@ If you want to add paging to your template, add `allowpaging` to your `setconten
 {{ pager() }}
 </pre>
 
-If you have more than one block of records that you want to paginate on one page, you can use their names in a parameter
-to keep them seperate:
+If you have more than one block of records that you want to paginate on one
+page, you can use their names in a parameter to keep them seperate. Note that if
+you start paging different contenttypes by different amounts, you will get
+unexpected results. If you have more than one contenttype on a page that you wish
+to paginate, it's advised to use the same amount of records for all of the `{% setcontent %}` tags.
+
 
 <pre class="brush: html">
 {% setcontent entries = "entries/latest/3" allowpaging %}
@@ -70,7 +74,7 @@ right. These are the default rules:
 }
 </pre>
 
-If you'd like to define your own pager from scratch, just copy `/app/view/_sub_pager.twig` to your own `view` folder,
+If you'd like to define your own pager from scratch, just copy `/app/view/_sub_pager.twig` to your own theme folder,
 and rename it to something like `_sub_mypager.twig`. Then, pass the name as an extra parameter to the `pager` tag:
 
 <pre class="brush: html">
