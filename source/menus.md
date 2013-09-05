@@ -211,7 +211,7 @@ Some of the more commonly used 'tricks' are:
     'index-1', 'index-2', etc.
   - `{% if loop.first %}first{% endif %}` - Output 'first', but only for the
     first item in the loop.
-  - `{% if loop.first %}last{% endif %}` - Output 'last', but only for the last
+  - `{% if loop.last %}last{% endif %}` - Output 'last', but only for the last
     item in the loop.
   - `{% if item|current %}active{% endif %}` - Output 'current', but only if
     we're on the page that the item links to.
