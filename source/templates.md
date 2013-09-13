@@ -4,7 +4,7 @@ Building templates in Bolt
 To render HTML pages with dynamic content, Bolt uses the [Twig](http://twig.sensiolabs.org/documentation) templating
 language. This means that everybody who is familiar with Twig can easily get started with building templates in Bolt.
 
-In short, Twig can be described as a 'flexible, fast, and secure template engine for PHP.' Primarily, it seperates the
+In short, Twig can be described as a 'flexible, fast, and secure template engine for PHP.' Primarily, it separates the
 markup of your templates from the PHP code in the CMS. It does this elegantly and quickly, which means that writing your
 HTML templates in Twig will give you clean and legible templates. That means you don't have to use PHP-like statements
 in your markup, so there's less code like this: <pre class="brush: html"> &lt;?php if ( the_something('3') ) { ?>
@@ -141,7 +141,7 @@ here, but for in-depth coverage you should read the Twig manual.
 
   - `{{ foo }}` outputs the variable `foo`. Nothing more, nothing less.
   - `{{ bar(foo) }}` outputs the results of the function 'bar()'. In this case, 'foo' is used as an argument in the
-    function, so the output is most likely dependant on the contents of 'foo'.
+    function, so the output is most likely dependent on the contents of 'foo'.
   - `{{ foo|bar }}` Outputs the variable 'foo', but with 'bar' as a filter. If 'foo' is "hello", `{{ foo|upper }}` would
     output "HELLO".
   - `{% if foo == "bar" %}` is a statement that tests if the variable 'foo' is equal to the value "bar". If so, the part
