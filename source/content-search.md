@@ -51,7 +51,7 @@ against a record. For instance, if the search term was **exactly** the title it 
 matched some part of the title or body text.
 It's a fairly subjective scoring algorithm but it should suffice for most cases.
 
-The other two variables are `search` which returns a sanitatized query, which is the actual query that ran. And `searchresult` which
+The other two variables are `search` which returns a sanitized query, which is the actual query that ran. And `searchresult` which
 contain various values useful to show. 
 
   - **searchresult.no&#x5f;of&#x5f;results** - number of actual results (ignores paging of course)

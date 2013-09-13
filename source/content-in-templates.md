@@ -18,7 +18,7 @@ function:
 
 As you can see in the screenshot, a record of a contenttype is an `object`. There are several benefits to this over a
 regular `array`. We can access the fields like regular values, but we can also use specific functionality for every
-object, without the need to define these seperately.
+object, without the need to define these separately.
 
 You can access regular fields in a record like these examples for either a `page` or `entry` record:
 <pre class="brush: html">
@@ -160,7 +160,7 @@ The `{{ records }}` array, is basically a set of several content records. When y
 iterate over each of the records to output them as desired. In the following example you can see how to get an array of
 records. You'll notice that in this case it's not actually called `records`, but `pages`. Since it's just a variable
 name, we can call it whatever we like. After getting the `{{ pages }}` array, we use a simple `for` loop, so we can
-iterate over each of the seperate `{{ page}}` records.
+iterate over each of the separate `{{ page}}` records.
 
 <pre class="brush: html">
 {% setcontent pages = 'pages/latest/4' %}

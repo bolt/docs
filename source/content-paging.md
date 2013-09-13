@@ -16,7 +16,7 @@ paging. If you want to add paging to your template, add `allowpaging` to your
 </pre>
 
 If you have more than one block of records that you want to paginate on one
-page, you can use their names in a parameter to keep them seperate. Note that if
+page, you can use their names in a parameter to keep them separate. Note that if
 you start paging different contenttypes by different amounts, you will get
 unexpected results. If you have more than one contenttype on a page that you wish
 to paginate, it's advised to use the same amount of records for all of the `{% setcontent %}` tags.
@@ -33,7 +33,7 @@ to paginate, it's advised to use the same amount of records for all of the `{% s
 
 </pre>
 
-You can add an optional parameter do determine how many 'neigbouring' pages are shown in the pager:
+You can add an optional parameter do determine how many 'neighboring' pages are shown in the pager:
 
 <pre class="brush: html"> {{ pager('', 2) }} or: {{ pager('', 4) }} </pre>
 

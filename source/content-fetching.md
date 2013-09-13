@@ -80,7 +80,7 @@ records. It's also possible to use modifiers for the values, to select based on 
 </pre>
 
 <p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code> Bolt only selects dates before or equal
-to <code>'2012-12-01 00:00:00'</code>. If you want to include december 1st, use <code>'&lt;2012-12-02'</code>. </p>
+to <code>'2012-12-01 00:00:00'</code>. If you want to include December 1st, use <code>'&lt;2012-12-02'</code>. </p>
 
 The `%like%` option is case-insensitive, and does not take word boundaries into account. So, this last example will
 return the pages with these titles:

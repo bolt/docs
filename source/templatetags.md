@@ -23,9 +23,9 @@ For more information, see [include](http://twig.sensiolabs.org/doc/tags/include.
 Filter: localdate
 -----------------
 
-Outputs a localised, readable version of a timestamp, based on the `locale` setting in the `config.yml`-file. See the [Locales](/locales) page for more information on locales.
+Outputs a localized, readable version of a timestamp, based on the `locale` setting in the `config.yml`-file. See the [Locales](/locales) page for more information on locales.
 
-In Bolt dates are stored with each record for the date the record was created, when it was last edited, and optionally when it was published. These dates are stored in a way that makes it easier for the database to work with them when it comes to sorting or selecting a specific period. They look like: `2013-02-18 09:41:10`, which isn't suitable to output on the website itself. The localdate filter transforms the ugly timestamp to a readable, localised text. Examples:
+In Bolt dates are stored with each record for the date the record was created, when it was last edited, and optionally when it was published. These dates are stored in a way that makes it easier for the database to work with them when it comes to sorting or selecting a specific period. They look like: `2013-02-18 09:41:10`, which isn't suitable to output on the website itself. The localdate filter transforms the ugly timestamp to a readable, localized text. Examples:
 
 <pre class="brush: html">
     '{{ record.datepublish }}' is the same as 
@@ -65,7 +65,7 @@ Filter: date
 
 See the various options for 'date' on the [PHP website](http://nl3.php.net/manual/en/function.date.php).
 
-<p class="note"><strong>Note:</strong> This tag does <em>not</em> display a localised version of the date. Use the <code>{{ localdate }}</code>-filter if you want to display dates in other languages than english.</p>
+<p class="note"><strong>Note:</strong> This tag does <em>not</em> display a localized version of the date. Use the <code>{{ localdate }}</code>-filter if you want to display dates in other languages than English.</p>
 
 
 Filter: link
@@ -115,7 +115,7 @@ Use this modifier to create a link to an automatically generated thumbnail of a 
 
 If `content.image` is an image in your `files/` folder, like `foo.jpg`, this modifier will output a link like `/thumbs/320x240/foo.jpg`. This is useful for creating absolute links to a thumbnail, regardless of whether Bolt is installed in the root of your domain, a subdomain or a folder.
 
-You can specify three parameters: the width, height, and the mode of cropping. The mode of croppingis important if
+You can specify three parameters: the width, height, and the mode of cropping. The mode of cropping is important if
 you're requesting a thumbnail that has different proportions than the original image. Valid options for cropping are:
 
   - 'c' (crop, default) - Makes sure you always get an image that is the specified width and height. The image is not
@@ -123,8 +123,8 @@ you're requesting a thumbnail that has different proportions than the original i
   -  'f' ('fit') - The image will not be cropped but resized to fit within the given maximum width and height. This
      means that you will always get an image with the exact same width and height that you specified. The resulting image might be deformed, and will _not_ have the same aspect ratio as the original. 
   - 'b' (borders) - Will add a border to the image, in order to make it fit within the given boundaries.
-  - 'r' (resize) - Will resize the image to fit the boundaries, without cropping. This means your thumbnail might de
-    smaller than the widht/height given, but the the image will always maintain the aspect ratio of the original image.
+  - 'r' (resize) - Will resize the image to fit the boundaries, without cropping. This means your thumbnail might be
+    smaller than the width/height given, but the the image will always maintain the aspect ratio of the original image.
 
 Use the cropping parameter like this:
 

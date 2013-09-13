@@ -8,7 +8,7 @@ following:
  - Add 'hooks' in the templates to either insert small snippets of HTML or the result of a callback-function in the
    templates after rendering.
 
-In a later stage we'll be adding fucntionality for extensions to create your own controllers for extending functionality
+In a later stage we'll be adding functionality for extensions to create your own controllers for extending functionality
 in the frontend, as well as creating the possibility to have extensions add their own screens in the Bolt backend
 interface.
 
@@ -51,7 +51,7 @@ Bolt strives to adhere to [the PSR-2 coding style](https://github.com/php-fig/fi
 The `info()` and `init()` functions
 -----------------------------------
 
-Every extension needs to have a function 'info()' and a function 'init()' in its `extension.php`. The 'info()' fucntion
+Every extension needs to have a function 'info()' and a function 'init()' in its `extension.php`. The 'info()' function
 is used by Bolt to gather information about the available extensions, which is displayed on the Extensions page in the
 Bolt Backend. The init() function is called for each pagerequest. It's executed before content is retrieved from the database or the templates are parsed. 
 In general, the init() function is used to set up hooks or functionality that is used later on in the process of outputting a page. 
@@ -96,7 +96,7 @@ Most of these options will be self-explanatory. Some notes:
 
 ### init()
 
-The init() function is called for the initialisation of each active extension. It's used to set up functionality to be used in the templates of for Twig function. 
+The init() function is called for the initialization of each active extension. It's used to set up functionality to be used in the templates of for Twig function. 
 It looks like this: 
 
 <pre class="brush: php">
@@ -112,18 +112,18 @@ function init($app)
 }
 </pre>
 
-As you can see the function is called with `$app` as a parameter, which is an instance of `\Silex\Application`, and basically contains the entirety of the Bolt application and objects. As such, it is often vital to attach your functionality to whatever it should be attached to. The init function can return `true` or `false` to denote whether the initialisation was successful.
+As you can see the function is called with `$app` as a parameter, which is an instance of `\Silex\Application`, and basically contains the entirety of the Bolt application and objects. As such, it is often vital to attach your functionality to whatever it should be attached to. The init function can return `true` or `false` to denote whether the initialization was successful.
 
 In the case of `init()` it's often used to do the following: 
 
-  - Initialise a snippet, either as a 'string' or a 'callback function'
+  - Initialize a snippet, either as a 'string' or a 'callback function'
   - Add a Javascript and/or CSS file to the output of the frontend pages
   - Make sure jQuery is included, if needed by your extension
-  - Initialise a Twig function or filter for use in the theme templates.
+  - Initialize a Twig function or filter for use in the theme templates.
 
 If you use our [Extension Wizard](http://extension-wizard.bolt.cm/) to create the boilerplate code for your extension, the `init()` function will be already set up with the correct functionality.
 
-Initialise a snippet
+Initialize a snippet
 --------------------
 
 A 'snippet' in the context of Bolt extensions is nothing more than a short fragment of code, that gets inserted in a certain place in the theme templates on the frontend of the website. This fragment can either be a string to be inserted directly, or it can be the return value of a callback string. The `insertSnippet()` function takes three parameters, with the third being optional. The first is the position of the insertion point. The second one is either a string to insert or the name of a callback function. The third, optional parameter will be passed on to the callback function. 
@@ -167,7 +167,7 @@ function snippetbar()
 
 Note that the callback must include the namespace of the extensions, even though it's defined within the namespace of the extension. This is because during the execution of the callback, it is called from the context of `Bolt\Extension`, so it won't be able to find the function if the namespace was omitted. 
 
-To pass extra variables to the callback function, initialise them as follows: 
+To pass extra variables to the callback function, initialize them as follows: 
 
 <pre class="brush: php">
 function init($app)
