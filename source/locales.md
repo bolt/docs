@@ -5,7 +5,7 @@ In the `config.yml`-file you can set the Locale to be used by Bolt. A locale is 
 used language, country and any special variant preferences that are used in Bolt's frontend.
 
 Currently, the locale settings are only used for date formatting on the Frontend of your site, but we're looking into
-adding localisation features for other parts of the Frontend and the Backend as well.
+adding localization features for other parts of the Frontend and the Backend as well.
 
 The Locale setting is defined in the `config.yml`-file like this:
 

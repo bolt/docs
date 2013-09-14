@@ -110,7 +110,7 @@ Most of the above example will seem pretty straightforward, but all of the speci
 detail in the chapter about [Content in templates](content-in-templates).
 
 When you refresh the front page of the website, you should see four news items listed on the page. You can click the
-title to go to the news item on a seperate page, but you'll get an error. In the contenttype we defined the template as
+title to go to the news item on a separate page, but you'll get an error. In the contenttype we defined the template as
 `newsitem.twig`, but it doesn't exist. Create the file in the `theme/default/` folder, and add the following HTML-code:
 
 <pre class="brush: html">
@@ -287,7 +287,7 @@ As you can see, using `postfix: "<hr>"` gives a simple and effective way of addi
 
 ### Default values
 
-When you want to give a record a default value, use `default:`. For most fields this will set the initial value of the field, when you're creating a new record of this contenttype. For `date` and `datetime` fields, the value is passed through [strtotime](php.net/manual/en/function.strtotime.php), meaning that you can use a fixed date as default, like "1900-01-01 12:00:00", but also relative dates like "first day of this month", "next monday" or "yesterday".
+When you want to give a record a default value, use `default:`. For most fields this will set the initial value of the field, when you're creating a new record of this contenttype. For `date` and `datetime` fields, the value is passed through [strtotime](php.net/manual/en/function.strtotime.php), meaning that you can use a fixed date as default, like "1900-01-01 12:00:00", but also relative dates like "first day of this month", "next Monday" or "yesterday".
 
 ### Required and patterns
 

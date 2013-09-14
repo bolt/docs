@@ -5,7 +5,7 @@ Bolt has built-in functionality to create menus in your frontend templates. Usin
 one or more menus in the file `app/config/menu.yml`, which can then be inserted in your templates using the `{{ menu()
 }}` tag.
 
-To change one or more of the menus, edit the file `app/config/menu.yml`. You can add more seperate menus, if you wish,
+To change one or more of the menus, edit the file `app/config/menu.yml`. You can add more separate menus, if you wish,
 and each menu can have one level of items below it. See the default `menu.yml` for an example of the supported options:
 
 

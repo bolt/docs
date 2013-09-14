@@ -36,10 +36,10 @@ All access to the content and the contentypes is done through the Storage class.
 Bootstrapping
 -------------
 As mentioned before, Bolt is a Silex application. As such, it is a good idea to familiarize yourself with Silex, because
-when hacking the code or creating your own extenions, you can basically do whatever can be done in Silex in general. In
+when hacking the code or creating your own extensions, you can basically do whatever can be done in Silex in general. In
 the Bolt code, there is an ubiquitous `$app`, which is an instance of `Bolt\Application`, which extends
 `\Silex\Application`. Basically, this is 'the application', and most of the components that are used in Bolt are created
-as services via Dependancy Injection. If you want to know more about these subjects, we heartily recommend these
+as services via Dependency Injection. If you want to know more about these subjects, we heartily recommend these
 articles about Dependency Injection:
 
   - [An introduction to Pimple and Service Containers](http://jtreminio.com/tag/dependency-injection/)
@@ -48,7 +48,7 @@ articles about Dependency Injection:
 In Bolt, this `$app` will be available in the majority of the code, and so are all of the services, libraries and
 variables that are part of the application.
 
-All of these are created in `app/bootstrap.php`. Read the code in that file, to get a feeling for what can be accessed through the `$app` object. Most of the services definged there are Symfony components, about which you can read on the Silex Documentation page on [Service Providers](http://silex.sensiolabs.org/documentation), or on the [Symfony Components page](http://symfony.com/components). The next largest group are the Bolt components. These can be recognized by the `Bolt\` namespace. These components are autoloaded, and can be found in `app/src/Bolt/`.
+All of these are created in `app/bootstrap.php`. Read the code in that file, to get a feeling for what can be accessed through the `$app` object. Most of the services defined there are Symfony components, about which you can read on the Silex Documentation page on [Service Providers](http://silex.sensiolabs.org/documentation), or on the [Symfony Components page](http://symfony.com/components). The next largest group are the Bolt components. These can be recognized by the `Bolt\` namespace. These components are autoloaded, and can be found in `app/src/Bolt/`.
 
 Debug Bar, {{ print() }} and \util::var_dump()
 ----------------------------------------------

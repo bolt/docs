@@ -44,7 +44,7 @@ name. So, in the above example, you can also use `{{ page }}`, without having to
 default template for multiple records, the content is available as `{{ records }}` and also by the name of the
 contenttype, for example `{{ pages }}`.
 
-<p class="note"><strong>Note:</strong> As you might've noticed, sometimes the examples use {{ page }}, sometimes {{
+<p class="note"><strong>Note:</strong> As you might have noticed, sometimes the examples use {{ page }}, sometimes {{
 entry }} and sometimes something altogether. These are just the names of the objects containing the content, or the
 array with several records of content. By default you can use the singular name of your contenttype, so be sure to
 replace them with whatever the names of your content types or variables are.</p>
@@ -53,7 +53,7 @@ replace them with whatever the names of your content types or variables are.</p>
 Routing
 -------
 
-<p class="note"><strong>Note:</strong> Support for routing is added in Bolt 1.2. This version will be released officialy around the 10th of september. If you want to use this functionality, get the 1.2 beta from <a href="http://bolt.cm/distribution">here</a>. </p>
+<p class="note"><strong>Note:</strong> Support for routing was added in Bolt 1.2.</p>
 
 The URLs mentioned in the previous paragraphs are actually just defaults. Each can be adjusted to your own liking.
 There are some caveats with regards to correct canonical URLs, but otherwise you can change it to anything you like.

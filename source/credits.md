@@ -12,7 +12,7 @@ here](http://www.opensource.org/licenses/mit-license.php).
   - <a href="https://github.com/bobdenotter/bolt-docs" class="btn btn-info" target="_blank">Bolt documentation on
     Github</a>
 
-If you'd like to use Bolt under another license, or would like continous commercial support, feel free to contact us at commercialsupport [@] bolt.cm. 
+If you'd like to use Bolt under another license, or would like continuous commercial support, feel free to contact us at commercialsupport [@] bolt.cm. 
 
 Used Libraries / Components
 ---------------------------
