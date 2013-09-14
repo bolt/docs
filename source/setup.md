@@ -214,6 +214,7 @@ Options -Indexes
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !=/favicon.ico
   RewriteRule ^ ./index.php [L]
+&lt;/IfModule>
 
 </pre>
 
@@ -224,7 +225,7 @@ Anyhow, if your site doesn't work, try uncommenting the `RewriteBase` line and s
 instance, if your Bolt site is located at `example.org/test/`, set it to `RewriteBase /test/`.
 
 Alternatively, if your server is running Apache 2.2.16 or higher, you might be able to replace the entire `mod_rewrite`
-block from lines 17-20 with this single line:
+block from lines 13-25 with this single line:
 
 <pre class="brush: plain">
 FallbackResource /index.php
