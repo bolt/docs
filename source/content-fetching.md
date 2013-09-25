@@ -154,6 +154,19 @@ Please note that using these operators, it'll be quite easy to create a where st
 {% setcontent mypages = 'pages' where { id: '&lt;29 && &gt37' } %}
 </pre>
 
+By using '|||'-parameters (three pipes) you can create an OR-part for multiple columns. For example:
+
+<pre class="brush: html">
+{# Select users from Amsterdam that match either username 'pete' or firstname 'Mike' #}
+{% setcontent mypages = 'pages' where { city: 'Amsterdam', username: 'username ||| pete ||| firstname ||| Mike' } %}
+
+{#
+    Query output:
+    WHERE ( (city = 'Amsterdam') AND ( (username = 'pete') OR (firstname = 'Mike') ) )
+#}
+</pre>
+
+Please note when using the '|||'-parameter, the key part of the hash must be a valid column in the content type and must be repeated in the value part of the hash.
 
 
 ## Using `limit`.
