@@ -158,15 +158,13 @@ By using '|||'-parameters (three pipes) you can create an OR-part for multiple c
 
 <pre class="brush: html">
 {# Select users from Amsterdam that match either username 'pete' or firstname 'Mike' #}
-{% setcontent mypages = 'pages' where { city: 'Amsterdam', username: 'username ||| pete ||| firstname ||| Mike' } %}
+{% setcontent mypages = 'pages' where { city: 'Amsterdam', 'username ||| firstname': 'pete ||| Mike' } %}
 
 {#
     Query output:
     WHERE ( (city = 'Amsterdam') AND ( (username = 'pete') OR (firstname = 'Mike') ) )
 #}
 </pre>
-
-Please note when using the '|||'-parameter, the key part of the hash must be a valid column in the content type and must be repeated in the value part of the hash.
 
 
 ## Using `limit`.
