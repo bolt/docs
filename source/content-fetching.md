@@ -72,6 +72,9 @@ records. It's also possible to use modifiers for the values, to select based on 
 {# get all events with eventdate before '2012-10-15' #}
 {% setcontent myevents = 'pages' where { eventdate: '&lt;2012-10-15' } %}
 
+{# get all blog artcles which have been published before last monday #}
+{% setcontent myevents = 'pages' where { status: 'published', datepublish: '< last monday' } %}
+
 {# get all books with amountsold over 1,000 #}
 {% setcontent mybooks = 'books' where { amountsold: '&gt;1000' } %}
 
