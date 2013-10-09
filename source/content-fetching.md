@@ -73,7 +73,7 @@ records. It's also possible to use modifiers for the values, to select based on 
 {% setcontent myevents = 'pages' where { eventdate: '&lt;2012-10-15' } %}
 
 {# get all blog artcles which have been published before last monday #}
-{% setcontent myevents = 'pages' where { status: 'published', datepublish: '< last monday' } %}
+{% setcontent myevents = 'pages' where { status: 'published', datepublish: '&lt; last monday' } %}
 
 {# get all books with amountsold over 1,000 #}
 {% setcontent mybooks = 'books' where { amountsold: '&gt;1000' } %}
@@ -84,6 +84,8 @@ records. It's also possible to use modifiers for the values, to select based on 
 
 <p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code> Bolt only selects dates before or equal
 to <code>'2012-12-01 00:00:00'</code>. If you want to include December 1st, use <code>'&lt;2012-12-02'</code>. </p>
+
+<p class="tip"><strong>Tip:</strong> When using 'where' statements with a field that is a date, you can use relative, textual dates, like <code>'last monday'</code> or <code>'&gt; this year'</code>. Internally, Bolt uses the <code>strtotime()</code> funtion for this, so we refer to its <a href="http://php.net/manual/en/function.strtotime.php" target="_blank">manual page</a> for details. </p>
 
 The `%like%` option is case-insensitive, and does not take word boundaries into account. So, this last example will
 return the pages with these titles:
@@ -217,6 +219,6 @@ returned, unless one of the following is the case:
     one is returned.
   - `{% setcontent foo = 'page' where { .. } %}`: If 'page' is the singular slug of the contenttype 'pages', Bolt
     assumes you only need one.
-  - `{% setcontent foo = 'pages' .. returnsingle %}`: If the 'returnsingle' parameter is passed, Bolt assumes you only need one result.    
+  - `{% setcontent foo = 'pages' .. returnsingle %}`: If the 'returnsingle' parameter is passed, Bolt assumes you only need one result.
 
 If you use 'limit 1', you will get an array with 1 record. Unless, of course, one of the above criteria was met.
