@@ -14,3 +14,5 @@ Create a new folder, and clone from github. Then use composer to get the rest of
  	php composer.phar install
 
 More detailed instructions can be found in the [Setup section in the documentation](http://docs.bolt.cm/setup).
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bobdenotter/bolt-docs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
