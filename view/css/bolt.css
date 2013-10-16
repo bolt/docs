@@ -5,6 +5,7 @@ body {
 p {
     font-size: 15px;
     line-height: 23px;
+    margin: 0 0 10px 0;
 }
 
 h1, h2, h3, h4, h5 {
@@ -164,16 +165,29 @@ code {
 }
 
 
+
 /* Highlighter overrides.. */
 .syntaxhighlighter {
-    border: 1px solid #E8E8E8;
+    border: 0;
+    padding: 4px 0;
+    margin: 6px 0 !important;
+    background-color: #FCFCFC !important;
     width: 90%;
-    box-shadow: 1px 1px 1px 0 rgba(128, 128, 128, 0.1);
-
 }
 
-.syntaxhighlighter .line.alt1 {
-    background-color: #FAFAFA !important;
+.syntaxhighlighter code {
+    font-size: 13px !important;
+}
+
+
+.syntaxhighlighter.source textarea {
+    font-size: 13px !important;
+    line-height: 18px !important;
+}
+
+
+.syntaxhighlighter .container {
+    box-shadow: none;
 }
 
 .syntaxhighlighter table td div {
@@ -182,15 +196,19 @@ code {
 }
 
 .syntaxhighlighter .gutter .line {
-    border-right: 2px solid #DDD !important;
-    background-color: #EEE !important;
+    border-right: 3px double #F8E8E8 !important;
+    background-color: #FDFDFD !important;
     color: #CCC !important;
+    border-bottom: 1px solid #E5F1F9 !important;
 }
 
-.syntaxhighlighter td.gutter {
-    padding: 3px 0 !important;
-    background-color: #EEE !important;
+
+.syntaxhighlighter .container .line {
+    background-color: #FDFDFD !important;
+    color: #CCC !important;
+    border-bottom: 1px solid #E5F1F9 !important;
 }
+
 
 .syntaxhighlighter .plain, .syntaxhighlighter .plain a {
     color: #444 !important;
@@ -199,19 +217,20 @@ code {
 /* Added for Twig syntax highlighting.. */
 
 .syntaxhighlighter .twigtag, .syntaxhighlighter .twigtag a {
-  color: #258440 !important;
-  font-weight: bold !important;
+    color: #258440 !important;
+    font-weight: bold !important;
 }
 
 .syntaxhighlighter .twigcomment, .syntaxhighlighter .twigcomment a {
-  color: #999 !important;
-  font-style: italic !important;
+    color: #999 !important;
+    font-style: italic !important;
 }
 
 .syntaxhighlighter .twigprint, .syntaxhighlighter .twigprint a {
-  color: #009 !important;
+    color: #009 !important;
 
 }
+
 
 
 .sticky {
