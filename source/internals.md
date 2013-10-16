@@ -12,10 +12,10 @@ Routing
 -------
 Every request to a page on a Bolt website is routed to a Silex controller, regardless of whether the request is for a page in the backend, frontend or 'asynchronous'.
 
-There are four files that contain the controller collections: `app/src/Bolt/Controllers/Backend.php`, `app/src/Bolt/Controllers/Frontend.php`, `app/src/Bolt/Controllers/Routes.php` and `app/src/Bolt/Controllers/Routes.php`.
+There are four files that contain the controller collections: `app/src/Bolt/Controllers/Backend.php`, `app/src/Bolt/Controllers/Frontend.php`, `app/src/Bolt/Controllers/Async.php` and `app/src/Bolt/Controllers/Routing.php`.
 As such, they are all in the `\Bolt\Controllers` namespace. They are 'set up' in `app/app.php`. The routes in `Backend.php` are all pretty straightforward.
 The ones in `Async.php` are used for 'ajaxy' requests, like the 'latest activity' widget on the dashboard.
-Next we have `Routes.php` and `Frontend.php`. The first one is the actual Controller that parses the routes found in 'routes.yml' and the latter contains the methods for all standard routes as defined in 'routes.yml'.
+Next we have `Routing.php` and `Frontend.php`. The first one is the actual Controller that parses the routes found in 'routes.yml' and the latter contains the methods for all standard routes as defined in 'routes.yml'.
 You can modify the 'routes.yml' to suit your own needs. Examples are included.
 
 Templating
