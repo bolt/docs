@@ -1,10 +1,11 @@
 <?php
 
 require_once('lib/markdown.php');
+require_once('lib/util.php');
 require_once('lib/smartypants.php');
 require_once './vendor/autoload.php';
 
-$version = "1.2.1";
+$version = "1.3";
 
 $request = basename($_SERVER['REQUEST_URI']);
 
@@ -16,6 +17,14 @@ if (!file_exists("./source/".$request.".md")) {
     echo "No proper name for a page in the docs. Bye!";
     die();
 }
+
+use Symfony\Component\Yaml\Parser;
+
+$yaml = new Parser();
+
+$menu = $yaml->parse(file_get_contents('menu.yml'));
+
+\util::var_dump($menu);
 
 $source = file_get_contents("./source/".$request.".md");
 $source = SmartyPants(Markdown($source));
