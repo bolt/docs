@@ -6,6 +6,7 @@ p {
     font-size: 15px;
     line-height: 23px;
     margin: 0 0 10px 0;
+    max-width: 34em;
 }
 
 h1, h2, h3, h4, h5 {
@@ -97,6 +98,7 @@ ul li {
     list-style: disc;
     font-size: 15px;
     line-height: 23px;
+    max-width: 34em;
 }
 
 p.note {
@@ -140,8 +142,9 @@ li.current a {
 code {
     padding: 1px 3px;
     background-color: #E8E8E8;
-    font-family: "Consolas",​ 'Courier New', Courier, monospace;
+    font-family: "Menlo", "Consolas", "Courier New", Courier, monospace;
     white-space: nowrap;
+    font-size: 14px;
 }
 
 
@@ -161,23 +164,21 @@ code {
 }
 
 
-
 /* Highlighter overrides.. */
 .syntaxhighlighter {
-    border: 0;
-    padding: 4px 0;
-    margin: 6px 0 !important;
-    background-color: #FCFCFC !important;
+    background-color: #FBFBFB !important;
+    padding: 4px;
     width: 90%;
 }
 
 .syntaxhighlighter code {
-    font-size: 13px !important;
+    font-size: 12px !important;
+    font-family: "Menlo", "Consolas", "Courier New", Courier, monospace !important;
 }
 
-
 .syntaxhighlighter.source textarea {
-    font-size: 13px !important;
+    font-size: 12px !important;
+    font-family: "Menlo", "Consolas", "Courier New", Courier, monospace !important;
     line-height: 18px !important;
 }
 
@@ -192,19 +193,22 @@ code {
 }
 
 .syntaxhighlighter .gutter .line {
-    border-right: 3px double #F8E8E8 !important;
-    background-color: #FDFDFD !important;
-    color: #CCC !important;
-    border-bottom: 1px solid #E5F1F9 !important;
+    border-right: 3px double #FBD8D8 !important;
+    background-color: #FBFBFB !important;
+    color: #BBB !important;
+    border-bottom: 1px solid #D0E0FD !important;
 }
 
 
 .syntaxhighlighter .container .line {
-    background-color: #FDFDFD !important;
+    background-color: #FBFBFB !important;
     color: #CCC !important;
-    border-bottom: 1px solid #E5F1F9 !important;
+    border-bottom: 1px solid #D0E0FD !important;
 }
 
+.syntaxhighlighter .toolbar {
+    display: none;
+}
 
 .syntaxhighlighter .plain, .syntaxhighlighter .plain a {
     color: #444 !important;
@@ -225,16 +229,6 @@ code {
 .syntaxhighlighter .twigprint, .syntaxhighlighter .twigprint a {
     color: #009 !important;
 
-}
-
-
-
-.sticky {
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -ms-sticky;
-  position: -o-sticky;
-  top: 40px;
 }
 
 
