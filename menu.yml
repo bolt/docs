@@ -1,0 +1,38 @@
+# The Bolt docs main menu.
+
+preface:
+  "": Getting Started
+  about: Introduction
+  requirements: Requirements
+  setup: Installing
+  updating: Updating
+  screenshots: Screenshots
+working:
+  "": Working with Bolt
+  content: Contenttypes and Records
+  taxonomies: "Relations and Taxonomies"
+  templates-routes: "Templates and Routes"
+  templates: "Building templates"
+  content-in-templates: "Content in templates"
+  content-fetching: "Fetching content"
+  content-paging: "Paging content"
+  content-search: "Implementing Search"
+  menus: "Using menus"
+
+templating:
+  "": "Templating"
+  templatetags: "Bolt template tags"
+
+extending:
+  "": "Extending Bolt"
+  extensions: "Creating Bolt Extensions"
+  internals: "Bolt Internals"
+
+other:
+  "": Other Information
+  locales: "Locales"
+  nut: "Nut (command line utility)"
+  maintenancemode: "Maintenance (offline) mode"
+  credits: "Credits and Contributing"
+  roadmap: "Roadmap"
+
