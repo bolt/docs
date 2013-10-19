@@ -11,9 +11,6 @@ working:
   "": Working with Bolt
   content: Contenttypes and Records
   taxonomies: "Relations and Taxonomies"
-  templates-routes: "Templates and Routes"
-  templates: "Building templates"
-  content-in-templates: "Content in templates"
   content-fetching: "Fetching content"
   content-paging: "Paging content"
   content-search: "Implementing Search"
@@ -21,6 +18,9 @@ working:
 
 templating:
   "": "Templating"
+  templates-routes: "Templates and Routes"
+  templates: "Building templates"
+  content-in-templates: "Content in templates"
   templatetags: "Bolt template tags"
 
 extending:
