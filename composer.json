@@ -1,5 +1,16 @@
 {
+    "name": "bolt/bolt-docs",
+    "description": "Documentation for Bolt",
+    "homepage": "http://docs.bolt.cm",
+    "keywords": ["Bolt", "Docs", "Documentation", "CMS", "Silex", "PHP", "Symfony"],
+    "license": "MIT",
     "require": {
-        "twig/twig": "1.*"
-    }
+        "twig/twig": "1.*",
+        "symfony/yaml": "~2.3"
+    },
+    "minimum-stability": "beta",
+    "config": {
+        "preferred-install": "dist"
+    },
+    "prefer-stable": true
 }
