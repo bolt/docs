@@ -2,18 +2,7 @@ Installing Bolt
 ===============
 
 This page explains the various ways of installing Bolt. You can either use the command-line or your FTP-client to
-install it. The system requirements for Bolt are modest, and it should run on any fairly modern webserver:
-
-  - PHP 5.3.2 or higher
-  - Access to SQLite (which comes bundled with PHP 5.3), _or_ MySQL _or_
-    PostgreSQL.
-  - Apache with Mod_rewrite (.htaccess files) or Nginx (virtual host configuration covered below)
-
-<p class="note"><strong>Note:</strong> Currently we only support Apache and Nginx.
-  Support for Lighttpd will come in the near future, if there's
-  demand.</p>
-
-There are three ways to install Bolt:
+install it. There are three ways to install Bolt:
 
   - The easiest way, [from the command-line](#option-1-the-easy-way-using-the-command-line).
   - The traditional way, [using (S)FTP](#option-2-the-traditional-way-using-sftp).

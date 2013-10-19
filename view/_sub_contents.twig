@@ -6,7 +6,7 @@
         <li class="section">{{ name }}</li>
         {% else %}
         <li {% if current==link %}class='current'{% endif %}><a href="/{{link}}">{{name}}</a>
-            {% if current==link %}
+            {% if current==link and submenu is not empty %}
                 <ul>
                     {% for link,name in submenu %}
                     <li><a href="#{{link}}">{{name|raw}}</a>
