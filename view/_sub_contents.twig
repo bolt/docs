@@ -1,6 +1,10 @@
-<h3>Contents</h3>
+
+{% for sectionname, section in menu %}
 <ul>
-    {% for link,name in menu %}
+    {% for link,name in section %}
+        {% if link is empty %}
+        <li class="section">{{ name }}</li>
+        {% else %}
         <li {% if current==link %}class='current'{% endif %}><a href="/{{link}}">{{name}}</a>
             {% if current==link %}
                 <ul>
@@ -10,6 +14,8 @@
                 </ul>
             {% endif %}
         </li>
+        {% endif %}
     {% endfor %}
 </ul>
+{% endfor %}
 </div>
