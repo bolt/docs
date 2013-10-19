@@ -24,8 +24,6 @@ $yaml = new Parser();
 
 $menu = $yaml->parse(file_get_contents('menu.yml'));
 
-\util::var_dump($menu);
-
 $source = file_get_contents("./source/".$request.".md");
 $source = SmartyPants(Markdown($source));
 
@@ -44,37 +42,12 @@ $source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function($match
 	return $output;
 }, $source);
 
-
-
 $loader = new Twig_Loader_Filesystem('./view');
 $twig = new Twig_Environment($loader, array(
 /*    'cache' => './cache', */
 ));
 
-$menu = array(
-	'about' => "About",
-	'screenshots' => "Screenshots",
-	'setup' => "Installing Bolt",
-//	'using' => "Using Bolt",
-	'content' => "Working with Content and Content types",
-    'taxonomies' => "Relations and Taxonomies",
-    'templates-routes' => "Templates and Routes",
-	'templates' => "Building templates",
-    'content-in-templates' => "Content in templates",
-    'content-fetching' => "Fetching content",
-    'content-paging' => "Paging content",
-    'content-search' => "Implementing Search",
-	'templatetags' => "Bolt template tags",
-    'menus' => "Using menus",
-    'extensions' => "Creating Bolt Extensions",
-    'internals' => "Bolt Internals",
-    'locales' => "Locales",
-//    'snippets' => "Twig Code snippets",
-    'nut' => "Nut (command line utility)",
-    'maintenancemode' => "Maintenance (offline) mode",
-	'credits' => "Credits and Contributing",
-    'roadmap' => "Roadmap"
-	);
+
 
 echo $twig->render('index.twig', array(
 	'title' => $maintitle,
