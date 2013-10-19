@@ -71,10 +71,6 @@ header hr {
     border-style: dotted;
 }
 
-header {
-    margin-bottom: 40px;
-}
-
 header div.kop {
     float: left;
     width: 48%;
@@ -152,7 +148,7 @@ code {
 .container {
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    padding-bottom: 40px;    
+    padding: 0 12px 40px;
 }
 
 .container .offset-by-half {
