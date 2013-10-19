@@ -1,0 +1,15 @@
+<h3>Contents</h3>
+<ul>
+    {% for link,name in menu %}
+        <li {% if current==link %}class='current'{% endif %}><a href="/{{link}}">{{name}}</a>
+            {% if current==link %}
+                <ul>
+                    {% for link,name in submenu %}
+                    <li><a href="#{{link}}">{{name|raw}}</a>
+                        {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+</div>
