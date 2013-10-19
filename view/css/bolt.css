@@ -141,10 +141,10 @@ li.current a {
 
 code {
     padding: 1px 3px;
-    background-color: #E8E8E8;
+    background-color: #F0F0F0;
     font-family: "Menlo", "Consolas", "Courier New", Courier, monospace;
     white-space: nowrap;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 
