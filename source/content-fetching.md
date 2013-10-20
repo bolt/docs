@@ -85,8 +85,6 @@ records. It's also possible to use modifiers for the values, to select based on 
 <p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code> Bolt only selects dates before or equal
 to <code>'2012-12-01 00:00:00'</code>. If you want to include December 1st, use <code>'&lt;2012-12-02'</code>. </p>
 
-<p class="tip"><strong>Tip:</strong> When using 'where' statements with a field that is a date, you can use relative, textual dates, like <code>'last monday'</code> or <code>'&gt; this year'</code>. Internally, Bolt uses the <code>strtotime()</code> funtion for this, so we refer to its <a href="http://php.net/manual/en/function.strtotime.php" target="_blank">manual page</a> for details. </p>
-
 The `%like%` option is case-insensitive, and does not take word boundaries into account. So, this last example will
 return the pages with these titles:
 
@@ -128,8 +126,7 @@ Some examples of these are:
 {% setcontent mypages = 'pages' where { datepublish: '&gt;TODAY', datepublish: '&lt;TOMORROW' } %}
 </pre>
 
-<p class="note"><strong>Note:</strong> These shortcuts are case sensitive, so you must use CAPS. <code>'&lt;today'</code>
-will not work.</p>
+<p class="tip"><strong>Tip:</strong> When using 'where' statements with a field that is a date, you can use relative, textual dates, like <code>'last monday'</code> or <code>'&gt; this year'</code>. Internally, Bolt uses the <code>strtotime()</code> funtion for this, so we refer to its <a href="http://php.net/manual/en/function.strtotime.php" target="_blank">manual page</a> for details. </p>
 
 Like mentioned above, you can add more than one parameter to the where clause:
 
