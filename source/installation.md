@@ -84,7 +84,6 @@ You can easily update your install, by executing the following commands. Whoohoo
 
 <pre class="brush: plain">
 git pull
-cd bolt
 php composer.phar self-update
 php composer.phar update
 </pre>
