@@ -62,8 +62,8 @@ header h1 img {
     margin-bottom: -12px;
 }
 
-header h5 {
-    width: 25%;
+header h5 a {
+    text-decoration: none;
 }
 
 header hr {
