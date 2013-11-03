@@ -25,8 +25,9 @@ tar -xzf bolt_latest.tgz
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
 </pre>
 
-<p class="tip"><strong>Tip:</strong> For easier copy/pasting of the samples,
-doubleclick the code.</p>
+<p class="tip">
+<strong>Tip:</strong> For easier copy/pasting of the samples, doubleclick the code.
+</p>
 
 Bolt needs to be able to read and write certain folders like the cache and the
 template folders. On most servers the webserver runs in a different group than
@@ -45,18 +46,17 @@ doesn't have `curl`, use `wget` instead.
 
 Download the latest version of Bolt from this location:
 
-[http://bolt.cm/distribution/bolt_latest.zip](http://bolt.cm/distribution/bolt_l
-atest.zip)
+[http://bolt.cm/distribution/bolt_latest.zip](http://bolt.cm/distribution/bolt_latest.zip)
 
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
 your choice. After you've done this, be sure to chmod the following folders
 (_with_ containing files) to `777`, so they are readable and writable by Bolt:
 
-- `app/cache/`
-- `app/config/`
-- `app/database/`
-- `files/`
-- `theme/`
+  - `app/cache/`
+  - `app/config/`
+  - `app/database/`
+  - `files/`
+  - `theme/`
 
 Most FTP clients will allow you to do this quickly, using a 'include files' or
 'apply to enclosed' option. It depends on the exact server configuration if you
@@ -74,32 +74,29 @@ width="590"></a><br>
 
 After you've done this, skip to the section [Setting up Bolt](#setting-up-bolt).
 
-### Option 3: The developer way, using git and composer.
 
+### Option 3: The developer way, using git and composer.
 
 If you want to install Bolt using Git and Composer, execute the following
 commands:
 
-<pre class="brush: plain"> git clone git://github.com/bolt/bolt.git bolt cd bolt
-curl -s http://getcomposer.org/installer | php php composer.phar install </pre>
+<pre class="brush: plain"> 
+git clone git://github.com/bolt/bolt.git bolt 
+cd bolt
+curl -s http://getcomposer.org/installer | php 
+php composer.phar install 
+</pre>
 
 This will get the Bolt files, the Silex framework, and all required components.
 Most likely all files and folders will have the correct filerights, but if they
 don't, (re)set them using the following command in the `bolt/` folder:
 
-<pre class="brush: plain"> chmod -R 777 files/ app/database/ app/cache/
-app/config/ theme/ </pre>
+<pre class="brush: plain"> 
+chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ </pre>
 
 It depends on the exact server configuration if you will need to use `777` or if
 another setting is better. If you wish to know for sure, ask your hosting
 provider.
-
-You can easily update your install, by executing the following commands.
-Whoohoo, living on the edge!!
-
-<pre class="brush: plain"> git pull php composer.phar self-update php
-composer.phar update </pre>
-
 
 
 Setting up Bolt
@@ -135,13 +132,22 @@ If you wish to edit the database configuration, you have to change the settings
 in `app/config/config.yml`. Apart from SQLite, you can use MySQL and Postgres as
 database backends. Set the database, username and password:
 
-<pre class="brush: plain"> database: driver: mysql username: bolt password:
-  password databasename: bolt </pre>
+<pre class="brush: plain"> 
+database: 
+  driver: mysql 
+  username: bolt 
+  password: password 
+  databasename: bolt </pre>
 
 or:
 
-<pre class="brush: plain"> database: driver: postgres username: bolt password:
-  password databasename: bolt </pre>
+<pre class="brush: plain"> 
+database: 
+  driver: postgres 
+  username: bolt 
+  password: password 
+  databasename: bolt 
+</pre>
 
 Support for Postgres is experimental, so use with caution.
 
@@ -149,11 +155,17 @@ Support for Postgres is experimental, so use with caution.
   which means that the indentation is important. Make sure you leave leading
   spaces intact.</p>
 
-If the hostname or port are something else than 'localhost:3306', you can add
+If the hostname or port are something else than `localhost:3306`, you can add
 them like this:
 
-<pre class="brush: plain"> database: username: bolt password: bolt%1
-  databasename: bolt host: database.example.org port: 3306 </pre>
+<pre class="brush: plain"> 
+database: 
+  username: bolt 
+  password: bolt%1
+  databasename: bolt 
+  host: database.example.org 
+  port: 3306 
+</pre>
 
 The other settings in the `config.yml` file can be changed later on, directly
 from the Bolt backend.
@@ -183,8 +195,8 @@ and only in development enable debug in `config_local.yml`.
 Apache: Tweaking the .htaccess file
 ---------------------------
 
-Bolt requires the use of a .htaccess file to make sure requests like `page
-/about-this-website` get routed to the index.php, so it can be handled by Bolt.
+Bolt requires the use of a .htaccess file to make sure requests like `page/about-this-website` 
+get routed to the index.php, so it can be handled by Bolt.
 By default, the file looks like this:
 
 <pre class="brush: plain">
@@ -218,7 +230,7 @@ Options -Indexes
 
 In some cases it won't work without the `RewriteBase` line, and in some cases it
 won't work _with_ it, depending on how your Apache is configured and the
-location on your site on the server. Isn't Apache configuration great?
+location on your site on the server. Isn't Apache configuration great? :-)
 
 Anyhow, if your site doesn't work, try uncommenting the `RewriteBase` line and
 set it to the correct folder. For instance, if your Bolt site is located at
