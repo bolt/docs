@@ -42,3 +42,16 @@ git pull
 php composer.phar self-update
 php composer.phar update
 </pre>
+
+After updating, you should clear the cache, and make sure the database is up to date.
+
+<pre class="brush: plain">
+php app/nut cache:clear
+</pre>
+
+Check and update the database, with these commands:
+
+<pre class="brush: plain">
+php app/nut database:check
+php app/nut database:update
+</pre>
