@@ -1,19 +1,21 @@
 Requirements
 ===============
 
-The system requirements for Bolt are modest, and it should run on any fairly modern webserver:
+The system requirements for Bolt are modest, and it should run on any fairly
+modern webserver:
 
   - PHP 5.3.2 or higher
   - Access to SQLite (which comes bundled with PHP 5.3), _or_ MySQL _or_
     PostgreSQL.
-  - Apache with Mod_rewrite (.htaccess files) or Nginx (virtual host configuration covered below)
+  - Apache with Mod_rewrite (`.htaccess` files) or Nginx (virtual host
+    configuration covered below)
 
-<p class="note"><strong>Note:</strong> Currently we only support Apache and Nginx.
-  Support for Lighttpd will come in the near future, if there's
-  demand.
+<p class="note"><strong>Note:</strong> Currently we only support Apache and
+  Nginx. Support for Lighttpd will come in the near future, if there's demand.
   </p>
 
-The PHP installation has a few additional requirements. On most servers these are default settings, and Bolt should work out-of-the-box.
+The PHP installation has a few additional requirements. On most servers these
+are default settings, and Bolt should work out-of-the-box.
 
   - A minimum of 32mb of memory allocated to PHP
   - The PDO extension, to connect to a database
