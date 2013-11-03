@@ -1,12 +1,14 @@
 bolt-docs
 =========
 
-These are the docs for [Bolt](http://bolt.cm/). This repository is the documentation counterpart of the [Bolt repository](https://github.com/bobdenotter/bolt).
+These are the docs for [Bolt](http://bolt.cm/). This repository is the
+documentation counterpart of the [Bolt repository](https://github.com/bobdenotter/bolt).
 
 Installation 
 ------------
 
-Create a new folder, and clone from github. Then use composer to get the rest of the components:
+Create a new folder, and clone from github. Then use composer to get the rest of
+the components:
 
 	git clone git://github.com/bolt/bolt-docs.git bolt-docs
 	cd bolt-docs
