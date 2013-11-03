@@ -299,6 +299,10 @@ Tag: setcontent
 This tag is used to perform various queries on the database. It converts a human-readable query
 to actual records.
 
+Much, much more information about the `setcontent` tag, together with additional
+query arguments, pagination, sorting and other options you can find in the
+chapter about [Fetching content](content-fetching).
+
 These queries are currently possible:
 
   * <code>entry/12</code> - get entry with id 12
@@ -316,45 +320,6 @@ These queries are currently possible:
 {{ about.introduction|raw }}
 
 &lt;a href="{{ about|link }}">link&lt;/a>
-</pre>
-
-Additional query arguments, pagination, sorting and other options you can find in the previous chapter [Content in template / Fetching content](content-in-templates#fetching-content). 
-
-
-
-Tag: set / content
-------------------
-
-<p class="note"><strong>Note:</strong> This tag is deprecated. Use <code>{% setcontent %}</code> instead.</p>
-
-
-<pre class="brush: html">
-{% set about = content('page', {'slug': 'about'}) %}
-{# check if there's a page with slug 'about' #}
-{% if about.title is defined %}
-
-    &lt;h3>{{ about.title }}&lt;/h3>
-    {{ about.introduction|raw }}
-
-    &lt;a href="{{ about|link }}">link&lt;/a>
-
-{% else %}
-
-    &lt;h3>Alas, no about!&lt;/h3>
-
-{% endif %}
-</pre>
-
-<pre class="brush: html">
-&lt;h3>Recent pages&lt;/h3>
-{% set pages = content('pages', {'limit': 5, 'order': 'datecreated desc'}) %}
-&lt;ul>
-	{% for page in pages %}
-		&lt;li>&lt;a href="{{ page|link }}">{{ page.title }}&lt;/a>&lt;/li>
-	{% else %}
-		&lt;p>No recent pages.&lt;/p>
-	{% endfor %}
-&lt;/ul>
 </pre>
 
 
