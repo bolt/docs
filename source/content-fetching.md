@@ -1,8 +1,9 @@
 Fetching content
 ================
 
-To get content from the database, you can use the `setcontent` tag. The following example will get the content record
-with slug 'about' from the 'pages' contenttype:
+To get content from the database, you can use the `setcontent` tag. The
+following example will get the content record with slug 'about' from the 'pages'
+contenttype:
 
 <pre class="brush: html">
 {% setcontent about = 'page/about' %}
@@ -10,15 +11,16 @@ with slug 'about' from the 'pages' contenttype:
 {{ print(about) }}
 </pre>
 
-There are a lot of options for the `setcontent` tag. Most are optional, and all can be used together any way you'd like.
-The most basic syntax is:
+There are a lot of options for the `setcontent` tag. Most are optional, and all
+can be used together any way you'd like. The most basic syntax is:
 
 <code>
 {% setcontent _variable_ = '_contenttype_' %}
 </code>
 
-This will set a _variable_ to contain the records of the given _contenttype_. For example: `{% setcontent mypages =
-'pages' %}` will set `{{ mypages }}` to an array of all the records in 'pages'.
+This will set a _variable_ to contain the records of the given _contenttype_.
+For example: `{% setcontent mypages = 'pages' %}` will set `{{ mypages }}` to an
+array of all the records in 'pages'.
 
 ## Limiting the results, using `where`
 
