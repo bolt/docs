@@ -93,8 +93,11 @@ header div.search {
 
 .content h3 {
     font-size: 20px;
-    margin-top: 30px;
+    margin: 16px 0 8px;
 }
+
+
+
 
 ul li {
     padding: 0;
@@ -160,11 +163,6 @@ code {
 
 .container .offset-by-half {
     padding-left: 30px;
-}
-
-.content h2, .content h3 {
-    margin-top: 32px;
-    margin-bottom: 16px;
 }
 
 
