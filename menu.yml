@@ -7,20 +7,22 @@ preface:
   installation: Installation
   updating: Updating
   screenshots: Screenshots
+  
 working:
   "": Working with Bolt
   content: Contenttypes and Records
+  content-in-templates: "Content in templates"
   taxonomies: "Relations and Taxonomies"
-  content-fetching: "Fetching content"
-  content-paging: "Paging content"
-  content-search: "Implementing Search"
   menus: "Using menus"
 
 templating:
   "": "Templating"
   templates-routes: "Templates and Routes"
   templates: "Building templates"
-  content-in-templates: "Content in templates"
+  record-and-records: "Record and Records"
+  content-fetching: "Fetching content"
+  content-paging: "Paging content"
+  content-search: "Implementing Search"
   templatetags: "Bolt template tags"
 
 extending:
