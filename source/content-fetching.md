@@ -239,13 +239,13 @@ The results can be sorted by any of the fields of the contenttype, using the
 
 {# get the 10 latest modified pages, sorted datechanged descending #}
 {% setcontent mypages = 'pages' limit 10 orderby '-datechanged' %}
+</pre>
 
 Note that the records are fetched from the database, according to the `orderby`
 parameter. If you use `orderby 'title'`, you will get records with titles
 starting with 'a', and not just some records, that are sorted after fetching
 them from the database.
 
-</pre>
 
 One record or multiple records?
 -------------------------------
