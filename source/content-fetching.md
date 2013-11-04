@@ -201,20 +201,19 @@ statement that will never give good results:
 {% setcontent mypages = 'pages' where { id: '&lt;29 && &gt37' } %}
 </pre>
 
-By using '|||'-parameters (three pipes) you can create an OR-part for multiple
+By using the `|||`-operator (three pipes) you can create an OR-part for multiple
 columns. For example:
 
 <pre class="brush: html">
 {# Select users from Amsterdam that match either username 'pete' or firstname 'Mike' #}
 {% setcontent mypages = 'pages' where { city: 'Amsterdam', 'username ||| firstname': 'pete ||| Mike' } %}
 
-{#
-    Query output:
-    WHERE ( (city = 'Amsterdam') AND ( (username = 'pete') OR (firstname = 'Mike') ) )
+{# Query output:
+    WHERE ( (city = 'Amsterdam') AND ( (username = 'pete') OR (firstname = 'Mike') ) ) 
 #}
 </pre>
 
-Since 'and' is the default, there is no `&&&` equivalent to '|||'.
+Since 'and' is the default, there is no `&&&` equivalent to `|||`.
 
 
 Using `limit`
