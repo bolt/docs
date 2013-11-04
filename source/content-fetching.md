@@ -275,5 +275,5 @@ is the case:
   - `{% setcontent foo = 'pages' .. returnsingle %}`: If the 'returnsingle' parameter 
     is passed, Bolt assumes you only need one result.
 
-If you use 'limit 1', you will get an array with 1 record. Unless, of course,
+If you use `limit 1`, you will get an array with 1 record. Unless, of course,
 one of the above criteria was met.
