@@ -104,6 +104,43 @@ or:
 </pre>
 
 
+
+
+Filter: round, ceil and floor
+-----------------------------
+The `round`, `floor` and `ceil` modifiers can be used to round numbers (or
+strings containing a numerical-like values) to the nearest integer, which
+basically means "whole number"
+
+<pre class="brush: html">
+{% set pi = 3.141592 %}
+
+Rounded, Pi is {{ pi|round }} {# "3" #}
+
+The constant Pi is somewhere between {{ pi|floor }} and {{ pi|ceil }}
+{# "3 and 4" #}
+</pre>
+
+
+Filter: slug
+------------
+
+The `slug` filter can be used to transform any string into a slug-like value. This
+can be very useful when you're hand-crafting links to categories, pages or other
+structures where you need a URL-safe representation of a string.
+
+In this example, we build links to all category listing pages: 
+
+<pre class="brush: html">
+&lt;ul>
+{% for category in app.config.get('taxonomy/categories/options') %}
+    &lt;li>&lt;a href="/category/{{ category|slug }}">{{ category }}&lt;/a>&lt;/li>
+{% endfor %}
+&lt;ul>
+</pre>
+
+
+
 Filter: thumbnail
 -----------------
 
