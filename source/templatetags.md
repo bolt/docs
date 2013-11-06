@@ -121,6 +121,8 @@ The constant Pi is somewhere between {{ pi|floor }} and {{ pi|ceil }}
 {# "3 and 4" #}
 </pre>
 
+If you need fancier number formatting than this, you can use the built-in Twig `number_format`-filter. See the [docs here](http://twig.sensiolabs.org/doc/filters/number_format.html).
+
 
 Filter: slug
 ------------
