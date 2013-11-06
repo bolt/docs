@@ -231,7 +231,8 @@ This will make sure jQuery is added to the outputted HTML, but only if it's not 
 
 The version of jQuery included will be the one that ships with Bolt. This will most likely be the most recent one, at the time of the release of the Bolt version that you are running. 
 
-#### Add a Twig function or filter
+Add a Twig function or filter
+-----------------------------
 
 Extensions can add Twig functions or filters to extend the templates used in the frontend. This example will add a function `{{ foo() }}` to use in the frontend templates:
 
