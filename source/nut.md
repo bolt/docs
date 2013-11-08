@@ -1,13 +1,16 @@
 The command line utility Nut
 ============================
 
-Bolt comes with a small command line utility, named `nut`, that can be found in the `app/`-folder. If you are familiar
-with working on the commandline, you can some tasks like 'clearing the cache' or 'updating the database' without having
-to use the webinterface of Bolt. This utility is completely optional, so if you don't have access to the command line
-on your server, you're not missing out on any essential functionality. It's merely a convenient tool for those that do
+Bolt comes with a small command line utility, named `nut`, that can be found in
+the `app/`-folder. If you are familiar with working on the commandline, you can
+some tasks like 'clearing the cache' or 'updating the database' without having
+to use the webinterface of Bolt. This utility is completely optional, so if you
+don't have access to the command line on your server, you're not missing out on
+any essential functionality. It's merely a convenient tool for those that do
 prefer the command line.
 
-Right now, there are a few basic commands, but we're going to add more and more over time. 
+Right now, there are a few basic commands, but we're going to add more and more
+over time.
 
 When running `php app/nut` without any parameters, you'll see the help screen:
 
@@ -27,20 +30,27 @@ Options:
   --no-interaction -n Do not ask any interactive question.
 
 Available commands:
-  help             Displays help for a command
-  info             Display phpinfo().
-  list             Lists commands
+  browscap             Update our local browscap files.
+  extensions           Lists all installed extensions, and whether they're enabled or disabled.
+  help                 Displays help for a command
+  info                 Display phpinfo().
+  list                 Lists commands
 cache
-  cache:clear      Clear the cache
+  cache:clear          Clear the cache
+config
+  config:get           Get a value from config.yml.
+  config:set           Set a value in config.yml.
 database
-  database:check   Check and repair/update the database.
+  database:check       Check the database for missing tables and/or columns.
+  database:update      Repair and/or update the database.
+extensions
+  extensions:disable   Disables an extension.
+  extensions:enable    Enables an extension.
 log
-  log:clear        Clear (truncate) the activitylog.
-  log:trim         Trim the activitylog to recent/important items only.
-nut
-  nut:greet        Greet someone
+  log:clear            Clear (truncate) the activitylog.
+  log:trim             Trim the activitylog to recent/important items only.
 tests
-  tests:run        Runs all available tests
+  tests:run            Runs all available tests
 </pre>
 
 Run any of these commands, to perform their actions, like `php app/nut cache:clear`. 

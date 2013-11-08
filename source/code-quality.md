@@ -9,9 +9,10 @@ particular bounds for people to operate within.
 
 Dependency Management
 ---------------------
-The de facto dependency management tool for Github projects is [Composer](http://getcomposer.org)
-We're not trying to re-invent the wheel, so when possible, we use proved
-libraries to support our development.
+The de-facto dependency management tool for Github projects is
+[Composer](http://getcomposer.org) We're not trying to re-invent the wheel, so
+when possible, we use established and proven libraries to support our
+development.
 
 Code Standard
 -------------
@@ -25,7 +26,9 @@ Continuous Integration and Continuous Inspection
 ------------------------------------------------
 For automatically running our unit tests and checking against various PHP
 versions, we use [Travis CI](https://travis-ci.org). The configuration is
-located in the [.travis.yml](https://github.com/bolt/bolt/blob/master/.travis.yml) file.
-The code standard, as well as some other helpful tools to get metrics about the
+located in the
+[.travis.yml](https://github.com/bolt/bolt/blob/master/.travis.yml) file. The
+code standard, as well as some other helpful tools to get metrics about the
 codebase are run by [Scrutinizer CI](https://scrutinizer-ci.com). The
-configuration is located in [.scrutinizer.yml](https://github.com/bolt/bolt/blob/master/.scrutinizer.yml)
+configuration is located in
+[.scrutinizer.yml](https://github.com/bolt/bolt/blob/master/.scrutinizer.yml)

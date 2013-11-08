@@ -1,12 +1,14 @@
 Creating menus
 ==============
 
-Bolt has built-in functionality to create menus in your frontend templates. Using this functionality, you can define
-one or more menus in the file `app/config/menu.yml`, which can then be inserted in your templates using the `{{ menu()
-}}` tag.
+Bolt has built-in functionality to create menus in your frontend templates.
+Using this functionality, you can define one or more menus in the file
+`app/config/menu.yml`, which can then be inserted in your templates using the
+`{{ menu() }}` tag.
 
-To change one or more of the menus, edit the file `app/config/menu.yml`. You can add more separate menus, if you wish,
-and each menu can have one level of items below it. See the default `menu.yml` for an example of the supported options:
+To change one or more of the menus, edit the file `app/config/menu.yml`. You can
+add more separate menus, if you wish, and each menu can have one level of items
+below it. See the default `menu.yml` for an example of the supported options:
 
 
 <pre class="brush: plain">
@@ -48,34 +50,42 @@ To insert a menu in your templates, use
 	{{ menu() }}
 </pre>
 
-If you have more than one menu, you should use its name to make sure you get the intended one:
+If you have more than one menu, you should use its name to make sure you get the
+intended one:
 
 <pre class="brush: html">
 	{{ menu('foo') }}
 </pre>
 
-By default, the menu is always rendered using the template `/app/theme_defaults/_menu_default.twig`. You can 'override' the
-default by copying this file to your own theme folder. Bolt will pick your own version, and then it will not be
-overwritten in a future update. However, it is good practice to explicitly state which template file should be used to
-render a menu. Like this:
+By default, the menu is rendered using the template
+`/app/theme_defaults/_menu_default.twig`. You can 'override' the default by
+copying this file to your own theme folder. Bolt will pick your own version, and
+then it will not be overwritten in a future update. However, it is good practice
+to explicitly state which template file should be used to render a menu. Like
+this:
 
 <pre class="brush: html">
     {{ menu('foo', '_menu_foo.twig') }}
 </pre>
 
-Doing this will render the menu `foo`, using the template `_menu_foo.twig`. The filename can be anything, but it's good
-practice to prefix it with `_menu`, so it's always easily recognizable later, or to other people working with your HTML.
+Doing this will render the menu `foo`, using the template `_menu_foo.twig`. The
+filename can be anything, but it's good practice to prefix it with `_menu`, so
+it's always easily recognizable later, or to other people working with your
+HTML.
 
-<p class="note"><strong>Note:</strong> You can define more than one menu in your <code>menu.yml</code> file, but you
-should define <em>only one</em> menu in each template file. So, if you have multiple menus that should be rendered with
-different HTML, you should have as many <code>_menu_<em>menuname</em>.twig</code> files in your theme.</p>
+<p class="note"><strong>Note:</strong> You can define more than one menu in your
+<code>menu.yml</code> file, but you should define <em>only one</em> menu in each
+template file. So, if you have multiple menus that should be rendered with
+different HTML, you should have as many <code>_menu_<em>menuname</em>.twig</code> 
+files in your theme.</p>
 
 
 A detailed example
 ------------------
 
-In this section we'll show you a somewhat more elaborate example of how you can create a menu, with submenus. First,
-start by adding a small menu to your `app/config/menu.yml`-file:
+In this section we'll show you a somewhat more elaborate example of how you can
+create a menu, with submenus. First, start by adding a small menu to your
+`app/config/menu.yml`-file:
 
 <pre class="brush: plain">
 test:
@@ -87,16 +97,17 @@ test:
     link: http://silex.sensiolabs.org
 </pre>
 
-As you can probably guess, this menu does nothing but provide links to three external websites. To get started, edit the
-template where you want this menu. Usually, menus are used in 'headers', 'footers' or 'aside' includes, but you can use
-them anywhere. For now, just insert this code, somewhere:
+As you can probably guess, this menu does nothing but provide links to three
+external websites. To get started, edit the template where you want this menu.
+Usually, menus are used in 'headers', 'footers' or 'aside' includes, but you can
+use them anywhere. For now, just insert this code, somewhere:
 
 <pre class="brush: html">
     {{ menu('test', '_menu_test.twig') }}
 </pre>
 
-This inserts the menu, using the template `_menu_test.twig` template. The file probably is'nt present yet, so create it
-in your own `theme/`-folder.
+This inserts the menu, using the template `_menu_test.twig` template. The file
+probably is'nt present yet, so create it in your own `theme/`-folder.
 
 <pre class="brush: html">
 &lt;ul>
@@ -228,4 +239,8 @@ always copy this file to your own theme folder, or create your own from scratch.
 If you modify the default file, it will most likely get overwritten when you
 update Bolt to a newer version.
 
-Normally you will only need the basic properties of each of the menu items, but sometimes you might need to do more with the items. For this reason, each `item` has access to the entire record. You can use `{{ item.record }}` like you would use any other record. For instance, `{{ item.record.taxonomy }}`, or `{{ print(item.record) }}`.
+Normally you will only need the basic properties of each of the menu items, but
+sometimes you might need to do more with the items. For this reason, each `item`
+has access to the entire record. You can use `{{ item.record }}` like you would
+use any other record. For instance, `{{ item.record.taxonomy }}`, or `{{
+print(item.record) }}`.

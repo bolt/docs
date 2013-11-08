@@ -1,17 +1,21 @@
 Bolt Template tags
 ==================
 
-As mentioned before, a template in Bolt can use all of the standard Twig tags, with a few additions that are specific to
-working with Bolt. If you're not familiar with Twig yet, you should read "[Twig for Template
-Designers](http://twig.sensiolabs.org/doc/templates.html)", on the official Twig website.
+As mentioned before, a template in Bolt can use all of the standard Twig tags,
+with a few additions that are specific to working with Bolt. If you're not
+familiar with Twig yet, you should read "[Twig for Template
+Designers](http://twig.sensiolabs.org/doc/templates.html)", on the official Twig
+website.
 
-Below you'll find the tags we've added specifically for Bolt, along with some commonly used snippets, like menus.
+Below you'll find the tags we've added specifically for Bolt, along with some
+commonly used snippets, like menus.
 
 Tag: include
 ------------
 
-Use this to include another Twig template in the current template. Twig parses the template like any other template, so
-you can use any tags in your included template that you would use in the 'main' template. You can also use `include`
+Use this to include another Twig template in the current template. Twig parses
+the template like any other template, so you can use any tags in your included
+template that you would use in the 'main' template. You can also use `include`
 inside the included templates.
 
 <pre class="brush: html">
@@ -23,9 +27,16 @@ For more information, see [include](http://twig.sensiolabs.org/doc/tags/include.
 Filter: localdate
 -----------------
 
-Outputs a localized, readable version of a timestamp, based on the `locale` setting in the `config.yml`-file. See the [Locales](/locales) page for more information on locales.
+Outputs a localized, readable version of a timestamp, based on the `locale`
+setting in the `config.yml`-file. See the [Locales](/locales) page for more
+information on locales.
 
-In Bolt dates are stored with each record for the date the record was created, when it was last edited, and optionally when it was published. These dates are stored in a way that makes it easier for the database to work with them when it comes to sorting or selecting a specific period. They look like: `2013-02-18 09:41:10`, which isn't suitable to output on the website itself. The localdate filter transforms the ugly timestamp to a readable, localized text. Examples:
+In Bolt dates are stored with each record for the date the record was created,
+when it was last edited, and optionally when it was published. These dates are
+stored in a way that makes it easier for the database to work with them when it
+comes to sorting or selecting a specific period. They look like: `2013-02-18
+09:41:10`, which isn't suitable to output on the website itself. The localdate
+filter transforms the ugly timestamp to a readable, localized text. Examples:
 
 <pre class="brush: html">
     '{{ record.datepublish }}' is the same as 
@@ -34,8 +45,11 @@ In Bolt dates are stored with each record for the date the record was created, w
 
 Outputs: 
 
-  - '2012-12-05 06:51:16' is the same as 'mánudagur desember 5', if your locale is set to `is_IS`,  or
-  - '2012-12-05 06:51:16' is the same as 'Monday December 5', if it's set to `en_GB`. Note that it correctly uses capitals according to the chosen language's conventions. 
+  - '2012-12-05 06:51:16' is the same as 'mánudagur desember 5', if your locale
+    is set to `is_IS`,  or
+  - '2012-12-05 06:51:16' is the same as 'Monday December 5', if it's set to
+    `en_GB`. Note that it correctly uses capitals according to the chosen
+    language's conventions.
 
 Some other examples: 
 
@@ -53,7 +67,9 @@ Outputs:
   - Published: The Sunday in week 07 of 2013
   - Last changed: February 17, 2013 01:09:30 pm
 
-The `localdate`-filter uses the PHP `strftime()` function internally. For all possible options, see the official [strftime()](http://php.net/manual/en/function.strftime.php) page on php.net. 
+The `localdate`-filter uses the PHP `strftime()` function internally. For all
+possible options, see the official
+[strftime()](http://php.net/manual/en/function.strftime.php) page on php.net.
 
 
 Filter: date
@@ -63,9 +79,12 @@ Filter: date
 {{ content.datecreated|date("M d, ’y")}}
 </pre>
 
-See the various options for 'date' on the [PHP website](http://nl3.php.net/manual/en/function.date.php).
+See the various options for 'date' on the [PHP
+website](http://nl3.php.net/manual/en/function.date.php).
 
-<p class="note"><strong>Note:</strong> This tag does <em>not</em> display a localized version of the date. Use the <code>{{ localdate }}</code>-filter if you want to display dates in other languages than English.</p>
+<p class="note"><strong>Note:</strong> This tag does <em>not</em> display a
+localized version of the date. Use the <code>{{ localdate }}</code>-filter if
+you want to display dates in other languages than English.</p>
 
 
 Filter: link
@@ -87,7 +106,8 @@ or:
 Filter: current
 -----------------
 
-Checks if a given record corresponds to the page being shown in the browser. Useful for adding 'active' states to menus and such.
+Checks if a given record corresponds to the page being shown in the browser.
+Useful for adding 'active' states to menus and such.
 
 <pre class="brush: html">
 {% if page|current %}class="current"{% endif %}
@@ -121,15 +141,17 @@ The constant Pi is somewhere between {{ pi|floor }} and {{ pi|ceil }}
 {# "3 and 4" #}
 </pre>
 
-If you need fancier number formatting than this, you can use the built-in Twig `number_format`-filter. See the [docs here](http://twig.sensiolabs.org/doc/filters/number_format.html).
+If you need fancier number formatting than this, you can use the built-in Twig
+`number_format`-filter. See the [docs
+here](http://twig.sensiolabs.org/doc/filters/number_format.html).
 
 
 Filter: slug
 ------------
 
-The `slug` filter can be used to transform any string into a slug-like value. This
-can be very useful when you're hand-crafting links to categories, pages or other
-structures where you need a URL-safe representation of a string.
+The `slug` filter can be used to transform any string into a slug-like value.
+This can be very useful when you're hand-crafting links to categories, pages or
+other structures where you need a URL-safe representation of a string.
 
 In this example, we build links to all category listing pages: 
 
@@ -146,24 +168,36 @@ In this example, we build links to all category listing pages:
 Filter: thumbnail
 -----------------
 
-Use this modifier to create a link to an automatically generated thumbnail of a size of your choosing. For example:
+Use this modifier to create a link to an automatically generated thumbnail of a
+size of your choosing. For example:
 
 <pre class="brush: html">
     &lt;img src="{{ content.image|thumbnail(320, 240) }}">
 </pre>
 
-If `content.image` is an image in your `files/` folder, like `foo.jpg`, this modifier will output a link like `/thumbs/320x240/foo.jpg`. This is useful for creating absolute links to a thumbnail, regardless of whether Bolt is installed in the root of your domain, a subdomain or a folder.
+If `content.image` is an image in your `files/` folder, like `foo.jpg`, this
+modifier will output a link like `/thumbs/320x240/foo.jpg`. This is useful for
+creating absolute links to a thumbnail, regardless of whether Bolt is installed
+in the root of your domain, a subdomain or a folder.
 
-You can specify three parameters: the width, height, and the mode of cropping. The mode of cropping is important if
-you're requesting a thumbnail that has different proportions than the original image. Valid options for cropping are:
+You can specify three parameters: the width, height, and the mode of cropping.
+The mode of cropping is important if you're requesting a thumbnail that has
+different proportions than the original image. Valid options for cropping are:
 
-  - 'c' (crop, default) - Makes sure you always get an image that is the specified width and height. The image is not
-    transformed, so it will be cropped to fit the boundaries is necessary.
-  -  'f' ('fit') - The image will not be cropped but resized to fit within the given maximum width and height. This
-     means that you will always get an image with the exact same width and height that you specified. The resulting image might be deformed, and will _not_ have the same aspect ratio as the original. 
-  - 'b' (borders) - Will add a border to the image, in order to make it fit within the given boundaries.
-  - 'r' (resize) - Will resize the image to fit the boundaries, without cropping. This means your thumbnail might be
-    smaller than the width/height given, but the the image will always maintain the aspect ratio of the original image.
+  - 'c' (crop, default) - Makes sure you always get an image that is the
+    specified width and height. The image is not transformed, so it will be
+    cropped to fit the boundaries is necessary.
+  -  'f' ('fit') - The image will not be cropped but resized to fit within the
+    given maximum width and height. This means that you will always get an
+    image with the exact same width and height that you specified. The
+    resulting image might be deformed, and will _not_ have the same aspect
+    ratio as the original.
+  - 'b' (borders) - Will add a border to the image, in order to make it fit
+    within the given boundaries.
+  - 'r' (resize) - Will resize the image to fit the boundaries, without
+    cropping. This means your thumbnail might be smaller than the width/height
+    given, but the the image will always maintain the aspect ratio of the
+    original image.
 
 Use the cropping parameter like this:
 
@@ -171,7 +205,9 @@ Use the cropping parameter like this:
     &lt;img src="{{ content.image|thumbnail(100, 100, "r") }}">
 </pre>
 
-If you omit the width and height altogether, the thumbnail will use the 'default' size and cropping mode. Remember to add quotes around the cropping mode.
+If you omit the width and height altogether, the thumbnail will use the
+'default' size and cropping mode. Remember to add quotes around the cropping
+mode.
 
 <pre class="brush: html">
     &lt;img src="{{ content.image|thumbnail }}">
@@ -291,7 +327,10 @@ the `raw` modifier.
 Filter: order
 -------------
 
-In most cases the results of `{% setcontent %}` or `{{ record.related() }}` are in the desired order. In some cases you might want to reorder them, by using the `order`-filter. The filter takes one parameter: the name of the field you wish to order the results on:
+In most cases the results of `{% setcontent %}` or `{{ record.related() }}` are
+in the desired order. In some cases you might want to reorder them, by using the
+`order`-filter. The filter takes one parameter: the name of the field you wish
+to order the results on:
 
 <pre class="brush: html">
     {% set relatedrecords = record.related() %}
@@ -335,8 +374,8 @@ For more info on `app`, see the chapter on [Bolt Internals](/internals).
 Tag: setcontent
 ---------------
 
-This tag is used to perform various queries on the database. It converts a human-readable query
-to actual records.
+This tag is used to perform various queries on the database. It converts a
+human-readable query to actual records.
 
 Much, much more information about the `setcontent` tag, together with additional
 query arguments, pagination, sorting and other options you can find in the
@@ -349,8 +388,10 @@ These queries are currently possible:
   * <code>event/latest/5</code> - get latest 5 events
   * <code>news/first/5</code> - get first 5 newsitems
   * <code>quote/random/5</code> - get 5 random quotes
-  * <code>animal/search/5</code> - search for animals and return 5 of them (use where parameter 'filter' to specify searchstring)
-  * <code>(animal,plant)/search/20</code> - search for animals and plants and return 20 of them (use where parameter 'filter' to specify searchstring)
+  * <code>animal/search/5</code> - search for animals and return 5 of them (use
+    where parameter 'filter' to specify searchstring)
+  * <code>(animal,plant)/search/20</code> - search for animals and plants and
+    return 20 of them (use where parameter 'filter' to specify searchstring)
 
 <pre class="brush: html">
 {% setcontent about = 'page/about' %}
@@ -388,7 +429,8 @@ Tag: print()
 {{ print(about) }}
 </pre>
 
-For more info on debugging your Bolt site, see the chapter on [Bolt Internals](/internals).
+For more info on debugging your Bolt site, see the chapter on [Bolt
+Internals](/internals).
 
 
 

@@ -29,6 +29,8 @@ extending:
   "": "Extending Bolt"
   extensions: "Creating Bolt Extensions"
   internals: "Bolt Internals"
+  contributing: "Contributing to Bolt"
+  code-quality: "Code Quality"
 
 other:
   "": Other Information

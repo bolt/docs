@@ -61,7 +61,8 @@ Example use case:
 {% for record in records %}
     <li>
         <a href="{{ record.link }}">{{ record.title }}</a>
-        <!-- {{ record.searchresultweight }} - this returns the weight of the result, an indication of the relevance }} -->
+        <!-- {{ record.searchresultweight }} - this returns the index-score or 
+        weight of the result, an indication of the relevance }} -->
     </li>
 {% endfor %}
 </ol>
@@ -100,18 +101,29 @@ Some examples:
 {% setcontent results = '(pages,entries)/search' where { filter: 'waldo' } %}
 </pre>
 
-As you can see you have more control of where to look but you cannot see the decoded query or the actual number of results.
+If you're not getting the results you're expecting, use `{{ print(results) }}`
+to dump the set of results, or add the `printquery` parameter at the end of the
+`{% setcontent %}`-tag.
 
 ## Influencing the scores
 
-All results are sorted on the `searchresultweight` value, which is set by Bolt's search algortihm as a score of how "good" the match is. In the default implementation it returns a
-score of how well the search terms matched against a record. For instance, if
-the search term was **exactly** the title it returns a higher score then when it
-only matched some part of the title or body text. A match in a title field also scores higher than a result in the body text somewhere. 
+All results are sorted on the `searchresultweight` value, which is set by Bolt's
+search algortihm as a score of how "good" the match is. In the default
+implementation it returns a score of how well the search terms matched against a
+record. For instance, if the search term was **exactly** the title it returns a
+higher score then when it only matched some part of the title or body text. A
+match in a title field also scores higher than a result in the body text
+somewhere.
 
-Optionally, you can set the scoring for fields and taxonomies, to change the scoring for a match in those fields or taxonomies. In our opinion, you seldomly need to adjust these scorings manually, and it suffices to use the defaults. By default, a match in any field in the contenttype gets a base score of '50'. A match in the title gets a base score of '100', and a matching taxonomy gets a base score of '75'.
+Optionally, you can set the scoring for fields and taxonomies, to change the
+scoring for a match in those fields or taxonomies. In our opinion, you seldomly
+need to adjust these scorings manually, and it suffices to use the defaults. By
+default, a match in any field in the contenttype gets a base score of '50'. A
+match in the title gets a base score of '100', and a matching taxonomy gets a
+base score of '75'.
 
-You can override these scores in the config files for the contenttypes and taxonomies. For example, in `contenttypes.yml`: 
+You can override these scores in the config files for the contenttypes and
+taxonomies. For example, in `contenttypes.yml`:
 
 <pre class="brush: plain">
 pages:

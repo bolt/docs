@@ -4,7 +4,7 @@ Requirements
 The system requirements for Bolt are modest, and it should run on any fairly
 modern webserver:
 
-  - PHP 5.3.2 or higher
+  - PHP 5.3.3 or higher
   - Access to SQLite (which comes bundled with PHP 5.3), _or_ MySQL _or_
     PostgreSQL.
   - Apache with Mod_rewrite (`.htaccess` files) or Nginx (virtual host
@@ -40,7 +40,6 @@ Mobile browsers:
   - Chrome for iOS
   - Chrome for Android
 
-<p class="note"><strong>Note:</strong> These requirements are completely seperated
-for the websites that are built with Bolt. The templates that Bolt uses are developed
-the way you need them to be.
-</p>
+<p class="note"><strong>Note:</strong> These requirements are completely
+seperated for the websites that are built with Bolt. The templates that Bolt
+uses are developed the way you need them to be. </p>
