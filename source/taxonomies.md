@@ -183,8 +183,8 @@ each taxonomy:
 {% if record.taxonomy is defined %}
     {% for type, values in record.taxonomy %}
         <em>{{ type }}:</em>
-        {% for value in values %}
-                <a href="{{ paths.root }}{{ type }}/{{ value }}">{{ value }}</a>{% if not loop.last %}, {% endif %}
+        {% for link, value in values %}
+                <a href="{{ link }}">{{ value }}</a>{% if not loop.last %}, {% endif %}
         {% endfor %}
         {% if not loop.last %} - {% endif %}
     {% endfor %}
