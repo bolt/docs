@@ -48,13 +48,13 @@ objects and included libraries.
 
 Bolt strives to adhere to [the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md). When writing your extensions, you should try to do the same.
 
-The `info()` and `init()` functions
+The `info()` and `initialize()` functions
 -----------------------------------
 
-Every extension needs to have a function 'info()' and a function 'init()' in its `extension.php`. The 'info()' fucntion
+Every extension needs to have a function 'info()' and a function 'initialize()' in its `extension.php`. The 'info()' fucntion
 is used by Bolt to gather information about the available extensions, which is displayed on the Extensions page in the
-Bolt Backend. The init() function is called for each pagerequest. It's executed before content is retrieved from the database or the templates are parsed. 
-In general, the init() function is used to set up hooks or functionality that is used later on in the process of outputting a page. 
+Bolt Backend. The initialize() function is called for each pagerequest. It's executed before content is retrieved from the database or the templates are parsed. 
+In general, the initialize() function is used to set up hooks or functionality that is used later on in the process of outputting a page. 
 
 As mentioned before: to get started on an extension quickly, you should use our [Extension Wizard](http://extension-wizard.bolt.cm/) to create the boilerplate code for your extension.
 
@@ -94,27 +94,23 @@ Most of these options will be self-explanatory. Some notes:
  - The First release date is the date of the first release of the extension, and shouldn't change. 
  - The Latest releasedate should be updated for each release of the extension.
 
-### init()
+### initialize()
 
-The init() function is called for the initialisation of each active extension. It's used to set up functionality to be used in the templates of for Twig function. 
+The initialize() function is called for the initialisation of each active extension. It's used to set up functionality to be used in the templates of for Twig function. 
 It looks like this: 
 
 <pre class="brush: php">
-function init($app)
+function initialize()
 {
 
-    // Make sure the script is inserted as well..
-    $app['extensions']->insertSnippet('endofbody', 'NameSpaceFoo\snippetbar');
-
-    $app['twig']->addFunction('facebooklike', new \Twig_Function_Function('NameSpaceFoo\twigbar'));
-
-    return true;
+        $this->insertSnippet('endofbody', 'facebookScript');
+        $this->addTwigFunction('facebooklike', 'facebookLike');
 }
 </pre>
 
-As you can see the function is called with `$app` as a parameter, which is an instance of `\Silex\Application`, and basically contains the entirety of the Bolt application and objects. As such, it is often vital to attach your functionality to whatever it should be attached to. The init function can return `true` or `false` to denote whether the initialisation was successful.
+As you can see the function is called without a parameter, and basically contains the entirety of the Bolt application and objects. As such, it is often vital to attach your functionality to whatever it should be attached to. The init function can return `true` or `false` to denote whether the initialisation was successful.
 
-In the case of `init()` it's often used to do the following: 
+In the case of `initialize()` it's often used to do the following: 
 
   - Initialise a snippet, either as a 'string' or a 'callback function'
   - Add a Javascript and/or CSS file to the output of the frontend pages
@@ -144,18 +140,18 @@ Snippets can be inserted in several places in the outputted HTML:
 To insert a string snippet, use: 
 
 <pre class="brush: php">
-function init($app)
+function initialize()
 {
-    $app['extensions']->insertSnippet('endofbody', '&lt;!-- a snippet of HTML -->');
+    $this->insertSnippet('endofbody', '&lt;!-- a snippet of HTML -->');
 }
 </pre>
 
 To insert a snippet using a callback function, use:  
 
 <pre class="brush: php">
-function init($app)
+function initialize()
 {
-    $app['extensions']->insertSnippet('endofbody', 'NameSpaceFoo\snippetbar');
+    $this->insertSnippet('endofbody', 'NameSpaceFoo\snippetbar');
 }
 
 function snippetbar() 
@@ -172,7 +168,7 @@ To pass extra variables to the callback function, initialise them as follows:
 <pre class="brush: php">
 function init($app)
 {
-    $app['extensions']->insertSnippet('endofbody', 'NameSpaceFoo\snippetbar', $foo);
+    $this->insertSnippet('endofbody', 'NameSpaceFoo\snippetbar', $foo);
 }
 
 function snippetbar($foo) 
@@ -201,14 +197,14 @@ You can use the `init()` function to add CSS or Javascript files to the outputte
 
 
 <pre class="brush: php">
-function init($app)
+function initialize()
 {
 
     // Add javascript file
-    $app['extensions']->addJavascript($app['paths']['app'] . "extensions/Namespace/assets/namespace.js");
+    $this->addJavascript($app['paths']['app'] . "extensions/Namespace/assets/namespace.js");
 
     // Add CSS file
-    $app['extensions']->addCSS($app['paths']['app'] . "extensions/Namespace/assets/namespace.css");
+    $this->addCSS($app['paths']['app'] . "extensions/Namespace/assets/namespace.css");
 
 }
 </pre>
@@ -219,10 +215,10 @@ There's a special function for adding jQuery to the outputted HTML. A lot of ext
 If your extension requires jQuery, use the following:
 
 <pre class="brush: php">
-function init($app)
+function initialize()
 {
 
-    $app['extensions']->addJquery();
+    $this->addJquery();
 
 }
 </pre>
@@ -236,11 +232,11 @@ The version of jQuery included will be the one that ships with Bolt. This will m
 Extensions can add Twig functions or filters to extend the templates used in the frontend. This example will add a function `{{ foo() }}` to use in the frontend templates:
 
 <pre class="brush: php">
-function init($app)
+function initialize()
 {
 
     // Initialize the Twig function
-    $app['twig']->addFunction('foo', new \Twig_Function_Function('Namespace\twigFoo'));
+    $this->addFunction('foo', 'twigFoo');
 
 }
 
@@ -260,11 +256,11 @@ Note that the Namespace must be included with `'Namespace\twigFoo'`, even though
 You can also define a Twig filter for use in the frontend. The following example will add a filter 'bar', that can be used in the templates like `{{ "foo"|bar }}`. 
 
 <pre class="brush: php">
-function init($app)
+function initialize()
 {
 
     // Initialize the Twig filter
-    $app['twig']->addFilter('bar', new \Twig_Filter_Function('Namespace\twigBar'));
+    $this->addTwigFilter('foo', 'twigBar');
 
 }
 
@@ -274,7 +270,8 @@ function init($app)
 function twigBar($var1, $var2)
 {
 
-    return "Twig filter Namespace.";
+    $str =  "Twig filter Namespace.";
+    return new \Twig_Markup($str, 'UTF-8');
 
 }
 </pre>
@@ -285,24 +282,33 @@ Since these are just regular Twig functions/filters, you should familiarize your
 Using your own `config.yml` file
 --------------------------------
 
-Extensions can use their own config files using the YAML format. It should be named `config.yml`, and it should be in the folder of your extension. To use it in a snippet callback, or a Twig function or modifier, use it like this: 
+Extensions can use their own config files using the YAML format. It should be named `config.yml`, and it should be in the folder of your extension. The extension configuration will be automatically loaded. To use it in a snippet callback, or a Twig function or modifier, use it like this: 
 
 <pre class="brush: php">
 function foo()
 {
 
-    $yamlparser = new \Symfony\Component\Yaml\Parser();
-    $config = $yamlparser->parse(file_get_contents(__DIR__.'/config.yml'));
-
     // Make sure a '$name' is set
-    if (isset($config['name'])) {
-        $name = $config['name'];
+    if (isset($this->config['name'])) {
+        $name = $this->config['name'];
     } else {
         $name = "default name"
     }
 
     return "Hello, $name.";
 
+}
+</pre>
+
+Using the global configuration
+------------------------------
+
+Sometimes you might need a global conifuration variable in your extension. Usually you can read a global configuration variable like this:
+
+<pre class="brush: php">
+function foo()
+{
+    $prefix = $this->app['config']->get('general/database/prefix', 'bolt_');
 }
 </pre>
 
