@@ -13,7 +13,7 @@ We're working on version 1.4 now. See the [current issues for 1.4](https://githu
 
 Planned features are:
 
- - Permissions based roles. (read: More userlevels, more options)
+ - Permission-based roles. (read: More userlevels, more options)
  - Support for cron jobs
  - "Save and continue" option in the editor.
  - Support for SSL: Allow (or require) login over HTTPS://
@@ -27,7 +27,7 @@ After Bolt 1.4, we'll focus on Bolt 2.0. The [issues for 2.0](https://github.com
 The most important planned features are:
 
  - Automatic installing and updating of extensions, with a 'marketplace' to find them.
- - New interface for the backend (either in Bootstrap 3 or Foundation 4)
+ - New interface for the backend (either in Bootstrap 3 or Foundation 5)
  - JSON-based API for retrieving and updating content in Bolt.
 
 Not scheduled
