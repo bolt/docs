@@ -17,6 +17,7 @@ Planned features are:
  - Support for cron jobs
  - "Save and continue" option in the editor.
  - Support for SSL: Allow (or require) login over HTTPS://
+ - Full-page caching
 
 
 Bolt 2.0 (scheduled for march 2014)
@@ -28,6 +29,13 @@ The most important planned features are:
  - Automatic installing and updating of extensions, with a 'marketplace' to find them.
  - New interface for the backend (either in Bootstrap 3 or Foundation 4)
  - JSON-based API for retrieving and updating content in Bolt.
+
+Not scheduled
+-------------
+Some features are requested often, but are not currently scheduled. This is because we either consider them "out of scope" or that we know it would take up too much resources, affecting the overall development of Bolt in a negative way. That does _not_ mean that these issues will not be implemented, it only means that they're not currently scheduled. If you absolutely need any of these features for a project you're working on, feel free to get in touch at [commercialsupport@bolt.cm](mailto:commercialsupport@bolt.cm). 
+
+  - Native support for Multi-lingual content in the frontend. See [#234](http://github.com/bolt/bolt/issues/234)
+  - Hierarchical (tree) structure for content.
 
 
 Previous milestones
