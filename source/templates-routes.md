@@ -69,8 +69,6 @@ them with whatever the names of your content types or variables are.</p>
 Routing
 -------
 
-<p class="note"><strong>Note:</strong> Support for routing was added in Bolt 1.2.</p>
-
 The URLs mentioned in the previous paragraphs are actually just defaults. Each
 can be adjusted to your own liking. There are some caveats with regards to
 correct canonical URLs, but otherwise you can change it to anything you like.
@@ -128,7 +126,7 @@ contenttype **page**.
 pagebinding:
     path:           /{slug}
     defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
-    contenttype:    page
+    contenttype:    pages
 </pre>
 
 An alternative is to also add the creation date:
@@ -139,7 +137,7 @@ pagebinding:
     defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
     requirements:
         datecreated:    '\d{4}-\d{2}-\d{2}'
-    contenttype:    page
+    contenttype:    pages
 </pre>
 
 
@@ -172,7 +170,7 @@ bind-name:
     requirements:
         parameter..:    required-regexp
     host:               hostname            # optional
-    contenttype:        contenttypeslug     # optional
+    contenttype:        contenttype         # optional
 </pre>
 
 
