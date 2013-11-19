@@ -222,7 +222,7 @@ arr(17)
 
 The 'db' object is a Doctrine Database Abstraction Layer object. Use it to query
 "stuff" in the database. Because of the DBAL, you don't need to worry about
-whether the site is set up as MySQL, Postgres or SQLite. Just make sure to use
+whether the site is set up as MySQL, PostgreSQL or SQLite. Just make sure to use
 SQL/DQL that Doctrine understands. For more information, see this page on the
 Doctrine DBAL: 
 [Data Retrieval And Manipulation](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html)

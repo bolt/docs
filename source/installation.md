@@ -104,7 +104,7 @@ Setting up Bolt
 
 By default, Bolt is configured to use an SQLite database. If you want to change
 this to MySQL or PostgreSQL, see the section [below](#configuring-the-database).
-If not, just leave it as it is.
+If not, just leave it as it is for the quickest possible installation.
 
 Open your Bolt site in your browser, and you should be greeted by the screen to
 set up the first user. If not, see below. If you do see the 'Create the first
@@ -125,11 +125,35 @@ and be sure that the AllowOverride option is enabled.
 Configuring the Database
 ------------------------
 
-The (file-based) SQLite database gets stored in the `app/` folder. Since it's a
-regular file, it's easy to make backups of your database if you use SQLite.
+Bolt supports three different database engines: SQLite, MySQL and PostgreSQL.
+Each has its benefits and drawbacks.
+
+  - **SQLite** - is a (file-based) database. Bolt stores the entire database as a
+    file in the `app/database` folder. Since it's a regular file, it's easy to
+    make backups of your database if you use SQLite. The main benefit of SQLite
+    is that it requires no configuration, and as such it works 'out of the box'
+    on practically any webserver. This is why it's Bolts default choice to use.
+  - **MySQL** - is perhaps the most well-known database engine, which is supported
+    on the majority of webservers. If your server supports it, we advise you to
+    use MySQL instead of SQLite. Mainly because it's very well-known, and there
+    are good third-party tools for maintenance, backup and migration.
+  - **PostGres** - is a very well-designed database engine, but unfortunately it's
+    not as well known as the two others. This dataase engine is most often used
+    by 'powerusers'.
+
+Not sure which database to use? We suggest using MySQL if available, and SQLite 
+otherwise. 
+
+<p class="note"><strong>Note:</strong> If you've just installed Bolt, you might
+not have the <code>config.yml</code>-file yet. You will however have a
+<code>config.yml.dist</code>-file, in that same folder. The first time Bolt is
+run, the <code>.yml.dist</code>-files will be automatically copied to
+<code>.yml</code>-files. If you wish to do some configuration <em>before</em>
+you first run Bolt, just copy <code>config.yml.dist</code> to
+<code>config.yml</code> yourself. </p>
 
 If you wish to edit the database configuration, you have to change the settings
-in `app/config/config.yml`. Apart from SQLite, you can use MySQL and Postgres as
+in `app/config/config.yml`. Apart from SQLite, you can use MySQL and PostgreSQL as
 database backends. Set the database, username and password:
 
 <pre class="brush: plain"> 
@@ -149,7 +173,7 @@ database:
   databasename: bolt 
 </pre>
 
-Support for Postgres is experimental, so use with caution.
+Support for PostgreSQL is experimental, so use with caution.
 
 <p class="note"><strong>Note:</strong> The config file is in the YAML format,
   which means that the indentation is important. Make sure you leave leading

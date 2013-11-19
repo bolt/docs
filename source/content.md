@@ -44,6 +44,14 @@ In this example, we'll create a very simple contenttype for news items. Each
 news item will have a title, an image, and some text. We'll also be using some
 of the fixed Fields, like the slug, the user and the date.
 
+<p class="note"><strong>Note:</strong> If you've just installed Bolt, you might
+not have the <code>contenttypes.yml</code>-file yet. You will however have a
+<code>contenttypes.yml.dist</code>-file, in that same folder. The first time Bolt is
+run, the <code>.yml.dist</code>-files will be automatically copied to
+<code>.yml</code>-files. If you wish to do some configuration <em>before</em>
+you first run Bolt, just copy <code>contenttypes.yml.dist</code> to
+<code>contenttypes.yml</code> yourself. </p>
+
 To add this Contenttype, edit the file `app/config/contenttypes.yml`, and add
 the following to the bottom or top of the file:
 
