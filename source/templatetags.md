@@ -242,6 +242,41 @@ By doing so, the image will be resized, and it behave exactly like the
     &lt;img src="{{ content.photo|image(100, 100, "r") }}">
 </pre>
 
+
+Tag: imageinfo
+--------------
+
+Sometimes it can be useful to have more information about a specific image in
+your templates. You might want to know which type it is, what the dimensions
+are, and what the aspect ratio is. In these cases, the `imageinfo` tag can be
+used. It returns an array of data about the image. See the screenshot for
+details:
+
+<a href="/files/imageinfo.png" class="fancybox" rel="fancybox">
+    <img src="/files/imageinfo.png" width="600"></a>
+
+To see the available values for an image, use: 
+
+<pre class="brush: html">
+  {{ print(imageinfo(record.image)) }} 
+  {# assuming 'record.image' is the image of the current record. #}
+</pre>
+
+The aspect ratio is the proportional relationship between the width and the
+height of the image. In general, this is used to determine whether an image is
+'landscape' or 'portrait'. For example, if you want to style an image, depending
+on its aspect ratio, you can use these values:
+
+<pre class="brush: html">
+{% if imageinfo(record.image).landscape %}
+    &lt;img src="{{ thumbnail(record.image, 400, 320) }}" class="landscape">
+{% elseif imageinfo(record.image).portrait %}
+    &lt;img src="{{ thumbnail(record.image, 320, 400) }}" class="portrait">
+{% else %}
+    &lt;img src="{{ thumbnail(record.image, 320, 320) }}" class="square">
+{% endif %}
+</pre>
+
 Tag: fancybox
 -------------
 
