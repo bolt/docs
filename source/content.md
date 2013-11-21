@@ -423,7 +423,7 @@ for.
 match an email address. Always use <code>email</code> to validate an email
 address. </p>
 
-You can also make fields that are not required, but that _do_ have a pattern.
+You can also define fields that are not required, but that _do_ have a pattern.
 Doing this, the field can be left blank, but if it _is_ filled, it must match
 the pattern. For example, you could make an optional email-address like this:
 
