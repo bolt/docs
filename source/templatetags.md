@@ -246,7 +246,7 @@ By doing so, the image will be resized, and it behave exactly like the
 Tag: imageinfo
 --------------
 
-Sometgimes it can be useful to have more information about a specific image in
+Sometimes it can be useful to have more information about a specific image in
 your templates. You might want to know which type it is, what the dimensions
 are, and what the aspect ratio is. In these cases, the `imageinfo` tag can be
 used. It returns an array of data about the image. See the screenshot for

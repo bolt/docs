@@ -21,12 +21,18 @@ every contenttype has a Field for 'id', 'slug', 'date_created' and 'user'. Below
 we'll describe how to define the Contenttypes and the Fields that you can use to
 store the desired information in them.
 
-All content in your website is part of one Contenttype, which automatically
-defines which fields that piece of content has, and that automatically specifies
-how that piece of content is structured. Each one of those pieces of content is
-called a **Record**, and is stored in the database together. For example, a
-single 'book review' is a Record of Contenttype 'reviews' and a single 'page' is
-a Record of Contenttype Pages.
+<p class="tip"><strong>Tip:</strong> The 'slug' is a special value, that's used in the generation of the URL at which
+a page will be available on the website. It usually contains a  variant of the
+title, that's been made suitable for indexing by search engines. Ideally, it is
+both semantical and human readable. For example, if you have a page named "About
+our company", a good slug would be <code>about-our-company</code>.</p>
+
+All of the content on your website is part of one specific Contenttype, which
+automatically defines which fields that piece of content has, which in turn
+specifies how that piece of content is structured. Each one of those pieces of
+content is called a **Record**, and is stored in the database together. For
+example, a single 'book review' is a Record of Contenttype 'reviews' and a
+single 'page' is a Record of Contenttype Pages.
 
 When you're creating a page on a website that shows listings of several Records,
 you're using an **Array of Records**. For instance, if you create a page that
@@ -298,7 +304,7 @@ The following fields are available:
   - `datetime`: Similar to the `date` field, but adds an additional field so
     specify a time.
   - `integer`: A field to store whole, integer numbers. The value must be
-    between -2147483648 and 2147483647.
+    between <span style="white-space: nowrap">-2147483648</span> and +2147483647.
   - `float`: A field to store numbers. Internally stored so that they can be
     sorted numerically. (note: the maximum precision is 9 digits before the
     decimal mark, and 9 digits after)
@@ -311,7 +317,7 @@ Most fields have a few extra optional values, to further customize them.
   - `class: narrow`: Will show the field narrow, for fields that should take
     only a couple of characters. For `text` fields only.
   - `variant: inline`: Will show the field to the right of the label, taking up
-    less spave vertically. For `text` fields only.
+    less space vertically. For `text` fields only.
   - `label: Foo`: If omitted, the name of the field will be used as a label in
     the edit-screen. Replace 'Foo' with the desired label of the field.
   - `height: 150px`: For `html` and `textarea` fields, this will determine the
@@ -349,7 +355,7 @@ adding a divider in the edit screen.
 When you want to give a record a default value, use `default:`. For most fields
 this will set the initial value of the field, when you're creating a new record
 of this contenttype. For `date` and `datetime` fields, the value is passed
-through [strtotime](php.net/manual/en/function.strtotime.php), meaning that you
+through [strtotime](http://php.net/manual/en/function.strtotime.php), meaning that you
 can use a fixed date as default, like "1900-01-01 12:00:00", but also relative
 dates like "first day of this month", "next Monday" or "yesterday".
 
@@ -407,10 +413,10 @@ For example, use this to make sure a title is no longer than 80 characters:
             class: large
 </pre>
 
-The `^` and `$` in some of the examples not the beginning and end of the value
+The `^` and `$` in some of the examples note the beginning and end of the value
 respectively. If we would omit these, the results would be off. For example,
 `.{1,10}` would match any value that has "between 1 and 10 characters" in it,
-regardless of what comes before ot after it. Probably not what you're looking
+regardless of what comes before or after it. Probably not what you're looking
 for.
 
 <p class="note"><strong>Note:</strong>You should not try to use a pattern to
