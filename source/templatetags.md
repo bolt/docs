@@ -293,9 +293,9 @@ You can optionally provide the width, height and cropping parameters, like you c
 do with the `thumbnail`-tag.
 
 <pre class="brush: html">
-    {{ record.photo|fancybox(100, 100, "r") }}"
+    {{ record.photo|fancybox(100, 100, "r") }}
     or
-    {{ fancybox("2013-03/foo.jpg", 100, 100) }}"
+    {{ fancybox("2013-03/foo.jpg", 100, 100) }}
 </pre>
 
 Note that you should include the fancybox `.js` and `.css` yourself, as well as set up the 'initialization' code:
