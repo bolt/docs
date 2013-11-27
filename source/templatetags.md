@@ -322,9 +322,9 @@ Use this tag to insert an image in the HTML. You can optionally provide the widt
 height and cropping parameters, like you can do with the `thumbnail`-tag.
 
 <pre class="brush: html">
-    {{ record.photo|showimage(800, 600) }}">
+    {{ record.photo|showimage(800, 600) }}
     or
-    {{ showimage("2013-03/foo.jpg", 800, 600) }}">
+    {{ showimage("2013-03/foo.jpg", 800, 600) }}
 </pre>
 
 
