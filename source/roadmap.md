@@ -9,7 +9,7 @@ Bolt 1.3 is the latest stable release.
 
 Bolt 1.4 (scheduled for december 2013)
 --------------------------------------
-We're working on version 1.4 now. See the [current issues for 1.4](https://github.com/bolt/bolt/issues?milestone=13) on our github issue tracker gives a more detailed view of what needs to be done. 
+We're working on version 1.4 now. See the [current issues for 1.4](https://github.com/bolt/bolt/issues?milestone=12) on our github issue tracker gives a more detailed view of what needs to be done. 
 
 Planned features are:
 
