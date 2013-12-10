@@ -53,6 +53,20 @@ Get a short excerpt of the record:
 &lt;p>{{ page.excerpt(250) }}&lt;/p>
 </pre>
 
+Get the next and previous record:
+
+<pre class="brush: html">
+{% set previous = page.previous() %}
+{% set next = page.next() %}
+</pre>
+
+The next and previous functions allow for additional parameters. For example, you can base the next record on any field (this is `datepublish` by default), filtered by a `where` clause, see [using where](/content-fetching#using-where) for more details.
+
+<pre class="brush: html">
+{% set next = page.next('datepublish', {'status': page.taxonomy.status} ) %}
+</pre>
+
+
 #### Geolocation
 
 The 'Geolocation' field type allows you to easily pick and use geolocations. You
