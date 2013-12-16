@@ -34,7 +34,7 @@ options are:
     fr_FR    French               France                                     fr   FR  
     it_IT    Italian              Italy                                      it   IT  
     nl_NL    Dutch                Netherlands                                nl   NL  
-    no_NO    Norwegian            Norway                                     no   NO  
+    nb_NO    Norwegian Bokmål     Norway                                     nb   NO  
     pl_PL    Polish               Poland                                     pl   PL  
     pt_PT    Portuguese           Portugal                                   pt   PT  
     ru_RU    Russian              Russian Federation                         ru   RU  
