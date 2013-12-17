@@ -25,9 +25,9 @@ As such, they are all in the `\Bolt\Controllers` namespace. They are 'set up' in
 `app/app.php`. The routes in `Backend.php` are all pretty straightforward. The
 ones in `Async.php` are used for 'ajaxy' requests, like the 'latest activity'
 widget on the dashboard. Next we have `Routing.php` and `Frontend.php`. The
-first one is the actual Controller that parses the routes found in 'routes.yml'
+first one is the actual Controller that parses the routes found in 'routing.yml'
 and the latter contains the methods for all standard routes as defined in
-'routes.yml'. You can modify the 'routes.yml' to suit your own needs. Examples
+'routes.yml'. You can modify the 'routing.yml' to suit your own needs. Examples
 are included.
 
 Templating
