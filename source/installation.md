@@ -16,8 +16,8 @@ set them up on your webserver. After you've done this, skip to the section for
 ### Option 1: The easy way, using the command-line.
 
 If you have command-line access, you can easily install Bolt by executing a few
-commands. First, create the folder where you want to install Bolt, if it doesn't
-already exist. Enter the folder, and execute the following commands:
+commands. First, create the directory where you want to install Bolt, if it doesn't
+already exist. Enter the directory, and execute the following commands:
 
 <pre class="brush: plain">
 curl -O http://bolt.cm/distribution/bolt_latest.tgz
@@ -26,11 +26,12 @@ chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
 </pre>
 
 <p class="tip">
-<strong>Tip:</strong> For easier copy/pasting of the samples, doubleclick the code.
+<strong>Tip:</strong> For easier copy/pasting of the samples, double-click the
+code.
 </p>
 
-Bolt needs to be able to read and write certain folders like the cache and the
-template folders. On most servers the webserver runs in a different group than
+Bolt needs to be able to read and write certain directories like the cache and the
+template directories. On most servers the webserver runs in a different group than
 your useraccount, so to give Bolt write access to these files you have to use
 the chmod statement.
 
@@ -38,9 +39,9 @@ It depends on the exact server configuration if you will need to use `777` or if
 another setting is better. If you wish to know for sure, ask your hosting
 provider.
 
-That's all! After you've done this, skip to the section [Setting up Bolt
-](#setting-up-bolt). Alternatively, if this didn't work because your server
-doesn't have `curl`, use `wget` instead.
+That's all! After you've done this, skip to the section
+[Setting up Bolt](#setting-up-bolt). Alternatively, if this didn't work because
+your server doesn't have `curl`, use `wget` instead.
 
 ### Option 2: The traditional way, using (S)FTP.
 
@@ -49,7 +50,7 @@ Download the latest version of Bolt from this location:
 [http://bolt.cm/distribution/bolt_latest.zip](http://bolt.cm/distribution/bolt_latest.zip)
 
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
-your choice. After you've done this, be sure to chmod the following folders
+your choice. After you've done this, be sure to chmod the following directories
 (_with_ containing files) to `777`, so they are readable and writable by Bolt:
 
   - `app/cache/`
@@ -88,8 +89,8 @@ php composer.phar install
 </pre>
 
 This will get the Bolt files, the Silex framework, and all required components.
-Most likely all files and folders will have the correct filerights, but if they
-don't, (re)set them using the following command in the `bolt/` folder:
+Most likely all files and directories will have the correct filerights, but if they
+don't, (re)set them using the following command in the `bolt/` directory:
 
 <pre class="brush: plain"> 
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ </pre>
@@ -128,25 +129,26 @@ Configuring the Database
 Bolt supports three different database engines: SQLite, MySQL and PostgreSQL.
 Each has its benefits and drawbacks.
 
-  - **SQLite** - is a (file-based) database. Bolt stores the entire database as a
-    file in the `app/database` folder. Since it's a regular file, it's easy to
-    make backups of your database if you use SQLite. The main benefit of SQLite
-    is that it requires no configuration, and as such it works 'out of the box'
-    on practically any webserver. This is why it's Bolts default choice to use.
+  - **SQLite** - is a (file-based) database. Bolt stores the entire database as
+    a file in the `app/database` directory. Since it's a regular file, it's
+    easy to make backups of your database if you use SQLite. The main benefit
+    of SQLite is that it requires no configuration, and as such it works 'out
+    of the box' on practically any webserver. This is why it's Bolts default
+    choice to use.
   - **MySQL** - is perhaps the most well-known database engine, which is supported
     on the majority of webservers. If your server supports it, we advise you to
     use MySQL instead of SQLite. Mainly because it's very well-known, and there
     are good third-party tools for maintenance, backup and migration.
-  - **PostGres** - is a very well-designed database engine, but unfortunately it's
-    not as well known as the two others. This dataase engine is most often used
-    by 'powerusers'.
+  - **PostgreSQL** - is a very well-designed database engine, but unfortunately
+    it's not as well known as the two others. This database engine is most
+    often used by 'power users'.
 
 Not sure which database to use? We suggest using MySQL if available, and SQLite 
 otherwise. 
 
 <p class="note"><strong>Note:</strong> If you've just installed Bolt, you might
 not have the <code>config.yml</code>-file yet. You will however have a
-<code>config.yml.dist</code>-file, in that same folder. The first time Bolt is
+<code>config.yml.dist</code>-file, in that same directory. The first time Bolt is
 run, the <code>.yml.dist</code>-files will be automatically copied to
 <code>.yml</code>-files. If you wish to do some configuration <em>before</em>
 you first run Bolt, just copy <code>config.yml.dist</code> to
@@ -182,13 +184,13 @@ Support for PostgreSQL is experimental, so use with caution.
 If the hostname or port are something else than `localhost:3306`, you can add
 them like this:
 
-<pre class="brush: plain"> 
-database: 
-  username: bolt 
+<pre class="brush: plain">
+database:
+  username: bolt
   password: bolt%1
-  databasename: bolt 
-  host: database.example.org 
-  port: 3306 
+  databasename: bolt
+  host: database.example.org
+  port: 3306
 </pre>
 
 The other settings in the `config.yml` file can be changed later on, directly
@@ -219,7 +221,7 @@ and only in development enable debug in `config_local.yml`.
 Apache: Tweaking the .htaccess file
 ---------------------------
 
-Bolt requires the use of a .htaccess file to make sure requests like `page/about-this-website` 
+Bolt requires the use of a .htaccess file to make sure requests like `page/about-this-website`
 get routed to the index.php, so it can be handled by Bolt.
 By default, the file looks like this:
 
@@ -240,7 +242,7 @@ Options -Indexes
 
   RewriteRule cache/ - [F]
 
-  # Some servers require the RewriteBase to be set. If so, set to the correct folder.
+  # Some servers require the RewriteBase to be set. If so, set to the correct directory.
   # RewriteBase /
   RewriteRule ^thumbs/(.*)$ ./app/classes/timthumb.php [L]
 
