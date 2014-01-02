@@ -5,8 +5,8 @@ The functionality of Bolt can be extended by creating Extensions. Currently you
 can create extensions to do the following:
 
  - Add Twig tags or modifiers, for use in the templates in your themes.
- - Add 'hooks' in the templates to either insert small snippets of HTML or the result of a callback-function in the
-   templates after rendering.
+ - Add 'hooks' in the templates to either insert small snippets of HTML or the
+   result of a callback-function in the templates after rendering.
 
 In a later stage we'll be adding functionality for extensions to create your own
 controllers for extending functionality in the frontend, as well as creating the
@@ -37,10 +37,8 @@ other Extensions. To do this, we have to keep the following rules:
 To get the hang of how extensions work, it's best to browse the extensions that
 are included with Bolt by default. They are all pretty simple and
 straightforward. To get started with writing your own extension, we strongly
-suggest to create the boilerplate code for your extension with our [Extension
-Wizard](http://extension-wizard.bolt.cm/).
-
-Link: [http://extension-wizard.bolt.cm/](http://extension-wizard.bolt.cm/)
+suggest to create the boilerplate code for your extension with our 
+[Extension Wizard](http://extension-wizard.bolt.cm/).
 
 Using the wizard it's trivially easy to create a the boilerplate code for an
 extension. This boilerplate code can be put in your `app/extensions` code, and
@@ -59,7 +57,8 @@ components as possible. Don't re-invent the wheel, and things like that.
 See the chapter on [Bolt internals](/internals) for a detailed overview of the
 provided Bolt functionality, Silex objects and included libraries.
 
-Bolt strives to adhere to [the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md). When writing your extensions, you should try to do the same.
+Bolt strives to adhere to 
+[the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md). When writing your extensions, you should try to do the same.
 
 The `info()` and `initialize()` functions
 -----------------------------------
@@ -91,11 +90,11 @@ function info()
         'author' => "Bob den Otter",
         'link' => "http://bolt.cm",
         'version' => "1.0",
-        'required_bolt_version' => "0.8",
-        'highest_bolt_version' => "0.8",
+        'required_bolt_version' => "1.4",
+        'highest_bolt_version' => "1.4",
         'type' => "Twig function",
-        'first_releasedate' => "2012-10-10",
-        'latest_releasedate' => "2012-10-19",
+        'first_releasedate' => "2014-01-04",
+        'latest_releasedate' => "2014-01-04",
     );
 
     return $data;

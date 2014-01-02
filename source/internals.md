@@ -4,9 +4,7 @@ Bolt Internals
 Bolt is an application built on top of the awesome [Silex micro-
 framework](http://silex.sensiolabs.org), and uses a lot of components from the
 [Symfony framework](http://symfony.com/components). Bolt strives to adhere to
-[the PSR-2 coding style](https://github.com/php-fig/fig-
-standards/blob/master/accepted/PSR-2-coding-style-guide.md). When writing your
-extensions, you should try to do the same.
+[the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md). When writing your extensions, you should try to do the same.
 
 This chapter serves as a reference guide for those who want to get the most out
 of the templates, those who want to create extensions or basically anybody who's
@@ -53,9 +51,8 @@ if the definitions in `contenttypes.yml` matches the database columns, and if it
 doesn't it urges the user to go to the 'repair database' screen.
 
 Even though Bolt strives to be as simple as possible, it makes sense to think of
-Bolt as an [MVC application](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%
-80%93controller). Silex provides the Controller part, the Twig templates are the
-View and the Contenttypes define the Model part.
+Bolt as an [MVC application](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). 
+Silex provides the Controller part, the Twig templates are the View and the Contenttypes define the Model part.
 
 All access to the content and the contentypes is done through the Storage class.
 Records of content have a Content class. Browse the files
@@ -81,14 +78,13 @@ all of the services, libraries and variables that are part of the application.
 All of these are created in `app/bootstrap.php`. Read the code in that file, to
 get a feeling for what can be accessed through the `$app` object. Most of the
 services defined there are Symfony components, about which you can read on the
-Silex Documentation page on [Service
-Providers](http://silex.sensiolabs.org/documentation), or on the [Symfony
-Components page](http://symfony.com/components). The next largest group are the
-Bolt components. These can be recognized by the `Bolt\` namespace. These
+Silex Documentation page on [Service Providers](http://silex.sensiolabs.org/documentation), 
+or on the [Symfony Components page](http://symfony.com/components). 
+The next largest group are the Bolt components. These can be recognized by the `Bolt\` namespace. These
 components are autoloaded, and can be found in `app/src/Bolt/`.
 
 Debug Bar, {{ print() }} and krumo()
-----------------------------------------------
+------------------------------------
 If you're about to go poking through the Bolt code, there are a few tools that
 are simply invaluable for doing so.
 
