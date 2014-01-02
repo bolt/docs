@@ -16,16 +16,15 @@ Every request to a page on a Bolt website is routed to a Silex controller,
 regardless of whether the request is for a page in the backend, frontend or
 'asynchronous'.
 
-There are four files that contain the controller collections:
-`app/src/Bolt/Controllers/Backend.php`, `app/src/Bolt/Controllers/Frontend.php`,
-`app/src/Bolt/Controllers/Async.php` and `app/src/Bolt/Controllers/Routing.php`.
+There are four files that contain the controller collections, located in 
+`app/src/Bolt/Controllers/`: `Backend.php`, `Frontend.php`, `Async.php` and `Routing.php`.
 As such, they are all in the `\Bolt\Controllers` namespace. They are 'set up' in
 `app/app.php`. The routes in `Backend.php` are all pretty straightforward. The
 ones in `Async.php` are used for 'ajaxy' requests, like the 'latest activity'
 widget on the dashboard. Next we have `Routing.php` and `Frontend.php`. The
-first one is the actual Controller that parses the routes found in 'routing.yml'
+first one is the actual Controller that parses the routes found in `routing.yml`
 and the latter contains the methods for all standard routes as defined in
-'routes.yml'. You can modify the 'routing.yml' to suit your own needs. Examples
+`routes.yml`. You can modify the `routing.yml` to suit your own needs. Examples
 are included.
 
 Templating
@@ -38,8 +37,8 @@ in the Bolt templates. We've added a few tags of our own. Browse
 `app/src/Bolt/TwigExtension.php` and `app/src/Bolt/SetcontentTokenParser.php`
 for details.
 
-More information on this subject can be found in [Templates and Routes
-](templates-routes) and [Content in Templates](content-in-templates)
+More information on this subject can be found in [Templates and Routes](templates-routes) 
+and [Content in Templates](content-in-templates).
 
 The "Model"
 -----------
@@ -167,7 +166,7 @@ $app['config']['general']['homepage_template']
 
 These variables are also accessible in your templates:
 
-<pre class="brush: html">
+<pre class="brush: html"> 
     {{ print(config.general.homepage_template) }}
 </pre>
 
