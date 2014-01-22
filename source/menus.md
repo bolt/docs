@@ -58,7 +58,7 @@ intended one:
 </pre>
 
 By default, the menu is rendered using the template
-`/app/theme_defaults/_menu_default.twig`. You can 'override' the default by
+`/app/theme_defaults/_sub_menu.twig`. You can 'override' the default by
 copying this file to your own theme folder. Bolt will pick your own version, and
 then it will not be overwritten in a future update. However, it is good practice
 to explicitly state which template file should be used to render a menu. Like
@@ -233,7 +233,7 @@ Some of the more commonly used 'tricks' are:
     'class' attribute, but only it the item has a `class` defined in the
     `.yml`-file.
 
-See the default `/app/theme_defaults/_menu_default.twig` file for an in-depth
+See the default `/app/theme_defaults/_sub_menu.twig` file for an in-depth
 example of all of the things you can do with menus. Remember that you should
 always copy this file to your own theme folder, or create your own from scratch.
 If you modify the default file, it will most likely get overwritten when you
