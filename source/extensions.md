@@ -27,7 +27,7 @@ other Extensions. To do this, we have to keep the following rules:
  - The extension should come with a 'readme' file. It must be named `readme.md`,
    and is written in the Markdown format.
  - The `extension` sets the namespace and defines two functions named `info()`
-   and `init()`.
+   and `initialize()`.
  - Additional code for the extension can be placed in te `extension.php` file or
    in files included from `extension.php`.
  - The 'entry points' for callbacks and Twig functions and modifiers must be
@@ -149,7 +149,7 @@ In the case of `initialize()` it's often used to do the following:
   - Initialize a Twig function or filter for use in the theme templates.
 
 If you use our [Extension Wizard](http://extension-wizard.bolt.cm/) to create
-the boilerplate code for your extension, the `init()` function will be already
+the boilerplate code for your extension, the `initialize()` function will be already
 set up with the correct functionality.
 
 Initialize a snippet
@@ -186,32 +186,13 @@ function initialize()
 }
 </pre>
 
-To insert a snippet using a callback function, use:  
+To insert a snippet using a callback function, use the following. You can pass one 
+extra optional variable, which can be a simple scalar or an array. 
 
 <pre class="brush: php">
 function initialize()
 {
-    $this->insertSnippet('endofbody', 'NameSpaceFoo\snippetbar');
-}
-
-function snippetbar() 
-{
-    return "&lt;b>Some HTML&lt;/b>";
-}
-
-</pre>
-
-Note that the callback must include the namespace of the extensions, even though
-it's defined within the namespace of the extension. This is because during the
-execution of the callback, it is called from the context of `Bolt\Extension`, so
-it won't be able to find the function if the namespace was omitted.
-
-To pass extra variables to the callback function, initialize them as follows: 
-
-<pre class="brush: php">
-function init($app)
-{
-    $this->insertSnippet('endofbody', 'NameSpaceFoo\snippetbar', $foo);
+    $this->insertSnippet('endofbody', 'snippetbar', $foo);
 }
 
 function snippetbar($foo) 
@@ -221,24 +202,13 @@ function snippetbar($foo)
 
 </pre>
 
-However, don't use this to pass a 'live' version of `$app`. You should get it
-from the global scope instead. We might replace this with a more elegant
-solution down the road, but for now this will have to suffice:
-
-<pre class="brush: php">
-function snippetbar($foo) 
-{
-    global $app;
-
-    return "&lt;b>Var is $foo.&lt;/b>";
-}
-
-</pre>
+However, don't use this to pass a 'live' version of `$app`. In the callback function 
+this will already be available as `$this->app`. 
 
 Add a CSS or Javascript file
 ----------------------------
 
-You can use the `init()` function to add CSS or Javascript files to the
+You can use the `initialize()` function to add CSS or Javascript files to the
 outputted HTML in the frontend. To do so, use the `addJavascript()` and
 `addCSS()` functions:
 
@@ -279,7 +249,7 @@ function initialize()
 
 This will make sure jQuery is added to the outputted HTML, but only if it's not
 included by the theme developer already. It also will not be included more than
-once, even if several extensions have `addJquery()` in the `init()`-function. It
+once, even if several extensions have `addJquery()` in the `initialize()`-function. It
 will correctly detect jQuery if it's already present in the templates, whether
 the templates are using the minified version or not, and whether it's a local
 version or one that's hosted on a remote CDN.
