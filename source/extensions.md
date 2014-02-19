@@ -270,7 +270,7 @@ function initialize()
 {
 
     // Initialize the Twig function
-    $this->addFunction('foo', 'twigFoo');
+    $this->addTwigFunction('foo', 'twigFoo');
 
 }
 
