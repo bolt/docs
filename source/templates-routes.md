@@ -52,10 +52,10 @@ Selection of a template for an overview page:
     be used.
   - If no other rule matches, Bolt will use a template named `listing.twig`.
 
-In the default template for a single record, it is available as both `{{ record}}` 
+In the default template for a single record, it is available as both `{{ record}}`
 and also by the name of the singular name. So, in the above example, you can
 also use `{{ page }}`, without having to set it specifically. Likewise, in the
-default template for multiple records, the content is available as `{{ records }}` 
+default template for multiple records, the content is available as `{{ records }}`
 and also by the name of the contenttype, for example `{{ pages }}`.
 
 <p class="note"><strong>Note:</strong> As you might have noticed, sometimes the
@@ -153,6 +153,22 @@ aboutbinding:
     path:           /about
     defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page', 'slug': 'about' }
     recordslug:     page/about
+</pre>
+
+
+##### Filesystem based page generation
+
+There is a way to configure router to generate statically stored content.
+For the `Bolt\Controllers\Frontend::template` default controller can be
+assigned a parameter `template` that may points out a template that
+should be stored as a regular file under currently selected theme in the
+filesystem. Using file extension `.twig` is optional.
+
+<pre class="brush: plain">
+templatebinding:
+hirbinding:
+  	path: /mytemplate
+  	defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: 'mytemplate' }
 </pre>
 
 
