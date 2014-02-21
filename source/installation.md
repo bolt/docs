@@ -236,8 +236,13 @@ DirectoryIndex index.php index.html index.htm
 Options -Indexes
 
 &lt;FilesMatch "\.(yml|db|twig)$">
-    Order deny,allow
-    Deny from all
+    &lt;IfModule mod_authz_core.c>
+        Require all denied
+    &lt;/IfModule>
+    &lt;IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    &lt;/IfModule>
 &lt;/FilesMatch>
 
 &lt;IfModule mod_rewrite.c>
