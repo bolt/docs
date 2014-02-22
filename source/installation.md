@@ -72,8 +72,8 @@ width="590"></a><br>
   filesystem, download this <a href="http://bolt.cm/distribution/default.htaccess">
   <code>default.htaccess</code></a> file. Upload it to your server, and then
   rename it to <code>.htaccess.</code><br/><br/>
-  If you're on OSX and you don't see the file, it might be that your system is 
-  set up to 'hide' hidden files. You can usually still find it, when browsing 
+  If you're on OSX and you don't see the file, it might be that your system is
+  set up to 'hide' hidden files. You can usually still find it, when browsing
   local files using your FTP client.</p>
 
 After you've done this, skip to the section [Setting up Bolt](#setting-up-bolt).
@@ -84,18 +84,18 @@ After you've done this, skip to the section [Setting up Bolt](#setting-up-bolt).
 If you want to install Bolt using Git and Composer, execute the following
 commands:
 
-<pre class="brush: plain"> 
-git clone git://github.com/bolt/bolt.git bolt 
+<pre class="brush: plain">
+git clone git://github.com/bolt/bolt.git bolt
 cd bolt
-curl -s http://getcomposer.org/installer | php 
-php composer.phar install 
+curl -s http://getcomposer.org/installer | php
+php composer.phar install
 </pre>
 
 This will get the Bolt files, the Silex framework, and all required components.
 Most likely all files and directories will have the correct filerights, but if they
 don't, (re)set them using the following command in the `bolt/` directory:
 
-<pre class="brush: plain"> 
+<pre class="brush: plain">
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ </pre>
 
 It depends on the exact server configuration if you will need to use `777` or if
@@ -118,7 +118,7 @@ built-in Loripsum tool. After you've done this, you should see some dummy
 content, and you're good to go!
 
 If you're getting unspecified "Internal Server Errors", the most likely cause is
-a missing or malfunctioning `.htaccess` file. See [here](#apache-tweaking-the-htaccess-file) 
+a missing or malfunctioning `.htaccess` file. See [here](#apache-tweaking-the-htaccess-file)
 for tips. If you still encounter errors, check your vhost configuration
 and be sure that the AllowOverride option is enabled.
 
@@ -146,8 +146,8 @@ Each has its benefits and drawbacks.
     it's not as well known as the two others. This database engine is most
     often used by 'power users'.
 
-Not sure which database to use? We suggest using MySQL if available, and SQLite 
-otherwise. 
+Not sure which database to use? We suggest using MySQL if available, and SQLite
+otherwise.
 
 <p class="note"><strong>Note:</strong> If you've just installed Bolt, you might
 not have the <code>config.yml</code>-file yet. You will however have a
@@ -161,21 +161,21 @@ If you wish to edit the database configuration, you have to change the settings
 in `app/config/config.yml`. Apart from SQLite, you can use MySQL and PostgreSQL as
 database backends. Set the database, username and password:
 
-<pre class="brush: plain"> 
-database: 
-  driver: mysql 
-  username: bolt 
-  password: password 
+<pre class="brush: plain">
+database:
+  driver: mysql
+  username: bolt
+  password: password
   databasename: bolt </pre>
 
 or:
 
-<pre class="brush: plain"> 
-database: 
-  driver: postgres 
-  username: bolt 
-  password: password 
-  databasename: bolt 
+<pre class="brush: plain">
+database:
+  driver: postgres
+  username: bolt
+  password: password
+  databasename: bolt
 </pre>
 
 Support for PostgreSQL is experimental, so use with caution.
