@@ -68,7 +68,7 @@ application', and most of the components that are used in Bolt are created as
 services via Dependency Injection. If you want to know more about these
 subjects, we heartily recommend these articles about Dependency Injection:
 
-  - [An introduction to Pimple and Service Containers](http://jtreminio.com/tag/dependency-injection/)
+  - [An introduction to Pimple and Service Containers](https://jtreminio.com/2012/10/an-introduction-to-pimple-and-service-containers/)
   - [What is Dependency Injection?](http://fabien.potencier.org/article/11/what-is-dependency-injection)
 
 In Bolt, this `$app` will be available in the majority of the code, and so are
