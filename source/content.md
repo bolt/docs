@@ -289,7 +289,15 @@ The following fields are available:
         type: slug
         uses: [field1,field2]
 </pre>
-  - `image`: Simple image upload/select field.
+  - `image`: Simple image upload/select field. Currently takes one optional 
+    attribute (attrib:) parameter 'title' — this will allow you to specify text
+    that you can call in your templates to retreive either/or captions or alt 
+    text for your image layout.
+<pre class="brush: plain">
+    image:
+        type: image
+        attrib: title
+</pre>
   - `imagelist`: A field to create a list of images. Useful for slideshows and
     imagesliders.
   - `file`: Simple image upload/select field.
