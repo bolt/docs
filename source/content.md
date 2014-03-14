@@ -296,6 +296,23 @@ The following fields are available:
   - `html`: Wysiwyg HTML field.
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML
     markup.
+  - `select`: A drop-down list to make a pre-defined selection from. There are 
+    two ways of sepecifying the list of available options. Either a YAML array
+    or a contenttype/field lookup.
+    
+    Array values:
+<pre class="brush: plain">
+    selectfield:
+        type: select
+        values: [ none, foo, bar ]
+</pre>
+
+    Lookup existing Contenttype record fields:
+<pre class="brush: plain">
+    selectfield:
+        type: select
+        values: mycontenttype/fieldname
+</pre>
   - `video`: A set of fields for embedding videos from websites like Youtube and
     Vimeo.
   - `geolocation`: A set of fields for easy selection of a geolocation
