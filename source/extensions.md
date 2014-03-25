@@ -218,18 +218,25 @@ function initialize()
 {
 
     // Add javascript file
-    $this->addJavascript($app['paths']['app'] . "extensions/Namespace/assets/namespace.js");
+    $this->addJavascript($app['paths']['app'] . "extensions/Namespace/assets/namespace.js", false);
 
     // Add CSS file
-    $this->addCSS($app['paths']['app'] . "extensions/Namespace/assets/namespace.css");
+    $this->addCSS($app['paths']['app'] . "extensions/Namespace/assets/namespace.css", false);
 
 }
 </pre>
 
-Both of these functions take one parameter: An absolute path to the desired .js
-or .css file. Use the `$app['paths']['app']` variable to always get the correct
-path, regardless of how Bolt is installed. See the (Paths section in
-Internals](/internals#paths) for more details.
+Both of these functions take two parameters: 
+
+  - An absolute path to the desired .js
+  or .css file. Use the `$app['paths']['app']` variable to always get the correct 
+  path, regardless of how Bolt is installed. See the [Paths section in Internals](/internals#paths) 
+  for more details.
+  - A boolean that controls where the code insertion happens:
+    - HTML head, by default (false)
+    - End of the body section (true)
+
+Be careful though. If you insert dependant code before the relevant JavaScript itself, this will cause breakage.
 
 There's a special function for adding jQuery to the outputted HTML. A lot of
 extensions might or might not require jQuery to function, and the developer of
