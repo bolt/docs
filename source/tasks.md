@@ -18,7 +18,7 @@ to execute Bolt's command line interface 'nut', located in Bolt's app/ directory
 The format should look something like:
 <pre class="brush: plain">
 # min hour day month weekday command
-*   */1    *    *    *       /var/www/my_site/app/nut cron
+0   */1    *    *    *       /var/www/my_site/app/nut cron
 </pre>
 
 Where you change '/var/www/my_site' to be the correct path to your Bolt 
