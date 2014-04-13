@@ -5,7 +5,7 @@ require_once('lib/util.php');
 require_once('lib/smartypants.php');
 require_once './vendor/autoload.php';
 
-$version = "1.5.0";
+$version = "1.6.0";
 
 $request = basename($_SERVER['REQUEST_URI']);
 
