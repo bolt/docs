@@ -30,7 +30,7 @@
     <link href="/view/css/jquery.fancybox.css" rel="stylesheet" type="text/css" />    
 	<script type="text/javascript" src="/view/js/docs.js"></script>
 
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic|Source+Code+Pro&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/view/css/bolt.css">
 
     <link rel="shortcut icon" href="http://bolt.cm/app/view/img/favicon-bolt.ico">
@@ -61,10 +61,9 @@
 </head>
 <body>
 
+    <div class="container">
 
-	<div class="container">
-
-        <header class="sixteen columns">
+        <header class="row">
             
            <div class="kop"> 
             <h1 class="">
@@ -125,13 +124,15 @@
 {# end of menu #}
         </header>
 
+        <div class="row">
 
-			<div class="four columns sidebar">
+			<div class="large-3 columns sidebar">
 
-            {% include '_sub_contents.twig' %}
+                {% include '_sub_contents.twig' %}
 
+            </div>
 
-			<div class="eleven columns offset-by-half content">
+			<div class="large-9 columns content">
 				
 				{{ source|raw }}
 
@@ -148,7 +149,7 @@
 
 			</div>
 
-
+        </div>
 
 	</div><!-- container -->
 

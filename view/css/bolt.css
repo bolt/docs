@@ -1,5 +1,5 @@
 body {
-	background: #f5f5f5 url(../images/grey.png) center top;
+    background: #f5f5f5 url(../images/grey.png) center top;
 }
 
 p {
@@ -83,12 +83,17 @@ header div.search {
     margin-top: 3.5em;
 }
 
+.row {
+    background-color: #FFF;
+}
+
 .content h2 {
     margin-top: 30px;
 }
 
 .content h2 code {
-    font-size: 26px;
+    font-family: "Source Code Pro", "Menlo", "Consolas", "Courier New", Courier, monospace;    
+    font-size: 33px;
 }
 
 .content h3 {
@@ -149,20 +154,21 @@ li.current a {
 code {
     padding: 1px 3px;
     background-color: #F0F0F0;
+    color: #555;
     font-family: "Menlo", "Consolas", "Courier New", Courier, monospace;
     white-space: nowrap;
     font-size: 13px;
+    font-weight: normal;
 }
 
 
 .container {
     background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    padding: 0 12px 40px;
-}
-
-.container .offset-by-half {
-    padding-left: 30px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
+    border: 1px solid #E8E8E8;
+    padding: 0 42px 40px;
+    max-width: 1100px;
+    margin: 10px auto;
 }
 
 
@@ -235,104 +241,21 @@ code {
 
 
 /**
- * Styles for the simple drop-down menu.
- */
-nav.main ul {
-    padding: 0px;
-    margin: 0px;
-    list-style: none;
-    min-height: 36px;
-    float: right;
-}
-nav.main ul li {
-    list-style: none;
-    float: left;
-    height: 36px;
-    margin: 0 2px;
-    line-height: 18px;
-
-}
-nav.main ul li a {
-    padding: 6px 20px;
-    display: block;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-}
-nav.main ul li:hover a {
-    text-decoration: underline;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: #E8E8E8;
-}
-nav.main ul ul {
-    position: absolute;
-    left: -9999px;
-    top: -9999px;
-    list-style-type: none;
-}
-nav.main ul li:hover {
-    position: relative;
-}
-nav.main ul li:hover ul {
-    left: -3px;
-    top: 36px;
-    padding: 3px;
-    width: 200px;
-}
-nav.main ul li:hover ul li {
-    height: 40px;
-    border: none;
-}
-nav.main ul li:hover ul li a {
-    height: 22px;
-    display: block;
-    width: 198px;
-    line-height: 22px;
-    text-decoration: none;
-}
-nav.main ul li:hover ul li:hover a {
-    text-decoration: underline;
-    background-color: #DDD;
-}
-nav.main ul li a.current,
-nav.main ul li:hover a.current {
-    background-color: #77E0FF;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-
-
-}
-nav.main .first {
-    background-color: #FFC;
-}
-
-
-/**
  * Styles for the sidebar
  */
-
-.sidebar {
-	padding-top: 48px;
-}
-
 .sidebar ul {
-	list-style: none;
-	margin: 0;
-	padding:0;
+    list-style: none;
+    margin: 0;
+    padding:0;
 }
 
 .sidebar ul li {
-	margin: 0 0 0 20px;
-	padding: 3px 0 3px 0;
-	line-height: 1.2em;
+    margin: 0 0 0 20px;
+    padding: 3px 0 3px 0;
+    line-height: 1.2em;
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
-
-
 
 .sidebar ul li.section {
     list-style: none;
@@ -340,11 +263,9 @@ nav.main .first {
     font-weight: bold;
 }
 
-
-
 .sidebar ul li a{
-	color: #666;
-	text-decoration: none; 
+    color: #666;
+    text-decoration: none; 
 }
 
 .sidebar ul li.current a {
@@ -357,7 +278,7 @@ nav.main .first {
 
 .sidebar ul ul{
     margin-top: 4px;
-	margin-left: 0px;
+    margin-left: 0px;
 }
 
 
@@ -367,11 +288,13 @@ nav.main .first {
 @media only screen and (max-width: 767px) {
 
     body {
-		background:#fff;
+        background:#fff;
     }
 
     .container {
-	    box-shadow: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 10px;
     }
 
     .sticky {
@@ -390,32 +313,29 @@ nav.main .first {
         line-height: 30px;
     }
 
+    .content h2 code {
+        font-size: 26px;
+    }
+
     h3 {
         font-size: 18px;
         line-height: 24px;
     }
 
     .sidebar {
-	    padding-bottom: 40px;
+        padding-bottom: 40px;
     }
 
-    nav.main ul {
-	    float: left;
+
+    header div.kop {
+        float: left;
     }
 
-    nav.main ul li a {
-        padding: 6px 6px;
+    header div.search {
+        width: 100%;
+        float: left;
+        margin-top: 1em;
     }
-
-header div.kop {
-    float: left;
-}
-
-header div.search {
-    width: 100%;
-    float: left;
-    margin-top: 1em;
-}
 
 
 }
