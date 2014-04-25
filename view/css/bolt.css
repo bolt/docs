@@ -83,6 +83,21 @@ header div.search {
     margin-top: 3.5em;
 }
 
+input.gsc-search-button, input.gsc-search-button-v2 {
+    width: 60px !important;
+    height: 22px !important;
+    padding: 3px 21px !important;
+    margin-top: 2px;
+    background-color: #357ae8 !important;
+    background: #357ae8 !important;
+}
+
+#gs_tti50 {
+    margin: 0 !important;
+    padding: 2px !important;
+
+}
+
 .row {
     background-color: #FFF;
 }
@@ -161,6 +176,9 @@ code {
     font-weight: normal;
 }
 
+small {
+    font-size: 11.5px;
+}
 
 .container {
     background: #fff;
@@ -280,6 +298,7 @@ code {
     margin-top: 4px;
     margin-left: 0px;
 }
+
 
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
