@@ -389,6 +389,47 @@ function foo()
 }
 </pre>
 
+
+Overriding the default 'Content' class
+--------------------------------------
+
+Contenttypes can specify the class to be used for records of that
+contenttype. This is useful for when you have a specific contenttype, and you would
+like to provide extra functionality to that single contenttype.
+
+An extension can then define that class, overriding / extending the default 
+behaviour of `\Bolt\Content`.
+
+For example, in your contenttype, use:
+```YAML
+entries:
+    name: Entries
+    singular_name: Entry
+    fields:
+        title:
+            type: text
+            class: large
+    (snip)
+    class: \MyContent\Content
+```
+
+And in your extension, do:
+
+```PHP
+class Content extends \Bolt\Content
+{
+  function foo() {
+    return "bar";
+  }
+}
+```
+
+Then, in your template, use:
+```
+  {{ entry.foo() }} /* prints 'bar'
+```
+
+
 Further reading
 ---------------
 
