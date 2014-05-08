@@ -17,13 +17,25 @@ The permissions needed to perform an action are hard-coded into Bolt, but
 everything else is configurable by editing the YAML file `app/config/permissions.yml`;
 this can be done either directly, or through Bolt's back-end UI.
 
-A Word Of Warning
------------------
+Things to keep in mind
+----------------------
 
-Permissions are quite central to Bolt's inner workings, and by misconfiguring
-them, you can lock yourself out - for example, removing the `anonymous` role
-from the `login` or `postLogin` permissions will make logging in completely
-impossible: you won't even see the login page.
+By changing the permissions you basically change the way how people can interact 
+with Bolt, and who is allowed to do what. By changing the permissions you should
+be aware of the fact that you might inadvertently grant people permissions you 
+don't want them to have. Two important considerations:
+
+ 1. Permissions are quite central to Bolt's inner workings, and by
+    misconfiguring them, you can lock yourself out - for example, removing the
+    `anonymous` role from the `login` or `postLogin` permissions will make
+    logging in completely impossible: you will even be allowed to see the login
+    page.
+
+ 2. If somebody has the permission to `edit users`, they can also grant
+    permissions to themselves or others. This means they can make themselves
+    `root`, or take away `root` from others. In short: **Do _not_ give someone
+    `edit users` permission, unless you trust them fully!!**
+
 
 The `permissions.yml` File Format
 ---------------------------------
@@ -157,7 +169,7 @@ Additionally, grant `edit` to the magic `owner` role and to `chief-editor`.
 
 This is what it looks like in `permissions.yml`:
 
-<pre>
+<pre class="brush: plain">
 contenttype-default:
     edit: [ owner, chief-editor ]
     create: [ editor, chief-editor ]
