@@ -3,9 +3,10 @@ Roadmap
 
 The current roadmap for Bolt is as follows:
 
-Bolt 1.3 (released 2013-11-07)
+Bolt 1.3 (released November 2013)
 ------------------------------
-Bolt 1.3 is the latest stable release. 
+
+Features and bugfixes
 
 Bolt 1.4 (scheduled for december 2013)
 --------------------------------------
@@ -19,16 +20,31 @@ Planned features are:
  - Support for SSL: Allow (or require) login over HTTPS://
  - Full-page caching
 
+Bolt 1.5 (released February 2014)
+---------------------------------
 
-Bolt 2.0 (scheduled for march 2014)
+Features and bugfixes
+
+
+bolt 1.6 (released May 2014)
+------------------------------
+
+Features and bugfixes
+
+
+Bolt 2.0 (scheduled for summer 2014)
 -----------------------------------
 After Bolt 1.4, we'll focus on Bolt 2.0. The [issues for 2.0](https://github.com/bolt/bolt/issues?milestone=13) on our github issue tracker gives an overview of tasks planned.
 
+ - New interface for the backend (in Bootstrap 3)
+ - JSON-based API for retrieving and updating content in Bolt.
+
+Bolt 2.1 (scheduled for autumn 2014)
+-----------------------------------
 The most important planned features are:
 
  - Automatic installing and updating of extensions, with a 'marketplace' to find them.
- - New interface for the backend (either in Bootstrap 3 or Foundation 5)
- - JSON-based API for retrieving and updating content in Bolt.
+
 
 Not scheduled
 -------------
