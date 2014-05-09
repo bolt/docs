@@ -31,7 +31,7 @@ don't want them to have. Two important considerations:
     logging in completely impossible: you will even be allowed to see the login
     page.
 
- 2. If somebody has the permission to `edit users`, they can also grant
+ 2. If somebody has the permission to `useredit`, they can also grant
     permissions to themselves or others. This means they can make themselves
     `root`, or take away `root` from others. In short: **Do _not_ give someone
     `edit users` permission, unless you trust them fully!!**
