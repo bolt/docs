@@ -271,7 +271,7 @@ set it to the correct folder. For instance, if your Bolt site is located at
 `example.org/test/`, set it to `RewriteBase /test/`.
 
 Alternatively, if your server is running Apache 2.2.16 or higher, you might be
-able to replace the entire `mod_rewrite` block from lines 13-25 with this single
+able to replace the entire `mod_rewrite` block from lines 17-30 with this single
 line:
 
 <pre class="brush: plain">
