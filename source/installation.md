@@ -85,15 +85,16 @@ If you want to install Bolt using Git and Composer, execute the following
 commands:
 
 <pre class="brush: plain">
-git clone git://github.com/bolt/bolt.git bolt
+git clone --recursive git://github.com/bolt/bolt.git bolt
 cd bolt
 curl -s http://getcomposer.org/installer | php
 php composer.phar install
 </pre>
 
-This will get the Bolt files, the Silex framework, and all required components.
-Most likely all files and directories will have the correct filerights, but if they
-don't, (re)set them using the following command in the `bolt/` directory:
+This will get the Bolt files, the theme in submodule, the Silex framework, and
+all required components. Most likely all files and directories will have the
+correct filerights, but if they don't, (re)set them using the following command
+in the `bolt/` directory:
 
 <pre class="brush: plain">
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ </pre>
@@ -314,6 +315,7 @@ server {
     }
 
     location ~* \.(?:ico|css|js|gif|jpe?g|png|ttf|woff)$ {
+        try_files $uri $uri/ /index.php?$query_string;
         access_log off;
         expires 30d;
         add_header Pragma public;

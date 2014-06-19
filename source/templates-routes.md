@@ -92,10 +92,10 @@ new Bolt system.
 
 <pre class="brush: plain">
 oldpages:
-    path:           /{slug}.html
-    defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
-    requirements:
-        slug:       '[a-z0-9-_]+'
+  path:           /{slug}.html
+  defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
+  requirements:
+    slug:       '[a-z0-9-_]+'
 </pre>
 
 
@@ -107,9 +107,9 @@ specific contenttype and slug set up.
 
 <pre class="brush: plain">
 example:
-    path:     /
-    defaults: { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page', 'slug': 'example' }
-    host:     'example.mydomain.org'
+  path:     /
+  defaults: { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page', 'slug': 'example' }
+  host:     'example.mydomain.org'
 </pre>
 
 
@@ -124,20 +124,20 @@ contenttype **page**.
 
 <pre class="brush: plain">
 pagebinding:
-    path:           /{slug}
-    defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
-    contenttype:    pages
+  path:           /{slug}
+  defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
+  contenttype:    pages
 </pre>
 
 An alternative is to also add the creation date:
 
 <pre class="brush: plain">
 pagebinding:
-    path:           /{datecreated}/{slug}
-    defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
-    requirements:
-        datecreated:    '\d{4}-\d{2}-\d{2}'
-    contenttype:    pages
+  path:           /{datecreated}/{slug}
+  defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
+  requirements:
+    datecreated:    '\d{4}-\d{2}-\d{2}'
+  contenttype:    pages
 </pre>
 
 
@@ -150,9 +150,9 @@ for it to work correctly.
 
 <pre class="brush: plain">
 aboutbinding:
-    path:           /about
-    defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page', 'slug': 'about' }
-    recordslug:     page/about
+  path:           /about
+  defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page', 'slug': 'about' }
+  recordslug:     page/about
 </pre>
 
 
@@ -178,15 +178,15 @@ The complete format of a single route in YAML is as follows:
 
 <pre class="brush: plain">
 bind-name:
-    path:       /{parameter..}/
-    defaults:
-        _controller:    'controller'
-        _before:        'before'            # optional
-        _after:         'after'             # optional
-    requirements:
-        parameter..:    required-regexp
-    host:               hostname            # optional
-    contenttype:        contenttype         # optional
+  path:       /{parameter..}/
+  defaults:
+    _controller:    'controller'
+    _before:        'before'            # optional
+    _after:         'after'             # optional
+  requirements:
+    parameter..:    required-regexp
+  host:               hostname            # optional
+  contenttype:        contenttype         # optional
 </pre>
 
 
