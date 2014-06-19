@@ -320,7 +320,12 @@ The following fields are available:
     selectfield:
         type: select
         values: mycontenttype/fieldname
+    &#35; i.e. to display both the id and title of 'pages':
+    selectapage:
+        type:select
+        values: pages/id,title
 </pre>
+
   - `video`: A set of fields for embedding videos from websites like Youtube and
     Vimeo.
   - `geolocation`: A set of fields for easy selection of a geolocation
