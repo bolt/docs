@@ -357,6 +357,8 @@ Most fields have a few extra optional values, to further customize them.
   - `required: true`: Use this to make a field required. See below for examples.
   - `pattern: ..`: Use this to validate a field against a certain pattern. See
     below for examples.
+  - `allowtwig: true`: Explicitly allow twig to be used in this field. This is 
+    needed if you want to allow twig snippets in your content.
 
 ### Prefix and Postfix 
 Sometimes it can be beneficial to add some extra text, labels or other markup to
