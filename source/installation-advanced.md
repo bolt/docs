@@ -3,7 +3,7 @@ Advanced Installation Options
 
 Whilst Bolt is designed to be simple for anyone to install, its core functionality is also modular and easy to configure for anyone who is comfortable making a few modifications to their bootstrap code.
 
-By default Bolt ships with its own bootstrap file which is responsible for setting up and running a Bolt application. Most of the adbanced configuration options are best attained by taking over this responsibility in your own application. In the root of your project you will see an `index.php` file that should look like this:
+By default Bolt ships with its own bootstrap file which is responsible for setting up and running a Bolt application. Most of the advanced configuration options are best attained by taking over this responsibility in your own application. In the root of your project you will see an `index.php` file that should look like this:
 
 <pre class="brush: php">
 require_once __DIR__ . '/app/bootstrap.php';
