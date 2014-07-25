@@ -1,7 +1,8 @@
 The Bolt Permissions System
 ===========================
 
-Bolt uses a [Role-Based Permission](https://en.wikipedia.org/wiki/Role-based_access_control)
+Bolt uses a [Role-Based
+Permission](https://en.wikipedia.org/wiki/Role-based_access_control)
 system. This means that:
 
 * Every *user* can be a member of zero or more *roles*
@@ -14,16 +15,17 @@ system. This means that:
   to avoid this
 
 The permissions needed to perform an action are hard-coded into Bolt, but
-everything else is configurable by editing the YAML file `app/config/permissions.yml`;
+everything else is configurable by editing the YAML file
+`app/config/permissions.yml`;
 this can be done either directly, or through Bolt's back-end UI.
 
 Things to keep in mind
 ----------------------
 
-By changing the permissions you basically change the way how people can interact 
-with Bolt, and who is allowed to do what. By changing the permissions you should
-be aware of the fact that you might inadvertently grant people permissions you 
-don't want them to have. Two important considerations:
+By changing the permissions you basically change the way how people can
+interact with Bolt, and who is allowed to do what. By changing the permissions
+you should be aware of the fact that you might inadvertently grant people
+permissions you don't want them to have. Two important considerations:
 
  1. Permissions are quite central to Bolt's inner workings, and by
     misconfiguring them, you can lock yourself out - for example, removing the
@@ -177,3 +179,44 @@ contenttype-default:
     depublish: [ chief-editor ]
     change-ownership: [ chief-editor ]
 </pre>
+
+
+Manually Checking Permissions
+-----------------------------
+
+Sometimes, you want to check permissions as part of a template or extension.
+This is perfectly possible: Bolt exposes permission checks to extensions
+through the `$app['user']->isAllowed()` method, and to templates through the
+`isallowed()` template function. These functions both take a *permission query*
+as their argument; the grammar for these is as follows:
+
+    permission-query := or-query | allow-all
+
+    allow-all := '' # -> always grant
+
+    or-query := and-query [ ( or, and-query ) ... ] # -> grant iff any of the subparts grant
+    or := 'or' | '|' | '||' # -> case-insensitive
+
+    and-query := simple-query [ ( and, simple-query ) ... ] # -> grant iff all of the subparts grant
+    and := 'and' | '&' | '&&' # -> case-insensitive
+
+    simple-query := true | false | permission
+
+    true := 'true' # -> case insensitive, always grant
+    false := 'false' # -> case insensitive, never grant
+    permission := word [ ( ':', word) ... ] # -> a tuple of permission specifier parts, as outlined above.
+
+Additionally, you can pass a content type slug and a content ID as optional
+arguments; by doing so, the query is run against those instead of at the global
+"scope".
+
+A few examples:
+
+    # view any page and view any entry, *or* edit any entry
+    isallowed("(contenttype:pages:view and contenttype:entries:view) or contenttype:entries:edit")
+
+    # create new foobars, edit foobar #1, or delete foobar #1
+    isallowed("contenttype:foobar:create or contenttype:foobar:edit:1 or contenttype:foobar:delete:1")
+
+    # for item #23, check if any permission is granted that would allow viewing:
+    isallowed("frontend or view or edit", "items", 23)

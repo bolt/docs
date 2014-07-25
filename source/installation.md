@@ -103,6 +103,13 @@ It depends on the exact server configuration if you will need to use `777` or if
 another setting is better. If you wish to know for sure, ask your hosting
 provider.
 
+After installing you may need to run the following commands in the bolt directory
+to download the submodule themes.
+
+<pre class="brush: plain">
+git submodule init
+git submodule update
+</pre>
 
 Setting up Bolt
 ---------------
