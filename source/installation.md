@@ -314,7 +314,7 @@ server {
     }
 
     location ~* /thumbs/(.*)$ {
-        try_files $uri $uri/ /app/classes/timthumb.php?$query_string;
+        try_files $uri $uri/ /index.php?$query_string;
     }
 
     location /app/classes/upload {
@@ -322,7 +322,6 @@ server {
     }
 
     location ~* \.(?:ico|css|js|gif|jpe?g|png|ttf|woff)$ {
-        try_files $uri $uri/ /index.php?$query_string;
         access_log off;
         expires 30d;
         add_header Pragma public;
