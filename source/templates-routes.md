@@ -19,13 +19,6 @@ your site will automatically have pages like:
   - `http://example.org/pages`
   - `http://example.org/page/lorem-ipsum-dolor`
 
-How does Bolt select what template to use for a given request? Unless specified,
-Bolt will determine the names of these templates automatically via a method we
-call 'cascading templates'. This allows for great flexibility, as well as ease
-of use. Unless you specify anything, pages will get rendered using the basic
-default templates, but you can refine this in the definition of the contenttypes
-or even on a per-record basis. The rules for selecting a template are as
-follows.
 
 Automatic template selection
 ----------------------------
@@ -34,6 +27,13 @@ Bolt has some rules to help you quickly build custom templates for your site.
 If your template is named exactly like the `singular_slug` or `slug` for the
 content type or record it will be automatically used.
 
+How does Bolt select what template to use for a given request? Unless specified,
+Bolt will determine the names of these templates automatically via a method we
+call 'cascading templates'. This allows for great flexibility, as well as ease
+of use. Unless you specify anything, pages will get rendered using the basic
+default templates, but you can refine this in the definition of the contenttypes
+or even on a per-record basis. The rules for selecting a template are as
+follows.
 
 ### Selection of a template for an single record page:
 
