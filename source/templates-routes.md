@@ -27,7 +27,15 @@ default templates, but you can refine this in the definition of the contenttypes
 or even on a per-record basis. The rules for selecting a template are as
 follows.
 
-Selection of a template for an single record page:
+Automatic template selection
+----------------------------
+
+Bolt has some rules to help you quickly build custom templates for your site. 
+If your template is named exactly like the `singular_slug` or `slug` for the
+content type or record it will be automatically used.
+
+
+### Selection of a template for an single record page:
 
   - If an overview page like `/page/foo-bar` is requested, and the contenttype
     has a 'templateselect field' and a template is selected for this record,
@@ -41,7 +49,7 @@ Selection of a template for an single record page:
     be used.
   - If no other rule matches, Bolt will use a template named `record.twig`.
 
-Selection of a template for an overview page:
+### Selection of a template for an overview page:
 
   - If an overview page like `/entries` is requested, and the contenttype
     definition has a value for `listing_template`, that template will be used.
