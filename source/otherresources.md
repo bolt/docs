@@ -30,11 +30,11 @@ these docs, be sure to get in touch, using one of the following ways:
   - There's always some people willing to chat in our IRC channel on Freenode at #boltcms. 
     No IRC client? Use [this website](http://irccloud.com). 
 
-  - We have a traditional forum here: [forum.pivotx.net/viewtopic.php?f=17](http://forum.pivotx.net/viewtopic.php?f=17).
+  - We have a traditional forum here: [forum.pivotx.net/viewforum.php?f=17](http://forum.pivotx.net/viewforum.php?f=17).
 
 Finally, if you're using Bolt in your company, and you need commercial support, 
 feel free to get in touch with Two Kings. Two Kings is the Netherlands based 
 webdevelopment company that's spearheading the ongoing development of Bolt, and 
 as such they will ensure continuity for the project. For commercial offers only: 
-get in touch with [commercialsupport@bolt.cm](mailto:commercialsupport@bolt.cm) or
-[support@twokings.nl](mailto:support@twokings.nl).
+get in touch with [commercialsupport@bolt.cm](mailto:commercialsupport@bolt.cm) or 
+[support@twokings.nl](mailto:support@twokings.nl). 
