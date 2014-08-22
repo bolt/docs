@@ -289,9 +289,9 @@ The following fields are available:
         type: slug
         uses: [field1,field2]
 </pre>
-  - `image`: Simple image upload/select field. Currently takes one optional 
+  - `image`: Simple image upload/select field. Currently takes one optional
     attribute (attrib:) parameter 'title' — this will allow you to specify text
-    that you can call in your templates to retreive either/or captions or alt 
+    that you can call in your templates to retreive either/or captions or alt
     text for your image layout.
 <pre class="brush: plain">
     image:
@@ -308,10 +308,10 @@ The following fields are available:
   - `html`: Wysiwyg HTML field.
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML
     markup.
-  - `select`: A drop-down list to make a pre-defined selection from. There are 
+  - `select`: A drop-down list to make a pre-defined selection from. There are
     two ways of sepecifying the list of available options. Either a YAML array
     or a contenttype/field lookup.
-    
+
     Array values:
 <pre class="brush: plain">
     selectfield:
@@ -369,8 +369,9 @@ Most fields have a few extra optional values, to further customize them.
     See below for examples.
   - `pattern: ..`: Use this to validate a field against a certain pattern. See
     below for examples.
-  - `allowtwig: true`: Explicitly allow twig to be used in this field. This is 
+  - `allowtwig: true`: Explicitly allow twig to be used in this field. This is
     needed if you want to allow twig snippets in your content.
+  - `info: ..`: Use for displaying extra information about the field.
 
 ### File and Filelist options
 A field with the type `file` or `filelist` has some default values for the
@@ -379,8 +380,8 @@ set those in the configuration
 
   - `extensions: [ txt, md ]`: A list of allowed file extensions for uploading
 
-  
-### Prefix and Postfix 
+
+### Prefix and Postfix
 Sometimes it can be beneficial to add some extra text, labels or other markup to
 how a field is displayed in the Bolt backend, when editing a record. You can use
 the optional `prefix` and `postfix` values to add some markup before or after a
@@ -396,6 +397,13 @@ field. For example:
 
 As you can see, using `postfix: "<hr>"` gives a simple and effective way of
 adding a divider in the edit screen.
+
+### Info
+In case when you need to inform user quite long about purpose of the field may be
+useful this option. It will place info popup button beside label of the field and the
+text value entrered here will be displayed on mouse over.
+Some of the fields has info button by default (eg. `image` field). This case your
+description will override field's default.
 
 ### Default values
 
@@ -449,7 +457,7 @@ common use-cases are:
   numbers with no leading '0', an optional space, and two letters. `1234 ab` or
   `2518HL` are valid inputs.
 
-For example, use this to make sure a title is no longer than 80 characters: 
+For example, use this to make sure a title is no longer than 80 characters:
 
 <pre class="brush: plain">
         title:
@@ -490,8 +498,8 @@ them. </p>
 
 You can use the `readonly` option to lock the content in a field. For example if
 you have generated some entries with an import that users should not change. You
-can combine it with the `default` option to make sure that a field contains 
-something. The readonly status is only enforced in the browser, so don't "trust" 
+can combine it with the `default` option to make sure that a field contains
+something. The readonly status is only enforced in the browser, so don't "trust"
 any data that's been entered by an editor.
 
 <pre class="brush: plain">
