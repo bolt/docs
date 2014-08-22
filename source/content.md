@@ -364,6 +364,9 @@ Most fields have a few extra optional values, to further customize them.
   - `default: ..`: The default value for a field, if applicable. See below for
     an example.
   - `required: true`: Use this to make a field required. See below for examples.
+  - `readonly: true`: Use this to make a field readonly. Only works on `float`,
+    `integer` and `text` fields, only add if you know what this means.
+    See below for examples.
   - `pattern: ..`: Use this to validate a field against a certain pattern. See
     below for examples.
   - `allowtwig: true`: Explicitly allow twig to be used in this field. This is 
@@ -482,6 +485,22 @@ the pattern. For example, you could make an optional email-address like this:
 <p class="note"><strong>Note:</strong> If you have a required field, you should
 always include a postfix. Otherwise the editor might not know what's expected of
 them. </p>
+
+### Readonly fields
+
+You can use the `readonly` option to lock the content in a field. For example if
+you have generated some entries with an import that users should not change. You
+can combine it with the `default` option to make sure that a field contains 
+something. The readonly status is only enforced in the browser, so don't "trust" 
+any data that's been entered by an editor.
+
+<pre class="brush: plain">
+        serialnumber:
+            type: text
+            default: "SN-123456789"
+            readonly: true
+</pre>
+
 
 The structure of a Record
 -------------------------
