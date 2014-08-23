@@ -17,11 +17,11 @@ to execute Bolt's command line interface 'nut', located in Bolt's app/ directory
 
 The format should look something like:
 <pre class="brush: plain">
-# min hour day month weekday command
+\# min hour day month weekday command
 0   */1    *    *    *       /var/www/my_site/app/nut cron
 </pre>
 
-Where you change '/var/www/my_site' to be the correct path to your Bolt 
+Where you change `/var/www/my_site` to be the correct path to your Bolt 
 installation.
 
 Then in config.yml you need to set the 'cron_hour' parameter.  The paramter 
@@ -47,7 +47,8 @@ To create a listener you need to something similar in your class:
   $this->app['dispatcher']->addListener(CronEvents::CRON_INTERVAL, array($this, 'myJobCallbackMethod'));
 </pre>
 
-CRON_INTERVAL should be replace with one of the following:
+CRON_INTERVAL should be replaced with one of the following:
+
   - CRON_HOURLY
   - CRON_DAILY
   - CRON_WEEKLY
