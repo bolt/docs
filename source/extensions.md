@@ -205,6 +205,10 @@ function snippetbar($foo)
 However, don't use this to pass a 'live' version of `$app`. In the callback function 
 this will already be available as `$this->app`. 
 
+<p class="note"><strong>Note:</strong> If you are also adding your own controllers, 
+be sure to set <code>htmlsnippets</code> to <code>true</code>. See <a href="/internals#app8216htmlsnippets8217">
+here</a> for more information.</p>
+
 Add a CSS or Javascript file
 ----------------------------
 
@@ -264,6 +268,11 @@ version or one that's hosted on a remote CDN.
 The version of jQuery included will be the one that ships with Bolt. This will
 most likely be the most recent one, at the time of the release of the Bolt
 version that you are running.
+
+<p class="note"><strong>Note:</strong> If you are also adding your own controllers, 
+be sure to set <code>htmlsnippets</code> to <code>true</code>. See <a href="/internals#app8216htmlsnippets8217">
+here</a> for more information.</p>
+
 
 Add a Twig function or filter
 -----------------------------
