@@ -23,7 +23,7 @@ your site will automatically have pages like:
 Automatic template selection
 ----------------------------
 
-Bolt has some rules to help you quickly build custom templates for your site. 
+Bolt has some rules to help you quickly build custom templates for your site.
 If your template is named exactly like the `singular_slug` or `slug` for the
 content type or record it will be automatically used.
 
@@ -174,7 +174,6 @@ filesystem. Using file extension `.twig` is optional.
 
 <pre class="brush: plain">
 templatebinding:
-hirbinding:
   	path: /mytemplate
   	defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: 'mytemplate' }
 </pre>
