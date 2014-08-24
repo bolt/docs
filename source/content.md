@@ -399,11 +399,15 @@ As you can see, using `postfix: "<hr>"` gives a simple and effective way of
 adding a divider in the edit screen.
 
 ### Info
-In case when you need to inform user quite long about purpose of the field may be
-useful this option. It will place info popup button beside label of the field and the
-text value entrered here will be displayed on mouse over.
-Some of the fields has info button by default (eg. `image` field). This case your
-description will override field's default.
+
+In the case where you want to provide a large volume of informational text about
+the use and purpose of a field, the value of the `info` parameter can be used. 
+
+The info paramter will place a button beside the field label that, when hovered
+over, will display a popup with the info text.
+
+For fields that have an info button by default (e.g. `image` field), the info
+description will override that field type default.
 
 ### Default values
 
