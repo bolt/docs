@@ -261,6 +261,8 @@ The available options are:
     in Bolt's backend interface. For example `datecreated DESC`.
   - `recordsperpage` (optional): the amount of records shown on each page in the
     Bolt backend. If there are more records, they will be paginated.
+  - `show_on_dashboard` (optional): When set to `false` the contenttype will not
+    appear in the 'Recently edited &hellip;' list on the dashboard page 
 
 Field definitions
 -----------------
