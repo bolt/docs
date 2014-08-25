@@ -3,3 +3,4 @@ composer.phar
 composer.lock
 cache/*
 .idea/
+.DS_*

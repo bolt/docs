@@ -28,7 +28,14 @@ templating:
 
 extending:
   "": "Extending Bolt"
-  extensions: "Creating Bolt Extensions"
+  extensions: "Introduction to Bolt Extensions"
+  extensions-essentials: "Developers: Creating Your First Extension"
+  extensions-config: "Developers: Configure and Load Your Extension"
+  extensions-customfields: "Developers: Providing New Field Types"
+  extensions-testing: "Developers: Testing Your Extensions"
+
+internals:
+  "": "Bolt Internals"
   internals: "Bolt Internals"
   contributing: "Contributing to Bolt"
   code-quality: "Code Quality"
