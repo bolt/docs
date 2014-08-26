@@ -27,7 +27,7 @@ other Extensions. To do this, we have to keep the following rules:
    file in the extension folder.
  - The extension should come with a 'readme' file. It must be named `readme.md`,
    and is written in the Markdown format.
- - The `extension` sets the namespace and defines two functions named `info()`
+ - The `extension` defines two methods named `getName()`
    and `initialize()`.
  - The 'entry points' for callbacks and Twig functions and modifiers must be
    functions in the defined namespace. Additional code can be procedural or
@@ -53,7 +53,7 @@ provided Bolt functionality, Silex objects and included libraries.
 Bolt strives to adhere to 
 [the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md). When writing your extensions, you should try to do the same.
 
-The `info()` and `initialize()` functions
+The `initialize()` and `getName()` functions
 -----------------------------------
 
 Every extension needs to have a function named 'initialize()'
@@ -62,6 +62,21 @@ page request. It's executed before content is retrieved from the database or the
 templates are parsed. In general, the initialize() function is used to set up
 hooks or functionality that is used later on in the process of outputting a
 page.
+
+The `getName()` method tells Bolt how you want the extension to be referred to.
+The initialized extension object will be mounted onto the main Bolt Application,
+so, for instance, using the following method:
+
+<pre class="brush: php">
+function getName()
+{
+    return "widgetpicker"''
+}
+</pre>
+
+When the extension is registered a shareable instance of the extension will be
+available at `$app['extensions.widgetpicker']`
+ 
 
 To get started on an extension quickly, you should use our
 [Extension Wizard](http://extension-wizard.bolt.cm/) to create the boilerplate
