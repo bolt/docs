@@ -317,6 +317,10 @@ server {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
+    location ~* /async/(.*)$ {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
     location /app/classes/upload {
         try_files $uri $uri/ /app/classes/upload/index.php?$query_string;
     }
