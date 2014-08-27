@@ -95,7 +95,7 @@ Twig function. It looks like this:
 function initialize()
 {
 
-        $this->insertSnippet('endofbody', 'facebookScript');
+        $this->addSnippet('endofbody', 'facebookScript');
         $this->addTwigFunction('facebooklike', 'facebookLike');
 }
 </pre>
@@ -125,7 +125,7 @@ A 'snippet' in the context of Bolt extensions is nothing more than a short
 fragment of code, that gets inserted in a certain place in the theme templates
 on the frontend of the website. This fragment can either be a string to be
 inserted directly, or it can be the return value of a callback string. The
-`insertSnippet()` function takes three parameters, with the third being
+`addSnippet()` function takes three parameters, with the third being
 optional. The first is the position of the insertion point. The second one is
 either a string to insert or the name of a callback function. The third,
 optional parameter will be passed on to the callback function.
@@ -148,7 +148,7 @@ To insert a string snippet, use:
 <pre class="brush: php">
 function initialize()
 {
-    $this->insertSnippet('endofbody', '&lt;!-- a snippet of HTML -->');
+    $this->addSnippet('endofbody', '&lt;!-- a snippet of HTML -->');
 }
 </pre>
 
@@ -158,7 +158,7 @@ extra optional variable, which can be a simple scalar or an array.
 <pre class="brush: php">
 function initialize()
 {
-    $this->insertSnippet('endofbody', 'snippetbar', $foo);
+    $this->addSnippet('endofbody', 'snippetbar', $foo);
 }
 
 function snippetbar($foo) 
