@@ -5,12 +5,12 @@ Bolt is run by a dedicated community, which is active on several different
 locations on the internet. If you couldn't find the information you needed in
 these docs, be sure to get in touch, using one of the following ways:
 
-  - Major news will always be announced on our main website: [Bolt.cm](http://bolt.cm).
+  - Major news will always be announced on our main website: [Bolt.cm](https://bolt.cm).
 
   - The official documentation has a lot of information. Have you tried
-	searching? The search box is in the upper right corner. If you're missing
-	something in the docs, or if you've spotted an error: Please let us know on
-	our [Github tracker for documentation](https://github.com/bolt/bolt-docs/issues).
+  searching? The search box is in the upper right corner. If you're missing
+  something in the docs, or if you've spotted an error: Please let us know on
+  our [Github tracker for documentation](https://github.com/bolt/bolt-docs/issues).
 
   - We're active on Twitter. Follow us, or say hello at [@BoltCM](https://twitter.com/boltcm). 
 
@@ -19,10 +19,10 @@ these docs, be sure to get in touch, using one of the following ways:
     and we'll gladly help you out.
 
   - For (potential) bugs and feature requests, open an issue on our 
-    [Github Issue Tracker](github.com/bolt/bolt/issues). Pull-requests are always welcome, as well. 
+    [Github Issue Tracker](http://github.com/bolt/bolt/issues). Pull-requests are always welcome, as well. 
 
   - Look for small snippets of code and some tips & tricks or our 
-    [Snippets website](http://snippets.bolt.cm). It's like Pastebin, only powered by Bolt. 
+    [Snippets website](https://snippets.bolt.cm). It's like Pastebin, only powered by Bolt. 
 
   - We have some pages with detailed information on a couple of subjects on the wiki at 
     [github.com/bolt/bolt/wiki](https://github.com/bolt/bolt/wiki).
