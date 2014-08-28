@@ -88,7 +88,7 @@ function info()
         'name' =>"Facebook Like Button",
         'description' => "A small extension to add a 'Facebook Like'-button ...",
         'author' => "Bob den Otter",
-        'link' => "http://bolt.cm",
+        'link' => "https://bolt.cm",
         'version' => "1.0",
         'required_bolt_version' => "1.4",
         'highest_bolt_version' => "1.4",

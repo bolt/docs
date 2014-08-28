@@ -20,7 +20,7 @@ commands. First, create the directory where you want to install Bolt, if it does
 already exist. Enter the directory, and execute the following commands:
 
 <pre class="brush: plain">
-curl -O http://bolt.cm/distribution/bolt_latest.tgz
+curl -O https://bolt.cm/distribution/bolt_latest.tgz
 tar -xzf bolt_latest.tgz
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
 </pre>
@@ -47,7 +47,7 @@ your server doesn't have `curl`, use `wget` instead.
 
 Download the latest version of Bolt from this location:
 
-[http://bolt.cm/distribution/bolt_latest.zip](http://bolt.cm/distribution/bolt_latest.zip)
+[https://bolt.cm/distribution/bolt_latest.zip](https://bolt.cm/distribution/bolt_latest.zip)
 
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
 your choice. After you've done this, be sure to chmod the following directories
@@ -69,7 +69,7 @@ width="590"></a><br>
 
 <p class="note"><strong>Note:</strong> Don't forget to upload the .htaccess
   file! Bolt won't work without it. If you can't find the file on your
-  filesystem, download this <a href="http://bolt.cm/distribution/default.htaccess">
+  filesystem, download this <a href="https://bolt.cm/distribution/default.htaccess">
   <code>default.htaccess</code></a> file. Upload it to your server, and then
   rename it to <code>.htaccess.</code><br/><br/>
   If you're on OSX and you don't see the file, it might be that your system is
@@ -287,8 +287,8 @@ FallbackResource /index.php
 </pre>
 
 If you have misplaced your `.htaccess` file, you can get a <a
-href="http://bolt.cm/distribution/default.htaccess">new one here</a>, from our
-<a href="http://bolt.cm/distribution/">files distribution page</a>. Be sure to
+href="https://bolt.cm/distribution/default.htaccess">new one here</a>, from our
+<a href="https://bolt.cm/distribution/">files distribution page</a>. Be sure to
 rename it to `.htaccess`, though.
 
 Nginx: Configuring the virtual host
