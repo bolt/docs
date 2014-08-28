@@ -19,6 +19,14 @@ your site will automatically have pages like:
   - `http://example.org/pages`
   - `http://example.org/page/lorem-ipsum-dolor`
 
+
+Automatic template selection
+----------------------------
+
+Bolt has some rules to help you quickly build custom templates for your site.
+If your template is named exactly like the `singular_slug` or `slug` for the
+content type or record it will be automatically used.
+
 How does Bolt select what template to use for a given request? Unless specified,
 Bolt will determine the names of these templates automatically via a method we
 call 'cascading templates'. This allows for great flexibility, as well as ease
@@ -27,7 +35,7 @@ default templates, but you can refine this in the definition of the contenttypes
 or even on a per-record basis. The rules for selecting a template are as
 follows.
 
-Selection of a template for an single record page:
+### Selection of a template for an single record page:
 
   - If an overview page like `/page/foo-bar` is requested, and the contenttype
     has a 'templateselect field' and a template is selected for this record,
@@ -41,7 +49,7 @@ Selection of a template for an single record page:
     be used.
   - If no other rule matches, Bolt will use a template named `record.twig`.
 
-Selection of a template for an overview page:
+### Selection of a template for an overview page:
 
   - If an overview page like `/entries` is requested, and the contenttype
     definition has a value for `listing_template`, that template will be used.
@@ -166,7 +174,6 @@ filesystem. Using file extension `.twig` is optional.
 
 <pre class="brush: plain">
 templatebinding:
-hirbinding:
   	path: /mytemplate
   	defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: 'mytemplate' }
 </pre>

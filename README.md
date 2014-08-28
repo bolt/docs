@@ -1,8 +1,8 @@
-bolt-docs
-=========
+bolt-docs (version 2.x / master)
+================================
 
 These are the docs for [Bolt](http://bolt.cm/). This repository is the
-documentation counterpart of the [Bolt repository](https://github.com/bobdenotter/bolt).
+documentation counterpart of the [Bolt repository](https://github.com/bolt/bolt).
 
 Installation 
 ------------
@@ -15,7 +15,7 @@ the components:
 	curl -s http://getcomposer.org/installer | php
  	php composer.phar install
 
-More detailed instructions can be found in the [Setup section in the documentation](http://docs.bolt.cm/setup).
+More detailed instructions can be found in the [Setup section in the documentation](http://docs.bolt.cm/installation).
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bolt/bolt-docs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 

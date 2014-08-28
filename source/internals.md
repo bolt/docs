@@ -345,3 +345,18 @@ for Twig templates. There are currently three folders Twig looks in for files:
   - The `/app/view` folder
   - The `/app/extensions` folder
 
+### $app['htmlsnippets']
+
+Bolt outputs snippets in the HTML for includes like jQuery and the `<meta generator>` 
+tag. By default these snippets are only output in the `frontend`, and not in `async` 
+or `backend` pages. Extensions that use `addCSS` or `addJavascript` are also affected 
+by this. 
+
+When creating an extension or custom controller, the debug is not added by
+default. In your code you can enable or disable the output of these snippets
+using the following:
+
+<pre class="brush: php">
+$this->app['htmlsnippets'] = false;
+$this->app['htmlsnippets'] = true;
+</pre>

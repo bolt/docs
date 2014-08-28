@@ -30,7 +30,7 @@ permissions you don't want them to have. Two important considerations:
  1. Permissions are quite central to Bolt's inner workings, and by
     misconfiguring them, you can lock yourself out - for example, removing the
     `anonymous` role from the `login` or `postLogin` permissions will make
-    logging in completely impossible: you will even be allowed to see the login
+    logging in completely impossible: you will not even be allowed to see the login
     page.
 
  2. If somebody has the permission to `useredit`, they can also grant

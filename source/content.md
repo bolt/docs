@@ -261,6 +261,8 @@ The available options are:
     in Bolt's backend interface. For example `datecreated DESC`.
   - `recordsperpage` (optional): the amount of records shown on each page in the
     Bolt backend. If there are more records, they will be paginated.
+  - `show_on_dashboard` (optional): When set to `false` the contenttype will not
+    appear in the 'Recently edited &hellip;' list on the dashboard page 
 
 Field definitions
 -----------------
@@ -289,9 +291,9 @@ The following fields are available:
         type: slug
         uses: [field1,field2]
 </pre>
-  - `image`: Simple image upload/select field. Currently takes one optional 
+  - `image`: Simple image upload/select field. Currently takes one optional
     attribute (attrib:) parameter 'title' — this will allow you to specify text
-    that you can call in your templates to retreive either/or captions or alt 
+    that you can call in your templates to retreive either/or captions or alt
     text for your image layout.
 <pre class="brush: plain">
     image:
@@ -308,10 +310,10 @@ The following fields are available:
   - `html`: Wysiwyg HTML field.
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML
     markup.
-  - `select`: A drop-down list to make a pre-defined selection from. There are 
+  - `select`: A drop-down list to make a pre-defined selection from. There are
     two ways of sepecifying the list of available options. Either a YAML array
     or a contenttype/field lookup.
-    
+
     Array values:
 <pre class="brush: plain">
     selectfield:
@@ -364,10 +366,14 @@ Most fields have a few extra optional values, to further customize them.
   - `default: ..`: The default value for a field, if applicable. See below for
     an example.
   - `required: true`: Use this to make a field required. See below for examples.
+  - `readonly: true`: Use this to make a field readonly. Only works on `float`,
+    `integer` and `text` fields, only add if you know what this means.
+    See below for examples.
   - `pattern: ..`: Use this to validate a field against a certain pattern. See
     below for examples.
-  - `allowtwig: true`: Explicitly allow twig to be used in this field. This is 
+  - `allowtwig: true`: Explicitly allow twig to be used in this field. This is
     needed if you want to allow twig snippets in your content.
+  - `info: ..`: Use for displaying extra information about the field.
 
 ### File and Filelist options
 A field with the type `file` or `filelist` has some default values for the
@@ -376,8 +382,8 @@ set those in the configuration
 
   - `extensions: [ txt, md ]`: A list of allowed file extensions for uploading
 
-  
-### Prefix and Postfix 
+
+### Prefix and Postfix
 Sometimes it can be beneficial to add some extra text, labels or other markup to
 how a field is displayed in the Bolt backend, when editing a record. You can use
 the optional `prefix` and `postfix` values to add some markup before or after a
@@ -393,6 +399,17 @@ field. For example:
 
 As you can see, using `postfix: "<hr>"` gives a simple and effective way of
 adding a divider in the edit screen.
+
+### Info
+
+In the case where you want to provide a large volume of informational text about
+the use and purpose of a field, the value of the `info` parameter can be used. 
+
+The info paramter will place a button beside the field label that, when hovered
+over, will display a popup with the info text.
+
+For fields that have an info button by default (e.g. `image` field), the info
+description will override that field type default.
 
 ### Default values
 
@@ -446,7 +463,7 @@ common use-cases are:
   numbers with no leading '0', an optional space, and two letters. `1234 ab` or
   `2518HL` are valid inputs.
 
-For example, use this to make sure a title is no longer than 80 characters: 
+For example, use this to make sure a title is no longer than 80 characters:
 
 <pre class="brush: plain">
         title:
@@ -482,6 +499,22 @@ the pattern. For example, you could make an optional email-address like this:
 <p class="note"><strong>Note:</strong> If you have a required field, you should
 always include a postfix. Otherwise the editor might not know what's expected of
 them. </p>
+
+### Readonly fields
+
+You can use the `readonly` option to lock the content in a field. For example if
+you have generated some entries with an import that users should not change. You
+can combine it with the `default` option to make sure that a field contains
+something. The readonly status is only enforced in the browser, so don't "trust"
+any data that's been entered by an editor.
+
+<pre class="brush: plain">
+        serialnumber:
+            type: text
+            default: "SN-123456789"
+            readonly: true
+</pre>
+
 
 The structure of a Record
 -------------------------

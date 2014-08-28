@@ -407,6 +407,8 @@ or:
     &lt;/ul>
 </pre>
 
+**Note:** Ordering with the `order`-filter is case sensitive. This means that 'banana' will come _before_ 'Apple'. If you're sorting on a title or name field and this case sensitivity is undesirable, you can use `|order('slug')` instead. The slug is always lowercase, so this will normalize the ordering. 
+
 
 Variable: app
 -------------

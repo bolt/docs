@@ -4,8 +4,7 @@ Credits and contributing
 Bolt is Open Source, and as such it uses other Open Source components. If you
 are a developer you're very welcome to help in the further development of Bolt.
 Bolt is written mostly by Bob den Otter, with the help of quite a few other
-contributors. See the [Contributors on Ohloh.net](https://www.ohloh.net/p/bolt-
-cms/contributors?sort=latest_commit&time_span=12+months) for details. The
+contributors. See the [Contributors on GitHub](https://github.com/bolt/bolt/graphs/contributors) for details. The
 continuing development of Bolt is backed by [Two Kings
 webdelopment](http://www.twokings.nl). Contact me at bob [@] twokings.nl.
 
