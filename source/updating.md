@@ -30,7 +30,7 @@ If you have command-line access, you can update Bolt by executing a few
 commands.
 
 <pre class="brush: plain">
-curl -O http://bolt.cm/distribution/bolt_latest.tgz
+curl -O https://bolt.cm/distribution/bolt_latest.tgz
 tar -xzf bolt_latest.tgz
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
 </pre>
@@ -40,7 +40,7 @@ chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
 
 Download the latest version of Bolt from this location:
 
-[http://bolt.cm/distribution/bolt_latest.zip](http://bolt.cm/distribution/bolt_latest.zip)
+[https://bolt.cm/distribution/bolt_latest.zip](https://bolt.cm/distribution/bolt_latest.zip)
 
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
 your choice.
