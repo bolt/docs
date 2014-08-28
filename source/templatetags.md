@@ -486,8 +486,26 @@ Tag: print()
 For more info on debugging your Bolt site, see the chapter on [Bolt
 Internals](/internals).
 
+Test: json
+----------
 
+Use this test to determine if a given variable is JSON. 
 
+Examples: 
+
+<pre class="brush: html">
+{% if var is json %}
+    JSON: {{ var }}
+{% else %}
+    JSON: {{ var|json_encode }}
+{% endif %}    
+</pre>
+
+<pre class="brush: html">
+{% if var is json %}
+    Decoded: {{ var|json_decode }}
+{% endif %}    
+</pre>
 
 
 
