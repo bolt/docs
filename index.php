@@ -10,6 +10,10 @@ $version = "2.0.0 beta";
 $request = basename($_SERVER['REQUEST_URI']);
 $prefix = dirname($_SERVER['REQUEST_URI']);
 
+if ($prefix == "/") {
+    $prefix = "";
+}
+
 if (empty($request) || $request == "v20" ) {
 	$request = "about";
 }
