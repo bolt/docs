@@ -15,6 +15,7 @@ if ($prefix == "/") {
 }
 
 if (empty($request) || $request == "v20" ) {
+    $prefix = "/v20";
 	$request = "about";
 }
 
