@@ -8,8 +8,9 @@ require_once './vendor/autoload.php';
 $version = "2.0.0 beta";
 
 $request = basename($_SERVER['REQUEST_URI']);
+$prefix = dirname($_SERVER['REQUEST_URI']);
 
-if (empty($request)) {
+if (empty($request) || $request == "v20" ) {
 	$request = "about";
 }
 
@@ -55,7 +56,8 @@ echo $twig->render('index.twig', array(
 	'menu' => $menu,
 	'submenu' => $submenu,
 	'current' => $request,
-	'version' => $version
+	'version' => $version, 
+    'prefix' => $prefix
 ));
 
 
