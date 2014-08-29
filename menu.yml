@@ -28,15 +28,17 @@ templating:
 
 extending:
   "": "Extending Bolt"
-  extensions: "Introduction to Bolt Extensions"
-  extensions-essentials: "Developers: Creating Your First Extension"
-  extensions-config: "Developers: Configure and Load Your Extension"
-  extensions-customfields: "Developers: Providing New Field Types"
-  extensions-testing: "Developers: Testing Your Extensions"
+  extensions: "Introduction to Extensions"
 
-internals:
-  "": "Bolt Internals"
+
+developers:
+  "": "Developing Bolt / Extensions"
   internals: "Bolt Internals"
+  extensions-essentials: "Creating Your First Extension"
+  extensions-config: "Configure and Load Your Extension"
+  extensions-customfields: "Providing New Field Types"
+  extensions-testing: "Testing Your Extensions"
+  extensions-nut-commands: "Adding Nut commands"  
   contributing: "Contributing to Bolt"
   code-quality: "Code Quality"
 
