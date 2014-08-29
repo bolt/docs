@@ -70,7 +70,7 @@ so, for instance, using the following method:
 <pre class="brush: php">
 function getName()
 {
-    return "widgetpicker"''
+    return "widgetpicker";
 }
 </pre>
 
