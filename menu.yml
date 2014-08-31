@@ -49,8 +49,9 @@ other:
   maintenancemode: "Maintenance (offline) mode"
   credits: "Credits and Contributing"
   roadmap: "Roadmap"
+  tasks: "Task Scheduler (Cron)"
 
-"support":
+support:
   "": "Support and Links"
   otherresources: "Other resources"
 
