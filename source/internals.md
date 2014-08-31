@@ -223,10 +223,10 @@ A sample printout of the 'paths' might look like this:
   filespath str(27) => /Users/bob/Sites/bolt/files
   canonical str(14) => bolt.localhost
   current str(43) => /kitchensink/sed-residamus-inquit-si-placet
-  hosturl str(21) => http://bolt.localhost
-  rooturl str(22) => http://bolt.localhost/
-  canonicalurl str(64) => http://bolt.localhost/kitchensink/sed-residamus-inquit-si-placet
-  currenturl str(64) => http://bolt.localhost/kitchensink/sed-residamus-inquit-si-placet
+  hosturl str(21) => https://bolt.localhost
+  rooturl str(22) => https://bolt.localhost/
+  canonicalurl str(64) => https://bolt.localhost/kitchensink/sed-residamus-inquit-si-placet
+  currenturl str(64) => https://bolt.localhost/kitchensink/sed-residamus-inquit-si-placet
 </pre>
 
 

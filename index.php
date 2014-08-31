@@ -5,11 +5,16 @@ require_once('lib/util.php');
 require_once('lib/smartypants.php');
 require_once './vendor/autoload.php';
 
-$version = "1.6.9";
+$version = "2.0.0 beta";
 
 $request = basename($_SERVER['REQUEST_URI']);
+$prefix = dirname($_SERVER['REQUEST_URI']);
 
-if (empty($request)) {
+if ($prefix == "/") {
+    $prefix = "";
+}
+
+if (empty($request) || $request == "v20" ) {
 	$request = "about";
 }
 
@@ -55,7 +60,8 @@ echo $twig->render('index.twig', array(
 	'menu' => $menu,
 	'submenu' => $submenu,
 	'current' => $request,
-	'version' => $version
+	'version' => $version, 
+    'prefix' => $prefix
 ));
 
 

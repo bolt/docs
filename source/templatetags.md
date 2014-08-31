@@ -486,6 +486,59 @@ Tag: print()
 For more info on debugging your Bolt site, see the chapter on [Bolt
 Internals](/internals).
 
+Test: json
+----------
+
+Use this test to determine if a given variable is JSON. 
+
+Examples: 
+
+<pre class="brush: html">
+{% if var is json %}
+    JSON: {{ var }}
+{% else %}
+    JSON: {{ var|json_encode }}
+{% endif %}    
+</pre>
+
+<pre class="brush: html">
+{% if var is json %}
+    Decoded: {{ var|json_decode }}
+{% endif %}    
+</pre>
+
+
+Test: available
+---------------
+
+Use this test to determine if a Twig function, test or filter is available. You 
+can use this in your themes, where it's not apparent whether or not the user 
+will have a certain extension installed. 
+
+Examples: 
+
+<pre class="brush: html">
+{% if 'facebooklike' is available %}
+    {{ facebooklike() }}
+{% endif %}    
+</pre>
+
+You can use this, to output a friendly warning to users of the templates: 
+
+<pre class="brush: html">
+{% if 'simpleform' is available %}
+    {{ simpleform('contact') }}
+{% else %}
+    <p>Warning: This theme suggests you install the 'Simpleforms' extension.</p>
+{% endif %}    
+</pre>
+
+<p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must 
+use a string to do the test. Don't forget the quotes!</p>
+
+
+
+
 
 
 

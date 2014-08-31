@@ -38,7 +38,7 @@ In this case `main` is the name of the menu. The options are:
     the slug 'about'. `path: page/1` will link to the 'page' with id '1'. `path:
     entries` will link to the `/entries` overview page.
   - `link` - define an external link to another site. For example `link:
-    http://bolt.cm`. Do not use `link` together with `path`!
+    https://bolt.cm`. Do not use `link` together with `path`!
   - `submenu` - defines a submenu. In the submenu you can define other items,
     with the same options as before.
 
@@ -90,7 +90,7 @@ create a menu, with submenus. First, start by adding a small menu to your
 <pre class="brush: plain">
 test:
   - label: Bolt
-    link: http://bolt.cm
+    link: https://bolt.cm
   - label: Example org
     link: http://example.org
   - label: Silex
@@ -126,7 +126,7 @@ HTML-markup:
 <pre class="brush: html">
 &lt;ul>
     &lt;li>
-        &lt;a href="http://bolt.cm">Bolt&lt;/a>
+        &lt;a href="https://bolt.cm">Bolt&lt;/a>
     &lt;/li>
     &lt;li>
         &lt;a href="http://example.org">Example org&lt;/a>
@@ -147,7 +147,7 @@ do have. Edit the `app/config/menu.yml`-file:
 <pre class="brush: plain">
 test:
   - label: Bolt
-    link: http://bolt.cm
+    link: https://bolt.cm
   - label: All pages
     path: pages/
     submenu:
@@ -190,7 +190,7 @@ The output in HTML might look like this now:
 <pre class="brush: html">
 &lt;ul>
     &lt;li class=">
-        &lt;a href="http://bolt.cm">Bolt&lt;/a>
+        &lt;a href="https://bolt.cm">Bolt&lt;/a>
     &lt;/li>
     &lt;li class=">
         &lt;a href="/pages">All pages&lt;/a>
