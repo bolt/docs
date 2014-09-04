@@ -33,6 +33,23 @@ to 03:00 am.
 cron_hour: 3
 </pre>
 
+Command Line
+------------
+
+The task schedulers job intervals can be run on demand using `nut` from the 
+command line, e.g. To run the hourly tasks:
+
+<pre class="brush: plain">
+./app/nut cron --run=cron.Hourly
+</pre>
+
+The parameter passed to `--run` can be any of:
+
+  - cron.Hourly
+  - cron.Daily
+  - cron.Weekly
+  - cron.Monthly
+  - cron.Yearly 
 
 Extending
 ---------
