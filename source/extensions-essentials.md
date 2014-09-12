@@ -231,6 +231,22 @@ The version of jQuery included will be the one that ships with Bolt. This will
 most likely be the most recent one, at the time of the release of the Bolt
 version that you are running.
 
+If you want to retrieve a list of all assets added by extensions. You can use
+`getAssets()` in your extension. Like so,
+
+<pre class="brush: php">
+$assets = $this->getAssets();
+$assets['js']; // all js files
+$assets['css']; // all css files
+</pre>
+
+Or if you want to retrieve them in a twig template, use `app.extensions.assets`.
+
+<pre class="brush: html">
+{{ dump(app.extensions.assets) }}
+</pre>
+
+
 Add a Twig function or filter
 -----------------------------
 
