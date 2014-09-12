@@ -358,5 +358,13 @@ server {
     location ~ \.db$ {
         deny all;
     }
+ 
+    location ~ \.yml$ {
+        deny all;
+    }
+ 
+    location ~ \.twig$ {
+        deny all;
+    }    
 }
 </pre>
