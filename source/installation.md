@@ -329,7 +329,12 @@ server {
     location ~* /bolt/(.*)$ {
         try_files $uri $uri/ /index.php?$query_string;
     }
-
+  
+    # If you set a custom branding path, you will need to change '/bolt/' here to match
+    location ~* /bolt/(.*)$ {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+    
     location ~* \.(?:ico|css|js|gif|jpe?g|png|ttf|woff)$ {
         access_log off;
         expires 30d;
