@@ -243,11 +243,15 @@ The available options are:
   - `singular_slug` (optional): This determines the slug of the a single record
     in this contenttype, and therefore the URLs that are generated for these
     records. When omitted, the slug will be automatically generated.
+  - `description` (optional): A short description of the contenttype. Will be
+    shown on the overview screen in the right aside column.
   - `fields`: The fields that make up the content in this contenttype. See the
     [section below](#field-definitions) for details.
   - `taxonomy`: An array listing the different taxonomies used by this
     contenttype. For example `[ categories, tags ]`. See the page on
-    [Taxonomies](/taxonomies) for details.
+    [Taxonomies](/taxonomies#taxonomies) for details.
+  - `relations`: An array listing the different relations available to this
+    contenttype. See the page on [Relations](/relations) for details.
   - `record_template`: The default template to use, when displaying a single
     Record of this Contenttype. The template itself should be located in your
     `theme/foo/` folder, in Bolt's root folder. This can be overridden on a per-
@@ -258,11 +262,20 @@ The available options are:
   - `listing_records`: The amount of records to show on a single overview page
     in the frontend. If there are more records, the results will be paginated.
   - `sort` (optional): The default sorting of this contenttype, in the overview
-    in Bolt's backend interface. For example `datecreated DESC`.
-  - `recordsperpage` (optional): the amount of records shown on each page in the
+    in Bolt's backend interface. For example `-datecreated`.
+  - `recordsperpage` (optional): The amount of records shown on each page in the
     Bolt backend. If there are more records, they will be paginated.
   - `show_on_dashboard` (optional): When set to `false` the contenttype will not
-    appear in the 'Recently edited &hellip;' list on the dashboard page 
+    appear in the 'Recently edited &hellip;' list on the dashboard page.
+  - `default_status` (optional): Use this to set the default status for new
+    records in this contenttype, like `published`, `held`, `draft` or `timed`.
+  - `searchable` (optional): A boolean value to determine whether this
+    contenttype should show up in searchresults. 
+  - `icon` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 
+    icon to be used in the sidebar for this contenttype. For example: `cubes`
+  - `icon_singular` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 
+    icon to be used in the sidebar for a single record of this contenttype. For 
+    example: `cube`.
 
 Field definitions
 -----------------
@@ -302,7 +315,7 @@ The following fields are available:
 </pre>
   - `imagelist`: A field to create a list of images. Useful for slideshows and
     imagesliders.
-  - `file`: Simple image upload/select field.
+  - `file`: Simple file upload/select field.
     If you use the file or filelist type make sure that you also set `extensions` and that
     the global setting for `accept_file_types` in the main `config.yml` includes
     the correct extensions
@@ -341,7 +354,7 @@ The following fields are available:
     specify a time.
   - `integer`: A field to store whole, integer numbers. The value must be
     between <span style="white-space: nowrap">-2147483648</span> and +2147483647.
-  - `float`: A field to store numbers. Internally stored so that they can be
+  - `float`: A field to store floating point value numbers. Internally stored so that they can be
     sorted numerically. (note: the maximum precision is 9 digits before the
     decimal mark, and 9 digits after)
 
