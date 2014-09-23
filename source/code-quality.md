@@ -10,7 +10,7 @@ particular bounds for people to operate within.
 Dependency Management
 ---------------------
 The de-facto dependency management tool for Github projects is
-[Composer](http://getcomposer.org) We're not trying to re-invent the wheel, so
+[Composer](http://getcomposer.org). We're not trying to re-invent the wheel, so
 when possible, we use established and proven libraries to support our
 development.
 
