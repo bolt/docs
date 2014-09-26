@@ -56,12 +56,18 @@ Extending
 
 Bolt's task scheduler can be interfaced in extensions by setting an listener.
 
-To create a listener you need to something similar in your class:
+To create a listener you need to something similar in your extension:
 
 <pre class="brush: php">
-  use Bolt\CronEvents;
+use Bolt\CronEvents;
 
-  $this->app['dispatcher']->addListener(CronEvents::CRON_INTERVAL, array($this, 'myJobCallbackMethod'));
+class Extension extends \Bolt\BaseExtension
+{
+    public function initialize()
+    {
+        $this->app['dispatcher']->addListener(CronEvents::CRON_INTERVAL, array($this, 'myJobCallbackMethod'));
+    }
+}
 </pre>
 
 CRON_INTERVAL should be replaced with one of the following:
