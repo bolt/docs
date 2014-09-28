@@ -12,7 +12,8 @@ working:
   "": Working with Bolt
   content: Contenttypes and Records
   content-in-templates: "Content in templates"
-  taxonomies: "Relations and Taxonomies"
+  taxonomies: "Taxonomies"
+  relationships: "Relationships"
   menus: "Using menus"
   permissions: "Permissions"
 
