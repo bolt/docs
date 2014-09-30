@@ -7,11 +7,13 @@ familiar with Twig yet, you should read "[Twig for Template
 Designers](http://twig.sensiolabs.org/doc/templates.html)", on the official Twig
 website.
 
-Below you'll find the tags we've added specifically for Bolt, along with some
-commonly used snippets, like menus.
+Below you'll find the tags we've added specifically for Bolt, grouped by type:
+functions, filters, and available variables.
 
-Tag: include
-------------
+Twig tags
+---------
+
+### include
 
 Use this to include another Twig template in the current template. Twig parses
 the template like any other template, so you can use any tags in your included
@@ -24,12 +26,196 @@ inside the included templates.
 
 For more information, see [include](http://twig.sensiolabs.org/doc/tags/include.html)
 
-Filter: localdate
------------------
+An alternative to using 'include', is to set up your templates using Template
+Inheritance. This is a method of defining a base template, and then expand it in
+more detail in the templates that extend this base template. See the section on
+[Template inheritance](http://twig.sensiolabs.org/doc/templates.html#template-inheritance) on the twig website.
+
+
+
+### imageinfo
+
+Sometimes it can be useful to have more information about a specific image in
+your templates. You might want to know which type it is, what the dimensions
+are, and what the aspect ratio is. In these cases, the `imageinfo` tag can be
+used. It returns an array of data about the image. See the screenshot for
+details:
+
+<a href="/files/imageinfo.png" class="fancybox" rel="fancybox">
+    <img src="/files/imageinfo.png" width="600"></a>
+
+To see the available values for an image, use: 
+
+<pre class="brush: html">
+  {{ print(imageinfo(record.image)) }} 
+  {# assuming 'record.image' is the image of the current record. #}
+</pre>
+
+The aspect ratio is the proportional relationship between the width and the
+height of the image. In general, this is used to determine whether an image is
+'landscape' or 'portrait'. Note that an image is considered to be landscape if
+the aspect ratio is equal to or larger than 5:4 (1.25). An image is considered
+to be portrait if the aspect ratio is equal to or smaller than 4:5 (0.8). Images
+between those ratios are considered to be Square, even though the width and
+height might not be exactly equal. For example, an image that is 650 x 600
+pixels is classified as square. If you need more precise values, you can do your
+own calculations, using the 'aspectratio' value.
+
+For example, if you want to style an image, depending
+on its aspect ratio, you can use these values:
+
+<pre class="brush: html">
+{% if imageinfo(record.image).landscape %}
+    &lt;img src="{{ thumbnail(record.image, 400, 320) }}" class="landscape">
+{% elseif imageinfo(record.image).portrait %}
+    &lt;img src="{{ thumbnail(record.image, 320, 400) }}" class="portrait">
+{% else %}
+    &lt;img src="{{ thumbnail(record.image, 320, 320) }}" class="square">
+{% endif %}
+</pre>
+
+### fancybox
+
+Use this tag to insert an image in the HTML, which functions as an image popup.
+You can optionally provide the width, height and cropping parameters, like you can 
+do with the `thumbnail`-tag.
+
+<pre class="brush: html">
+    {{ record.photo|popup(100, 100, "r") }}
+    or
+    {{ popup("2014-10/foo.jpg", 100, 100) }}
+</pre>
+
+Note that you should include the Magnific Popup `.js` and `.css` yourself, as
+well as set up the 'initialization' code:
+
+<pre class="brush: html">
+  &lt;script src="/app/view/js/jquery.magnific-popup.min.js">&lt;/script>
+  &lt;link rel="stylesheet" type="text/css" href="/app/view/css/magnific-popup.css">
+
+  &lt!-- set up fancybox here, or do this in your own .js file somewhere -->
+  &lt;script type="text/javascript">
+    $(document).ready(function() {
+      $('.magnific, div.imageholder a').magnificPopup({
+          type: 'image'
+          // other options
+      });
+    }); 
+  &lt;/script>    
+</pre>
+
+For more information about Magnific Popup, see the [Magnific Popup website](http://dimsemenov.com/plugins/magnific-popup/).
+
+### showimage
+
+Use this tag to insert an image in the HTML. You can optionally provide the width, 
+height and cropping parameters, like you can do with the `thumbnail`-tag.
+
+<pre class="brush: html">
+    {{ record.photo|showimage(800, 600) }}
+    or
+    {{ showimage("2013-03/foo.jpg", 800, 600) }}
+</pre>
+
+
+### redirect
+
+Use this tag to redirect from a page to another page or domain. Commonly used in 
+an if/else clause, to redirect visitors based on some criteria. 
+
+<pre class="brush: html">
+    {% if record.image!="" %}
+        &lt;a href="{{ image(record.image) }}">
+            &lt;img src="{{ thumbnail(record.image, 400, 260) }}">
+        &lt;/a>
+    {% else %}
+        {# passive-aggressive way to tell people to find their own image #}
+        {{ redirect('http://http://images.google.com/') }}
+    {% endif %}
+</pre>
+
+<pre class="brush: html">
+    {% setcontent records = "pages/latest/5" %}
+    {% for record in records %}
+
+        &lt;h2>&lt;a href="{{ record.link }}">{{ record.title }}&lt;/a>&lt;/h2>
+        &lt;p>{{ record.excerpt() }}&lt;/p>
+
+    {% else %}
+
+        {{ redirect(paths.root) }} or {{ redirect('page/some-page') }}
+
+    {% endfor %}
+</pre>
+
+
+### setcontent
+
+This tag is used to perform various queries on the database. It converts a
+human-readable query to actual records.
+
+Much, much more information about the `setcontent` tag, together with additional
+query arguments, pagination, sorting and other options you can find in the
+chapter about [Fetching content](content-fetching).
+
+These queries are currently possible:
+
+  * <code>entry/12</code> - get entry with id 12
+  * <code>page/about</code> - get page with slug about
+  * <code>event/latest/5</code> - get latest 5 events
+  * <code>news/first/5</code> - get first 5 newsitems
+  * <code>quote/random/5</code> - get 5 random quotes
+  * <code>animal/search/5</code> - search for animals and return 5 of them (use
+    where parameter 'filter' to specify searchstring)
+  * <code>(animal,plant)/search/20</code> - search for animals and plants and
+    return 20 of them (use where parameter 'filter' to specify searchstring)
+
+<pre class="brush: html">
+{% setcontent about = 'page/about' %}
+
+&lt;h3>{{ about.title }}&lt;/h3>
+{{ about.introduction|raw }}
+
+&lt;a href="{{ about|link }}">link&lt;/a>
+</pre>
+
+
+### for
+
+<pre class="brush: html">
+&lt;h3>Recent pages&lt;/h3>
+{% setcontent pages = 'pages' limit 5 order '-datecreated' %}
+&lt;ul>
+  {% for page in pages %}
+    &lt;li>&lt;a href="{{ page.link }}">{{ page.title }}&lt;/a>&lt;/li>
+  {% else %}
+    &lt;p>No recent pages.&lt;/p>
+  {% endfor %}
+&lt;/ul>
+</pre>
+
+### dump()
+
+<pre class="brush: html">
+{% set about = content('page', {'slug': 'about'}) %}
+
+{{ dump(about) }}
+</pre>
+
+For more info on debugging your Bolt site, see the chapter on [Bolt
+Internals](/internals).
+
+
+Twig Filters
+------------
+
+
+### localdate
 
 Outputs a localized, readable version of a timestamp, based on the `locale`
 setting in the `config.yml`-file. See the [Locales](/locales) page for more
-information on locales.
+information on locales. If the locale you've set in `config.yml` does not work,
+you should verify that the locale is properly installed on your sysem.
 
 In Bolt dates are stored with each record for the date the record was created,
 when it was last edited, and optionally when it was published. These dates are
@@ -72,8 +258,7 @@ possible options, see the official
 [strftime()](http://php.net/manual/en/function.strftime.php) page on php.net.
 
 
-Filter: date
-------------
+### date
 
 <pre class="brush: html">
 {{ content.datecreated|date("M d, ’y")}}
@@ -86,9 +271,7 @@ website](http://nl3.php.net/manual/en/function.date.php).
 localized version of the date. Use the <code>{{ localdate }}</code>-filter if
 you want to display dates in other languages than English.</p>
 
-
-Filter: link
-------------
+### link
 
 Create a link to the current record.
 
@@ -102,9 +285,7 @@ or:
 	<a href="{{ page|link }}">Link to {{ page.title }}</a>
 </pre>
 
-
-Filter: current
------------------
+### current
 
 Checks if a given record corresponds to the page being shown in the browser.
 Useful for adding 'active' states to menus and such.
@@ -124,10 +305,8 @@ or:
 </pre>
 
 
+### round, ceil and floor
 
-
-Filter: round, ceil and floor
------------------------------
 The `round`, `floor` and `ceil` modifiers can be used to round numbers (or
 strings containing a numerical-like values) to the nearest integer, which
 basically means "whole number"
@@ -146,8 +325,7 @@ If you need fancier number formatting than this, you can use the built-in Twig
 here](http://twig.sensiolabs.org/doc/filters/number_format.html).
 
 
-Filter: slug
-------------
+### slug
 
 The `slug` filter can be used to transform any string into a slug-like value.
 This can be very useful when you're hand-crafting links to categories, pages or
@@ -164,9 +342,7 @@ In this example, we build links to all category listing pages:
 </pre>
 
 
-
-Filter: thumbnail
------------------
+### thumbnail
 
 Use this modifier to create a link to an automatically generated thumbnail of a
 size of your choosing. For example:
@@ -220,8 +396,7 @@ thumbnails: [ 160, 120, c ]
 </pre>
 
 
-Filter: image
--------------
+### image
 
 Use this modifier to create a link to an image of your choosing. For example:
 
@@ -243,141 +418,22 @@ By doing so, the image will be resized, and it behave exactly like the
 </pre>
 
 
-Tag: imageinfo
---------------
 
-Sometimes it can be useful to have more information about a specific image in
-your templates. You might want to know which type it is, what the dimensions
-are, and what the aspect ratio is. In these cases, the `imageinfo` tag can be
-used. It returns an array of data about the image. See the screenshot for
-details:
+### raw
 
-<a href="/files/imageinfo.png" class="fancybox" rel="fancybox">
-    <img src="/files/imageinfo.png" width="600"></a>
-
-To see the available values for an image, use: 
-
-<pre class="brush: html">
-  {{ print(imageinfo(record.image)) }} 
-  {# assuming 'record.image' is the image of the current record. #}
-</pre>
-
-The aspect ratio is the proportional relationship between the width and the
-height of the image. In general, this is used to determine whether an image is
-'landscape' or 'portrait'. Note that an image is considered to be landscape if
-the aspect ratio is equal to or larger than 5:4 (1.25). An image is considered
-to be portrait if the aspect ratio is equal to or smaller than 4:5 (0.8). Images
-between those ratios are considered to be Square, even though the width and
-height might not be exactly equal. For example, an image that is 650 x 600
-pixels is classified as square. If you need more precise values, you can do your
-own calculations, using the 'aspectratio' value.
-
-For example, if you want to style an image, depending
-on its aspect ratio, you can use these values:
-
-<pre class="brush: html">
-{% if imageinfo(record.image).landscape %}
-    &lt;img src="{{ thumbnail(record.image, 400, 320) }}" class="landscape">
-{% elseif imageinfo(record.image).portrait %}
-    &lt;img src="{{ thumbnail(record.image, 320, 400) }}" class="portrait">
-{% else %}
-    &lt;img src="{{ thumbnail(record.image, 320, 320) }}" class="square">
-{% endif %}
-</pre>
-
-Tag: fancybox
--------------
-
-Use this tag to insert an image in the HTML, which functions as a Fancybox popup. 
-You can optionally provide the width, height and cropping parameters, like you can 
-do with the `thumbnail`-tag.
-
-<pre class="brush: html">
-    {{ record.photo|fancybox(100, 100, "r") }}
-    or
-    {{ fancybox("2013-03/foo.jpg", 100, 100) }}
-</pre>
-
-Note that you should include the fancybox `.js` and `.css` yourself, as well as set up the 'initialization' code:
-
-<pre class="brush: html">
-  &lt;script src="{{ paths.app }}view/lib/fancybox/jquery.fancybox.pack.js">&lt;/script>
-  &lt;link rel="stylesheet" type="text/css" href="{{ paths.app }}view/lib/fancybox/jquery.fancybox.css">
-
-  &lt!-- set up fancybox here, or do this in your own .js file somewhere -->
-  &lt;script type="text/javascript">
-    $(document).ready(function() {
-      $(".fancybox").fancybox({   
-      });
-  }); 
-  &lt;/script>    
-</pre>
-
-
-
-Tag: showimage
--------------
-
-Use this tag to insert an image in the HTML. You can optionally provide the width, 
-height and cropping parameters, like you can do with the `thumbnail`-tag.
-
-<pre class="brush: html">
-    {{ record.photo|showimage(800, 600) }}
-    or
-    {{ showimage("2013-03/foo.jpg", 800, 600) }}
-</pre>
-
-
-Tag: redirect
--------------
-
-Use this tag to redirect from a page to another page or domain. Commonly used in 
-an if/else clause, to redirect visitors based on some criteria. 
-
-<pre class="brush: html">
-    {% if record.image!="" %}
-        &lt;a href="{{ image(record.image) }}">
-            &lt;img src="{{ thumbnail(record.image, 400, 260) }}">
-        &lt;/a>
-    {% else %}
-        {# passive-aggressive way to tell people to find their own image #}
-        {{ redirect('http://http://images.google.com/') }}
-    {% endif %}
-</pre>
-
-<pre class="brush: html">
-    {% setcontent records = "pages/latest/5" %}
-    {% for record in records %}
-
-        &lt;h2>&lt;a href="{{ record.link }}">{{ record.title }}&lt;/a>&lt;/h2>
-        &lt;p>{{ record.excerpt() }}&lt;/p>
-
-    {% else %}
-
-        {{ redirect(paths.root) }} or {{ redirect('page/some-page') }}
-
-    {% endfor %}
-  </pre>
-
-Filter: raw
------------
-
-If the content contains HTML-fields, they will be rendered with escaped characters 
-by default. If you want to use the
-HTML as-is, add the raw modifier:
+If the content contains HTML-fields, they will be rendered with escaped
+characters by default. If you want to use the HTML as-is, add the raw modifier:
 
 <pre class="brush: html">
 	{{ page|raw }}
 </pre>
 
-If we didn't add the `raw` modifier, all '<' and '>' characters in the body would 
-be output as '&amp;lt;' and '&amp;gt;'
-respectively. If 'body' is an HTML field in our contenttype, we want it to be 
-output as normal HTML, so we have to add
-the `raw` modifier.
+If we didn't add the `raw` modifier, all '<' and '>' characters in the body
+would be output as '&amp;lt;' and '&amp;gt;' respectively. If 'body' is an HTML
+field in our contenttype, we want it to be output as normal HTML, so we have to
+add the `raw` modifier.
 
-Filter: order
--------------
+### order
 
 In most cases the results of `{% setcontent %}` or `{{ record.related() }}` are
 in the desired order. In some cases you might want to reorder them, by using the
@@ -407,11 +463,15 @@ or:
     &lt;/ul>
 </pre>
 
-**Note:** Ordering with the `order`-filter is case sensitive. This means that 'banana' will come _before_ 'Apple'. If you're sorting on a title or name field and this case sensitivity is undesirable, you can use `|order('slug')` instead. The slug is always lowercase, so this will normalize the ordering. 
+**Note:** Ordering with the `order`-filter is case sensitive. This means that
+'banana' will come _before_ 'Apple'. If you're sorting on a title or name field
+and this case sensitivity is undesirable, you can use `|order('slug')` instead.
+The slug is always lowercase, so this will normalize the ordering.
 
+Available variables in Twig
+---------------------------
 
-Variable: app
--------------
+### app
 
 <pre class="brush: html">
 {{ app.config.general.sitename }}
@@ -425,69 +485,10 @@ Variable: app
 For more info on `app`, see the chapter on [Bolt Internals](/internals).
 
 
-Tag: setcontent
----------------
+Tests
+-----
 
-This tag is used to perform various queries on the database. It converts a
-human-readable query to actual records.
-
-Much, much more information about the `setcontent` tag, together with additional
-query arguments, pagination, sorting and other options you can find in the
-chapter about [Fetching content](content-fetching).
-
-These queries are currently possible:
-
-  * <code>entry/12</code> - get entry with id 12
-  * <code>page/about</code> - get page with slug about
-  * <code>event/latest/5</code> - get latest 5 events
-  * <code>news/first/5</code> - get first 5 newsitems
-  * <code>quote/random/5</code> - get 5 random quotes
-  * <code>animal/search/5</code> - search for animals and return 5 of them (use
-    where parameter 'filter' to specify searchstring)
-  * <code>(animal,plant)/search/20</code> - search for animals and plants and
-    return 20 of them (use where parameter 'filter' to specify searchstring)
-
-<pre class="brush: html">
-{% setcontent about = 'page/about' %}
-
-&lt;h3>{{ about.title }}&lt;/h3>
-{{ about.introduction|raw }}
-
-&lt;a href="{{ about|link }}">link&lt;/a>
-</pre>
-
-
-
-
-Tag: for
---------
-
-<pre class="brush: html">
-&lt;h3>Recent pages&lt;/h3>
-{% set pages = content('pages', {'limit': 5, 'order': 'datecreated desc'}) %}
-&lt;ul>
-	{% for page in pages %}
-		&lt;li>&lt;a href="{{ page|link }}">{{ page.title }}&lt;/a>&lt;/li>
-	{% else %}
-		&lt;p>No recent pages.&lt;/p>
-	{% endfor %}
-&lt;/ul>
-</pre>
-
-Tag: print()
------------------
-
-<pre class="brush: html">
-{% set about = content('page', {'slug': 'about'}) %}
-
-{{ print(about) }}
-</pre>
-
-For more info on debugging your Bolt site, see the chapter on [Bolt
-Internals](/internals).
-
-Test: json
-----------
+### json
 
 Use this test to determine if a given variable is JSON. 
 
@@ -508,8 +509,7 @@ Examples:
 </pre>
 
 
-Test: available
----------------
+### available
 
 Use this test to determine if a Twig function, test or filter is available. You 
 can use this in your themes, where it's not apparent whether or not the user 
@@ -535,12 +535,4 @@ You can use this, to output a friendly warning to users of the templates:
 
 <p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must 
 use a string to do the test. Don't forget the quotes!</p>
-
-
-
-
-
-
-
-
 
