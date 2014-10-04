@@ -20,7 +20,7 @@ Basically, there are three groups of users we've created Bolt for:
 Using Bolt as a content editor: you don't have to know anything about HTML, CSS,
 PHP or any of the other technical stuff we used to build Bolt. Using Bolt should
 be about writing and editing content, so that's the focus of Bolt's user
-interface. Far more information about how Bolt works can be found in the [User
+interface. For more information about how Bolt works can be found in the [User
 manual](http://manual.bolt.cm/).
 
 Building a website with Bolt: we assume you have the usual Frontender skills.
@@ -31,9 +31,7 @@ Bolt uses Content and Contenttypes, and how to make templates using Twig.
 Information about those topics can be found in the chapters [Working with
 Content and Content types](/content) and [Building templates](/templates).
 
-With creating Bolt we wanted to focus on creating something simple,
-straightforward and enjoyable. If you need to build a site with 'enterprise'
-features, you'll quickly find that there are better tools. If you need something
-like this, you might look into Drupal or Expression Engine. If, however, you
-need to build a site without a billion modules or huge datastructures, nothing
-beats Bolt for ease of use.
+Bolt concentrates on being a simple usable content management system with a small
+footprint. Out of the box it may not offer all of the features of larger systems,
+but, being built on modular, loosely coupled components it can be an ideal foundation
+for projects large and small.
