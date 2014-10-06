@@ -108,12 +108,17 @@ input.gsc-search-button, input.gsc-search-button-v2 {
 
 .content h2 code {
     font-family: "Source Code Pro", "Menlo", "Consolas", "Courier New", Courier, monospace;    
-    font-size: 33px;
+    font-size: 28px;
 }
 
 .content h3 {
     font-size: 20px;
     margin: 16px 0 8px;
+}
+
+.content h3 code {
+    font-family: "Source Code Pro", "Menlo", "Consolas", "Courier New", Courier, monospace;    
+    font-size: 19px;
 }
 
 
