@@ -6,7 +6,10 @@
     "license": "MIT",
     "require": {
         "twig/twig": ">=1.8,<2.0-dev",
-        "symfony/yaml": "~2.4"
+        "symfony/yaml": "~2.4",
+        "erusev/parsedown-extra": "dev-master",
+        "bolt/dumper": "dev-master",
+        "jbroadway/urlify": "dev-master"        
     },
     "minimum-stability": "beta",
     "config": {
