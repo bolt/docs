@@ -82,8 +82,8 @@ or on the [Symfony Components page](http://symfony.com/components).
 The next largest group are the Bolt components. These can be recognized by the `Bolt\` namespace. These
 components are autoloaded, and can be found in `app/src/Bolt/`.
 
-Debug Bar, {{ print() }} and dump()
------------------------------------
+Debug Bar, `{{ print() }}` and `dump()`
+---------------------------------------
 If you're about to go poking through the Bolt code, there are a few tools that
 are simply invaluable for doing so.
 
@@ -143,7 +143,7 @@ Symfony objects like `$app` or a variable that's `\Bolt\Application`. Since thes
 would be too large to render because of internal references and recursion, they
 are not expanded further.
 
-### {{ backtrace() }} and Dumper::backtrace()
+### `{{ backtrace() }}` and `Dumper::backtrace()`
 
 Using this function you can get a backtrace throught the code to the current
 point in the execution. Useful for when you're debugging something, and you're
@@ -169,7 +169,7 @@ Below you'll find a reference for a lot of the objects, arrays, services and
 libraries that are accessible in the code through `$app`, and - if relevant -
 how to use these in the templates.
 
-### $app['config']
+### `$app['config']`
 
 This multi-dimensional array contains all the configuration settings from the
 various `.yml` files in `app/config`. They are named like their YAML
