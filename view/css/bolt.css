@@ -34,6 +34,22 @@ h5 {
     line-height: 33px;
 }
 
+h1 a.anchor, 
+h2 a.anchor, 
+h3 a.anchor {
+    color: #CCC;
+    margin-left: 14px;
+    font-size: 75%;
+}
+
+h1:hover a.anchor, 
+h2:hover a.anchor, 
+h3:hover a.anchor {
+    color: #27C;
+    text-decoration: none;
+}
+
+
 header h1 {
     font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: normal;
