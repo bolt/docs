@@ -12,7 +12,8 @@ working:
   "": Working with Bolt
   content: Contenttypes and Records
   content-in-templates: "Content in templates"
-  taxonomies: "Relations and Taxonomies"
+  taxonomies: "Taxonomies"
+  relationships: "Relationships"
   menus: "Using menus"
   permissions: "Permissions"
 
@@ -28,17 +29,15 @@ templating:
 
 extending:
   "": "Extending Bolt"
-  extensions: "Introduction to Extensions"
+  extensions: "Introduction to Bolt Extensions"
+  extensions-essentials: "Developers: Creating Your First Extension"
+  extensions-config: "Developers: Configure and Load Your Extension"
+  extensions-customfields: "Developers: Providing New Field Types"
+  extensions-testing: "Developers: Testing Your Extensions"
 
-
-developers:
-  "": "Developing Bolt / Extensions"
+internals:
+  "": "Bolt Internals"
   internals: "Bolt Internals"
-  extensions-essentials: "Creating Your First Extension"
-  extensions-config: "Configure and Load Your Extension"
-  extensions-customfields: "Providing New Field Types"
-  extensions-testing: "Testing Your Extensions"
-  extensions-nut-commands: "Adding Nut commands"  
   contributing: "Contributing to Bolt"
   code-quality: "Code Quality"
 
@@ -49,9 +48,4 @@ other:
   maintenancemode: "Maintenance (offline) mode"
   credits: "Credits and Contributing"
   roadmap: "Roadmap"
-  tasks: "Task Scheduler (Cron)"
-
-support:
-  "": "Support and Links"
-  otherresources: "Other resources"
 

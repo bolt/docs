@@ -23,7 +23,7 @@ You will need a file called `composer.json` in the root of your project. This te
         {
             "name": "Bolt",
             "email": "info@bolt.cm",
-            "homepage": "https://bolt.cm"
+            "homepage": "http://bolt.cm"
         }
     ],
     "autoload": {
