@@ -2,8 +2,8 @@ Fetching content
 ================
 
 To get content from the database, you can use the `setcontent` tag. The
-following example will get the content record with slug 'about' from the 'pages'
-contenttype:
+following example will get the content record with slug 'about' from the
+'pages' contenttype:
 
 <pre class="brush: html">
 {% setcontent about = 'page/about' %}
@@ -11,23 +11,23 @@ contenttype:
 {{ print(about) }}
 </pre>
 
-There are a lot of options for the `setcontent` tag. Most are optional, and all
-can be used together any way you'd like. The most basic syntax is:
+There are a lot of options for the `setcontent` tag. Most are optional,
+and all can be used together any way you'd like. The most basic syntax is:
 
 <code>
 {% setcontent _variable_ = '_contenttype_' %}
 </code>
 
-This will set a _variable_ to contain the records of the given _contenttype_.
-For example: `{% setcontent mypages = 'pages' %}` will set `{{ mypages }}` to an
-array of all the records in 'pages'.
+This will set a _variable_ to contain the records of the given
+_contenttype_. For example: `{% setcontent mypages = 'pages' %}` will set
+`{{ mypages }}` to an array of all the records in 'pages'.
 
 Trimming the amount of results
 ------------------------------
-
-Normally, you don't need _all_ records, but a subset of the available records..
-You can limit the number of records by using a 'where' clause (more on that
-below), but often it's easier to use the shortcut Bolt provides.
+Normally, you don't need _all_ records, but a subset of the available
+records.. You can limit the number of records by using a 'where' clause
+(more on that below), but often it's easier to use the shortcut Bolt
+provides.
 
 If you need a single record, and know its id or slug, you can do this:
 
@@ -59,9 +59,9 @@ and:
 Using `where`
 -------------
 
-If you need a more specific criteria to select the records on, you can use the
-`where` clause. The parameters must be listed as a hash, so you can include more
-than one, if needed.
+If you need a more specific criteria to select the records on, you can use
+the `where` clause. The parameters must be listed as a hash, so you can
+include more than one, if needed.
 
 <pre class="brush: html">
 {# get all pages with username 'bob' #}
@@ -72,9 +72,10 @@ than one, if needed.
 
 </pre>
 
-The above examples selected records based on the parameter being **equal** to
-the matching field in the available records. It's also possible to use modifiers
-for the values, to select based on 'smaller than' or 'does not equal'
+The above examples selected records based on the parameter being **equal**
+to the matching field in the available records. It's also possible to use
+modifiers for the values, to select based on 'smaller than' or 'does not
+equal'
 
 <pre class="brush: html">
 {# get all pages not created by 'bob' #}
@@ -101,8 +102,8 @@ If you want to include December 1st, use <code>'&lt;2012-12-02'</code>. </p>
 {% setcontent mypages = 'pages' where { title: '%ipsum%' } %}
 </pre>
 
-The `%like%` option is case-insensitive, and does not take word boundaries into
-account. So, this example will return the pages with these titles:
+The `%like%` option is case-insensitive, and does not take word boundaries
+into account. So, this example will return the pages with these titles:
 
   - 'Lorum ipsum dolor'
   - 'LORUM IPSUM DOLOR'
@@ -122,8 +123,8 @@ Dolor", but <code>'ipsu%'</code> won't. </p>
 
 ### Using taxonomies
 
-You can use the same syntax to get records with a specific taxonomy. Note that
-you should always use the _plural_ name of the taxonomy in the query:
+You can use the same syntax to get records with a specific taxonomy. Note
+that you should always use the _plural_ name of the taxonomy in the query:
 
 <pre class="brush: html">
 {# get all events in the category 'music' #}
@@ -135,8 +136,8 @@ you should always use the _plural_ name of the taxonomy in the query:
 
 ### Selecting on dates 
 
-You can use several 'shortcuts' for selecting records with dates in the past or
-future. Some examples are:
+You can use several 'shortcuts' for selecting records with dates in the
+past or future. Some examples are:
 
   - `now` - The current date and time.
   - `today` - The current date, today at midnight.
@@ -161,13 +162,15 @@ You can use these date notations like this:
 {% setcontent mypages = 'pages' where { datepublish: '&gt;today', datepublish: '&lt;tomorrow' } %}
 </pre>
 
-<p class="tip"><strong>Tip:</strong> When using 'where' statements with a field 
-that is a date, you can use relative, textual dates, like <code>'last monday'</code> 
-or <code>'&gt; this year'</code>. Internally, Bolt uses the <code>strtotime()</code> 
-funtion for this, so we refer to its <a href="http://php.net/manual/en/function.strtotime.php" target="_blank">
+<p class="tip"><strong>Tip:</strong> When using 'where' statements with a
+field that is a date, you can use relative, textual dates, like
+<code>'last monday'</code> or <code>'&gt; this year'</code>. Internally,
+Bolt uses the <code>strtotime()</code> funtion for this, so we refer to
+its <a href="http://php.net/manual/en/function.strtotime.php" target="_blank"> 
 manual page</a> for details. </p>
 
-Like mentioned above, you can add more than one parameter to the where clause:
+Like mentioned above, you can add more than one parameter to the where
+clause:
 
 <pre class="brush: html">
 {# get all pages not created by 'pete', and created after july 2012, with a .jpg image #}
@@ -190,8 +193,8 @@ username: '!mike'}` because of the way hashes work in twig: The second
 {% setcontent mypages = 'pages' where { id: '>29 && &lt;=37' } %}
 </pre>
 
-Please note that using these operators, it'll be quite easy to create a where
-statement that will never give good results:
+Please note that using these operators, it'll be quite easy to create a
+where statement that will never give good results:
 
 <pre class="brush: html">
 {# This will _always_ match: #}
@@ -201,8 +204,8 @@ statement that will never give good results:
 {% setcontent mypages = 'pages' where { id: '&lt;29 && &gt37' } %}
 </pre>
 
-By using the `|||`-operator (three pipes) you can create an OR-part for multiple
-columns. For example:
+By using the `|||`-operator (three pipes) you can create an OR-part for
+multiple columns. For example:
 
 <pre class="brush: html">
 {# Select users from Amsterdam that match either username 'pete' or firstname 'Mike' #}
@@ -218,9 +221,9 @@ Since 'and' is the default, there is no `&&&` equivalent to `|||`.
 
 Using `limit`
 -------------
-
-There's no built-in limit to the amount of records returned. It is good practice
-to limit the maximum number of records, by adding a `limit` clause.
+There's no built-in limit to the amount of records returned. It is good
+practice to limit the maximum number of records, by adding a `limit`
+clause.
 
 <pre class="brush: html">
 {# get 10 pages created by 'bob' #}
@@ -229,9 +232,8 @@ to limit the maximum number of records, by adding a `limit` clause.
 
 Ordering results
 ----------------
-
-The results can be sorted by any of the fields of the contenttype, using the
-`orderby` clause. You can sort either ascending or descending.
+The results can be sorted by any of the fields of the contenttype, using
+the `orderby` clause. You can sort either ascending or descending.
 
 <pre class="brush: html">
 {# get 10 pages, sorted alphabetically on title #}
@@ -241,17 +243,16 @@ The results can be sorted by any of the fields of the contenttype, using the
 {% setcontent mypages = 'pages' limit 10 orderby '-datechanged' %}
 </pre>
 
-Note that the records are fetched from the database, according to the `orderby`
-parameter. If you use `orderby 'title'`, you will get records with titles
-starting with 'a', and not just some records, that are sorted after fetching
-them from the database.
+Note that the records are fetched from the database, according to the
+`orderby` parameter. If you use `orderby 'title'`, you will get records
+with titles starting with 'a', and not just some records, that are sorted
+after fetching them from the database.
 
 
 One record or multiple records?
 -------------------------------
-
-Sometimes Bolt will return one record, and sometimes a set of records. What
-makes the difference?
+Sometimes Bolt will return one record, and sometimes a set of records.
+What makes the difference?
 
 <pre class="brush: html">
 {% setcontent mypage = 'page/about' %}
@@ -263,16 +264,16 @@ makes the difference?
 {% endfor %}
 </pre>
 
-Bolt tries to make an assumption about how you want to use it, based on what
-you're requesting. By default, an array is returned, unless one of the following
-is the case:
+Bolt tries to make an assumption about how you want to use it, based on
+what you're requesting. By default, an array is returned, unless one of
+the following is the case:
 
-  - `{% setcontent foo = 'bar/1' %}` or `{% setcontent foo = 'bar/qux' %}`: When 
-    requesting one specific record, only one is returned.
-  - `{% setcontent foo = 'page' where { .. } %}`: If 'page' is the singular slug 
-    of the contenttype 'pages', Bolt assumes you only need one.
-  - `{% setcontent foo = 'pages' .. returnsingle %}`: If the 'returnsingle' parameter 
-    is passed, Bolt assumes you only need one result.
+  - `{% setcontent foo = 'bar/1' %}` or `{% setcontent foo = 'bar/qux' %}`: 
+    When requesting one specific record, only one is returned.
+  - `{% setcontent foo = 'page' where { .. } %}`: If 'page' is the singular 
+    slug of the contenttype 'pages', Bolt assumes you only need one.
+  - `{% setcontent foo = 'pages' .. returnsingle %}`: If the returnsingle' 
+    parameter is passed, Bolt assumes you only need one result.
 
-If you use `limit 1`, you will get an array with 1 record. Unless, of course,
-one of the above criteria was met.
+If you use `limit 1`, you will get an array with 1 record. Unless, of
+course, one of the above criteria was met.
