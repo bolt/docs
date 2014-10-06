@@ -110,7 +110,7 @@ echo $twig->render('index.twig', array(
  */
 function makeSlug($str) {
 
-    return \URLify::filter($str);
+    return \URLify::filter(strip_tags($str));
 
 }
 
