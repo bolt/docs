@@ -41,7 +41,13 @@ foreach ($matches[1] as $key => $title) {
 }
 
 $source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function($matches) {
-	$output = sprintf("<h%s id='%s'>%s</h%s>", $matches[1], makeSlug(strip_tags($matches[2])), $matches[2], $matches[1]);
+	$output = sprintf("<h%s id='%s'>%s<a href='#%s' class='anchor'>¶</a></h%s>", 
+                    $matches[1], 
+                    makeSlug($matches[2]), 
+                    $matches[2], 
+                    makeSlug($matches[2]), 
+                    $matches[1]
+                );
 	return $output;
 }, $source);
 
