@@ -17,7 +17,7 @@ You will need a file called `composer.json` in the root of your project. This te
     "type": "bolt-extension",
     "keywords": ["bolt", "widgets", "awesome"],
     "require": {
-        "bolt/bolt": ">=2.0,<3.0"
+        "bolt/bolt": "&gt;=2.0,&lt;3.0"
     },
     "authors": [
         {
@@ -68,7 +68,7 @@ This configuration does two things, firstly you need to provide a file that init
 <pre class="brush: php">
 use Myextension\Extension;
 
-$app['extensions']->register(new Extension());
+$app['extensions']-&gt;register(new Extension());
 </pre>
 
 Once the extension is registered, Bolt will take care of running the various hooks that you can define within your Extension class.
