@@ -85,7 +85,7 @@ If you want to install Bolt using Git and Composer, execute the following
 commands:
 
 <pre class="brush: plain">
-git clone --recursive git://github.com/bolt/bolt.git bolt
+git clone git://github.com/bolt/bolt.git bolt
 cd bolt
 curl -s http://getcomposer.org/installer | php
 php composer.phar install
