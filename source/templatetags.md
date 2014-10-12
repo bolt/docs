@@ -74,7 +74,7 @@ on its aspect ratio, you can use these values:
 {% endif %}
 </pre>
 
-### fancybox
+### Magnific Popup
 
 Use this tag to insert an image in the HTML, which functions as an image popup.
 You can optionally provide the width, height and cropping parameters, like you can 
