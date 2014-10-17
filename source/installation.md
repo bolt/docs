@@ -58,7 +58,7 @@ your choice. After you've done this, be sure to chmod the following directories
   - `app/database/`
   - `files/`
   - `theme/`
-  - `extension/`
+  - `extensions/`
 
 Most FTP clients will allow you to do this quickly, using a 'include files' or
 'apply to enclosed' option. It depends on the exact server configuration if you
