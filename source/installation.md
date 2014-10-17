@@ -22,7 +22,7 @@ already exist. Enter the directory, and execute the following commands:
 <pre class="brush: plain">
 curl -O http://bolt.cm/distribution/bolt_latest.tgz
 tar -xzf bolt_latest.tgz
-chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
+chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
 </pre>
 
 <p class="tip">
@@ -58,6 +58,7 @@ your choice. After you've done this, be sure to chmod the following directories
   - `app/database/`
   - `files/`
   - `theme/`
+  - `extension/`
 
 Most FTP clients will allow you to do this quickly, using a 'include files' or
 'apply to enclosed' option. It depends on the exact server configuration if you
@@ -96,7 +97,8 @@ correct filerights, but if they don't, (re)set them using the following command
 in the `bolt/` directory:
 
 <pre class="brush: plain">
-chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ </pre>
+chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
+</pre>
 
 It depends on the exact server configuration if you will need to use `777` or if
 another setting is better. If you wish to know for sure, ask your hosting
