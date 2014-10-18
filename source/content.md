@@ -320,7 +320,20 @@ The following fields are available:
     the global setting for `accept_file_types` in the main `config.yml` includes
     the correct extensions
   - `filelist`: A more complex upload/select field.
-  - `html`: Wysiwyg HTML field.
+  - `html`: Wysiwyg HTML field.  
+     You can override and set CKeditor options with ckconfig  
+     (see [CKeditor config documentation](http://docs.ckeditor.com/#!/api/CKEDITOR.config) for options)
+<pre class="brush: plain">
+    htmlfield:
+        type: html
+        ckconfig:
+            height: 400
+            autoGrow_maxHeight: 400
+            autoGrow_onStartup: false
+            # autoGrow_minHeight: 300
+            # contentsCss: ["/css/custom.css"]
+</pre>
+
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML
     markup.
   - `select`: A drop-down list to make a pre-defined selection from. There are
