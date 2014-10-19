@@ -47,7 +47,7 @@ your server doesn't have `curl`, use `wget` instead.
 
 Download the latest version of Bolt from this location:
 
-[http://bolt.cm/distribution/bolt_latest.zip](http://bolt.cm/distribution/bolt_latest.zip)
+[http://bolt.cm/distribution/bolt-latest.zip](http://bolt.cm/distribution/bolt-latest.zip)
 
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
 your choice. After you've done this, be sure to chmod the following directories
