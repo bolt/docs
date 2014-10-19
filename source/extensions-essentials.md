@@ -76,12 +76,6 @@ function getName()
 
 When the extension is registered a shareable instance of the extension will be
 available at `$app['extensions.widgetpicker']`
- 
-
-To get started on an extension quickly, you should use our
-[Extension Wizard](http://extension-wizard.bolt.cm/) to create the boilerplate
-code for your extension.
-
 
 
 ### initialize()
@@ -113,10 +107,6 @@ In the case of `initialize()` it's often used to do the following:
   - Add a Javascript and/or CSS file to the output of the frontend pages
   - Make sure jQuery is included, if needed by your extension
   - Initialize a Twig function or filter for use in the theme templates.
-
-If you use our [Extension Wizard](http://extension-wizard.bolt.cm/) to create
-the boilerplate code for your extension, the `initialize()` function will be already
-set up with the correct functionality.
 
 Initialize a snippet
 --------------------
