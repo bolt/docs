@@ -23,7 +23,7 @@ Where:
 
 Create an `Extension.php` file that contains something like this:
 
-```php
+<pre class="brush: php">
 namespace Bolt\Extension\MyName\MyExtension;
 
 use Bolt;
@@ -41,14 +41,14 @@ class Extension extends \Bolt\BaseExtension
         // Your extension gets launched from here
     }
 }
-```
+</pre>
 
 ### Step 3
 
 Create an `init.php` file that contains something like this:
 
-```php
+<pre class="brush: php">
 use Bolt\Extension\MyName\MyExtension\Extension;
 
 $app['extensions']->register(new Extension($app));
-```
+</pre>

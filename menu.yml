@@ -43,6 +43,7 @@ internals:
 
 other:
   "": Other Information
+  howto: "Howto's on various subjects"
   locales: "Locales"
   nut: "Nut (command line utility)"
   maintenancemode: "Maintenance (offline) mode"
