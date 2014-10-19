@@ -4,13 +4,12 @@ Credits and contributing
 Bolt is Open Source, and as such it uses other Open Source components. If you
 are a developer you're very welcome to help in the further development of Bolt.
 Bolt is written mostly by Bob den Otter, with the help of quite a few other
-contributors. See the [Contributors on GitHub](https://github.com/bolt/bolt/graphs/contributors) for details. The
-continuing development of Bolt is backed by [Two Kings
-webdelopment](http://www.twokings.nl). Contact me at bob [@] twokings.nl.
+contributors. See the [Contributors on GitHub](https://github.com/bolt/bolt/graphs/contributors) 
+for details. The continuing development of Bolt is backed by 
+[Two Kings webdelopment](http://www.twokings.nl). Contact us at info [@] bolt.cm.
 
 All parts of Bolt are free to use under the open-source MIT license. The full
-licensing text can be [found here](http://www.opensource.org/licenses/mit-
-license.php).
+licensing text can be [found here](http://www.opensource.org/licenses/mit-license.php).
 
   - <a href="https://github.com/bobdenotter/bolt" class="btn btn-info" target="_blank">Bolt on Github</a>
   - <a href="https://github.com/bolt/bolt-docs" class="btn btn-info" target="_blank">Bolt documentation on
@@ -31,12 +30,11 @@ Below are the third party libraries that are used by Bolt.
   - Various other PHP libraries, like: <a href="http://www.openwall.com/phpass/">Phpass</a>,
     <a href="http://brandonwamboldt.github.com/utilphp/">Util.php</a>,
     <a href="http://guzzlephp.org/">Guzzle</a> and
-    <a href="http://www.binarymoon.co.uk/projects/timthumb/">Timthumb</a>
+    <a href="http://dimsemenov.com/plugins/magnific-popup/">Magnific popup</a>
   - <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a> and
     <a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>
   - <a href="http://jquery.com/">jQuery</a> (and parts of <a href="http://jqueryui.com/">jQuery UI</a>)
   - jQuery plugins, like: <a href="http://blueimp.github.com/jQuery-File-Upload/">jQuery File Upload</a>,
-    <a href="http://aehlke.github.com/tag-it/">Tag-it</a>,
     <a href="http://fancyapps.com/">Fancybox</a>.
   - <a href="http://codemirror.net/">Codemirror</a> for in-browser editing of text-files and templates.
   - <a href="http://ckeditor.com/">CK Editor</a> for the clean HTML5 Wysywig editor areas.

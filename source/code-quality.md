@@ -18,10 +18,11 @@ Code Standard
 -------------
 We aim to comply with [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
 
-Unit tests
+Testing
 ----------
-We use [PHPUnit](https://github.com/sebastianbergmann/phpunit) for unit
-testing
+We use [PHPUnit](https://github.com/sebastianbergmann/phpunit) for unit testing,
+and [Codeception](http://codeception.com/) for acceptance and functional
+testing.
 
 Continuous Integration and Continuous Inspection
 ------------------------------------------------

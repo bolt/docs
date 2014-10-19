@@ -89,32 +89,33 @@ How Content Type Specific Permissions Are Calculated
 ----------------------------------------------------
 For content type related actions, permissions can be set individually for
 each content type. For this, we define three groups of permission sets.
-The 'contenttype-all' permission sets *overrides*; any roles specified here
+
+ - The `contenttype-all` permission sets *overrides*; any roles specified here
 will grant a permission for all content types, regardless of the rest of this
 section.
-The 'contenttype-default' contains rules that are used when the desired
+ - The `contenttype-default` contains rules that are used when the desired
 content type does not define a rule for this permission itself.
-The 'contenttypes' section specifies permissions for individual content
+ - The `contenttypes` section specifies permissions for individual content
 types.
 
 To understand how this works, it may be best to follow the permission checker
 through its decision-making process.
 
-First, it checks whether the current user is in the "root" role; if so, it
+First, it checks whether the current user is in the `root` role; if so, it
 short-circuits and always grants anything unconditionally.
 
 Otherwise, it checks whether any of the current user's roles match any of the
-roles in contenttype-all/{permission}. If so, the search is over, and the
+roles in `contenttype-all/{permission}`. If so, the search is over, and the
 permission can be granted.
 
-The next step is to find contenttypes/{contenttype}/{permission}. If it is
+The next step is to find `contenttypes/{contenttype}/{permission}`. If it is
 found, then the permission can be granted if and only if any of the user's
-roles match any role in contenttypes/{contenttype}/{permission}.
+roles match any role in `contenttypes/{contenttype}/{permission}`.
 
-If either contenttypes/{contenttype} or
-contenttypes/{contenttype}/{permission} is absent, the permission checker
-uses contenttype-default/{permission} instead. If any role exists in both the
-user's roles and contenttype-default/{permission}, the permission can be
+If either `contenttypes/{contenttype}` or
+`contenttypes/{contenttype}/{permission}` is absent, the permission checker uses
+`contenttype-default/{permission}` instead. If any role exists in both the
+user's roles and `contenttype-default/{permission}`, the permission can be
 granted.
 
 Note especially that an *empty* set of roles in the contenttype section means
@@ -190,21 +191,28 @@ through the `$app['user']->isAllowed()` method, and to templates through the
 `isallowed()` template function. These functions both take a *permission query*
 as their argument; the grammar for these is as follows:
 
-    permission-query := or-query | allow-all
+<pre class="brush: plain">
+permission-query := or-query | allow-all
 
-    allow-all := '' # -> always grant
 
-    or-query := and-query [ ( or, and-query ) ... ] # -> grant iff any of the subparts grant
-    or := 'or' | '|' | '||' # -> case-insensitive
+allow-all := '' # -> always grant
 
-    and-query := simple-query [ ( and, simple-query ) ... ] # -> grant iff all of the subparts grant
-    and := 'and' | '&' | '&&' # -> case-insensitive
 
-    simple-query := true | false | permission
+or-query := and-query [ ( or, and-query ) ... ] # -> grant iff any of the subparts grant
+or := 'or' | '|' | '||' # -> case-insensitive
 
-    true := 'true' # -> case insensitive, always grant
-    false := 'false' # -> case insensitive, never grant
-    permission := word [ ( ':', word) ... ] # -> a tuple of permission specifier parts, as outlined above.
+
+and-query := simple-query [ ( and, simple-query ) ... ] # -> grant iff all of the subparts grant
+and := 'and' | '&' | '&&' # -> case-insensitive
+
+
+simple-query := true | false | permission
+
+
+true := 'true' # -> case insensitive, always grant
+false := 'false' # -> case insensitive, never grant
+permission := word [ ( ':', word) ... ] # -> a tuple of permission specifier parts, as outlined above.
+</pre>
 
 Additionally, you can pass a content type slug and a content ID as optional
 arguments; by doing so, the query is run against those instead of at the global
@@ -212,11 +220,15 @@ arguments; by doing so, the query is run against those instead of at the global
 
 A few examples:
 
+<pre class="brush: plain">
     # view any page and view any entry, *or* edit any entry
     isallowed("(contenttype:pages:view and contenttype:entries:view) or contenttype:entries:edit")
-
+</pre>
+<pre class="brush: plain">
     # create new foobars, edit foobar #1, or delete foobar #1
     isallowed("contenttype:foobar:create or contenttype:foobar:edit:1 or contenttype:foobar:delete:1")
-
+</pre>
+<pre class="brush: plain">
     # for item #23, check if any permission is granted that would allow viewing:
     isallowed("frontend or view or edit", "items", 23)
+</pre>

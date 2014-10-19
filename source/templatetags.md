@@ -41,8 +41,7 @@ are, and what the aspect ratio is. In these cases, the `imageinfo` tag can be
 used. It returns an array of data about the image. See the screenshot for
 details:
 
-<a href="/files/imageinfo.png" class="fancybox" rel="fancybox">
-    <img src="/files/imageinfo.png" width="600"></a>
+<a href="/files/imageinfo.png" class="fancybox" rel="fancybox"><img src="/files/imageinfo.png" width="600"></a>
 
 To see the available values for an image, use: 
 
@@ -74,7 +73,7 @@ on its aspect ratio, you can use these values:
 {% endif %}
 </pre>
 
-### fancybox
+### Magnific Popup
 
 Use this tag to insert an image in the HTML, which functions as an image popup.
 You can optionally provide the width, height and cropping parameters, like you can 

@@ -4,8 +4,7 @@ Maintenance (offline) mode
 Bolt comes with a built-in 'Maintenance Mode'. If this mode is active, regular
 visitors to the site will see this page:
 
-<a href="/files/maintenance.png" class="fancybox" rel="fancybox">
-    <img src="/files/maintenance.png" width="450"></a>
+<a href="/files/maintenance.png" class="fancybox" rel="fancybox"><img src="/files/maintenance.png" width="450"></a>
 
 Any users that are logged in, will be able to use the site as normal, while
 other visitors will see the maintenance screen. You can enable the Maintenance

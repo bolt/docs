@@ -22,7 +22,7 @@ already exist. Enter the directory, and execute the following commands:
 <pre class="brush: plain">
 curl -O http://bolt.cm/distribution/bolt_latest.tgz
 tar -xzf bolt_latest.tgz
-chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/
+chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
 </pre>
 
 <p class="tip">
@@ -58,14 +58,14 @@ your choice. After you've done this, be sure to chmod the following directories
   - `app/database/`
   - `files/`
   - `theme/`
+  - `extensions/`
 
 Most FTP clients will allow you to do this quickly, using a 'include files' or
 'apply to enclosed' option. It depends on the exact server configuration if you
 will need to use `777` or if another setting is better. If you wish to know for
 sure, ask your hosting provider.
 
-<a href="/files/ftp-chmod.png" class="fancybox"><img src="/files/ftp-chmod.png"
-width="590"></a><br>
+<a href="/files/ftp-chmod.png" class="fancybox"><img src="/files/ftp-chmod.png" width="590"></a><br>
 
 <p class="note"><strong>Note:</strong> Don't forget to upload the .htaccess
   file! Bolt won't work without it. If you can't find the file on your
@@ -97,19 +97,12 @@ correct filerights, but if they don't, (re)set them using the following command
 in the `bolt/` directory:
 
 <pre class="brush: plain">
-chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ </pre>
+chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
+</pre>
 
 It depends on the exact server configuration if you will need to use `777` or if
 another setting is better. If you wish to know for sure, ask your hosting
 provider.
-
-After installing you may need to run the following commands in the bolt directory
-to download the submodule themes.
-
-<pre class="brush: plain">
-git submodule init
-git submodule update
-</pre>
 
 Setting up Bolt
 ---------------
@@ -286,10 +279,10 @@ line:
 FallbackResource /index.php
 </pre>
 
-If you have misplaced your `.htaccess` file, you can get a <a
-href="http://bolt.cm/distribution/default.htaccess">new one here</a>, from our
-<a href="http://bolt.cm/distribution/">files distribution page</a>. Be sure to
-rename it to `.htaccess`, though.
+If you have misplaced your `.htaccess` file, you can get a 
+<a href="http://bolt.cm/distribution/default.htaccess">new one here</a>, 
+from our <a href="http://bolt.cm/distribution/">files distribution page</a>. 
+Be sure to rename it to `.htaccess`, though.
 
 Nginx: Configuring the virtual host
 ----------------------------
