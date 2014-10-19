@@ -41,8 +41,7 @@ are, and what the aspect ratio is. In these cases, the `imageinfo` tag can be
 used. It returns an array of data about the image. See the screenshot for
 details:
 
-<a href="/files/imageinfo.png" class="fancybox" rel="fancybox">
-    <img src="/files/imageinfo.png" width="600"></a>
+<a href="/files/imageinfo.png" class="fancybox" rel="fancybox"><img src="/files/imageinfo.png" width="600"></a>
 
 To see the available values for an image, use: 
 

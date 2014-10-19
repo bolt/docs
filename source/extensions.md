@@ -14,14 +14,18 @@ or keyword and also see what the most popular extensions are.
 Installing New Extensions
 ----------------------
 
-Within the administration area of your Bolt site, if you have the correct permissions you will see a link to 'Extend Bolt'.
+Within the administration area of your Bolt site, if you have the correct
+permissions you will see a link to 'Extend Bolt'.
 
-Once you know the name of the extension as listed on the Marketplace then you can use the installation form to add it to your
-Bolt site. Fill in the name and click the *Browse Versions* button, this will launch a new window which will show you versions
-of the extension that are compatible with the current version of Bolt you are using.
+Once you know the name of the extension as listed on the Marketplace then you
+can use the installation form to add it to your Bolt site. Fill in the name and
+click the *Browse Versions* button, this will launch a new window which will
+show you versions of the extension that are compatible with the current version
+of Bolt you are using.
 
-<img src="/files/install-new-extension.png"></a><br>
-**The Extension installation form**
+<a href="/files/install-new-extension.png"><img src="/files/install-new-extension.png"></a>
+
+The Extension installation form
 
 
 Checking for Updated Versions
@@ -30,7 +34,7 @@ Checking for Updated Versions
 From time to time it's good practice to update any installed extensions, this allows developers to supply security updates along
 with added functionality. 
 
-<img src="/files/extensions-check-updates.png"></a><br>
+<a href="/files/extensions-check-updates.png"><img src="/files/extensions-check-updates.png"></a>
 
 Using the check for updates button (as shown above) you can see a list of updates that are available and optionally install them
 one at a time. 

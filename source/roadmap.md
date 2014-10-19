@@ -32,19 +32,23 @@ bolt 1.6 (released May 2014)
 Features and bugfixes
 
 
-Bolt 2.0 (scheduled for summer 2014)
+Bolt 2.0 (scheduled for autumn 2014)
 -----------------------------------
 After Bolt 1.4, we'll focus on Bolt 2.0. The [issues for 2.0](https://github.com/bolt/bolt/issues?milestone=13) on our github issue tracker gives an overview of tasks planned.
 
  - New interface for the backend (in Bootstrap 3)
- - JSON-based API for retrieving and updating content in Bolt.
+ - Automatic installing and updating of extensions, with a 'marketplace' to find them.
 
-Bolt 2.1 (scheduled for autumn 2014)
+Bolt 2.1 (scheduled for winter 2014)
 -----------------------------------
 The most important planned features are:
 
- - Automatic installing and updating of extensions, with a 'marketplace' to find them.
+ - JSON-based API for retrieving and updating content in Bolt.
 
+
+After 2.0, we'll be discussing what features will be the focal point of the
+ongoing development. There's an issue on our Github about this,
+[here](https://github.com/bolt/bolt/issues/1913)
 
 Not scheduled
 -------------
@@ -52,6 +56,7 @@ Some features are requested often, but are not currently scheduled. This is beca
 
   - Native support for Multi-lingual content in the frontend. See [#234](http://github.com/bolt/bolt/issues/234)
   - Hierarchical (tree) structure for content.
+
 
 
 Previous milestones
