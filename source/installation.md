@@ -20,8 +20,8 @@ commands. First, create the directory where you want to install Bolt, if it does
 already exist. Enter the directory, and execute the following commands:
 
 <pre class="brush: plain">
-curl -O http://bolt.cm/distribution/bolt_latest.tgz
-tar -xzf bolt_latest.tgz
+curl -O http://bolt.cm/distribution/bolt-latest.tar.gz
+tar -xzf bolt-latest.tar.gz --strip-components=1
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
 </pre>
 
@@ -47,7 +47,7 @@ your server doesn't have `curl`, use `wget` instead.
 
 Download the latest version of Bolt from this location:
 
-[http://bolt.cm/distribution/bolt_latest.zip](http://bolt.cm/distribution/bolt_latest.zip)
+[http://bolt.cm/distribution/bolt-latest.zip](http://bolt.cm/distribution/bolt-latest.zip)
 
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
 your choice. After you've done this, be sure to chmod the following directories
