@@ -36,13 +36,7 @@ other Extensions. To do this, we have to keep the following rules:
 
 To get the hang of how extensions work, it's best to browse the extensions that
 are included with Bolt by default. They are all pretty simple and
-straightforward. To get started with writing your own extension, we strongly
-suggest to create the boilerplate code for your extension with our 
-[Extension Wizard](http://extension-wizard.bolt.cm/).
-
-Using the wizard it's trivially easy to create a the boilerplate code for an
-extension. This boilerplate code can be put in your `app/extensions` code, and
-can be further developed into a fully functional extension.
+straightforward. 
 
 Coding your extensions
 ----------------------
@@ -71,10 +65,6 @@ pagerequest. It's executed before content is retrieved from the database or the
 templates are parsed. In general, the initialize() function is used to set up
 hooks or functionality that is used later on in the process of outputting a
 page.
-
-As mentioned before: to get started on an extension quickly, you should use our
-[Extension Wizard](http://extension-wizard.bolt.cm/) to create the boilerplate
-code for your extension.
 
 ### info()
 
@@ -147,10 +137,6 @@ In the case of `initialize()` it's often used to do the following:
   - Add a Javascript and/or CSS file to the output of the frontend pages
   - Make sure jQuery is included, if needed by your extension
   - Initialize a Twig function or filter for use in the theme templates.
-
-If you use our [Extension Wizard](http://extension-wizard.bolt.cm/) to create
-the boilerplate code for your extension, the `initialize()` function will be already
-set up with the correct functionality.
 
 Initialize a snippet
 --------------------
