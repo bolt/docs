@@ -16,7 +16,7 @@
 
 	<script src="/view/js/jquery.js"></script>
 
-	<!-- Highlighter --> 
+	<!-- Highlighter -->
 	<script type="text/javascript" src="/view/js/shCore.js"></script>
 	<script type="text/javascript" src="/view/js/shBrushJScript.js"></script>
 	<script type="text/javascript" src="/view/js/shBrushPlain.js"></script>
@@ -24,10 +24,10 @@
 	<script type="text/javascript" src="/view/js/shBrushCss.js"></script>
 	<script type="text/javascript" src="/view/js/shBrushXml.js"></script>
 	<link href="/view/css/shCore.css" rel="stylesheet" type="text/css" />
-	<link href="/view/css/shThemeDefault.css" rel="Stylesheet" type="text/css" />	
+	<link href="/view/css/shThemeDefault.css" rel="Stylesheet" type="text/css" />
 
 	<script type="text/javascript" src="/view/js/jquery.fancybox.js"></script>
-    <link href="/view/css/jquery.fancybox.css" rel="stylesheet" type="text/css" />    
+    <link href="/view/css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="/view/js/docs.js"></script>
 
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic|Source+Code+Pro&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -64,16 +64,16 @@
     <div class="container">
 
         <header class="row">
-            
-           <div class="kop"> 
+
+           <div class="kop">
             <h1 class="">
                 <a href="/"><img src="/view/images/bolt-logo.png" alt="bolt"> <span>documentation</span></a>
             </h1>
             <h5><a href="http://bolt.cm">&laquo; Back to Bolt.cm</a> - Version {{ version }}</h5>
-           </div> 
-            
-            
-            
+           </div>
+
+
+
             <div class="search">
                 <script>
                     (function() {
@@ -89,8 +89,8 @@
                 </script>
                 <gcse:search></gcse:search>
             </div>
-            
-                        
+
+
             <hr />
 
 {# Menu, taken directly from bolt.cm #}
@@ -105,14 +105,14 @@
                 </li>
         <li>
             <a href="http://bolt.cm/page/showcase" title='' class=''>Showcase</a>
-                </li>                
+                </li>
         <li>
             <a href="/" title='Documentation for installation, configuration and working with Bolt' {% if title != "Screenshots" %}class='current'{% endif %}>Documentation</a>
                 </li>
         <li>
             <a href="http://manual.bolt.cm" title='Manual for &#039;working with Bolt&#039;, specifically for endusers and editors.'            class=''>User manual</a>
 
-                </li>                
+                </li>
         <li>
             <a href="http://bolt.cm/page/news" title='The latest news' class=''>News</a>
                 </li>
@@ -133,12 +133,19 @@
             </div>
 
 			<div class="large-9 columns content">
+
+
+{# temporary for the transition phase between 1.6 and 2.0 #}
+<p class="note">
+	<strong>Note:</strong> You are currently reading the documentation for <strong>Bolt 1.6</strong>.
+	Looking for the docs for version 2.0 instead? <a href="https://docs.bolt.cm/v20">click here</a>.
+</p>
 				
 				{{ source|raw }}
 
 				<hr style='margin-top: 36px;'>
 
-<p><small>Are you missing anything in the Bolt documentation? 
+<p><small>Are you missing anything in the Bolt documentation?
 Please <a href="mailto:documentation@bolt.cm?subject=Bolt documentation.">let us know</a>, and we'll fix it.</small></p>
 
 	<div style='float: left;'>
