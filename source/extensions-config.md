@@ -6,6 +6,10 @@ Extensions and themes that are published on the marketplace must follow a few si
 
 To be hosted on the Bolt marketplace your project will need to be stored in a VCS repository and publicly readable. If you want to install your own extensions from somewhere other than the official Bolt marketplace then see the advanced documentation page.
 
+### PHP namespace
+
+Extensions should use the PHP namespace of `Bolt\Extension\{author name}\{exension name}\` e.g. `Bolt\Extension\MyName\\MyExtension\`
+
 ### The JSON file
 
 You will need a file called `composer.json` in the root of your project. This tells Bolt all the information it requires to display and install your extension or theme. To demonstrate the format we are going to create a dummy extension called Bolt Widgets. Here's how we create our `composer.json` file.
@@ -31,7 +35,7 @@ You will need a file called `composer.json` in the root of your project. This te
             "init.php"
         ],
         "psr-4": {
-            "Myextension\\": "src"
+            "Bolt\\Extension\\MyName\\MyExtension\\": "src"
         }
     },
 }
@@ -66,7 +70,7 @@ This gives users of your extension some information about the author. The email 
 This configuration does two things, firstly you need to provide a file that initialises your extension, it's important that this file is kept as simple as possible, when it is run it will be provided with a single variable `$app` which is an instance of the running Bolt application. Here is the recommended file.
 
 <pre class="brush: php">
-use Myextension\Extension;
+use Bolt\Extension\MyName\MyExtension\Extension;
 
 $app['extensions']-&gt;register(new Extension());
 </pre>
