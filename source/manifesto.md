@@ -12,8 +12,8 @@ these self-imposed rules.
   This embodies everything we strive to do with Bolt: It is as simple as
   possible, but not simpler. It uses sophisticated technology to achieve
   this, and use of the system should be straighforward and evident.
-- Bolt aims at **three groups of users**: Editors (content writers, 
-  editorial staff),  Frontend developers (HTML/CSS specialists, implementors) 
+- Bolt aims at **three groups of users**: Editors (content writers and 
+  editorial staff),  Frontend developers (HTML/CSS specialists and implementors) 
   and Backend developers (coders, devops and sysops). All three are 
   equally important.
 - We recognize that Bolt is best suited for medium-sized websites. By
