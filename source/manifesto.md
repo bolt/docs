@@ -18,7 +18,7 @@ these self-imposed rules.
   are equally important.
 - We recognize that Bolt is best suited for medium-sized websites. By
   keeping this in mind, we will make sure that we do not spread ourselves
-  to thin.
+  too thin.
 - We will never add new features, if they detract from any of the points
   mentioned above. If a proposed feature makes the system harder to use,
   it will not be accepted. If a proposed feature is for the benefit of one
