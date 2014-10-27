@@ -32,8 +32,9 @@ these self-imposed rules.
 - We welcome all types of contributions by our users: be it code,
   documentation or helping out with support for the community.
 - We (the developers and users of Bolt) are making an active effort to be
-  a **welcoming and inclusive community**. Racism, sexism, homophobia and
-  misogyny are __not__ acceptable.
+  a **welcoming and inclusive community**. Harassment or prejudice of any 
+  kind is __not__ acceptable, including but not limited to Racism, sexism 
+  and homophobia.
 - We have no political agenda.
 
 
