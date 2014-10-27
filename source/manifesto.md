@@ -8,8 +8,8 @@ our Manifesto: It outlines the goals of Bolt, our motto and our values.
 This document also describes how we intend to make sure we will adhere to
 these self-imposed rules.
 
-- Our slogan is "Simple[^simple], sophisticated and straightforward". This
-  embodies everything we strive to do with Bolt: It is as simple as
+- Our slogan is "Simple<sup>1</sup>, sophisticated and straightforward".
+  This embodies everything we strive to do with Bolt: It is as simple as
   possible, but not simpler. It uses sophisticated technology to achieve
   this, and use of the system should be straighforward and evident.
 - Bolt aims at three groups of users: Backend developers (coders, devops
@@ -37,4 +37,4 @@ these self-imposed rules.
 - We have no political agenda.
 
 
-[^simple]: Do not confuse 'Simple' with 'Simplistic'. 
+1: Do not confuse 'Simple' with 'Simplistic'. 
