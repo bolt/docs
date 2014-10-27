@@ -37,4 +37,4 @@ these self-imposed rules.
 - We have no political agenda.
 
 
-1: Do not confuse 'Simple' with 'Simplistic'. 
+1: 'Simple' is not to be confused with 'Simplistic'. 
