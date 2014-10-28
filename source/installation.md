@@ -236,7 +236,7 @@ DirectoryIndex index.php index.html index.htm
 # Prevent directory listing
 Options -Indexes
 
-&lt;FilesMatch "\.(yml|db|twig)$">
+&lt;FilesMatch "\.(yml|db|twig|md)$">
     &lt;IfModule mod_authz_core.c>
         Require all denied
     &lt;/IfModule>
@@ -364,5 +364,9 @@ server {
     location ~ \.twig$ {
         deny all;
     }    
+    
+    location ~ \.md$ {
+        deny all;
+    }   
 }
 </pre>
