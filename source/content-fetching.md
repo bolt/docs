@@ -1,7 +1,9 @@
 Fetching content
 ================
 
-To get content from the database, you can use the `setcontent` tag. The
+Next to content that is already available on a specific content-type listing-page or
+single-page [(content in templates)](content-in-templates), You can directly
+fetch content from the database. For this you can use the `{% setcontent ... %}` tag. The
 following example will get the content record with slug 'about' from the
 'pages' contenttype:
 
