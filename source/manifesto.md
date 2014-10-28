@@ -29,6 +29,8 @@ these self-imposed rules.
 - Bolt is **Open Source software** and it will always be Open Source
   software. We will never intentionally 'cripple' the system, in order to
   sell extensions.
+- Our code should be clean, well-organised and legible. For more 
+  information, read about our [coding standards](/code-quality).
 - We welcome all types of contributions by our users: be it code,
   documentation or helping out with support for the community.
 - We (the developers and users of Bolt) are making an active effort to be
