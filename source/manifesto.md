@@ -33,7 +33,7 @@ these self-imposed rules.
   information, read about our [coding standards](/code-quality).
 - We welcome all types of contributions by our users: be it code,
   documentation or helping out with support for the community.
-  We (the developers and users of Bolt) will always promote and maintain a **welcoming and inclusive community**. This means that harassment or prejudice of any kind, including but not limited to; sexism, homophobia, and discrimination on religious or political beliefs, **will not** be tolerated in any form.
+- We (the developers and users of Bolt) will always promote and maintain a **welcoming and inclusive community**. This means that harassment or prejudice of any kind, including but not limited to; sexism, homophobia, and discrimination on religious or political beliefs, **will not** be tolerated in any form.
 
 
 1: 'Simple' is not to be confused with 'Simplistic'. 
