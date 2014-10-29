@@ -7,14 +7,15 @@ requesting pages that are the defaults for certain contenttypes.
 
 There are two ways that Bolt makes content accessible in the templates:
 
-  - Directly: By using the `{% setcontent %}`-tag, you can retrieve
-    records from any contenttype from the database, and make them
-    available in the templates. Much more information about setcontent,
-    can be found in the chapter [Fetching content](content-fetching).
   - Implicitly: In a template that's being used for a single page or a
-    listing, you'll always have the matching content available, without
-    having to fetch it yourself, via the `setcontent`-tag. See the section
-    below on how it works.
+    listing, you'll always have the matching content available without
+    having to fetch it via the `setcontent`-tag. See the section
+    below on how to access the the content.
+  - Fetching other content: By using the `{% setcontent %}`-tag, 
+    you can retrieve records from any contenttype from the database, 
+    and make the data available to the templates. Much more information 
+    about setcontent, can be found in the chapter 
+    [Fetching content](content-fetching).
 
 Implicitly available content
 ----------------------------

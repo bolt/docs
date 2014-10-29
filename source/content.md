@@ -4,24 +4,26 @@ Contenttypes and records
 All content in Bolt is stored in the database in a logical and flexible fashion.
 In general, when you're building a website, you have an idea what kind of
 content you're going to be managing with the website. Most websites have some
-sort of 'pages' for generic stuff like 'about us' or 'Company History'. Most
-websites will also have some form of news- like items, that are shown based on
+sort of 'pages' for generic stuff like 'about us' or 'Company History'. 
+
+Most websites will also have some form of news-like items, that are shown based on
 the date that they were published. Some other sites might have 'book reviews' or
 'event dates' or even completely different content. All of these different types
 of content are called **Contenttypes** in Bolt, and you can add as many
-different types as you need.
+different contenttypes as you need.
 
-Each contenttype is defined by a few fixed **Fields** that are used internally,
-but otherwise you're free to define how the content in a Contenttype is
-structured. For instance, in an 'event', you'll need a date on which the event
+Each contenttype is defined by a couple of fixed, required **Fields** that are 
+used internally, but otherwise you're free to define how the content in a 
+Contenttype is structured. For instance, in an 'event', you'll need a date on which the event
 takes place. For a 'book review', you'll need an author and publisher of the
-book. Other commonly used fields are 'title', 'introduction' or 'image'. Some of
-the Fields are Fixed, which means that every contenttype has them. For example,
+book. Other commonly used fields are 'title', 'introduction' or maybe an 'image'. 
+Some of the Fields are Fixed, which means that every contenttype has them. For example,
 every contenttype has a Field for 'id', 'slug', 'date_created' and 'user'. Below
 we'll describe how to define the Contenttypes and the Fields that you can use to
 store the desired information in them.
 
-<p class="tip"><strong>Tip:</strong> The 'slug' is a special value, that's used in the generation of the URL at which
+<p class="tip"><strong>Tip:</strong> The 'slug' is a special value, that's used in 
+the generation of the URL at which
 a page will be available on the website. It usually contains a  variant of the
 title, that's been made suitable for indexing by search engines. Ideally, it is
 both semantical and human readable. For example, if you have a page named "About
@@ -290,7 +292,7 @@ All fields have a general structure, like this:
             ..
 </pre>
 
-The following fields are available:
+The following fieldtypes are available:
 
   - `text`: Simple text-input, for single-line fields
   - `slug`: Even though the slug is a fixed field, you can include it in the
@@ -321,17 +323,19 @@ The following fields are available:
     the correct extensions
   - `filelist`: A more complex upload/select field.
   - `html`: Wysiwyg HTML field.  
-     You can override and set CKeditor options with ckconfig  
+     You can override and set CKeditor options with specifying ckeditor options  
      (see [CKeditor config documentation](http://docs.ckeditor.com/#!/api/CKEDITOR.config) for options)
 <pre class="brush: plain">
     htmlfield:
         type: html
-        ckconfig:
-            height: 400
-            autoGrow_maxHeight: 400
-            autoGrow_onStartup: false
-            # autoGrow_minHeight: 300
-            # contentsCss: ["/css/custom.css"]
+        options:
+            ckeditor:
+                height: 400
+                autoGrow_maxHeight: 400
+                autoGrow_onStartup: false
+                uiColor: '#BADA55'
+                # autoGrow_minHeight: 300
+                # contentsCss: ["/css/custom.css"]
 </pre>
 
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML
@@ -363,8 +367,21 @@ The following fields are available:
   - `geolocation`: A set of fields for easy selection of a geolocation
     (latitude/longitude) with an address.
   - `date`: Datepicker widget, to set/select a date.
-  - `datetime`: Similar to the `date` field, but adds an additional field so
+  - `datetime`: Similar to the `date` field, but adds an additional field to
     specify a time.
+    Both date and datetime fields accept some options for the datepicker plugin. 
+    However, currently the dateFormat is fixed to the format that Bolt uses internally.
+    (see [jQueryUI datepicker documentation](http://jqueryui.com/datepicker/) for information)
+<pre class="brush: plain">
+    datefield:
+        type: datetime
+        default: "2001-01-01"
+        options:
+            datepicker:
+                changeMonth: true
+                changeYear: true
+                yearRange: "-100:-0"
+</pre>
   - `integer`: A field to store whole, integer numbers. The value must be
     between <span style="white-space: nowrap">-2147483648</span> and +2147483647.
   - `float`: A field to store floating point value numbers. Internally stored so that they can be
@@ -477,7 +494,7 @@ common use-cases are:
 
 - `email`: the input must be a valid email address. The email address must be
   _possible_ syntactically, but it's not required that it actually exists.
-- `url`: the input must be a valid email url, starting with `http://` or
+- `url`: the input must be a valid url, starting with `http://` or
   `https://`. The URL address must be _possible_ syntactically, but it's not
   required that it actually exists.
 - `^.{1,50}$`: The input can contain any character, and should be between 1 and 50
