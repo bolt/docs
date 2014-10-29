@@ -120,7 +120,7 @@ But not:
 
 <p class="tip"><strong>Tip:</strong> When using only one <code>%</code>, Bolt
 will match only the beginning or the end of the field. For example:
-<code>'lore%'</code> end <code>'olor%'</code> will both match "Lorem Ipsum
+<code>'lore%'</code> and <code>'%olor'</code> will both match "Lorem Ipsum
 Dolor", but <code>'ipsu%'</code> won't. </p>
 
 ### Using taxonomies
