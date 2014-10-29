@@ -174,10 +174,10 @@ function initialize()
 {
 
     // Add javascript file
-    $this->addJavascript($app['paths']['app'] . "extensions/Namespace/assets/namespace.js", false);
+    $this->addJavascript($this->app['paths']['app'] . "extensions/Namespace/assets/namespace.js", false);
 
     // Add CSS file
-    $this->addCSS($app['paths']['app'] . "extensions/Namespace/assets/namespace.css", false);
+    $this->addCSS($this->app['paths']['app'] . "extensions/Namespace/assets/namespace.css", false);
 
 }
 </pre>
