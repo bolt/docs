@@ -253,7 +253,7 @@ The available options are:
     contenttype. For example `[ categories, tags ]`. See the page on
     [Taxonomies](/taxonomies#taxonomies) for details.
   - `relations`: An array listing the different relations available to this
-    contenttype. See the page on [Relations](/relations) for details.
+    contenttype. See the page on [Relations](/relationships) for details.
   - `record_template`: The default template to use, when displaying a single
     Record of this Contenttype. The template itself should be located in your
     `theme/foo/` folder, in Bolt's root folder. This can be overridden on a per-
