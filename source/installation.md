@@ -370,3 +370,13 @@ server {
     }   
 }
 </pre>
+
+**Note:** 502 Bad Gateway Errors
+
+If you're using UNIX sockets instead of TCP ports on your PHP-FPM 
+installation, you will need to change the `fastcgi_pass` paramters to match what
+is set in your PHP-FPM configuration's `listen = `, e.g.:
+
+```
+fastcgi_pass unix:/path/to/php-fpm/socket.sock;
+```
