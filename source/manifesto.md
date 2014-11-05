@@ -13,7 +13,7 @@ these self-imposed rules.
   possible, but not simpler. It uses sophisticated technology to achieve
   this, and use of the system should be straighforward and evident.
 - Bolt aims at **three groups of users**: Editors (content writers and 
-  editorial staff),  Frontend developers (HTML/CSS specialists and implementors) 
+  editorial staff),  Frontend developers (HTML/CSS specialists and implementers) 
   and Backend developers (coders, devops and sysops). All three are 
   equally important.
 - We recognize that Bolt is best suited for medium-sized websites. By
@@ -22,7 +22,7 @@ these self-imposed rules.
 - We will never add new features, if they detract from any of the points
   mentioned above. If a proposed feature makes the system harder to use,
   it will not be accepted. If a proposed feature is for the benefit of one
-  of our groups of users, but disadvantagous to another, it will not be
+  of our groups of users, but disadvantageous to another, it will not be
   accepted.
 - We will prevent feature creep: Functionality not essential to Bolt,
   should be implemented as separate extensions.
