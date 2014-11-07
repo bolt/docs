@@ -477,16 +477,18 @@ code {
 
 h1 a.anchor, 
 h2 a.anchor, 
-h3 a.anchor {
-    color: #CCC;
+h3 a.anchor, 
+h4 a.anchor {
+    color: lighten(desaturate($red, 35), 25);
     margin-left: 14px;
     font-size: 75%;
 }
 
 h1:hover a.anchor, 
 h2:hover a.anchor, 
-h3:hover a.anchor {
-    color: #27C;
+h3:hover a.anchor,
+h4:hover a.anchor {
+    color: darken($red, 10);
     text-decoration: none;
 }
 
