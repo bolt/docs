@@ -4,3 +4,4 @@ composer.lock
 cache/*
 .idea/
 .DS_*
+node_modules/
