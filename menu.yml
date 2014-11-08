@@ -33,6 +33,7 @@ extending:
   extensions-essentials: "Developers: Creating Your First Extension"
   extensions-config: "Developers: Configure and Load Your Extension"
   extensions-customfields: "Developers: Providing New Field Types"
+  extensions-dev: "Set-up For Extension Development"
   extensions-testing: "Developers: Testing Your Extensions"
 
 internals:
