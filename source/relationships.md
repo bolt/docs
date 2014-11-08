@@ -45,13 +45,13 @@ Internally, relations are stored and accessible in the `Bolt\Record` object.
 However, accessing `record.relation` will give you nothing but the contenttypes
 and id's:
 
-<pre class="brush: html">
+```
     {{ print(record.relation) }}
-</pre>
+```
 
 Output:
 
-<pre class="brush: plain">
+```
 arr(2)
 [
     "pages"        => arr(1)
@@ -64,11 +64,11 @@ arr(2)
             1 => str(2) "23"
         ]
 ]
-</pre>
+```
 
 To get the actual related records, use the _function_ `related()`
 
-<pre class="brush: html">
+```
     {% set relatedrecords = record.related() %}
     {% if relatedrecords is not empty %}
         <p>Related content:</p>
@@ -78,21 +78,21 @@ To get the actual related records, use the _function_ `related()`
         {%  endfor %}
         </ul>
     {% endif %}
-</pre>
+```
 
 The `related()` function has two optional parameters. If you don't pass any
 parameters, you will get all related records, regardless of their contenttype.
 To retrieve only the related records of a specific contenttype, use:
 
-<pre class="brush: html">
+```
     {% set relatedrecords = record.related('pages') %}
-</pre>
+```
 
 To request only one specific related record, pass the id as the second parameter:
 
-<pre class="brush: html">
+```
     {% set relatedrecords = record.related('pages', 45) %}
-</pre>
+```
 
 <p class="note"><strong>Note:</strong> The <code>related()</code> function
 <em>always</em> returns an array of records, even if you request only a single

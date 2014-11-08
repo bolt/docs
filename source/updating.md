@@ -29,11 +29,11 @@ thing.</p>
 If you have command-line access, you can update Bolt by executing a few
 commands.
 
-<pre class="brush: plain">
+```
 curl -O http://bolt.cm/distribution/bolt-latest.tar.gz
 tar -xzf bolt-latest.tar.gz --strip-components=1
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
-</pre>
+```
 
 
 ### Option 2: The traditional way, using (S)FTP.
@@ -54,22 +54,22 @@ accidentally wipe a folder and its contents.</p>
 
 If you've installed via Git, you can update by executing the following commands. 
 
-<pre class="brush: plain">
+```
 git pull
 php composer.phar self-update
 php composer.phar update
-</pre>
+```
 
 After updating, you should clear the cache, and make sure the database is up to
 date.
 
-<pre class="brush: plain">
+```
 php app/nut cache:clear
-</pre>
+```
 
 Check and update the database, with these commands:
 
-<pre class="brush: plain">
+```
 php app/nut database:check
 php app/nut database:update
-</pre>
+```
