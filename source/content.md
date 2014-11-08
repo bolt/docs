@@ -63,7 +63,7 @@ you first run Bolt, just copy <code>contenttypes.yml.dist</code> to
 To add this Contenttype, edit the file `app/config/contenttypes.yml`, and add
 the following to the bottom or top of the file:
 
-<pre class="brush: plain">
+```apache
 news:
     name: News
     singular_name: Newsitem
@@ -80,10 +80,7 @@ news:
             type: html
             height: 300px
     template: newsitem.twig
-</pre>
-
-<p class="tip"><strong>Tip:</strong> For easier copy/pasting of the samples,
-doubleclick the code.</p>
+```
 
 <p class="note"><strong>Note:</strong> This file is in the YAML format, which
 means that the indentation is important. Make sure you leave leading spaces
@@ -122,22 +119,22 @@ To add a listing of these news items to the website, edit the twig template
 and some other things. Add the following to the HTML-code, preferably somewhere
 below the header section:
 
-<pre class="brush: html">
+```
 {% setcontent newsitems = "news/latest/4" %}
 
 {% for newsitem in newsitems %}
-&lt;article>
-    &lt;h2>&lt;a href="{{ newsitem.link }}">{{ newsitem.title }}&lt;/a>&lt;/h2>
+<article>
+    <h2><a href="{{ newsitem.link }}">{{ newsitem.title }}</a></h2>
 
     {{ newsitem.excerpt }}
 
-    &lt;p class="meta">&lt;a href="{{ newsitem.link }}">Link&lt;/a> -
+    <p class="meta"><a href="{{ newsitem.link }}">Link</a> -
     Posted by {{ newsitem.user.displayname }}
-    on {{ newsitem.datecreated|date("M d, ’y")}}&lt;/p>
+    on {{ newsitem.datecreated|date("M d, ’y")}}</p>
 
-&lt;/article>
+</article>
 {% endfor %}
-</pre>
+```
 
 Most of the above example will seem pretty straightforward, but all of the
 specific template tags are explained in detail in the chapter about [Content in
@@ -149,34 +146,34 @@ page, but you'll get an error. In the contenttype we defined the template as
 `newsitem.twig`, but it doesn't exist. Create the file in the `theme/default/`
 folder, and add the following HTML-code:
 
-<pre class="brush: html">
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-	&lt;meta charset="utf-8" /&gt;
-	&lt;title&gt;{{ newsitem.title }}&lt;/title&gt;
-&lt;/head&gt;
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>{{ newsitem.title }}</title>
+</head>
 
-&lt;body&gt;
+<body>
 
-    &lt;article&gt;
+    <article>
 
-        &lt;h1&gt;&lt;a href="{{ newsitem.link }}"&gt;{{ newsitem.title }}&lt;/a&gt;&lt;/h1&gt;
+        <h1><a href="{{ newsitem.link }}">{{ newsitem.title }}</a></h1>
 
         {% if content.image!="" %}
-            &lt;div class='imageholder'&gt;&lt;img src="{{ newsitem.image|thumbnail(480, 480) }}"&gt;&lt;/div&gt;
+            <div class='imageholder'><img src="{{ newsitem.image|thumbnail(480, 480) }}"></div>
         {% endif %}
 
         {{ newsitem.text }}
 
-        &lt;p class="meta"&gt;&lt;a href="{{ newsitem.link }}"&gt;Link&lt;/a&gt; -
+        <p class="meta"><a href="{{ newsitem.link }}">Link</a> -
         	Posted by {{ newsitem.username }}
-        	on {{ newsitem.datecreated|date("M d, ’y")}}&lt;/p&gt;
+        	on {{ newsitem.datecreated|date("M d, ’y")}}</p>
 
-    &lt;/article&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</pre>
+    </article>
+</body>
+</html>
+```
 
 <p class="note"><strong>Tip:</strong> If you're curious about the different
 <code>{{ tags }}</code> in this bit of code, read the <a
@@ -206,31 +203,31 @@ added later on, and settings can be changed, so nothing is set in stone.
 
 The general structure of each contenttype is:
 
-<pre class="brush: plain">
+```apache
 name:
     option: value
     option: value
     option: value
     ..
-</pre>
+```
 
 The `name` defines the name of the contenttype, and it should be a 'safe'
 version of the `name:` option below. Basically this means that it should be a
 lowercase version, without any special characters. Like this:
 
-<pre class="brush: plain">
+```apache
 pages:
     name: Pages
     singular_name: Page
     ..
-</pre>
+```
 
-<pre class="brush: plain">
+```apache
 cafes:
     name: Cafés
     singular_name: Café
     ..
-</pre>
+```
 
 The available options are:
 
@@ -284,13 +281,13 @@ Field definitions
 
 All fields have a general structure, like this:
 
-<pre class="brush: plain">
+```apache
         name:
             type: name-of-fieldtype
             option: value
             option: value
             ..
-</pre>
+```
 
 The following fieldtypes are available:
 
@@ -301,20 +298,20 @@ The following fieldtypes are available:
     the title (or another field). It's also possible to specify multiple fields
     to use, these values will be concatenated and used for the slug. Syntax for
     multiple fields:
-<pre class="brush: plain">
+```apache
     slug:
         type: slug
         uses: [field1,field2]
-</pre>
+```
   - `image`: Simple image upload/select field. Currently takes one optional
     attribute (attrib:) parameter 'title' — this will allow you to specify text
     that you can call in your templates to retreive either/or captions or alt
     text for your image layout.
-<pre class="brush: plain">
+```apache
     image:
         type: image
         attrib: title
-</pre>
+```
   - `imagelist`: A field to create a list of images. Useful for slideshows and
     imagesliders.
   - `file`: Simple file upload/select field.
@@ -325,7 +322,7 @@ The following fieldtypes are available:
   - `html`: Wysiwyg HTML field.  
      You can override and set CKeditor options with specifying ckeditor options  
      (see [CKeditor config documentation](http://docs.ckeditor.com/#!/api/CKEDITOR.config) for options)
-<pre class="brush: plain">
+```apache
     htmlfield:
         type: html
         options:
@@ -336,7 +333,7 @@ The following fieldtypes are available:
                 uiColor: '#BADA55'
                 # autoGrow_minHeight: 300
                 # contentsCss: ["/css/custom.css"]
-</pre>
+```
 
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML
     markup.
@@ -345,14 +342,14 @@ The following fieldtypes are available:
     or a contenttype/field lookup.
 
     Array values:
-<pre class="brush: plain">
+```apache
     selectfield:
         type: select
         values: [ none, foo, bar ]
-</pre>
+```
 
     Lookup existing Contenttype record fields:
-<pre class="brush: plain">
+```apache
     selectfield:
         type: select
         values: mycontenttype/fieldname
@@ -360,7 +357,7 @@ The following fieldtypes are available:
     selectapage:
         type:select
         values: pages/id,title
-</pre>
+```
 
   - `video`: A set of fields for embedding videos from websites like Youtube and
     Vimeo.
@@ -372,7 +369,7 @@ The following fieldtypes are available:
     Both date and datetime fields accept some options for the datepicker plugin. 
     However, currently the dateFormat is fixed to the format that Bolt uses internally.
     (see [jQueryUI datepicker documentation](http://jqueryui.com/datepicker/) for information)
-<pre class="brush: plain">
+```apache
     datefield:
         type: datetime
         default: "2001-01-01"
@@ -381,7 +378,7 @@ The following fieldtypes are available:
                 changeMonth: true
                 changeYear: true
                 yearRange: "-100:-0"
-</pre>
+```
   - `integer`: A field to store whole, integer numbers. The value must be
     between <span style="white-space: nowrap">-2147483648</span> and +2147483647.
   - `float`: A field to store floating point value numbers. Internally stored so that they can be
@@ -432,13 +429,13 @@ how a field is displayed in the Bolt backend, when editing a record. You can use
 the optional `prefix` and `postfix` values to add some markup before or after a
 field. For example:
 
-<pre class="brush: plain">
+```apache
         subtitle:
             type: text
             class: large
             prefix: "<p>Add a subtitle, if you want.</p>"
             postfix: "<hr>"
-</pre>
+```
 
 As you can see, using `postfix: "<hr>"` gives a simple and effective way of
 adding a divider in the edit screen.
@@ -476,13 +473,13 @@ Currently, you can use the `required` option for fields of type `text`,
 
 For example, to make a title required, you can do this:
 
-<pre class="brush: plain">
+```apache
         title:
             type: text
             prefix: "<p>A title is required.</p>"
             required: true
             class: large
-</pre>
+```
 
 If combined with a `pattern`, you can add frontend validation to the field. By
 doing this, you can require that the values of a field are within certain
@@ -508,14 +505,14 @@ common use-cases are:
 
 For example, use this to make sure a title is no longer than 80 characters:
 
-<pre class="brush: plain">
+```apache
         title:
             type: text
             prefix: "<p>A title is required. The maximum length is 80 characters</p>"
             required: true
             pattern: "^.{1,80}$"
             class: large
-</pre>
+```
 
 The `^` and `$` in some of the examples note the beginning and end of the value
 respectively. If we would omit these, the results would be off. For example,
@@ -531,13 +528,13 @@ You can also define fields that are not required, but that _do_ have a pattern.
 Doing this, the field can be left blank, but if it _is_ filled, it must match
 the pattern. For example, you could make an optional email-address like this:
 
-<pre class="brush: plain">
+```apache
         person:
             type: text
             prefix: "<p>An optional email address.</p>"
             required: false
             pattern: email
-</pre>
+```
 
 <p class="note"><strong>Note:</strong> If you have a required field, you should
 always include a postfix. Otherwise the editor might not know what's expected of
@@ -551,12 +548,12 @@ can combine it with the `default` option to make sure that a field contains
 something. The readonly status is only enforced in the browser, so don't "trust"
 any data that's been entered by an editor.
 
-<pre class="brush: plain">
+```apache
         serialnumber:
             type: text
             default: "SN-123456789"
             readonly: true
-</pre>
+```
 
 
 The structure of a Record

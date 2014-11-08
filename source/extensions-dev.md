@@ -98,9 +98,9 @@ Installing The Extension
 
 Change into your extensions directory and do the following:
 
-```
-$ curl -sS https://getcomposer.org/installer | php -- --filename=composer
-$ ./composer update
+```bash
+curl -sS https://getcomposer.org/installer | php -- --filename=composer
+./composer update
 ``` 
 
 Your extension will now install from your git repo and build an autoloader.

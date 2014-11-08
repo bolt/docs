@@ -37,12 +37,12 @@ You can initiate the search by visiting the URL `/search?q=SEARCH`.
 The template that is used for search by default, is defined in your `config.yml`
 file:
 
-<pre class="brush: plain">
+```apache
 # Template for showing the search results. If not defined, uses the settings
 # for listing_template and listing_records
 search_results_template: listing.twig
 search_results_records: 10
-</pre>
+```
 
 In the template you have access to three variables:
 
@@ -52,7 +52,7 @@ In the template you have access to three variables:
 
 Example use case:
 
-<pre class="brush: html">
+```
 <p>
     {{ searchresult.no_of_results }} results for {{ search }} found.
 </p>
@@ -66,7 +66,7 @@ Example use case:
     </li>
 {% endfor %}
 </ol>
-</pre>
+```
 
 The search added one 'special' value added to each record:
 `record.searchresultweight`. The results are sorted on this value, as it's an
@@ -90,7 +90,7 @@ just like a normal `{% setcontent %}`.
 
 Some examples:
 
-<pre class="brush: html">
+```
 {# search for 'Waldo' in the contenttype 'pages' #}
 {% setcontent results = 'pages/search' where { filter: 'waldo' } %}
 
@@ -99,7 +99,7 @@ Some examples:
 
 {# search for 'Waldo' in the contenttype 'pages' and the contenttype 'entries' #}
 {% setcontent results = '(pages,entries)/search' where { filter: 'waldo' } %}
-</pre>
+```
 
 If you're not getting the results you're expecting, use `{{ print(results) }}`
 to dump the set of results, or add the `printquery` parameter at the end of the
@@ -125,7 +125,7 @@ base score of '75'.
 You can override these scores in the config files for the contenttypes and
 taxonomies. For example, in `contenttypes.yml`:
 
-<pre class="brush: plain">
+```apache
 pages:
     name: Pages
     singular_name: page
@@ -138,14 +138,14 @@ pages:
             type: html
             height: 150px
             searchweight: 100
-</pre>
+```
 
 Or in `taxonomy.yml`:
 
-<pre class="brush: plain">
+```apache
 tags:
     slug: tags
     singular_slug: tag
     behaves_like: tags
     searchweight: 80
-</pre>
+```
