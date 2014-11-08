@@ -3,7 +3,7 @@ Relationships
 
 You can use relationships between records by adding a relation to `contenttype.yml`.
 
-<pre class="brush: plain">
+```
 entries:
     name: Entries
     singular_name: Entry
@@ -15,7 +15,7 @@ entries:
             label: Select a page
             order: -id
     [..]
-</pre>
+```
 
 The `relations:` is defined by the slug of the contenttype that it's related to.
 In the example above `pages`. It takes a few parameters:
