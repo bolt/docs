@@ -67,12 +67,12 @@ The `getName()` method tells Bolt how you want the extension to be referred to.
 The initialized extension object will be mounted onto the main Bolt Application,
 so, for instance, using the following method:
 
-<pre class="brush: php">
+```
 function getName()
 {
     return "widgetpicker";
 }
-</pre>
+```
 
 When the extension is registered a shareable instance of the extension will be
 available at `$app['extensions.widgetpicker']`
@@ -85,14 +85,14 @@ The initialize() function is called for the initialisation of each active
 extension. It's used to set up functionality to be used in the templates of for
 Twig function. It looks like this:
 
-<pre class="brush: php">
+```
 function initialize()
 {
 
         $this->addSnippet('endofbody', 'facebookScript');
         $this->addTwigFunction('facebooklike', 'facebookLike');
 }
-</pre>
+```
 
 
 As you can see the function is called without a parameter, and basically
@@ -135,17 +135,17 @@ Snippets can be inserted in several places in the outputted HTML:
 
 To insert a string snippet, use: 
 
-<pre class="brush: php">
+```
 function initialize()
 {
     $this->addSnippet('endofbody', '&lt;!-- a snippet of HTML -->');
 }
-</pre>
+```
 
 To insert a snippet using a callback function, use the following. You can pass one 
 extra optional variable, which can be a simple scalar or an array. 
 
-<pre class="brush: php">
+```
 function initialize()
 {
     $this->addSnippet('endofbody', 'snippetbar', $foo);
@@ -156,7 +156,7 @@ function snippetbar($foo)
     return "&lt;b>Var is $foo.&lt;/b>";
 }
 
-</pre>
+```
 
 However, don't use this to pass a 'live' version of `$app`. In the callback function 
 this will already be available as `$this->app`. 
@@ -169,7 +169,7 @@ outputted HTML in the frontend. To do so, use the `addJavascript()` and
 `addCSS()` functions:
 
 
-<pre class="brush: php">
+```
 function initialize()
 {
 
@@ -180,7 +180,7 @@ function initialize()
     $this->addCSS($app['paths']['app'] . "extensions/Namespace/assets/namespace.css", false);
 
 }
-</pre>
+```
 
 Both of these functions take two parameters: 
 
@@ -201,14 +201,14 @@ jQuery includes, your HTML would quickly become a mess at best. Most likely it
 will break, because having more than one instance of jQuery might cause
 conflicts in your page. If your extension requires jQuery, use the following:
 
-<pre class="brush: php">
+```
 function initialize()
 {
 
     $this->addJquery();
 
 }
-</pre>
+```
 
 This will make sure jQuery is added to the outputted HTML, but only if it's not
 included by the theme developer already. It also will not be included more than
@@ -224,17 +224,17 @@ version that you are running.
 If you want to retrieve a list of all assets added by extensions. You can use
 `getAssets()` in your extension. Like so,
 
-<pre class="brush: php">
+```
 $assets = $this->getAssets();
 $assets['js']; // all js files
 $assets['css']; // all css files
-</pre>
+```
 
 Or if you want to retrieve them in a twig template, use `app.extensions.assets`.
 
-<pre class="brush: html">
+```
 {{ dump(app.extensions.assets) }}
-</pre>
+```
 
 
 Add a Twig function or filter
@@ -244,7 +244,7 @@ Extensions can add Twig functions or filters to extend the templates used in the
 frontend. This example will add a function `{{ foo() }}` to use in the frontend
 templates:
 
-<pre class="brush: php">
+```
 function initialize()
 {
 
@@ -262,7 +262,7 @@ function twigFoo($var1, $var2)
     return "Twig function Namespace.";
 
 }
-</pre>
+```
 
 Note that the Namespace must be included with `'Namespace\twigFoo'`, even though
 the function is defined within the namespace of the extension. This is because
@@ -273,7 +273,7 @@ was omitted.
 You can also define a Twig filter for use in the frontend. The following example
 will add a filter 'bar', that can be used in the templates like `{{ "foo"|bar }}`.
 
-<pre class="brush: php">
+```
 function initialize()
 {
 
@@ -292,7 +292,7 @@ function twigBar($var1, $var2)
     return new \Twig_Markup($str, 'UTF-8');
 
 }
-</pre>
+```
 
 Since these are just regular Twig functions/filters, you should familiarize
 yourself with how Twig works. Read the chapter [Extending Twig](http://twig.sensiolabs.org/doc/advanced.html) 
@@ -319,7 +319,7 @@ There are no events for specific content types. However you can use the passed
 
 An example to log whenever a content has been saved.
 
-<pre class="brush: php">
+```
 $app['dispatcher']->addListener(\Bolt\StorageEvents::postSave, 'postSave');
 
 function postSave(\Bolt\StorageEvent $event)
@@ -327,7 +327,7 @@ function postSave(\Bolt\StorageEvent $event)
     $entry = date('Y-m-d H:i:s').' '.$event->getContentType().' with id '.$event->getId().' has been saved'."\n";
     file_put_contents('storage.log', $entry, FILE_APPEND);
 }
-</pre>
+```
 
 
 
@@ -339,7 +339,7 @@ named `config.yml`, and it should be in the folder of your extension. The
 extension configuration will be automatically loaded. To use it in a snippet
 callback, or a Twig function or modifier, use it like this:
 
-<pre class="brush: php">
+```
 function foo()
 {
 
@@ -353,7 +353,7 @@ function foo()
     return "Hello, $name.";
 
 }
-</pre>
+```
 
 Using the global configuration
 ------------------------------
@@ -361,12 +361,12 @@ Using the global configuration
 Sometimes you might need a global configuration variable in your extension.
 Usually you can read a global configuration variable like this:
 
-<pre class="brush: php">
+```
 function foo()
 {
     $prefix = $this->app['config']->get('general/database/prefix', 'bolt_');
 }
-</pre>
+```
 
 
 Overriding the default 'Content' class
