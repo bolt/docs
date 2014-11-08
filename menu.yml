@@ -35,6 +35,7 @@ extending:
   extensions-customfields: "Developers: Providing New Field Types"
   extensions-dev: "Set-up For Extension Development"
   extensions-testing: "Developers: Testing Your Extensions"
+  extensions-nut-commands: "Providing Nut Console Commands"
 
 internals:
   "": "Bolt Internals"
