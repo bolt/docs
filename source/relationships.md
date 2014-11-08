@@ -3,7 +3,7 @@ Relationships
 
 You can use relationships between records by adding a relation to `contenttype.yml`.
 
-```
+```apache
 entries:
     name: Entries
     singular_name: Entry

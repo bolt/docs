@@ -104,27 +104,27 @@ Note that the debug bar is appended to all your frontend templates by default.
 If you don't want the bar in a custom template, just use this, anywhere in the
 template:
 
-<pre class="brush: html">
+```
     {{ debugbar(false) }}
-</pre>
+```
 
 When creating an extension or custom controller, the debug is not added by
 default. In your code you can enable or disable it using the following:
 
-<pre class="brush: php">
+```
 $this->app['debugbar'] = false;
 $this->app['debugbar'] = true;
-</pre>
+```
 
-### {{ dump() }} and Dumper::dump()
+### `{{ dump() }}` and `Dumper::dump()`
 
 If you're coding and you want to get a quick look at whatever variable or object
 you're trying to manipulate, you can dump its contents to the browser. In
 templates, use the following:
 
-<pre class="brush: html">
+```
     {{ dump(variable) }}
-</pre>
+```
 
 The `variable` can be a normal variable, a Record or multiple records of
 Content, or other stuff.
@@ -133,9 +133,9 @@ Content, or other stuff.
 
 In your code you can also dump variables and objects, like this:
 
-<pre class="brush: php">
+```
     \Dumper::dump($variable);
-</pre>
+```
 
 Like above, the `$variable` can be a normal variable, an object or whatever.
 Note that Bolt has built-in protection for when you're tyring to 'dump' Silex or
@@ -149,15 +149,15 @@ Using this function you can get a backtrace throught the code to the current
 point in the execution. Useful for when you're debugging something, and you're
 not quite sure how you got here to begin with. In your templates, use the following: 
 
-<pre class="brush: html">
+```
     {{ backtrace() }}
-</pre>
+```
 
 In your code you can also use backtrace, like this:
 
-<pre class="brush: php">
+```
     \Dumper::backtrace(10);
-</pre>
+```
 
 The optional parameter denotes the maximum depth of the output of the backtrace. 
 
@@ -179,15 +179,15 @@ counterparts: 'general' (for `config.yml`), 'contenttypes', 'taxonomy' and
 You can get any setting through this array. For instance, to get the value for
 'homepage_template', use this:
 
-<pre class="brush: php">
+```
 $app['config']->get('general/homepage_template')
-</pre>
+```
 
 These variables are also accessible in your templates:
 
-<pre class="brush: html"> 
+``` 
     {{ print(config.get('general/homepage_template')) }}
-</pre>
+```
 
 Remember to use `{{ dump() }}` and `\Dumper::dump()` to dump these arrays to
 inspect the current values.
@@ -196,19 +196,19 @@ inspect the current values.
 
 The 'paths' array contains references to paths, folders and links in your current website.
 
-<pre class="brush: php">
+```
 echo "&lt;pre>\n" . \Dumper::dump($app['paths'], true) . "&lt;/pre>\n";
-</pre>
+```
 
 The path variables are also accessible in your templates:
 
-<pre class="brush: html">
+```
     {{ dump(paths) }}
-</pre>
+```
 
 A sample printout of the 'paths' might look like this:
 
-<pre class="brush: plain">
+```
 … arr(17) …
   hostname str(14) => bolt.localhost
   root str(1) => /
@@ -227,7 +227,7 @@ A sample printout of the 'paths' might look like this:
   rooturl str(22) => https://bolt.localhost/
   canonicalurl str(64) => https://bolt.localhost/kitchensink/sed-residamus-inquit-si-placet
   currenturl str(64) => https://bolt.localhost/kitchensink/sed-residamus-inquit-si-placet
-</pre>
+```
 
 
 ### $app['db']
@@ -241,7 +241,7 @@ Doctrine DBAL:
 
 Example:
 
-<pre class="brush: php">
+```
 $tablename = $this->config['general']['database']['prefix'] . $contenttype;
 $query = "UPDATE $tablename SET $field = ? WHERE id = ?";
 $stmt = $app['db']->prepare($query);
@@ -250,7 +250,7 @@ $stmt->bindValue(2, $id);
 $res = $stmt->execute();
 
 echo "Result was: " . \Dumper::dump($res);
-</pre>
+```
 
 Check `app/src/Bolt/Storage.php` for a lot of examples using the DBAL.
 
@@ -269,9 +269,9 @@ Instance of Bolt\Log. See `app/src/Bolt/Log.php` for details.
 
 Example:
 
-<pre class="brush: php">
+```
 $app['log']->add("Login " . $request->get('username') , 2, '', 'login');
-</pre>
+```
 
 The `add()` function takes four parameters:
 - The message to log.
@@ -296,11 +296,11 @@ Instance of Silex Session. See
 Use this to set Flash messages: Messages that appear on the current or next
 pageview, for the current user. Example:
 
-<pre class="brush: php">
+```
 $app['session']->setFlash('success', 'Something went A-OK.');
 $app['session']->setFlash('info', 'A neutral message.');
 $app['session']->setFlash('error', 'Something went horribly wrong.');
-</pre>
+```
 
 ### $app['cache']
 
@@ -334,9 +334,9 @@ Inspect the various controllers `app/app_backend.php`, `app/app_frontend.php`
 and `app/app_async.php` for details. To use a template in your own code as part
 of the result, see this example:
 
-<pre class="brush: php">
+```
 $html = $app['render']->render("assets/bla.twig", array('form' =>  $data));
-</pre>
+```
 
 Note that the template file must be somewhere in (or below) the allowed folders
 for Twig templates. There are currently three folders Twig looks in for files:
@@ -356,7 +356,7 @@ When creating an extension or custom controller, the debug is not added by
 default. In your code you can enable or disable the output of these snippets
 using the following:
 
-<pre class="brush: php">
+```
 $this->app['htmlsnippets'] = false;
 $this->app['htmlsnippets'] = true;
-</pre>
+```

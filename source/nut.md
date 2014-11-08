@@ -14,7 +14,7 @@ over time.
 
 When running `php app/nut` without any parameters, you'll see the help screen:
 
-<pre class="brush:plain">
+```apache
 Console Tool
 
 Usage:
@@ -51,7 +51,7 @@ log
   log:trim             Trim the activitylog to recent/important items only.
 tests
   tests:run            Runs all available tests
-</pre>
+```
 
 Run any of these commands, to perform their actions, like `php app/nut cache:clear`. 
 

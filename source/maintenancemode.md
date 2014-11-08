@@ -10,10 +10,10 @@ Any users that are logged in, will be able to use the site as normal, while
 other visitors will see the maintenance screen. You can enable the Maintenance
 mode with these settings in the `config.yml` file:
 
-<pre class="brush: plain">
+```
 maintenance_mode: true
 maintenance_template: maintenance_default.twig
-</pre>
+```
 
 The first value turns the maintenance mode on or off. The second option sets the
 template to use. By default, the template `maintenance_default.twig` is chosen,

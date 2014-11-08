@@ -45,10 +45,12 @@ internals:
 
 other:
   "": Other Information
+  manifesto: "The Bolt Manifesto"
   howto: "Howto's on various subjects"
   locales: "Locales"
   nut: "Nut (command line utility)"
   maintenancemode: "Maintenance (offline) mode"
   credits: "Credits and Contributing"
   roadmap: "Roadmap"
+  installation-advanced: "Advanced installation details"
 
