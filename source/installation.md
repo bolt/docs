@@ -19,16 +19,11 @@ If you have command-line access, you can easily install Bolt by executing a few
 commands. First, create the directory where you want to install Bolt, if it doesn't
 already exist. Enter the directory, and execute the following commands:
 
-<pre class="brush: plain">
+```bash
 curl -O http://bolt.cm/distribution/bolt-latest.tar.gz
 tar -xzf bolt-latest.tar.gz --strip-components=1
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
-</pre>
-
-<p class="tip">
-<strong>Tip:</strong> For easier copy/pasting of the samples, double-click the
-code.
-</p>
+```
 
 Bolt needs to be able to read and write certain directories like the cache and the
 template directories. On most servers the webserver runs in a different group than
@@ -84,21 +79,21 @@ After you've done this, skip to the section [Setting up Bolt](#setting-up-bolt).
 If you want to install Bolt using Git and Composer, execute the following
 commands:
 
-<pre class="brush: plain">
+```bash
 git clone git://github.com/bolt/bolt.git bolt
 cd bolt
 curl -s http://getcomposer.org/installer | php
 php composer.phar install
-</pre>
+```
 
 This will get the Bolt files, the theme in submodule, the Silex framework, and
 all required components. Most likely all files and directories will have the
 correct filerights, but if they don't, (re)set them using the following command
 in the `bolt/` directory:
 
-<pre class="brush: plain">
+```bash
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
-</pre>
+```
 
 It depends on the exact server configuration if you will need to use `777` or if
 another setting is better. If you wish to know for sure, ask your hosting
@@ -162,22 +157,23 @@ If you wish to edit the database configuration, you have to change the settings
 in `app/config/config.yml`. Apart from SQLite, you can use MySQL and PostgreSQL as
 database backends. Set the database, username and password:
 
-<pre class="brush: plain">
+```apache
 database:
   driver: mysql
   username: bolt
   password: password
-  databasename: bolt </pre>
+  databasename: bolt 
+```
 
 or:
 
-<pre class="brush: plain">
+```apache
 database:
   driver: postgres
   username: bolt
   password: password
   databasename: bolt
-</pre>
+```
 
 Support for PostgreSQL is experimental, so use with caution.
 
@@ -188,14 +184,14 @@ Support for PostgreSQL is experimental, so use with caution.
 If the hostname or port are something else than `localhost:3306`, you can add
 them like this:
 
-<pre class="brush: plain">
+```apache
 database:
   username: bolt
   password: bolt%1
   databasename: bolt
   host: database.example.org
   port: 3306
-</pre>
+```
 
 The other settings in the `config.yml` file can be changed later on, directly
 from the Bolt backend.
@@ -229,24 +225,24 @@ Bolt requires the use of a .htaccess file to make sure requests like `page/about
 get routed to the index.php, so it can be handled by Bolt.
 By default, the file looks like this:
 
-<pre class="brush: plain">
+```apache
 # Set the default handler.
 DirectoryIndex index.php index.html index.htm
 
 # Prevent directory listing
 Options -Indexes
 
-&lt;FilesMatch "\.(yml|db|twig|md)$">
-    &lt;IfModule mod_authz_core.c>
+<FilesMatch "\.(yml|db|twig|md)$">
+    <IfModule mod_authz_core.c>
         Require all denied
-    &lt;/IfModule>
-    &lt;IfModule !mod_authz_core.c>
+    </IfModule>
+    <IfModule !mod_authz_core.c>
         Order deny,allow
         Deny from all
-    &lt;/IfModule>
-&lt;/FilesMatch>
+    </IfModule>
+</FilesMatch>
 
-&lt;IfModule mod_rewrite.c>
+<IfModule mod_rewrite.c>
   RewriteEngine on
 
   RewriteRule cache/ - [F]
@@ -259,9 +255,9 @@ Options -Indexes
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !=/favicon.ico
   RewriteRule ^ ./index.php [L]
-&lt;/IfModule>
+</IfModule>
 
-</pre>
+```
 
 In some cases it won't work without the `RewriteBase` line, and in some cases it
 won't work _with_ it, depending on how your Apache is configured and the
@@ -275,9 +271,9 @@ Alternatively, if your server is running Apache 2.2.16 or higher, you might be
 able to replace the entire `mod_rewrite` block from lines 17-30 with this single
 line:
 
-<pre class="brush: plain">
+```apache
 FallbackResource /index.php
-</pre>
+```
 
 If you have misplaced your `.htaccess` file, you can get a 
 <a href="http://bolt.cm/distribution/default.htaccess">new one here</a>, 
@@ -295,7 +291,7 @@ handle the rewrites and such that Bolt requires.
 
 Modify the virtual server block below to fit your needs:
 
-<pre class="brush: plain">
+```nginx
 # Bolt virtual server
 server {
     server_name mycoolsite.com www.mycoolsite.com;
@@ -369,4 +365,4 @@ server {
         deny all;
     }   
 }
-</pre>
+```
