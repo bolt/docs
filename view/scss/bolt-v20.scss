@@ -47,6 +47,11 @@ header {
     @extend .row;
 }
 
+p {
+    line-height: 1.7;
+    font-family: 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
+}
+
 
 .inner {
     //@extend .columns; //Not needed? Floats fuck up header. 
@@ -401,23 +406,22 @@ section{   // was .maininfo, .secinfo
  * Styles for the sidebar
  */
 .sidebar ul {
-    list-style: none;
     margin: 0;
     padding:0;
 }
 
 .sidebar ul li {
-    margin: 0 0 0 20px;
     padding: 3px 0 3px 0;
+    margin-left: 18px;
     line-height: 1.2em;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    list-style: disc;
+    list-style-position: outside;
 }
 
 .sidebar ul li.section {
-    list-style: none;
     margin: 12px 0 0 0;
     font-weight: bold;
+    list-style: none;
 }
 
 .sidebar ul li a{
@@ -434,7 +438,7 @@ section{   // was .maininfo, .secinfo
 
 .sidebar ul ul{
     margin-top: 4px;
-    margin-left: 0px;
+    margin-left: 18px;
 }
 
 
@@ -466,6 +470,11 @@ pre {
     margin: 20px 0;
 }
 
+code.hljs {
+    padding: 10px;
+    line-height: 20px;
+}
+
 code {
     padding: 1px 3px;
     background-color: #EEE;
@@ -485,6 +494,7 @@ h4 a.anchor {
     color: lighten(desaturate($red, 35), 25);
     margin-left: 14px;
     font-size: 75%;
+    border: 0;
 }
 
 h1:hover a.anchor, 
@@ -493,6 +503,7 @@ h3:hover a.anchor,
 h4:hover a.anchor {
     color: darken($red, 10);
     text-decoration: none;
+    border: 0;
 }
 
 
@@ -714,6 +725,7 @@ footer {
 
 p {
     a:hover {
+        color: darken($red, 10);
         text-decoration: underline;
     }
     &.meta {
@@ -721,6 +733,18 @@ p {
         color: $red;
     }
 }
+
+.content a { 
+    text-decoration: none; 
+    border-bottom: 1px solid lighten($red, 30);
+}
+
+
+.content a:hover { 
+    text-decoration: none; 
+    border-bottom: 1px solid darken($red, 10);
+}
+
 
 h1 a, h2 a, h3 a, h4 a, h5 a {
     color: inherit;
