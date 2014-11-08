@@ -481,11 +481,21 @@ code {
     border: 1px solid #E8E8E8;
     color: #555;
     font-family: "Menlo", "Consolas", "Courier New", Courier, monospace;
-    // white-space: nowrap;
     font-size: 13px;
     font-weight: normal;
 }
 
+p code { 
+    white-space: nowrap;
+}
+
+.content h2 code {
+    font-size: 24px;
+}
+
+.content h3 code {
+    font-size: 19px;
+}
 
 h1 a.anchor, 
 h2 a.anchor, 
