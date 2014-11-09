@@ -7,15 +7,20 @@ language. This means that everybody who is familiar with Twig can easily get sta
 In short, Twig can be described as a 'flexible, fast, and secure template engine for PHP.' Primarily, it separates the
 markup of your templates from the PHP code in the CMS. It does this elegantly and quickly, which means that writing your
 HTML templates in Twig will give you clean and legible templates. That means you don't have to use PHP-like statements
-in your markup, so there's less code like this: <pre class="brush: html"> &lt;?php if ( the_something('3') ) { ?>
-&lt;h1>Title is: &lt;?php echo the\_title() ?>.&lt;/h1> &lt;?php } ?> </pre>
+in your markup, so there's less code like this: 
+
+``` 
+<?php if ( the_something('3') ) { ?>
+<h1>Title is: <?php echo the\_title() ?>.</h1> <?php } ?> 
+```
 
 And more like this:
-<pre class="brush: html">
-	{% if something('3') %}
-		&lt;h1>Title is: {{ title }}.&lt;/h1>
-	{% endif %}
-</pre>
+
+```
+{% if something('3') %}
+	<h1>Title is: {{ title }}.</h1>
+{% endif %}
+```
 
 A template in Bolt can use all of the standard Twig tags, with a few additions that are specific to working with Bolt.
 If you're not familiar with Twig yet, you should read "[Twig for Template
@@ -65,31 +70,31 @@ A simple `entry.twig` template could look something like the example you see bel
 some of the details of the Twig Template language. As mentioned before: Much, much more detailed info can be found at
 [Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html) on the official Twig site.
 
-<pre class="brush: html">
+```
 {% include '_header.twig' %}
 
-&lt;article>
+<article>
 
-    &lt;h1>&lt;a href="{{ content|link }}">{{ content.title }}&lt;/a>&lt;/h1>
+    <h1><a href="{{ content|link }}">{{ content.title }}</a></h1>
 
     {# Only display the image, if there's an actual image to display #}
     {% if content.image!="" %}
-        &lt;div class='imageholder-wide'>
-        	&lt;img src="{{ content.image|thumbnail(320, 240) }}">
-        &lt;/div>
+        <div class='imageholder-wide'>
+        	<img src="{{ content.image|thumbnail(320, 240) }}">
+        </div>
     {% endif %}
 
     {{ content.body|raw }}
 
-    &lt;p class="meta">
+    <p class="meta">
     	Posted by {{ content.username }} on
     	{{ content.datecreated|date("M d, ’y")}}
-    &lt;/p>
+    </p>
 
 </article>
 
 {% include '_footer.twig' %}
-</pre>
+```
 
 What happens in this example is the following:
 
@@ -154,33 +159,33 @@ Bolt sets 'strict_variables' in Twig to `false` by default. This will mean you w
 variable that doesn't exist. This makes it easier to use conditional outputting, because it will allow you to do the
 following, regardless if `content` or `content.image` exist in the current page.
 
-<pre class="brush: html">
-	{% if content.image != "" %}
-		(do something with the image..)
-	{% endif %}
-</pre>
+```
+{% if content.image != "" %}
+	(do something with the image..)
+{% endif %}
+```
 
 It will also make sure the following will not give an error in your templates:
 
-<pre class="brush: html">
-	Non existing variable {{ foobar }}, with
-	non existing element {{ foobar.pompidom }}.
-</pre>
+```
+Non existing variable {{ foobar }}, with
+non existing element {{ foobar.pompidom }}.
+```
 
 While this facilitates writing generic templates, it also makes debugging harder, because no error will be shown if you
 make a typo in a variablename, or try to access a non-existing element. To enable strict variables, set the following in
 your `config.yml`:
 
-<pre class="brush: plain">
+```
 strict_variables: true
-</pre>
+```
 
 If you do this, you will have to do more strict checking on your variables, because an error will be output, if you try
 to use a non-existing variable:
 
-<pre class="brush: html">
-	{% if content.image is defined and content.image != "" %}
-		(do something with the image..)
-	{% endif %}
-</pre>
+```
+{% if content.image is defined and content.image != "" %}
+	(do something with the image..)
+{% endif %}
+```
 

@@ -28,6 +28,7 @@ $menu = $yaml->parse(file_get_contents('menu.yml'));
 
 $source = file_get_contents("./source/".$request.".md");
 $source = \ParsedownExtra::instance()->text($source);
+$source = Michelf\SmartyPants::defaultTransform($source);
 
 preg_match("/<h1>(.*)<\/h1>/i", $source, $maintitle);
 

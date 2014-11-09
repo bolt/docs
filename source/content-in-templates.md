@@ -47,10 +47,10 @@ overview pages and search results.
 In your `config.yml` you can set which record is used for the homepage of
 the site, and you can set the template as well:
 
-<pre class="brush: plain">
+```apache
 homepage: page/1
 homepage_template: index.twig
-</pre>
+```
 
 In this template, you will have a `{{ record }}` available, as well as a
 variable with the same name as the singular version of the contenttype. In
@@ -59,9 +59,9 @@ the example above, it would be `{{ page }}`.
 If you've set the homepage to use not one singular record, but a group of
 records, like this:
 
-<pre class="brush: plain">
+```apache
 homepage: entries/latest/10
-</pre>
+```
 
 Then you would have `{{ records }}` available, as well as a variable with
 the name of the contenttype. In this case, it would be `{{ pages }}`.

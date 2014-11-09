@@ -11,18 +11,18 @@ configuration options are best attained by taking over this responsibility
 in your own application. In the root of your project you will see an
 `index.php` file that should look like this:
 
-<pre class="brush: php">
+```
 require_once __DIR__ . '/app/bootstrap.php';
 $app->run();
-</pre>
+```
 
 Ideally you would replace the path to bootstrap.php with a link to your
 own bootstrap file, for example:
 
-<pre class="brush: php">
+```
 require_once __DIR__ . '/custom-bootstrap.php';
 $app->run();
-</pre>
+```
 
 ### The basics of configuring a Bolt application
 
@@ -31,11 +31,11 @@ object that the `index.php` file will then run. The simplest possible
 bootstrap file will look like this, assuming that your bootstrap file is
 in the same directory as your index.php file:
 
-<pre class="brush: php">
+```
 // custom-bootstrap.php
 $configuration = new Bolt\Configuration\Standard(__DIR__);
 $app = new Bolt\Application(array('resources'=>$configuration));
-</pre>
+```
 
 
 ### Installing Bolt as a composer package.
@@ -46,17 +46,17 @@ couple of additions to your local `composer.json` file as well.
 Bootstrapping your app looks very similar but we will use the `Composer`
 configuration class instead.
 
-<pre class="brush: php">
+```
 // custom-bootstrap.php
 $configuration = new Bolt\Configuration\Composer(__DIR__);
 $app = new Bolt\Application(array('resources'=>$configuration));
-</pre>
+```
 
 ##### Composer.json modifications
 
 You also need to add the below to your `composer.json` file:
 
-<pre class="brush: plain">
+```json
     "scripts": {
         "post-install-cmd": [
             "Bolt\\Composer\\ScriptHandler::installAssets"
@@ -69,7 +69,7 @@ You also need to add the below to your `composer.json` file:
     "extra":{
         "bolt-web-dir": "./"
     }
-</pre>
+```
 
 This will take care of copying the required assets from the `vendor`
 directory into your local project.
@@ -83,7 +83,7 @@ the cache, it will ask your configuration what path to use. Here's a
 selection of some of the things you can alter before an app is
 initialised.
 
-<pre class="brush: php">
+```
 // custom-bootstrap.php
 $configuration = new Bolt\Configuration\Standard(__DIR__);
 
@@ -95,7 +95,7 @@ $configuration->setPath('files',    'my/custom/filestore');
 $configuration->setPath('web',      'my/public');
 
 $app = new Bolt\Application(array('resources'=>$configuration));
-</pre>
+```
 
 
 

@@ -33,20 +33,26 @@ extending:
   extensions-essentials: "Developers: Creating Your First Extension"
   extensions-config: "Developers: Configure and Load Your Extension"
   extensions-customfields: "Developers: Providing New Field Types"
+  extensions-dev: "Set-up For Extension Development"
   extensions-testing: "Developers: Testing Your Extensions"
+  extensions-nut-commands: "Providing Nut Console Commands"
 
 internals:
   "": "Bolt Internals"
   internals: "Bolt Internals"
   contributing: "Contributing to Bolt"
   code-quality: "Code Quality"
+  tasks: "Task Scheduler (cron)"
+
 
 other:
   "": Other Information
+  manifesto: "The Bolt Manifesto"
   howto: "Howto's on various subjects"
   locales: "Locales"
   nut: "Nut (command line utility)"
   maintenancemode: "Maintenance (offline) mode"
   credits: "Credits and Contributing"
   roadmap: "Roadmap"
+  installation-advanced: "Advanced installation details"
 

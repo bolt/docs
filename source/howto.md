@@ -10,11 +10,11 @@ you're upgrading an install it is a good  idea to remove some of the old files t
 This is of course is only required if you install via ZIP or TGZ files.
 
 The list of directories to remove before upgrade are:
-  - app/src/
-  - app/classes
-  - app/resources
-  - app/theme_defaults
-  - app/view
+  - `app/src/`
+  - `app/classes/`
+  - `app/resources/`
+  - `app/theme_defaults/`
+  - `app/view/`
 
 If you're on a UNIX/Linux host, you can customise the following script to clean up before unpacking the Bolt 2 archive:
 
@@ -77,3 +77,28 @@ use Bolt\Extension\MyName\MyExtension\Extension;
 
 $app['extensions']->register(new Extension($app));
 </pre>
+
+Simple menu
+-----------
+
+The following creates a simple menu in HTML, based on the last 4 pages. Only
+pages where the chapter taxonomy is 'main' are selected, assuming there's a
+taxonomy 'chapter'.
+
+```
+    <nav id="main">
+    {% setcontent pages = 'pages/latest/4' where { 'taxonomy/chapter': 'main'}  %}
+
+    {% for page in pages %}
+        {% if loop.first %}<ul>{% endif %}
+        <li><a href="{{ page|link }}" {% if page|current %}class="current"{% endif %}>{{ page.title|trimtext(12) }}</a></li>
+        {% if loop.last %}</ul>{% endif %}
+    {% else %}
+        <em>No main navigation items. Add some Pages, and set the 'Chapter' to 'Main'.</em>
+    {% endfor %}
+    </nav>
+```
+
+<p class="note"><strong>Note:</strong> This is a specific sample. In general,
+you're probably better off using Bolt's built in <a href="/menus">menu
+functionality</a>.</p>

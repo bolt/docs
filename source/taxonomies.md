@@ -27,7 +27,7 @@ taxonomy has a `behaves_like` value, that defined the type of the taxonomy. If
 `name` and `singular_name` are omitted, they are generated automatically by
 Bolt.
 
-<pre class="brush:plain">
+```apache
 tags:
     slug: tags
     singular_slug: tag
@@ -48,12 +48,12 @@ categories:
     behaves_like: categories
     multiple: 1
     options: [ news, events, movies, music, books, life, love, fun ]
-</pre>
+```
 
 Once the taxonomies are added, you need to add them to your contenttypes in
 `contenttypes.yml`, so you can use them in your content. For example:
 
-<pre class="brush:plain">
+```apache
 entries:
     name: Pages
     singular_name: Page
@@ -61,22 +61,22 @@ entries:
         ..
     taxonomy: chapters
 ..
-</pre>
+```
 
 If you'd like to use more than one taxonomy for any contenttype, be sure to use an array:
 
-<pre class="brush:plain">
+```apache
 pages:
     ..
     taxonomy: [ categories, tags ]
 ..
-</pre>
+```
 
 After updating your content with taxonomies, you can edit your templates to show
 the taxonomies it has, and to link to automatically generated listing pages for
 each taxonomy:
 
-<pre class="brush:html">
+```
 {% if record.taxonomy is defined %}
     {% for type, values in record.taxonomy %}
         <em>{{ type }}:</em>
@@ -86,17 +86,17 @@ each taxonomy:
         {% if not loop.last %} - {% endif %}
     {% endfor %}
 {% endif %}
-</pre>
+```
 
 If you'd like to show only one specific taxonomy, for example 'tags', use something like this:
 
-<pre class="brush:html">
+```
 {% if record.taxonomy.tags is defined %}
     {% for tag in record.taxonomy.tags %}
         {{ tag }}{% if not loop.last %}, {% endif %}
     {% endfor %}
 {% endif %}
-</pre>
+```
 
 <p class="note"><strong>Note:</strong> If you'd like to just display the
 'default' taxonomies in your templates, you can use this to include it: <code>{%

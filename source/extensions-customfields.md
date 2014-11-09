@@ -22,7 +22,7 @@ us setup with a clean empty project.
 
 Next comes the configuration, we'll keep things nice and simple so here's the essentials:
 
-<pre class="brush: js">
+```
 {
     "name": "bolt/colourpicker",
     "description": "An extension to add a colourpicker as a field type within Bolt",
@@ -40,7 +40,7 @@ Next comes the configuration, we'll keep things nice and simple so here's the es
         }
     }
 }
-</pre>
+```
 
 
 Most of this file is providing meta information for the Marketplace, but the `autoload` section is important for loading
@@ -54,13 +54,13 @@ standard docs <a href="https://github.com/php-fig/fig-standards/blob/master/acce
 Bolt will load up an initialization file which allows us to register our extension. As configured in the `composer.json` file
 above we can now create a file called `init.php` that looks like this.
 
-<pre class="brush: php">
+```
 // init.php
 
 use Bolt\Extensions\Colourpicker\Extension;
 
 $app['extensions']->register(new Extension($app));
-</pre>
+```
 
 #### The Extension Class
 
@@ -70,7 +70,7 @@ interface we need to implement two methods on our class, the `initialize()` meth
 First of all, here's the final version of the file that we need to make the extension, then we'll have a quick run-through
 of why we need each of these setup commands.
 
-<pre class="brush: php">
+```
 // ./Extension.php
 
 namespace Bolt\Extensions\Colourpicker;
@@ -104,7 +104,7 @@ class Extension extends BaseExtension
     }
 
 }
-</pre>
+```
 
 Hopefully our `getName()` and `initalize()` methods should be fairly self-explanatory. Our colourpicker is primarily based on
 the <a href="https://github.com/tkrotoff/jquery-simplecolorpicker">jQuery Simple Colorpicker</a> so we need to add both
@@ -131,9 +131,9 @@ onto the available list of directories.
 Finally we need a template file that specifies how our field looks in the content editor. Here's how our colourpicker
 template takes shape:
 
-<pre class="brush: html">
+```
 
-{#=== Options ===========================================================================================================#}
+{#=== Options ============================================================================#}
 
 {% set attr_opt = {
     class:        field.class|default(''),
@@ -142,7 +142,7 @@ template takes shape:
     readonly:     field.readonly|default(false)
 }%}
 
-{#=== FIELDSET =======================================================================================================#}
+{#=== FIELDSET ============================================================================#}
 
 <fieldset class="colourpicker">
     <div class="col-sm-12">
@@ -152,12 +152,14 @@ template takes shape:
         <select data-colourpicker {{ macro.attr(attr_opt) }}>
             {% for key, value in field.values %}
                 {% set isSelected =  (key == context.content.get(key|capitalize)) %}
-                <option value="{{key}}"{% if isSelected %} selected="selected"{% endif %}>{{value}}</option>
+                <option value="{{key}}"{% if isSelected %} selected="selected"{% endif %}>
+                    {{value}}
+                </option>
             {% endfor %}
         </select>
     </div>
 </fieldset>
-</pre>
+```
 
 As you can see the field under the js is a select dropdown of colour options. When you define your own field, all of the options
 specified in `contenttypes.yml` are available within the `field` object. Some of the potential values are accessed in the options
@@ -169,16 +171,19 @@ block. In the case of our colourpicker field, we will look for a list of `values
 We now have a completed extension and can add it to our Bolt site. Firstly we need to add the field to our `contenttypes.yml`
 file. We add a field like this:
 
-<pre class="brush: js">
+```
     banner:
         type: colourpicker
         label: "Choose A Banner Colour"
-        values: {"#000":'Solid Black',"#E1E1E1":"Almost White","#444":"Dark Grey","#FF0011":"Bright Red"}
-</pre>
+        values: 
+            "#000": Solid Black
+            "#E1E1E1": Almost White
+            "#444": Dark Grey
+            "#FF0011": Bright Red
+```
 
 
 **Our new Colourpicker Field**
-<hr>
 
 <img src="/files/extensions-tutorial-colourpicker.png"></a><br>
 
