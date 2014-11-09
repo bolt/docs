@@ -359,6 +359,7 @@ The following fieldtypes are available:
         values: pages/id,title
 ```
 
+  - `checkbox`: A field to store "True or false" type values. Internally stored as either `1` for `true` if the checkbox was checked, and `0` for `false` if it wasn't checked. 
   - `video`: A set of fields for embedding videos from websites like Youtube and
     Vimeo.
   - `geolocation`: A set of fields for easy selection of a geolocation
