@@ -186,6 +186,7 @@ them like this:
 
 ```apache
 database:
+  driver: mysql
   username: bolt
   password: bolt%1
   databasename: bolt
