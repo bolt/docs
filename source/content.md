@@ -250,7 +250,7 @@ The available options are:
     contenttype. For example `[ categories, tags ]`. See the page on
     [Taxonomies](/taxonomies#taxonomies) for details.
   - `relations`: An array listing the different relations available to this
-    contenttype. See the page on [Relations](/relations) for details.
+    contenttype. See the page on [Relations](/relationships) for details.
   - `record_template`: The default template to use, when displaying a single
     Record of this Contenttype. The template itself should be located in your
     `theme/foo/` folder, in Bolt's root folder. This can be overridden on a per-
@@ -359,6 +359,7 @@ The following fieldtypes are available:
         values: pages/id,title
 ```
 
+  - `checkbox`: A field to store "True or false" type values. Internally stored as either `1` for `true` if the checkbox was checked, and `0` for `false` if it wasn't checked. 
   - `video`: A set of fields for embedding videos from websites like Youtube and
     Vimeo.
   - `geolocation`: A set of fields for easy selection of a geolocation
@@ -554,6 +555,12 @@ any data that's been entered by an editor.
             default: "SN-123456789"
             readonly: true
 ```
+
+
+Grouping fields in tabs
+-----------------------
+
+
 
 
 The structure of a Record
