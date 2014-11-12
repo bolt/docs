@@ -30,7 +30,7 @@ body {
     font-family: $sans-serif;
 }
 
-footer, section, container {
+section, container {
     @extend .row;
     background: $white;
     &.fullwidth {
@@ -43,8 +43,25 @@ footer, section, container {
     }
 }
 
-header {
+header, footer {
     @extend .row;
+    background-position: fixed;
+    @media #{$large-up} {
+        max-width: 100%;
+        }
+    .inner {
+        max-width: 75rem;
+        margin-left: auto;
+        margin-right: auto;
+        @media #{$large-up} {
+            position: relative; 
+        }
+    }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 }
 
 p {
@@ -323,6 +340,16 @@ header {
             border-bottom: 2px solid $white;
         }
     }
+    &.is-sticky  { //when sticky
+        margin-top: 0px;
+        z-index: 50;
+        background: rgba($black,0.6);
+        position: fixed;
+        top: 0;
+        left: 50%;
+        margin-left: -600px;
+        //margin-top: -22px;
+    }
 }
 
 
@@ -579,6 +606,7 @@ section.shorttexts {
     background: $darkblue;
     padding-top: 2em;
     padding-bottom: 4em;
+    //max-width: none;
     // MEDIUM  //
     @media #{$medium-up} {
          padding-left: 10%;
@@ -680,7 +708,7 @@ section.shorttexts {
 footer {
     background: $darkblue;
     color: $white;
-    padding: 3rem 0 2rem;
+    padding: 0 0 2rem;
     height: auto;
     font-size: 0.8125rem;
     .credits {
@@ -701,6 +729,27 @@ footer {
             text-decoration: underline;
         }
     }
+    nav {
+        @include grid-column(
+            $columns: 12
+            );
+        //background: rgba(0, 0, 0, 0.4);
+        display: block;
+        height: 44px;
+        margin: 1em auto 2rem;
+        max-width: 75rem;
+        position: relative;
+        ul {
+            margin: 0 auto;
+            width: 650px;
+            a {
+                display: inline-block;
+                padding: 0.4rem;
+                color: $mediumblue;
+                text-shadow: 1px 1px 1px rgba(0,0,0,.8);
+            }
+        }
+    }
 }
 
 /* --------------- FEATURES ---------------*/
@@ -718,6 +767,9 @@ footer {
     li {
         h3 {
             margin-bottom: 1em;
+            @media #{$large-up} {
+                text-align: left;
+            }
         }
         padding-left: 3%;
         padding-right: 3%;
@@ -734,9 +786,12 @@ footer {
 /* -------------- TYPOGRAPHY --------------- */
 
 p {
+    a {
+        border-bottom: 1px solid lighten($red, 25%)
+    }
     a:hover {
-        color: darken($red, 10);
-        text-decoration: underline;
+        text-decoration: none;
+        border-bottom: 1px solid $red;
     }
     &.meta {
         font-size: 0.8125rem;
@@ -783,6 +838,9 @@ h3.subheader {
 i {
     margin-right: .5em;
 }
+h1, h2, h3, h4 {
+    font-weight: 300;
+}
 
 /* -------------- BUTTONS --------------- */
 
@@ -816,7 +874,7 @@ i {
         // LARGE  //
          @media #{$large-up}{
               max-width: 200px;
-              margin: 10px 0;
+              margin: 2rem 0 1rem;
         }      
     }   
 }
@@ -836,6 +894,29 @@ button span.sub, .button span.sub {
     display: block;
     font-size: 65%;
     margin: .5rem 0 0;
+}
+
+a.topbutton {
+    display: block;
+    text-align: center;
+    background: #fff;
+    padding-bottom: 2em;
+    // LARGE  //
+    @media #{$large-up}{
+        display: none;
+        }
+    i {
+        color: #fff;
+        background: $red;
+        width: 44px;
+        height: 44px;
+        border-radius: 22px;
+        padding-top: 6px;
+        margin-bottom: .5em;
+        margin-right: 0;
+        clear: both;
+        }
+        
 }
 
 
