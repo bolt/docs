@@ -39,10 +39,10 @@ class Search
         // \Dumper::dump($titles);
 
         foreach ($this->results as $page => $score) {
-            $items[] = array('id' => $page, 'text' => $this->titles[$page]);
+            $this->items[] = array('id' => $page, 'text' => $this->titles[$page]);
         }
 
-        return json_encode(array("items" => $items));
+        return json_encode(array("items" => $this->items));
 
     }
 
