@@ -10,7 +10,7 @@ preface:
   
 working:
   "": Working with Bolt
-  content: Contenttypes and Records
+  contenttypes-and-records: Contenttypes and Records
   content-in-templates: "Content in templates"
   taxonomies: "Taxonomies"
   relationships: "Relationships"
@@ -20,7 +20,7 @@ working:
 templating:
   "": "Templating"
   templates-routes: "Templates and Routes"
-  templates: "Building templates"
+  building-templates: "Building templates"
   record-and-records: "Record and Records"
   content-fetching: "Fetching content"
   content-paging: "Paging content"
@@ -29,7 +29,7 @@ templating:
 
 extending:
   "": "Extending Bolt"
-  extensions: "Introduction to Bolt Extensions"
+  extensions-introduction: "Introduction to Bolt Extensions"
   extensions-essentials: "Developers: Creating Your First Extension"
   extensions-config: "Developers: Configure and Load Your Extension"
   extensions-customfields: "Developers: Providing New Field Types"
@@ -39,10 +39,10 @@ extending:
 
 internals:
   "": "Bolt Internals"
-  internals: "Bolt Internals"
+  bolt-internals: "Bolt Internals"
   contributing: "Contributing to Bolt"
   code-quality: "Code Quality"
-  tasks: "Task Scheduler (cron)"
+  task-scheduler: "Task Scheduler (cron)"
 
 
 other:
@@ -51,8 +51,8 @@ other:
   howto: "Howto's on various subjects"
   locales: "Locales"
   nut: "Nut (command line utility)"
-  maintenancemode: "Maintenance (offline) mode"
-  credits: "Credits and Contributing"
+  maintenance-mode: "Maintenance (offline) mode"
+  credits-and-contributing: "Credits and Contributing"
   roadmap: "Roadmap"
   installation-advanced: "Advanced installation details"
 
