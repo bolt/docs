@@ -47,9 +47,7 @@ jQuery(function($) {
     ------ */
 
 
-    function posTop() {
-        return typeof window.pageYOffset != 'undefined' ? window.pageYOffset: document.documentElement.scrollTop? document.documentElement.scrollTop: document.body.scrollTop? document.body.scrollTop:0;
-    }    
+
     
 
     $("#searchbox").select2({
@@ -74,7 +72,23 @@ jQuery(function($) {
 
     $('#searchbox').on("select2-selecting", function(e) { 
         // console.log(q, e);
-        window.location = '/' + e.val + '?q=' + encodeURIComponent(q) + "#" + encodeURIComponent(q);
+        window.location = '/' + e.val + '?q=' + encodeURIComponent(q) + "#" + encodeURIComponent(formatForUrl(q));
     });    
 
 });
+
+
+function formatForUrl(str) {
+    return str.replace(/_/g, '-')
+        .replace(/ /g, '-')
+        .replace(/:/g, '-')
+        .replace(/\\/g, '-')
+        .replace(/\//g, '-')
+        .replace(/[^a-zA-Z0-9\-]+/g, '')
+        .replace(/-{2,}/g, '-')
+        .toLowerCase();
+};
+
+function posTop() {
+    return typeof window.pageYOffset != 'undefined' ? window.pageYOffset: document.documentElement.scrollTop? document.documentElement.scrollTop: document.body.scrollTop? document.body.scrollTop:0;
+}    

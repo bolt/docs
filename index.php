@@ -53,7 +53,7 @@ if (!empty($_GET['q'])) {
 
     $source = preg_replace_callback("/" . $q . "/i", function($matches) {
         $output = sprintf("<mark id='%s'>%s</mark>", 
-            $matches[0], 
+            makeSlug($matches[0]), 
             $matches[0]
         );
         return $output;
