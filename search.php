@@ -35,7 +35,7 @@ class Search
 
         arsort($this->results);
 
-        // \Dumper::dump($this->results);
+        \Dumper::dump($this->results);
 
         foreach ($this->results as $page => $score) {
             $this->items[] = array('id' => $page, 'text' => $this->titles[$page]);
@@ -100,7 +100,7 @@ class Search
 
         $length = strlen($contents);
 
-        while (strpos($contents, $q) > 0) {
+        while (strpos($contents, $q) !== false) {
 
             $pos = strpos($contents, $q);
             $score += ( ($length - $pos) / $length);
