@@ -10,7 +10,8 @@
         "erusev/parsedown-extra": "dev-master",
         "bolt/dumper": "dev-master",
         "jbroadway/urlify": "dev-master",
-        "michelf/php-smartypants": "1.6.0-beta1"
+        "michelf/php-smartypants": "1.6.0-beta1",
+        "symfony/finder": "~2.5"
     },
     "minimum-stability": "beta",
     "config": {
