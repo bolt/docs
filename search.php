@@ -5,8 +5,7 @@ require_once './vendor/autoload.php';
 use Symfony\Component\Finder\Finder;
 
 $searcher = new search();
-
-echo $searcher->search();
+echo $searcher->find();
 
 // --------
 
@@ -17,7 +16,7 @@ class Search
     private $titles = array();
     private $items = array();
 
-    public function search() 
+    public function find() 
     {
 
         // Set $q
@@ -36,7 +35,7 @@ class Search
 
         arsort($this->results);
 
-        // \Dumper::dump($titles);
+        \Dumper::dump($this->results);
 
         foreach ($this->results as $page => $score) {
             $this->items[] = array('id' => $page, 'text' => $this->titles[$page]);
