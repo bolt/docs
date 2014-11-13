@@ -1,5 +1,5 @@
-Set-up For Extension Development - Method 1
-===========================================
+Set-up For Extension Development
+================================
 
 Basic Extension
 ---------------

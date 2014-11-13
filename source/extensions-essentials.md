@@ -1,8 +1,8 @@
-Developers
-========================
+Extensions: Essentials
+======================
 
 What can you do with Bolt extensions?
-========================
+-------------------------------------
 
 The functionality of Bolt can be extended by creating Extensions. The possibilites
 are almost limitless but here are a few of the basic ideas that can be accomplished:

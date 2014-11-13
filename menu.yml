@@ -52,7 +52,7 @@ other:
   locales: "Locales"
   nut: "Nut (command line utility)"
   maintenance-mode: "Maintenance (offline) mode"
-  credits-and-contributing: "Credits and Contributing"
+  credits: "Credits"
   roadmap: "Roadmap"
   installation-advanced: "Advanced installation details"
 

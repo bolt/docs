@@ -1,6 +1,5 @@
-# Developing Extensions
- 
-## Tutorial 2: Providing Nut Console Commands
+Providing Nut Console Commands
+==============================
 
 With your extension, you may want to provide console commands via Bolt's built-in 
 `nut` command.

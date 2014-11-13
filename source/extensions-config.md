@@ -1,4 +1,5 @@
-# Developing Extensions
+Extensions: Configuration
+=========================
 
 ## Create and publish a Bolt extension or theme
 

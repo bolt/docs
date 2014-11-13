@@ -1,6 +1,5 @@
-# Developing Extensions
- 
-## Tutorial 1: Providing Custom Fields
+Extensions: Providing Custom Fields
+===================================
 
 To show some of the possiblilities available to extension developers this series
 of tutorials goes through the process of creating an extension that adds specific
