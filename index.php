@@ -4,8 +4,12 @@ require_once './vendor/autoload.php';
 
 $version = "2.0.0 beta";
 
-$request = basename($_SERVER['REQUEST_URI']);
-$prefix = dirname($_SERVER['REQUEST_URI']);
+
+// Let's see if there's a search-parameter.
+$parseurl = parse_url($_SERVER['REQUEST_URI']);
+
+$request = basename($parseurl['path']);
+$prefix = dirname($parseurl['path']);
 
 if ($prefix == "/") {
     $prefix = "";
@@ -30,6 +34,7 @@ $source = file_get_contents("./source/".$request.".md");
 $source = \ParsedownExtra::instance()->text($source);
 $source = Michelf\SmartyPants::defaultTransform($source);
 
+
 preg_match("/<h1>(.*)<\/h1>/i", $source, $maintitle);
 
 $maintitle = $maintitle[1];
@@ -40,16 +45,33 @@ foreach ($matches[1] as $key => $title) {
 	$submenu[ makeSlug(strip_tags($title)) ] = strip_tags($title);
 }
 
+
+// Let's see if there's a 'q' to highlight..
+if (!empty($_GET['q'])) {
+
+    $q = makeSlug($_GET['q']);
+
+    $source = preg_replace_callback("/" . $q . "/i", function($matches) {
+        $output = sprintf("<mark id='%s'>%s</mark>", 
+            $matches[0], 
+            $matches[0]
+        );
+        return $output;
+    }, $source);
+}
+
+// Markup for <h1> and <h2>..
 $source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function($matches) {
-	$output = sprintf("<h%s id='%s'>%s<a href='#%s' class='anchor'>¶</a></h%s>", 
+    $output = sprintf("<h%s id='%s'>%s<a href='#%s' class='anchor'>¶</a></h%s>", 
                     $matches[1], 
                     makeSlug($matches[2]), 
                     $matches[2], 
                     makeSlug($matches[2]), 
                     $matches[1]
                 );
-	return $output;
+    return $output;
 }, $source);
+
 
 $loader = new Twig_Loader_Filesystem('./view');
 $twig = new Twig_Environment($loader, array(
