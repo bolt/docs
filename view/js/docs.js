@@ -1,4 +1,6 @@
 
+var q = "";
+
 jQuery(function($) { 
 
     hljs.initHighlightingOnLoad();
@@ -22,7 +24,7 @@ jQuery(function($) {
         $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
     });
 
-   
+    /* ----- no sticky header for the docs. ---------
     if($(window).width() > 801) { // ONLY LARGE-UP 
         
         $(window).scroll(function () { 
@@ -42,7 +44,9 @@ jQuery(function($) {
             };
         });     
     }
-    
+    ------ */
+
+
     function posTop() {
         return typeof window.pageYOffset != 'undefined' ? window.pageYOffset: document.documentElement.scrollTop? document.documentElement.scrollTop: document.body.scrollTop? document.body.scrollTop:0;
     }    
@@ -56,6 +60,7 @@ jQuery(function($) {
             dataType: 'json',
             quietMillis: 250,
             data: function (term, page) {
+                q = term;
                 return {
                     q: term, // search term
                 };
@@ -68,8 +73,8 @@ jQuery(function($) {
     });    
 
     $('#searchbox').on("select2-selecting", function(e) { 
-        console.log(e.val);
-        window.location = '/' + e.val;
+        // console.log(q, e);
+        window.location = '/' + e.val + '?q=' + encodeURIComponent(q) + "#" + encodeURIComponent(q);
     });    
 
 });
