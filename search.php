@@ -35,7 +35,7 @@ class Search
 
         arsort($this->results);
 
-        \Dumper::dump($this->results);
+        // \Dumper::dump($this->results);
 
         foreach ($this->results as $page => $score) {
             $this->items[] = array('id' => $page, 'text' => $this->titles[$page]);
