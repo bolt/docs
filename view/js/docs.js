@@ -48,4 +48,28 @@ jQuery(function($) {
     }    
     
 
+    $("#searchbox").select2({
+        placeholder: "Search …",
+        minimumInputLength: 3,
+        ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+            url: "/search.php",
+            dataType: 'json',
+            quietMillis: 250,
+            data: function (term, page) {
+                return {
+                    q: term, // search term
+                };
+            },
+            results: function (data, page) { 
+                return { results: data.items };
+            },
+            cache: true
+        }
+    });    
+
+    $('#searchbox').on("select2-selecting", function(e) { 
+        console.log(e.val);
+        window.location = '/' + e.val;
+    });    
+
 });
