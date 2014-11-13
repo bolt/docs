@@ -70,6 +70,7 @@ p {
 }
 
 
+
 .inner {
     //@extend .columns; //Not needed? Floats fuck up header. 
     padding-left: 0.9375rem;
@@ -428,6 +429,9 @@ section{   // was .maininfo, .secinfo
 
 /* -------- Specific Docs stuff -------- */
 
+mark {
+    background-color: rgba(255, 255, 0, 0.6);
+}
 
 /**
  * Styles for the sidebar
@@ -516,6 +520,7 @@ p code {
     white-space: nowrap;
 }
 
+
 .content h2 code {
     font-size: 24px;
 }
@@ -528,7 +533,7 @@ h1 a.anchor,
 h2 a.anchor, 
 h3 a.anchor, 
 h4 a.anchor {
-    color: lighten(desaturate($red, 35), 25);
+    color: lighten($boltblue, 40);
     margin-left: 14px;
     font-size: 75%;
     border: 0;
@@ -538,7 +543,7 @@ h1:hover a.anchor,
 h2:hover a.anchor, 
 h3:hover a.anchor,
 h4:hover a.anchor {
-    color: darken($red, 10);
+    color: lighten($boltblue, 10);
     text-decoration: none;
     border: 0;
 }
@@ -800,14 +805,15 @@ p {
 }
 
 .content a { 
-    text-decoration: none; 
-    border-bottom: 1px solid lighten($red, 30);
+    color: lighten($boltblue, 10);
+    border-bottom: 1px solid lighten($boltblue, 30);    
 }
 
 
 .content a:hover { 
     text-decoration: none; 
-    border-bottom: 1px solid darken($red, 10);
+    color: darken($boltblue, 10);
+    border-bottom: 1px solid darken($boltblue, 10);  
 }
 
 
