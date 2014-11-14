@@ -35,7 +35,7 @@ class Search
 
         arsort($this->results);
 
-        \Dumper::dump($this->results);
+        // \Dumper::dump($this->results);
 
         foreach ($this->results as $page => $score) {
             $this->items[] = array('id' => $page, 'text' => $this->titles[$page]);
@@ -81,6 +81,8 @@ class Search
     {
 
         $contents = mb_strtolower(trim($contents));
+
+        // echo "<br>filename: $filename - ";
         $score = $this->findScore($contents, $q);
 
         if (!isset($results[$filename])) {
@@ -103,7 +105,9 @@ class Search
         while (strpos($contents, $q) !== false) {
 
             $pos = strpos($contents, $q);
-            $score += ( ($length - $pos) / $length);
+            $score += pow( (($length - $pos) / $length), 2);
+
+            // echo "[x]";
 
             $contents = $this->str_replace_once($q, "    ", $contents);
 
