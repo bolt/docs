@@ -414,7 +414,9 @@ Most fields have a few extra optional values, to further customize them.
   - `pattern: ..`: Use this to validate a field against a certain pattern. See
     below for examples.
   - `allowtwig: true`: Explicitly allow twig to be used in this field. This is
-    needed if you want to allow twig snippets in your content.
+    needed if you want to allow twig snippets in your content. Note: This
+    feature will allow everybody with access to the contenttype to add twig to
+    the content. Be careful when using this.
   - `info: ..`: Use for displaying extra information about the field.
 
 
