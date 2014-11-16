@@ -467,6 +467,14 @@ or:
 and this case sensitivity is undesirable, you can use `|order('slug')` instead.
 The slug is always lowercase, so this will normalize the ordering.
 
+### preg_replace
+
+Makes PHPs ``preg_replace()`` function available as twig filter. Example usage:
+```
+{{ content.text|preg_replace('/[^a-z]+/', '_') }}
+```
+
+
 Available variables in Twig
 ---------------------------
 
