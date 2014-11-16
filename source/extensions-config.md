@@ -1,4 +1,5 @@
-# Developing Extensions
+Extensions: Configuration
+=========================
 
 ## Create and publish a Bolt extension or theme
 
@@ -14,7 +15,7 @@ Extensions should use the PHP namespace of `Bolt\Extension\{author name}\{exensi
 
 You will need a file called `composer.json` in the root of your project. This tells Bolt all the information it requires to display and install your extension or theme. To demonstrate the format we are going to create a dummy extension called Bolt Widgets. Here's how we create our `composer.json` file.
 
-<pre class="brush: js">
+```
 {
     "name": "bolt/widgets",
     "description": "Bolt widgets is an awesome extension that features widgets on your website",
@@ -39,7 +40,7 @@ You will need a file called `composer.json` in the root of your project. This te
         }
     },
 }
-</pre>
+```
 
 
 All of the above information is required in order for your extension to be valid to publish on the Marketplace.
@@ -69,11 +70,11 @@ This gives users of your extension some information about the author. The email 
 #### Autoload
 This configuration does two things, firstly you need to provide a file that initialises your extension, it's important that this file is kept as simple as possible, when it is run it will be provided with a single variable `$app` which is an instance of the running Bolt application. Here is the recommended file.
 
-<pre class="brush: php">
+```
 use Bolt\Extension\MyName\MyExtension\Extension;
 
-$app['extensions']-&gt;register(new Extension());
-</pre>
+$app['extensions']->register(new Extension());
+```
 
 Once the extension is registered, Bolt will take care of running the various hooks that you can define within your Extension class.
 

@@ -11,7 +11,7 @@ add more separate menus, if you wish, and each menu can have one level of items
 below it. See the default `menu.yml` for an example of the supported options:
 
 
-<pre class="brush: plain">
+```apache
 main:
   - label: Home
     title: This is the first menu item. Fo shizzle!
@@ -24,7 +24,7 @@ main:
         path: entry/2
       - label: Sub 2
         class: menu-item-class
-</pre>
+```
 
 In this case `main` is the name of the menu. The options are:
 
@@ -46,16 +46,16 @@ In this case `main` is the name of the menu. The options are:
 
 To insert a menu in your templates, use
 
-<pre class="brush: html">
-	{{ menu() }}
-</pre>
+```
+{{ menu() }}
+```
 
 If you have more than one menu, you should use its name to make sure you get the
 intended one:
 
-<pre class="brush: html">
-	{{ menu('foo') }}
-</pre>
+```twig
+{{ menu('foo') }}
+```
 
 By default, the menu is rendered using the template
 `/app/theme_defaults/_sub_menu.twig`. You can 'override' the default by
@@ -64,9 +64,9 @@ then it will not be overwritten in a future update. However, it is good practice
 to explicitly state which template file should be used to render a menu. Like
 this:
 
-<pre class="brush: html">
-    {{ menu('foo', '_menu_foo.twig') }}
-</pre>
+```
+{{ menu('foo', '_menu_foo.twig') }}
+```
 
 Doing this will render the menu `foo`, using the template `_menu_foo.twig`. The
 filename can be anything, but it's good practice to prefix it with `_menu`, so
@@ -87,7 +87,7 @@ In this section we'll show you a somewhat more elaborate example of how you can
 create a menu, with submenus. First, start by adding a small menu to your
 `app/config/menu.yml`-file:
 
-<pre class="brush: plain">
+```apache
 test:
   - label: Bolt
     link: https://bolt.cm
@@ -95,47 +95,47 @@ test:
     link: http://example.org
   - label: Silex
     link: http://silex.sensiolabs.org
-</pre>
+```
 
 As you can probably guess, this menu does nothing but provide links to three
 external websites. To get started, edit the template where you want this menu.
 Usually, menus are used in 'headers', 'footers' or 'aside' includes, but you can
 use them anywhere. For now, just insert this code, somewhere:
 
-<pre class="brush: html">
-    {{ menu('test', '_menu_test.twig') }}
-</pre>
+```
+{{ menu('test', '_menu_test.twig') }}
+```
 
 This inserts the menu, using the template `_menu_test.twig` template. The file
 probably is'nt present yet, so create it in your own `theme/`-folder.
 
-<pre class="brush: html">
-&lt;ul>
+```
+<ul>
 {% for item in menu %}
-    &lt;li>
-        &lt;a href="{{ item.link }}">{{item.label}}&lt;/a>
-    &lt;/li>
+    <li>
+        <a href="{{ item.link }}">{{item.label}}</a>
+    </li>
 {% endfor %}
-&lt;/ul>
-</pre>
+</ul>
+```
 
 Refresh a page that uses the template that you've added the `{{ menu() }}`-tag
 to in your browser, and you should see a very simple menu, with the following
 HTML-markup:
 
-<pre class="brush: html">
-&lt;ul>
-    &lt;li>
-        &lt;a href="https://bolt.cm">Bolt&lt;/a>
-    &lt;/li>
-    &lt;li>
-        &lt;a href="http://example.org">Example org&lt;/a>
-    &lt;/li>
-    &lt;li>
-        &lt;a href="http://silex.sensiolabs.org">Silex&lt;/a>
-    &lt;/li>
-&lt;/ul>
-</pre>
+```
+<ul>
+    <li>
+        <a href="https://bolt.cm">Bolt</a>
+    </li>
+    <li>
+        <a href="http://example.org">Example org</a>
+    </li>
+    <li>
+        <a href="http://silex.sensiolabs.org">Silex</a>
+    </li>
+</ul>
+```
 
 As you can see, the `{% for %}`-loop iterated over all of the items in the
 `menu`-array, and wrote out the HTML that you specified. Let's change our menu,
@@ -144,7 +144,7 @@ assume that you have a `pages` content type, and that records `1`, `2` and `3`
 exist. If they don't, just replace them with some contenttype/id pairs that you
 do have. Edit the `app/config/menu.yml`-file:
 
-<pre class="brush: plain">
+```apache
 test:
   - label: Bolt
     link: https://bolt.cm
@@ -158,7 +158,7 @@ test:
         class: my_class
   - label: Silex
     link: http://silex.sensiolabs.org
-</pre>
+```
 
 
 Now, the menu template needs to be extended, so that the submenu is output as
@@ -166,51 +166,51 @@ well. We'll do this by adding another `{% for %}`-loop. We'll wrap this loop in
 an `{% if %}`-tag to prevent Bolt from outputting empty lists in the HTML. For
 example:
 
-<pre class="brush: html">
-&lt;ul>
+```
+<ul>
 {% for item in menu %}
-    &lt;li class="{{ item.class }}>
-        &lt;a href="{{ item.link }}">{{item.label}}&lt;/a>
+    <li class="{{ item.class }}>
+        <a href="{{ item.link }}">{{item.label}}</a>
         {% if item.submenu is defined %}
-            &lt;ul>
+            <ul>
             {% for item in item.submenu %}
-                &lt;li class="{{ item.class }}">
-                    &lt;a href="{{ item.link }}">{{item.label}}&lt;/a>
-                &lt;/li>
+                <li class="{{ item.class }}">
+                    <a href="{{ item.link }}">{{item.label}}</a>
+                </li>
             {% endfor %}
-            &lt;/ul>
+            </ul>
         {% endif %}
-    &lt;/li>
+    </li>
 {% endfor %}
-&lt;/ul>
-</pre>
+</ul>
+```
 
 The output in HTML might look like this now:
 
-<pre class="brush: html">
-&lt;ul>
-    &lt;li class=">
-        &lt;a href="https://bolt.cm">Bolt&lt;/a>
-    &lt;/li>
-    &lt;li class=">
-        &lt;a href="/pages">All pages&lt;/a>
-            &lt;ul>
-                &lt;li class="">
-                    &lt;a href="/page/sic-consequentibus-vestris">Sic consequentibus vestris&lt;/a>
-                &lt;/li>
-                &lt;li class="">
-                    &lt;a href="/page/sublatis-prima-tolluntur">Sublatis prima tolluntur&lt;/a>
-                &lt;/li>
-                &lt;li class="my_class">
-                    &lt;a href="/page/tria-genera-bonorum">last page&lt;/a>
-                &lt;/li>
-            &lt;/ul>
-    &lt;/li>
-    &lt;li class=">
-        &lt;a href="http://silex.sensiolabs.org">Silex&lt;/a>
-    &lt;/li>
-&lt;/ul>
-</pre>
+```
+<ul>
+    <li class=">
+        <a href="https://bolt.cm">Bolt</a>
+    </li>
+    <li class=">
+        <a href="/pages">All pages</a>
+            <ul>
+                <li class="">
+                    <a href="/page/sic-consequentibus-vestris">Sic consequentibus vestris</a>
+                </li>
+                <li class="">
+                    <a href="/page/sublatis-prima-tolluntur">Sublatis prima tolluntur</a>
+                </li>
+                <li class="my_class">
+                    <a href="/page/tria-genera-bonorum">last page</a>
+                </li>
+            </ul>
+    </li>
+    <li class=">
+        <a href="http://silex.sensiolabs.org">Silex</a>
+    </li>
+</ul>
+```
 
 That's basically all there's to it. Since the menus use standard Twig tags, we
 can enhance the lists with extra features, to automatically give special classes
@@ -242,5 +242,4 @@ update Bolt to a newer version.
 Normally you will only need the basic properties of each of the menu items, but
 sometimes you might need to do more with the items. For this reason, each `item`
 has access to the entire record. You can use `{{ item.record }}` like you would
-use any other record. For instance, `{{ item.record.taxonomy }}`, or `{{
-print(item.record) }}`.
+use any other record. For instance, `{{ item.record.taxonomy }}`, or `{{ print(item.record) }}`.

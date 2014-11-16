@@ -1,5 +1,5 @@
-Credits and contributing
-========================
+Credits
+=======
 
 Bolt is Open Source, and as such it uses other Open Source components. If you
 are a developer you're very welcome to help in the further development of Bolt.

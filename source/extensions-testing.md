@@ -1,6 +1,8 @@
-# Developing Extensions
+Extensions: Testing and debugging
+=================================
 
-## Testing
+Testing
+-------
 
 It's essential that by the time you submit your extension to the Bolt Marketplace you have tested your extension as thouroughly
 as possible. To help you do this we've put together some suggested workflows that will help you to both get started, develop

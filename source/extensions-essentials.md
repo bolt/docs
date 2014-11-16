@@ -1,8 +1,8 @@
-Developers
-========================
+Extensions: Essentials
+======================
 
 What can you do with Bolt extensions?
-========================
+-------------------------------------
 
 The functionality of Bolt can be extended by creating Extensions. The possibilites
 are almost limitless but here are a few of the basic ideas that can be accomplished:
@@ -15,8 +15,6 @@ are almost limitless but here are a few of the basic ideas that can be accomplis
  - Add custom upload handlers that support different filesystems.
  - Add a custom thumbnail generator that does more advanced creation of thumbs
  
-
-
 A Bolt extension has to follow a few strict rules, so it can be auto-loaded by
 Bolt and to make sure it won't interfere with other Bolt functionality or even
 other Extensions. To do this, we have to keep the following rules:
@@ -67,12 +65,12 @@ The `getName()` method tells Bolt how you want the extension to be referred to.
 The initialized extension object will be mounted onto the main Bolt Application,
 so, for instance, using the following method:
 
-<pre class="brush: php">
+```
 function getName()
 {
     return "widgetpicker";
 }
-</pre>
+```
 
 When the extension is registered a shareable instance of the extension will be
 available at `$app['extensions.widgetpicker']`
@@ -85,14 +83,14 @@ The initialize() function is called for the initialisation of each active
 extension. It's used to set up functionality to be used in the templates of for
 Twig function. It looks like this:
 
-<pre class="brush: php">
+```
 function initialize()
 {
 
         $this->addSnippet('endofbody', 'facebookScript');
         $this->addTwigFunction('facebooklike', 'facebookLike');
 }
-</pre>
+```
 
 
 As you can see the function is called without a parameter, and basically
@@ -135,17 +133,17 @@ Snippets can be inserted in several places in the outputted HTML:
 
 To insert a string snippet, use: 
 
-<pre class="brush: php">
+```
 function initialize()
 {
     $this->addSnippet('endofbody', '&lt;!-- a snippet of HTML -->');
 }
-</pre>
+```
 
 To insert a snippet using a callback function, use the following. You can pass one 
 extra optional variable, which can be a simple scalar or an array. 
 
-<pre class="brush: php">
+```
 function initialize()
 {
     $this->addSnippet('endofbody', 'snippetbar', $foo);
@@ -156,7 +154,7 @@ function snippetbar($foo)
     return "&lt;b>Var is $foo.&lt;/b>";
 }
 
-</pre>
+```
 
 However, don't use this to pass a 'live' version of `$app`. In the callback function 
 this will already be available as `$this->app`. 
@@ -169,30 +167,39 @@ outputted HTML in the frontend. To do so, use the `addJavascript()` and
 `addCSS()` functions:
 
 
-<pre class="brush: php">
+```
 function initialize()
 {
 
-    // Add javascript file
-    $this->addJavascript($app['paths']['app'] . "extensions/Namespace/assets/namespace.js", false);
-
     // Add CSS file
-    $this->addCSS($app['paths']['app'] . "extensions/Namespace/assets/namespace.css", false);
+    $this->addCSS($this->app['paths']['app'] . "extensions/Namespace/assets/namespace.css");
+
+    // Add javascript file
+    $this->addJavascript(
+        $this->app['paths']['app'] . "extensions/Namespace/assets/namespace.js"
+        true,
+        1000
+      );
+
 
 }
-</pre>
+```
 
-Both of these functions take two parameters: 
+Both of these functions take three parameters: 
 
-  - An absolute path to the desired .js
-  or .css file. Use the `$app['paths']['app']` variable to always get the correct 
-  path, regardless of how Bolt is installed. See the [Paths section in Internals](/internals#paths) 
+  - An absolute path to the desired .js or .css file. Use the `$app['paths']['app']` 
+    variable to always get the correct path, regardless of how Bolt is installed. 
+    See the [Paths section in Internals](/internals#paths)
   for more details.
-  - A boolean that controls where the code insertion happens:
+  - An (optional) boolean that controls where the code insertion happens:
     - HTML head, by default (false)
     - End of the body section (true)
+  - An (optional) integer to determine the ordering in which the files are
+    included in the rendered HTML. The default is `0`, any _lower_ value will
+    get inserted before, while any _higher_ value will get inserted later.
 
-Be careful though. If you insert dependant code before the relevant JavaScript itself, this will cause breakage.
+Be careful though. If you insert dependant code before the relevant JavaScript
+itself, this will cause breakage.
 
 There's a special function for adding jQuery to the outputted HTML. A lot of
 extensions might or might not require jQuery to function, and the developer of
@@ -201,14 +208,14 @@ jQuery includes, your HTML would quickly become a mess at best. Most likely it
 will break, because having more than one instance of jQuery might cause
 conflicts in your page. If your extension requires jQuery, use the following:
 
-<pre class="brush: php">
+```
 function initialize()
 {
 
     $this->addJquery();
 
 }
-</pre>
+```
 
 This will make sure jQuery is added to the outputted HTML, but only if it's not
 included by the theme developer already. It also will not be included more than
@@ -224,17 +231,17 @@ version that you are running.
 If you want to retrieve a list of all assets added by extensions. You can use
 `getAssets()` in your extension. Like so,
 
-<pre class="brush: php">
+```
 $assets = $this->getAssets();
 $assets['js']; // all js files
 $assets['css']; // all css files
-</pre>
+```
 
 Or if you want to retrieve them in a twig template, use `app.extensions.assets`.
 
-<pre class="brush: html">
+```
 {{ dump(app.extensions.assets) }}
-</pre>
+```
 
 
 Add a Twig function or filter
@@ -244,7 +251,7 @@ Extensions can add Twig functions or filters to extend the templates used in the
 frontend. This example will add a function `{{ foo() }}` to use in the frontend
 templates:
 
-<pre class="brush: php">
+```
 function initialize()
 {
 
@@ -262,7 +269,7 @@ function twigFoo($var1, $var2)
     return "Twig function Namespace.";
 
 }
-</pre>
+```
 
 Note that the Namespace must be included with `'Namespace\twigFoo'`, even though
 the function is defined within the namespace of the extension. This is because
@@ -273,7 +280,7 @@ was omitted.
 You can also define a Twig filter for use in the frontend. The following example
 will add a filter 'bar', that can be used in the templates like `{{ "foo"|bar }}`.
 
-<pre class="brush: php">
+```
 function initialize()
 {
 
@@ -292,7 +299,7 @@ function twigBar($var1, $var2)
     return new \Twig_Markup($str, 'UTF-8');
 
 }
-</pre>
+```
 
 Since these are just regular Twig functions/filters, you should familiarize
 yourself with how Twig works. Read the chapter [Extending Twig](http://twig.sensiolabs.org/doc/advanced.html) 
@@ -319,7 +326,7 @@ There are no events for specific content types. However you can use the passed
 
 An example to log whenever a content has been saved.
 
-<pre class="brush: php">
+```
 $app['dispatcher']->addListener(\Bolt\StorageEvents::postSave, 'postSave');
 
 function postSave(\Bolt\StorageEvent $event)
@@ -327,7 +334,7 @@ function postSave(\Bolt\StorageEvent $event)
     $entry = date('Y-m-d H:i:s').' '.$event->getContentType().' with id '.$event->getId().' has been saved'."\n";
     file_put_contents('storage.log', $entry, FILE_APPEND);
 }
-</pre>
+```
 
 
 
@@ -339,7 +346,7 @@ named `config.yml`, and it should be in the folder of your extension. The
 extension configuration will be automatically loaded. To use it in a snippet
 callback, or a Twig function or modifier, use it like this:
 
-<pre class="brush: php">
+```
 function foo()
 {
 
@@ -353,7 +360,7 @@ function foo()
     return "Hello, $name.";
 
 }
-</pre>
+```
 
 Using the global configuration
 ------------------------------
@@ -361,12 +368,12 @@ Using the global configuration
 Sometimes you might need a global configuration variable in your extension.
 Usually you can read a global configuration variable like this:
 
-<pre class="brush: php">
+```
 function foo()
 {
     $prefix = $this->app['config']->get('general/database/prefix', 'bolt_');
 }
-</pre>
+```
 
 
 Overriding the default 'Content' class

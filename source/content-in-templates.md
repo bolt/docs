@@ -7,14 +7,15 @@ requesting pages that are the defaults for certain contenttypes.
 
 There are two ways that Bolt makes content accessible in the templates:
 
-  - Directly: By using the `{% setcontent %}`-tag, you can retrieve
-    records from any contenttype from the database, and make them
-    available in the templates. Much more information about setcontent,
-    can be found in the chapter [Fetching content](content-fetching).
   - Implicitly: In a template that's being used for a single page or a
-    listing, you'll always have the matching content available, without
-    having to fetch it yourself, via the `setcontent`-tag. See the section
-    below on how it works.
+    listing, you'll always have the matching content available without
+    having to fetch it via the `setcontent`-tag. See the section
+    below on how to access the the content.
+  - Fetching other content: By using the `{% setcontent %}`-tag, 
+    you can retrieve records from any contenttype from the database, 
+    and make the data available to the templates. Much more information 
+    about setcontent, can be found in the chapter 
+    [Fetching content](content-fetching).
 
 Implicitly available content
 ----------------------------
@@ -46,10 +47,10 @@ overview pages and search results.
 In your `config.yml` you can set which record is used for the homepage of
 the site, and you can set the template as well:
 
-<pre class="brush: plain">
+```apache
 homepage: page/1
 homepage_template: index.twig
-</pre>
+```
 
 In this template, you will have a `{{ record }}` available, as well as a
 variable with the same name as the singular version of the contenttype. In
@@ -58,9 +59,9 @@ the example above, it would be `{{ page }}`.
 If you've set the homepage to use not one singular record, but a group of
 records, like this:
 
-<pre class="brush: plain">
+```apache
 homepage: entries/latest/10
-</pre>
+```
 
 Then you would have `{{ records }}` available, as well as a variable with
 the name of the contenttype. In this case, it would be `{{ pages }}`.

@@ -20,9 +20,9 @@ the template like any other template, so you can use any tags in your included
 template that you would use in the 'main' template. You can also use `include`
 inside the included templates.
 
-<pre class="brush: html">
-	{% include '_header.twig' %}
-</pre>
+```
+{% include '_header.twig' %}
+```
 
 For more information, see [include](http://twig.sensiolabs.org/doc/tags/include.html)
 
@@ -45,10 +45,10 @@ details:
 
 To see the available values for an image, use: 
 
-<pre class="brush: html">
-  {{ print(imageinfo(record.image)) }} 
-  {# assuming 'record.image' is the image of the current record. #}
-</pre>
+```
+{{ print(imageinfo(record.image)) }} 
+{# assuming 'record.image' is the image of the current record. #}
+```
 
 The aspect ratio is the proportional relationship between the width and the
 height of the image. In general, this is used to determine whether an image is
@@ -63,15 +63,15 @@ own calculations, using the 'aspectratio' value.
 For example, if you want to style an image, depending
 on its aspect ratio, you can use these values:
 
-<pre class="brush: html">
+```
 {% if imageinfo(record.image).landscape %}
-    &lt;img src="{{ thumbnail(record.image, 400, 320) }}" class="landscape">
+    <img src="{{ thumbnail(record.image, 400, 320) }}" class="landscape">
 {% elseif imageinfo(record.image).portrait %}
-    &lt;img src="{{ thumbnail(record.image, 320, 400) }}" class="portrait">
+    <img src="{{ thumbnail(record.image, 320, 400) }}" class="portrait">
 {% else %}
-    &lt;img src="{{ thumbnail(record.image, 320, 320) }}" class="square">
+    <img src="{{ thumbnail(record.image, 320, 320) }}" class="square">
 {% endif %}
-</pre>
+```
 
 ### Magnific Popup
 
@@ -79,29 +79,29 @@ Use this tag to insert an image in the HTML, which functions as an image popup.
 You can optionally provide the width, height and cropping parameters, like you can 
 do with the `thumbnail`-tag.
 
-<pre class="brush: html">
-    {{ record.photo|popup(100, 100, "r") }}
-    or
-    {{ popup("2014-10/foo.jpg", 100, 100) }}
-</pre>
+```
+{{ record.photo|popup(100, 100, "r") }}
+or
+{{ popup("2014-10/foo.jpg", 100, 100) }}
+```
 
 Note that you should include the Magnific Popup `.js` and `.css` yourself, as
 well as set up the 'initialization' code:
 
-<pre class="brush: html">
-  &lt;script src="/app/view/js/jquery.magnific-popup.min.js">&lt;/script>
-  &lt;link rel="stylesheet" type="text/css" href="/app/view/css/magnific-popup.css">
+```
+<script src="/app/view/js/jquery.magnific-popup.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/app/view/css/magnific-popup.css">
 
-  &lt!-- set up fancybox here, or do this in your own .js file somewhere -->
-  &lt;script type="text/javascript">
-    $(document).ready(function() {
-      $('.magnific, div.imageholder a').magnificPopup({
-          type: 'image'
-          // other options
-      });
-    }); 
-  &lt;/script>    
-</pre>
+&lt!-- set up fancybox here, or do this in your own .js file somewhere -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.magnific, div.imageholder a').magnificPopup({
+        type: 'image'
+        // other options
+    });
+  }); 
+</script>    
+```
 
 For more information about Magnific Popup, see the [Magnific Popup website](http://dimsemenov.com/plugins/magnific-popup/).
 
@@ -110,11 +110,11 @@ For more information about Magnific Popup, see the [Magnific Popup website](http
 Use this tag to insert an image in the HTML. You can optionally provide the width, 
 height and cropping parameters, like you can do with the `thumbnail`-tag.
 
-<pre class="brush: html">
-    {{ record.photo|showimage(800, 600) }}
-    or
-    {{ showimage("2013-03/foo.jpg", 800, 600) }}
-</pre>
+```
+{{ record.photo|showimage(800, 600) }}
+or
+{{ showimage("2013-03/foo.jpg", 800, 600) }}
+```
 
 
 ### redirect
@@ -122,30 +122,30 @@ height and cropping parameters, like you can do with the `thumbnail`-tag.
 Use this tag to redirect from a page to another page or domain. Commonly used in 
 an if/else clause, to redirect visitors based on some criteria. 
 
-<pre class="brush: html">
-    {% if record.image!="" %}
-        &lt;a href="{{ image(record.image) }}">
-            &lt;img src="{{ thumbnail(record.image, 400, 260) }}">
-        &lt;/a>
-    {% else %}
-        {# passive-aggressive way to tell people to find their own image #}
-        {{ redirect('http://http://images.google.com/') }}
-    {% endif %}
-</pre>
+```
+{% if record.image!="" %}
+    <a href="{{ image(record.image) }}">
+        <img src="{{ thumbnail(record.image, 400, 260) }}">
+    </a>
+{% else %}
+    {# passive-aggressive way to tell people to find their own image #}
+    {{ redirect('http://http://images.google.com/') }}
+{% endif %}
+```
 
-<pre class="brush: html">
-    {% setcontent records = "pages/latest/5" %}
-    {% for record in records %}
+```
+{% setcontent records = "pages/latest/5" %}
+{% for record in records %}
 
-        &lt;h2>&lt;a href="{{ record.link }}">{{ record.title }}&lt;/a>&lt;/h2>
-        &lt;p>{{ record.excerpt() }}&lt;/p>
+    <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+    <p>{{ record.excerpt() }}</p>
 
-    {% else %}
+{% else %}
 
-        {{ redirect(paths.root) }} or {{ redirect('page/some-page') }}
+    {{ redirect(paths.root) }} or {{ redirect('page/some-page') }}
 
-    {% endfor %}
-</pre>
+{% endfor %}
+```
 
 
 ### setcontent
@@ -169,37 +169,56 @@ These queries are currently possible:
   * <code>(animal,plant)/search/20</code> - search for animals and plants and
     return 20 of them (use where parameter 'filter' to specify searchstring)
 
-<pre class="brush: html">
+```
 {% setcontent about = 'page/about' %}
 
-&lt;h3>{{ about.title }}&lt;/h3>
+<h3>{{ about.title }}</h3>
 {{ about.introduction|raw }}
 
-&lt;a href="{{ about|link }}">link&lt;/a>
-</pre>
+<a href="{{ about|link }}">link</a>
+```
+
+### getuser and getuserid
+
+Sometimes youneed to fetch a specific record based on the correct user. In cases like these, You'll need to be able to get the data for this user, and the user's id. For these occasions, the functions `getuserid` and `getuser` come in handy. The function takes one argument: either a known id, or the username, that the user also uses to log on. 
+
+Example 1: Getting a user
+
+```
+{{ dump(getuser(1)) }} 
+```
+
+<a href="/files/templatetags-getuser.png" class="fancybox"><img src="/files/templatetags-getuser.png" width="500"></a>
+
+
+Example 2: Using in `setcontent`
+
+``` 
+{% setcontent pages = "pages" where { ownerid: getuserid('admin') } %}
+```
 
 
 ### for
 
-<pre class="brush: html">
-&lt;h3>Recent pages&lt;/h3>
+```
+<h3>Recent pages</h3>
 {% setcontent pages = 'pages' limit 5 order '-datecreated' %}
-&lt;ul>
+<ul>
   {% for page in pages %}
-    &lt;li>&lt;a href="{{ page.link }}">{{ page.title }}&lt;/a>&lt;/li>
+    <li><a href="{{ page.link }}">{{ page.title }}</a></li>
   {% else %}
-    &lt;p>No recent pages.&lt;/p>
+    <p>No recent pages.</p>
   {% endfor %}
-&lt;/ul>
-</pre>
+</ul>
+```
 
 ### dump()
 
-<pre class="brush: html">
+```
 {% set about = content('page', {'slug': 'about'}) %}
 
 {{ dump(about) }}
-</pre>
+```
 
 For more info on debugging your Bolt site, see the chapter on [Bolt
 Internals](/internals).
@@ -223,10 +242,10 @@ comes to sorting or selecting a specific period. They look like: `2013-02-18
 09:41:10`, which isn't suitable to output on the website itself. The localdate
 filter transforms the ugly timestamp to a readable, localized text. Examples:
 
-<pre class="brush: html">
-    '{{ record.datepublish }}' is the same as 
-    '{{ record.datepublish|localdate("%A %B %e") }}'
-</pre>
+```
+'{{ record.datepublish }}' is the same as 
+'{{ record.datepublish|localdate("%A %B %e") }}'
+```
 
 Outputs: 
 
@@ -238,13 +257,13 @@ Outputs:
 
 Some other examples: 
 
-<pre class="brush:html">
-&lt;ul>
-    &lt;li> Created: {{ record.datecreated|localdate("%c") }}&lt;/li>
-    &lt;li> Published: {{ record.datepublish|localdate("The %A in week %V of %Y") }}&lt;/li>
-    &lt;li> Last changed: {{ record.datechanged|localdate("%B %e, %Y %r ") }}&lt;/li>
-&lt;/ul>
-</pre>
+```
+<ul>
+    <li> Created: {{ record.datecreated|localdate("%c") }}</li>
+    <li> Published: {{ record.datepublish|localdate("The %A in week %V of %Y") }}</li>
+    <li> Last changed: {{ record.datechanged|localdate("%B %e, %Y %r ") }}</li>
+</ul>
+```
 
 Outputs: 
 
@@ -259,9 +278,9 @@ possible options, see the official
 
 ### date
 
-<pre class="brush: html">
+```
 {{ content.datecreated|date("M d, ’y")}}
-</pre>
+```
 
 See the various options for 'date' on the [PHP
 website](http://nl3.php.net/manual/en/function.date.php).
@@ -274,34 +293,34 @@ you want to display dates in other languages than English.</p>
 
 Create a link to the current record.
 
-<pre class="brush: html">
-	{{ entry|link }}
-</pre>
+```
+{{ entry|link }}
+```
 
 or:
 
-<pre class="brush: html">
-	<a href="{{ page|link }}">Link to {{ page.title }}</a>
-</pre>
+```
+<a href="{{ page|link }}">Link to {{ page.title }}</a>
+```
 
 ### current
 
 Checks if a given record corresponds to the page being shown in the browser.
 Useful for adding 'active' states to menus and such.
 
-<pre class="brush: html">
+```
 {% if page|current %}class="current"{% endif %}
-</pre>
+```
 
 or:
 
-<pre class="brush: html">
+```
 {% if page|current %}
 	Yes, {{ page.title }} is the current page.
 {% else %}
 	No, you're viewing another page than {{ page.title}}
 {% endif %}
-</pre>
+```
 
 
 ### round, ceil and floor
@@ -310,14 +329,14 @@ The `round`, `floor` and `ceil` modifiers can be used to round numbers (or
 strings containing a numerical-like values) to the nearest integer, which
 basically means "whole number"
 
-<pre class="brush: html">
+```
 {% set pi = 3.141592 %}
 
 Rounded, Pi is {{ pi|round }} {# "3" #}
 
 The constant Pi is somewhere between {{ pi|floor }} and {{ pi|ceil }}
 {# "3 and 4" #}
-</pre>
+```
 
 If you need fancier number formatting than this, you can use the built-in Twig
 `number_format`-filter. See the [docs
@@ -332,13 +351,13 @@ other structures where you need a URL-safe representation of a string.
 
 In this example, we build links to all category listing pages: 
 
-<pre class="brush: html">
-&lt;ul>
+```
+<ul>
 {% for category in app.config.get('taxonomy/categories/options') %}
-    &lt;li>&lt;a href="/category/{{ category|slug }}">{{ category }}&lt;/a>&lt;/li>
+    <li><a href="/category/{{ category|slug }}">{{ category }}</a></li>
 {% endfor %}
-&lt;ul>
-</pre>
+<ul>
+```
 
 
 ### thumbnail
@@ -346,9 +365,9 @@ In this example, we build links to all category listing pages:
 Use this modifier to create a link to an automatically generated thumbnail of a
 size of your choosing. For example:
 
-<pre class="brush: html">
-    &lt;img src="{{ content.image|thumbnail(320, 240) }}">
-</pre>
+```
+<img src="{{ content.image|thumbnail(320, 240) }}">
+```
 
 If `content.image` is an image in your `files/` folder, like `foo.jpg`, this
 modifier will output a link like `/thumbs/320x240/foo.jpg`. This is useful for
@@ -376,32 +395,32 @@ different proportions than the original image. Valid options for cropping are:
 
 Use the cropping parameter like this:
 
-<pre class="brush: html">
-    &lt;img src="{{ content.image|thumbnail(100, 100, "r") }}">
-</pre>
+```
+<img src="{{ content.image|thumbnail(100, 100, "r") }}">
+```
 
 If you omit the width and height altogether, the thumbnail will use the
 'default' size and cropping mode. Remember to add quotes around the cropping
 mode.
 
-<pre class="brush: html">
-    &lt;img src="{{ content.image|thumbnail }}">
-</pre>
+```
+<img src="{{ content.image|thumbnail }}">
+```
 
 You can set the size in your `config.yml`, like this:
 
-<pre class="brush: plain">
+```
 thumbnails: [ 160, 120, c ]
-</pre>
+```
 
 
 ### image
 
 Use this modifier to create a link to an image of your choosing. For example:
 
-<pre class="brush: html">
-    &lt;img src="{{ content.photo|image }}">
-</pre>
+```
+<img src="{{ content.photo|image }}">
+```
 
 If `content.photo` is an image in your `files/` folder, like `2012-11/foo.jpg`, 
 this modifier will output a link like `/files/2012-11/foo.jpg`. This is useful 
@@ -412,9 +431,9 @@ You can specify three parameters: the width, height, and the mode of cropping.
 By doing so, the image will be resized, and it behave exactly like the 
 [thumbnail filter](#filter-thumbnail).
 
-<pre class="brush: html">
-    &lt;img src="{{ content.photo|image(100, 100, "r") }}">
-</pre>
+```
+<img src="{{ content.photo|image(100, 100, "r") }}">
+```
 
 
 
@@ -423,9 +442,9 @@ By doing so, the image will be resized, and it behave exactly like the
 If the content contains HTML-fields, they will be rendered with escaped
 characters by default. If you want to use the HTML as-is, add the raw modifier:
 
-<pre class="brush: html">
-	{{ page|raw }}
-</pre>
+```
+{{ page|raw }}
+```
 
 If we didn't add the `raw` modifier, all '<' and '>' characters in the body
 would be output as '&amp;lt;' and '&amp;gt;' respectively. If 'body' is an HTML
@@ -439,47 +458,56 @@ in the desired order. In some cases you might want to reorder them, by using the
 `order`-filter. The filter takes one parameter: the name of the field you wish
 to order the results on:
 
-<pre class="brush: html">
-    {% set relatedrecords = record.related() %}
-    &lt;p class="meta">Related content:
-        &lt;ul>
-        {% for related in relatedrecords|order('datepublish') %}
-            &lt;li>&lt;a href="{{ related.link }}">{{ related.title }}&lt;/a>&lt;/li>
-        {%  endfor %}
-        &lt;/ul>
-    &lt;/p>
-</pre>
+```
+{% set relatedrecords = record.related() %}
+<p class="meta">Related content:
+    <ul>
+    {% for related in relatedrecords|order('datepublish') %}
+        <li><a href="{{ related.link }}">{{ related.title }}</a></li>
+    {%  endfor %}
+    </ul>
+</p>
+```
 
 or: 
 
-<pre class="brush: html">
-    {# get the 10 latest entries by date, but sort them on the title field %}
-    {% setcontent entries = "entries/latest/10" %}
-    &lt;ul>
-    {% for entry in entries|order('title') %}
-        &lt;li>&lt;a href="{{ entry.link }}">{{ entry.title }}&lt;/a>&lt;/li>
-    {%  endfor %}
-    &lt;/ul>
-</pre>
+```
+{# get the 10 latest entries by date, but sort them on the title field %}
+{% setcontent entries = "entries/latest/10" %}
+<ul>
+{% for entry in entries|order('title') %}
+    <li><a href="{{ entry.link }}">{{ entry.title }}</a></li>
+{%  endfor %}
+</ul>
+```
 
 **Note:** Ordering with the `order`-filter is case sensitive. This means that
 'banana' will come _before_ 'Apple'. If you're sorting on a title or name field
 and this case sensitivity is undesirable, you can use `|order('slug')` instead.
 The slug is always lowercase, so this will normalize the ordering.
 
+### preg_replace
+
+Makes PHPs `preg_replace()` function available as twig filter. Example usage:
+
+```
+{{ content.text|preg_replace('/[^a-z]+/', '_') }}
+```
+
+
 Available variables in Twig
 ---------------------------
 
 ### app
 
-<pre class="brush: html">
+```
 {{ app.config.general.sitename }}
-</pre>
+```
 
 
-<pre class="brush: html">
+```
 {{ print(app.config.general) }}
-</pre>
+```
 
 For more info on `app`, see the chapter on [Bolt Internals](/internals).
 
@@ -493,19 +521,19 @@ Use this test to determine if a given variable is JSON.
 
 Examples: 
 
-<pre class="brush: html">
+```
 {% if var is json %}
     JSON: {{ var }}
 {% else %}
     JSON: {{ var|json_encode }}
 {% endif %}    
-</pre>
+```
 
-<pre class="brush: html">
+```
 {% if var is json %}
     Decoded: {{ var|json_decode }}
 {% endif %}    
-</pre>
+```
 
 
 ### available
@@ -516,21 +544,21 @@ will have a certain extension installed.
 
 Examples: 
 
-<pre class="brush: html">
+```
 {% if 'facebooklike' is available %}
     {{ facebooklike() }}
 {% endif %}    
-</pre>
+```
 
 You can use this, to output a friendly warning to users of the templates: 
 
-<pre class="brush: html">
+```
 {% if 'simpleform' is available %}
     {{ simpleform('contact') }}
 {% else %}
     <p>Warning: This theme suggests you install the 'Simpleforms' extension.</p>
 {% endif %}    
-</pre>
+```
 
 <p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must 
 use a string to do the test. Don't forget the quotes!</p>

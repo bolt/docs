@@ -172,14 +172,14 @@ Additionally, grant `edit` to the magic `owner` role and to `chief-editor`.
 
 This is what it looks like in `permissions.yml`:
 
-<pre class="brush: plain">
+```
 contenttype-default:
     edit: [ owner, chief-editor ]
     create: [ editor, chief-editor ]
     publish: [ chief-editor ]
     depublish: [ chief-editor ]
     change-ownership: [ chief-editor ]
-</pre>
+```
 
 
 Manually Checking Permissions
@@ -191,7 +191,7 @@ through the `$app['user']->isAllowed()` method, and to templates through the
 `isallowed()` template function. These functions both take a *permission query*
 as their argument; the grammar for these is as follows:
 
-<pre class="brush: plain">
+```
 permission-query := or-query | allow-all
 
 
@@ -212,7 +212,7 @@ simple-query := true | false | permission
 true := 'true' # -> case insensitive, always grant
 false := 'false' # -> case insensitive, never grant
 permission := word [ ( ':', word) ... ] # -> a tuple of permission specifier parts, as outlined above.
-</pre>
+```
 
 Additionally, you can pass a content type slug and a content ID as optional
 arguments; by doing so, the query is run against those instead of at the global
@@ -220,15 +220,17 @@ arguments; by doing so, the query is run against those instead of at the global
 
 A few examples:
 
-<pre class="brush: plain">
-    # view any page and view any entry, *or* edit any entry
-    isallowed("(contenttype:pages:view and contenttype:entries:view) or contenttype:entries:edit")
-</pre>
-<pre class="brush: plain">
-    # create new foobars, edit foobar #1, or delete foobar #1
-    isallowed("contenttype:foobar:create or contenttype:foobar:edit:1 or contenttype:foobar:delete:1")
-</pre>
-<pre class="brush: plain">
-    # for item #23, check if any permission is granted that would allow viewing:
-    isallowed("frontend or view or edit", "items", 23)
-</pre>
+```php
+# view any page and view any entry, *or* edit any entry
+isallowed("(contenttype:pages:view and contenttype:entries:view) or contenttype:entries:edit")
+```
+
+```php
+# create new foobars, edit foobar #1, or delete foobar #1
+isallowed("contenttype:foobar:create or contenttype:foobar:edit:1 or contenttype:foobar:delete:1")
+```
+
+```php
+# for item #23, check if any permission is granted that would allow viewing:
+isallowed("frontend or view or edit", "items", 23)
+```

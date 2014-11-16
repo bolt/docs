@@ -10,7 +10,7 @@ preface:
   
 working:
   "": Working with Bolt
-  content: Contenttypes and Records
+  contenttypes-and-records: Contenttypes and Records
   content-in-templates: "Content in templates"
   taxonomies: "Taxonomies"
   relationships: "Relationships"
@@ -20,7 +20,7 @@ working:
 templating:
   "": "Templating"
   templates-routes: "Templates and Routes"
-  templates: "Building templates"
+  building-templates: "Building templates"
   record-and-records: "Record and Records"
   content-fetching: "Fetching content"
   content-paging: "Paging content"
@@ -29,24 +29,30 @@ templating:
 
 extending:
   "": "Extending Bolt"
-  extensions: "Introduction to Bolt Extensions"
+  extensions-introduction: "Introduction to Bolt Extensions"
   extensions-essentials: "Developers: Creating Your First Extension"
   extensions-config: "Developers: Configure and Load Your Extension"
   extensions-customfields: "Developers: Providing New Field Types"
+  extensions-dev: "Set-up For Extension Development"
   extensions-testing: "Developers: Testing Your Extensions"
+  extensions-nut-commands: "Providing Nut Console Commands"
 
 internals:
   "": "Bolt Internals"
-  internals: "Bolt Internals"
+  bolt-internals: "Bolt Internals"
   contributing: "Contributing to Bolt"
   code-quality: "Code Quality"
+  task-scheduler: "Task Scheduler (cron)"
+
 
 other:
   "": Other Information
+  manifesto: "The Bolt Manifesto"
   howto: "Howto's on various subjects"
   locales: "Locales"
   nut: "Nut (command line utility)"
-  maintenancemode: "Maintenance (offline) mode"
-  credits: "Credits and Contributing"
+  maintenance-mode: "Maintenance (offline) mode"
+  credits: "Credits"
   roadmap: "Roadmap"
+  installation-advanced: "Advanced installation details"
 
