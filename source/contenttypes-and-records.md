@@ -560,8 +560,39 @@ any data that's been entered by an editor.
 Grouping fields in tabs
 -----------------------
 
+If you have a number of fields in your contenttype, it might be convenient to
+add grouping to the fields, by using tabs. It will look like this:
 
+<a href="/files/contenttype-tabs.png" class="fancybox"><img src="/files/contenttype-tabs.png"></a>
 
+To do this, simply add `group` to the fields that you would like to place under
+a certain tab. You don't need to specify _all_ of the fields with a grouping,
+just the ones that are the first on a tab. Any subsequent fields without a
+specified `group` will fall under the previously set grouping.
+
+For example: 
+
+```apache
+pages:
+    name: Pages
+    singular_name: Page
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        body:
+            type: html
+        image:
+            type: image
+            group: media
+        file:
+            type: file
+        ..
+```
 
 The structure of a Record
 -------------------------
