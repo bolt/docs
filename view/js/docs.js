@@ -54,7 +54,7 @@ jQuery(function($) {
         placeholder: "Search …",
         minimumInputLength: 3,
         ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
-            url: "/search.php",
+            url: "./search.php",
             dataType: 'json',
             quietMillis: 250,
             data: function (term, page) {
@@ -72,7 +72,7 @@ jQuery(function($) {
 
     $('#searchbox').on("select2-selecting", function(e) { 
         // console.log(q, e);
-        window.location = '/' + e.val + '?q=' + encodeURIComponent(q) + "#" + encodeURIComponent(formatForUrl(q));
+        window.location = './' + e.val + '?q=' + encodeURIComponent(q) + "#" + encodeURIComponent(formatForUrl(q));
     });    
 
 });
