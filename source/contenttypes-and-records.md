@@ -417,7 +417,24 @@ Most fields have a few extra optional values, to further customize them.
     needed if you want to allow twig snippets in your content.
   - `info: ..`: Use for displaying extra information about the field.
 
+
+### Upload locations
+
+Fields of the types `image`, `file`, `imagelist` and `filelist` upload new files to the `files/` folder by default. If you would like to have more control over the structure of the uploaded files, use the `upload` setting. 
+
+Example: Upload to a folder called 'photouploads':
+
+```
+  imagefield:
+    - type: image
+    - label: "Upload a photo"
+    - upload: photouploads
+```
+
+Note: The uploads will still go into the base `files/` folder. For more advanced options, see the relevant [Github Issue thread](https://github.com/bolt/bolt/pull/1435).
+
 ### File and Filelist options
+
 A field with the type `file` or `filelist` has some default values for the
 file extensions that may be uploaded. If you need more you have to explicitly
 set those in the configuration
