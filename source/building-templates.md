@@ -87,7 +87,7 @@ some of the details of the Twig Template language. As mentioned before: Much, mu
     {{ content.body|raw }}
 
     <p class="meta">
-    	Posted by {{ content.username }} on
+    	Posted by {{ content.user.displayname }} on
     	{{ content.datecreated|date("M d, ’y")}}
     </p>
 
