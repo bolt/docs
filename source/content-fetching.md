@@ -66,8 +66,8 @@ the `where` clause. The parameters must be listed as a hash, so you can
 include more than one, if needed.
 
 ```
-{# get all pages with username 'bob' #}
-{% setcontent mypages = 'pages' where { username: 'bob' } %}
+{# get all pages with ownerid '2' #}
+{% setcontent mypages = 'pages' where { ownerid: '2' } %}
 
 {# get all events with eventdate '2012-10-15' #}
 {% setcontent myevents = 'events' where { eventdate: '2012-10-15' } %}
@@ -80,8 +80,8 @@ modifiers for the values, to select based on 'smaller than' or 'does not
 equal'
 
 ```
-{# get all pages not created by 'bob' #}
-{% setcontent mypages = 'pages' where { username: '!bob' } %}
+{# get all pages not created by user '1' #}
+{% setcontent mypages = 'pages' where { ownerid: '!1' } %}
 
 {# get all events with eventdate before '2012-10-15' #}
 {% setcontent myevents = 'events' where { eventdate: '&lt;2012-10-15' } %}
@@ -176,23 +176,23 @@ clause:
 
 ```
 {# get all pages not created by 'pete', and created after july 2012, with a .jpg image #}
-{% setcontent mypages = 'pages' where { username: '!pete', datecreated: '>2012-07-31', image: '%.jpg%' } %}
+{% setcontent mypages = 'pages' where { ownerid: '!3', datecreated: '>2012-07-31', image: '%.jpg%' } %}
 ```
 
 ### 'AND' and 'OR'
 
 You can use the `&&` and `||`-parameters to select on two criteria for any
-field. However, you can't use something like `where { username: '!pete',
-username: '!mike'}` because of the way hashes work in twig: The second
-`username` would overwrite the first. Instead, you can use the `&&` and
+field. However, you can't use something like `where { ownerid: '!3',
+ownerid: '!4'}` because of the way hashes work in twig: The second
+`ownerid` would overwrite the first. Instead, you can use the `&&` and
 `||`-parameters to either select using `AND` or `OR`. examples:
 
 ```
-{# get all pages created by 'pete' or 'mike' #}
-{% setcontent mypages = 'pages' where { username: 'pete || mike' } %}
+{# get all pages created by ownerid '3' or '4' #}
+{% setcontent mypages = 'pages' where { ownerid: '3 || 4' } %}
 
 {# get all pages with an id greater than 29, but smaller or equal to 37 #}
-{% setcontent mypages = 'pages' where { id: '>29 && &lt;=37' } %}
+{% setcontent mypages = 'pages' where { id: '>29 && <=37' } %}
 ```
 
 Please note that using these operators, it'll be quite easy to create a
@@ -200,10 +200,10 @@ where statement that will never give good results:
 
 ```
 {# This will _always_ match: #}
-{% setcontent mypages = 'pages' where { username: '!pete || !mike' } %}
+{% setcontent mypages = 'pages' where { ownerid: '!3 || !4' } %}
 
 {# This will never work: #}
-{% setcontent mypages = 'pages' where { id: '&lt;29 && &gt37' } %}
+{% setcontent mypages = 'pages' where { id: '>29 && <37' } %}
 ```
 
 By using the `|||`-operator (three pipes) you can create an OR-part for
@@ -229,7 +229,7 @@ clause.
 
 ```
 {# get 10 pages created by 'bob' #}
-{% setcontent mypages = 'pages' where { username: 'bob' } limit 10 %}
+{% setcontent mypages = 'pages' where { ownerid: '1' } limit 10 %}
 ```
 
 Ordering results

@@ -12,22 +12,23 @@ the date that they were published. Some other sites might have 'book reviews' or
 of content are called **Contenttypes** in Bolt, and you can add as many
 different contenttypes as you need.
 
-Each contenttype is defined by a couple of fixed, required **Fields** that are 
-used internally, but otherwise you're free to define how the content in a 
-Contenttype is structured. For instance, in an 'event', you'll need a date on which the event
-takes place. For a 'book review', you'll need an author and publisher of the
-book. Other commonly used fields are 'title', 'introduction' or maybe an 'image'. 
-Some of the Fields are Fixed, which means that every contenttype has them. For example,
-every contenttype has a Field for 'id', 'slug', 'date_created' and 'user'. Below
-we'll describe how to define the Contenttypes and the Fields that you can use to
-store the desired information in them.
+Each contenttype is defined by a couple of fixed, required **Fields** that are
+used internally, but otherwise you're free to define how the content in a
+Contenttype is structured. For instance, in an 'event', you'll need a date on
+which the event takes place. For a 'book review', you'll need an author and
+publisher of the book. Other commonly used fields are `title`, `introduction` or
+maybe an `image`. Some of the Fields are fixed, which means that every
+contenttype has them. For example, every contenttype has a Field for `id`,
+`slug`, `date_created` and `ownerid`. Below we'll describe how to define the
+Contenttypes and the Fields that you can use to store the desired information in
+them.
 
-<p class="tip"><strong>Tip:</strong> The 'slug' is a special value, that's used in 
-the generation of the URL at which
-a page will be available on the website. It usually contains a  variant of the
-title, that's been made suitable for indexing by search engines. Ideally, it is
-both semantical and human readable. For example, if you have a page named "About
-our company", a good slug would be <code>about-our-company</code>.</p>
+<p class="tip"><strong>Tip:</strong> The <code>slug</code> is a special value,
+that's used in the generation of the URL at which a page will be available on
+the website. It usually contains a  variant of the title, that's been made
+suitable for indexing by search engines. Ideally, it is both semantical and
+human readable. For example, if you have a page named "About our company", a
+good slug would be <code>about-our-company</code>.</p>
 
 All of the content on your website is part of one specific Contenttype, which
 automatically defines which fields that piece of content has, which in turn
@@ -50,7 +51,7 @@ An Example: News items
 
 In this example, we'll create a very simple contenttype for news items. Each
 news item will have a title, an image, and some text. We'll also be using some
-of the fixed Fields, like the slug, the user and the date.
+of the fixed Fields, like the `slug`, the `ownerid` and the various dates.
 
 <p class="note"><strong>Note:</strong> If you've just installed Bolt, you might
 not have the <code>contenttypes.yml</code>-file yet. You will however have a
@@ -167,7 +168,7 @@ folder, and add the following HTML-code:
         {{ newsitem.text }}
 
         <p class="meta"><a href="{{ newsitem.link }}">Link</a> -
-        	Posted by {{ newsitem.username }}
+        	Posted by {{ newsitem.user.displayname }}
         	on {{ newsitem.datecreated|date("M d, ’y")}}</p>
 
     </article>
@@ -623,13 +624,15 @@ a few other fixed fields. The fixed fields are:
     the content editor.
   - `datecreated`: The timestamp of when the record was first created.
   - `datechanged`: The timestamp of when the record was last edited of modified.
-  - `username`: The name of the user that last edited (or created) this record.
+  - `datepublish`: The timestamp when the record was published, or when it _will_ be published.
+  - `datepublish`: The timestamp when the record was depublished, or when it _will_ be depublished.
+  - `ownerid`: The id of the user that last edited (or created) this record.
   - `status`: The current status of this record. Can be either `published`,
     `depublished`, `held`, `timed` or `draft`.
 
 If you're building a template and are unsure of what a certain variable contains
-or how the fields are named, use `{{ print(foo) }}`, where 'foo' is the name of
-your record or array. In most templates, `{{ print(record) }}` will work as a
+or how the fields are named, use `{{ dump(foo) }}`, where 'foo' is the name of
+your record or array. In most templates, `{{ dump(record) }}` will work as a
 generic fallback for whatever the name of your record is.
 
 For detailed information on how to access the various fields and values in your
