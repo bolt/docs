@@ -187,7 +187,7 @@ ownerid: '!4'}` because of the way hashes work in twig: The second
 `ownerid` would overwrite the first. Instead, you can use the `&&` and
 `||`-parameters to either select using `AND` or `OR`. examples:
 
-```
+```apache
 {# get all pages created by ownerid '3' or '4' #}
 {% setcontent mypages = 'pages' where { ownerid: '3 || 4' } %}
 
@@ -198,7 +198,7 @@ ownerid: '!4'}` because of the way hashes work in twig: The second
 Please note that using these operators, it'll be quite easy to create a
 where statement that will never give good results:
 
-```
+```apache
 {# This will _always_ match: #}
 {% setcontent mypages = 'pages' where { ownerid: '!3 || !4' } %}
 
@@ -219,6 +219,27 @@ multiple columns. For example:
 ```
 
 Since 'and' is the default, there is no `&&&` equivalent to `|||`.
+
+Getting content for a specific user
+-----------------------------------
+
+As you might've noticed, in the examples above, we've used `ownerid` a couple of times to get content specific to a given user. In Bolt, Content is stored with a reference to the owner of this piece of content, the so called `ownerid`. This means that you cannot do things like this: 
+
+```
+{# get all pages created by user 'bob' #}
+{% setcontent mypages = 'pages' where { username: 'admin' } %}
+```
+
+Instead, you'll need to use the `ownerid`. If you don't know the `ownerid`, but you _do_ know their name, you can use the `getuserid()` function. 
+
+```
+{# get all pages created by user 'bob' #}
+{% set myuserid = getuserid('bob') %}
+{% setcontent mypages = 'pages' where { ownerid: myuserid } %}
+
+{# or, on one line #}
+{% setcontent mypages = 'pages' where { ownerid: getuserid('bob') } %}
+```
 
 
 Using `limit`

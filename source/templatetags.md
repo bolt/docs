@@ -178,6 +178,25 @@ These queries are currently possible:
 <a href="{{ about|link }}">link</a>
 ```
 
+### getuser and getuserid
+
+Sometimes youneed to fetch a specific record based on the correct user. In cases like these, You'll need to be able to get the data for this user, and the user's id. For these occasions, the functions `getuserid` and `getuser` come in handy. The function takes one argument: either a known id, or the username, that the user also uses to log on. 
+
+Example 1: Getting a user
+
+```
+{{ dump(getuser(1)) }} 
+```
+
+<a href="/files/templatetags-getuser.png" class="fancybox"><img src="/files/templatetags-getuser.png" width="500"></a>
+
+
+Example 2: Using in `setcontent`
+
+``` 
+{% setcontent pages = "pages" where { ownerid: getuserid('admin') } %}
+```
+
 
 ### for
 
