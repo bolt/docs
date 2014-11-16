@@ -15,8 +15,6 @@ are almost limitless but here are a few of the basic ideas that can be accomplis
  - Add custom upload handlers that support different filesystems.
  - Add a custom thumbnail generator that does more advanced creation of thumbs
  
-
-
 A Bolt extension has to follow a few strict rules, so it can be auto-loaded by
 Bolt and to make sure it won't interfere with other Bolt functionality or even
 other Extensions. To do this, we have to keep the following rules:
@@ -173,26 +171,35 @@ outputted HTML in the frontend. To do so, use the `addJavascript()` and
 function initialize()
 {
 
-    // Add javascript file
-    $this->addJavascript($this->app['paths']['app'] . "extensions/Namespace/assets/namespace.js", false);
-
     // Add CSS file
-    $this->addCSS($this->app['paths']['app'] . "extensions/Namespace/assets/namespace.css", false);
+    $this->addCSS($this->app['paths']['app'] . "extensions/Namespace/assets/namespace.css");
+
+    // Add javascript file
+    $this->addJavascript(
+        $this->app['paths']['app'] . "extensions/Namespace/assets/namespace.js"
+        true,
+        1000
+      );
+
 
 }
 ```
 
-Both of these functions take two parameters: 
+Both of these functions take three parameters: 
 
-  - An absolute path to the desired .js
-  or .css file. Use the `$app['paths']['app']` variable to always get the correct 
-  path, regardless of how Bolt is installed. See the [Paths section in Internals](/internals#paths) 
+  - An absolute path to the desired .js or .css file. Use the `$app['paths']['app']` 
+    variable to always get the correct path, regardless of how Bolt is installed. 
+    See the [Paths section in Internals](/internals#paths)
   for more details.
-  - A boolean that controls where the code insertion happens:
+  - An (optional) boolean that controls where the code insertion happens:
     - HTML head, by default (false)
     - End of the body section (true)
+  - An (optional) integer to determine the ordering in which the files are
+    included in the rendered HTML. The default is `0`, any _lower_ value will
+    get inserted before, while any _higher_ value will get inserted later.
 
-Be careful though. If you insert dependant code before the relevant JavaScript itself, this will cause breakage.
+Be careful though. If you insert dependant code before the relevant JavaScript
+itself, this will cause breakage.
 
 There's a special function for adding jQuery to the outputted HTML. A lot of
 extensions might or might not require jQuery to function, and the developer of
