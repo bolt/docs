@@ -109,9 +109,12 @@ If not, just leave it as it is for the quickest possible installation.
 Open your Bolt site in your browser, and you should be greeted by the screen to
 set up the first user. If not, see below. If you do see the 'Create the first
 user'-screen, do accordingly, and log in to the Bolt Backend. You should now see
-the (empty) Dashboard screen, and you are able to add some dummy pages using the
-built-in Loripsum tool. After you've done this, you should see some dummy
-content, and you're good to go!
+the (empty) Dashboard screen. 
+
+If you want to get a quick way to see how your site looks with some content you
+can add some generated pages using the built-in <a href="http://loripsum.net">Loripsum</a>
+tool. After you've done this, your site will have some content to start with,
+and you're good to go!
 
 If you're getting unspecified "Internal Server Errors", the most likely cause is
 a missing or malfunctioning `.htaccess` file. See [here](#apache-tweaking-the-htaccess-file)
