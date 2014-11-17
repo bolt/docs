@@ -138,9 +138,8 @@ Each has its benefits and drawbacks.
     on the majority of webservers. If your server supports it, we advise you to
     use MySQL instead of SQLite. Mainly because it's very well-known, and there
     are good third-party tools for maintenance, backup and migration.
-  - **PostgreSQL** - is a very well-designed database engine, but unfortunately
-    it's not as well known as the two others. This database engine is most
-    often used by 'power users'.
+  - **PostgreSQL** - is a very well-designed database engine, but not as widely 
+    available as MySQL.
 
 Not sure which database to use? We suggest using MySQL if available, and SQLite
 otherwise.
