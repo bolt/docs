@@ -47,6 +47,7 @@ foreach ($matches[1] as $key => $title) {
 
 
 // Let's see if there's a 'q' to highlight..
+/* ----- This is broken: it also replaces _inside_ image tags. Not what we want.
 if (!empty($_GET['q'])) {
 
     $q = makeSlug($_GET['q']);
@@ -59,6 +60,7 @@ if (!empty($_GET['q'])) {
         return $output;
     }, $source);
 }
+---- */ 
 
 // Markup for <h1> and <h2>..
 $source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function($matches) {
