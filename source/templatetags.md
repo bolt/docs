@@ -228,6 +228,33 @@ Twig Filters
 ------------
 
 
+### excerpt
+
+Excerpt creates a short, text-only, excerpt of a record or a string. It's useful
+to get short blurbs of text for overview pages, listings, etcetera. If you pass
+it a string, it will simply strip out HTML and, reduce it to a given length:
+
+```
+{% set text = "Bonum patria: miserum exilium. Ut optime, secundum" %}
+{{ text|excerpt(10) }}
+
+=> Bonum pat…
+```
+
+If you get an excerpt of a Record, Bolt will attempt to get an excerpt that's
+representative of the Record. If it has a recognisable title, it will start with
+that, and it will use the other text-fields to complete it. If fact, it's the
+same function that's used in the Bolt backend, on the dashboard.
+
+```
+{% setcontent page = "pages/1" %}
+{{ page|excerpt(200) }}
+
+=> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Videsne quam sit
+magna dissensio? Cum ageremus, inquit, vitae beatum et eundem supremum diem,
+scribebamus haec. Duo Reges: constructio int…
+```
+
 ### localdate
 
 Outputs a localized, readable version of a timestamp, based on the `locale`
