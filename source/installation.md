@@ -5,9 +5,9 @@ This page explains the various ways of installing Bolt. You can either use the
 command-line or your FTP-client to install it. There are three ways to install
 Bolt:
 
-  - The easiest way, [from the command-line](#option-1-the-easy-way-using-the-command-line).
-  - The traditional way, [using (S)FTP](#option-2-the-traditional-way-using-sftp).
-  - The nerdy way, [for developers](#option-3-the-developer-way-using-git-and-composer).
+  - The easiest way, [from the command-line](#option-1-easy-way-using-command-line).
+  - The traditional way, [using (S)FTP](#option-2-traditional-way-using-sftp).
+  - The nerdy way, [for developers](#option-3-developer-way-using-git-and-composer).
 
 Use one of the three methods described below to get the Bolt source files, and
 set them up on your webserver. After you've done this, skip to the section for
@@ -109,9 +109,12 @@ If not, just leave it as it is for the quickest possible installation.
 Open your Bolt site in your browser, and you should be greeted by the screen to
 set up the first user. If not, see below. If you do see the 'Create the first
 user'-screen, do accordingly, and log in to the Bolt Backend. You should now see
-the (empty) Dashboard screen, and you are able to add some dummy pages using the
-built-in Loripsum tool. After you've done this, you should see some dummy
-content, and you're good to go!
+the (empty) Dashboard screen. 
+
+If you want to get a quick way to see how your site looks with some content you
+can add some generated pages using the built-in <a href="http://loripsum.net">Loripsum</a>
+tool. After you've done this, your site will have some content to start with,
+and you're good to go!
 
 If you're getting unspecified "Internal Server Errors", the most likely cause is
 a missing or malfunctioning `.htaccess` file. See [here](#apache-tweaking-the-htaccess-file)
@@ -138,9 +141,8 @@ Each has its benefits and drawbacks.
     on the majority of webservers. If your server supports it, we advise you to
     use MySQL instead of SQLite. Mainly because it's very well-known, and there
     are good third-party tools for maintenance, backup and migration.
-  - **PostgreSQL** - is a very well-designed database engine, but unfortunately
-    it's not as well known as the two others. This database engine is most
-    often used by 'power users'.
+  - **PostgreSQL** - is a very well-designed database engine, but not as widely 
+    available as MySQL.
 
 Not sure which database to use? We suggest using MySQL if available, and SQLite
 otherwise.
@@ -371,6 +373,6 @@ server {
 **Note:** 502 Bad Gateway Errors
 
 If you're using UNIX sockets instead of TCP ports on your PHP-FPM 
-installation, you will need to change the `fastcgi_pass` paramters to match what
+installation, you will need to change the `fastcgi_pass` parameters to match what
 is set in your PHP-FPM configuration's `listen = `, e.g.:
 

@@ -400,6 +400,11 @@ section{   // was .maininfo, .secinfo
     h1, h2, h3, p.meta {
         text-align: left;    
     }
+
+    h2 {
+        margin-bottom: 16px;
+    }
+
     article {
         margin-bottom: 4em; //too specific, needs other place
         padding-bottom: 2em; //too specific, needs other place

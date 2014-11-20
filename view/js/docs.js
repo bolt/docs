@@ -71,8 +71,8 @@ jQuery(function($) {
     });    
 
     $('#searchbox').on("select2-selecting", function(e) { 
-        // console.log(q, e);
-        window.location = './' + e.val + '?q=' + encodeURIComponent(q) + "#" + encodeURIComponent(formatForUrl(q));
+        // window.location = './' + e.val + '?q=' + encodeURIComponent(q) + "#" + encodeURIComponent(formatForUrl(q));
+        window.location = './' + e.val;
     });    
 
 });
