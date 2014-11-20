@@ -5,7 +5,7 @@ This page explains the various ways of installing Bolt. You can either use the
 command-line or your FTP-client to install it. There are three ways to install
 Bolt:
 
-  - The easiest way, [from the command-line](#option-1-easy-way-using-the-command-line).
+  - The easiest way, [from the command-line](#option-1-easy-way-using-command-line).
   - The traditional way, [using (S)FTP](#option-2-traditional-way-using-sftp).
   - The nerdy way, [for developers](#option-3-developer-way-using-git-and-composer).
 
