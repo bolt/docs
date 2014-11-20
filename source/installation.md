@@ -11,7 +11,7 @@ Bolt:
 
 Use one of the three methods described below to get the Bolt source files, and
 set them up on your webserver. After you've done this, skip to the section for
-[Setting up Bolt](#setting-up-bolt).
+[Setting up Bolt](#setting-bolt).
 
 ### Option 1: The easy way, using the command-line.
 
@@ -35,7 +35,7 @@ another setting is better. If you wish to know for sure, ask your hosting
 provider.
 
 That's all! After you've done this, skip to the section
-[Setting up Bolt](#setting-up-bolt). Alternatively, if this didn't work because
+[Setting up Bolt](#setting-bolt). Alternatively, if this didn't work because
 your server doesn't have `curl`, use `wget` instead.
 
 ### Option 2: The traditional way, using (S)FTP.
@@ -71,7 +71,7 @@ sure, ask your hosting provider.
   set up to 'hide' hidden files. You can usually still find it, when browsing
   local files using your FTP client.</p>
 
-After you've done this, skip to the section [Setting up Bolt](#setting-up-bolt).
+After you've done this, skip to the section [Setting up Bolt](#setting-bolt).
 
 
 ### Option 3: The developer way, using git and composer.
