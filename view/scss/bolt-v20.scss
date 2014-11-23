@@ -558,6 +558,46 @@ h4:hover a.anchor {
 }
 
 
+.maininfo .maincolumn {
+    a.button.docsintro {
+        max-width: 560px;
+        font-size: 19px;
+        font-weight: bold;
+        margin: 0;
+
+        small {
+            font-size: 14px;
+            font-weight: normal;
+        }
+    }
+
+    a.button.medium.docsintro {
+        max-width: 270px;
+        margin-right: 18px;
+        font-size: 19px;
+        font-weight: bold;
+
+        background-color: $lessred;
+        display: inline-block;
+
+        small {
+            font-size: 13px;
+            font-weight: normal;
+        }
+
+        &:hover {
+            background-color: darken($lessred, 15);
+        }
+
+    }    
+
+    div.docsintro {
+        clear: both;
+        display: block;
+        margin-bottom: 16px;
+    }
+}
+
 /* -------------- HERO SECTION--------------- */
 
 section.hero {
