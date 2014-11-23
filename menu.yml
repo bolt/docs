@@ -2,7 +2,7 @@
 
 preface:
   "": Getting Started
-  about: Introduction
+  about: About Bolt
   requirements: Requirements
   installation: Installation
   updating: Updating
@@ -30,11 +30,11 @@ templating:
 extending:
   "": "Extending Bolt"
   extensions/introduction: "Introduction to Bolt Extensions"
-  extensions/essentials: "Developers: Creating Your First Extension"
-  extensions/config: "Developers: Configure and Load Your Extension"
-  extensions/customfields: "Developers: Providing New Field Types"
+  extensions/essentials: "Creating Your First Extension"
+  extensions/config: "Configure and Load Your Extension"
+  extensions/customfields: "Providing New Field Types"
   extensions/dev: "Set-up For Extension Development"
-  extensions/testing: "Developers: Testing Your Extensions"
+  extensions/testing: "Testing Your Extensions"
   extensions/nut-commands: "Providing Nut Console Commands"
 
 internals:
