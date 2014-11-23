@@ -60,7 +60,7 @@ The end result looking something like this
 ```
 {
     "require": {
-        "authorname/extensionnamer": "dev-master"
+        "authorname/extensionname": "dev-master"
     },
     "repositories": {
         "myrepo": {
