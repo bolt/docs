@@ -564,10 +564,15 @@ h4:hover a.anchor {
         font-size: 19px;
         font-weight: bold;
         margin: 0;
+        background-color: $lessred;
+        color: #444;
 
         small {
             font-size: 14px;
             font-weight: normal;
+        }
+        &:hover {
+            background-color: darken($lessred, 20);
         }
     }
 
@@ -577,7 +582,7 @@ h4:hover a.anchor {
         font-size: 19px;
         font-weight: bold;
 
-        background-color: $lessred;
+        background-color: #DDD;
         display: inline-block;
 
         small {
@@ -586,7 +591,7 @@ h4:hover a.anchor {
         }
 
         &:hover {
-            background-color: darken($lessred, 15);
+            background-color: #999;
         }
 
     }    
