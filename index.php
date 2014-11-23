@@ -14,6 +14,11 @@ $prefix = strtr($prefix, array("/extensions" => "","/internals" => "", "/tutoria
 
 $request = str_replace($prefix, "", $parseurl['path']);
 
+// Strip of beginning slash. 
+if (strpos($request, "/") === 0) {
+    $request = substr($request, 1);
+}
+
 if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request == "/" ) {
 	header("location: ./introduction");
 }
