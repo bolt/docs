@@ -57,7 +57,7 @@ class Search
 
         foreach ($finder as $file) {
 
-            $filename = $file->getRelativePathname();
+            $filename = str_replace(".md", "", $file->getRelativePathname());
 
             $contents = file_get_contents($file->getRealpath());
             $score = $this->weighQueryText($contents, $q, $filename);
