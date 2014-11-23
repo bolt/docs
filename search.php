@@ -57,15 +57,20 @@ class Search
 
         foreach ($finder as $file) {
 
-            $info = pathinfo($file->getRelativePathname());
-            $filename = $info['filename'];
+            $filename = $file->getRelativePathname();
 
             $contents = file_get_contents($file->getRealpath());
             $score = $this->weighQueryText($contents, $q, $filename);
 
             // Assume first line is the title. 
-            $this->titles[$filename] = strtok($contents, "\n");
+            $title = strtok($contents, "\n");
 
+            // Add the 'folder' to the title, perhaps
+            if (!empty($file->getRelativePath())) {
+                $title = ucfirst($file->getRelativePath()) . " - " . $title;
+            }
+
+            $this->titles[$filename] = $title;
         }
 
     }

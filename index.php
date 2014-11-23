@@ -8,17 +8,18 @@ $version = "2.0.0 beta";
 // Let's see if there's a search-parameter.
 $parseurl = parse_url($_SERVER['REQUEST_URI']);
 
-$request = basename($parseurl['path']);
+// Yeah, this is turning into a bit of black magic voodoo. Refactor at some point. 
 $prefix = dirname($parseurl['path']);
+$prefix = strtr($prefix, array("/extensions" => "","/internals" => "", "/tutorial" => ""));
 
-if ($prefix == "/") {
-    $prefix = "";
+$request = str_replace($prefix, "", $parseurl['path']);
+
+if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request == "/" ) {
+	header("location: ./introduction");
 }
 
-if (empty($request) || $request == "v20" ) {
-    $prefix = "/v20";
-	$request = "about";
-}
+// \Dumper::dump($request);
+// \Dumper::dump($prefix);
 
 if (!file_exists("./source/".$request.".md")) {
     echo "No proper name for a page in the docs. Bye!";
@@ -114,7 +115,7 @@ echo $twig->render('index.twig', array(
 	'submenu' => $submenu,
 	'current' => $request,
 	'version' => $version, 
-    'prefix' => $prefix
+    'prefix' => ($prefix == "/" ? "" : $prefix)
 ));
 
 

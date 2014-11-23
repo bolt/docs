@@ -29,20 +29,20 @@ templating:
 
 extending:
   "": "Extending Bolt"
-  extensions-introduction: "Introduction to Bolt Extensions"
-  extensions-essentials: "Developers: Creating Your First Extension"
-  extensions-config: "Developers: Configure and Load Your Extension"
-  extensions-customfields: "Developers: Providing New Field Types"
-  extensions-dev: "Set-up For Extension Development"
-  extensions-testing: "Developers: Testing Your Extensions"
-  extensions-nut-commands: "Providing Nut Console Commands"
+  extensions/introduction: "Introduction to Bolt Extensions"
+  extensions/essentials: "Developers: Creating Your First Extension"
+  extensions/config: "Developers: Configure and Load Your Extension"
+  extensions/customfields: "Developers: Providing New Field Types"
+  extensions/dev: "Set-up For Extension Development"
+  extensions/testing: "Developers: Testing Your Extensions"
+  extensions/nut-commands: "Providing Nut Console Commands"
 
 internals:
   "": "Bolt Internals"
-  bolt-internals: "Bolt Internals"
-  contributing: "Contributing to Bolt"
-  code-quality: "Code Quality"
-  task-scheduler: "Task Scheduler (cron)"
+  internals/bolt-internals: "Bolt Internals"
+  internals/contributing: "Contributing to Bolt"
+  internals/code-quality: "Code Quality"
+  internals/task-scheduler: "Task Scheduler (cron)"
 
 
 other:

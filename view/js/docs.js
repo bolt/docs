@@ -54,7 +54,7 @@ jQuery(function($) {
         placeholder: "Search …",
         minimumInputLength: 3,
         ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
-            url: "./search.php",
+            url: prefix + "/search.php",
             dataType: 'json',
             quietMillis: 250,
             data: function (term, page) {

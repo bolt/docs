@@ -1,14 +1,15 @@
 How To Use Bolt extensions
 ===========================
 
-The core functionality of Bolt can be extended by taking advantage of the rich ecosystem of extensions that are available 
-on the <a href="https://extensions.bolt.cm">Bolt Marketplace</a>.
+The core functionality of Bolt can be extended by taking advantage of the rich
+ecosystem of extensions that are available on the <a href="https://extensions.bolt.cm">Bolt Marketplace</a>.
 
 Discovering Extensions
 ----------------------
 
-The <a href="https://extensions.bolt.cm">Bolt Extensions Marketplace</a> is the place to discover new extensions. You can search by name
-or keyword and also see what the most popular extensions are.
+The <a href="https://extensions.bolt.cm">Bolt Extensions Marketplace</a> is the
+place to discover new extensions. You can search by name or keyword and also see
+what the most popular extensions are.
 
 
 Installing New Extensions
