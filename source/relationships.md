@@ -93,6 +93,16 @@ To request only one specific related record, pass the id as the second parameter
 ```
     {% set relatedrecords = record.related('pages', 45) %}
 ```
+To use pagination in a list of related records, use the ids of the related records in a setcontent tag:
+
+```
+    {% set ids = record.relation.news|join(" || ") %}
+    {% setcontent messages = "news" where { id: ids } allowpaging limit 6 %}
+    {% for item in messages %}
+    ...
+    {% endfor %}
+    {{ pager('news') }}
+```
 
 <p class="note"><strong>Note:</strong> The <code>related()</code> function
 <em>always</em> returns an array of records, even if you request only a single
