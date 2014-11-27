@@ -10,14 +10,14 @@ Getting Started<br>
 </a>
 
 <div class="docsintro">
-<a href="manifesto" class="button medium docsintro">
-Other information<br>
-<small>Our manifesto, HOWTO's, Nut, and credits</small>
-</a>
-<a href="http://cheatsheet.bolt.cm" class="button medium docsintro">
-The Bolt cheatsheet<br>
-<small>A great little reference for all things Bolt</small>
-</a>
+    <a href="#" onclick="alert('Coming soon!');"  class="button medium docsintro">
+    Bolt in 30 minutes (soon!)<br>
+    <small>A quick overview of Bolt, and how it works</small>
+    </a>
+    <a href="http://cheatsheet.bolt.cm" class="button medium docsintro">
+    The Bolt cheatsheet<br>
+    <small>A great little reference for all things Bolt</small>
+    </a>
 </div>
 
 <a href="contenttypes-and-records" class="button large expand docsintro">
@@ -31,9 +31,13 @@ Templating / Theming<br>
 </a>
 
 <div class="docsintro">
-<a href="#" class="button medium docsintro">
+<a href="#" onclick="alert('Coming soon!');" class="button medium docsintro">
 Templating tutorial (soon!)<br>
 <small>Building a theme, step by step</small>
+</a>
+<a href="manifesto" class="button medium docsintro">
+Other information<br>
+<small>Our manifesto, HOWTO's, Nut, and credits</small>
 </a>
 </div>
 
