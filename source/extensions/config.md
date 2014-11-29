@@ -19,11 +19,11 @@ To make getting setup with an extension as simple as possible there is a skeleto
 composer create-project --no-install bolt/bolt-extension-starter <newextname>
 ```
 
-Once you've done that you'll need to go through and update a few things, giving your new extension the correct configuration and namespaces. There are three files you need to edit, `composer.json`, `init.php`, and `Extension.php`.
+Once you've run the above command Composer will create a new directory, open the project in your editor and you will need to make a few changes, giving your new extension the correct configuration and namespaces. There are three files you need to edit, `composer.json`, `init.php`, and `Extension.php`.
 
 1. Change the namespace at the top of `init.php` and `Extension.php` to your own.
 2. In `composer.json` change the name setting to your extension name eg: username/extensionname
-3. In `composer.json` give a description and a type, either bolt-extension or bolt-theme
+3. In `composer.json` give a description and a type, either `bolt-extension` or `bolt-theme`
 4. Add your information to the author section
 5. In the autoload section update the PSR-4 namespace to the one you have used in your `init.php` and `Extension.php` files
 
