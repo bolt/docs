@@ -1,7 +1,7 @@
 Extensions: Configuration
 =========================
 
-## Create and publish a Bolt extension or theme
+## Creating a Bolt Extension or Theme
 
 Extensions and themes that are published on the marketplace must follow a few simple rules to allow them to hook into a Bolt installation. Information about the package needs to be provided in JSON format in the root of a project. 
 
@@ -102,5 +102,6 @@ The second option allows you to define a directory to autoload your classes from
 Note that Bolt will only support PSR-4 autoload namespaces. For examples see here: <a href="http://www.php-fig.org/psr/psr-4/">http://www.php-fig.org/psr/psr-4/</a>
 
 
-### Submitting your extension
+## Publishing Your Extension on the Marketplace
+
 Once you have the above file setup, make sure it is pushed up to your hosted repository then visit <a href="http://extensions.bolt.cm">extensions.bolt.cm</a> to register your extension or theme on the Bolt Marketplace.
