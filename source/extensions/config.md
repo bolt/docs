@@ -9,7 +9,7 @@ To be hosted on the Bolt marketplace your project will need to be stored in a VC
 
 ### PHP namespace
 
-Extensions should use the PHP namespace of `Bolt\Extension\{author name}\{exension name}\` e.g. `Bolt\Extension\MyName\\MyExtension\`
+Extensions should use the PHP namespace of `Bolt\Extension\{author name}\{exension name}\` e.g. `Bolt\Extension\MyName\MyExtension\`
 
 ### Using the Starter Package
 
