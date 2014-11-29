@@ -34,7 +34,6 @@ extending:
   extensions/essentials: "The Basics of Extensions"
   extensions/customfields: "Providing New Field Types"
   extensions/testing: "Testing Your Extensions"
-  extensions/dev: "Set-up For Extension Development"
   extensions/nut-commands: "Providing Nut Console Commands"
 
 internals:
