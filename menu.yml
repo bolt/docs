@@ -30,8 +30,8 @@ templating:
 extending:
   "": "Extending Bolt"
   extensions/introduction: "Introduction to Bolt Extensions"
-  extensions/essentials: "Creating Your First Extension"
-  extensions/config: "Configure and Load Your Extension"
+  extensions/config: "Creating a New Extension"
+  extensions/essentials: "The Basics of Extensions"
   extensions/customfields: "Providing New Field Types"
   extensions/dev: "Set-up For Extension Development"
   extensions/testing: "Testing Your Extensions"

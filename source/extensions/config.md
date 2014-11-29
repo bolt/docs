@@ -11,6 +11,25 @@ To be hosted on the Bolt marketplace your project will need to be stored in a VC
 
 Extensions should use the PHP namespace of `Bolt\Extension\{author name}\{exension name}\` e.g. `Bolt\Extension\MyName\\MyExtension\`
 
+### Using the Starter Package
+
+To make getting setup with an extension as simple as possible there is a skeleton extension package that can get you started. You'll need to already have Composer installed and then from the command line use the following, making sure you replace the last parameter with the name you want for your new extension.
+
+```
+composer create-project --no-install bolt/bolt-extension-starter <newextname>
+```
+
+Once you've done that you'll need to go through and update a few things, giving your new extension the correct configuration and namespaces. There are three files you need to edit, `composer.json`, `init.php`, and `Extension.php`.
+
+1. Change the namespace at the top of `init.php` and `Extension.php` to your own.
+2. In `composer.json` change the name setting to your extension name eg: username/extensionname
+3. In `composer.json` give a description and a type, either bolt-extension or bolt-theme
+4. Add your information to the author section
+5. In the autoload section update the PSR-4 namespace to the one you have used in your `init.php` and `Extension.php` files
+
+The above steps will get you started, and below is some more indepth information about the configuration.
+
+
 ### The JSON file
 
 You will need a file called `composer.json` in the root of your project. This tells Bolt all the information it requires to display and install your extension or theme. To demonstrate the format we are going to create a dummy extension called Bolt Widgets. Here's how we create our `composer.json` file.
