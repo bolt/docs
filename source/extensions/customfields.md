@@ -125,6 +125,51 @@ Finally we want to add our extension's template directory to the system so that 
 The line `$this->app['twig.loader.filesystem']->prependPath(__DIR__."/twig");` puts the directory `twig` in our extension
 onto the available list of directories.
 
+#### The Field Class
+
+You can see in the main extension class above we added a new instance of ColourPickField to the Bolt field manager. Any new field needs to implement the `Bolt\Field\FieldInterface` which has a few fairly simple requirements.
+
+We firstly need to tell Bolt what name the field will use (this is how it will be set in contenttypes.yml) and also what template will be used to render the field.
+
+Here's the final code for our new field: 
+
+```
+<?php
+
+namespace Bolt\Extensions\Colourpicker;
+
+use Bolt\Field\FieldInterface;
+
+class ColourPickField implements FieldInterface
+{
+    
+    public function getName()
+    {
+        return 'colourpicker';
+    }
+    
+    public function getTemplate()
+    {
+        return '_colourpicker.twig';
+    }
+    
+    public function getStorageType()
+    {
+        return 'text';
+    }
+    
+    public function getStorageOptions()
+    {
+        return array('default'=>'');
+    }
+    
+}
+
+
+```
+
+
+
 #### The Template File
 
 Finally we need a template file that specifies how our field looks in the content editor. Here's how our colourpicker
