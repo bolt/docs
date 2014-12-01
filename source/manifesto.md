@@ -7,7 +7,7 @@ our Manifesto: It outlines the goals of Bolt, our motto and our values.
 This document also describes how we intend to make sure we will adhere to
 these self-imposed rules.
 
-- Our slogan is "**Simple<sup>1</sup>, sophisticated and straightforward**". 
+- Our slogan is "**Simple, sophisticated and straightforward<sup>1</sup>**". 
   This embodies everything we strive to do with Bolt: It is as simple as
   possible, but not simpler. It uses sophisticated technology to achieve
   this, and use of the system should be straighforward and evident.
@@ -39,4 +39,4 @@ these self-imposed rules.
   tolerated in any form.
 
 
-1: 'Simple' is not to be confused with 'Simplistic'. 
+1: Sometimes people comment on this saying “But, isn’t Simple and Sophisticated a contradiction?:” No, it is not. Simple is not to be confused with 'Simplistic'. Or, you could compare it to a car engine: What it _does_ might seem simple, but a modern car engine is a very distinguished and complex piece of machinery, no matter how easy it is to use. 
