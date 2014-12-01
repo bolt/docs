@@ -98,6 +98,22 @@ $app = new Bolt\Application(array('resources'=>$configuration));
 ```
 
 
+### Mounting Bolt on an existing Application
+
+A lot of work has been done on the internals of Bolt which allow it now to run as a self-contained HTTPKernelInterface application without interfering with any of the global namespace or constants. So if you use <a href="http://stackphp.com/">StackPHP</a> (or similar) you can mount Bolt onto a url prefix as simply as this:
+
+```
+$map = [
+    "/another" => new AnotherApplication(),
+    "/blog" => new Bolt\Application(['resources'=>new Bolt\Configuration\Composer(__DIR__)])
+];
+$app = (new Stack\Builder())
+    ->push('Stack\UrlMap', $map)
+    ->resolve($app);
+Stack\run($app);
+```
+
+This means that you can, for instance, use Bolt to manage one specific part of a larger application set.
 
 
 
