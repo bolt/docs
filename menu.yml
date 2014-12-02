@@ -9,7 +9,7 @@ preface:
   installation-advanced: "Advanced Installation"
   updating: Updating
   screenshots: Screenshots
-  
+
 working:
   "": Working with Bolt
   contenttypes-and-records: Contenttypes and Records
@@ -45,7 +45,6 @@ internals:
   internals/code-quality: "Code Quality"
   internals/task-scheduler: "Task Scheduler (cron)"
 
-
 other:
   "": Other Information
   manifesto: "The Bolt Manifesto"
@@ -57,3 +56,10 @@ other:
   roadmap: "Roadmap"
   installation-advanced: "Advanced installation details"
 
+# Note: this is a hackish way to make a specific menu for the HOWTO's. Perhaps
+# replace it by something better, someday?
+howto:
+  howto/installing-local-extensions: "Installing Local Extensions"
+  howto/resource-contenttype: "Making a 'resource' Contenttype"
+  howto/simple-menu: "Creating a Simple menu"
+  howto/upgrade-version-1-to-2: "Upgrading a Bolt 1.x install to 2.x"
