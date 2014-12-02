@@ -34,6 +34,8 @@ Bolt 2 supports installation of extensions that are not included on Bolt's exten
 There are a couple of caveats:
   - There is no autoloader by default
   - Must be located in `{web_root}/extensions/local/{author_name}/{extension_name}/`
+  - They **will** be automatically enabled if the directories above exist and contain `init.php` and `Extension.php`
+  - They **will not** appear in the Extend page in the *"Your Currently Installed Extensions"* section on your Bolt site
 
 ### Step 1
 
