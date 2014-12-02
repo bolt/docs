@@ -36,7 +36,7 @@ resources:
 
 #### Title & Slug
 
-You will note that the title and slug fields work together to create a human readable resource name that we can use later in `{% setcontent resource = 'contenttype/slug' %}`.
+You will note that the title and slug fields work together to create a human readable resource name that we can use later in `{% setcontent resource = 'resources/slug' %}`.
 
 #### HTML
 
@@ -88,7 +88,7 @@ This will limit edit, create, (de)publish, delete and view access to only those 
 Accessing the resource records in a Twig template file is very easy: 
 
 ```twig
-{% setcontent resource = 'contenttype/slug' %}
+{% setcontent resource = 'resources/my-resource-slug' %}
 {{ resource.html|raw }}
 ```
 
@@ -102,5 +102,5 @@ First create a `Resource` record, give it the title of "Not Found", which will g
 Next, in your `config.yml` file simply set the `notfound` key like so:
 
 ```yaml
-notfound: resource/not-found
+notfound: resources/not-found
 ```
