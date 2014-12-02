@@ -1,0 +1,8 @@
+
+{% if menu[section] is defined %}
+<ul>
+    {% for link,name in menu[section] %}
+    <li><a href="{{ prefix|default('') }}/{{link}}">{{name}}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}

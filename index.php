@@ -10,7 +10,7 @@ $parseurl = parse_url($_SERVER['REQUEST_URI']);
 
 // Yeah, this is turning into a bit of black magic voodoo. Refactor at some point. 
 $prefix = dirname($parseurl['path']);
-$prefix = strtr($prefix, array("/extensions" => "","/internals" => "", "/tutorial" => ""));
+$prefix = strtr($prefix, array("/extensions" => "","/internals" => "", "/tutorial" => "", "/howto" => ""));
 
 $request = str_replace($prefix, "", $parseurl['path']);
 
@@ -120,6 +120,7 @@ echo $twig->render('index.twig', array(
 	'submenu' => $submenu,
 	'current' => $request,
 	'version' => $version, 
+    'requested_page' => $request,
     'prefix' => ($prefix == "/" ? "" : $prefix)
 ));
 
