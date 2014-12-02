@@ -48,7 +48,7 @@ internals:
 other:
   "": Other Information
   manifesto: "The Bolt Manifesto"
-  howto: "Howto's on various subjects"
+  howto: "Howtos on various subjects"
   locales: "Locales"
   nut: "Nut (command line utility)"
   maintenance-mode: "Maintenance (offline) mode"
