@@ -501,7 +501,7 @@ custom error message for a field with the error option. for example
 `error: "The title field is required and must be no longer than 40 characters"`
 
 Currently, you can use the `required` option for fields of type `text`,
-`textarea`, `html`, `float` and `integer`.
+`textarea`, `html`, `date`, `datetime`, `float` and `integer`.
 
 For example, to make a title required, you can do this:
 
