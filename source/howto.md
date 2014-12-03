@@ -4,8 +4,9 @@ HOWTOs and Recipes
 Upgrading a Bolt 1.x install to 2.x
 -----------------------------------
 
-There has been some extensive clean ups and changes in the file system layout for Bolt 2.  As a result, if 
-you're upgrading an install it is a good  idea to remove some of the old files that are no longer in use.
+There has been some extensive clean ups and changes in the file system layout for Bolt 2.
+As a result, if you're upgrading an install it is a good  idea to remove some of the old
+files that are no longer in use.
 
 This is of course is only required if you install via ZIP or TGZ files.
 
@@ -16,7 +17,8 @@ The list of directories to remove before upgrade are:
   - `app/theme_defaults/`
   - `app/view/`
 
-If you're on a UNIX/Linux host, you can customise the following script to clean up before unpacking the Bolt 2 archive:
+If you're on a UNIX/Linux host, you can customise the following script to clean up before
+unpacking the Bolt 2 archive:
 
 ```bash
 cd /my/bolt/directory
@@ -81,9 +83,8 @@ $app['extensions']->register(new Extension($app));
 Simple menu
 -----------
 
-The following creates a simple menu in HTML, based on the last 4 pages. Only
-pages where the chapter taxonomy is 'main' are selected, assuming there's a
-taxonomy 'chapter'.
+The following creates a simple menu in HTML, based on the last 4 pages. Only pages where
+the chapter taxonomy is 'main' are selected, assuming there's a taxonomy 'chapter'.
 
 ```
     <nav id="main">

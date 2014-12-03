@@ -1,68 +1,62 @@
 Contenttypes and records
 ========================
 
-All content in Bolt is stored in the database in a logical and flexible fashion.
-In general, when you're building a website, you have an idea what kind of
-content you're going to be managing with the website. Most websites have some
-sort of 'pages' for generic stuff like 'about us' or 'Company History'. 
+All content in Bolt is stored in the database in a logical and flexible fashion. In
+general, when you're building a website, you have an idea what kind of content you're
+going to be managing with the website. Most websites have some sort of 'pages' for generic
+stuff like 'about us' or 'Company History'.
 
-Most websites will also have some form of news-like items, that are shown based on
-the date that they were published. Some other sites might have 'book reviews' or
-'event dates' or even completely different content. All of these different types
-of content are called **Contenttypes** in Bolt, and you can add as many
-different contenttypes as you need.
+Most websites will also have some form of news-like items, that are shown based on the
+date that they were published. Some other sites might have 'book reviews' or 'event dates'
+or even completely different content. All of these different types of content are called
+**Contenttypes** in Bolt, and you can add as many different contenttypes as you need.
 
-Each contenttype is defined by a couple of fixed, required **Fields** that are
-used internally, but otherwise you're free to define how the content in a
-Contenttype is structured. For instance, in an 'event', you'll need a date on
-which the event takes place. For a 'book review', you'll need an author and
-publisher of the book. Other commonly used fields are `title`, `introduction` or
-maybe an `image`. Some of the Fields are fixed, which means that every
-contenttype has them. For example, every contenttype has a Field for `id`,
-`slug`, `date_created` and `ownerid`. Below we'll describe how to define the
-Contenttypes and the Fields that you can use to store the desired information in
-them.
+Each contenttype is defined by a couple of fixed, required **Fields** that are used
+internally, but otherwise you're free to define how the content in a Contenttype is
+structured. For instance, in an 'event', you'll need a date on which the event takes
+place. For a 'book review', you'll need an author and publisher of the book. Other
+commonly used fields are `title`, `introduction` or maybe an `image`. Some of the Fields
+are fixed, which means that every contenttype has them. For example, every contenttype has
+a Field for `id`, `slug`, `date_created` and `ownerid`. Below we'll describe how to define
+the Contenttypes and the Fields that you can use to store the desired information in them.
 
-<p class="tip"><strong>Tip:</strong> The <code>slug</code> is a special value,
-that's used in the generation of the URL at which a page will be available on
-the website. It usually contains a  variant of the title, that's been made
-suitable for indexing by search engines. Ideally, it is both semantical and
-human readable. For example, if you have a page named "About our company", a
-good slug would be <code>about-our-company</code>.</p>
+<p class="tip"><strong>Tip:</strong> The <code>slug</code> is a special value, that's used
+in the generation of the URL at which a page will be available on the website. It usually
+contains a  variant of the title, that's been made suitable for indexing by search
+engines. Ideally, it is both semantical and human readable. For example, if you have a
+page named "About our company", a good slug would be <code>about-our-company</code>.</p>
 
 All of the content on your website is part of one specific Contenttype, which
-automatically defines which fields that piece of content has, which in turn
-specifies how that piece of content is structured. Each one of those pieces of
-content is called a **Record**, and is stored in the database together. For
-example, a single 'book review' is a Record of Contenttype 'reviews' and a
-single 'page' is a Record of Contenttype Pages.
+automatically defines which fields that piece of content has, which in turn specifies how
+that piece of content is structured. Each one of those pieces of content is called a
+**Record**, and is stored in the database together. For example, a single 'book review' is
+a Record of Contenttype 'reviews' and a single 'page' is a Record of Contenttype Pages.
 
-When you're creating a page on a website that shows listings of several Records,
-you're using an **Array of Records**. For instance, if you create a page that
-has 'the five latest book reviews', you'll be using an Array of 5 'book review'
-Records of Contenttype 'book reviews'.
+When you're creating a page on a website that shows listings of several Records, you're
+using an **Array of Records**. For instance, if you create a page that has 'the five
+latest book reviews', you'll be using an Array of 5 'book review' Records of Contenttype
+'book reviews'.
 
 Before we'll dive into the details, we'll give you a quick example of a simple
-Contenttype, how it's stored, and how you can access it in the templates to
-display on your site.
+Contenttype, how it's stored, and how you can access it in the templates to display on
+your site.
 
 An Example: News items
 ----------------------
 
-In this example, we'll create a very simple contenttype for news items. Each
-news item will have a title, an image, and some text. We'll also be using some
-of the fixed Fields, like the `slug`, the `ownerid` and the various dates.
+In this example, we'll create a very simple contenttype for news items. Each news item
+will have a title, an image, and some text. We'll also be using some of the fixed Fields,
+like the `slug`, the `ownerid` and the various dates.
 
-<p class="note"><strong>Note:</strong> If you've just installed Bolt, you might
-not have the <code>contenttypes.yml</code>-file yet. You will however have a
-<code>contenttypes.yml.dist</code>-file, in that same folder. The first time Bolt is
-run, the <code>.yml.dist</code>-files will be automatically copied to
-<code>.yml</code>-files. If you wish to do some configuration <em>before</em>
-you first run Bolt, just copy <code>contenttypes.yml.dist</code> to
-<code>contenttypes.yml</code> yourself. </p>
+<p class="note"><strong>Note:</strong> If you've just installed Bolt, you might not have
+the <code>contenttypes.yml</code>-file yet. You will however have a
+<code>contenttypes.yml.dist</code>-file, in that same folder. The first time Bolt is run,
+the <code>.yml.dist</code>-files will be automatically copied to <code>.yml</code>-files.
+If you wish to do some configuration <em>before</em> you first run Bolt, just copy
+<code>contenttypes.yml.dist</code> to <code>contenttypes.yml</code> yourself. </p>
 
-To add this Contenttype, edit the file `app/config/contenttypes.yml`, and add
-the following to the bottom or top of the file:
+To add this Contenttype, edit the file `app/config/contenttypes.yml`, and add the
+following to the bottom or top of the file:
 
 ```apache
 news:
@@ -83,42 +77,40 @@ news:
     template: newsitem.twig
 ```
 
-<p class="note"><strong>Note:</strong> This file is in the YAML format, which
-means that the indentation is important. Make sure you leave leading spaces
-intact.</p>
+<p class="note"><strong>Note:</strong> This file is in the YAML format, which means that
+the indentation is important. Make sure you leave leading spaces intact.</p>
 
-This creates a new contenttype 'news'. Its name is 'News', and a single record
-is named 'Newsitem'. We've defined fields for 'title', 'slug', 'image' and
-'text'. The 'template' defines the default template to use, when displaying a
-single template in the browser.
+This creates a new contenttype 'news'. Its name is 'News', and a single record is named
+'Newsitem'. We've defined fields for 'title', 'slug', 'image' and 'text'. The 'template'
+defines the default template to use, when displaying a single template in the browser.
 
-After you've saved the file and Refresh the Dashboard screen in your browser,
-you'll be greeted by a warning that the Database needs to be updated. If we do
-this, the new contenttype will be added to the database, with the fields that we
-defined in our `contenttypes.yml` file.
+After you've saved the file and Refresh the Dashboard screen in your browser, you'll be
+greeted by a warning that the Database needs to be updated. If we do this, the new
+contenttype will be added to the database, with the fields that we defined in our
+`contenttypes.yml` file.
 
-<p class="tip"><strong>Tip:</strong> The Bolt backend is located at
-<code>/bolt</code>, relative from the 'home' location of your website. </p>
+<p class="tip"><strong>Tip:</strong> The Bolt backend is located at <code>/bolt</code>,
+relative from the 'home' location of your website. </p>
 
 
 <a href="/files/content-example1.png" class="fancybox"><img src="/files/content-example1.png" width="500"></a>
 
-When you go to Settings > Check Database, the database will be updated, and
-you'll be given the option to add some "Lorem Ipsum" Records to the newly
-created Contenttype. If you do this, and go back to the dashboard, you'll see
-your new Contenttype with some example news items. Sweet!
+When you go to Settings > Check Database, the database will be updated, and you'll be
+given the option to add some "Lorem Ipsum" Records to the newly created Contenttype. If
+you do this, and go back to the dashboard, you'll see your new Contenttype with some
+example news items. Sweet!
 
 <a href="/files/content-example2.png" class="fancybox"><img src="/files/content-example2.png" width="500"></a>
 
-<p class="note"><strong>Note:</strong>In the following examples we're going to
-tell you to make modifications to the default `base-2013` theme. This is
-actually a very bad practice, and if you're going to make your own theme, make a
-copy of the `base-2013` theme, and do your modifications in the copy.</p>
+<p class="note"><strong>Note:</strong>In the following examples we're going to tell you to
+make modifications to the default `base-2013` theme. This is actually a very bad practice,
+and if you're going to make your own theme, make a copy of the `base-2013` theme, and do
+your modifications in the copy.</p>
 
 To add a listing of these news items to the website, edit the twig template
-`theme/base-2013/index.twig`. Most likely, it'll contain an include for a header
-and some other things. Add the following to the HTML-code, preferably somewhere
-below the header section:
+`theme/base-2013/index.twig`. Most likely, it'll contain an include for a header and some
+other things. Add the following to the HTML-code, preferably somewhere below the header
+section:
 
 ```
 {% setcontent newsitems = "news/latest/4" %}

@@ -1,21 +1,21 @@
 Record and Records
 ==================
 
-When writing templates for Bolt, you'll be mostly working with object containing
-a single record with content, or arrays containing a number of records. See the
-page on [Content in templates](content-in-templates) for more information on how
-they become available in the templates.
+When writing templates for Bolt, you'll be mostly working with object containing a single
+record with content, or arrays containing a number of records. See the page on [Content in
+templates](content-in-templates) for more information on how they become available in the
+templates.
 
-This page is divided in two parts: working with a single `{{ record }}`, or with
-an array of `{{ records }}`. In the examples below we mostly refer to the
-generic `record` variable, but in your own templates you're free to use the
-proper name of the contenttype used.
+This page is divided in two parts: working with a single `{{ record }}`, or with an array
+of `{{ records }}`. In the examples below we mostly refer to the generic `record`
+variable, but in your own templates you're free to use the proper name of the contenttype
+used.
 
 Using a `{{ record }}`
 ----------------------
 
-The easiest way to see what the contents of a record (or any other variable, for
-that matter) are, is to use the `print()` function:
+The easiest way to see what the contents of a record (or any other variable, for that
+matter) are, is to use the `print()` function:
 
 ```
 {{ print(record) }}
@@ -23,10 +23,10 @@ that matter) are, is to use the `print()` function:
 
 <a href="/files/content-example3.png" class="fancybox"><img src="/files/content-example3.png" width="500"></a>
 
-As you can see in the screenshot, a record of a contenttype is an `object`.
-There are several benefits to this over a regular `array`. We can access the
-fields like regular values, but we can also use specific functionality for every
-object, without the need to define these separately.
+As you can see in the screenshot, a record of a contenttype is an `object`. There are
+several benefits to this over a regular `array`. We can access the fields like regular
+values, but we can also use specific functionality for every object, without the need to
+define these separately.
 
 You can access regular fields in a record like these examples for either a `page` or `entry` record:
 
@@ -40,8 +40,8 @@ The contenttype for this entry is {{ entry.contenttype.name }},
 and it contains {{ entry.contenttype.fields|length }} fields.
 ```
 
-The real power comes from using the special functions that are defined for every
-content record.
+The real power comes from using the special functions that are defined for every content
+record.
 
 To get a link to the content:
 
