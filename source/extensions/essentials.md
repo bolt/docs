@@ -354,7 +354,7 @@ function foo()
     if (isset($this->config['name'])) {
         $name = $this->config['name'];
     } else {
-        $name = "default name"
+        $name = "default name";
     }
 
     return "Hello, $name.";
