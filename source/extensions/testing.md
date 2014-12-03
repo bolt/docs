@@ -92,7 +92,7 @@ If everything looks ok at this point you will be able to see your extension list
 
 You may have noticed when installing extensions that there are a couple of indicators for users as to the stability of extensions. Firstly on install you will see a list of stable and development versions. It will look similar to the screen below.
 
-<img src="/files/extensions-versions-stability.png">
+<img src="../files/extensions-versions-stability.png">
 
 Users will normally only want to install stable versions, and the way you ensure you have listed stable versions is to push a tagged version to your Git repository. If your extension is stable enough to release then this is as simple as using the following commands:
 
@@ -105,11 +105,11 @@ You should ensure that you have throughly tested each released version, we'd rec
 
 You'll also notice that there's a green badge on the screen above for status 'approved'. To get this badge, you'll need to run a test after you've logged into the Marketplace site. If you visit <a href="http://extensions.bolt.cm/profile">your profile page</a> and click the view button you should see a screen similar to the one below:
 
-<img src="/files/extensions-testing.png">
+<img src="../files/extensions-testing.png">
 
 Next to each version of the extension you will see a button to run a test. After clicking on this if all is well you should see a screen like the one below:
 
-<img src="/files/extensions-test-status.png">
+<img src="../files/extensions-test-status.png">
 
 If everything installs ok you should see all green status bars on the screen and the green star badge next to your extension. For complete testing you can launch a test on various versions of PHP to make sure your extensions works well on older versions. Wherever possible we recommend testing against PHP 5.3 since this is the same version supported by Bolt and gives you access to most users.
 

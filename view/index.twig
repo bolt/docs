@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ title }} | Bolt documentation </title>
+    <title>{{ title|raw }} | Bolt documentation </title>
     <meta name="DCTERMS.title" content="Bolt CMS"/>
     <meta name="robots" content="noydir, noodp"/>
         
@@ -122,6 +122,8 @@
     </p>
 
     {{ source|raw }}    
+
+    {% include '_sub_submenu.twig' with {'section': requested_page } %}
 
 </div>
 

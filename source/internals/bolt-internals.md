@@ -197,7 +197,7 @@ inspect the current values.
 The 'paths' array contains references to paths, folders and links in your current website.
 
 ```
-echo "&lt;pre>\n" . \Dumper::dump($app['paths'], true) . "&lt;/pre>\n";
+echo "<pre>\n" . \Dumper::dump($app['paths'], true) . "</pre>\n";
 ```
 
 The path variables are also accessible in your templates:

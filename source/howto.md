@@ -1,9 +1,10 @@
-HOWTOs and Recipes
+Howtos and Recipes
 ===================
 
-Upgrading a Bolt 1.x install to 2.x
------------------------------------
+This section contains a number of "How To" pages and short guides to a number of
+different subjects.
 
+<<<<<<< HEAD
 There has been some extensive clean ups and changes in the file system layout for Bolt 2.
 As a result, if you're upgrading an install it is a good  idea to remove some of the old
 files that are no longer in use.
@@ -103,3 +104,5 @@ the chapter taxonomy is 'main' are selected, assuming there's a taxonomy 'chapte
 <p class="note"><strong>Note:</strong> This is a specific sample. In general,
 you're probably better off using Bolt's built in <a href="/menus">menu
 functionality</a>.</p>
+=======
+>>>>>>> FETCH_HEAD

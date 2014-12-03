@@ -136,7 +136,7 @@ To insert a string snippet, use:
 ```
 function initialize()
 {
-    $this->addSnippet('endofbody', '&lt;!-- a snippet of HTML -->');
+    $this->addSnippet('endofbody', '<!-- a snippet of HTML -->');
 }
 ```
 
@@ -151,7 +151,7 @@ function initialize()
 
 function snippetbar($foo) 
 {
-    return "&lt;b>Var is $foo.&lt;/b>";
+    return "<b>Var is $foo.</b>";
 }
 
 ```
@@ -354,7 +354,7 @@ function foo()
     if (isset($this->config['name'])) {
         $name = $this->config['name'];
     } else {
-        $name = "default name"
+        $name = "default name";
     }
 
     return "Hello, $name.";
@@ -412,7 +412,7 @@ class Content extends \Bolt\Content
 
 Then, in your template, use:
 ```
-  {{ entry.foo() }} /* prints 'bar'
+  {{ entry.foo() }} /* prints 'bar' */
 ```
 
 

@@ -44,9 +44,9 @@ class MyExtCommand extends Command
         $type = $input->getArgument('type');
         if ($type == 'fast') {
             // Code execution here
-            $text = "<info>Processing fast</info>\n"
+            $text = "<info>Processing fast</info>\n";
         } else {
-            $text = "<info>Processing slow</info>\n"
+            $text = "<info>Processing slow</info>\n";
         }
 
         if ($input->getOption('summary')) {
