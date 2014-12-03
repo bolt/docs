@@ -21,7 +21,7 @@ matter) are, is to use the `print()` function:
 {{ print(record) }}
 ```
 
-<a href="/files/content-example3.png" class="fancybox"><img src="/files/content-example3.png" width="500"></a>
+<a href="/files/content-example3.png" class="fancybox"><img  src="/files/content-example3.png" width="500"></a>
 
 As you can see in the screenshot, a record of a contenttype is an `object`. There are
 several benefits to this over a regular `array`. We can access the fields like regular
@@ -62,7 +62,9 @@ Get the next and previous record:
 {% set next = page.next() %}
 ```
 
-The next and previous functions allow for additional parameters. For example, you can base the next record on any field (this is `datepublish` by default), filtered by a `where` clause, see [using where](/content-fetching#using-where) for more details.
+The next and previous functions allow for additional parameters. For example, you can base
+the next record on any field (this is `datepublish` by default), filtered by a `where`
+clause, see [using where](/content-fetching#using-where) for more details.
 
 ```twig
 {% set next = page.next('datepublish', {'status': page.taxonomy.status} ) %}
@@ -71,10 +73,10 @@ The next and previous functions allow for additional parameters. For example, yo
 
 #### Geolocation
 
-The 'Geolocation' field type allows you to easily pick and use geolocations. You
-can use the given address, the latitude, longitude, and the reverse geocoded
-address. To see the values that are stored, use `{{ print(page.geolocation) }}`.
-To insert a simple map from google with a marker at the given location, use:
+The 'Geolocation' field type allows you to easily pick and use geolocations. You can use
+the given address, the latitude, longitude, and the reverse geocoded address. To see the
+values that are stored, use `{{ print(page.geolocation) }}`. To insert a simple map from
+google with a marker at the given location, use:
 
 ```
 <div>
@@ -83,22 +85,22 @@ To insert a simple map from google with a marker at the given location, use:
 ```
 
 More info about these static maps, can be found at [Static Maps API V2 Developer
-Guide](https://developers.google.com/maps/documentation/staticmaps). Of course,
-you can use the geolocations with any mapping service you like, since the
-latitude and longitude are universal.
+Guide](https://developers.google.com/maps/documentation/staticmaps). Of course, you can
+use the geolocations with any mapping service you like, since the latitude and longitude
+are universal.
 
 #### Video
 
-If you're using the 'video' field type, more information about the video is
-available. To see the values that are stored, use `{{ print(page.video) }}`. To
-insert the `<embed>`-code for the video, use:
+If you're using the 'video' field type, more information about the video is available. To
+see the values that are stored, use `{{ print(page.video) }}`. To insert the
+`<embed>`-code for the video, use:
 
 ```
 {{ page.video.html }}
 ```
 
-There's also a special 'responsive' HTML snippet available for videos. To insert
-it, use the following, and add the required CSS to your stylesheet:
+There's also a special 'responsive' HTML snippet available for videos. To insert it, use
+the following, and add the required CSS to your stylesheet:
 
 ```
 {{ page.video.responsive }}
@@ -129,10 +131,10 @@ it, use the following, and add the required CSS to your stylesheet:
 
 #### Imagelist
 
-The imagelist fieldtype is accessible as an array. This is convenient for most
-cases, because this makes it easy to output them as lists in your HTML. This
-simple example for an imagelist field named 'slider' will output thumnbails for
-each of the images, with links to the full sized versions.
+The imagelist fieldtype is accessible as an array. This is convenient for most cases,
+because this makes it easy to output them as lists in your HTML. This simple example for
+an imagelist field named 'slider' will output thumnbails for each of the images, with
+links to the full sized versions.
 
 ```
 {% for image in page.slider %}
@@ -142,9 +144,9 @@ each of the images, with links to the full sized versions.
 {% endfor %}
 ```
 
-The next example outputs a wrapping div and an unordered list, but only if the
-list actually contains elements. The first and last item in the list also get a
-custom 'first' and 'last' class added to them.
+The next example outputs a wrapping div and an unordered list, but only if the list
+actually contains elements. The first and last item in the list also get a custom 'first'
+and 'last' class added to them.
 
 ```
   {% if page.slider|length > 0 %}
@@ -163,9 +165,8 @@ custom 'first' and 'last' class added to them.
 
 ### Getting the type of a certain field
 
-If you're iterating over an array of record.values, it's sometimes useful to
-know what type of field you're dealing with. This is where the `fieldkey()`
-function comes in handy:
+If you're iterating over an array of record.values, it's sometimes useful to know what
+type of field you're dealing with. This is where the `fieldkey()` function comes in handy:
 
 ```
 {% for key,value in record.values %}
@@ -184,20 +185,19 @@ function comes in handy:
 ```
 
 
-<p class="note"><strong>Note:</strong> To create connections between different
-records of the same or different contenttypes, see the page on [Relations and Taxonomies](/taxonomies).</p>
+<p class="note"><strong>Note:</strong> To create connections between different records of
+the same or different contenttypes, see the page on [Relations and Taxonomies](/taxonomies).</p>
 
 
 Using `{{ records }}`
 -------------------
 
-The `{{ records }}` array is basically a set of several content records. When
-you have a `{{ records }}`array, you can iterate over each of the records to
-output them as desired. In the following example you can see how to get an array
-of records. You'll notice that in this case it's not actually called `records`,
-but `pages`. Since it's just a variable name, we can call it whatever we like.
-After getting the `{{ pages }}` array, we use a simple `for` loop, so we can
-iterate over each of the separate `{{ page}}` records.
+The `{{ records }}` array is basically a set of several content records. When you have a `{{
+records }}`array, you can iterate over each of the records to output them as desired. In
+the following example you can see how to get an array of records. You'll notice that in
+this case it's not actually called `records`, but `pages`. Since it's just a variable
+name, we can call it whatever we like. After getting the `{{ pages }}` array, we use a
+simple `for` loop, so we can iterate over each of the separate `{{ page}}` records.
 
 ```
 {% setcontent pages = 'pages/latest/4' %}
@@ -254,9 +254,9 @@ Use only the first or last record of the array with the `first` or `last` filter
 ```
 {% set firstrecords = records|first %}
 
-The title of the first record is: 
+The title of the first record is:
 {{ firstrecord.title }}
 
-Or directly, the last title: 
+Or directly, the last title:
 {{ records|last.title }}
-``` 
+```
