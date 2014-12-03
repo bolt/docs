@@ -136,7 +136,7 @@ To insert a string snippet, use:
 ```
 function initialize()
 {
-    $this->addSnippet('endofbody', '&lt;!-- a snippet of HTML -->');
+    $this->addSnippet('endofbody', '<!-- a snippet of HTML -->');
 }
 ```
 
@@ -151,7 +151,7 @@ function initialize()
 
 function snippetbar($foo) 
 {
-    return "&lt;b>Var is $foo.&lt;/b>";
+    return "<b>Var is $foo.</b>";
 }
 
 ```
