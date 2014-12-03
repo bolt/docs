@@ -10,7 +10,9 @@ Features and bugfixes
 
 Bolt 1.4 (scheduled for december 2013)
 --------------------------------------
-We're working on version 1.4 now. See the [current issues for 1.4](https://github.com/bolt/bolt/issues?milestone=12) on our github issue tracker gives a more detailed view of what needs to be done. 
+We're working on version 1.4 now. See the [current issues for
+1.4](https://github.com/bolt/bolt/issues?milestone=12) on our github issue tracker gives a
+more detailed view of what needs to be done.
 
 Planned features are:
 
@@ -34,7 +36,9 @@ Features and bugfixes
 
 Bolt 2.0 (scheduled for autumn 2014)
 -----------------------------------
-After Bolt 1.4, we'll focus on Bolt 2.0. The [issues for 2.0](https://github.com/bolt/bolt/issues?milestone=13) on our github issue tracker gives an overview of tasks planned.
+After Bolt 1.4, we'll focus on Bolt 2.0. The [issues for
+2.0](https://github.com/bolt/bolt/issues?milestone=13) on our github issue tracker gives
+an overview of tasks planned.
 
  - New interface for the backend (in Bootstrap 3)
  - Automatic installing and updating of extensions, with a 'marketplace' to find them.
@@ -52,7 +56,12 @@ ongoing development. There's an issue on our Github about this,
 
 Not scheduled
 -------------
-Some features are requested often, but are not currently scheduled. This is because we either consider them "out of scope" or that we know it would take up too much resources, affecting the overall development of Bolt in a negative way. That does _not_ mean that these issues will not be implemented, it only means that they're not currently scheduled. If you absolutely need any of these features for a project you're working on, feel free to get in touch at [commercialsupport@bolt.cm](mailto:commercialsupport@bolt.cm). 
+Some features are requested often, but are not currently scheduled. This is because we
+either consider them "out of scope" or that we know it would take up too much resources,
+affecting the overall development of Bolt in a negative way. That does _not_ mean that
+these issues will not be implemented, it only means that they're not currently scheduled.
+If you absolutely need any of these features for a project you're working on, feel free to
+get in touch at [commercialsupport@bolt.cm](mailto:commercialsupport@bolt.cm).
 
   - Native support for Multi-lingual content in the frontend. See [#234](http://github.com/bolt/bolt/issues/234)
   - Hierarchical (tree) structure for content.
