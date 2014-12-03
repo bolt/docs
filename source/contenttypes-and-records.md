@@ -387,27 +387,36 @@ The following fieldtypes are available:
     sorted numerically. (note: the maximum precision is 9 digits before the
     decimal mark, and 9 digits after)
 
+For `integer` and `float` fields you can set `min: ...` and `max: ...` to limit
+the range of allowed values. For integer (64 bit) the default limits are 
+-2147483647 to 2147483647. The default `step: ...` is 0.00000001 for float 
+and 1 for integer fields.
+
 Most fields have a few extra optional values, to further customize them.
 
-  - `class: large`: Will show the field in a larger font, for `text` fields.
-  - `class: wide`: Will show the field extra wide, for filling out the column.
-    For `text` fields only.
-  - `class: narrow`: Will show the field narrow, for fields that should take
-    only a couple of characters. For `text` fields only.
-  - `variant: inline`: Will show the field to the right of the label, taking up
-    less space vertically. For `text` fields only.
   - `label: Foo`: If omitted, the name of the field will be used as a label in
     the edit-screen. Replace 'Foo' with the desired label of the field.
-  - `height: 150px`: For `html` and `textarea` fields, this will determine the
-    height in the edit-screen.
-  - `index: true`: Add a database index for this field, only add if you know
-    what this means. Does not work on `html`, `textarea`, `video`, `markdown`,
-    `geolocation` and `imagelist`. [added in 1.1]
+  - `info: ..`: Use for displaying extra information about the field.
   - `prefix: ..`: Text to add before the field. See below for an example.
   - `postfix: ..`: Text to add after the field. See below for an example.
   - `default: ..`: The default value for a field, if applicable. See below for
     an example.
+  - `class: narrow`: Will show the field narrow, for fields that should take
+    only a couple of characters. For `text` fields only.
+  - `class: large`: Will show the field in a larger font, for `text` fields.
+  - `class: wide`: Will show the field extra wide, for filling out the column.
+    For `text` fields and `date` and `datetime` fields only.
+  - `variant: inline`: Will show the field to the right of the label, taking up
+    less space vertically. For `text`, `date` and `datetime` fields only.
+  - `height: 150px`: For `html` and `textarea` fields, this will determine the
+    height in the edit-screen. For `html` fields (CKeditor) you might need to
+    set height via options (see example at `html` field).
+
+Advanced options
   - `required: true`: Use this to make a field required. See below for examples.
+  - `index: true`: Add a database index for this field, only add if you know
+    what this means. Does not work on `html`, `textarea`, `video`, `markdown`,
+    `geolocation` and `imagelist`. [added in 1.1]
   - `readonly: true`: Use this to make a field readonly. Only works on `float`,
     `integer` and `text` fields, only add if you know what this means.
     See below for examples.
@@ -417,8 +426,7 @@ Most fields have a few extra optional values, to further customize them.
     needed if you want to allow twig snippets in your content. Note: This
     feature will allow everybody with access to the contenttype to add twig to
     the content. Be careful when using this.
-  - `info: ..`: Use for displaying extra information about the field.
-
+  
 
 ### Upload locations
 
@@ -487,7 +495,10 @@ You can use the `required` option to make a field required. Combine it with the
 `pattern` option to make sure that a field contains an email-address, or that a
 title is no longer than a certain amount of characters. Note that the
 requirements are only enforced in the browser, so don't "trust" any data that's
-been entered by an editor.
+been entered by an editor. When a field does not validate, a default message is shown 
+that, *"the x field is required or needs to match a pattern"*. You can set a 
+custom error message for a field with the error option. for example
+`error: "The title field is required and must be no longer than 40 characters"`
 
 Currently, you can use the `required` option for fields of type `text`,
 `textarea`, `html`, `float` and `integer`.
@@ -505,10 +516,10 @@ For example, to make a title required, you can do this:
 If combined with a `pattern`, you can add frontend validation to the field. By
 doing this, you can require that the values of a field are within certain
 parameters. You can use either one of the predetermined patterns like `email` or
-`url`, or any regular expression. Currently, the `pattern` option is allowed for
-fields of type `text`, `float` and `integer`. Examples of patterns to be used
-can be found on the website [html5pattern.com](http://html5pattern.com/). Some
-common use-cases are:
+`url`, or any regular expression. Currently, the `pattern` option is currently 
+only allowed for `text` fields. Examples of patterns that can be used, can be 
+found on the website [html5pattern.com](http://html5pattern.com/). 
+Some common use-cases are:
 
 - `email`: the input must be a valid email address. The email address must be
   _possible_ syntactically, but it's not required that it actually exists.
