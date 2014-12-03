@@ -412,7 +412,7 @@ class Content extends \Bolt\Content
 
 Then, in your template, use:
 ```
-  {{ entry.foo() }} /* prints 'bar'
+  {{ entry.foo() }} /* prints 'bar' */
 ```
 
 
