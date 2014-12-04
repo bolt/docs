@@ -516,8 +516,8 @@ For example, to make a title required, you can do this:
 If combined with a `pattern`, you can add frontend validation to the field. By
 doing this, you can require that the values of a field are within certain
 parameters. You can use either one of the predetermined patterns like `email` or
-`url`, or any regular expression. Currently, the `pattern` option is currently 
-only allowed for `text` fields. Examples of patterns that can be used, can be 
+`url`, or any regular expression. Currently, the `pattern` option is 
+only available for `text` fields. Examples of patterns that can be used, can be 
 found on the website [html5pattern.com](http://html5pattern.com/). 
 Some common use-cases are:
 
