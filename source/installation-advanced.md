@@ -100,7 +100,10 @@ $app = new Bolt\Application(array('resources'=>$configuration));
 
 ### Mounting Bolt on an existing Application
 
-A lot of work has been done on the internals of Bolt which allow it now to run as a self-contained HTTPKernelInterface application without interfering with any of the global namespace or constants. So if you use <a href="http://stackphp.com/">StackPHP</a> (or similar) you can mount Bolt onto a url prefix as simply as this:
+A lot of work has been done on the internals of Bolt which allow it now to run 
+as a self-contained HTTPKernelInterface application without interfering with any 
+of the global namespace or constants. So if you use <a href="http://stackphp.com/">StackPHP</a> 
+(or similar) you can mount Bolt onto a url prefix as simply as this:
 
 ```
 $map = [
@@ -113,7 +116,30 @@ $app = (new Stack\Builder())
 Stack\run($app);
 ```
 
-This means that you can, for instance, use Bolt to manage one specific part of a larger application set.
+This means that you can, for instance, use Bolt to manage one specific part of a 
+larger application set.
 
+### Keeping Code out of the Web Root
 
+The basic installation is designed to be flexible for those users that may be limited to
+shared hosting environments. For this reason an out of the box installation will install
+the entire Bolt application in a single root directory.
+
+As of version 2.0 the location of app resources is completely configurable so you only need
+to store public assets inside the web root directory. We would **strongly recommend** that you
+use this strategy if you have control over your hosting environment.
+
+If you are happy using the command line installer then the Composer installer allows you to select
+a separate public directory and the rest of Bolt is stored a level below. See the 
+<a href="installation-composer#single-command-install">full instructions here</a>.
+
+If you'd rather use the standard distribution and just run your own bootstrap then the following
+will have the same effect:
+
+```
+// root / bootstrap.php
+$configuration = new Bolt\Configuration\Standard(__DIR__);
+$configuration->setPath('web', 'public');
+$app = new Bolt\Application(array('resources'=>$configuration));
+```
 
