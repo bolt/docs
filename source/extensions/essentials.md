@@ -38,28 +38,28 @@ page..
 Coding your extensions
 ----------------------
 
-Because Bolt is written in PHP, it should be no surprise that the extensions
-must also be written in PHP. Bolt is built upon the awesome [Silex micro-
-framework](http://silex.sensiolabs.org), and uses a lot of components from the
-[Symfony framework](http://symfony.com/components). When coding your extensions,
-you should use as much of the functionality provided by Silex and the included
-components as possible. Don't re-invent the wheel, and things like that.
+Because Bolt is written in PHP, it should be no surprise that the extensions must also be
+written in PHP. Bolt is built upon the awesome [Silex micro-
+framework](http://silex.sensiolabs.org), and uses a lot of components from the [Symfony
+framework](http://symfony.com/components). When coding your extensions, you should use as
+much of the functionality provided by Silex and the included components as possible. Don't
+re-invent the wheel, and things like that.
 
 See the chapter on [Bolt internals](/internals) for a detailed overview of the
 provided Bolt functionality, Silex objects and included libraries.
 
-Bolt strives to adhere to 
-[the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md). When writing your extensions, you should try to do the same.
+Bolt strives to adhere to [the PSR-2 coding style](https://github.com/php-fig/fig-
+standards/blob/master/accepted/PSR-2-coding-style-guide.md). When writing your extensions,
+you should try to do the same.
 
 The `initialize()` and `getName()` functions
 -----------------------------------
 
-Every extension needs to have a function named 'initialize()'
-in its registered extension class. The initialize() function is called for each
-page request. It's executed before content is retrieved from the database or the
-templates are parsed. In general, the initialize() function is used to set up
-hooks or functionality that is used later on in the process of outputting a
-page.
+Every extension needs to have a function named 'initialize()' in its registered extension
+class. The initialize() function is called for each page request. It's executed before
+content is retrieved from the database or the templates are parsed. In general, the
+initialize() function is used to set up hooks or functionality that is used later on in
+the process of outputting a page.
 
 The `getName()` method tells Bolt how you want the extension to be referred to.
 The initialized extension object will be mounted onto the main Bolt Application,
@@ -136,7 +136,7 @@ To insert a string snippet, use:
 ```
 function initialize()
 {
-    $this->addSnippet('endofbody', '&lt;!-- a snippet of HTML -->');
+    $this->addSnippet('endofbody', '<!-- a snippet of HTML -->');
 }
 ```
 
@@ -151,7 +151,7 @@ function initialize()
 
 function snippetbar($foo) 
 {
-    return "&lt;b>Var is $foo.&lt;/b>";
+    return "<b>Var is $foo.</b>";
 }
 
 ```
@@ -354,7 +354,7 @@ function foo()
     if (isset($this->config['name'])) {
         $name = $this->config['name'];
     } else {
-        $name = "default name"
+        $name = "default name";
     }
 
     return "Hello, $name.";
@@ -412,7 +412,7 @@ class Content extends \Bolt\Content
 
 Then, in your template, use:
 ```
-  {{ entry.foo() }} /* prints 'bar'
+  {{ entry.foo() }} /* prints 'bar' */
 ```
 
 

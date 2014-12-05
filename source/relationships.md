@@ -20,30 +20,32 @@ entries:
 The `relations:` is defined by the slug of the contenttype that it's related to.
 In the example above `pages`. It takes a few parameters:
 
- - `multiple` - true or false, to indicate whether the user can pick one related record, or more than one.
+ - `multiple` - true or false, to indicate whether the user can pick one related record,
+   or more than one.
  - `label` - The label to show on the edit screen.
- - `order` - The orde in which the items are listed on the edit screen. This can be any field in the contenttype. Prefix with `-` to reverse the sorting. In the case of the example `-id` means that the records that were created last are at the top.
+ - `order` - The orde in which the items are listed on the edit screen. This can be any
+   field in the contenttype. Prefix with `-` to reverse the sorting. In the case of the
+   example `-id` means that the records that were created last are at the top.
 
 Editing a record that has relations defined looks like this:
 
 <a href="/files/relations1.png" class="fancybox"><img src="/files/relations1.png" width="350"></a>
 
-If you define a relation only one way, for example from 'entries' to 'pages'),
-but not the other way around, you will still see the references when editing the
-record that has a relation to another record. It looks like this:
+If you define a relation only one way, for example from 'entries' to 'pages'), but not the
+other way around, you will still see the references when editing the record that has a
+relation to another record. It looks like this:
 
 <a href="/files/relations2.png" class="fancybox"><img src="/files/relations2.png" width="350"></a>
 
 
-If you see this, you might consider adding the reverse relation to the
-contenttype.yml as well.
+If you see this, you might consider adding the reverse relation to the `contenttype.yml` as
+well.
 
 Relations in templates
 ----------------------
 
-Internally, relations are stored and accessible in the `Bolt\Record` object.
-However, accessing `record.relation` will give you nothing but the contenttypes
-and id's:
+Internally, relations are stored and accessible in the `Bolt\Record` object. However,
+accessing `record.relation` will give you nothing but the contenttypes and id's:
 
 ```
     {{ print(record.relation) }}
@@ -80,9 +82,9 @@ To get the actual related records, use the _function_ `related()`
     {% endif %}
 ```
 
-The `related()` function has two optional parameters. If you don't pass any
-parameters, you will get all related records, regardless of their contenttype.
-To retrieve only the related records of a specific contenttype, use:
+The `related()` function has two optional parameters. If you don't pass any parameters,
+you will get all related records, regardless of their contenttype. To retrieve only the
+related records of a specific contenttype, use:
 
 ```
     {% set relatedrecords = record.related('pages') %}
@@ -104,7 +106,6 @@ To use pagination in a list of related records, use the ids of the related recor
     {{ pager('news') }}
 ```
 
-<p class="note"><strong>Note:</strong> The <code>related()</code> function
-<em>always</em> returns an array of records, even if you request only a single
-record. In general, it's best to always use a <code>{% for %}</code>-loop, to
-iterate over the results.</p>
+<p class="note"><strong>Note:</strong> The <code>related()</code> function <em>always</em>
+returns an array of records, even if you request only a single record. In general, it's
+best to always use a <code>{% for %}</code>-loop, to iterate over the results.</p>

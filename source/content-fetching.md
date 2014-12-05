@@ -2,10 +2,9 @@ Fetching content
 ================
 
 Next to content that is already available on a specific content-type listing-page or
-single-page [(content in templates)](content-in-templates), You can directly
-fetch content from the database. For this you can use the `{% setcontent ... %}` tag. The
-following example will get the content record with slug 'about' from the
-'pages' contenttype:
+single-page [(content in templates)](content-in-templates), You can directly fetch content
+from the database. For this you can use the `{% setcontent ... %}` tag. The following
+example will get the content record with slug 'about' from the 'pages' contenttype:
 
 ```
 {% setcontent about = 'page/about' %}
@@ -13,23 +12,22 @@ following example will get the content record with slug 'about' from the
 {{ print(about) }}
 ```
 
-There are a lot of options for the `setcontent` tag. Most are optional,
-and all can be used together any way you'd like. The most basic syntax is:
+There are a lot of options for the `setcontent` tag. Most are optional, and all can be
+used together any way you'd like. The most basic syntax is:
 
 <code>
 {% setcontent _variable_ = '_contenttype_' %}
 </code>
 
-This will set a _variable_ to contain the records of the given
-_contenttype_. For example: `{% setcontent mypages = 'pages' %}` will set
-`{{ mypages }}` to an array of all the records in 'pages'.
+This will set a _variable_ to contain the records of the given _contenttype_. For example:
+`{% setcontent mypages = 'pages' %}` will set `{{ mypages }}` to an array of all the
+records in 'pages'.
 
 Trimming the amount of results
 ------------------------------
-Normally, you don't need _all_ records, but a subset of the available
-records.. You can limit the number of records by using a 'where' clause
-(more on that below), but often it's easier to use the shortcut Bolt
-provides.
+Normally, you don't need _all_ records, but a subset of the available records.. You can
+limit the number of records by using a 'where' clause (more on that below), but often it's
+easier to use the shortcut Bolt provides.
 
 If you need a single record, and know its id or slug, you can do this:
 
@@ -41,8 +39,7 @@ If you need a single record, and know its id or slug, you can do this:
 {% setcontent news = 'news/12' %}
 ```
 
-If you need the '5 latest pages' or '3 first reviews', there's also a shortcut
-for that:
+If you need the '5 latest pages' or '3 first reviews', there's also a shortcut for that:
 
 ```
 {% setcontent latestpages = 'pages/latest/5' %}
@@ -61,9 +58,9 @@ and:
 Using `where`
 -------------
 
-If you need a more specific criteria to select the records on, you can use
-the `where` clause. The parameters must be listed as a hash, so you can
-include more than one, if needed.
+If you need a more specific criteria to select the records on, you can use the `where`
+clause. The parameters must be listed as a hash, so you can include more than one, if
+needed.
 
 ```
 {# get all pages with ownerid '2' #}
@@ -74,10 +71,9 @@ include more than one, if needed.
 
 ```
 
-The above examples selected records based on the parameter being **equal**
-to the matching field in the available records. It's also possible to use
-modifiers for the values, to select based on 'smaller than' or 'does not
-equal'
+The above examples selected records based on the parameter being **equal** to the matching
+field in the available records. It's also possible to use modifiers for the values, to
+select based on 'smaller than' or 'does not equal'
 
 ```
 {# get all pages not created by user '1' #}
@@ -93,9 +89,9 @@ equal'
 {% setcontent mybooks = 'books' where { amountsold: '&gt;1000' } %}
 ```
 
-<p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code>
-Bolt only selects dates before or equal to <code>'2012-12-01 00:00:00'</code>.
-If you want to include December 1st, use <code>'&lt;2012-12-02'</code>. </p>
+<p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code> Bolt only
+selects dates before or equal to <code>'2012-12-01 00:00:00'</code>. If you want to
+include December 1st, use <code>'&lt;2012-12-02'</code>. </p>
 
 ### The `%like%` option
 
@@ -104,8 +100,8 @@ If you want to include December 1st, use <code>'&lt;2012-12-02'</code>. </p>
 {% setcontent mypages = 'pages' where { title: '%ipsum%' } %}
 ```
 
-The `%like%` option is case-insensitive, and does not take word boundaries
-into account. So, this example will return the pages with these titles:
+The `%like%` option is case-insensitive, and does not take word boundaries into account.
+So, this example will return the pages with these titles:
 
   - 'Lorum ipsum dolor'
   - 'LORUM IPSUM DOLOR'
@@ -118,15 +114,15 @@ But not:
   - 'Lorum ips um dolor'
 
 
-<p class="tip"><strong>Tip:</strong> When using only one <code>%</code>, Bolt
-will match only the beginning or the end of the field. For example:
-<code>'lore%'</code> and <code>'%olor'</code> will both match "Lorem Ipsum
-Dolor", but <code>'ipsu%'</code> won't. </p>
+<p class="tip"><strong>Tip:</strong> When using only one <code>%</code>, Bolt will match
+only the beginning or the end of the field. For example: <code>'lore%'</code> and
+<code>'%olor'</code> will both match "Lorem Ipsum Dolor", but <code>'ipsu%'</code> won't.
+</p>
 
 ### Using taxonomies
 
-You can use the same syntax to get records with a specific taxonomy. Note
-that you should always use the _plural_ name of the taxonomy in the query:
+You can use the same syntax to get records with a specific taxonomy. Note that you should
+always use the _plural_ name of the taxonomy in the query:
 
 ```
 {# get all events in the category 'music' #}
@@ -138,8 +134,8 @@ that you should always use the _plural_ name of the taxonomy in the query:
 
 ### Selecting on dates 
 
-You can use several 'shortcuts' for selecting records with dates in the
-past or future. Some examples are:
+You can use several 'shortcuts' for selecting records with dates in the past or future.
+Some examples are:
 
   - `now` - The current date and time.
   - `today` - The current date, today at midnight.
@@ -164,11 +160,10 @@ You can use these date notations like this:
 {% setcontent mypages = 'pages' where { datepublish: '&gt;today', datepublish: '&lt;tomorrow' } %}
 ```
 
-<p class="tip"><strong>Tip:</strong> When using 'where' statements with a
-field that is a date, you can use relative, textual dates, like
-<code>'last monday'</code> or <code>'&gt; this year'</code>. Internally,
-Bolt uses the <code>strtotime()</code> funtion for this, so we refer to
-its <a href="http://php.net/manual/en/function.strtotime.php" target="_blank"> 
+<p class="tip"><strong>Tip:</strong> When using 'where' statements with a field that is a
+date, you can use relative, textual dates, like <code>'last monday'</code> or <code>'&gt;
+this year'</code>. Internally, Bolt uses the <code>strtotime()</code> funtion for this, so
+we refer to its <a href="http://php.net/manual/en/function.strtotime.php" target="_blank">
 manual page</a> for details. </p>
 
 Like mentioned above, you can add more than one parameter to the where
@@ -181,11 +176,10 @@ clause:
 
 ### 'AND' and 'OR'
 
-You can use the `&&` and `||`-parameters to select on two criteria for any
-field. However, you can't use something like `where { ownerid: '!3',
-ownerid: '!4'}` because of the way hashes work in twig: The second
-`ownerid` would overwrite the first. Instead, you can use the `&&` and
-`||`-parameters to either select using `AND` or `OR`. examples:
+You can use the `&&` and `||`-parameters to select on two criteria for any field. However,
+you can't use something like `where { ownerid: '!3', ownerid: '!4'}` because of the way
+hashes work in twig: The second `ownerid` would overwrite the first. Instead, you can use
+the `&&` and `||`-parameters to either select using `AND` or `OR`. examples:
 
 ```apache
 {# get all pages created by ownerid '3' or '4' #}

@@ -1,19 +1,18 @@
 <!doctype html>
 <!--[if IE]><![endif]-->
-<!--[if IE 7]><html xml:lang="" lang="" class="ie ie7"><![endif]-->
-<!--[if IE 8]><html xml:lang="" lang="" class="ie ie8"><![endif]-->
+<!--[if IE 7]><html xml:lang="en" lang="en" class="ie ie7"><![endif]-->
+<!--[if IE 8]><html xml:lang="en" lang="en" class="ie ie8"><![endif]-->
 <!--[if (lt IE 7)|(gt IE 8)|!(IE)]><!-->
 <html xml:lang="en" lang="en">
 <!--<![endif]-->
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ title }} | Bolt documentation </title>
+    <title>{{ title|raw }} | Bolt documentation </title>
     <meta name="DCTERMS.title" content="Bolt CMS"/>
     <meta name="robots" content="noydir, noodp"/>
-    <meta name="generator" content="Bolt">
         
-    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,600italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,600italic,400italic' rel='stylesheet' type='text/css'>
 
     <!-- Highlighter -->
     <link rel="stylesheet" href="{{prefix}}/view/css/tomorrow-night.css">
@@ -124,6 +123,8 @@
 
     {{ source|raw }}    
 
+    {% include '_sub_submenu.twig' with {'section': requested_page } %}
+
 </div>
 
     </div>
@@ -132,15 +133,58 @@
     </main>
     
     <footer>
-                <div class="credits">
-            <p>This site is built with Bolt</p>
-        </div>
-        <div class="socials">
-            <a class="tw" href="//twitter.com/boltcm"><i class="fa fa-lg fa-twitter"></i>Bolt on twitter</a>
-            <a class="gh" href="//github.com/bolt/bolt"><i class="fa fa-lg fa-github"></i>Bolt on github</a>
-        </div>
-            </footer>
+        <div class="inner">
+                        <nav class="bottomnav">
+                <ul>
+                
+            <li class="index-1 first active">
+    <a href="/" title='This is the first menu item.'       class=''>
+        Home
+    </a>
+</li>
 
+                <li class="index-2">
+    <a href="/page/features" title=''       class=''>
+        Features
+    </a>
+</li>
+
+                <li class="index-3">
+    <a href="http://docs.bolt.cm"        class=''>
+        Documentation
+    </a>
+</li>
+
+                <li class="index-4">
+    <a href="/page/news" title='The latest news'       class=''>
+        News
+    </a>
+</li>
+
+                <li class="index-5">
+    <a href="/page/community" title='Get in touch!'       class=''>
+        Community
+    </a>
+</li>
+
+                <li class="index-6 last">
+    <a href="/page/download" title='Download the latest release of Bolt.'       class=''>
+        Download
+    </a>
+</li>
+
+    
+                </ul>
+            </nav>
+            <div class="credits">
+                <p>This site is built with Bolt</p>
+            </div>
+            <div class="socials">
+                <a class="tw" href="http://twitter.com/boltcm"><i class="fa fa-lg fa-twitter"></i>Bolt on twitter</a>
+                <a class="gh" href="https://github.com/bolt/bolt"><i class="fa fa-lg fa-github"></i>Bolt on github</a>
+            </div>
+                    </div>
+    </footer>
 
 <script src="{{prefix}}/view/js/jquery.js"></script>
 <script src="{{prefix}}/view/js/select2.min.js"></script>
