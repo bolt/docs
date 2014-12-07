@@ -361,6 +361,11 @@ section{   // was .maininfo, .secinfo
 
     padding: 0 0 2em 0;
 
+    // MEDIUM  //
+    @media #{$medium-up} {
+        padding: 0em 1em;
+    }
+
     // LARGE  //
     @media #{$large-up} {
         padding: 3em 2em;
@@ -481,7 +486,16 @@ mark {
     margin-left: 18px;
 }
 
-
+p {
+    font-size: 16.5px;
+    line-height: 1.5;
+}
+@media #{$large-up} {
+    p {
+        font-size: 15px;
+        line-height: 1.7;        
+    }
+}
 
 p.note {
     padding: 8px 35px 8px 14px;
