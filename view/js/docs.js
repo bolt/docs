@@ -46,7 +46,18 @@ jQuery(function($) {
     }
     ------ */
 
-
+    // Update the number of stars. Stolen from foundation.zurb.com. 
+    $.ajax({
+      dataType: 'jsonp',
+      url: 'https://api.github.com/repos/bolt/bolt?callback=boltGithub&access_token=8e0dfc559d22265208b2924266c8b15b60fd9b85',
+      success: function (response) {
+        if (response && response.data.watchers) {
+          var watchers = response.data.watchers;
+          // var watchers = (Math.round((response.data.watchers / 100), 10) / 10).toFixed(1);
+          $('#stargazers').html(watchers + ' Stars');
+        }
+      }
+    });
 
     
 
