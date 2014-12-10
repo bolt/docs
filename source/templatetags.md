@@ -3,7 +3,7 @@ Bolt Template tags
 
 As mentioned before, a template in Bolt can use all of the standard Twig tags, with a few
 additions that are specific to working with Bolt. If you're not familiar with Twig yet,
-you should read "[Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html)", 
+you should read "[Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html)",
 on the official Twig website.
 
 Below you'll find the tags we've added specifically for Bolt, grouped by type: functions,
@@ -42,10 +42,10 @@ data about the image. See the screenshot for details:
 
 <a href="/files/imageinfo.png" class="fancybox" rel="fancybox"><img src="/files/imageinfo.png" width="600"></a>
 
-To see the available values for an image, use: 
+To see the available values for an image, use:
 
 ```
-{{ print(imageinfo(record.image)) }} 
+{{ print(imageinfo(record.image)) }}
 {# assuming 'record.image' is the image of the current record. #}
 ```
 
@@ -97,8 +97,8 @@ up the 'initialization' code:
         type: 'image'
         // other options
     });
-  }); 
-</script>    
+  });
+</script>
 ```
 
 For more information about Magnific Popup, see the [Magnific Popup
@@ -187,7 +187,7 @@ argument: either a known id, or the username, that the user also uses to log on.
 Example 1: Getting a user
 
 ```
-{{ dump(getuser(1)) }} 
+{{ dump(getuser(1)) }}
 ```
 
 <a href="/files/templatetags-getuser.png" class="fancybox"><img src="/files/templatetags-getuser.png" width="500"></a>
@@ -195,7 +195,7 @@ Example 1: Getting a user
 
 Example 2: Using in `setcontent`
 
-``` 
+```
 {% setcontent pages = "pages" where { ownerid: getuserid('admin') } %}
 ```
 
@@ -224,6 +224,11 @@ Example 2: Using in `setcontent`
 
 For more info on debugging your Bolt site, see the chapter on [Bolt
 Internals](/internals).
+
+<p class="note"><strong>Note:</strong> Don't forget to set <code>debug:
+true</code> in your <code>config.yml</code> file. Otherwise the
+<code>dump()</code> will output nothing at all.</p>
+
 
 
 Twig Filters
@@ -272,18 +277,18 @@ the website itself. The localdate filter transforms the ugly timestamp to a read
 localized text. Examples:
 
 ```
-'{{ record.datepublish }}' is the same as 
+'{{ record.datepublish }}' is the same as
 '{{ record.datepublish|localdate("%A %B %e") }}'
 ```
 
-Outputs: 
+Outputs:
 
   - '2012-12-05 06:51:16' is the same as 'mánudagur desember 5', if your locale is set to
     `is_IS`,  or
   - '2012-12-05 06:51:16' is the same as 'Monday December 5', if it's set to `en_GB`. Note
     that it correctly uses capitals according to the chosen language's conventions.
 
-Some other examples: 
+Some other examples:
 
 ```
 <ul>
@@ -293,7 +298,7 @@ Some other examples:
 </ul>
 ```
 
-Outputs: 
+Outputs:
 
   - Created: Fri 9 Nov 10:55:19 2012
   - Published: The Sunday in week 07 of 2013
@@ -377,7 +382,7 @@ The `slug` filter can be used to transform any string into a slug-like value. Th
 very useful when you're hand-crafting links to categories, pages or other structures where
 you need a URL-safe representation of a string.
 
-In this example, we build links to all category listing pages: 
+In this example, we build links to all category listing pages:
 
 ```
 <ul>
@@ -492,7 +497,7 @@ The filter takes one parameter: the name of the field you wish to order the resu
 </p>
 ```
 
-or: 
+or:
 
 ```
 {# get the 10 latest entries by date, but sort them on the title field %}
@@ -540,22 +545,22 @@ Tests
 
 ### json
 
-Use this test to determine if a given variable is JSON. 
+Use this test to determine if a given variable is JSON.
 
-Examples: 
+Examples:
 
 ```
 {% if var is json %}
     JSON: {{ var }}
 {% else %}
     JSON: {{ var|json_encode }}
-{% endif %}    
+{% endif %}
 ```
 
 ```
 {% if var is json %}
     Decoded: {{ var|json_decode }}
-{% endif %}    
+{% endif %}
 ```
 
 
@@ -565,22 +570,22 @@ Use this test to determine if a Twig function, test or filter is available. You 
 this in your themes, where it's not apparent whether or not the user will have a certain
 extension installed.
 
-Examples: 
+Examples:
 
 ```
 {% if 'facebooklike' is available %}
     {{ facebooklike() }}
-{% endif %}    
+{% endif %}
 ```
 
-You can use this, to output a friendly warning to users of the templates: 
+You can use this, to output a friendly warning to users of the templates:
 
 ```
 {% if 'simpleform' is available %}
     {{ simpleform('contact') }}
 {% else %}
     <p>Warning: This theme suggests you install the 'Simpleforms' extension.</p>
-{% endif %}    
+{% endif %}
 ```
 
 <p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must use a

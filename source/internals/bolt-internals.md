@@ -35,7 +35,7 @@ everything that you can do 'vanilla' Twig, you can do in the Bolt templates. We'
 few tags of our own. Browse `app/src/Bolt/TwigExtension.php` and
 `app/src/Bolt/SetcontentTokenParser.php` for details.
 
-More information on this subject can be found in [Templates and Routes](templates-routes) 
+More information on this subject can be found in [Templates and Routes](templates-routes)
 and [Content in Templates](content-in-templates).
 
 The "Model"
@@ -81,7 +81,7 @@ Components page](http://symfony.com/components). The next largest group are the 
 components. These can be recognized by the `Bolt\` namespace. These components are
 autoloaded, and can be found in `app/src/Bolt/`.
 
-Debug Bar, `{{ print() }}` and `dump()`
+Debug Bar and `dump()`
 ---------------------------------------
 If you're about to go poking through the Bolt code, there are a few tools that are simply
 invaluable for doing so.
@@ -123,6 +123,11 @@ following:
     {{ dump(variable) }}
 ```
 
+<p class="note"><strong>Note:</strong> Don't forget to set <code>debug:
+true</code> in your <code>config.yml</code> file. Otherwise the
+<code>dump()</code> will output nothing at all.</p>
+
+
 The `variable` can be a normal variable, a Record or multiple records of Content, or other
 stuff.
 
@@ -155,7 +160,7 @@ In your code you can also use backtrace, like this:
     \Dumper::backtrace(10);
 ```
 
-The optional parameter denotes the maximum depth of the output of the backtrace. 
+The optional parameter denotes the maximum depth of the output of the backtrace.
 
 
 Object Reference
@@ -180,7 +185,7 @@ $app['config']->get('general/homepage_template')
 
 These variables are also accessible in your templates:
 
-``` 
+```
     {{ print(config.get('general/homepage_template')) }}
 ```
 
@@ -286,7 +291,7 @@ Instance of Bolt\Users. See `app/src/Bolt/Users.php` for details.
 
 ### $app['session']
 
-Instance of Silex Session. See 
+Instance of Silex Session. See
 [Silex SessionServiceProvider](http://silex.sensiolabs.org/doc/providers/session.html) for details.
 
 Use this to set Flash messages: Messages that appear on the current or next
@@ -314,7 +319,7 @@ documentation, as well as on the Twig website:
   - The [Twig website](http://twig.sensiolabs.org/)
   - [Templates in Bolt](templates)
 
-Note: You should not directly use this object, normally. Instead, use `$app['render']`. 
+Note: You should not directly use this object, normally. Instead, use `$app['render']`.
 See below.
 
 ### $app['render']
