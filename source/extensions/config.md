@@ -134,13 +134,12 @@ $app['extensions']->register(new Extension());
 Once the extension is registered, Bolt will take care of running the various hooks that
 you can define within your Extension class.
 
-The second option allows you to define a directory to autoload your classes from, we'd
-recommend you use the same setting as in the example file. `"psr-4": {"Myextension\\":
-"src"}` this means that all classes you store inside the `src` directory will be
-autoloaded correctly.
+The second option allows you to define a directory to autoload your classes from. We
+recommend you use the same setting as in the example file: `"psr-4": {"Myextension\\": "src"}`
+This means that all classes you store inside the `src` directory will be autoloaded correctly.
 
-Note that Bolt will only support PSR-4 autoload namespaces. For examples see here: <a
-href="http://www.php-fig.org/psr/psr-4/">http://www.php-fig.org/psr/psr-4/</a>
+Note that Bolt will only support PSR-4 autoload namespaces. For examples see here:
+<a href="www.php-fig.org/psr/psr-4/">http://www.php-fig.org/psr/psr-4/</a>
 
 
 ## Publishing Your Extension on the Marketplace
