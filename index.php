@@ -9,8 +9,8 @@ $version = "1.6.13";
 
 $request = basename($_SERVER['REQUEST_URI']);
 
-if (empty($request)) {
-	$request = "about";
+if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request == "/" ) {
+    header("location: ./introduction");
 }
 
 if (!file_exists("./source/".$request.".md")) {
