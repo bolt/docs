@@ -59,7 +59,7 @@ Here's how we create our `composer.json` file.
     "type": "bolt-extension",
     "keywords": ["bolt", "widgets", "awesome"],
     "require": {
-        "bolt/bolt": "&gt;=2.0,&lt;3.0"
+        "bolt/bolt": ">=2.0,<3.0"
     },
     "authors": [
         {
