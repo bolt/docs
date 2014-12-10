@@ -14,7 +14,7 @@ are almost limitless but here are a few of the basic ideas that can be accomplis
  - Create themes that other users can copy and use as a baseline.
  - Add custom upload handlers that support different filesystems.
  - Add a custom thumbnail generator that does more advanced creation of thumbs
- 
+
 A Bolt extension has to follow a few strict rules, so it can be auto-loaded by
 Bolt and to make sure it won't interfere with other Bolt functionality or even
 other Extensions. To do this, we have to keep the following rules:
@@ -48,9 +48,8 @@ re-invent the wheel, and things like that.
 See the chapter on [Bolt internals](/internals) for a detailed overview of the
 provided Bolt functionality, Silex objects and included libraries.
 
-Bolt strives to adhere to [the PSR-2 coding style](https://github.com/php-fig/fig-
-standards/blob/master/accepted/PSR-2-coding-style-guide.md). When writing your extensions,
-you should try to do the same.
+Bolt strives to adhere to [the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
+When writing your extensions, you should try to do the same.
 
 The `initialize()` and `getName()` functions
 -----------------------------------
@@ -99,7 +98,7 @@ vital to attach your functionality to whatever it should be attached to. The
 init function can return `true` or `false` to denote whether the initialisation
 was successful.
 
-In the case of `initialize()` it's often used to do the following: 
+In the case of `initialize()` it's often used to do the following:
 
   - Initialize a snippet, either as a 'string' or a 'callback function'
   - Add a Javascript and/or CSS file to the output of the frontend pages
@@ -131,7 +130,7 @@ Snippets can be inserted in several places in the outputted HTML:
  - `endofhtml` - before the `</html>`-tag.
  - `afterhtml` - after the `</html>`-tag.
 
-To insert a string snippet, use: 
+To insert a string snippet, use:
 
 ```
 function initialize()
@@ -140,8 +139,8 @@ function initialize()
 }
 ```
 
-To insert a snippet using a callback function, use the following. You can pass one 
-extra optional variable, which can be a simple scalar or an array. 
+To insert a snippet using a callback function, use the following. You can pass one
+extra optional variable, which can be a simple scalar or an array.
 
 ```
 function initialize()
@@ -149,15 +148,15 @@ function initialize()
     $this->addSnippet('endofbody', 'snippetbar', $foo);
 }
 
-function snippetbar($foo) 
+function snippetbar($foo)
 {
     return "<b>Var is $foo.</b>";
 }
 
 ```
 
-However, don't use this to pass a 'live' version of `$app`. In the callback function 
-this will already be available as `$this->app`. 
+However, don't use this to pass a 'live' version of `$app`. In the callback function
+this will already be available as `$this->app`.
 
 Add a CSS or Javascript file
 ----------------------------
@@ -185,10 +184,10 @@ function initialize()
 }
 ```
 
-Both of these functions take three parameters: 
+Both of these functions take three parameters:
 
-  - An absolute path to the desired .js or .css file. Use the `$app['paths']['app']` 
-    variable to always get the correct path, regardless of how Bolt is installed. 
+  - An absolute path to the desired .js or .css file. Use the `$app['paths']['app']`
+    variable to always get the correct path, regardless of how Bolt is installed.
     See the [Paths section in Internals](/internals#paths)
   for more details.
   - An (optional) boolean that controls where the code insertion happens:
@@ -302,7 +301,7 @@ function twigBar($var1, $var2)
 ```
 
 Since these are just regular Twig functions/filters, you should familiarize
-yourself with how Twig works. Read the chapter [Extending Twig](http://twig.sensiolabs.org/doc/advanced.html) 
+yourself with how Twig works. Read the chapter [Extending Twig](http://twig.sensiolabs.org/doc/advanced.html)
 in the Twig documentation.
 
 
@@ -383,7 +382,7 @@ Contenttypes can specify the class to be used for records of that
 contenttype. This is useful for when you have a specific contenttype, and you would
 like to provide extra functionality to that single contenttype.
 
-An extension can then define that class, overriding / extending the default 
+An extension can then define that class, overriding / extending the default
 behaviour of `\Bolt\Content`.
 
 For example, in your contenttype, use:

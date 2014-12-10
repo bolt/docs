@@ -48,9 +48,9 @@ Most of this file is providing meta information for the Marketplace, but the `au
 section is important for loading the extension. The files section defines the file that
 will be loaded first of all.
 
-If you've not yet used PSR-4 autoloading for your PHP code it's probably good at this
-point to see some examples from the standard docs <a href="https://github.com/php-fig/fig-
-standards/blob/master/accepted/PSR-4-autoloader-examples.md">here</a>.
+If you've not yet used PSR-4 autoloading for your PHP code, it's probably good at this
+point to take a look at some examples from the standard documentation
+<a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md">here</a>.
 
 #### The initialization File
 
@@ -85,7 +85,7 @@ use Bolt\BaseExtension;
 
 class Extension extends BaseExtension
 {
-    
+
     public function __construct(Application $app)
     {
         parent::__construct($app);
@@ -95,7 +95,7 @@ class Extension extends BaseExtension
             $this->app['twig.loader.filesystem']->prependPath(__DIR__."/twig");
         }
     }
-  
+
 
     public function initialize() {
         $this->addCss('assets/colourpicker.css');
@@ -111,10 +111,10 @@ class Extension extends BaseExtension
 }
 ```
 
-Hopefully our `getName()` and `initalize()` methods should be fairly self-explanatory. Our
-colourpicker is primarily based on the <a href="https://github.com/tkrotoff/jquery-
-simplecolorpicker">jQuery Simple Colorpicker</a> so we need to add both the css and
-javascript assets to the Bolt markup, we also add a `start.js` file which will initalize
+Hopefully our `getName()` and `initalize()` methods should be fairly self-
+explanatory. Our colourpicker is primarily based on the <a href="https://github.com/tkrotoff/jquery-simplecolorpicker">
+jQuery Simple Colorpicker</a> so we need to add both the css and javascript
+assets to the Bolt markup, we also add a `start.js` file which will initalize
 the javascript.
 
 The constructor firstly calls the BaseExtension constructor, this is important if your
@@ -123,10 +123,15 @@ extension needs to provide its own constructor method.
 Next we add our own custom field onto the avaialable field object (we'll look at the
 makeup of this file in the next section). The next line is an important line to remember
 if you want to provide additional functionality for Bolt, since a standard Bolt app has
-two main areas; the frontend and the backend. The if statement `if
-($this->app['config']->getWhichEnd()=='backend')` allows us to query which part of the app
-is currently loaded and only apply our functionality where relevant. Our line specifies
-that the functionality we are adding only applies to the backend.
+two main areas; the frontend and the backend. This if-statement allows us to query which
+part of the app is currently loaded and only apply our functionality where
+relevant:
+
+```
+if ($this->app['config']->getWhichEnd()=='backend')
+```
+
+Our line specifies that the functionality we are adding only applies to the backend.
 
 When we need to add custom js and css as we have done in the `initialize()` method we need
 to tell Bolt. The line `$this->app['htmlsnippets'] = true;` enables them for this request.
@@ -143,9 +148,9 @@ to the Bolt field manager. Any new field needs to implement the
 `Bolt\Field\FieldInterface` which has a few fairly simple requirements.
 
 We firstly need to tell Bolt what name the field will use (this is how it will be set in
-contenttypes.yml) and also what template will be used to render the field.
+`contenttypes.yml`) and also what template will be used to render the field.
 
-Here's the final code for our new field: 
+Here's the final code for our new field:
 
 ```
 <?php
@@ -156,27 +161,27 @@ use Bolt\Field\FieldInterface;
 
 class ColourPickField implements FieldInterface
 {
-    
+
     public function getName()
     {
         return 'colourpicker';
     }
-    
+
     public function getTemplate()
     {
         return '_colourpicker.twig';
     }
-    
+
     public function getStorageType()
     {
         return 'text';
     }
-    
+
     public function getStorageOptions()
     {
         return array('default'=>'');
     }
-    
+
 }
 
 
@@ -235,7 +240,7 @@ the field to our `contenttypes.yml` file. We add a field like this:
     banner:
         type: colourpicker
         label: "Choose A Banner Colour"
-        values: 
+        values:
             "#000": Solid Black
             "#E1E1E1": Almost White
             "#444": Dark Grey
@@ -251,6 +256,6 @@ the field to our `contenttypes.yml` file. We add a field like this:
 #### The Source Code
 
 It's a good idea to look at the final source code for this extension to help you get
-started making a similar one. There is a repository on 
+started making a similar one. There is a repository on
 <a href="https://github.com/rossriley/bolt-extension-colourpicker">Github here</a>.
 
