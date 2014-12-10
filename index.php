@@ -9,9 +9,10 @@ $version = "1.6.13";
 
 $request = basename($_SERVER['REQUEST_URI']);
 
-if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request == "/" ) {
+if (empty($request) || $request == "v16" || $request == "bolt-docs" || $request == "/" ) {
     header("location: ./introduction");
 }
+
 
 if (!file_exists("./source/".$request.".md")) {
     echo "No proper name for a page in the docs. Bye!";
