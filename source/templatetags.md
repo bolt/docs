@@ -392,6 +392,23 @@ In this example, we build links to all category listing pages:
 <ul>
 ```
 
+### shy
+
+The "soft hyphenate" filter can be used for strings without spaces, that would otherwise
+break the layout of your page. By adding these soft hyphens, the browser knows it can wrap
+to the next line. For example:
+
+```
+|                         |
+| Before: {{ file }}      |
+| MyVeryLongFilenameWithoutSpacesOrDashesOrWhatever.jpg |
+|                         |
+| After: {{ file|shy }}   |
+| MyVeryLongFilenameWith- |
+| outSpacesOrDashesOrWha- |
+| tever.jpg               |
+|                         |
+```
 
 ### thumbnail
 
