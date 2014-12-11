@@ -19,26 +19,35 @@ Extensions should use the PHP namespace of `Bolt\Extension\{author name}\{exensi
 ### Using the Starter Package
 
 To make getting setup with an extension as simple as possible there is a skeleton
-extension package that can get you started. You'll need to already have Composer installed
-and then from the command line use the following, making sure you replace the last
-parameter with the name you want for your new extension.
+extension package that can get you started.
+
+First, create the folder for your own 'vendor', inside the `extensions/local` folder. You
+should pick something that reflects your name or your company, not necesarily the
+functionality of the extension. You'll need to already have Composer installed. On the
+commandline, go to the `extensions/` folder and use the following. Make sure you replace
+the last `<myvendorname>` and `<newextname>` with the names you want for your new
+extension.
 
 ```
+mkdir local
+mkdir local/<myvendorname>
+cd local/<myvendorname>
 composer create-project --no-install bolt/bolt-extension-starter <newextname>
 ```
 
-Once you've run the above command Composer will create a new directory, open the project
-in your editor and you will need to make a few changes, giving your new extension the
-correct configuration and namespaces. There are three files you need to edit,
-`composer.json`, `init.php`, and `Extension.php`.
+Once you've run the above commands, Composer will create a new directory with the bare
+extension. You should then open the project in your editor and you will need to make a few
+changes, giving your new extension the correct configuration and namespaces. There are
+three files you need to edit, `composer.json`, `init.php`, and `Extension.php`.
 
  1. Change the namespace at the top of `init.php` and `Extension.php` to your own.
- 2. In `composer.json` change the name setting to your extension name eg:
-    username/extensionname
- 3. In `composer.json` give a description and a type, either `bolt-extension` or `bolt-
-    theme`
- 4. Add your information to the author section
- 5. In the autoload section update the PSR-4 namespace to the one you have used in your
+ 2. In `Extension.php`, there's a function `getName()`. In it, change the name of the
+    extension to yours.
+ 3. In `composer.json` change the name setting to your extension name eg:
+    `myvendorname/extensionname`. For clarity, this should match the foldernames you've created a little earlier
+ 4. In `composer.json` give a description and a type, either `bolt-extension` or `bolt-theme`
+ 5. Add your contact information to the author section.
+ 6. In the autoload section update the PSR-4 namespace to the one you have used in your
    `init.php` and `Extension.php` files
 
 The above steps will get you started, and below is some more indepth information about the
