@@ -11,12 +11,11 @@ right section below:
   - The traditional way, [using (S)FTP](#option-2-the-traditional-way-using-sftp).
   - The nerdy way, [for developers](#option-3-the-developer-way-using-git-and-composer).
 
-<p class="note"><strong>Note:</strong> The exception to this rule is the
-<code>base-2013</code> template folder. If you've made modifications to these files, they
+<p class="note"><strong>Note:</strong> The exception to this rule are the
+default theme folders, i.e. <code>base-2013</code> and <code>base-2014</code>. If you've made modifications to these files, they
 <em>will</em> get overwritten. We strongly advise to always work in a template folder with
-a different name. Simply copy the <code>base-2013</code>, and change the setting in your
-<code>config.yml</code> for <code>theme: base-2013</code> accordingly.</p>
-
+a different name. Simply copy <code>base-2014</code>, and change the setting in your
+<code>config.yml</code> for <code>theme: base-2014</code> accordingly.</p>
 
 <p class="tip"><strong>Tip:</strong> Even though nothing <em>should</em> go wrong when
 updating Bolt, it is still a good idea to make sure you have a backup of your website. You
@@ -37,9 +36,7 @@ chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
 Option 2: The traditional way, using (S)FTP
 -------------------------------------------
 
-Download the latest version of Bolt from this location:
-
-[http://bolt.cm/distribution/bolt-latest.zip](http://bolt.cm/distribution/bolt-latest.zip)
+Download the [latest version of Bolt](http://bolt.cm/distribution/bolt-latest.zip).
 
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
 your choice.
