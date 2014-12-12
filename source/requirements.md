@@ -11,13 +11,13 @@ modern webserver:
     configuration covered below)
 
 <p class="note"><strong>Note:</strong> Currently we only support Apache and
-  Nginx. Support for Lighttpd will come in the near future, if there's demand.
-  </p>
+Nginx. Support for Lighttpd will come in the near future, if there's demand.
+</p>
 
 The PHP installation has a few additional requirements. On most servers these
 are default settings, and Bolt should work out-of-the-box.
 
-  - A minimum of 32mb of memory allocated to PHP
+  - A minimum of 32MB of memory allocated to PHP
   - The PDO extension, to connect to a database
   - The cUrl extension
   - The GD Extension
@@ -41,5 +41,5 @@ Mobile browsers:
   - Chrome for Android
 
 <p class="note"><strong>Note:</strong> These requirements are completely
-seperated for the websites that are built with Bolt. The templates that Bolt
-uses are developed the way you need them to be. </p>
+separated for websites that are built with Bolt. The templates that Bolt
+uses, are developed the way you want them to be.</p>

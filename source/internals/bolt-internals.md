@@ -3,9 +3,9 @@ Bolt Internals
 
 Bolt is an application built on top of the awesome [Silex micro-
 framework](http://silex.sensiolabs.org), and uses a lot of components from the [Symfony
-framework](http://symfony.com/components). Bolt strives to adhere to [the PSR-2 coding
-style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-
-guide.md). When writing your extensions, you should try to do the same.
+framework](http://symfony.com/components). Bolt strives to adhere to
+[the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
+When writing your extensions, you should try to do the same.
 
 This chapter serves as a reference guide for those who want to get the most out of the
 templates, those who want to create extensions or basically anybody who's curious what
