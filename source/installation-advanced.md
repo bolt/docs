@@ -28,7 +28,7 @@ The basics of configuring a Bolt application
 
 The job of your custom bootstrap file is to provide a bootstrapped `$app` object that the
 `index.php` file will then run. The simplest possible bootstrap file will look like this,
-assuming that your bootstrap file is in the same directory as your index.php file:
+assuming that your bootstrap file is in the same directory as your `index.php` file:
 
 ```
 // custom-bootstrap.php
@@ -100,7 +100,7 @@ Mounting Bolt on an existing Application
 ----------------------------------------
 
 A lot of work has been done on the internals of Bolt which allow it now to run as a self-
-contained HTTPKernelInterface application without interfering with any of the global
+contained `HTTPKernelInterface` application without interfering with any of the global
 namespace or constants. So if you use <a href="http://stackphp.com/">StackPHP</a> (or
 similar) you can mount Bolt onto a url prefix as simply as this:
 
