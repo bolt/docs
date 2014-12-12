@@ -267,15 +267,15 @@ FallbackResource /index.php
 ```
 
 If you have misplaced your `.htaccess` file, you can get a <a href="http://bolt.cm/distribution/default.htaccess">
-new one here</a>, from our <a href="http://bolt.cm/distribution/">files distribution page
-</a>. Be sure to rename it to `.htaccess`, though.
+new one here</a>, from our <a href="http://bolt.cm/distribution/">files distribution page</a>.
+Be sure to rename it to `.htaccess`, though.
 
 Nginx: Configuring the virtual host
 -----------------------------------
 
 Nginx is a high-performance web server that is capable of serving thousands of
 request while using fewer resources than other servers like Apache. However, it
-does not support .htaccess configuration, which many applications, such as Bolt,
+does not support `.htaccess` configuration, which many applications, such as Bolt,
 require to work properly. Instead, we can configure the virtual server block to
 handle the rewrites and such that Bolt requires.
 
