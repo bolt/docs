@@ -3,7 +3,7 @@ About Bolt
 
 Bolt is a tool for Content Management, which strives to be as simple and straightforward
 as possible. It is quick to set up, easy to configure, uses elegant templates, and above
-all: It's a joy to use. Bolt is created using modern Open Source libraries, and is best
+all: it's a joy to use. Bolt is created using modern Open Source libraries, and is best
 suited to build sites in HTML5, with modern markup.
 
 Basically, there are three groups of users we've created Bolt for:
@@ -26,7 +26,7 @@ HTML/CSS, and have working knowledge about JavaScript so you can implement thing
 Google Analytics trackers, jQuery plugins and such. To create a working site out of your
 static HTML, you'll need to know about how Bolt uses Content and Contenttypes, and how to
 make templates using Twig. Information about those topics can be found in the chapters
-[Working with Content and Content types](/content) and [Building templates](/templates).
+[Contenttypes and Records](/contenttypes-and-records) and [Building templates](/building-templates).
 
 With creating Bolt we wanted to focus on creating something simple, straightforward and
 enjoyable. Bolt concentrates on being a content management system with a small footprint.
