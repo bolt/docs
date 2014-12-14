@@ -263,11 +263,11 @@ The available options are:
     records in this contenttype, like `published`, `held`, `draft` or `timed`.
   - `searchable` (optional): A boolean value to determine whether this
     contenttype should show up in searchresults.
-  - `icon` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
-    icon to be used in the sidebar for this contenttype. For example: `cubes`
-  - `icon_singular` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+  - `icon_many` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+    icon to be used in the sidebar for this contenttype. For example: `fa:cubes`
+  - `icon_one` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
     icon to be used in the sidebar for a single record of this contenttype. For
-    example: `cube`.
+    example: `fa:cube`.
 
 Field definitions
 -----------------
