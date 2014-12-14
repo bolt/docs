@@ -18,7 +18,13 @@ jQuery(function($) {
         $('.main-nav').toggleClass('expanded');
         $(this).toggleClass('active');
     });
-    
+
+    if ($('a.popup').is('*')) {
+        $('a.popup').magnificPopup({ 
+        type: 'image'
+            // other options
+        });    
+    }
 
     $(window).scroll(function () {
         $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
