@@ -19,12 +19,17 @@ jQuery(function($) {
         $(this).toggleClass('active');
     });
 
-    if ($('a.popup').is('*')) {
-        $('a.popup').magnificPopup({ 
-        type: 'image'
-            // other options
-        });    
-    }
+    $('a.popup').magnificPopup({ 
+    type: 'image'
+        // other options
+    });    
+    $('div.gallery-popup').magnificPopup({
+      delegate: 'a',
+      type: 'image',
+      gallery:{
+        enabled:true
+      }
+    });
 
     $(window).scroll(function () {
         $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
