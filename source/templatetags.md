@@ -158,14 +158,14 @@ arguments, pagination, sorting and other options you can find in the chapter abo
 
 These queries are currently possible:
 
-  * <code>entry/12</code> - get entry with id 12
-  * <code>page/about</code> - get page with slug about
-  * <code>event/latest/5</code> - get latest 5 events
-  * <code>news/first/5</code> - get first 5 newsitems
-  * <code>quote/random/5</code> - get 5 random quotes
-  * <code>animal/search/5</code> - search for animals and return 5 of them (use
+  * `entry/12` - get entry with id 12
+  * `page/about` - get page with slug about
+  * `event/latest/5` - get latest 5 events
+  * `news/first/5` - get first 5 newsitems
+  * `quote/random/5` - get 5 random quotes
+  * `animal/search/5` - search for animals and return 5 of them (use
     where parameter 'filter' to specify searchstring)
-  * <code>(animal,plant)/search/20</code> - search for animals and plants and
+  * `(animal,plant)/search/20` - search for animals and plants and
     return 20 of them (use where parameter 'filter' to specify searchstring)
 
 ```
@@ -174,7 +174,7 @@ These queries are currently possible:
 <h3>{{ about.title }}</h3>
 {{ about.introduction|raw }}
 
-<a href="{{ about|link }}">link</a>
+<a href="{{ about.link }}">link</a>
 ```
 
 ### getuser and getuserid
@@ -322,19 +322,6 @@ website](http://nl3.php.net/manual/en/function.date.php).
 localized version of the date. Use the <code>{{ localdate }}</code>-filter if
 you want to display dates in other languages than English.</p>
 
-### link
-
-Create a link to the current record.
-
-```
-{{ entry|link }}
-```
-
-or:
-
-```
-<a href="{{ page|link }}">Link to {{ page.title }}</a>
-```
 
 ### current
 
