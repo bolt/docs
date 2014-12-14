@@ -29,13 +29,13 @@ In the example above `pages`. It takes a few parameters:
 
 Editing a record that has relations defined looks like this:
 
-<a href="/files/relations1.png" class="fancybox"><img src="/files/relations1.png" width="350"></a>
+<a href="/files/relations1.png" class="popup"><img src="/files/relations1.png" width="350"></a>
 
 If you define a relation only one way, for example from 'entries' to 'pages'), but not the
 other way around, you will still see the references when editing the record that has a
 relation to another record. It looks like this:
 
-<a href="/files/relations2.png" class="fancybox"><img src="/files/relations2.png" width="350"></a>
+<a href="/files/relations2.png" class="popup"><img src="/files/relations2.png" width="350"></a>
 
 
 If you see this, you might consider adding the reverse relation to the `contenttype.yml` as

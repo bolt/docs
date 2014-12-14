@@ -80,18 +80,18 @@ select based on 'smaller than' or 'does not equal'
 {% setcontent mypages = 'pages' where { ownerid: '!1' } %}
 
 {# get all events with eventdate before '2012-10-15' #}
-{% setcontent myevents = 'events' where { eventdate: '&lt;2012-10-15' } %}
+{% setcontent myevents = 'events' where { eventdate: '<2012-10-15' } %}
 
 {# get all blog entries which have been published before last monday #}
-{% setcontent myarticles = 'entries' where { status: 'published', datepublish: '&lt; last monday' } %}
+{% setcontent myarticles = 'entries' where { status: 'published', datepublish: '< last monday' } %}
 
 {# get all books with amountsold over 1,000 #}
-{% setcontent mybooks = 'books' where { amountsold: '&gt;1000' } %}
+{% setcontent mybooks = 'books' where { amountsold: '>1000' } %}
 ```
 
-<p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code> Bolt only
+<p class="tip"><strong>Tip:</strong> When using <code>'<=2012-12-01'</code> Bolt only
 selects dates before or equal to <code>'2012-12-01 00:00:00'</code>. If you want to
-include December 1st, use <code>'&lt;2012-12-02'</code>. </p>
+include December 1st, use <code>'<2012-12-02'</code>. </p>
 
 ### The `%like%` option
 
@@ -132,7 +132,7 @@ always use the _plural_ name of the taxonomy in the query:
 {% setcontent mypages = 'pages' where { tags: 'book || movie' } %}
 ```
 
-### Selecting on dates 
+### Selecting on dates
 
 You can use several 'shortcuts' for selecting records with dates in the past or future.
 Some examples are:
@@ -141,23 +141,23 @@ Some examples are:
   - `today` - The current date, today at midnight.
   - `tomorrow` - The date of tomorrow, at midnight.
   - `yesterday` - The date of yesterday, at midnight.
-  - `last year` 
-  - `next thursday` 
+  - `last year`
+  - `next thursday`
 
-You can use these date notations like this: 
+You can use these date notations like this:
 
 ```
 {# Selecting pages published _before_ yesterday #}
-{% setcontent mypages = 'pages' where { datepublish: '&lt;yesterday' } %}
+{% setcontent mypages = 'pages' where { datepublish: '<yesterday' } %}
 
 {# If you want to include yesterday in your `where`, use 'before today' #}
-{% setcontent mypages = 'pages' where { datepublish: '&lt;today' } %}
+{% setcontent mypages = 'pages' where { datepublish: '<today' } %}
 
 {# Selecting pages published earlier today, or in the future #}
-{% setcontent mypages = 'pages' where { datepublish: '&gt;today' } %}
+{% setcontent mypages = 'pages' where { datepublish: '>today' } %}
 
 {# Selecting pages published today only #}
-{% setcontent mypages = 'pages' where { datepublish: '&gt;today', datepublish: '&lt;tomorrow' } %}
+{% setcontent mypages = 'pages' where { datepublish: '>today && <tomorrow' } %}
 ```
 
 <p class="tip"><strong>Tip:</strong> When using 'where' statements with a field that is a
@@ -208,7 +208,7 @@ multiple columns. For example:
 {% setcontent mypages = 'pages' where { city: 'Amsterdam', 'username ||| firstname': 'pete ||| Mike' } %}
 
 {# Query output:
-    WHERE ( (city = 'Amsterdam') AND ( (username = 'pete') OR (firstname = 'Mike') ) ) 
+    WHERE ( (city = 'Amsterdam') AND ( (username = 'pete') OR (firstname = 'Mike') ) )
 #}
 ```
 
@@ -217,14 +217,14 @@ Since 'and' is the default, there is no `&&&` equivalent to `|||`.
 Getting content for a specific user
 -----------------------------------
 
-As you might've noticed, in the examples above, we've used `ownerid` a couple of times to get content specific to a given user. In Bolt, Content is stored with a reference to the owner of this piece of content, the so called `ownerid`. This means that you cannot do things like this: 
+As you might've noticed, in the examples above, we've used `ownerid` a couple of times to get content specific to a given user. In Bolt, Content is stored with a reference to the owner of this piece of content, the so called `ownerid`. This means that you cannot do things like this:
 
 ```
 {# get all pages created by user 'bob' #}
 {% setcontent mypages = 'pages' where { username: 'admin' } %}
 ```
 
-Instead, you'll need to use the `ownerid`. If you don't know the `ownerid`, but you _do_ know their name, you can use the `getuserid()` function. 
+Instead, you'll need to use the `ownerid`. If you don't know the `ownerid`, but you _do_ know their name, you can use the `getuserid()` function.
 
 ```
 {# get all pages created by user 'bob' #}
@@ -285,11 +285,11 @@ Bolt tries to make an assumption about how you want to use it, based on
 what you're requesting. By default, an array is returned, unless one of
 the following is the case:
 
-  - `{% setcontent foo = 'bar/1' %}` or `{% setcontent foo = 'bar/qux' %}`: 
+  - `{% setcontent foo = 'bar/1' %}` or `{% setcontent foo = 'bar/qux' %}`:
     When requesting one specific record, only one is returned.
-  - `{% setcontent foo = 'page' where { .. } %}`: If 'page' is the singular 
+  - `{% setcontent foo = 'page' where { .. } %}`: If 'page' is the singular
     slug of the contenttype 'pages', Bolt assumes you only need one.
-  - `{% setcontent foo = 'pages' .. returnsingle %}`: If the returnsingle' 
+  - `{% setcontent foo = 'pages' .. returnsingle %}`: If the returnsingle'
     parameter is passed, Bolt assumes you only need one result.
 
 If you use `limit 1`, you will get an array with 1 record. Unless, of

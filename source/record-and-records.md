@@ -21,7 +21,7 @@ matter) are, is to use the `print()` function:
 {{ print(record) }}
 ```
 
-<a href="/files/content-example3.png" class="fancybox"><img  src="/files/content-example3.png" width="500"></a>
+<a href="/files/content-example3.png" class="popup"><img src="/files/content-example3.png" width="500"></a>
 
 As you can see in the screenshot, a record of a contenttype is an `object`. There are
 several benefits to this over a regular `array`. We can access the fields like regular
@@ -218,7 +218,7 @@ following.
 Check how many records there are:
 
 ```
-{% if pages|length &gt; 0 %} More than 0 records {% endif %}
+{% if pages|length > 0 %} More than 0 records {% endif %}
 
 {% if pages|length < 5 %} Less than 5 records {% endif %}
 

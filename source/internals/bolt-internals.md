@@ -92,7 +92,7 @@ If you're logged in, and 'debug: true' is set in `config.yml`, you'll see the 'D
 in the lower right corner of all pages of both the frontend and the backend of the Bolt
 website. Click it to open the Symfony profiler bar.
 
-<a href="/files/toolbar.png" class="fancybox"><img src="/files/toolbar.png" style="width: 100%"></a><br>
+<a href="/files/toolbar.png" class="popup"><img src="/files/toolbar.png" style="width: 100%"></a><br>
 
 This profiler bar contains a lot of useful information to see what's going on behind the
 scenes. Click the different tabs to see information about the current request, used
@@ -131,7 +131,7 @@ true</code> in your <code>config.yml</code> file. Otherwise the
 The `variable` can be a normal variable, a Record or multiple records of Content, or other
 stuff.
 
-<a href="/files/content-example3.png" class="fancybox"><img src="/files/content-example3.png" style="width: 400px"></a><br>
+<a href="/files/content-example3.png" class="popup"><img src="/files/content-example3.png" style="width: 400px"></a><br>
 
 In your code you can also dump variables and objects, like this:
 
@@ -265,7 +265,7 @@ This is an instance of Swiftmailer.
 
 ### $app['log']
 
-Instance of Bolt\Log. See `app/src/Bolt/Log.php` for details.
+Instance of `Bolt\Log`. See `app/src/Bolt/Log.php` for details.
 
 Example:
 
@@ -286,7 +286,7 @@ activity log on the dashboard screen. Otherwise it will only be shown in the ext
 
 ### $app['users']
 
-Instance of Bolt\Users. See `app/src/Bolt/Users.php` for details.
+Instance of `Bolt\Users`. See `app/src/Bolt/Users.php` for details.
 
 
 ### $app['session']
@@ -305,11 +305,11 @@ $app['session']->setFlash('error', 'Something went horribly wrong.');
 
 ### $app['cache']
 
-Instance of Bolt\Cache. See `app/src/Bolt/Cache.php` for details.
+Instance of `Bolt\Cache`. See `app/src/Bolt/Cache.php` for details.
 
 ### $app['extensions']
 
-This is an instance of Bolt\Extensions. See the page on [Bolt extensions](/extensions) for details.
+This is an instance of `Bolt\Extensions`. See the page on [Bolt extensions](/extensions) for details.
 
 ### $app['twig']
 

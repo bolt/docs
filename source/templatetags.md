@@ -40,7 +40,7 @@ templates. You might want to know which type it is, what the dimensions are, and
 aspect ratio is. In these cases, the `imageinfo` tag can be used. It returns an array of
 data about the image. See the screenshot for details:
 
-<a href="/files/imageinfo.png" class="fancybox" rel="fancybox"><img src="/files/imageinfo.png" width="600"></a>
+<a href="/files/imageinfo.png" class="popup"><img src="/files/imageinfo.png" width="600"></a>
 
 To see the available values for an image, use:
 
@@ -90,7 +90,7 @@ up the 'initialization' code:
 <script src="/app/view/js/jquery.magnific-popup.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/app/view/css/magnific-popup.css">
 
-&lt!-- set up fancybox here, or do this in your own .js file somewhere -->
+{# set up lightbox script here, or do this in your own .js file somewhere #}
 <script type="text/javascript">
   $(document).ready(function() {
     $('.magnific, div.imageholder a').magnificPopup({
@@ -190,7 +190,7 @@ Example 1: Getting a user
 {{ dump(getuser(1)) }}
 ```
 
-<a href="/files/templatetags-getuser.png" class="fancybox"><img src="/files/templatetags-getuser.png" width="500"></a>
+<a href="/files/templatetags-getuser.png" class="popup"><img src="/files/templatetags-getuser.png" width="500"></a>
 
 
 Example 2: Using in `setcontent`
