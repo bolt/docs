@@ -93,22 +93,22 @@ contenttype will be added to the database, with the fields that we defined in ou
 relative from the 'home' location of your website. </p>
 
 
-<a href="/files/content-example1.png" class="fancybox"><img src="/files/content-example1.png" width="500"></a>
+<a href="/files/content-example1.png" class="popup"><img src="/files/content-example1.png" width="500"></a>
 
-When you go to Settings > Check Database, the database will be updated, and you'll be
+When you go to Configuration > Check Database, the database will be updated, and you'll be
 given the option to add some "Lorem Ipsum" Records to the newly created Contenttype. If
 you do this, and go back to the dashboard, you'll see your new Contenttype with some
 example news items. Sweet!
 
-<a href="/files/content-example2.png" class="fancybox"><img src="/files/content-example2.png" width="500"></a>
+<a href="/files/content-example2.png" class="popup"><img src="/files/content-example2.png" width="500"></a>
 
 <p class="note"><strong>Note:</strong>In the following examples we're going to tell you to
-make modifications to the default `base-2013` theme. This is actually a very bad practice,
+make modifications to the default `base-2014` theme. This is actually a very bad practice,
 and if you're going to make your own theme, make a copy of the `base-2013` theme, and do
 your modifications in the copy.</p>
 
 To add a listing of these news items to the website, edit the twig template
-`theme/base-2013/index.twig`. Most likely, it'll contain an include for a header and some
+`theme/base-2014/index.twig`. Most likely, it'll contain an include for a header and some
 other things. Add the following to the HTML-code, preferably somewhere below the header
 section:
 
@@ -136,7 +136,7 @@ templates](content-in-templates).
 When you refresh the front page of the website, you should see four news items
 listed on the page. You can click the title to go to the news item on a separate
 page, but you'll get an error. In the contenttype we defined the template as
-`newsitem.twig`, but it doesn't exist. Create the file in the `theme/default/`
+`newsitem.twig`, but it doesn't exist. Create the file in the `theme/base-2014/`
 folder, and add the following HTML-code:
 
 ```
@@ -170,19 +170,19 @@ folder, and add the following HTML-code:
 
 <p class="note"><strong>Tip:</strong> If you're curious about the different
 <code>{{ tags }}</code> in this bit of code, read the <a
-href="/templates">Template documentation</a>.</p>
+href="/building-templates">Template documentation</a>.</p>
 
 In the frontend of the website, in your templates, all content is accessible as
 an array. If you're accessing one record, it will be an array containing the
 fields, taxonomies and metadata. If you're accessing a set of records, it will
-be an array of arrays. I.e. `{{ page.title }}` for the title of a page or `{{
-events.4.date }}` for the date of the fourth event in an array.
+be an array of arrays. I.e. `{{ page.title }}` for the title of a page or `{{ events.4.date }}`
+for the date of the fourth event in an array.
 
 If you're building a template and are unsure of what a certain variable contains
 or how the fields are named, use `{{ print(foo) }}`, where 'foo' is the name of
 your record or array.
 
-Below, in the section [The structure of a Record](#the-structure-of-a-record),
+Below, in the section [The structure of a Record](/structure-record),
 this is explained in detail.
 
 Defining contenttypes
@@ -190,7 +190,7 @@ Defining contenttypes
 
 The contenttypes in Bolt are defined in the file `app/config/contenttypes.yml`.
 You can edit this file directly, or from within the Bolt interface under
-Settings > Contenttypes. Each distinct group of content can have its own
+Configuration > Contenttypes. Each distinct group of content can have its own
 Contenttype, to enable the user to store the content as needed. Fields can be
 added later on, and settings can be changed, so nothing is set in stone.
 
@@ -262,11 +262,11 @@ The available options are:
   - `default_status` (optional): Use this to set the default status for new
     records in this contenttype, like `published`, `held`, `draft` or `timed`.
   - `searchable` (optional): A boolean value to determine whether this
-    contenttype should show up in searchresults. 
-  - `icon` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 
+    contenttype should show up in searchresults.
+  - `icon` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
     icon to be used in the sidebar for this contenttype. For example: `cubes`
-  - `icon_singular` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 
-    icon to be used in the sidebar for a single record of this contenttype. For 
+  - `icon_singular` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+    icon to be used in the sidebar for a single record of this contenttype. For
     example: `cube`.
 
 Field definitions
@@ -312,8 +312,8 @@ The following fieldtypes are available:
     the global setting for `accept_file_types` in the main `config.yml` includes
     the correct extensions
   - `filelist`: A more complex upload/select field.
-  - `html`: Wysiwyg HTML field.  
-     You can override and set CKeditor options with specifying ckeditor options  
+  - `html`: Wysiwyg HTML field.
+     You can override and set CKeditor options with specifying ckeditor options
      (see [CKeditor config documentation](http://docs.ckeditor.com/#!/api/CKEDITOR.config) for options)
 ```apache
     htmlfield:
@@ -352,7 +352,7 @@ The following fieldtypes are available:
         values: pages/id,title
 ```
 
-  - `checkbox`: A field to store "True or false" type values. Internally stored as either `1` for `true` if the checkbox was checked, and `0` for `false` if it wasn't checked. 
+  - `checkbox`: A field to store "True or false" type values. Internally stored as either `1` for `true` if the checkbox was checked, and `0` for `false` if it wasn't checked.
   - `video`: A set of fields for embedding videos from websites like Youtube and
     Vimeo.
   - `geolocation`: A set of fields for easy selection of a geolocation
@@ -360,7 +360,7 @@ The following fieldtypes are available:
   - `date`: Datepicker widget, to set/select a date.
   - `datetime`: Similar to the `date` field, but adds an additional field to
     specify a time.
-    Both date and datetime fields accept some options for the datepicker plugin. 
+    Both date and datetime fields accept some options for the datepicker plugin.
     However, currently the dateFormat is fixed to the format that Bolt uses internally.
     (see [jQueryUI datepicker documentation](http://jqueryui.com/datepicker/) for information)
 ```apache
@@ -380,8 +380,8 @@ The following fieldtypes are available:
     decimal mark, and 9 digits after)
 
 For `integer` and `float` fields you can set `min: ...` and `max: ...` to limit
-the range of allowed values. For integer (64 bit) the default limits are 
--2147483647 to 2147483647. The default `step: ...` is 0.00000001 for float 
+the range of allowed values. For integer (64 bit) the default limits are
+-2147483647 to 2147483647. The default `step: ...` is 0.00000001 for float
 and 1 for integer fields.
 
 Most fields have a few extra optional values, to further customize them.
@@ -397,7 +397,7 @@ Most fields have a few extra optional values, to further customize them.
     only a couple of characters. For `text` fields only.
   - `class: large`: Will show the field in a larger font, for `text` fields.
   - `class: wide`: Will show the field extra wide, for filling out the column.
-    For `text` fields and `date` and `datetime` fields only.
+    For `text` fields, `date` and `datetime` and `select` fields only.
   - `variant: inline`: Will show the field to the right of the label, taking up
     less space vertically. For `text`, `date` and `datetime` fields only.
   - `height: 150px`: For `html` and `textarea` fields, this will determine the
@@ -418,11 +418,11 @@ Advanced options
     needed if you want to allow twig snippets in your content. Note: This
     feature will allow everybody with access to the contenttype to add twig to
     the content. Be careful when using this.
-  
+
 
 ### Upload locations
 
-Fields of the types `image`, `file`, `imagelist` and `filelist` upload new files to the `files/` folder by default. If you would like to have more control over the structure of the uploaded files, use the `upload` setting. 
+Fields of the types `image`, `file`, `imagelist` and `filelist` upload new files to the `files/` folder by default. If you would like to have more control over the structure of the uploaded files, use the `upload` setting.
 
 Example: Upload to a folder called 'photouploads':
 
@@ -464,7 +464,7 @@ adding a divider in the edit screen.
 ### Info
 
 In the case where you want to provide a large volume of informational text about
-the use and purpose of a field, the value of the `info` parameter can be used. 
+the use and purpose of a field, the value of the `info` parameter can be used.
 
 The info paramter will place a button beside the field label that, when hovered
 over, will display a popup with the info text.
@@ -487,8 +487,8 @@ You can use the `required` option to make a field required. Combine it with the
 `pattern` option to make sure that a field contains an email-address, or that a
 title is no longer than a certain amount of characters. Note that the
 requirements are only enforced in the browser, so don't "trust" any data that's
-been entered by an editor. When a field does not validate, a default message is shown 
-that, *"the x field is required or needs to match a pattern"*. You can set a 
+been entered by an editor. When a field does not validate, a default message is shown
+that, *"the x field is required or needs to match a pattern"*. You can set a
 custom error message for a field with the error option. for example
 `error: "The title field is required and must be no longer than 40 characters"`
 
@@ -508,9 +508,9 @@ For example, to make a title required, you can do this:
 If combined with a `pattern`, you can add frontend validation to the field. By
 doing this, you can require that the values of a field are within certain
 parameters. You can use either one of the predetermined patterns like `email` or
-`url`, or any regular expression. Currently, the `pattern` option is 
-only available for `text` fields. Examples of patterns that can be used, can be 
-found on the website [html5pattern.com](http://html5pattern.com/). 
+`url`, or any regular expression. Currently, the `pattern` option is
+only available for `text` fields. Examples of patterns that can be used, can be
+found on the website [html5pattern.com](http://html5pattern.com/).
 Some common use-cases are:
 
 - `email`: the input must be a valid email address. The email address must be
@@ -586,14 +586,14 @@ Grouping fields in tabs
 If you have a number of fields in your contenttype, it might be convenient to
 add grouping to the fields, by using tabs. It will look like this:
 
-<a href="/files/contenttype-tabs.png" class="fancybox"><img src="/files/contenttype-tabs.png"></a>
+<a href="/files/contenttype-tabs.png" class="popup"><img src="/files/contenttype-tabs.png"></a>
 
 To do this, simply add `group` to the fields that you would like to place under
 a certain tab. You don't need to specify _all_ of the fields with a grouping,
 just the ones that are the first on a tab. Any subsequent fields without a
 specified `group` will fall under the previously set grouping.
 
-For example: 
+For example:
 
 ```apache
 pages:
@@ -623,7 +623,7 @@ The structure of a Record
 Every record is an object, that contains the information of that record, as well
 as some meta-information and its taxonomy.
 
-<a href="/files/content-example3.png" class="fancybox"><img src="/files/content-example3.png" width="500"></a>
+<a href="/files/content-example3.png" class="popup"><img src="/files/content-example3.png" width="500"></a>
 
 At the topmost level, it contains the following items:
 

@@ -55,7 +55,7 @@ enclosed' option. It depends on the exact server configuration if you will need 
 `777` or if an other setting is better. If you wish to know for sure, ask your hosting
 provider.
 
-<a href="/files/ftp-chmod.png" class="fancybox"><img src="/files/ftp-chmod.png" width="590"></a><br>
+<a href="/files/ftp-chmod.png" class="popup"><img src="/files/ftp-chmod.png" width="590"></a><br>
 
 <p class="note"><strong>Note:</strong> Don't forget to upload the <code>.htaccess</code> file! Bolt
 won't work without it. If you can't find the file on your filesystem, download this <a
@@ -152,7 +152,7 @@ database:
   driver: mysql
   username: bolt
   password: password
-  databasename: bolt 
+  databasename: bolt
 ```
 
 or:
@@ -303,12 +303,12 @@ server {
     location /app/classes/upload {
         try_files $uri $uri/ /app/classes/upload/index.php?$query_string;
     }
-    
+
     # If you set a custom branding path, you will need to change '/bolt/' here to match
     location ~* /bolt/(.*)$ {
         try_files $uri $uri/ /index.php?$query_string;
     }
-    
+
     location ~* \.(?:ico|css|js|gif|jpe?g|png|ttf|woff)$ {
         access_log off;
         expires 30d;
@@ -342,24 +342,24 @@ server {
     location ~ \.db$ {
         deny all;
     }
- 
+
     location ~ \.yml$ {
         deny all;
     }
- 
+
     location ~ \.twig$ {
         deny all;
-    }    
-    
+    }
+
     location ~ \.md$ {
         deny all;
-    }   
+    }
 }
 ```
 
 **Note:** 502 Bad Gateway Errors
 
-If you're using UNIX sockets instead of TCP ports on your PHP-FPM 
+If you're using UNIX sockets instead of TCP ports on your PHP-FPM
 installation, you will need to change the `fastcgi_pass` parameters to match what
 is set in your PHP-FPM configuration's `listen = `, e.g.:
 
