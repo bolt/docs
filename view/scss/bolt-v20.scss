@@ -640,9 +640,13 @@ h4:hover a.anchor {
     }
 }
 
-a.popup img {
+a.popup img,
+div.gallery-popup img {
     border: 1px solid #bbb;
+    display: block;
 }
+
+
 
 /* -------------- HERO SECTION--------------- */
 
