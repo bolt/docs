@@ -1,4 +1,4 @@
-Install Bolt With Composer
+Install Bolt with Composer
 =============================
 
 If you've read through the previous installation options the principle has been that Bolt
@@ -12,7 +12,7 @@ the following from a command line:
 
 `composer create-project bolt/composer-install <MYPROJECT> --prefer-dist`
 
-Change <MYPROJECT> to the name of your project before running the installer.
+Change `<MYPROJECT>` to the name of your project before running the installer.
 
 The install process will ask you some questions about your required install strategy, you
 can install Bolt inside a single directory, or you can install the public assets inside a
@@ -35,5 +35,3 @@ directory:
 If you use this method you will need to bootstrap Bolt yourself, depending on when you
 want to dispatch requests to Bolt. For some ideas of how to setup a bootstrap file see the
 <a href="/installation-advanced">advanced installation</a> page.
-
-
