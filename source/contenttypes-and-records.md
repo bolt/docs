@@ -17,28 +17,28 @@ structured. For instance, in an 'event', you'll need a date on which the event t
 place. For a 'book review', you'll need an author and publisher of the book. Other
 commonly used fields are `title`, `introduction` or maybe an `image`. Some of the Fields
 are fixed, which means that every contenttype has them. For example, every contenttype has
-a Field for `id`, `slug`, `date_created` and `ownerid`. Below we'll describe how to define
-the Contenttypes and the Fields that you can use to store the desired information in them.
+a Field for `id`, `slug`, `datecreated` and `ownerid`. Below we'll describe how to define
+Contenttypes and Fields.
 
-<p class="tip"><strong>Tip:</strong> The <code>slug</code> is a special value, that's used
+<p class="tip"><strong>Tip:</strong> The <code>slug</code> is a special value that's used
 in the generation of the URL at which a page will be available on the website. It usually
-contains a  variant of the title, that's been made suitable for indexing by search
-engines. Ideally, it is both semantical and human readable. For example, if you have a
+contains a variant of the title, that's been made suitable for indexing by search
+engines. Ideally, it is both semantic and human-readable. For example, if you have a
 page named "About our company", a good slug would be <code>about-our-company</code>.</p>
 
-All of the content on your website is part of one specific Contenttype, which
+All content on your website is part of one specific Contenttype, which
 automatically defines which fields that piece of content has, which in turn specifies how
 that piece of content is structured. Each one of those pieces of content is called a
-**Record**, and is stored in the database together. For example, a single 'book review' is
-a Record of Contenttype 'reviews' and a single 'page' is a Record of Contenttype Pages.
+**Record**, and is stored in the database. For example, a single 'event' is
+a Record of Contenttype 'events' and a single 'page' is a Record of Contenttype 'pages'.
 
 When you're creating a page on a website that shows listings of several Records, you're
 using an **Array of Records**. For instance, if you create a page that has 'the five
-latest book reviews', you'll be using an Array of 5 'book review' Records of Contenttype
-'book reviews'.
+latest events', you'll be using an Array of 5 'event' Records of Contenttype
+'events'.
 
 Before we'll dive into the details, we'll give you a quick example of a simple
-Contenttype, how it's stored, and how you can access it in the templates to display on
+Contenttype, how it's stored, and how you can access it in templates to display on
 your site.
 
 An Example: News items
@@ -50,12 +50,12 @@ like the `slug`, the `ownerid` and the various dates.
 
 <p class="note"><strong>Note:</strong> If you've just installed Bolt, you might not have
 the <code>contenttypes.yml</code>-file yet. You will however have a
-<code>contenttypes.yml.dist</code>-file, in that same folder. The first time Bolt is run,
+<code>contenttypes.yml.dist</code>-file in that same folder. The first time Bolt is run,
 the <code>.yml.dist</code>-files will be automatically copied to <code>.yml</code>-files.
 If you wish to do some configuration <em>before</em> you first run Bolt, just copy
-<code>contenttypes.yml.dist</code> to <code>contenttypes.yml</code> yourself. </p>
+<code>contenttypes.yml.dist</code> to <code>contenttypes.yml</code> yourself.</p>
 
-To add this Contenttype, edit the file `app/config/contenttypes.yml`, and add the
+To add this contenttype, edit the file `app/config/contenttypes.yml`, and add the
 following to the bottom or top of the file:
 
 ```apache
@@ -82,7 +82,7 @@ the indentation is important. Make sure you leave leading spaces intact.</p>
 
 This creates a new contenttype 'news'. Its name is 'News', and a single record is named
 'Newsitem'. We've defined fields for 'title', 'slug', 'image' and 'text'. The 'template'
-defines the default template to use, when displaying a single template in the browser.
+defines the default template to use, when displaying a single record in the browser.
 
 After you've saved the file and Refresh the Dashboard screen in your browser, you'll be
 greeted by a warning that the Database needs to be updated. If we do this, the new
@@ -104,7 +104,7 @@ example news items. Sweet!
 
 <p class="note"><strong>Note:</strong>In the following examples we're going to tell you to
 make modifications to the default `base-2014` theme. This is actually a very bad practice,
-and if you're going to make your own theme, make a copy of the `base-2013` theme, and do
+and if you're going to make your own theme, make a copy of the `base-2014` theme, and do
 your modifications in the copy.</p>
 
 To add a listing of these news items to the website, edit the twig template
@@ -179,11 +179,10 @@ be an array of arrays. I.e. `{{ page.title }}` for the title of a page or `{{ ev
 for the date of the fourth event in an array.
 
 If you're building a template and are unsure of what a certain variable contains
-or how the fields are named, use `{{ print(foo) }}`, where 'foo' is the name of
+or how the fields are named, use `{{ dump(foo) }}`, where 'foo' is the name of
 your record or array.
 
-Below, in the section [The structure of a Record](/structure-record),
-this is explained in detail.
+This is explained in detail in the section [The structure of a Record](#structure-record).
 
 Defining contenttypes
 ---------------------
@@ -235,19 +234,19 @@ The available options are:
   - `singular_slug` (optional): This determines the slug of the a single record
     in this contenttype, and therefore the URLs that are generated for these
     records. When omitted, the slug will be automatically generated.
-  - `description` (optional): A short description of the contenttype. Will be
-    shown on the overview screen in the right aside column.
+  - `description` (optional): A short description of the contenttype. This will
+    be shown on the overview screen in the right aside column.
   - `fields`: The fields that make up the content in this contenttype. See the
-    [section below](#field-definitions) for details.
+    [Fields Definition](#field-definitions) section below for details.
   - `taxonomy`: An array listing the different taxonomies used by this
     contenttype. For example `[ categories, tags ]`. See the page on
-    [Taxonomies](/taxonomies#taxonomies) for details.
+    [Taxonomies](/taxonomies) for details.
   - `relations`: An array listing the different relations available to this
     contenttype. See the page on [Relations](/relationships) for details.
   - `record_template`: The default template to use, when displaying a single
     Record of this Contenttype. The template itself should be located in your
-    `theme/foo/` folder, in Bolt's root folder. This can be overridden on a per-
-    record base, if one of the fields is defined as type `templateselect`.
+    `theme/foo/` folder, in Bolt's root folder. This can be overridden on a per-record
+    basis, if one of the fields is defined as type `templateselect`.
   - `listing_template`: The default template to use, when displaying an overview
     of Records of this Contenttype. The template itself should be located in
     your `theme/foo/` folder, in Bolt's root folder.
@@ -260,9 +259,9 @@ The available options are:
   - `show_on_dashboard` (optional): When set to `false` the contenttype will not
     appear in the 'Recently edited &hellip;' list on the dashboard page.
   - `default_status` (optional): Use this to set the default status for new
-    records in this contenttype, like `published`, `held`, `draft` or `timed`.
+    records in this contenttype, i.e. `published`, `held`, `draft` or `timed`.
   - `searchable` (optional): A boolean value to determine whether this
-    contenttype should show up in searchresults.
+    contenttype should show up in search results.
   - `icon_many` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
     icon to be used in the sidebar for this contenttype. For example: `fa:cubes`
   - `icon_one` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
@@ -306,15 +305,15 @@ The following fieldtypes are available:
         attrib: title
 ```
   - `imagelist`: A field to create a list of images. Useful for slideshows and
-    imagesliders.
+    galleries.
   - `file`: Simple file upload/select field.
     If you use the file or filelist type make sure that you also set `extensions` and that
     the global setting for `accept_file_types` in the main `config.yml` includes
     the correct extensions
   - `filelist`: A more complex upload/select field.
-  - `html`: Wysiwyg HTML field.
-     You can override and set CKeditor options with specifying ckeditor options
-     (see [CKeditor config documentation](http://docs.ckeditor.com/#!/api/CKEDITOR.config) for options)
+  - `html`: WYSIWYG HTML field.
+     You can override and set CKEditor options, see
+     [CKEditor config documentation](http://docs.ckeditor.com/#!/api/CKEDITOR.config) for options).
 ```apache
     htmlfield:
         type: html
@@ -331,7 +330,7 @@ The following fieldtypes are available:
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML
     markup.
   - `select`: A drop-down list to make a pre-defined selection from. There are
-    two ways of sepecifying the list of available options. Either a YAML array
+    two ways of specifying the list of available options. Either a YAML array
     or a contenttype/field lookup.
 
     Array values:
@@ -346,7 +345,8 @@ The following fieldtypes are available:
     selectfield:
         type: select
         values: mycontenttype/fieldname
-    &#35; i.e. to display both the id and title of 'pages':
+
+    # i.e. to display both the id and title of 'pages':
     selectapage:
         type:select
         values: pages/id,title
@@ -361,8 +361,8 @@ The following fieldtypes are available:
   - `datetime`: Similar to the `date` field, but adds an additional field to
     specify a time.
     Both date and datetime fields accept some options for the datepicker plugin.
-    However, currently the dateFormat is fixed to the format that Bolt uses internally.
-    (see [jQueryUI datepicker documentation](http://jqueryui.com/datepicker/) for information)
+    However, currently the `dateFormat` is fixed to the format that Bolt uses internally
+    (see [jQueryUI datepicker documentation](http://jqueryui.com/datepicker/)).
 ```apache
     datefield:
         type: datetime
@@ -373,11 +373,11 @@ The following fieldtypes are available:
                 changeYear: true
                 yearRange: "-100:-0"
 ```
-  - `integer`: A field to store whole, integer numbers. The value must be
+  - `integer`: A field to store integers. The value must be
     between <span style="white-space: nowrap">-2147483648</span> and +2147483647.
-  - `float`: A field to store floating point value numbers. Internally stored so that they can be
-    sorted numerically. (note: the maximum precision is 9 digits before the
-    decimal mark, and 9 digits after)
+  - `float`: A field to store (floating point) numbers. Internally stored so that they can be
+    sorted numerically. Note: the maximum precision is 9 digits before the
+    decimal mark, and 9 digits after.
 
 For `integer` and `float` fields you can set `min: ...` and `max: ...` to limit
 the range of allowed values. For integer (64 bit) the default limits are
@@ -401,7 +401,7 @@ Most fields have a few extra optional values, to further customize them.
   - `variant: inline`: Will show the field to the right of the label, taking up
     less space vertically. For `text`, `date` and `datetime` fields only.
   - `height: 150px`: For `html` and `textarea` fields, this will determine the
-    height in the edit-screen. For `html` fields (CKeditor) you might need to
+    height in the edit-screen. For `html` fields (CKEditor) you might need to
     set height via options (see example at `html` field).
 
 Advanced options
@@ -544,9 +544,9 @@ respectively. If we would omit these, the results would be off. For example,
 regardless of what comes before or after it. Probably not what you're looking
 for.
 
-<p class="note"><strong>Note:</strong>You should not try to use a pattern to
+<p class="note"><strong>Note:</strong> You should not try to use a pattern to
 match an email address. Always use <code>email</code> to validate an email
-address. </p>
+address.</p>
 
 You can also define fields that are not required, but that _do_ have a pattern.
 Doing this, the field can be left blank, but if it _is_ filled, it must match
@@ -658,5 +658,4 @@ your record or array. In most templates, `{{ dump(record) }}` will work as a
 generic fallback for whatever the name of your record is.
 
 For detailed information on how to access the various fields and values in your
-templates, view the section [Content on the Template tags
-page](/templatetags#content).
+templates, see the [Template tags](/templatetags) page.
