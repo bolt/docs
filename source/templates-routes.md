@@ -2,7 +2,7 @@ Templates and routing
 =====================
 
 Whenever your browser gets a page on a Bolt website, it uses an URL like `/entries` or
-`/page/lorem-ipsum`. Bolt knows how to handle URLs like this, and displays the information
+`/page/lorem-ipsum`. Bolt knows how to handle URLs like these, and displays the information
 the browser requested. Bolt does this by mapping the URL to a so-called Route. This Route
 is the controller that (when called) fetches the content from the database, selects the
 template to use, renders the HTML page according to that template and the content and
@@ -11,7 +11,7 @@ serves it to the browser.
 At the same time, if you create a new record, Bolt will know what the URL for that content
 is. So when that URL is requested by a browser, it can map it back to the correct content.
 
-For example, if you have a 'Pages' contenttype, with 'Page' as a singular_name, your site
+For example, if you have a 'Pages' contenttype, with 'Page' as a `singular_name`, your site
 will automatically have pages like:
 
   - `http://example.org/pages`
@@ -22,7 +22,7 @@ Automatic template selection
 ----------------------------
 
 Bolt has some rules to help you quickly build custom templates for your site. If your
-template is named exactly like the `singular_slug` or `slug` for the content type or
+template is named exactly like the `singular_slug` or `slug` for the contenttype or
 record it will be automatically used.
 
 How does Bolt select what template to use for a given request? Unless specified, Bolt will
@@ -40,7 +40,7 @@ selecting a template are as follows.
   - Otherwise, if the contenttype definition has a value for `record_template`, that
     template will be used.
   - Otherwise, Bolt will check if a template with a suited name exists. For example, if
-    the contenttype's singular_name is 'Entry', Bolt will check for an `entry.twig`
+    the contenttype's `singular_name` is 'Entry', Bolt will check for an `entry.twig`
     template. If it exists, that template will be used.
   - Otherwise, if `record_template` is set in `config.yml`, that template will be used.
   - If no other rule matches, Bolt will use a template named `record.twig`.
@@ -55,9 +55,9 @@ selecting a template are as follows.
   - Otherwise, if `listing_template` is set in `config.yml`, that template will be used.
   - If no other rule matches, Bolt will use a template named `listing.twig`.
 
-In the default template for a single record, it is available as both `{{ record}}` and
-also by the name of the singular name. So, in the above example, you can also use `{{ page
-}}`, without having to set it specifically. Likewise, in the default template for multiple
+In the default template for a single record, it is available as both `{{ record }}` and
+also by the name of the singular name. So, in the above example, you can also use `{{ page }}`,
+without having to set it specifically. Likewise, in the default template for multiple
 records, the content is available as `{{ records }}` and also by the name of the
 contenttype, for example `{{ pages }}`.
 
@@ -144,8 +144,9 @@ pagebinding:
 #### Single record override
 
 This example overrides a single record to a specific URL. Useful if you only want to
-exempt a few pages and not a complete contenttype. Don't forget to add the `recordslug:
-page/about` line. This route should be high in the route list for it to work correctly.
+exempt a few pages and not a complete contenttype. Don't forget to add the
+`recordslug: page/about` line. This route should be high in the route list for it to
+work correctly.
 
 ```
 aboutbinding:
@@ -157,7 +158,7 @@ aboutbinding:
 
 #### Filesystem based page generation
 
-There is a way to configure router to generate statically stored content. For the
+There is a way to configure the router to generate statically stored content. For the
 `Bolt\Controllers\Frontend::template` default controller can be assigned a parameter
 `template` that may points out a template that should be stored as a regular file under
 currently selected theme in the filesystem. Using file extension `.twig` is optional.
@@ -174,7 +175,7 @@ templatebinding:
 The complete format of a single route in YAML is as follows:
 
 ```
-bind-name:
+bindname:
   path:       /{parameter..}/
   defaults:
     _controller:    'controller'
@@ -189,7 +190,7 @@ bind-name:
 
 Explanation of each argument:
 
-  - `bind-name` - name to bind the route to, used for generating URLs.
+  - `bindname` - name to bind the route to, used for generating URLs.
   - `path` - URL of this route, use {..} for parameters.
   - `_controller` - controller method which will be called when this route matches.
   - `_before` - called before the controller action will be called. if not set the method
@@ -207,7 +208,7 @@ Explanation of each argument:
 ##### Path
 
 You are free to specify your own parameters, however when you are adding routes for
-contenttypes' or recordslugs you are limited to which parameters you can add. At least
+contenttypes or recordslugs you are limited to which parameters you can add. At least
 when you don't want to code your own Content-object. The following fields from a
 contenttype can be used as a parameter:
 

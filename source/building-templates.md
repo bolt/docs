@@ -13,7 +13,8 @@ your markup, so there's less code like this:
 
 ``` 
 <?php if ( the_something('3') ) { ?>
-<h1>Title is: <?php echo the\_title() ?>.</h1> <?php } ?> 
+<h1>Title is: <?php echo the_title() ?>.</h1>
+<?php } ?>
 ```
 
 And more like this:
@@ -24,7 +25,7 @@ And more like this:
 {% endif %}
 ```
 
-A template in Bolt can use all of the standard Twig tags, with a few additions that are
+A template in Bolt can use all standard Twig tags, with a few additions that are
 specific to working with Bolt. If you're not familiar with Twig yet, you should read
 "[Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html)", on the
 official Twig website.
@@ -33,7 +34,7 @@ File Structure
 --------------
 
 A Bolt website theme consists of a set of twig templates, that are located in the
-`view`-folder in the root of your site. You can always add more templates, if you want to.
+`theme`-folder in the root of your site. You can always add more templates, if you want to.
 By default, the `index.twig` template is the homepage, but you can override it using the
 configuration settings.
 
@@ -64,7 +65,7 @@ if you prefer. </p>
 By default, Bolt creates links to single pages based on the contenttypes, and it uses a
 template based on its name. For instance, if your site has a contenttype `foos`, a single
 record in that contenttype will be available under <a>domain.com/foo/slug-of-record</a>,
-where `slug-of-record` is the sluggified version of the title. Bolt will try to use
+where `slug-of-record` is the slugified version of the title. Bolt will try to use
 `foo.twig` as the template to render the page. You can change this by either defining
 another template in `contenttypes.yml`, or using a 'template select' field in the
 contenttype. More information about this can be found in the chapter [Working with Content
@@ -85,7 +86,7 @@ on the official Twig site.
 
 <article>
 
-    <h1><a href="{{ content|link }}">{{ content.title }}</a></h1>
+    <h1><a href="{{ content.link }}">{{ content.title }}</a></h1>
 
     {# Only display the image, if there's an actual image to display #}
     {% if content.image!="" %}
@@ -117,15 +118,15 @@ What happens in this example is the following:
     'news' that has 'the-website-is-live' as a slug. 'content' is an array, so to output
     the 'title' field, we use the '.'-notation.
 
-  - `{{ content|link }}`, line 5: Here we use the 'link'-filter to get the link for the
-    content array.
+  - `{{ content.link }}`, line 5: Here we use the link property to get the URL that links
+    to the content.
 
   - `{# Only display .. #}`, line 7: This is a simple comment. It will be removed when the
     template is rendered to the browser, so it will not show up in 'view source'.
 
   - `{% if content.image!="" %} .. {% endif %}`, lines 8 - 12: The if-statement only
     parses the part between the start and end tag, if the given condition is true. So, in
-    this case, the image is only rendered to the browser, if content.image does not equal
+    this case, the image is only rendered to the browser, if `content.image` does not equal
     "", i.e. if it is not empty.
 
   - `{{ content.image|thumbnail(320, 240) }}`, line 10: By using the `thumbnail` filter,
@@ -165,14 +166,14 @@ We'll give some quick examples here, but for in-depth coverage you should read t
 manual.
 
   - `{{ foo }}` outputs the variable `foo`. Nothing more, nothing less.
-  - `{{ bar(foo) }}` outputs the results of the function 'bar()'. In this case, 'foo' is
+  - `{{ bar(foo) }}` outputs the results of the function `bar()`. In this case, 'foo' is
     used as an argument in the function, so the output is most likely dependent on the
-    contents of 'foo'.
-  - `{{ foo|bar }}` Outputs the variable 'foo', but with 'bar' as a filter. If 'foo' is
+    contents of `foo`.
+  - `{{ foo|bar }}` Outputs the variable `foo`, but with `bar` as a filter. If `foo` is
     "hello", `{{ foo|upper }}` would output "HELLO".
-  - `{% if foo == "bar" %}` is a statement that tests if the variable 'foo' is equal to
+  - `{% if foo == "bar" %}` is a statement that tests if the variable `foo` is equal to
     the value "bar". If so, the part that's between the opening statement and the
-    corresponding `{% endif %}` will be rendered to the browser.
+    corresponding `{% endif %}` will be rendered.
 
 
 <h3>Strict variables</h3>
@@ -191,13 +192,13 @@ conditional outputting, because it will allow you to do the following, regardles
 It will also make sure the following will not give an error in your templates:
 
 ```
-Non existing variable {{ foobar }}, with
-non existing element {{ foobar.pompidom }}.
+Non existing variable {{ foo }}, with
+non existing element {{ foo.bar }}.
 ```
 
 While this facilitates writing generic templates, it also makes debugging harder, because
-no error will be shown if you make a typo in a variablename, or try to access a non-
-existing element. To enable strict variables, set the following in your `config.yml`:
+no error will be shown if you make a typo in a variable name, or try to access a
+non-existing element. To enable strict variables, set the following in your `config.yml`:
 
 ```
 strict_variables: true
@@ -208,7 +209,7 @@ error will be output, if you try to use a non-existing variable:
 
 ```
 {% if content.image is defined and content.image != "" %}
-	(do something with the image..)
+	{# do something with content.image... #}
 {% endif %}
 ```
 
