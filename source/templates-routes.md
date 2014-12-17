@@ -208,7 +208,7 @@ Explanation of each argument:
 ##### Path
 
 You are free to specify your own parameters, however when you are adding routes for
-contenttypes' or recordslugs you are limited to which parameters you can add. At least
+contenttypes or recordslugs you are limited to which parameters you can add. At least
 when you don't want to code your own Content-object. The following fields from a
 contenttype can be used as a parameter:
 
