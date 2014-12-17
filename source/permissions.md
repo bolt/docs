@@ -112,8 +112,8 @@ granted.
 
 Note especially that an *empty* set of roles in the contenttype section means something
 else than the *absence* of the permission. If the permission is defined with an empty role
-list, it overrides the role list in contenttype-default; but if the permission is not
-mentioned, the corresponding entry in contenttype-default applies.
+list, it overrides the role list in `contenttype-default`; but if the permission is not
+mentioned, the corresponding entry in `contenttype-default` applies.
 
 Configuring Roles
 -----------------
