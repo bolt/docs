@@ -1,7 +1,7 @@
 Relationships
 =============
 
-You can use relationships between records by adding a relation to `contenttype.yml`.
+You can define relationships between records by adding a relation to `contenttype.yml`.
 
 ```apache
 entries:
@@ -17,26 +17,25 @@ entries:
     [..]
 ```
 
-The `relations:` is defined by the slug of the contenttype that it's related to.
+The `relations` are defined by the slug of the contenttype that it's related to.
 In the example above `pages`. It takes a few parameters:
 
- - `multiple` - true or false, to indicate whether the user can pick one related record,
+ - `multiple` - `true` or `false`, to indicate whether the user can pick one related record,
    or more than one.
  - `label` - The label to show on the edit screen.
- - `order` - The orde in which the items are listed on the edit screen. This can be any
+ - `order` - The order in which the items are listed on the edit screen. This can be any
    field in the contenttype. Prefix with `-` to reverse the sorting. In the case of the
-   example `-id` means that the records that were created last are at the top.
+   example, `-id` means that the records that were created last are at the top.
 
 Editing a record that has relations defined looks like this:
 
 <a href="/files/relations1.png" class="popup"><img src="/files/relations1.png" width="350"></a>
 
-If you define a relation only one way, for example from 'entries' to 'pages'), but not the
+If you define a relation only one way, for example from `entries` to `pages`, but not the
 other way around, you will still see the references when editing the record that has a
 relation to another record. It looks like this:
 
 <a href="/files/relations2.png" class="popup"><img src="/files/relations2.png" width="350"></a>
-
 
 If you see this, you might consider adding the reverse relation to the `contenttype.yml` as
 well.
@@ -95,7 +94,7 @@ To request only one specific related record, pass the id as the second parameter
 ```
     {% set relatedrecords = record.related('pages', 45) %}
 ```
-To use pagination in a list of related records, use the ids of the related records in a setcontent tag:
+To use pagination in a list of related records, use the ids of the related records in a `setcontent` tag:
 
 ```
     {% set ids = record.relation.news|join(" || ") %}

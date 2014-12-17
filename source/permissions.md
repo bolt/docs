@@ -46,7 +46,7 @@ Some notable things to watch out for:
 
 * In a permission list, each item is a permission name mapped to a list of roles that
   grant this permission.
-* In the content-type specific permissions, there is a subtle difference between an entry
+* In the contenttype specific permissions, there is a subtle difference between an entry
   specifying a permission with an empty list, and the absence of an entry. More on this
   later.
 * The permissions for a given user are *not* stored in `permissions.yml`, but in Bolt's
@@ -56,7 +56,7 @@ Types of Permissions
 --------------------
 Permissions fall into two categories: *global permissions* and *per-contenttype permissions*.
 
-**Global permissions** govern actions that are not specific to any content type, such as
+**Global permissions** govern actions that are not specific to any contenttype, such as
 editing configuration files, modifying users, logging in and out, performing database
 maintenance, etc. These permissions can be found in the `global:` section of the
 `permissions.yml` file; most of them map directly to a URL route in the Bolt back-end,
@@ -64,12 +64,12 @@ e.g. the `global:translation` permission maps to `http://your-domain.org/bolt/tr
 The default configuration file describes those permissions in more detail that do not 
 follow this mapping.
 
-**Per-Contenttype permissions** govern actions specific to a content type. They are
+**Per-Contenttype permissions** govern actions specific to a contenttype. They are
 defined in three "layers": the `contenttype-all`, `contenttype-default`, and
 `contenttypes` sections. The way these work is a bit tricky to wrap one's head around, but
 it allows for maximum flexibility without too much clutter.
 
-For each content type, the following permissions are available:
+For each contenttype, the following permissions are available:
 
 * `create` - required to create new records
 * `edit` - required to modify existing records
@@ -79,16 +79,16 @@ For each content type, the following permissions are available:
 * `publish` and `depublish` - required to change the publication state of a record
 * `change-ownership` - required to transfer ownership of a record to another user
 
-How Content Type Specific Permissions Are Calculated
+How Contenttype Specific Permissions Are Calculated
 ----------------------------------------------------
-For content type related actions, permissions can be set individually for each content
-type. For this, we define three groups of permission sets.
+For contenttype related actions, permissions can be set individually for each contenttype.
+For this, we define three groups of permission sets.
 
  - The `contenttype-all` permission sets *overrides*; any roles specified here will grant
-   a permission for all content types, regardless of the rest of this section.
- - The `contenttype-default` contains rules that are used when the desired content type
+   a permission for all contenttypes, regardless of the rest of this section.
+ - The `contenttype-default` contains rules that are used when the desired contenttype
    does not define a rule for this permission itself.
- - The `contenttypes` section specifies permissions for individual content types.
+ - The `contenttypes` section specifies permissions for individual contenttypes.
 
 To understand how this works, it may be best to follow the permission checker through its
 decision-making process.
@@ -112,8 +112,8 @@ granted.
 
 Note especially that an *empty* set of roles in the contenttype section means something
 else than the *absence* of the permission. If the permission is defined with an empty role
-list, it overrides the role list in contenttype-default; but if the permission is not
-mentioned, the corresponding entry in contenttype-default applies.
+list, it overrides the role list in `contenttype-default`; but if the permission is not
+mentioned, the corresponding entry in `contenttype-default` applies.
 
 Configuring Roles
 -----------------
@@ -139,7 +139,7 @@ changed (but they *can* be configured to grant permissions). These roles are:
 Content Ownership
 -----------------
 
-Every record of a content type has an *owner*; depending on the configuration, the owner
+Every record of a contenttype has an *owner*; depending on the configuration, the owner
 may have more permissions on a record than other users; this is governed by the magic
 `owner` role, which is assigned automatically by Bolt within the context of a content
 item.
@@ -198,7 +198,7 @@ false := 'false' # -> case insensitive, never grant
 permission := word [ ( ':', word) ... ] # -> a tuple of permission specifier parts, as outlined above.
 ```
 
-Additionally, you can pass a content type slug and a content ID as optional arguments; by
+Additionally, you can pass a contenttype slug and a content ID as optional arguments; by
 doing so, the query is run against those instead of at the global "scope".
 
 A few examples:
