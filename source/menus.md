@@ -1,9 +1,9 @@
 Creating menus
 ==============
 
-Bolt has built-in functionality to create menus in your frontend templates. Using this
-functionality, you can define one or more menus in the file `app/config/menu.yml`, which
-can then be inserted in your templates using the `{{ menu() }}` tag.
+Bolt has built-in functionality to create menus in your frontend templates. You can define
+one or more menus in the file `app/config/menu.yml`, which can then be inserted in your
+templates using the `{{ menu() }}` tag.
 
 To change one or more of the menus, edit the file `app/config/menu.yml`. You can add more
 separate menus, if you wish, and each menu can have one level of items below it. See the
@@ -159,7 +159,7 @@ prevent Bolt from outputting empty lists in the HTML. For example:
 ```
 <ul>
 {% for item in menu %}
-    <li class="{{ item.class }}>
+    <li class="{{ item.class }}">
         <a href="{{ item.link }}">{{item.label}}</a>
         {% if item.submenu is defined %}
             <ul>
@@ -179,10 +179,10 @@ The output in HTML might look like this now:
 
 ```
 <ul>
-    <li class=">
+    <li class="">
         <a href="https://bolt.cm">Bolt</a>
     </li>
-    <li class=">
+    <li class="">
         <a href="/pages">All pages</a>
             <ul>
                 <li class="">
@@ -196,7 +196,7 @@ The output in HTML might look like this now:
                 </li>
             </ul>
     </li>
-    <li class=">
+    <li class="">
         <a href="http://silex.sensiolabs.org">Silex</a>
     </li>
 </ul>
@@ -208,18 +208,18 @@ item, or highlight the 'current' page.
 
 Some of the more commonly used 'tricks' are:
 
-  - `index-{{ loop.index }}` - Add the current index of the loop, like 'index-1',
-    'index-2', etc.
-  - `{% if loop.first %}first{% endif %}` - Output 'first', but only for the first item in
+  - `index-{{ loop.index }}` - Add the current index of the loop, like `index-1`,
+    `index-2`, etc.
+  - `{% if loop.first %}first{% endif %}` - Output `first`, but only for the first item in
     the loop.
-  - `{% if loop.last %}last{% endif %}` - Output 'last', but only for the last item in the
+  - `{% if loop.last %}last{% endif %}` - Output `last`, but only for the last item in the
     loop.
-  - `{% if item|current %}active{% endif %}` - Output 'current', but only if we're on the
+  - `{% if item|current %}active{% endif %}` - Output `current`, but only if we're on the
     page that the item links to.
   - `{% if item.title is defined %}title='{{ item.title|escape }}'{% endif %}` - Add a
-    'title' attribute, but only if it's defined in our `.yml`-file, or if the contenttype
+    `title` attribute, but only if it's defined in our `.yml`-file, or if the contenttype
     has a `subtitle` field.
-  - `{% if item.class is defined %}class='{{item.class}}'{% endif %}` - Add a 'class'
+  - `{% if item.class is defined %}class='{{item.class}}'{% endif %}` - Add a `class`
     attribute, but only it the item has a `class` defined in the `.yml`-file.
 
 See the default `/app/theme_defaults/_sub_menu.twig` file for an in-depth example of all
