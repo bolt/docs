@@ -95,7 +95,7 @@ on the official Twig site.
         </div>
     {% endif %}
 
-    {{ content.body|raw }}
+    {{ content.body }}
 
     <p class="meta">
     	Posted by {{ content.user.displayname }} on
@@ -135,11 +135,7 @@ What happens in this example is the following:
     image resizer that will create the image with the exact dimensions, and caches it for
     further use.
 
-  - `{{ content.body|raw }}`, line 14: This renders the 'body' field of the content to the
-    browser. By default, Twig escapes all HTML to the browser. If we didn't add the `raw`
-    filter, all '<' and '>' characters in the body would be output as '&amp;lt;' and
-    '&amp;gt;' respectively. If 'body' is an HTML field in our contenttype, we want it to
-    be output as normal HTML, so we have to add the `raw` filter.
+  - `{{ content.body }}`, line 14: This renders the 'body' field of the content.
 
   - `{{ content.datecreated|date("M d, ’y")}}`, line 18: `datecreated` is one of the
     elements that is always present in all content types, and it contains the date the
