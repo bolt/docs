@@ -15,10 +15,10 @@ Using a `{{ record }}`
 ----------------------
 
 The easiest way to see what the contents of a record (or any other variable, for that
-matter) are, is to use the `print()` function:
+matter) are, is to use the `dump()` function:
 
 ```
-{{ print(record) }}
+{{ dump(record) }}
 ```
 
 <a href="/files/content-example3.png" class="popup"><img src="/files/content-example3.png" width="500"></a>
@@ -75,7 +75,7 @@ clause, see [using where](/content-fetching#using-where) for more details.
 
 The 'Geolocation' field type allows you to easily pick and use geolocations. You can use
 the given address, the latitude, longitude, and the reverse geocoded address. To see the
-values that are stored, use `{{ print(page.geolocation) }}`. To insert a simple map from
+values that are stored, use `{{ dump(page.geolocation) }}`. To insert a simple map from
 google with a marker at the given location, use:
 
 ```
@@ -92,7 +92,7 @@ are universal.
 #### Video
 
 If you're using the 'video' field type, more information about the video is available. To
-see the values that are stored, use `{{ print(page.video) }}`. To insert the
+see the values that are stored, use `{{ dump(page.video) }}`. To insert the
 `<embed>`-code for the video, use:
 
 ```

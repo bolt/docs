@@ -9,7 +9,7 @@ example will get the content record with slug 'about' from the 'pages' contentty
 ```
 {% setcontent about = 'page/about' %}
 
-{{ print(about) }}
+{{ dump(about) }}
 ```
 
 There are a lot of options for the `setcontent` tag. Most are optional, and all can be
@@ -44,7 +44,7 @@ If you need the '5 latest pages' or '3 first reviews', there's also a shortcut f
 ```
 {% setcontent latestpages = 'pages/latest/5' %}
 
-{{ print(latestpages) }}
+{{ dump(latestpages) }}
 ```
 
 and:
@@ -52,7 +52,7 @@ and:
 ```
 {% setcontent firstreviews = 'reviews/first/3' %}
 
-{{ print(firstreviews) }}
+{{ dump(firstreviews) }}
 ```
 
 Using `where`

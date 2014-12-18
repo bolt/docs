@@ -94,7 +94,7 @@ Some examples:
 {% setcontent results = '(pages,entries)/search' where { filter: 'waldo' } %}
 ```
 
-If you're not getting the results you're expecting, use `{{ print(results) }}`
+If you're not getting the results you're expecting, use `{{ dump(results) }}`
 to dump the set of results, or add the `printquery` parameter at the end of the
 `{% setcontent %}`-tag.
 
