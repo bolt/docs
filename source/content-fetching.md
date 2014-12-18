@@ -1,8 +1,8 @@
 Fetching content
 ================
 
-Next to content that is already available on a specific content-type listing-page or
-single-page [(content in templates)](content-in-templates), You can directly fetch content
+Besides content that is already available on a specific contenttype listing-page or
+single-page [(content in templates)](content-in-templates), you can directly fetch content
 from the database. For this you can use the `{% setcontent ... %}` tag. The following
 example will get the content record with slug 'about' from the 'pages' contenttype:
 
@@ -25,11 +25,11 @@ records in 'pages'.
 
 Trimming the amount of results
 ------------------------------
-Normally, you don't need _all_ records, but a subset of the available records.. You can
-limit the number of records by using a 'where' clause (more on that below), but often it's
-easier to use the shortcut Bolt provides.
+Normally, you don't need _all_ records, but a subset of the available records. You can
+limit the number of records by using a `where` clause (more on that below), but often it's
+easier to use the shortcut that Bolt provides.
 
-If you need a single record, and know its id or slug, you can do this:
+If you need a single record, and know its `id` or `slug`, you can do this:
 
 ```
 {# get the page with slug 'about' #}
@@ -58,9 +58,8 @@ and:
 Using `where`
 -------------
 
-If you need a more specific criteria to select the records on, you can use the `where`
-clause. The parameters must be listed as a hash, so you can include more than one, if
-needed.
+If you need more specific criteria to select the records on, you can use the `where`
+clause. The parameters must be listed in a hash.
 
 ```
 {# get all pages with ownerid '2' #}
@@ -89,14 +88,14 @@ select based on 'smaller than' or 'does not equal'
 {% setcontent mybooks = 'books' where { amountsold: '>1000' } %}
 ```
 
-<p class="tip"><strong>Tip:</strong> When using <code>'<=2012-12-01'</code> Bolt only
+<p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code> Bolt only
 selects dates before or equal to <code>'2012-12-01 00:00:00'</code>. If you want to
 include December 1st, use <code>'<2012-12-02'</code>. </p>
 
 ### The `%like%` option
 
 ```
-{# get all pages with a title that contains 'ipsum' #}
+{# get all pages with titles that contain 'ipsum' #}
 {% setcontent mypages = 'pages' where { title: '%ipsum%' } %}
 ```
 
@@ -200,7 +199,7 @@ where statement that will never give good results:
 {% setcontent mypages = 'pages' where { id: '>29 && <=37' } %}
 ```
 
-By using the `|||`-operator (three pipes) you can create an OR-part for
+By using the `|||`-operator (three pipes) you can create an `OR`-part for
 multiple columns. For example:
 
 ```
@@ -212,12 +211,13 @@ multiple columns. For example:
 #}
 ```
 
-Since 'and' is the default, there is no `&&&` equivalent to `|||`.
+Since `AND` is the default, there is no `&&&` equivalent to `|||`.
 
 Getting content for a specific user
 -----------------------------------
 
-As you might've noticed, in the examples above, we've used `ownerid` a couple of times to get content specific to a given user. In Bolt, Content is stored with a reference to the owner of this piece of content, the so called `ownerid`. This means that you cannot do things like this:
+As you might've noticed, in the examples above, we've used `ownerid` a couple of times to get content specific to a given user.
+In Bolt, content is stored with a reference to the owner, the so called `ownerid`. This means that you cannot do things like this:
 
 ```
 {# get all pages created by user 'bob' #}
@@ -262,8 +262,7 @@ the `orderby` clause. You can sort either ascending or descending.
 
 Note that the records are fetched from the database, according to the
 `orderby` parameter. If you use `orderby 'title'`, you will get records
-with titles starting with 'a', and not just some records, that are sorted
-after fetching them from the database.
+with titles starting with 'a'.
 
 
 One record or multiple records?
@@ -277,7 +276,7 @@ What makes the difference?
 
 {% setcontent mypages = 'page/latest/5' %}
 {% for mypage in mypages %}
-  {{ mypage }} {# mypages is an array, that we can loop #}
+  {{ mypage }} {# mypages is an array that we can iterate over #}
 {% endfor %}
 ```
 
@@ -289,7 +288,7 @@ the following is the case:
     When requesting one specific record, only one is returned.
   - `{% setcontent foo = 'page' where { .. } %}`: If 'page' is the singular
     slug of the contenttype 'pages', Bolt assumes you only need one.
-  - `{% setcontent foo = 'pages' .. returnsingle %}`: If the returnsingle'
+  - `{% setcontent foo = 'pages' .. returnsingle %}`: If the `returnsingle`
     parameter is passed, Bolt assumes you only need one result.
 
 If you use `limit 1`, you will get an array with 1 record. Unless, of
