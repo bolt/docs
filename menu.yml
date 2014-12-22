@@ -63,3 +63,4 @@ howto:
   howto/resource-contenttype: "Making a 'resource' Contenttype"
   howto/simple-menu: "Creating a Simple menu"
   howto/upgrade-version-1-to-2: "Upgrading a Bolt 1.x install to 2.x"
+  howto/building-multilingual-websites: "Building Multilingual Websites with Bolt"
