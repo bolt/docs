@@ -45,7 +45,7 @@ data about the image. See the screenshot for details:
 To see the available values for an image, use:
 
 ```
-{{ print(imageinfo(record.image)) }}
+{{ dump(imageinfo(record.image)) }}
 {# assuming 'record.image' is the image of the current record. #}
 ```
 
@@ -538,7 +538,7 @@ Available variables in Twig
 
 
 ```
-{{ print(app.config.general) }}
+{{ dump(app.config.general) }}
 ```
 
 For more info on `app`, see the chapter on [Bolt Internals](/internals).

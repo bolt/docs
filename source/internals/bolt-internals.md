@@ -186,7 +186,7 @@ $app['config']->get('general/homepage_template')
 These variables are also accessible in your templates:
 
 ```
-    {{ print(config.get('general/homepage_template')) }}
+    {{ dump(config.get('general/homepage_template')) }}
 ```
 
 Remember to use `{{ dump() }}` and `\Dumper::dump()` to dump these arrays to

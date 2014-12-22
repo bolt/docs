@@ -47,7 +47,7 @@ Internally, relations are stored and accessible in the `Bolt\Record` object. How
 accessing `record.relation` will give you nothing but the contenttypes and id's:
 
 ```
-    {{ print(record.relation) }}
+    {{ dump(record.relation) }}
 ```
 
 Output:

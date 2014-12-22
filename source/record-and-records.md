@@ -1,10 +1,9 @@
 Record and Records
 ==================
 
-When writing templates for Bolt, you'll be mostly working with object containing a single
-record with content, or arrays containing a number of records. See the page on [Content in
-templates](content-in-templates) for more information on how they become available in the
-templates.
+When writing templates for Bolt, you'll be mostly working with a single record with content,
+or arrays containing a number of records. See the page on [Content in templates](content-in-templates)
+for more information on how they become available in templates.
 
 This page is divided in two parts: working with a single `{{ record }}`, or with an array
 of `{{ records }}`. In the examples below we mostly refer to the generic `record`
@@ -15,10 +14,10 @@ Using a `{{ record }}`
 ----------------------
 
 The easiest way to see what the contents of a record (or any other variable, for that
-matter) are, is to use the `print()` function:
+matter) are, is to use the `dump()` function:
 
 ```
-{{ print(record) }}
+{{ dump(record) }}
 ```
 
 <a href="/files/content-example3.png" class="popup"><img src="/files/content-example3.png" width="500"></a>
@@ -75,8 +74,8 @@ clause, see [using where](/content-fetching#using-where) for more details.
 
 The 'Geolocation' field type allows you to easily pick and use geolocations. You can use
 the given address, the latitude, longitude, and the reverse geocoded address. To see the
-values that are stored, use `{{ print(page.geolocation) }}`. To insert a simple map from
-google with a marker at the given location, use:
+values that are stored, use `{{ dump(page.geolocation) }}`. To insert a simple map from
+Google with a marker at the given location, use:
 
 ```
 <div>
@@ -86,13 +85,13 @@ google with a marker at the given location, use:
 
 More info about these static maps, can be found at [Static Maps API V2 Developer
 Guide](https://developers.google.com/maps/documentation/staticmaps). Of course, you can
-use the geolocations with any mapping service you like, since the latitude and longitude
-are universal.
+use the geolocations with any mapping service you like, since latitude and longitude
+is a common geographic coordinate system used by many services.
 
 #### Video
 
 If you're using the 'video' field type, more information about the video is available. To
-see the values that are stored, use `{{ print(page.video) }}`. To insert the
+see the values that are stored, use `{{ dump(page.video) }}`. To insert the
 `<embed>`-code for the video, use:
 
 ```
@@ -145,8 +144,8 @@ links to the full sized versions.
 ```
 
 The next example outputs a wrapping div and an unordered list, but only if the list
-actually contains elements. The first and last item in the list also get a custom 'first'
-and 'last' class added to them.
+actually contains elements. The first and last item in the list also get a custom `first`
+and `last` class added to them.
 
 ```
   {% if page.slider|length > 0 %}
@@ -165,8 +164,8 @@ and 'last' class added to them.
 
 ### Getting the type of a certain field
 
-If you're iterating over an array of record.values, it's sometimes useful to know what
-type of field you're dealing with. This is where the `fieldkey()` function comes in handy:
+If you're iterating over an array of `record.values`, it's sometimes useful to know what
+type of field you're dealing with. This is where the `fieldtype()` function comes in handy:
 
 ```
 {% for key,value in record.values %}
@@ -186,25 +185,25 @@ type of field you're dealing with. This is where the `fieldkey()` function comes
 
 
 <p class="note"><strong>Note:</strong> To create connections between different records of
-the same or different contenttypes, see the page on [Relations and Taxonomies](/taxonomies).</p>
+the same or different contenttypes, see the page on <a href="/relationships">Relations</a>.</p>
 
 
 Using `{{ records }}`
 -------------------
 
-The `{{ records }}` array is basically a set of several content records. When you have a `{{
-records }}`array, you can iterate over each of the records to output them as desired. In
+The `{{ records }}` array is basically a set of several content records. When you have a
+`{{ records }}` array, you can iterate over each of the records to output them as desired. In
 the following example you can see how to get an array of records. You'll notice that in
 this case it's not actually called `records`, but `pages`. Since it's just a variable
 name, we can call it whatever we like. After getting the `{{ pages }}` array, we use a
-simple `for` loop, so we can iterate over each of the separate `{{ page}}` records.
+simple `for` loop, so we can iterate over each of the separate `{{ page }}` records.
 
 ```
 {% setcontent pages = 'pages/latest/4' %}
 
 {% for page in pages %}
 
-	// Do something with each {{ page }}
+	{# Do something with each {{ page }} #}
 	{{ page.title }}
 
 {% endfor %}
@@ -230,7 +229,7 @@ There are exactly {{ pages|length }} records.
 ```
 {% for page in pages|reverse %}
 
-	// Do something with each {{ page }}
+	{# Do something with each {{ page }} #}
 	{{ page.title }}
 
 {% endfor %}
@@ -243,7 +242,7 @@ Or [slice](http://twig.sensiolabs.org/doc/filters/slice.html) the array:
 
 {% for page in slice %}
 
-	// Do something with {{ page }} 1 through 3
+	{# Do something with {{ page }} 1 through 3 #}
 	{{ page.title }}
 
 {% endfor %}
