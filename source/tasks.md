@@ -24,10 +24,9 @@ The format should look something like:
 Where you change '/var/www/my_site' to be the correct path to your Bolt 
 installation.
 
-Then in config.yml you need to set the 'cron_hour' parameter.  The paramter 
-takes an integer between 0 and 23, representitive of the hour of the day you 
-with daily, weekly, monthly and yearly tasks to execute which by default is set 
-to 03:00 am.
+Then in config.yml you need to set the 'cron_hour' parameter.  The paramter takes an
+integer between 0 and 23, representitive of the hour of the day you want the daily, weekly,
+monthly and yearly tasks to execute at. By default is set to 03:00 am.
 
 <pre class="brush: plain">
 cron_hour: 3
