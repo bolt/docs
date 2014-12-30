@@ -3,7 +3,7 @@ Building Multilingual Websites with Bolt
 
 Bolt does not support multilingual websites at the moment. There are often
 multiple ways to handle multilingual websites. This page describes one simple
-method to facilitate one. 
+method to facilitate one.
 
 In short, with this method you'll duplicate every contenttype per language (or
 region). So this will only work for sites with a few languages or without too
@@ -31,6 +31,8 @@ Table of Contents
    * [International Dates and Times](#international-dates-and-times)
  * [Implementing Multilingual Forms](#implementing-multilingual-forms)
  * [Limitations and Recommendations](#limitations-and-recommendations)
+   * [Twig vs Extension](#twig-vs-extension)
+   * [Boilerplate Master Template](#boilerplate-master-template)
    * [Multilingual Taxonomy Listings](#multilingual-taxonomy-listings)
    * [Directly Link Individual Pages between Languages](#directly-link-individual-pages-between-languages)
    * [Pagination on Search Results Pages](#pagination-search-results-pages)
@@ -310,7 +312,7 @@ as an argument. Optionally, you can prefix this with a namespace. The syntax is
 extension does <strong>not</strong> allow the usage of colons (<code>:</code>)
 in translatable strings as this will define a namespace.</p>
 
-<p class="note"><strong>Note:</strong> The <code>__()`</code> function is used
+<p class="note"><strong>Note:</strong> The <code>__()</code> function is used
 internally by Bolt.</p>
 
 <!--
@@ -325,9 +327,73 @@ internally by Bolt.</p>
 
 ### International Dates and Times
 
+Usually, you want the dates and times in the same language. Currently, the
+default `locale` setting is set in `config.yml`. It depends on your server what
+locales are available. Use the following command:
+
 ```
+locale -a
+```
+
+This will output a list of available locales. You'll probably see something like:
+
+```
+C
+C.UTF-8
+en_GB.utf8
+en_US.utf8
+nl_NL.utf8
+```
+
+In order to set the locale in a Twig template, you'll first need a mapping of
+languages to locales.
+
+<!--
+| language | locale  |
+| ---------| ------- |
+| `en`     | `en_GB` |
+| `nl`     | `nl_NL` |
+| `de`     | `de_DE` |
+-->
+
+```twig
+{% set locales =
+  { 'en' : 'en_GB'
+  , 'nl' : 'nl_NL'
+  , 'de' : 'de_DE'
+  }
+%}
+```
+
+Set the correct locale and call the function `initLocale` to apply a new locale.
+
+```
+{{ app.config.set('general/locale', locales[language]) }}
+{{ app.initLocale() }}
+```
+
+When outputting dates, use the [localdate filter](/templatetags#localdate). Note
+that this is only useful if the date structure is identical for every language,
+which is not always the case. You'll want to use a simple `if` statement for
+each exception.
+
+```twig
+{% if language == 'zh' %}
+  {# -- Output a Chinese date -- #}
+  {% set year  = record.datepublish|localdate("%Y") %}
+  {% set month = record.datepublish|localdate("%m") %}
+  {% set day   = record.datepublish|localdate("%d") %}
+  {{year}}年{{month}}月{{day}}日
+{% else %}
+  {{ record.datepublish|localdate("%F") }}
+{% endif %}
+```
+
+<!--
 [todo]
-```
+- it's probably possible to write a custom macro which takes a date and
+  transforms this in a 'nice' date.
+-->
 
 
 
@@ -351,6 +417,28 @@ Limitations and Recommendations
 This tutorial shows one of many ways to make a multilingual website. Since, this
 functionality is not provided out-of-the-box, there are some limitations with
 the aforementioned approach.
+
+
+
+### Twig vs Extension
+
+This page provides many solutions by settings variables in Twig. This is not
+necessary the _best_ way to do things, but it's workable in most situations.
+Many of these tricks can be ported into an extension to keep your templates
+clean(er). Think of setting the locale and exposing default variables via
+functions in a custom extension.
+
+<p class="tip"><strong>Tip:</strong> Use
+<a href="http://twig.sensiolabs.org/doc/tags/macro.html">Twig macros</a> to make
+reusable functions in Twig.</p>
+
+
+
+### Boilerplate Master Template
+
+Check out the [boilerplate template](/howto/boilerplate-for-multilingual-websites)
+that applies most of the abovementioned tricks to kickstart your theme for your
+multilingual site.
 
 
 
