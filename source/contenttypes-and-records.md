@@ -262,6 +262,8 @@ The available options are:
     records in this contenttype, i.e. `published`, `held`, `draft` or `timed`.
   - `searchable` (optional): A boolean value to determine whether this
     contenttype should show up in search results.
+  - `viewless` (optional): When set to `true`, routes will not be set for the Contenttype 
+    listing, or the records themselves. Useful for creating [resource contenttypes](/howto/resource-contenttype).
   - `icon_many` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
     icon to be used in the sidebar for this contenttype. For example: `fa:cubes`
   - `icon_one` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
