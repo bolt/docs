@@ -18,15 +18,15 @@ execute Bolt's command line interface 'nut', located in Bolt's app/ directory.
 The format should look something like:
 
 ```
-\# min hour day month weekday command
+# min hour day month weekday command
 0   */1    *    *    *       /var/www/my_site/app/nut cron
 ```
 
 Where you change `/var/www/my_site` to be the correct path to your Bolt installation.
 
 Then in config.yml you need to set the 'cron_hour' parameter.  The paramter takes an
-integer between 0 and 23, representitive of the hour of the day you with daily, weekly,
-monthly and yearly tasks to execute which by default is set to 03:00 am.
+integer between 0 and 23, representitive of the hour of the day you want the daily, weekly,
+monthly and yearly tasks to execute at. By default is set to 03:00 am.
 
 ```
 cron_hour: 3
@@ -42,7 +42,7 @@ e.g. To run the hourly tasks:
 ./app/nut cron --run=cron.Hourly
 ```
 
-The parameter passed to `--run` can be any of:
+The parameter passed to `--run` can be any of the following:
 
   - cron.Hourly
   - cron.Daily
@@ -68,7 +68,7 @@ class Extension extends \Bolt\BaseExtension
 }
 ```
 
-CRON_INTERVAL should be replaced with one of the following:
+`CRON_INTERVAL` should be replaced with one of the following:
 
   - CRON_HOURLY
   - CRON_DAILY
@@ -76,4 +76,5 @@ CRON_INTERVAL should be replaced with one of the following:
   - CRON_MONTHLY
   - CRON_YEARLY
 
+This will invoke your extension class method `myJobCallbackMethod` at the defined interval and time.
 
