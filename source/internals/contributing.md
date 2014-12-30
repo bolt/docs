@@ -54,7 +54,7 @@ by-step guide: This example assumes that you have a Github account and uses the 
 code repository**. The commands also hold for the other repositories. The only thing which
 should be changed is the repository url. The steps cover this
 [help/manual](https://help.github.com/articles/fork-a-repo) of Github. Lines starting with
-# are comments, lines with $ are commands which you need to execute in your terminal.
+`#` are comments, lines with `$` are commands which you need to execute in your terminal.
 
 - Step 1: Go to https://github.com/bolt/bolt and click the fork button You now have your
   own bolt repository, named `<your github username>/bolt`. In my case this is
