@@ -297,6 +297,10 @@ The following fieldtypes are available:
         type: slug
         uses: [field1,field2]
 ```
+  - `templateselect`: Allows setting a template to use when rendering a specific record. 
+    Will allow the record creator to specify any template in the root folder of the current 
+    theme with a file name that does not begin with an underscore. If a specific template is 
+    not chosen in the record editor, the record will be rendered with the default template for that contenttype.
   - `image`: Simple image upload/select field. Currently takes one optional
     attribute (attrib:) parameter 'title' — this will allow you to specify text
     that you can call in your templates to retreive either/or captions or alt
