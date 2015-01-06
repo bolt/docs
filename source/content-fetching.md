@@ -78,6 +78,9 @@ select based on 'smaller than' or 'does not equal'
 {# get all pages not created by user '1' #}
 {% setcontent mypages = 'pages' where { ownerid: '!1' } %}
 
+{# get all products where price is not empty #}
+{% setcontent myproducts = 'products' where { price: '!' } %}
+
 {# get all events with eventdate before '2012-10-15' #}
 {% setcontent myevents = 'events' where { eventdate: '<2012-10-15' } %}
 
