@@ -57,7 +57,7 @@ Bolt's task scheduler can be interfaced in extensions by setting an listener. To
 listener you need to something similar in your extension:
 
 ```
-use Bolt\CronEvents;
+use Bolt\Events\CronEvents;
 
 class Extension extends \Bolt\BaseExtension
 {
