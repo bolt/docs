@@ -241,7 +241,6 @@ Options -Indexes
 
   # Some servers require the RewriteBase to be set. If so, set to the correct directory.
   # RewriteBase /
-  RewriteRule ^thumbs/(.*)$ ./app/classes/timthumb.php [L]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
