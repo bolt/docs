@@ -288,7 +288,7 @@ Internationalization of Templates
 ---------------------------------
 If your templates has some strings that do not directly depend on content, you
 will want to translate these as well. The
-<a href="#http://extensions.bolt.cm/view/FIXME">Labels</a> extension is made for
+<a href="https://github.com/bolt/labels">Labels</a> extension is made for
 this purpose.
 
 In your `master.twig` template, set the current language for Labels:
@@ -317,8 +317,6 @@ internally by Bolt.</p>
 
 <!--
 [todo]
-- Port the labels extension to Bolt 2.
-- Publish the Labels extension on the Marketplace
 - Add a Labels example.
 - How to translate strings in backend using csv.
 - How to translate strings via the database.
