@@ -104,15 +104,16 @@
 
                     <a href="#sidebar" class="button hide-for-large-up">Jump to navigation</a>
 
-                    {# temporary for the transition phase between 1.6 and 2.0 #}
+                    {# temporary for the transition phase between 1.6 and 2.0 
                     <p class="note">
                         <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt 2.0</strong>.
                         Looking for the <a href="https://docs.bolt.cm/v16">documentation for Bolt version 1.6</a> instead?
-                    </p>
+                    </p>#}
 
                     {{ source|raw }}    
 
                     {% include '_sub_submenu.twig' with {'section': requested_page } %}
+
 
                 </div>
 
@@ -122,6 +123,8 @@
                         <input type="text" id="searchbox" style="width: 100%;">
                     </p>
                     {% include '_sub_contents.twig' %}
+
+                    <p style="font-size: 85%; margin-top: 2em;"><em>Current version: <strong>Bolt {{ version }}</strong></em>.</p>
 
                 </div>
 
@@ -168,7 +171,7 @@
             </nav>
 
             <div class="credits">
-                <p>This site is built with Bolt</p>
+                {# <p>This site is built with Bolt</p> #}
             </div>
             <div class="socials">
                 <a class="tw" href="http://twitter.com/boltcm"><i class="fa fa-lg fa-twitter"></i>Bolt on Twitter</a>
