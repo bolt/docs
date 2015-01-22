@@ -653,7 +653,7 @@ a few other fixed fields. The fixed fields are:
   - `datecreated`: The timestamp of when the record was first created.
   - `datechanged`: The timestamp of when the record was last edited of modified.
   - `datepublish`: The timestamp when the record was published, or when it _will_ be published.
-  - `datepublish`: The timestamp when the record was depublished, or when it _will_ be depublished.
+  - `datedepublish`: The timestamp when the record was depublished, or when it _will_ be depublished.
   - `ownerid`: The id of the user that last edited (or created) this record.
   - `status`: The current status of this record. Can be either `published`,
     `depublished`, `held`, `timed` or `draft`.
