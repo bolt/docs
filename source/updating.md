@@ -41,10 +41,10 @@ Download the [latest version of Bolt](http://bolt.cm/distribution/bolt-latest.zi
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
 your choice.
 
-<p class="note"><strong>Note:</strong> Most FTP clients will <em>merge</em> the folders
-you're uploading, but some clients <em>replace</em> folders instead. If you're not sure
-what your client does, be sure to test this, before you accidentally wipe a folder and its
-contents.</p>
+<p class="note"><strong>Note:</strong> You want to <em>merge</em> folders and 
+not replace them. Most FTP clients will <em>merge</em> the folders you're 
+uploading, but some <em>replace</em> folders instead. Not sure what your client
+does? Test this, before you accidentally wipe a folder and its contents.</p>
 
 Option 3: The developer way, using git and composer
 ---------------------------------------------------
