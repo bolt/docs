@@ -23,8 +23,8 @@ if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request 
 	header("location: ./introduction");
 }
 
-// \Dumper::dump($request);
-// \Dumper::dump($prefix);
+// dump($request);
+// dump($prefix);
 
 if (!file_exists("./source/".$request.".md")) {
     echo "No proper name for a page in the docs. Bye!";
@@ -91,7 +91,7 @@ $twig = new Twig_Environment($loader, array(
 // Add Dumper function to twig. 
 $dumper = new Twig_SimpleFunction(
     'dump', 
-    function ($var) { return \Dumper::dump($var, DUMPER_CAPTURE); }, 
+    function ($var) { return dump($var); }, 
     array('is_safe' => array('html')
 ));
 $twig->addFunction($dumper);
