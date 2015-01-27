@@ -117,9 +117,36 @@ should be changed is the repository url. The steps cover this
   create a pull request. In the pull request screen, you can do three things: you can view
   your commits, the changed files and fill in a title and description. First double-check
   if the changed files are the ones you've changed and want to contribute. (You can check
-  the commits as well if you like to). Then fill in a descriptive title and a description.
+  the commits as well if you like to). Then fill in a descriptive title and a description
+  (see "Pull Request Details" section below).
 
 - Step 8: When your pull request has been accepted and merged, you can delete the branch
   'issue-123-create-login-form' as the files are now part of the 'upstream' repository of
   bolt. This means that you and the rest of the world automatically get those files when
   updating from upstream (`git fetch upstream` and merging it).
+
+Pull Request Details (PR)
+-------------------------
+
+Details of your changes should be susinctly documented in the pull request. For new features
+it should include a short use case and justification.
+
+Along with notating any issues the PR fixes, it should include mentions of any other PRs it
+depends on, and any relevant changelog updates.
+
+As an example:
+
+```
+These changes stop kittens from crying due to poorly formatted CatNip requests.
+
+Fixes #1024
+Fixes #2048
+Depends on #3072
+
+Changelog
+---------
+
+* Feature: My change does something cool (see #1024)
+* Fixed: Something that was broken (see #2048)
+* Updated: FooBar library to v1.3.6
+```
