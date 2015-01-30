@@ -70,7 +70,28 @@ After you've done this, skip to the section [Setting up Bolt](#setting-bolt).
 
 ### Option 3: The developer way, using Git and Composer.
 
-If you want to install Bolt using Git and Composer, execute the following commands:
+If you want to install Bolt using Git and Composer, you need to decide if you want to 
+use a stable branch, or the bleeding-edge master branch.
+
+##### Stable Branch
+For a execute the following commands:
+
+```bash
+git clone git://github.com/bolt/bolt.git bolt
+cd bolt
+git checkout v2.0.6
+curl -s http://getcomposer.org/installer | php
+php composer.phar install
+```
+
+**Note:** The above example assumes that you want to use the `2.0.6` tag. Available 
+branches can displayed by executing the following command:
+
+```bash
+git tag
+```
+
+##### Master (unstable) Branch
 
 ```bash
 git clone git://github.com/bolt/bolt.git bolt
@@ -78,6 +99,8 @@ cd bolt
 curl -s http://getcomposer.org/installer | php
 php composer.phar install
 ```
+
+##### Final Step (optional)
 
 This will get the Bolt files and all required components. Most likely all files
 and directories will have the correct file permissions, but if they don't, (re)set them
