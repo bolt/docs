@@ -2,17 +2,18 @@ Getting the most out of the 'Select' fieldtype
 ==============================================
 
 In your contenttypes you can define fields that allow the editor to pick an option from a
-select field. It can either be a 'single' or 'multiple' selection, dependant on whether
+select field. It can either be a 'single' or 'multiple' selection, dependent on whether
 you need the editor to have the option to pick more than one item from the list.
 
-There are toughly two ways in which you can use the `type: select` fields: To select
+There are roughly two ways in which you can use the `type: select` fields: To select
 options from a predefined list, or to select options from a list that is populated with
 values from another contenttype.
 
 Selecting from a fixed list
 ---------------------------
 
-The most straghtfoward use of this fieldtype is to create simple lists to choose from, like this:
+The most straightforward use of this fieldtype is to create simple lists to choose from,
+like this:
 
 ```apache
         myselectfield:
@@ -30,7 +31,8 @@ single item. In your templates, this is accessible as a plain string:
 "Michelangelo"
 ```
 
-If you would rather have the option to select more than one item, add `multiple: true` to the configuration:
+If you would rather have the option to select more than one item, add `multiple: true` to
+the configuration:
 
 ```apache
         myselectfield:
@@ -56,7 +58,8 @@ array:2 [▼
 ]
 ```
 
-If you do this, you will probably have to take this into account in your templates. For example, to check a value, or to show them, use appropriate tags:
+If you do this, you will probably have to take this into account in your templates. For
+example, to check a value or to show them, you should use appropriate Twig tags:
 
 ```twig
 {% if 'Donatello' in record.myselectfield %}
@@ -71,9 +74,9 @@ If you do this, you will probably have to take this into account in your templat
 ```
 
 The list with options can be defined as either a 'map' or a 'hash'. If you use a list
-(like above), the same values will be sotred in the database as are shown in the pull-down
-selector the editor sees. If you want to store another value than is shown, you can use a
-so-called 'hash'. For example:
+(like above), the same values will be stored in the database as they are shown in the
+pull-down selector that the editor sees. If you want to store another value than is shown,
+you can use a so-called 'hash'. For example:
 
 ```apache
         myselectfield:
@@ -126,7 +129,6 @@ the safest option, because it will prevent breakage, when other information is c
 the record that is being linked to. To retrieve these in your templates, you can use the
 following:
 
-
 ```twig
 {{ dump(record.myselectfield)}}
 
@@ -146,7 +148,9 @@ value of the field you specify. For example:
             keys: slug
 ```
 
-To show more than one field in the pull-down for the editor, use them separated by a comma. The following example will display the 'first name' and 'last name' of each 'person' in the pull-down, while the 'slug' will be stored in the database.
+To show more than one field in the pull-down for the editor, use them separated by a
+comma. The following example will display the 'first name' and 'last name' of each
+'person' in the pull-down, while the 'slug' will be stored in the database.
 
 ```apache
         myselectfield:

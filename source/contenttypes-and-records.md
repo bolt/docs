@@ -262,7 +262,7 @@ The available options are:
     records in this contenttype, i.e. `published`, `held`, `draft` or `timed`.
   - `searchable` (optional): A boolean value to determine whether this
     contenttype should show up in search results.
-  - `viewless` (optional): When set to `true`, routes will not be set for the Contenttype 
+  - `viewless` (optional): When set to `true`, routes will not be set for the Contenttype
     listing, or the records themselves. Useful for creating [resource contenttypes](/howto/resource-contenttype).
   - `icon_many` (optional): A [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
     icon to be used in the sidebar for this contenttype. For example: `fa:cubes`
@@ -297,9 +297,9 @@ The following fieldtypes are available:
         type: slug
         uses: [field1,field2]
 ```
-  - `templateselect`: Allows setting a template to use when rendering a specific record. 
-    Will allow the record creator to specify any template in the root folder of the current 
-    theme with a file name that does not begin with an underscore. If a specific template is 
+  - `templateselect`: Allows setting a template to use when rendering a specific record.
+    Will allow the record creator to specify any template in the root folder of the current
+    theme with a file name that does not begin with an underscore. If a specific template is
     not chosen in the record editor, the record will be rendered with the default template for that contenttype.
   - `image`: Simple image upload/select field. Currently takes one optional
     attribute (attrib:) parameter 'title' — this will allow you to specify text
@@ -357,6 +357,8 @@ The following fieldtypes are available:
         type:select
         values: pages/id,title
 ```
+
+    **Note:** Much more information and details about `select` fields can be found on this page: [Getting the most out of the ‘Select’ fieldtype](howto/select-field-type).
 
   - `checkbox`: A field to store "True or false" type values. Internally stored as either `1` for `true` if the checkbox was checked, and `0` for `false` if it wasn't checked.
   - `video`: A set of fields for embedding videos from websites like Youtube and
