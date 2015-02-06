@@ -1,0 +1,160 @@
+Getting the most out of the 'Select' fieldtype
+==============================================
+
+In your contenttypes you can define fields that allow the editor to pick an option from a
+select field. It can either be a 'single' or 'multiple' selection, dependant on whether
+you need the editor to have the option to pick more than one item from the list.
+
+There are toughly two ways in which you can use the `type: select` fields: To select
+options from a predefined list, or to select options from a list that is populated with
+values from another contenttype.
+
+Selecting from a fixed list
+---------------------------
+
+The most straghtfoward use of this fieldtype is to create simple lists to choose from, like this:
+
+```apache
+        myselectfield:
+            type: select
+            values: [ A-tuin, Donatello, Rafael, Leonardo, Michelangelo, Koopa, Squirtle ]
+            multiple: false
+```
+
+This will provide the editor a simple pull-down select menu, where he or she can select a
+single item. In your templates, this is accessible as a plain string:
+
+```html
+{{ dump(record.myselectfield) }} =>
+
+"Michelangelo"
+```
+
+If you would rather have the option to select more than one item, add `multiple: true` to the configuration:
+
+```apache
+        myselectfield:
+            type: select
+            values: [ A-tuin, Donatello, Rafael, Leonardo, Michelangelo, Koopa, Squirtle ]
+            multiple: true
+            postfix: "Select your favourite turtle(s)."
+```
+
+
+Note that when you switch to `multiple`, the way that the values are stored in the
+database also changes. When only one item can be selected, the value is stored as a plain
+'string'. When the editor is allowed to pick multiple items, it's stored as JSON in the
+database, and in your templates it will be available as an array. Compare this to the dump
+example from above:
+
+```html
+{{ dump(record.myselectfield) }} =>
+
+array:2 [▼
+  0 => "Donatello"
+  1 => "Rafael"
+]
+```
+
+If you do this, you will probably have to take this into account in your templates. For example, to check a value, or to show them, use appropriate tags:
+
+```twig
+{% if 'Donatello' in record.myselectfield %}
+    ..
+{% endif %}
+
+{% for values in record.myselectfield %}
+    {{ values }}
+{% endfor %}
+
+{{ record.myselectfield|join(', ') }}
+```
+
+The list with options can be defined as either a 'map' or a 'hash'. If you use a list
+(like above), the same values will be sotred in the database as are shown in the pull-down
+selector the editor sees. If you want to store another value than is shown, you can use a
+so-called 'hash'. For example:
+
+```apache
+        myselectfield:
+            type: select
+            values: { 'yes': "Yes", 'no': "No", 'undecided': "Well, it can go either way" }
+```
+
+In this case, either `yes`, `no` or `undecided` will be stored in the database. Note the
+use of `{ accolades }` instead of `[ brackets ]` to define the list of options.
+
+If you have a lot of options, you can put them on separate lines in your
+`contenttypes.yml`. This makes it much easier to read.
+
+```apache
+        myselectfield:
+            type: select
+            values:
+              - A-tuin
+              - Donatello
+              - Rafael
+              - Leonardo
+              - Michelangelo
+              - Koopa
+              - Squirtle
+
+        myselectfield:
+            type: select
+            values:
+              yes: "Yes"
+              no: "No"
+              undecided: "Well, it can go either way"
+
+```
+
+Populating the list from a contenttype
+--------------------------------------
+
+To select options from another contenttype, instead of from a predefined list, set the
+`values` to the form `contenttype/fieldname`. For example, to select an item from the
+contenttype `persons`, and you want to use the `lastname` field in the pull-down, use:
+
+```apache
+        myselectfield:
+            type: select
+            values: persons/lastname
+```
+
+By default, Bolt stores the `id` of the used contenttype in the database. This is usually
+the safest option, because it will prevent breakage, when other information is changed in
+the record that is being linked to. To retrieve these in your templates, you can use the
+following:
+
+
+```twig
+{{ dump(record.myselectfield)}}
+
+{% setcontent linkedpage = "pages" where { 'id': record.myselectfield } returnsingle %}
+
+{{ dump(linkedpage) }}
+```
+
+If you wish to store another field or value from the original contenttype in your
+database, use the `keys` setting. If you do this, it will not store the 'id', but the
+value of the field you specify. For example:
+
+```apache
+        myselectfield:
+            type: select
+            values: persons/lastname
+            keys: slug
+```
+
+To show more than one field in the pull-down for the editor, use them separated by a comma. The following example will display the 'first name' and 'last name' of each 'person' in the pull-down, while the 'slug' will be stored in the database.
+
+```apache
+        myselectfield:
+            type: select
+            values: persons/firstname,lastname
+            keys: slug
+```
+
+
+
+
