@@ -304,6 +304,18 @@ Since these are just regular Twig functions/filters, you should familiarize
 yourself with how Twig works. Read the chapter [Extending Twig](http://twig.sensiolabs.org/doc/advanced.html)
 in the Twig documentation.
 
+### Using Twig functions in content records 
+
+If you want your extension's Twig function to be available inside Contenttype 
+record field, when `allowtwig` is set to `true`, you will need to add an `isSafe()`
+function to your `Extension.php` file, that simply returns `true`
+
+```
+public function isSafe()
+{
+    return true;
+}
+```
 
 Adding storage events
 ---------------------
