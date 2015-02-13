@@ -304,11 +304,14 @@ Since these are just regular Twig functions/filters, you should familiarize
 yourself with how Twig works. Read the chapter [Extending Twig](http://twig.sensiolabs.org/doc/advanced.html)
 in the Twig documentation.
 
-### Using Twig functions in content records 
+### Using Twig functions in content records
 
-If you want your extension's Twig function to be available inside Contenttype 
-record field, when `allowtwig` is set to `true`, you will need to add an `isSafe()`
-function to your `Extension.php` file, that simply returns `true`
+As you might know, Bolt has two 'sandboxed' Twig environments, to prevent
+possible security exploits in the templates. This is to prevent having a
+careless developer or implementor allow a user to insert Twig tags where they
+should not. If you want your extension's Twig function to be available inside a
+contenttype's record field, you will need to explicitly add an `isSafe()`
+function to your `Extension.php` file, that simply returns `true`:
 
 ```
 public function isSafe()
@@ -316,6 +319,12 @@ public function isSafe()
     return true;
 }
 ```
+
+Note: You will _also_ need to set `allowtwig` to `true`, in your contenttype
+definition. If either one of them isn't set, the twig tag will not work inside
+the content. This way you have maximum control over where it works, and where it
+doesn't. See also 'Field Definitions' in the page
+'[Contenttypes and Records](/contenttypes-and-records#field-definitions)'.
 
 Adding storage events
 ---------------------
