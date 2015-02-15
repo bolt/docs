@@ -7,9 +7,9 @@ the configuration are included in the distribution files. In practice, this mean
 upgrading Bolt works in exactly the same way as installing a new copy of bolt. Skip to the
 right section below:
 
-  - The easiest way, [from the command-line](#option-1-the-easy-way-using-the-command-line).
-  - The traditional way, [using (S)FTP](#option-2-the-traditional-way-using-sftp).
-  - The nerdy way, [for developers](#option-3-the-developer-way-using-git-and-composer).
+  - The easiest way, [from the command-line](#option-1-easy-way-using-command-line).
+  - The traditional way, [using (S)FTP](#option-2-traditional-way-using-sftp).
+  - The nerdy way, [for developers](#option-3-developer-way-using-git-and-composer).
 
 <p class="note"><strong>Note:</strong> The exception to this rule are the
 default theme folders, i.e. <code>base-2013</code> and <code>base-2014</code>. If you've made modifications to these files, they
