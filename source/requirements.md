@@ -6,12 +6,14 @@ modern webserver:
 
   - PHP 5.3.3 or higher
   - Access to SQLite (which comes bundled with PHP 5.3), _or_ MySQL _or_
-    PostgreSQL.
+    PostgreSQL
   - Apache with Mod_rewrite (`.htaccess` files) or Nginx (virtual host
     configuration covered below)
 
-<p class="note"><strong>Note:</strong> Currently we only support Apache and
-Nginx. Support for Lighttpd will come in the near future, if there's demand.
+<p class="note"><strong>Note:</strong> Although PHP 5.3.3 is the absolutely
+minimum required version of Bolt, we strongly recommend a newer version, like
+PHP 5.5 or 5.6. These newer versions are not only safer, but your website will
+be significantly faster as well.
 </p>
 
 The PHP installation has a few additional requirements. On most servers these
