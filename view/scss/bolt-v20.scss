@@ -54,7 +54,7 @@ header, footer {
         margin-left: auto;
         margin-right: auto;
         @media #{$large-up} {
-            position: relative; 
+            position: relative;
         }
     }
     &:after {
@@ -72,7 +72,7 @@ p {
 
 
 .inner {
-    //@extend .columns; //Not needed? Floats fuck up header. 
+    //@extend .columns; //Not needed? Floats fuck up header.
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
 }
@@ -87,7 +87,7 @@ nav {
                 display: block;
                 float: left;
                 list-style: none outside none;
-                margin-left: 1rem;    
+                margin-left: 1rem;
             }
         }
     }
@@ -110,7 +110,7 @@ nav {
             font-size: 1rem;
             padding-bottom: .5rem;
         }
-    }     
+    }
 }
 
 a.toplink {
@@ -186,7 +186,7 @@ header {
            display: none;
        }
     }
-    
+
     .body-home & {
         height: 300px;
         // MEDIUM //
@@ -220,7 +220,7 @@ header {
     color:#fff;
     padding-left: 1em;
     // MEDIUM //
-    @media #{$large-up} { 
+    @media #{$large-up} {
         bottom: auto;
         top: 0;
         width: 16rem;
@@ -234,7 +234,7 @@ header {
             text-decoration: none;
             font-size: 0.6875rem;
             &:hover {
-                color: $red;    
+                color: $red;
             }
         }
         i {
@@ -247,11 +247,11 @@ header {
         li.fork {
             display: none;
             // MEDIUM //
-            @media #{$medium-up} { 
+            @media #{$medium-up} {
                 display: inline-block;
             }
         }
-        
+
     }
 }
 
@@ -270,7 +270,7 @@ header {
         background: $darkblue;
     }
     // MEDIUM //
-    @media #{$large-up} { 
+    @media #{$large-up} {
         display: none;
     }
     span {
@@ -283,7 +283,7 @@ header {
         width: 20px;
     }
     .active & {
-       box-shadow: 0 10px 0 1px $white, 0 16px 0 1px $white, 0 22px 0 1px $white; 
+       box-shadow: 0 10px 0 1px $white, 0 16px 0 1px $white, 0 22px 0 1px $white;
     }
 }
 
@@ -294,7 +294,7 @@ header {
     padding-bottom: 1em;
     transition:display 0s linear 0.5s,opacity 0.5s linear;
      // LARGE  //
-    @media #{$large-up} { 
+    @media #{$large-up} {
         display: block;
         background: rgba($black,0.4);
         max-width: $row-width;
@@ -309,7 +309,7 @@ header {
         list-style: none;
         margin-bottom: 0;
          // LARGE  //
-        @media #{$large-up} { 
+        @media #{$large-up} {
         margin: 0 auto;
         width: 650px; //fixen: geen absolute waarde, maar liever een relatieve!
         }
@@ -322,7 +322,7 @@ header {
              // MEDIUM  //
              @media #{$medium-only} {
              width: 50%;
-             float: left;   
+             float: left;
              }
         }
         a {
@@ -336,7 +336,7 @@ header {
             }
         }
         li.active a{
-            border-bottom: 2px solid $red;   
+            border-bottom: 2px solid $red;
         }
         li:hover a {
             border-bottom: 2px solid $white;
@@ -373,7 +373,7 @@ section{   // was .maininfo, .secinfo
     // XLARGE  //
     @media #{$xlarge-up} {
         padding: 3.5em 3.5em;
-    }   
+    }
 }
 
 
@@ -386,14 +386,14 @@ section{   // was .maininfo, .secinfo
     // XLARGE  //
     @media #{$xlarge-up} {
         padding-left: 3em;
-        padding-right: 1.5em;   
+        padding-right: 1.5em;
     }
-    
+
 }
 
 .maincolumn {
     @extend .column;
-    
+
     padding: 0;
 
     // LARGE //
@@ -401,7 +401,7 @@ section{   // was .maininfo, .secinfo
         //padding-top: 2em;
     }
     h1, h2, h3, p.meta {
-        text-align: left;    
+        text-align: left;
     }
 
     h2 {
@@ -440,8 +440,8 @@ section{   // was .maininfo, .secinfo
 .maininfo {
     h1, h2, h3, h4 {
         text-align: left;
-        font-weight: 400;    
-        margin-bottom: 12px;            
+        font-weight: 400;
+        margin-bottom: 12px;
     }
 
     h1 {
@@ -489,7 +489,7 @@ mark {
 }
 
 .sidebar ul li a{
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 .sidebar ul li.current a {
@@ -512,7 +512,7 @@ p {
 @media #{$large-up} {
     p {
         font-size: 15px;
-        line-height: 1.7;        
+        line-height: 1.7;
     }
 }
 
@@ -558,10 +558,19 @@ code {
     font-weight: normal;
 }
 
-p code { 
+p code {
     white-space: nowrap;
 }
 
+span.copy-btn {
+    color: #ddd;
+    position: absolute;
+    text-align: right;
+    margin-top: 2px;
+    right: -174px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
 
 .content h2 code {
     font-size: 24px;
@@ -571,9 +580,9 @@ p code {
     font-size: 19px;
 }
 
-h1 a.anchor, 
-h2 a.anchor, 
-h3 a.anchor, 
+h1 a.anchor,
+h2 a.anchor,
+h3 a.anchor,
 h4 a.anchor {
     color: lighten($boltblue, 40);
     margin-left: 14px;
@@ -581,8 +590,8 @@ h4 a.anchor {
     border: 0;
 }
 
-h1:hover a.anchor, 
-h2:hover a.anchor, 
+h1:hover a.anchor,
+h2:hover a.anchor,
 h3:hover a.anchor,
 h4:hover a.anchor {
     color: lighten($boltblue, 10);
@@ -631,7 +640,7 @@ h4:hover a.anchor {
             background-color: #999;
         }
 
-    }    
+    }
 
     div.docsintro {
         clear: both;
@@ -696,9 +705,9 @@ section.shorttexts {
         .icon{
 	        height: 130px;
 	        vertical-align: baseline;
-        }	
+        }
 	}
-	
+
 }
 
 section.logos {
@@ -728,7 +737,7 @@ section.logos {
         	display: none;
     	}
 	}
-	
+
 	/*article {
 		@include grid-column(
             $columns: 4
@@ -752,21 +761,21 @@ section.logos {
     // MEDIUM  //
     @media #{$medium-up} {
          padding-left: 10%;
-         padding-right: 10%;       
+         padding-right: 10%;
     }
-    
+
     // LARGE  //
     @media #{$large-up} {
          padding-left: 2.5em;
-         padding-right: 2.5em;       
+         padding-right: 2.5em;
     }
-    
+
     // XLARGE  //
     @media #{$xlarge-up} {
          padding-left: 3.5em;
-         padding-right: 3.5em;       
+         padding-right: 3.5em;
     }
-    
+
     .pager {
         margin-bottom: 2em;
         text-align: center;
@@ -775,9 +784,9 @@ section.logos {
         // LARGE //
         @media #{$large-up}{
         width: auto;
-        overflow: visible;   
+        overflow: visible;
         }
-        
+
         a{
             display: inline-block;
             color: $black;
@@ -799,7 +808,7 @@ section.logos {
         @extend .large-8;
         text-align: center;
     }
-    
+
     .slideimg img.large {
         display:none;
         // LARGE //
@@ -808,7 +817,7 @@ section.logos {
             float: left;
         }
     }
-    
+
     .slideimg img.mobile {
         max-width: 300px;
         // LARGE //
@@ -826,7 +835,7 @@ section.logos {
             );
         margin: 2em 0 0 0;
         padding-left: 2em;
-            
+
         // LARGE //
         @media #{$large-up}{
             display: block;
@@ -842,14 +851,14 @@ section.logos {
             line-height: 1.4;
             @media #{$large-up}{
                 margin-bottom: 1em;
-            }   
+            }
             &:before {
                 content: '\2022\a0';
                 color: $red;
                 font-size: 2.3rem;
                 line-height: 0;
                 vertical-align: -4px;
-                margin-left: -21px;  
+                margin-left: -21px;
             }
         }
     }
@@ -866,7 +875,7 @@ footer {
     font-size: 0.8125rem;
     .credits {
         @extend .columns;
-        @extend .medium-6; 
+        @extend .medium-6;
     }
     .socials {
         @extend .columns;
@@ -911,7 +920,7 @@ footer {
 /* --------------- FEATURES ---------------*/
 
 section.features {
-    background: $lightgrey; 
+    background: $lightgrey;
     h1{
         font-weight: 400;
         margin-bottom: 1em;
@@ -928,7 +937,7 @@ section.features {
                 display: block;
             }
         }
-    }    
+    }
 }
 
 .featurelist {
@@ -1012,7 +1021,7 @@ section.showcases {
                 text-align: left;
             }
         }
-        
+
     }
 }
 
@@ -1034,16 +1043,16 @@ p {
     }
 }
 
-.content a { 
+.content a {
     color: lighten($boltblue, 10);
-    border-bottom: 1px solid lighten($boltblue, 30);    
+    border-bottom: 1px solid lighten($boltblue, 30);
 }
 
 
-.content a:hover { 
-    text-decoration: none; 
+.content a:hover {
+    text-decoration: none;
     color: darken($boltblue, 10);
-    border-bottom: 1px solid darken($boltblue, 10);  
+    border-bottom: 1px solid darken($boltblue, 10);
 }
 
 
@@ -1053,7 +1062,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
 
 .maininfo h2,
 .secinfo h2 {
-    // Not in docs! 
+    // Not in docs!
     // text-align: center;
     // LARGE  //
     @media #{$large-up}{
@@ -1115,8 +1124,8 @@ h1, h2, h3, h4 {
          @media #{$large-up}{
               max-width: 200px;
               margin: 2rem 0 1rem;
-        }      
-    } 
+        }
+    }
 }
 
 .maininfo .maincolumn {
@@ -1124,8 +1133,8 @@ h1, h2, h3, h4 {
         // LARGE  //
          @media #{$large-up}{
               margin-top: 2em;
-        }      
-    } 
+        }
+    }
 }
 
 
@@ -1156,7 +1165,7 @@ a.topbutton {
         margin-right: 0;
         clear: both;
         }
-        
+
 }
 
 //Buttonlist, possibly in content.
@@ -1179,8 +1188,8 @@ a.topbutton {
             @media #{$medium-up}{
                 margin: 0;
             }
-        
-        }    
+
+        }
     }
     &:after {
       content: "";

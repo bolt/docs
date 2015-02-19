@@ -1,28 +1,24 @@
 
 var q = "";
 
-jQuery(function($) { 
+jQuery(function($) {
 
     hljs.initHighlightingOnLoad();
-    
-    // Initialize the Fancybox shizzle, if present.
-    // if(jQuery().fancybox) {
-    //     $('.fancybox, div.imageholder a').fancybox({ });
-    // }
-   
+
     // hiding the mobile navigation
     $('.main-nav').removeClass('expanded');
-    
+
     // and toggling it again with a button
     $('.menu-toggle').click(function() {
         $('.main-nav').toggleClass('expanded');
         $(this).toggleClass('active');
     });
 
-    $('a.popup').magnificPopup({ 
+    $('a.popup').magnificPopup({
     type: 'image'
         // other options
-    });    
+    });
+
     $('div.gallery-popup').magnificPopup({
       delegate: 'a',
       type: 'image',
@@ -36,13 +32,13 @@ jQuery(function($) {
     });
 
     /* ----- no sticky header for the docs. ---------
-    if($(window).width() > 801) { // ONLY LARGE-UP 
-        
-        $(window).scroll(function () { 
+    if($(window).width() > 801) { // ONLY LARGE-UP
+
+        $(window).scroll(function () {
             var nav = $(".main-nav");
             var navwidth = nav.width();
             var halfwidth = Math.round(navwidth/2);
-    
+
             // make main-nav sticky when scrolled lower then header height
             if (posTop() > ($('header').height()-44)){
                 nav.addClass('is-sticky');
@@ -53,11 +49,11 @@ jQuery(function($) {
                 nav.removeClass('is-sticky');
                 nav.css({'margin-left':'auto'})
             };
-        });     
+        });
     }
     ------ */
 
-    // Update the number of stars. Stolen from foundation.zurb.com. 
+    // Update the number of stars. Stolen from foundation.zurb.com.
     $.ajax({
       dataType: 'jsonp',
       url: 'https://api.github.com/repos/bolt/bolt?callback=boltGithub&access_token=8e0dfc559d22265208b2924266c8b15b60fd9b85',
@@ -70,7 +66,7 @@ jQuery(function($) {
       }
     });
 
-    
+
 
     $("#searchbox").select2({
         placeholder: "Search …",
@@ -85,16 +81,33 @@ jQuery(function($) {
                     q: term, // search term
                 };
             },
-            results: function (data, page) { 
+            results: function (data, page) {
                 return { results: data.items };
             },
             cache: true
         }
-    });    
+    });
 
-    $('#searchbox').on("select2-selecting", function(e) { 
+    $('#searchbox').on("select2-selecting", function(e) {
         window.location = prefix + "/" + e.val;
-    });    
+    });
+
+
+    //Zero Clipboard stuff..
+    $('pre code').each(function(index) { 
+        // Get the text to be copied to the clipboard
+        var text = $(this).text();
+
+        // Create the copy button
+        var copyBtn = $('<span class="copy-btn">[ Copy Code ]</span>')
+            .attr('data-clipboard-text', text) // set the text to be copied
+            .insertBefore(this); // insert copy button before <pre>
+
+        // Create the clip, and glue it to the copy button
+        new ZeroClipboard(copyBtn).on( "aftercopy", function( event ) {
+            $(copyBtn).html('[ Copied ]');
+        });
+    });
 
 });
 
@@ -112,4 +125,4 @@ function formatForUrl(str) {
 
 function posTop() {
     return typeof window.pageYOffset != 'undefined' ? window.pageYOffset: document.documentElement.scrollTop? document.documentElement.scrollTop: document.body.scrollTop? document.body.scrollTop:0;
-}    
+}
