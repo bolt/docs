@@ -9,14 +9,14 @@ echo $searcher->find();
 
 // --------
 
-class Search 
+class Search
 {
 
     private $results = array();
     private $titles = array();
     private $items = array();
 
-    public function find() 
+    public function find()
     {
 
         // Set $q
@@ -49,7 +49,7 @@ class Search
     {
 
         if (strlen($q) < 3) {
-            return; 
+            return;
         }
 
         $finder = new Finder();
@@ -62,7 +62,7 @@ class Search
             $contents = file_get_contents($file->getRealpath());
             $score = $this->weighQueryText($contents, $q, $filename);
 
-            // Assume first line is the title. 
+            // Assume first line is the title.
             $title = strtok($contents, "\n");
 
             // Add the 'folder' to the title, perhaps
