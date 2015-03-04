@@ -8,13 +8,13 @@ $version = "2.0.6";
 // Let's see if there's a search-parameter.
 $parseurl = parse_url($_SERVER['REQUEST_URI']);
 
-// Yeah, this is turning into a bit of black magic voodoo. Refactor at some point. 
+// Yeah, this is turning into a bit of black magic voodoo. Refactor at some point.
 $prefix = dirname($parseurl['path']);
 $prefix = strtr($prefix, array("/extensions" => "","/internals" => "", "/tutorial" => "", "/howto" => ""));
 
 $request = str_replace($prefix, "", $parseurl['path']);
 
-// Strip of beginning slash. 
+// Strip of beginning slash.
 if (strpos($request, "/") === 0) {
     $request = substr($request, 1);
 }
@@ -27,6 +27,7 @@ if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request 
 // dump($prefix);
 
 if (!file_exists("./source/".$request.".md")) {
+    header("HTTP/1.0 404 Not Found");
     echo "No proper name for a page in the docs. Bye!";
     die();
 }
@@ -60,22 +61,22 @@ if (!empty($_GET['q'])) {
     $q = makeSlug($_GET['q']);
 
     $source = preg_replace_callback("/" . $q . "/i", function($matches) {
-        $output = sprintf("<mark id='%s'>%s</mark>", 
-            makeSlug($matches[0]), 
+        $output = sprintf("<mark id='%s'>%s</mark>",
+            makeSlug($matches[0]),
             $matches[0]
         );
         return $output;
     }, $source);
 }
----- */ 
+---- */
 
 // Markup for <h1> and <h2>..
 $source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function($matches) {
-    $output = sprintf("<h%s id='%s'>%s<a href='#%s' class='anchor'>¶</a></h%s>", 
-                    $matches[1], 
-                    makeSlug($matches[2]), 
-                    $matches[2], 
-                    makeSlug($matches[2]), 
+    $output = sprintf("<h%s id='%s'>%s<a href='#%s' class='anchor'>¶</a></h%s>",
+                    $matches[1],
+                    makeSlug($matches[2]),
+                    $matches[2],
+                    makeSlug($matches[2]),
                     $matches[1]
                 );
     return $output;
@@ -88,27 +89,27 @@ $twig = new Twig_Environment($loader, array(
 ));
 
 
-// Add Dumper function to twig. 
+// Add Dumper function to twig.
 $dumper = new Twig_SimpleFunction(
-    'dump', 
-    function ($var) { return dump($var); }, 
+    'dump',
+    function ($var) { return dump($var); },
     array('is_safe' => array('html')
 ));
 $twig->addFunction($dumper);
 
 
-// Add markdown to twig. 
+// Add markdown to twig.
 $markdown = new Twig_SimpleFilter(
-    'markdown', 
-    function ($content) { return \ParsedownExtra::instance()->text($content); }, 
+    'markdown',
+    function ($content) { return \ParsedownExtra::instance()->text($content); },
     array('is_safe' => array('html')
 ));
 $twig->addFilter($markdown);
 
-// Add slug filter to twig. 
+// Add slug filter to twig.
 $slug = new Twig_SimpleFilter(
-    'slug', 
-    function ($name) { return \URLify::filter($name); }, 
+    'slug',
+    function ($name) { return \URLify::filter($name); },
     array('is_safe' => array('html')
 ));
 $twig->addFilter($slug);
@@ -119,7 +120,7 @@ echo $twig->render('index.twig', array(
 	'menu' => $menu,
 	'submenu' => $submenu,
 	'current' => $request,
-	'version' => $version, 
+	'version' => $version,
     'requested_page' => $request,
     'prefix' => ($prefix == "/" ? "" : $prefix)
 ));
