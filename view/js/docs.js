@@ -94,7 +94,7 @@ jQuery(function($) {
 
 
     //Zero Clipboard stuff..
-    $('pre code').each(function(index) { 
+    $('pre code').each(function(index) {
         // Get the text to be copied to the clipboard
         var text = $(this).text();
 

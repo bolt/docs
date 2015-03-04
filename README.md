@@ -4,7 +4,7 @@ Bolt docs (version 2.x / master)
 These are the docs for [Bolt](http://bolt.cm/). This repository is the
 documentation counterpart of the [Bolt repository](https://github.com/bolt/bolt).
 
-Installation 
+Installation
 ------------
 
 Create a new folder, and clone from github. Then use composer to get the rest of
