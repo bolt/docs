@@ -136,7 +136,16 @@ stuff.
 In your code you can also dump variables and objects, like this:
 
 ```
-    \Dumper::dump($variable);
+    use Symfony\Component\VarDumper\VarDumper;
+
+    VarDumper::dump($variable);
+```
+
+Or, using the (global) shortcut:
+
+
+```
+    dump($variable);
 ```
 
 Like above, the `$variable` can be a normal variable, an object or whatever. Note that
@@ -144,7 +153,7 @@ Bolt has built-in protection for when you're tyring to 'dump' Silex or Symfony o
 like `$app` or a variable that's `\Bolt\Application`. Since these would be too large to
 render because of internal references and recursion, they are not expanded further.
 
-### `{{ backtrace() }}` and `Dumper::backtrace()`
+### `{{ backtrace() }}`
 
 Using this function you can get a backtrace throught the code to the current point in the
 execution. Useful for when you're debugging something, and you're not quite sure how you
@@ -157,10 +166,21 @@ got here to begin with. In your templates, use the following:
 In your code you can also use backtrace, like this:
 
 ```
-    \Dumper::backtrace(10);
+    use Symfony\Component\VarDumper\VarDumper;
+
+    VarDumper::dump(debug_backtrace());
 ```
 
-The optional parameter denotes the maximum depth of the output of the backtrace.
+Or, using the (global) shortcut:
+
+
+```
+    dump(debug_backtrace());
+```
+
+The optional parameters denotes the options and maximum depth of the output of
+the backtrace. See the page on php.net:
+[http://php.net/manual/en/function.debug-backtrace.php](http://php.net/manual/en/function.debug-backtrace.php)
 
 
 Object Reference
