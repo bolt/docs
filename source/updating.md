@@ -20,6 +20,7 @@ a different name. Simply copy <code>base-2014</code>, and change the setting in 
 <p class="tip"><strong>Tip:</strong> Even though nothing <em>should</em> go wrong when
 updating Bolt, it is still a good idea to make sure you have a backup of your website. You
 know, just in case. Better safe than sorry. That sort of thing.</p>
+<p class="tip"><strong>Tip:</strong> In the last step of the installation, you may get notifications saying <code>chmod: changing permissions of `app/cache/...': Operation not permitted</code>. This is not a problem, but if you want to avoid this, it is good to empty the Bolt cache before installing.</p>
 
 Option 1: The easy way, using the command-line
 ----------------------------------------------
