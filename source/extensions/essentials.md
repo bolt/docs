@@ -45,7 +45,7 @@ framework](http://symfony.com/components). When coding your extensions, you shou
 much of the functionality provided by Silex and the included components as possible. Don't
 re-invent the wheel, and things like that.
 
-See the chapter on [Bolt internals](/internals) for a detailed overview of the
+See the chapter on [Bolt internals](/internals/bolt-internals) for a detailed overview of the
 provided Bolt functionality, Silex objects and included libraries.
 
 Bolt strives to adhere to [the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
@@ -175,7 +175,7 @@ function initialize()
 
     // Add javascript file
     $this->addJavascript(
-        $this->app['paths']['app'] . "extensions/Namespace/assets/namespace.js"
+        $this->app['paths']['app'] . "extensions/Namespace/assets/namespace.js",
         true,
         1000
       );
@@ -188,7 +188,7 @@ Both of these functions take three parameters:
 
   - An absolute path to the desired .js or .css file. Use the `$app['paths']['app']`
     variable to always get the correct path, regardless of how Bolt is installed.
-    See the [Paths section in Internals](/internals#paths)
+    See the [Paths section in Internals](/internals/bolt-internals#app8216paths8217)
   for more details.
   - An (optional) boolean that controls where the code insertion happens:
     - HTML head, by default (false)
