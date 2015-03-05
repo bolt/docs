@@ -331,7 +331,7 @@ server {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
-    location ~* \.(?:ico|css|js|gif|jpe?g|png|ttf|woff)$ {
+    location ~* \.(?:ico|css|js|gif|jpe?g|png|ttf|woff|woff2)$ {
         access_log off;
         expires 30d;
         add_header Pragma public;
