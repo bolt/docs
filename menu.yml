@@ -44,6 +44,7 @@ internals:
   internals/contributing: "Contributing to Bolt"
   internals/code-quality: "Code Quality"
   internals/task-scheduler: "Task Scheduler (cron)"
+  internals/release-process: "Our Release Process"
 
 other:
   "": Other Information
