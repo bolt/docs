@@ -21,6 +21,7 @@ if (strpos($request, "/") === 0) {
 
 if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request == "/" ) {
 	header("location: ./introduction");
+	die();
 }
 
 // dump($request);
