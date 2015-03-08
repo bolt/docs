@@ -440,6 +440,6 @@ Further reading
 ---------------
 
 If you want to delve deeper into what you can and cannot do with extensions, see
-the chapter on [Bolt internals](/internals) for a detailed overview of the
+the chapter on [Bolt internals](/internals/bolt-internals) for a detailed overview of the
 provided Bolt functionality, Silex objects and included libraries.
 
