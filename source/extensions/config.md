@@ -150,7 +150,7 @@ recommend you use the same setting as in the example file: `"psr-4": {"Myextensi
 This means that all classes you store inside the `src` directory will be autoloaded correctly.
 
 Note that Bolt will only support PSR-4 autoload namespaces. For examples see here:
-<a href="www.php-fig.org/psr/psr-4/">http://www.php-fig.org/psr/psr-4/</a>
+<a href="http://www.php-fig.org/psr/psr-4/">php-fig.org/psr/psr-4/</a>
 
 
 ## Publishing Your Extension on the Marketplace
