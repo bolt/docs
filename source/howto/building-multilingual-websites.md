@@ -41,7 +41,7 @@ Table of Contents
 Defining Contenttypes
 ---------------------
 
-An important step when making websites, is to properly [define your contenttypes](contenttypes-and-records).
+An important step when making websites, is to properly [define your contenttypes](/contenttypes-and-records).
 Since contenttypes are defined in YAML, there are some handy tricks you can
 apply. YAML provides node anchors (`&`) and references (`*`) for repeated nodes.
 So once the fields of a contenttype are defined, you can simply reference them.

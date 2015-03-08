@@ -5,7 +5,8 @@ Bolt is an application built on top of the awesome [Silex micro-
 framework](http://silex.sensiolabs.org), and uses a lot of components from the [Symfony
 framework](http://symfony.com/components). Bolt strives to adhere to
 [the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
-When writing your extensions, you should try to do the same.
+When writing your own [Bolt extensions](/extensions/introduction), you should try to
+do the same.
 
 This chapter serves as a reference guide for those who want to get the most out of the
 templates, those who want to create extensions or basically anybody who's curious what
@@ -35,8 +36,8 @@ everything that you can do 'vanilla' Twig, you can do in the Bolt templates. We'
 few tags of our own. Browse `app/src/Bolt/TwigExtension.php` and
 `app/src/Bolt/SetcontentTokenParser.php` for details.
 
-More information on this subject can be found in [Templates and Routes](templates-routes)
-and [Content in Templates](content-in-templates).
+More information on this subject can be found in [Templates and Routes](/templates-routes)
+and [Content in Templates](/content-in-templates).
 
 The "Model"
 -----------
@@ -329,7 +330,7 @@ Instance of `Bolt\Cache`. See `app/src/Bolt/Cache.php` for details.
 
 ### $app['extensions']
 
-This is an instance of `Bolt\Extensions`. See the page on [Bolt extensions](/extensions) for details.
+This is an instance of `Bolt\Extensions`. See the page on [Bolt extensions](/extensions/introduction) for details.
 
 ### $app['twig']
 
@@ -337,7 +338,7 @@ This is an instance of Twig. A lot more information on this can be found both in
 documentation, as well as on the Twig website:
 
   - The [Twig website](http://twig.sensiolabs.org/)
-  - [Templates in Bolt](templates)
+  - [Templates in Bolt](/templates-routes)
 
 Note: You should not directly use this object, normally. Instead, use `$app['render']`.
 See below.

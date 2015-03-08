@@ -1,8 +1,8 @@
 Building templates in Bolt
 ===========================
 
-To render HTML pages with dynamic content, Bolt uses the [Twig](http://twig.sensiolabs.org/documentation) 
-templating language. This means that everybody who is familiar with Twig can easily get 
+To render HTML pages with dynamic content, Bolt uses the [Twig](http://twig.sensiolabs.org/documentation)
+templating language. This means that everybody who is familiar with Twig can easily get
 started with building templates in Bolt.
 
 In short, Twig can be described as a 'flexible, fast, and secure template engine for PHP'.
@@ -11,7 +11,7 @@ this elegantly and quickly, which means that writing your HTML templates in Twig
 you clean and legible templates. That means you don't have to use PHP-like statements in
 your markup, so there's less code like this:
 
-``` 
+```
 <?php if ( the_something('3') ) { ?>
 <h1>Title is: <?php echo the_title() ?>.</h1>
 <?php } ?>
@@ -58,8 +58,8 @@ contenttypes have a 'template select' field, Bolt will skip these helper templat
 default.
 
 <p class="tip"> Tip: the default template set uses includes to insert the
-header, footer and such, but you're free to use 
-<a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> 
+header, footer and such, but you're free to use
+<a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a>
 if you prefer. </p>
 
 By default, Bolt creates links to single pages based on the contenttypes, and it uses a
@@ -69,7 +69,7 @@ where `slug-of-record` is the slugified version of the title. Bolt will try to u
 `foo.twig` as the template to render the page. You can change this by either defining
 another template in `contenttypes.yml`, or using a 'template select' field in the
 contenttype. More information about this can be found in the chapter [Working with Content
-and Content types](/content).
+and Content types](/contenttypes-and-records).
 
 
 Template tags
@@ -77,8 +77,8 @@ Template tags
 
 A simple `entry.twig` template could look something like the example you see below. Using
 this example we'll go over some of the details of the Twig Template language. As mentioned
-before: Much, much more detailed info can be found at 
-[Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html) 
+before: Much, much more detailed info can be found at
+[Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html)
 on the official Twig site.
 
 ```

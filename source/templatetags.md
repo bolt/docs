@@ -223,7 +223,7 @@ Example 2: Using in `setcontent`
 ```
 
 For more info on debugging your Bolt site, see the chapter on [Bolt
-Internals](/internals).
+Internals](/internals/bolt-internals).
 
 <p class="note"><strong>Note:</strong> Don't forget to set <code>debug:
 true</code> in your <code>config.yml</code> file. Otherwise the
@@ -541,7 +541,7 @@ Available variables in Twig
 {{ dump(app.config.general) }}
 ```
 
-For more info on `app`, see the chapter on [Bolt Internals](/internals).
+For more info on `app`, see the chapter on [Bolt Internals](/internals/bolt-internals).
 
 
 Tests
