@@ -12,7 +12,7 @@ values from another contenttype.
 Selecting from a fixed list
 ---------------------------
 
-The most straightforward use of this fieldtype is to create simple lists to choose from,
+The most straightforward use of this fieldtype is to create simple items to choose from,
 like this:
 
 ```apache
@@ -160,5 +160,26 @@ comma. The following example will display the 'first name' and 'last name' of ea
 ```
 
 
+If the list is growing longer, there are a few ways to make it more manageable:
 
+```apache
+        programme:
+            type: select
+            label: Programme items
+            values: programme/name
+            keys: slug
+            sort: name
+            autocomplete: true
+            limit: 1000
+```
 
+<a href="/files/select-autocomplete.png" class="popup"><img src="/files/select-autocomplete.png" width="590"></a><br>
+
+ - The `sort`-option allows you to specify the sorting of the items in the
+   select field. You can use any field, and to reverse the sort use a minus:
+   `-title`, for example.
+ - Enabling `autocomplete` will allow the user to use autocomplete typing to
+   select a value from the field.
+ - Use `limit` to limit the amount of items. Note that the default is `500`, so
+   if you have a long list, and you need to show them all to the user, raise
+   this limit.
