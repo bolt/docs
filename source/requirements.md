@@ -7,7 +7,7 @@ modern webserver:
   - PHP 5.3.3 or higher
   - Access to SQLite (which comes bundled with PHP 5.3), _or_ MySQL _or_
     PostgreSQL
-  - Apache with Mod_rewrite <strong>enabled</strong> (`.htaccess` files) or Nginx (virtual host
+  - Apache with `mod_rewrite` <strong>enabled</strong> (`.htaccess` files) or Nginx (virtual host
     configuration covered below)
 
 <p class="note"><strong>Note:</strong> Although PHP 5.3.3 is the absolutely
