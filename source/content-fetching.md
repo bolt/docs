@@ -1,10 +1,11 @@
 Fetching content
 ================
 
-Besides content that is already available on a specific contenttype listing-page or
-single-page [(content in templates)](content-in-templates), you can directly fetch content
-from the database. For this you can use the `{% setcontent ... %}` tag. The following
-example will get the content record with slug 'about' from the 'pages' contenttype:
+Besides content that is already available on a specific contenttype listing-
+page or single-page [(content in templates)](content-in-templates), you can
+directly fetch content from the database. For this you can use the
+`{% setcontent ... %}` tag. The following example will get the content record
+with slug 'about' from the 'pages' contenttype:
 
 ```
 {% setcontent about = 'page/about' %}
@@ -12,22 +13,22 @@ example will get the content record with slug 'about' from the 'pages' contentty
 {{ dump(about) }}
 ```
 
-There are a lot of options for the `setcontent` tag. Most are optional, and all can be
-used together any way you'd like. The most basic syntax is:
+There are a lot of options for the `setcontent` tag. Most are optional, and all
+can be used together any way you'd like. The most basic syntax is:
 
-<code>
+```
 {% setcontent _variable_ = '_contenttype_' %}
-</code>
+```
 
-This will set a _variable_ to contain the records of the given _contenttype_. For example:
-`{% setcontent mypages = 'pages' %}` will set `{{ mypages }}` to an array of all the
-records in 'pages'.
+This will set a _variable_ to contain the records of the given _contenttype_.
+For example: `{% setcontent mypages = 'pages' %}` will set `{{ mypages }}` to
+an array of all the records in 'pages'.
 
 Trimming the amount of results
 ------------------------------
-Normally, you don't need _all_ records, but a subset of the available records. You can
-limit the number of records by using a `where` clause (more on that below), but often it's
-easier to use the shortcut that Bolt provides.
+Normally, you don't need _all_ records, but a subset of the available records.
+You can limit the number of records by using a `where` clause (more on that
+below), but often it's easier to use the shortcut that Bolt provides.
 
 If you need a single record, and know its `id` or `slug`, you can do this:
 
@@ -58,8 +59,8 @@ and:
 Using `where`
 -------------
 
-If you need more specific criteria to select the records on, you can use the `where`
-clause. The parameters must be listed in a hash.
+If you need more specific criteria to select the records on, you can use the
+`where` clause. The parameters must be listed in a hash.
 
 ```
 {# get all pages with ownerid '2' #}
@@ -70,9 +71,10 @@ clause. The parameters must be listed in a hash.
 
 ```
 
-The above examples selected records based on the parameter being **equal** to the matching
-field in the available records. It's also possible to use modifiers for the values, to
-select based on 'smaller than' or 'does not equal'
+The above examples selected records based on the parameter being **equal** to
+the matching field in the available records. It's also possible to use
+modifiers for the values, to select based on 'smaller than' or 'does not
+equal':
 
 ```
 {# get all pages not created by user '1' #}
@@ -91,9 +93,9 @@ select based on 'smaller than' or 'does not equal'
 {% setcontent mybooks = 'books' where { amountsold: '>1000' } %}
 ```
 
-<p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code> Bolt only
-selects dates before or equal to <code>'2012-12-01 00:00:00'</code>. If you want to
-include December 1st, use <code>'<2012-12-02'</code>. </p>
+<p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code>
+Bolt only selects dates before or equal to <code>'2012-12-01 00:00:00'</code>.
+If you want to include December 1st, use <code>'&lt;2012-12-02'</code>. </p>
 
 ### The `%like%` option
 
@@ -102,8 +104,8 @@ include December 1st, use <code>'<2012-12-02'</code>. </p>
 {% setcontent mypages = 'pages' where { title: '%ipsum%' } %}
 ```
 
-The `%like%` option is case-insensitive, and does not take word boundaries into account.
-So, this example will return the pages with these titles:
+The `%like%` option is case-insensitive, and does not take word boundaries into
+account. So, this example will return the pages with these titles:
 
   - 'Lorum ipsum dolor'
   - 'LORUM IPSUM DOLOR'
@@ -116,15 +118,15 @@ But not:
   - 'Lorum ips um dolor'
 
 
-<p class="tip"><strong>Tip:</strong> When using only one <code>%</code>, Bolt will match
-only the beginning or the end of the field. For example: <code>'lore%'</code> and
-<code>'%olor'</code> will both match "Lorem Ipsum Dolor", but <code>'ipsu%'</code> won't.
-</p>
+<p class="tip"><strong>Tip:</strong> When using only one <code>%</code>, Bolt
+will match only the beginning or the end of the field. For example:
+<code>'lore%'</code> and <code>'%olor'</code> will both match "Lorem Ipsum
+Dolor", but <code>'ipsu%'</code> won't. </p>
 
 ### Using taxonomies
 
-You can use the same syntax to get records with a specific taxonomy. Note that you should
-always use the _plural_ name of the taxonomy in the query:
+You can use the same syntax to get records with a specific taxonomy. Note that
+you should always use the _plural_ name of the taxonomy in the query:
 
 ```
 {# get all events in the category 'music' #}
@@ -136,8 +138,8 @@ always use the _plural_ name of the taxonomy in the query:
 
 ### Selecting on dates
 
-You can use several 'shortcuts' for selecting records with dates in the past or future.
-Some examples are:
+You can use several 'shortcuts' for selecting records with dates in the past or
+future. Some examples are:
 
   - `now` - The current date and time.
   - `today` - The current date, today at midnight.
@@ -162,10 +164,11 @@ You can use these date notations like this:
 {% setcontent mypages = 'pages' where { datepublish: '>today && <tomorrow' } %}
 ```
 
-<p class="tip"><strong>Tip:</strong> When using 'where' statements with a field that is a
-date, you can use relative, textual dates, like <code>'last monday'</code> or <code>'&gt;
-this year'</code>. Internally, Bolt uses the <code>strtotime()</code> funtion for this, so
-we refer to its <a href="http://php.net/manual/en/function.strtotime.php" target="_blank">
+<p class="tip"><strong>Tip:</strong> When using 'where' statements with a field
+that is a date, you can use relative, textual dates, like <code>'last monday'
+</code> or <code>'&gt; this year'</code>. Internally, Bolt uses the <code>
+strtotime()</code> funtion for this, so we refer to its
+<a href="http://php.net/manual/en/function.strtotime.php" target="_blank">
 manual page</a> for details. </p>
 
 Like mentioned above, you can add more than one parameter to the where
@@ -178,10 +181,11 @@ clause:
 
 ### 'AND' and 'OR'
 
-You can use the `&&` and `||`-parameters to select on two criteria for any field. However,
-you can't use something like `where { ownerid: '!3', ownerid: '!4'}` because of the way
-hashes work in twig: The second `ownerid` would overwrite the first. Instead, you can use
-the `&&` and `||`-parameters to either select using `AND` or `OR`. examples:
+You can use the `&&` and `||`-parameters to select on two criteria for any
+field. However, you can't use something like `where { ownerid: '!3', ownerid:
+'!4'}` because of the way hashes work in twig: The second `ownerid` would
+overwrite the first. Instead, you can use the `&&` and `||`-parameters to
+either select using `AND` or `OR`. examples:
 
 ```apache
 {# get all pages created by ownerid '3' or '4' #}
@@ -219,15 +223,18 @@ Since `AND` is the default, there is no `&&&` equivalent to `|||`.
 Getting content for a specific user
 -----------------------------------
 
-As you might've noticed, in the examples above, we've used `ownerid` a couple of times to get content specific to a given user.
-In Bolt, content is stored with a reference to the owner, the so called `ownerid`. This means that you cannot do things like this:
+As you might've noticed, in the examples above, we've used `ownerid` a couple
+of times to get content specific to a given user. In Bolt, content is stored
+with a reference to the owner, the so called `ownerid`. This means that you
+cannot do things like this:
 
 ```
 {# get all pages created by user 'bob' #}
 {% setcontent mypages = 'pages' where { username: 'admin' } %}
 ```
 
-Instead, you'll need to use the `ownerid`. If you don't know the `ownerid`, but you _do_ know their name, you can use the `getuserid()` function.
+Instead, you'll need to use the `ownerid`. If you don't know the `ownerid`, but
+you _do_ know their name, you can use the `getuserid()` function.
 
 ```
 {# get all pages created by user 'bob' #}
@@ -242,8 +249,7 @@ Instead, you'll need to use the `ownerid`. If you don't know the `ownerid`, but 
 Using `limit`
 -------------
 There's no built-in limit to the amount of records returned. It is good
-practice to limit the maximum number of records, by adding a `limit`
-clause.
+practice to limit the maximum number of records, by adding a `limit` clause.
 
 ```
 {# get 10 pages created by 'bob' #}
@@ -252,8 +258,8 @@ clause.
 
 Ordering results
 ----------------
-The results can be sorted by any of the fields of the contenttype, using
-the `orderby` clause. You can sort either ascending or descending.
+The results can be sorted by any of the fields of the contenttype, using the
+`orderby` clause. You can sort either ascending or descending.
 
 ```
 {# get 10 pages, sorted alphabetically on title #}
@@ -263,15 +269,15 @@ the `orderby` clause. You can sort either ascending or descending.
 {% setcontent mypages = 'pages' limit 10 orderby '-datechanged' %}
 ```
 
-Note that the records are fetched from the database, according to the
-`orderby` parameter. If you use `orderby 'title'`, you will get records
-with titles starting with 'a'.
+Note that the records are fetched from the database, according to the `orderby`
+parameter. If you use `orderby 'title'`, you will get records with titles
+starting with 'a'.
 
 
 One record or multiple records?
 -------------------------------
-Sometimes Bolt will return one record, and sometimes a set of records.
-What makes the difference?
+Sometimes Bolt will return one record, and sometimes a set of records. What
+makes the difference?
 
 ```
 {% setcontent mypage = 'page/about' %}
@@ -283,9 +289,9 @@ What makes the difference?
 {% endfor %}
 ```
 
-Bolt tries to make an assumption about how you want to use it, based on
-what you're requesting. By default, an array is returned, unless one of
-the following is the case:
+Bolt tries to make an assumption about how you want to use it, based on what
+you're requesting. By default, an array is returned, unless one of the
+following is the case:
 
   - `{% setcontent foo = 'bar/1' %}` or `{% setcontent foo = 'bar/qux' %}`:
     When requesting one specific record, only one is returned.
@@ -294,5 +300,5 @@ the following is the case:
   - `{% setcontent foo = 'pages' .. returnsingle %}`: If the `returnsingle`
     parameter is passed, Bolt assumes you only need one result.
 
-If you use `limit 1`, you will get an array with 1 record. Unless, of
-course, one of the above criteria was met.
+If you use `limit 1`, you will get an array with 1 record. Unless, of course,
+one of the above criteria was met.
