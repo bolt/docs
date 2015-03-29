@@ -246,15 +246,13 @@ associated with it, you'll be politely notified that you need to save and refres
 these changes to take effect. If this is already the template for a record, this will
 happen automatically.
 
-<!-- Screenshot here -->
+<a href="/bolt-docs/files/templatefields-notification.png" class="popup">
+<img src="/bolt-docs/files/templatefields-notification.png" alt="Templatefields Notification" width="500" />
+</a>
 
 Then you will be able to go to the `Template` section of the record editing and change
-the content to your heart's desire.
-
-<!-- Screenshot here -->
-
-Once saved, accessing this data is very simple. Just go through the `templatefields`
-property of the record.
+the content to your heart's desire. Once saved, accessing this data is very simple. 
+Just go through the `templatefields`property of the record.
 
 ```twig
 {{ record.templatefields.section_1 }}
@@ -263,7 +261,10 @@ property of the record.
 
 <p class="warning"><strong>Warning:</strong> The data stored in these fields is only
 around while that template is selected. If you change templates with templatefield data
-stored, you <em>will</em> lose that data. The application will do its best to warn you
-when this will happen.<br />
-<!-- Screenshot here --></p>
+stored, you <em>will</em> lose that data if the templatefields of the new template differ
+from those of the current one. Bolt will do its best to warn you when this will happen.
+<br />
+<a href="/bolt-docs/files/templatefields-warning.png" class="popup">
+<img src="/bolt-docs/files/templatefields-warning.png" alt="Templatefields Warning" width="500" />
+</a></p>
 
