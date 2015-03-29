@@ -59,8 +59,8 @@ default.
 
 <p class="tip"> Tip: the default template set uses includes to insert the
 header, footer and such, but you're free to use
-<a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a>
-if you prefer. </p>
+[Template Inheritance](http://twig.sensiolabs.org/doc/templates.html#template-inheritance)
+if you prefer.</p>
 
 By default, Bolt creates links to single pages based on the contenttypes, and it uses a
 template based on its name. For instance, if your site has a contenttype `foos`, a single
@@ -143,7 +143,7 @@ What happens in this example is the following:
     we want, we use the `date()` filter. In this case, it will output something like
     'August 26, ’12'.
 
-<h3>Twig basics</h3>
+### Twig basics
 
 There are basically three different types of Twig tags that you can use in your templates:
 
@@ -172,7 +172,7 @@ manual.
     corresponding `{% endif %}` will be rendered.
 
 
-<h3>Strict variables</h3>
+### Strict variables
 
 Bolt sets 'strict_variables' in Twig to `false` by default. This will mean you will get
 not warnings if you try to use a variable that doesn't exist. This makes it easier to use
