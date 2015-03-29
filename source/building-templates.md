@@ -264,7 +264,7 @@ around while that template is selected. If you change templates with templatefie
 stored, you <em>will</em> lose that data if the templatefields of the new template differ
 from those of the current one. Bolt will do its best to warn you when this will happen.
 <br />
-<a href="/bolt-docs/files/templatefields-warning.png" class="popup">
-<img src="/bolt-docs/files/templatefields-warning.png" alt="Templatefields Warning" width="500" />
+<a href="/files/templatefields-warning.png" class="popup">
+<img src="/files/templatefields-warning.png" alt="Templatefields Warning" width="500" />
 </a></p>
 
