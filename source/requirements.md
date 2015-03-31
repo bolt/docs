@@ -24,6 +24,10 @@ are default settings, and Bolt should work out-of-the-box.
   - The cUrl extension
   - The GD Extension
 
+Note the following PHP modules are known to conflict with Bolt and must be disabled:
+  - Zend Guard Loader 
+  - ionCube
+
 Browser requirements
 --------------------
 
