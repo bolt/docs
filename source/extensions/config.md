@@ -158,3 +158,6 @@ Note that Bolt will only support PSR-4 autoload namespaces. For examples see her
 Once you have the above file setup, make sure it is pushed up to your hosted repository
 then visit <a href="http://extensions.bolt.cm">extensions.bolt.cm</a> to register your
 extension or theme on the Bolt Marketplace.
+
+See <a href="/extensions/testing">the testing and debugging instructions</a> for further 
+information about tagging and automated testing of your extension.
