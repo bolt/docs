@@ -156,6 +156,7 @@ Add the following to your .gitignore file:
 ```
 composer.lock
 vendor/
+tests/tmp/
 ```
 
 **NOTE:** Adding the composer.lock file is optional if you wish to commit that but as extensions are not 
