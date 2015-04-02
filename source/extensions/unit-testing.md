@@ -32,8 +32,8 @@ Use the following as an example, changing the name of your test directory to sui
             "init.php"
         ],
         "psr-4": {
-            "Bolt\\Extensions\\Colourpicker\\": "",
-            "Bolt\\Extensions\\Colourpicker\\Tests\\": "tests"
+            "Bolt\\Extensions\\Bolt\\Colourpicker\\": "",
+            "Bolt\\Extensions\\Bolt\\Colourpicker\\Tests\\": "tests"
         }
     },
     
@@ -52,40 +52,50 @@ In the above example the important things to note are the `minimum-stability` an
 Then an additional PSR-4 namespace is added to load tests from the `./tests` directory.
 
 
-#### Step 2: Create a phpunit.xml file
+#### Step 2: Create a phpunit.xml.dist file
 
-The example file below configures `phpunit`, place it in the root of the project and adjust where needed.
+The example file below configures `PHPUnit`, place it in the root of the project and adjust where needed.
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
-         bootstrap="test-bootstrap.php"
+         bootstrap="tests/bootstrap.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
-         syntaxCheck="false"
-        >
+         syntaxCheck="false">
+    <testsuites>
+        <testsuite name="unit">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
-
 ```
 
 You can note we refer to a test-bootsrap.php file that doesn't exist yet.
 
-#### Step 3: Create a bootstrap file
+#### Step 3: Create a bootstrap.php file
 
 This sets up a tmp dir to store required Bolt files and sets a couple of constants.
 
+Create the file `tests/bootstrap.php` containing the following
+
 ```
-define('TEST_ROOT', __DIR__.'/tmp');
-define('PHPUNIT_ROOT', __DIR__);
-@mkdir('tmp/app/cache', 0777, true);
-@mkdir('tmp/app/config', 0777, true);
-@mkdir('tmp/app/database', 0777, true);
-require 'vendor/autoload.php';
+<?php
+
+define('TEST_ROOT',    __DIR__ . '/tmp');
+define('PHPUNIT_ROOT', realpath(dirname(__DIR__)));
+define('BOLT_AUTOLOAD',  realpath(dirname(__DIR__) . '/vendor/autoload.php'));
+
+@mkdir(TEST_ROOT . '/app/cache', 0777, true);
+@mkdir(TEST_ROOT . '/app/config', 0777, true);
+@mkdir(TEST_ROOT . '/app/database', 0777, true);
+
+require_once BOLT_AUTOLOAD;
 ```
 
 #### Step 4: Modify your init.php file
@@ -98,7 +108,7 @@ All you need to do is add the below if isset condition around the extension regi
 
 
 ```
-namespace Bolt\Extensions\Colourpicker;
+namespace Bolt\Extensions\Bolt\Colourpicker;
 
 if (isset($app)) {
     $app['extensions']->register(new Extension($app));
@@ -108,16 +118,17 @@ if (isset($app)) {
 #### Step 5: Write some tests that extends BoltUnitTest
 
 Here's the simplest test you can write, we test that the extension gets registered correctly to the
-containing Bolt app.
+containing Bolt application.
 
+For example, in `tests/ColourpickerTest.php` you can add:
 
 ```
-// in tests/ColourpickerTest.php
+<?php
 
-namespace Bolt\Extensions\Colourpicker\Tests;
+namespace Bolt\Extensions\Bolt\Colourpicker\Tests;
 
 use Bolt\Tests\BoltUnitTest;
-use Bolt\Extensions\Colourpicker\Extension;
+use Bolt\Extensions\Bolt\Colourpicker\Extension;
 
 /**
  * This test ensures the Colourpicker Loads correctly.
@@ -131,16 +142,27 @@ class ColourpickerTest extends BoltUnitTest
         $app = $this->getApp();
         $extension = new Extension($app);
         $app['extensions']->register( $extension );
-        $this->assertSame($extension, $app['extensions.colourpicker']);
+        $name = $extension->getName();
+        $this->assertSame($name, 'colourpicker');
+        $this->assertSame($extension, $app["extensions.$name"]);
     }
 }
 
 ```
+#### Step 6: Update .gitignore
 
-#### Step 6: Now you can run your tests.
+Add the following to your .gitignore file:
+
+```
+composer.lock
+vendor/
+tests/tmp/
+```
+
+**NOTE:** Adding the composer.lock file is optional if you wish to commit that but as extensions are not 
+installed as a root package in Bolt, it will have no effect.
+
+#### Step 7: Now you can run your tests.
 
 Make sure you have done a `composer update` so your dependencies are up to date, then simply 
 run `phpunit` from the root of your extension.
-
-
-
