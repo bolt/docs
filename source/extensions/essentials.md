@@ -119,12 +119,12 @@ optional parameter will be passed on to the callback function.
 
 Snippets can be inserted in several places in the outputted HTML:
 
- - `startofhead` - after the `<head>`-tag.
+ - `startofhead` - after the `<head>`-tag. 
  - `aftermeta` - after the last `<meta [..] >`-tag.
  - `aftercss` - after the last `<link [..] >`-tag.
  - `beforejs` - before the first `<script [..] >`-tag.
  - `afterjs` - after the last `<script [..] >`-tag.
- - `endofhead` - before the `</head>`-tag.
+ - `endofhead` - before the `</head>`-tag. 
  - `startofbody` - after the `<body>`-tag.
  - `endofbody` - before the `</body>`-tag.
  - `endofhtml` - before the `</html>`-tag.
@@ -157,6 +157,15 @@ function snippetbar($foo)
 
 However, don't use this to pass a 'live' version of `$app`. In the callback function
 this will already be available as `$this->app`.
+
+
+The most important locations have aliases that are mainly for ease of remembering:
+
+ - `startofhead` is aliased to: `beforeheadmeta`, `beforeheadjs` and `beforeheadcss`
+ - `endofhead` is aliased to: `afterheadmeta`, `afterheadjs` and `afterheadcss`
+ - `startofbody`is aliased to: `beforebodyjs` and `beforebodycss`
+ - `endofbody` is aliased to: `afterbodyjs` and `afterbodycss`
+
 
 Add a CSS or Javascript file
 ----------------------------
