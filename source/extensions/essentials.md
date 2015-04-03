@@ -119,12 +119,12 @@ optional parameter will be passed on to the callback function.
 
 Snippets can be inserted in several places in the outputted HTML:
 
- - `startofhead` - after the `<head>`-tag. 
+ - `startofhead` - after the `<head>`-tag.
  - `aftermeta` - after the last `<meta [..] >`-tag.
  - `aftercss` - after the last `<link [..] >`-tag.
  - `beforejs` - before the first `<script [..] >`-tag.
  - `afterjs` - after the last `<script [..] >`-tag.
- - `endofhead` - before the `</head>`-tag. 
+ - `endofhead` - before the `</head>`-tag.
  - `startofbody` - after the `<body>`-tag.
  - `endofbody` - before the `</body>`-tag.
  - `endofhtml` - before the `</html>`-tag.
