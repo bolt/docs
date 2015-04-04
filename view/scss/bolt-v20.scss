@@ -528,6 +528,18 @@ p.note {
     border-radius: 4px;
 }
 
+p.warning {
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    color: #4d2114;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-color: #ff9b9b;
+    border: 1px solid #e06262;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
 p.tip {
     background-color: #D9EDF7;
     color: #3A87AD;
