@@ -4,8 +4,9 @@ Extensions: Essentials
 What can you do with Bolt extensions?
 -------------------------------------
 
-The functionality of Bolt can be extended by creating Extensions. The possibilites
-are almost limitless but here are a few of the basic ideas that can be accomplished:
+The functionality of Bolt can be extended by creating Extensions. The
+possibilites are almost limitless but here are a few of the basic ideas that can
+be accomplished:
 
  - Add Twig tags or modifiers, for use in the templates in your themes.
  - Add 'hooks' in the templates to either insert small snippets of HTML or the
@@ -38,27 +39,27 @@ page..
 Coding your extensions
 ----------------------
 
-Because Bolt is written in PHP, it should be no surprise that the extensions must also be
-written in PHP. Bolt is built upon the awesome [Silex micro-
-framework](http://silex.sensiolabs.org), and uses a lot of components from the [Symfony
-framework](http://symfony.com/components). When coding your extensions, you should use as
-much of the functionality provided by Silex and the included components as possible. Don't
-re-invent the wheel, and things like that.
+Because Bolt is written in PHP, it should be no surprise that the extensions
+must also be written in PHP. Bolt is built upon the awesome
+[Silex micro- framework][silex], and uses a lot of components from the
+[Symfony framework][symfony]. When coding your extensions, you should use as
+much of the functionality provided by Silex and the included components as
+possible. Don't re-invent the wheel, and things like that.
 
 See the chapter on [Bolt internals](/internals/bolt-internals) for a detailed overview of the
 provided Bolt functionality, Silex objects and included libraries.
 
-Bolt strives to adhere to [the PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
+Bolt strives to adhere to [the PSR-2 coding style][psr2].
 When writing your extensions, you should try to do the same.
 
 The `initialize()` and `getName()` functions
 -----------------------------------
 
-Every extension needs to have a function named 'initialize()' in its registered extension
-class. The initialize() function is called for each page request. It's executed before
-content is retrieved from the database or the templates are parsed. In general, the
-initialize() function is used to set up hooks or functionality that is used later on in
-the process of outputting a page.
+Every extension needs to have a function named 'initialize()' in its registered
+extension class. The initialize() function is called for each page request. It's
+executed before content is retrieved from the database or the templates are
+parsed. In general, the initialize() function is used to set up hooks or
+functionality that is used later on in the process of outputting a page.
 
 The `getName()` method tells Bolt how you want the extension to be referred to.
 The initialized extension object will be mounted onto the main Bolt Application,
@@ -139,8 +140,8 @@ function initialize()
 }
 ```
 
-To insert a snippet using a callback function, use the following. You can pass one
-extra optional variable, which can be a simple scalar or an array.
+To insert a snippet using a callback function, use the following. You can pass
+one extra optional variable, which can be a simple scalar or an array.
 
 ```
 function initialize()
@@ -155,8 +156,8 @@ function snippetbar($foo)
 
 ```
 
-However, don't use this to pass a 'live' version of `$app`. In the callback function
-this will already be available as `$this->app`.
+However, don't use this to pass a 'live' version of `$app`. In the callback
+function this will already be available as `$this->app`.
 
 Add a CSS or Javascript file
 ----------------------------
@@ -186,16 +187,16 @@ function initialize()
 
 Both of these functions take three parameters:
 
-  - An absolute path to the desired .js or .css file. Use the `$app['paths']['app']`
-    variable to always get the correct path, regardless of how Bolt is installed.
-    See the [Paths section in Internals](/internals/bolt-internals#app8216paths8217)
-  for more details.
-  - An (optional) boolean that controls where the code insertion happens:
-    - HTML head, by default (false)
-    - End of the body section (true)
-  - An (optional) integer to determine the ordering in which the files are
-    included in the rendered HTML. The default is `0`, any _lower_ value will
-    get inserted before, while any _higher_ value will get inserted later.
+ - An absolute path to the desired .js or .css file. Use the
+   `$app['paths']['app']` variable to always get the correct path, regardless of
+   how Bolt is installed. See the [Paths section in Internals](/internals/bolt-
+   internals#app8216paths8217) for more details.
+ - An (optional) boolean that controls where the code insertion happens:
+    - HTML head, by default (`false`)
+    - End of the body section (`true`)
+ - An (optional) integer to determine the ordering in which the files are
+   included in the rendered HTML. The default is `0`, any _lower_ value will get
+   inserted before, while any _higher_ value will get inserted later.
 
 Be careful though. If you insert dependant code before the relevant JavaScript
 itself, this will cause breakage.
@@ -218,10 +219,10 @@ function initialize()
 
 This will make sure jQuery is added to the outputted HTML, but only if it's not
 included by the theme developer already. It also will not be included more than
-once, even if several extensions have `addJquery()` in the `initialize()`-function. It
-will correctly detect jQuery if it's already present in the templates, whether
-the templates are using the minified version or not, and whether it's a local
-version or one that's hosted on a remote CDN.
+once, even if several extensions have `addJquery()` in the
+`initialize()`-function. It will correctly detect jQuery if it's already present
+in the templates, whether the templates are using the minified version or not,
+and whether it's a local version or one that's hosted on a remote CDN.
 
 The version of jQuery included will be the one that ships with Bolt. This will
 most likely be the most recent one, at the time of the release of the Bolt
@@ -301,8 +302,8 @@ function twigBar($var1, $var2)
 ```
 
 Since these are just regular Twig functions/filters, you should familiarize
-yourself with how Twig works. Read the chapter [Extending Twig](http://twig.sensiolabs.org/doc/advanced.html)
-in the Twig documentation.
+yourself with how Twig works. Read the chapter [Extending Twig][exttwig] in the
+Twig documentation.
 
 ### Using Twig functions in content records
 
@@ -323,14 +324,13 @@ public function isSafe()
 Note: You will _also_ need to set `allowtwig` to `true`, in your contenttype
 definition. If either one of them isn't set, the twig tag will not work inside
 the content. This way you have maximum control over where it works, and where it
-doesn't. See also 'Field Definitions' in the page
-'[Contenttypes and Records](/contenttypes-and-records#field-definitions)'.
+doesn't. See also 'Field Definitions' in the page '[Contenttypes and Records][ct+r]'.
 
 Adding storage events
 ---------------------
 
-These events are dispatched when content objects are saved or deleted.
-Currently there are 4 events defined:
+These events are dispatched when content objects are saved or deleted. Currently
+there are 4 events defined:
 
   - preSave - called before a content save
   - postSave - called after a content save
@@ -355,8 +355,6 @@ function postSave(\Bolt\StorageEvent $event)
     file_put_contents('storage.log', $entry, FILE_APPEND);
 }
 ```
-
-
 
 Using your own `config.yml` file
 --------------------------------
@@ -399,9 +397,9 @@ function foo()
 Overriding the default 'Content' class
 --------------------------------------
 
-Contenttypes can specify the class to be used for records of that
-contenttype. This is useful for when you have a specific contenttype, and you would
-like to provide extra functionality to that single contenttype.
+Contenttypes can specify the class to be used for records of that contenttype.
+This is useful for when you have a specific contenttype, and you would like to
+provide extra functionality to that single contenttype.
 
 An extension can then define that class, overriding / extending the default
 behaviour of `\Bolt\Content`.
@@ -440,6 +438,12 @@ Further reading
 ---------------
 
 If you want to delve deeper into what you can and cannot do with extensions, see
-the chapter on [Bolt internals](/internals/bolt-internals) for a detailed overview of the
-provided Bolt functionality, Silex objects and included libraries.
+the chapter on [Bolt internals](/internals/bolt-internals) for a detailed
+overview of the provided Bolt functionality, Silex objects and included
+libraries.
 
+[silex]: http://silex.sensiolabs.org
+[symfony]: http://symfony.com/components
+[psr2]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
+[exttwig]: http://twig.sensiolabs.org/doc/advanced.html
+[ct+r]: /contenttypes-and-records#field-definitions

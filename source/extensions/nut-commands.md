@@ -1,13 +1,15 @@
 Providing Nut Console Commands
 ==============================
 
-With your extension, you may want to provide console commands via Bolt's built-in 
-`nut` command.
+With your extension, you may want to provide console commands via Bolt's built-
+in `nut` command.
 
-#### Step 1: Create a Command Class
+Step 1: Create a Command Class
+------------------------------
 
-You should create a class for your extension that extends `Symfony\Component\Console\Command\Command`
-that should have both a minimum of `configure()` and `execute()` functions 
+You should create a class for your extension that extends
+`Symfony\Component\Console\Command\Command` that should have both a minimum of
+`configure()` and `execute()` functions
 
 ```
 namespace Bolt\Extensions\Author\ExtensionName;
@@ -59,16 +61,17 @@ class MyExtCommand extends Command
 }
 ```
 
-In the above example we've added an option `--summary` and an (optional) argument
-labelled `type`.
+In the above example we've added an option `--summary` and an (optional)
+argument labelled `type`.
 
 This can be called from your Bolt installation:
-    
+
 ```bash
 ./app/nut myext:doit [--summary] [type]
 ```
 
-#### Step 2: Call from inside your extension
+Step 2: Call from inside your extension
+---------------------------------------
 
 Finally you need only add a call to `addConsoleCommand()` and pass it a new
 instance of your Command class.
