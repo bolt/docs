@@ -1,14 +1,16 @@
 The command line utility Nut
 ============================
 
-Bolt comes with a small command line utility, named `nut`, that can be found in the
-`app/`-folder. If you are familiar with working on the commandline, you can some tasks
-like 'clearing the cache' or 'updating the database' without having to use the
-webinterface of Bolt. This utility is completely optional, so if you don't have access to
-the command line on your server, you're not missing out on any essential functionality.
-It's merely a convenient tool for those that do prefer the command line.
+Bolt comes with a small command line utility, named `nut`, that can be found in
+the `app/`-folder. If you are familiar with working on the commandline, you can
+some tasks like 'clearing the cache' or 'updating the database' without having
+to use the webinterface of Bolt. This utility is completely optional, so if you
+don't have access to the command line on your server, you're not missing out on
+any essential functionality. It's merely a convenient tool for those that do
+prefer the command line.
 
-Right now, there are a few basic commands, but we're going to add more and more over time.
+Right now, there are a few basic commands, but we're going to add more and more
+over time.
 
 When running `php app/nut` without any parameters, you'll see the help screen:
 
@@ -51,5 +53,5 @@ tests
   tests:run            Runs all available tests
 ```
 
-Run any of these commands, to perform their actions, like `php app/nut cache:clear`. 
+Run any of these commands, to perform their actions, like `php app/nut cache:clear`.
 

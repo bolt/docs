@@ -7,14 +7,13 @@ modern webserver:
   - PHP 5.3.3 or higher
   - Access to SQLite (which comes bundled with PHP 5.3), _or_ MySQL _or_
     PostgreSQL
-  - Apache with `mod_rewrite` <strong>enabled</strong> (`.htaccess` files) or Nginx (virtual host
-    configuration covered below)
+  - Apache with `mod_rewrite` <strong>enabled</strong> (`.htaccess` files) or
+    Nginx (virtual host configuration covered below)
 
 <p class="note"><strong>Note:</strong> Although PHP 5.3.3 is the absolutely
 minimum required version of Bolt, we strongly recommend a newer version, like
 PHP 5.5 or 5.6. These newer versions are not only safer, but your website will
-be significantly faster as well.
-</p>
+be significantly faster as well. </p>
 
 The PHP installation has a few additional requirements. On most servers these
 are default settings, and Bolt should work out-of-the-box.
@@ -24,8 +23,10 @@ are default settings, and Bolt should work out-of-the-box.
   - The cUrl extension
   - The GD Extension
 
-Note the following PHP modules are known to conflict with Bolt and must be disabled:
-  - Zend Guard Loader 
+Note the following PHP modules are known to conflict with Bolt and must be
+disabled:
+
+  - Zend Guard Loader
   - ionCube
 
 Browser requirements
@@ -47,5 +48,5 @@ Mobile browsers:
   - Chrome for Android
 
 <p class="note"><strong>Note:</strong> These requirements are completely
-separated for websites that are built with Bolt. The templates that Bolt
-uses, are developed the way you want them to be.</p>
+separated for websites that are built with Bolt. The templates that Bolt uses,
+are developed the way you want them to be.</p>
