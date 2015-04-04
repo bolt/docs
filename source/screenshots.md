@@ -17,7 +17,7 @@ Screenshot 2: The Dashboard overview screen.
 <img src="./files/screenshots/screenshot-2.png" width="660"></a><br>
 
 
-Screenshot 3: The "Omnisearch" searchbox, to search across the entire backend. 
+Screenshot 3: The "Omnisearch" searchbox, to search across the entire backend.
 <a href="./files/screenshots/screenshot-3.png" class="gallery-popup" title="Screenshot 3: The \"Omnisearch\" searchbox, to search across the entire backend.">
 <img src="./files/screenshots/screenshot-3.png" width="660"></a><br>
 
@@ -111,7 +111,7 @@ Screenshot iPhone 3: The Dashboard overview screen.
 <img src="./files/screenshots/iphone-3.png" width="320"></a><br>
 
 
-Screenshot iPhone 4: The menu on mobile. 
+Screenshot iPhone 4: The menu on mobile.
 <a href="./files/screenshots/iphone-4.png" class="gallery-popup" title="Screenshot iPhone 4: The menu on mobile.">
 <img src="./files/screenshots/iphone-4.png" width="320"></a><br>
 

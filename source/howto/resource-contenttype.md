@@ -11,7 +11,8 @@ any Contenttype, you can use any unique name.
 Creating the Contenttype
 ------------------------
 
-Firstly, in your `contenttypes.yml` file create a new Contenttype with the following parameters:
+Firstly, in your `contenttypes.yml` file create a new Contenttype with the
+following parameters:
 
 ```yaml
 resources:
@@ -43,7 +44,8 @@ Fields
 ### Title & Slug
 
 You will note that the title and slug fields work together to create a human
-readable resource name that we can use later in `{% setcontent resource = 'resources/slug' %}`.
+readable resource name that we can use later in `{% setcontent resource =
+'resources/slug' %}`.
 
 ### HTML
 
@@ -78,11 +80,13 @@ confined.
 
 ### Searchable
 
-By setting `searchable: false` these Contenttype records will be excluded from search results. 
+By setting `searchable: false` these Contenttype records will be excluded from
+search results.
 
 ### Viewless
 
-By setting `viewless: true`, routes will not be set for the Contenttype listing, or the records themselves.
+By setting `viewless: true`, routes will not be set for the Contenttype listing,
+or the records themselves.
 
 Permissions
 -----------
@@ -107,21 +111,22 @@ with the `root` and `developer` roles.
 Accessing Resource Records in Templates
 ---------------------------------------
 
-Accessing the resource records in a Twig template file is very easy: 
+Accessing the resource records in a Twig template file is very easy:
 
 ```twig
 {% setcontent resource = 'resources/my-resource-slug' %}
 {{ resource.html|raw }}
 ```
 
-## Example Configuration of a 404 Resource 
+## Example Configuration of a 404 Resource
 
-As a final example, lets step though creating a resource record for your 404 page.
+As a final example, lets step though creating a resource record for your 404
+page.
 
 First create a `Resource` record, give it the title of "Not Found", which will
 generate the slug of `not-found` and set the template to you themes 404 Twig
-template: 
-<a href="/files/howto-resource-contenttype-404.png"><img src="/files/howto-resource-contenttype-404.png"></a>
+template: <a href="/files/howto-resource-contenttype-404.png"><img src="/files
+/howto-resource-contenttype-404.png"></a>
 
 Next, in your `config.yml` file simply set the `notfound` key like so:
 

@@ -2,15 +2,14 @@ How To Use Bolt extensions
 ===========================
 
 The core functionality of Bolt can be extended by taking advantage of the rich
-ecosystem of extensions that are available on the <a href="https://extensions.bolt.cm">Bolt Marketplace</a>.
+ecosystem of extensions that are available on the [Bolt Marketplace][ext].
 
 Discovering Extensions
 ----------------------
 
-The <a href="https://extensions.bolt.cm">Bolt Extensions Marketplace</a> is the
-place to discover new extensions. You can search by name or keyword and also see
-what the most popular extensions are.
-
+The [Bolt Extensions Marketplace][ext] is the place to discover new extensions.
+You can search by name or keyword and also see what the most popular extensions
+are.
 
 Installing New Extensions
 ----------------------
@@ -32,21 +31,29 @@ The Extension installation form
 Checking for Updated Versions
 -----------------------------
 
-From time to time it's good practice to update any installed extensions, this allows developers to supply security updates along
-with added functionality. 
+From time to time it's good practice to update any installed extensions, this
+allows developers to supply security updates along with added functionality.
 
 <a href="/files/extensions-check-updates.png"><img src="/files/extensions-check-updates.png"></a>
 
-Using the check for updates button (as shown above) you can see a list of updates that are available and optionally install them
-one at a time. 
+Using the check for updates button (as shown above) you can see a list of
+updates that are available and optionally install them one at a time.
 
-Note that because installing updates will potentially affect the way your Bolt site functions then it is important that you test
-updated extensions on a staging version of the site to ensure that everything works correctly before you update on a production site.
+Note that because installing updates will potentially affect the way your Bolt
+site functions then it is important that you test updated extensions on a
+staging version of the site to ensure that everything works correctly before you
+update on a production site.
 
 Security of Extensions
 ------------------------
 
-It's important to remember that the majority of extensions are developed and maintained by third party developers and you should be
-careful about reviewing the source code (or asking somebody capable to review for you) before you install on your Bolt Site.
+It's important to remember that the majority of extensions are developed and
+maintained by third party developers and you should be careful about reviewing
+the source code (or asking somebody capable to review for you) before you
+install on your Bolt Site.
 
-If you think you have found a security bug you should contact both the developer of the extension along with the Bolt core team.
+If you think you have found a security bug you should contact both the developer
+of the extension along with the Bolt core team.
+
+
+[ext]: https://extensions.bolt.cm

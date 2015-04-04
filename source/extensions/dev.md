@@ -4,13 +4,14 @@ Set-up For Extension Development
 Basic Extension
 ---------------
 
-Set up a git repository and commit a `composer.json`, `init.php` and an `Extension.php`
+Set up a git repository and commit a `composer.json`, `init.php` and an
+`Extension.php`
 
-You want to define the namespace, correctly, that you want to use and any directories that
-are searched by the autoloader.
+You want to define the namespace, correctly, that you want to use and any
+directories that are searched by the autoloader.
 
-The important addition here is the `src/` to the PSR-4 path, this indicates where the
-autoloader will look for additional class files in your namespace
+The important addition here is the `src/` to the PSR-4 path, this indicates
+where the autoloader will look for additional class files in your namespace
 
 ```
 {
@@ -103,7 +104,7 @@ Change into your extensions directory and do the following:
 ```bash
 curl -sS https://getcomposer.org/installer | php -- --filename=composer
 ./composer update
-``` 
+```
 
 Your extension will now install from your git repo and build an autoloader.
- 
+

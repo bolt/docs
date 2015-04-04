@@ -89,8 +89,8 @@ curl -s http://getcomposer.org/installer | php
 php composer.phar install
 ```
 
-**Note:** The above example assumes that you want to use the `2.1.3` tag. Available 
-branches can displayed by executing the following command:
+**Note:** The above example assumes that you want to use the `2.1.3` tag.
+Available branches can displayed by executing the following command:
 
 ```bash
 git tag
@@ -353,14 +353,14 @@ server {
 
     # Don't create logs for robots.txt requests
     location = /robots.txt {
-        access_log off; 
-        log_not_found off; 
+        access_log off;
+        log_not_found off;
     }
-    
+
     # Don't create logs for favicon.ico requests
     location = /favicon.ico {
-        access_log off; 
-        log_not_found off; 
+        access_log off;
+        log_not_found off;
     }
 
     location ~ \.php$ {
@@ -370,7 +370,7 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param HTTPS off;
     }
-    
+
     # Don't allow PHP files to be called from upload, app, theme and extensions directories
     location ~* (?:/files/|/app/|/theme/|/extensions/?)(.*)\.php$ {
         deny all;
