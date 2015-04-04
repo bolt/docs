@@ -20,7 +20,7 @@ up before unpacking the Bolt 2 archive:
 ```bash
 cd /my/bolt/directory
 
-for d in classes resources src theme_defaults view; do 
-    rm -rf ./app/$d; 
+for d in classes resources src theme_defaults view; do
+    rm -rf ./app/$d;
 done
 ```

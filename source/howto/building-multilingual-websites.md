@@ -41,13 +41,13 @@ Table of Contents
 Defining Contenttypes
 ---------------------
 
-An important step when making websites, is to properly [define your contenttypes](/contenttypes-and-records).
-Since contenttypes are defined in YAML, there are some handy tricks you can
-apply. YAML provides node anchors (`&`) and references (`*`) for repeated nodes.
-So once the fields of a contenttype are defined, you can simply reference them.
-Be sure that the anchor is defined before it is used. See the use of
-`&pagefields` and `*pagefields` in the following example. Assume `en` is
-English, `nl` is Dutch, and `de` is German.
+An important step when making websites, is to properly [define your contenttypes
+](/contenttypes-and-records). Since contenttypes are defined in YAML, there are
+some handy tricks you can apply. YAML provides node anchors (`&`) and references
+(`*`) for repeated nodes. So once the fields of a contenttype are defined, you
+can simply reference them. Be sure that the anchor is defined before it is used.
+See the use of `&pagefields` and `*pagefields` in the following example. Assume
+`en` is English, `nl` is Dutch, and `de` is German.
 
 ```apache
 pages-en:
@@ -151,10 +151,8 @@ nl-pages:
 ```
 
 <p class="tip"><strong>Tip:</strong> Make use of comments in your
-<code>contenttypes.yml</code>, <code>routing.yml</code> and <code>menu.yml</code>
-to divide different sections.</p>
-
-
+<code>contenttypes.yml</code>, <code>routing.yml</code> and
+<code>menu.yml</code> to divide different sections.</p>
 
 Defining Menus
 --------------
@@ -182,10 +180,10 @@ extension.</p>
 Making Templates and Fetching Content
 -------------------------------------
 Probably, the most interesting part. It is best to make use of the powerful
-[Template Inheritance](http://twig.sensiolabs.org/doc/templates.html#template-inheritance),
-in Twig, where you define one master template — e.g. `master.twig` — that is
-extended by other pages. Start by determining the current language based on the
-URL and define all contenttypes and menus.
+[Template Inheritance](http://twig.sensiolabs.org/doc/templates.html#template-
+inheritance), in Twig, where you define one master template — e.g. `master.twig`
+— that is extended by other pages. Start by determining the current language
+based on the URL and define all contenttypes and menus.
 
 ```twig
 {% spaceless %}
@@ -253,9 +251,9 @@ nl-searchresults:
   defaults:           { _controller: 'Bolt\Controllers\Frontend::search' }
 ```
 
-In your template, use the following script to determine what the URL is for
-the search results page based on the current language. In your search form, set
-the `action` attribute to that URL.
+In your template, use the following script to determine what the URL is for the
+search results page based on the current language. In your search form, set the
+`action` attribute to that URL.
 
 ```twig
 {% set searchresultsurl = app.config.get('routing')[language ~ '-searchresults'].path %}
@@ -287,9 +285,8 @@ pagination with such a `setcontent` query. -->
 Internationalization of Templates
 ---------------------------------
 If your templates has some strings that do not directly depend on content, you
-will want to translate these as well. The
-<a href="https://github.com/bolt/labels">Labels</a> extension is made for
-this purpose.
+will want to translate these as well. The [Labels] extension is made for this
+purpose.
 
 In your `master.twig` template, set the current language for Labels:
 
@@ -510,3 +507,5 @@ There currently is no pagination on search results pages.
 - Need to do some extensive testing for some of these limitations.
 - Compare with different multilingual solutions of other CMS.
 -->
+
+[labels]: https://github.com/bolt/labels

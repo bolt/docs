@@ -1,14 +1,14 @@
 Installing Local Extensions
 ===========================
 
-Bolt 2 supports installation of extensions that are not included on Bolt's
+Bolt supports installation of extensions that are not included on Bolt's
 extensions site.
 
 There are a couple of caveats:
 
   - There is no autoloader by default
   - Must be located in `{web_root}/extensions/local/{author_name}/{extension_name}/`
-  - They **will** be automatically enabled if the directories above exist and 
+  - They **will** be automatically enabled if the directories above exist and
     contain `init.php` and `Extension.php`
   - They **will not** appear in the Extend page in the *"Your Currently
     Installed Extensions"* section on your Bolt site
@@ -16,7 +16,7 @@ There are a couple of caveats:
 Step 1
 ------
 
-Create the directory for you extension in `{web_root}/extensions/local/{author_name}/{extension_name}/` 
+Create the directory for you extension in `{web_root}/extensions/local/{author_name}/{extension_name}/`
 
 Where:
  - `{web_root}` is the install location of your Bolt site
