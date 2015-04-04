@@ -36,6 +36,7 @@ extending:
   extensions/essentials: "The Basics of Extensions"
   extensions/customfields: "Providing New Field Types"
   extensions/testing: "Testing Your Extensions"
+  extensions/unit-testing: "Writing Unit Tests for Extensions"
   extensions/nut-commands: "Providing Nut Console Commands"
 
 internals:
@@ -44,6 +45,7 @@ internals:
   internals/contributing: "Contributing to Bolt"
   internals/code-quality: "Code Quality"
   internals/task-scheduler: "Task Scheduler (cron)"
+  internals/release-process: "Our Release Process"
 
 other:
   "": Other Information

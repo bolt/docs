@@ -84,12 +84,12 @@ For a execute the following commands:
 ```bash
 git clone git://github.com/bolt/bolt.git bolt
 cd bolt
-git checkout v2.0.6
+git checkout v2.1.3
 curl -s http://getcomposer.org/installer | php
 php composer.phar install
 ```
 
-**Note:** The above example assumes that you want to use the `2.0.6` tag.
+**Note:** The above example assumes that you want to use the `2.1.3` tag.
 Available branches can displayed by executing the following command:
 
 ```bash
@@ -351,8 +351,17 @@ server {
         add_header Cache-Control "public, mustrevalidate, proxy-revalidate";
     }
 
-    location = /robots.txt { access_log off; log_not_found off; }
-    location = /favicon.ico { access_log off; log_not_found off; }
+    # Don't create logs for robots.txt requests
+    location = /robots.txt {
+        access_log off;
+        log_not_found off;
+    }
+
+    # Don't create logs for favicon.ico requests
+    location = /favicon.ico {
+        access_log off;
+        log_not_found off;
+    }
 
     location ~ \.php$ {
         fastcgi_pass 127.0.0.1:9000;
@@ -360,6 +369,11 @@ server {
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param HTTPS off;
+    }
+
+    # Don't allow PHP files to be called from upload, app, theme and extensions directories
+    location ~* (?:/files/|/app/|/theme/|/extensions/?)(.*)\.php$ {
+        deny all;
     }
 
     location ~ /\.ht {
@@ -378,14 +392,12 @@ server {
         deny all;
     }
 
-    location ~ \.yml$ {
+    # Block access to YAML & Twig files directly
+    location ~* /(?:theme|app)/.*.(yml|twig)$ {
         deny all;
     }
 
-    location ~ \.twig$ {
-        deny all;
-    }
-
+    # Block access to Markdown files directly
     location ~ \.md$ {
         deny all;
     }

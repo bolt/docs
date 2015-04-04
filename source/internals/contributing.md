@@ -46,6 +46,30 @@ Github projects):
 - Now the waiting begins until your pull request is reviewed. This will result in the pull
   request either being discussed, accepted or rejected.
 
+Creating a new feature
+----------------------
+
+For a new feature there is a three step process:
+
+*Note*: This obviously doesn't include bug fixes
+
+##### Step 1 - RFC submission
+Create a GitHub issue with the prefix of `[RFC]` in the subject line.
+
+Describe:
+- What the feature is
+- What the impacts are
+
+##### Step 2 - RFC moved to Roadmap
+
+Once approved, a core team member will add the feature and contributor's GitHub handle to 
+the [Roadmap](https://github.com/bolt/bolt/wiki/Bolt-2.x-Roadmap) wiki page
+
+##### Step 3 - Feature implemented and merged into version `-next`
+
+Once the feature window is open the contributor can submit a PR for review and merging.
+
+
 Step by step guide to forking, branching and pushing
 ----------------------------------------------------
 
