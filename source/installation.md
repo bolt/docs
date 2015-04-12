@@ -323,27 +323,25 @@ server {
     root /home/mycoolsite.com/public_html;
     index index.php;
 
+    # The main Bolt website
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
+    # Generated thumbnail images
     location ~* /thumbs/(.*)$ {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
-    location ~* /async/(.*)$ {
-        try_files $uri $uri/ /index.php?$query_string;
-    }
-
-    location /app/classes/upload {
-        try_files $uri $uri/ /app/classes/upload/index.php?$query_string;
-    }
-
-    # If you set a custom branding path, you will need to change '/bolt/' here to match
+    # Bolt backend access
+    #
+    # NOTE: If you set a custom branding path, you will need to change '/bolt/' 
+    #       here to match
     location ~* /bolt/(.*)$ {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
+    # Enforce caching for certain file extension types
     location ~* \.(?:ico|css|js|gif|jpe?g|png|ttf|woff|woff2)$ {
         access_log off;
         expires 30d;
@@ -351,16 +349,30 @@ server {
         add_header Cache-Control "public, mustrevalidate, proxy-revalidate";
     }
 
-    # Don't create logs for robots.txt requests
-    location = /robots.txt {
+    # Don't create logs for favicon.ico or robots.txt requests
+    location = /(?:favicon.ico|robots.txt) {
         access_log off;
         log_not_found off;
     }
 
-    # Don't create logs for favicon.ico requests
-    location = /favicon.ico {
-        access_log off;
-        log_not_found off;
+    # Block PHP files from being run in upload (files), app, theme and extension directories
+    location ~* /(?:app|extensions|files|theme)/(.*)\.php$ {
+        deny all;
+    }
+
+    # Block access to Sqlite database files, Apache .htaccess & .htpasswd files
+    location ~ \.(?:db|htaccess|htpasswd)$ {
+        deny all;
+    }
+
+    # Block access to the app, cache & vendor directories
+    location ~ /(?:app|src|tests|vendor) {
+        deny all;
+    }
+
+    # Block access to Markdown, Twig & YAML files directly
+    location ~* /(.*)\.(?:markdown|md|twig|yaml|yml)$ {
+        deny all;
     }
 
     location ~ \.php$ {
@@ -369,37 +381,6 @@ server {
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param HTTPS off;
-    }
-
-    # Don't allow PHP files to be called from upload, app, theme and extensions directories
-    location ~* (?:/files/|/app/|/theme/|/extensions/?)(.*)\.php$ {
-        deny all;
-    }
-
-    location ~ /\.ht {
-        deny all;
-    }
-
-    location /app {
-        deny all;
-    }
-
-    location ~ /vendor {
-        deny all;
-    }
-
-    location ~ \.db$ {
-        deny all;
-    }
-
-    # Block access to YAML & Twig files directly
-    location ~* /(?:theme|app)/.*.(yml|twig)$ {
-        deny all;
-    }
-
-    # Block access to Markdown files directly
-    location ~ \.md$ {
-        deny all;
     }
 }
 ```
