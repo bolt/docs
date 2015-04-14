@@ -144,6 +144,20 @@ AllowOverride option is enabled.
 <p class="tip"><strong>Tip:</strong> The Bolt backend is located at
 <code>/bolt</code>, relative from the 'home' location of your website.</p>
 
+After the installation: where the important files are located
+-------------------------------------------------------------
+When the basic installation is finished, these are the files where you edit the Bolt configuration to build your website according to your specifications. All files use the same .yml syntax, and can also be edited via the Bolt backend.
+
+  - `app/config/config.yml`  The file where all general configuration of your website is defined.
+  - `app/config/contenttypes.yml` The definitions of your contenttypes, e.g. pages, blog items etc.
+  - `app/config/menu.yml` The file that contains the menu(s) for your website.  
+  - `app/config/taxonomy.yml` Categories, chapters, tags etc. are defined here.
+  - `app/config/routing.yml` The file where you can define custom urls for you website. 
+  - `app/config/permissions.yml` Here you can specify groups, users, etc. For most websites, the default permissions settings will be just fine.
+  - `app/config/extensions/` If you install extensions, their config files will be located in this directory.
+
+  - `theme/` Make a new directory here where you can put your own templates.
+
 
 Configuring the Database
 ------------------------
