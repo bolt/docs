@@ -77,6 +77,11 @@ and adjust where needed.
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <blacklist>
+            <directory>vendor</directory>
+        </blacklist>
+    </filter>
 </phpunit>
 ```
 
