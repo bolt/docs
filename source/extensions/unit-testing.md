@@ -82,10 +82,24 @@ and adjust where needed.
             <directory>vendor</directory>
         </blacklist>
     </filter>
+    <listeners>
+        <listener file="vendor/bolt/bolt/tests/phpunit/BoltListener.php" class="Bolt\Tests\BoltListener">
+           <arguments>
+              <boolean>true</boolean>
+              <boolean>true</boolean>
+              <boolean>true</boolean>
+              <string>vendor/bolt/bolt/theme/base-2014</string>
+           </arguments>
+        </listener>
+    </listeners>
 </phpunit>
 ```
 
-You can note we refer to a test-bootsrap.php file that doesn't exist yet.
+**Note:** We refer to a `tests/bootsrap.php` file that doesn't exist yet.
+
+**Note:** The listener is optional, it will copy in an Sqlite database with table 
+structure matching current Bolt tests, and it will also copy in the specified 
+theme, which is helpful if you're writing UI tests. 
 
 Step 3: Create a bootstrap.php file
 -----------------------------------
