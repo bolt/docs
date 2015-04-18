@@ -538,6 +538,36 @@ p.tip {
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
+p.meta {
+    background-color: #acacac;
+    color: #111 !important;
+    border: 1px solid #888;
+    margin-bottom: 20px;
+    padding: 8px 35px 8px 14px;
+    text-shadow: 0 1px 0 rgba(10, 10, 10, 0.1);
+    padding-left:60px;
+    position: relative;
+}
+p.meta:before {
+    content: "\f192";
+    font-family: 'FontAwesome';
+    display:table-cell;
+    font-size:250%;
+    position:absolute;
+    left:15px;
+    top:-1px;
+}
+p.meta a {
+    color:#000;
+    font-weight:bold;
+    text-decoration: none;
+    border:0;
+}
+p.meta.deprecation {
+    background-color:#d19ba4;
+    border-color:#ba5d6c;
+}
+
 pre {
     width: 800px;
     margin: 20px 0;
@@ -643,6 +673,13 @@ h4:hover a.anchor {
             background-color: #999;
         }
 
+    }
+    
+    a.button.docsintro.layer {
+        &:before {
+            content:"";
+            margin-right: 0px;
+         }
     }
 
     div.docsintro {
