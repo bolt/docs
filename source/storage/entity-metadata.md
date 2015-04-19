@@ -27,5 +27,5 @@ It's important to note that this metadata driver also typehints against `Doctrin
 This method returns all the metadata for a given class name, for example:
 
 ```
-$meta = $app['storage,etadata']->getClassMetadata('Bolt\Entity\User');
+$meta = $app['storage.metadata']->getClassMetadata('Bolt\Entity\User');
 ```
