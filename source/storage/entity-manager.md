@@ -19,13 +19,11 @@
 
 ## Overview
 
-The Bolt Entity Manager manages access to the various layers of the Bolt storage system. It does this mainly
-by delegating to Repository classes which have the primary responsibility of interacting with the database.
+The Bolt Entity Manager manages access to the various layers of the Bolt storage system. It does this mainly by delegating to Repository classes which have the primary responsibility of interacting with the database.
 
 At a conceptual level a Repository will normally interact with a single table of the storage system, for instance a UserRepository will look after fetching, updating and deleting User entities to the `bolt_user` table in the database. 
 
-Since the EntityManager sits above the next layer of repositories then most methods on the Entity Manager 
-or `$app['storage]'` will simply pass the request on to the relevant repository class.
+Since the EntityManager sits above the next layer of repositories then most methods on the Entity Manager or `$app['storage]'` will simply pass the request on to the relevant repository class.
 
 
 ### getRepository($entity)
@@ -35,12 +33,9 @@ $repo = $app['storage']->getRepository('Bolt\Entity\User');
 $repo = $app['storage']->getRepository('users');
 ```
 
-As shown in the usage above, getRepository is used to select a repository instance for an Entity.
-Primarily the variable passed in is a fully qualified entity name, although there is also support 
-for aliases whereby a short name can be aliased to the fully qualified name.
+As shown in the usage above, getRepository is used to select a repository instance for an Entity. Primarily the variable passed in is a fully qualified entity name, although there is also support  for aliases whereby a short name can be aliased to the fully qualified name.
 
-The object returned will typehint against `Bolt\Storage\Repository` although it is more likely to be
-an Entity specific repository such as `UserRepository`, `ContentRepository` etc.
+The object returned will typehint against `Bolt\Storage\Repository` although it is more likely to be an Entity specific repository such as `UserRepository`, `ContentRepository` etc.
 
 
 ### setRepository($entity, $repositoryClass)
@@ -49,11 +44,9 @@ an Entity specific repository such as `UserRepository`, `ContentRepository` etc.
 $repo = $app['storage']->setRepository('Bolt\Entity\User', 'Myapp\Storage\UserRepository');
 ```
 
-In any larger Bolt application you will run into occasions where you want to write your own database
-interactions and for optimum reusability this will usually belong in the repository layer.
+In any larger Bolt application you will run into occasions where you want to write your own database interactions and for optimum reusability this will usually belong in the repository layer.
 
-The `setRepository` command allows easy swapping out of Repository providers for a given entity. Subsequent
-calls to `getRepository` will return an instance of the new Repository class rather than what was set previously.
+The `setRepository` command allows easy swapping out of Repository providers for a given entity. Subsequent calls to `getRepository` will return an instance of the new Repository class rather than what was set previously.
 
 ### createQueryBuilder()
 
@@ -61,11 +54,7 @@ calls to `getRepository` will return an instance of the new Repository class rat
 $qb = $app['storage']->createQueryBuilder();
 ```
 
-Apart from very basic queries, which can use the simpler finder methods, the primary method of
-querying the database is via a QueryBuilder instance. This method fetches a clean instance that is
-not restricted to any specific table. You will ordinarily use this when you need to do a multi-table
-query, wherever possible you should call the same method on the repository where the query will
-be pre-selected to a specific table.
+Apart from very basic queries, which can use the simpler finder methods, the primary method of querying the database is via a QueryBuilder instance. This method fetches a clean instance that is not restricted to any specific table. You will ordinarily use this when you need to do a multi-table query, wherever possible you should call the same method on the repository where the query will be pre-selected to a specific table.
 
 ### find($entity, $id)
 
