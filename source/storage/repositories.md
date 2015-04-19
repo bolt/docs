@@ -45,7 +45,7 @@ $qb = $repo->createQueryBuilder();
 
 Apart from more basic queries, which can use the simpler finder methods, the primary method of querying the database is via a QueryBuilder instance. This method fetches an instance of `QueryBuilder` that is preset to select on the managed storage table.
 
-The returned instance is always an object of type `Doctrine\DBAL\Query\QueryBuilder` - much more indepth documentation for using this <a href="http://doctrine-dbal.readthedocs.org/en/latest/reference/query-builder.html">can be found here</a>.
+The returned instance is always an object of type `Doctrine\DBAL\Query\QueryBuilder` - much more in-depth documentation for using this <a href="http://doctrine-dbal.readthedocs.org/en/latest/reference/query-builder.html">can be found here</a>.
 
 Once you have finished building your query then you can fetch results by calling `->execute()` followed by one of `->fetch()` or `->fetchAll()`.
 
