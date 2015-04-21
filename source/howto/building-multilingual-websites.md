@@ -363,7 +363,7 @@ languages to locales.
 Set the correct locale and call the function `initLocale` to apply a new locale.
 
 ```
-{{ app.config.set('general/locale', locales[language]) }}
+{% set ret = app.config.set('general/locale', locales[language]) %}
 {{ app.initLocale() }}
 ```
 

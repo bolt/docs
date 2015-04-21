@@ -31,7 +31,7 @@ Boilerplate for Multilingual Websites
 
 {# --- set the locale for international dates --- #}
 
-{{ app.config.set('general/locale', locales[language]) }}
+{% set ret = app.config.set('general/locale', locales[language]) %}
 {{ app.initLocale() }}
 
 {# --- set the language for the Labels extension --- #}
