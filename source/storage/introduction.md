@@ -6,14 +6,14 @@
     <a href="../content-fetching">please see here</a> for usage in older versions.
 </p>
 
-## Heirarchy of Storage in Bolt
+## Hierarchy of Storage in Bolt
 
 There is a single point of entry for all storage interactions within Bolt and this is usually
 accessible with a call to `$app['storage']`. If you implement your own controllers, which is
 normally recommended when you want control over content fetching, then any queries that you
 would like to make can be accessed through this object.
 
-The basic heirarchy of the storage layer is described below, and clicking through gives a 
+The basic hierarchy of the storage layer is described below, and clicking through gives a 
 much more indepth description of the functionality of each layer.
 
 <a class="button large expand docsintro layer" href="./entity-manager">
