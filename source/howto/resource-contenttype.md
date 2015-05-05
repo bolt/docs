@@ -133,3 +133,8 @@ Next, in your `config.yml` file simply set the `notfound` key like so:
 ```yaml
 notfound: resources/not-found
 ```
+
+Important to mention only dynamically routed pages (that have `contenttype`
+entry in `contenttypes.yml`) can be configured as `not-found` page,
+pages routed with `Bolt\Controllers\Frontend::template` can't be
+used as 404 handler currently.
