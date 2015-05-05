@@ -312,10 +312,11 @@ The following fieldtypes are available:
     with an underscore. If a specific template is not chosen in the record
     editor, the record will be rendered with the default template for that
     contenttype.
-  - `image`: Simple image upload/select field. Currently takes one optional
-    attribute (attrib:) parameter 'title' — this will allow you to specify text
-    that you can call in your templates to retreive either/or captions or alt
-    text for your image layout.
+  - `image`: Simple image upload/select field. Currently takes an optional attribute
+    (attrib:) parameter `title` — this will allow you to specify text that you can call
+    in your templates to retreive either/or captions or alt text for your image layout.
+    Valid options for the attributes are `title`, `alt` and `[ title, alt]`. You can
+    retrieve these attributes in your templates using `{{ record.values.image.title }}`.
 ```apache
     image:
         type: image
