@@ -258,8 +258,8 @@ associated with it, you'll be politely notified that you need to save and refres
 these changes to take effect. If this is already the template for a record, this will
 happen automatically.
 
-<a href="/bolt-docs/files/templatefields-notification.png" class="popup">
-<img src="/bolt-docs/files/templatefields-notification.png" alt="Templatefields Notification" width="500" />
+<a href="/files/templatefields-notification.png" class="popup">
+<img src="/files/templatefields-notification.png" alt="Templatefields Notification" width="500" />
 </a>
 
 Then you will be able to go to the `Template` section of the record editing and change
