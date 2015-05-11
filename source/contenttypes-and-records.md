@@ -688,3 +688,67 @@ as a generic fallback for whatever the name of your record is.
 
 For detailed information on how to access the various fields and values in your
 templates, see the [Template tags](/templatetags) page.
+
+Advanced: YAML Repeated Nodes
+-----------------------------
+
+<p class="meta">
+    <strong>Bolt 2.2+</strong><br>
+    The following functionality is only available in Bolt 2.2 and later.
+</p>
+
+In order to make your Contenttype definitions more compact, and consistent, you
+can use YAML repeated nodes. Bolt has a special YAML key called `__nodes` that 
+it will use only for repeated nodes, and not create a Contenttype or table for. 
+These nodes then become selectable in a Contenttype definition.
+
+Each node is defined by an `key_name: &node_name` with the fields then included,
+and indented below.
+
+```apache
+## Defaults nodes. Does not create a Contenttype
+__nodes:
+    record_defaults: &record_defaults
+        title:
+            type: text
+            class: large
+            group: main
+        slug:
+            type: slug
+            uses: title
+    content_defaults: &content_defaults
+        image:
+            type: image
+            attrib: title
+        body:
+            type: html
+            height: 300px
+            group: content
+    template_defaults: &template_defaults
+        template:
+            type: templateselect
+            filter: '*.twig'
+            group: meta
+```
+
+In the above example, we have the `record_defaults` node that defines `title`
+and `slug` fields, a `content_defaults` node that defines the `image` and `body`
+fields, and a `template_defaults` node that defines our template selector.
+
+Using the above nodes we could simplify a default `Pages` Contenttype to look
+like this:
+
+```apache
+pages:
+    name: Pages
+    singular_name: Page
+    fields:
+        <<: *record_defaults
+        teaser:
+            type: html
+            height: 150px
+        <<: *content_defaults
+        <<: *template_defaults
+    taxonomy: [ chapters ]
+    recordsperpage: 100
+```
