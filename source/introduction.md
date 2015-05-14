@@ -56,4 +56,8 @@ Extending Bolt<br>
 Bolt Internals<br>
 <small>Under the hood, contributing, coding standards</small>
 </a>
+<a href="/namespaces/index.html" class="button medium docsintro">
+Namespaces<br>
+<small>Useful directory with trees of classes.</small>
+</a>
 </div>
