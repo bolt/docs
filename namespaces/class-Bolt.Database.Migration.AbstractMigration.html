@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Bolt\Database\Migration\AbstractMigration</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Bolt.html">
+						Bolt<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Composer.html">
+						Composer<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Composer.Action.html">
+						Action					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Bolt.Configuration.html">
+						Configuration					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Controllers.html">
+						Controllers					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-Bolt.Database.html">
+						Database<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Bolt.Database.Migration.html">
+						Migration<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Database.Migration.Input.html">
+						Input					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Database.Migration.Output.html">
+						Output					</a>
+
+						</li>
+							</ul></li></ul></li>
+				<li>
+					<a href="namespace-Bolt.DataCollector.html">
+						DataCollector					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Events.html">
+						Events					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Exception.html">
+						Exception					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Extension.html">
+						Extension<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Extension.Bolt.html">
+						Bolt<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Extension.Bolt.TesterEvents.html">
+						TesterEvents					</a>
+
+						</li>
+							</ul></li></ul></li>
+				<li>
+					<a href="namespace-Bolt.Extensions.html">
+						Extensions<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Extensions.Snippets.html">
+						Snippets					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Bolt.Field.html">
+						Field					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Filesystem.html">
+						Filesystem<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Filesystem.Plugin.html">
+						Plugin					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Bolt.Helpers.html">
+						Helpers					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Logger.html">
+						Logger<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Logger.Handler.html">
+						Handler					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Bolt.Nut.html">
+						Nut					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Provider.html">
+						Provider					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Response.html">
+						Response					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Routing.html">
+						Routing					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Storage.html">
+						Storage					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.html">
+						Tests<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Tests.Cache.html">
+						Cache					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Composer.html">
+						Composer<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Tests.Composer.Action.html">
+						Action					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Bolt.Tests.Configuration.html">
+						Configuration<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Tests.Configuration.Mock.html">
+						Mock					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Bolt.Tests.Content.html">
+						Content					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Controller.html">
+						Controller					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.DataCollector.html">
+						DataCollector					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Events.html">
+						Events					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Extensions.html">
+						Extensions<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Tests.Extensions.Mock.html">
+						Mock					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Bolt.Tests.Field.html">
+						Field					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.FilePermissions.html">
+						FilePermissions					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Filesystem.html">
+						Filesystem<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Bolt.Tests.Filesystem.Plugin.html">
+						Plugin					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Bolt.Tests.Helper.html">
+						Helper					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Library.html">
+						Library					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Logger.html">
+						Logger					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Mocks.html">
+						Mocks					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Nut.html">
+						Nut					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Provider.html">
+						Provider					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Response.html">
+						Response					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Stack.html">
+						Stack					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Storage.html">
+						Storage					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Translation.html">
+						Translation					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Twig.html">
+						Twig					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Tests.Users.html">
+						Users					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Bolt.Translation.html">
+						Translation					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Bolt.Twig.html">
+						Twig					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Codeception.html">
+						Codeception<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Codeception.Module.html">
+						Module					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-None.html">
+						None					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Sirius.html">
+						Sirius<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Sirius.Upload.html">
+						Upload<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Sirius.Upload.Container.html">
+						Container					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Bolt.Database.Migration.AbstractMigration.html">AbstractMigration</a></li>
+				<li><a href="class-Bolt.Database.Migration.Export.html">Export</a></li>
+				<li><a href="class-Bolt.Database.Migration.Import.html">Import</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Bolt.Database.Migration.html" title="Summary of Bolt\Database\Migration"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AbstractMigration</h1>
+
+
+	<div class="description">
+	<p>Abstract base class for database import/export</p>
+	</div>
+
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Bolt.Database.Migration.Export.html">Bolt\Database\Migration\Export</a>, 
+			<a href="class-Bolt.Database.Migration.Import.html">Bolt\Database\Migration\Import</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br>
+		
+		<b>Namespace:</b> <a href="namespace-Bolt.html">Bolt</a>\<a href="namespace-Bolt.Database.html">Database</a>\<a href="namespace-Bolt.Database.Migration.html">Migration</a><br>
+		
+
+				<b>Author:</b>
+				Gawain Lynch <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#103;a&#x77;&#x61;&#x69;&#x6e;&#46;&#108;&#121;&#110;c&#x68;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;c&#x6f;&#x6d;">&#103;a&#x77;&#x61;&#x69;&#x6e;&#46;&#108;&#121;&#110;c&#x68;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;c&#x6f;&#x6d;</a><br>
+			<b>Located at</b> <a href="source-class-Bolt.Database.Migration.AbstractMigration.html#11-339" title="Go to source code">src/Database/Migration/AbstractMigration.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#48-57" title="Go to source code">__construct</a>( <span><code><a href="class-Bolt.Application.html">Bolt\Application</a></code> <var>$app</var></span> )</code>
+
+		<div class="description short">
+			<p>Constructor.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Constructor.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$app</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getError" id="_getError">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getError">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#59-67" title="Go to source code">getError</a>( )</code>
+
+		<div class="description short">
+			<p>Get the error state.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the error state.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setError" id="_setError">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setError">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#69-81" title="Go to source code">setError</a>( <span>boolean <var>$error</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the error state.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the error state.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$error</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getErrorMessages" id="_getErrorMessages">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getErrorMessages">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#83-91" title="Go to source code">getErrorMessages</a>( )</code>
+
+		<div class="description short">
+			<p>Get the error messages.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the error messages.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setErrorMessage" id="_setErrorMessage">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setErrorMessage">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#93-105" title="Go to source code">setErrorMessage</a>( <span>string <var>$errorMessage</var></span> )</code>
+
+		<div class="description short">
+			<p>Add an error message to the error queue.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add an error message to the error queue.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$errorMessage</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getWarning" id="_getWarning">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getWarning">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#107-115" title="Go to source code">getWarning</a>( )</code>
+
+		<div class="description short">
+			<p>Get the warning state.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the warning state.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setWarning" id="_setWarning">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setWarning">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#117-129" title="Go to source code">setWarning</a>( <span>boolean <var>$warning</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the warning state.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the warning state.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$warning</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getWarningMessages" id="_getWarningMessages">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getWarningMessages">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#131-139" title="Go to source code">getWarningMessages</a>( )</code>
+
+		<div class="description short">
+			<p>Get the warning messages.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the warning messages.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setWarningMessage" id="_setWarningMessage">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setWarningMessage">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#141-153" title="Go to source code">setWarningMessage</a>( <span>string <var>$warningMessage</var></span> )</code>
+
+		<div class="description short">
+			<p>Add an warning message to the warning queue.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add an warning message to the warning queue.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$warningMessage</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getNotice" id="_getNotice">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getNotice">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#155-163" title="Go to source code">getNotice</a>( )</code>
+
+		<div class="description short">
+			<p>Get the notice state.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the notice state.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setNotice" id="_setNotice">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setNotice">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#165-177" title="Go to source code">setNotice</a>( <span>boolean <var>$notice</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the notice state.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the notice state.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$notice</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getNoticeMessages" id="_getNoticeMessages">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getNoticeMessages">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#179-187" title="Go to source code">getNoticeMessages</a>( )</code>
+
+		<div class="description short">
+			<p>Get the notice messages.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the notice messages.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setNoticeMessage" id="_setNoticeMessage">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setNoticeMessage">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#189-201" title="Go to source code">setNoticeMessage</a>( <span>string <var>$noticeMessage</var></span> )</code>
+
+		<div class="description short">
+			<p>Add an notice message to the notice queue.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add an notice message to the notice queue.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$noticeMessage</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMigrationFiles" id="_setMigrationFiles">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMigrationFiles">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#203-235" title="Go to source code">setMigrationFiles</a>( <span>string|array <var>$files</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the migration files.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the migration files.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$files</var></dt>
+					<dd>File(s)</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="checkMigrationFilesExist" id="_checkMigrationFilesExist">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkMigrationFilesExist">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#253-278" title="Go to source code">checkMigrationFilesExist</a>( <span>string <var>$migration</var></span> )</code>
+
+		<div class="description short">
+			<p>Test if the migration files are in an appropriate state for the migration
+type.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Test if the migration files are in an appropriate state for the migration
+type.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$migration</var></dt>
+					<dd>Type of migration, either 'import' or 'export'</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="checkMigrationFilesValid" id="_checkMigrationFilesValid">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkMigrationFilesValid">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#280-313" title="Go to source code">checkMigrationFilesValid</a>( <span>boolean <var>$exists</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>Determine if file(s) specified exist and have a valid extension</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Determine if file(s) specified exist and have a valid extension</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$exists</var></dt>
+					<dd>If true, then test that the file exists</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="checkMigrationFilesWriteable" id="_checkMigrationFilesWriteable">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkMigrationFilesWriteable">#</a>
+		<code><a href="source-class-Bolt.Database.Migration.AbstractMigration.html#315-338" title="Go to source code">checkMigrationFilesWriteable</a>( )</code>
+
+		<div class="description short">
+			<p>Determine if file(s) specified can be writen to.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Determine if file(s) specified can be writen to.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Bolt.Database.Migration.AbstractMigration.html">Bolt\Database\Migration\AbstractMigration</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="app" id="$app">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Bolt.Application.html">Bolt\Application</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Bolt.Database.Migration.AbstractMigration.html#18-19" title="Go to source code"><var>$app</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$app" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="fs" id="$fs">
+		<td class="attributes"><code>
+			protected  
+			Symfony\Component\Filesystem\Filesystem
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Bolt.Database.Migration.AbstractMigration.html#21-22" title="Go to source code"><var>$fs</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$fs" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="error" id="$error">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Bolt.Database.Migration.AbstractMigration.html#24-25" title="Go to source code"><var>$error</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$error" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="errorMessages" id="$errorMessages">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Bolt.Database.Migration.AbstractMigration.html#27-28" title="Go to source code"><var>$errorMessages</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$errorMessages" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="warning" id="$warning">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Bolt.Database.Migration.AbstractMigration.html#30-31" title="Go to source code"><var>$warning</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$warning" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="warningMessages" id="$warningMessages">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Bolt.Database.Migration.AbstractMigration.html#33-34" title="Go to source code"><var>$warningMessages</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$warningMessages" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="notice" id="$notice">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Bolt.Database.Migration.AbstractMigration.html#36-37" title="Go to source code"><var>$notice</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$notice" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="noticeMessages" id="$noticeMessages">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Bolt.Database.Migration.AbstractMigration.html#39-40" title="Go to source code"><var>$noticeMessages</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$noticeMessages" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="validExtensions" id="$validExtensions">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Bolt.Database.Migration.AbstractMigration.html#42-43" title="Go to source code"><var>$validExtensions</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$validExtensions" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>(<span class="php-quote">'json'</span>, <span class="php-quote">'yaml'</span>, <span class="php-quote">'yml'</span>)</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="files" id="$files">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Bolt.Database.Migration.AbstractMigration.html#45-46" title="Go to source code"><var>$files</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$files" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
