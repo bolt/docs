@@ -13,6 +13,12 @@ the components:
 	git clone git://github.com/bolt/docs.git bolt-docs
 	cd bolt-docs
 	curl -s http://getcomposer.org/installer | php
- 	php composer.phar install
+	php composer.phar install
+
+The documenation uses the [markdown](http://daringfireball.net/projects/markdown/) format.
+There is no need to build anything to generate HTML. We parse the markdown with PHP.
+Just serve it directly e.g. with the builtin PHP web server: 
+
+	php -S localhost:8888
 
 More detailed instructions can be found in the [Setup section in the documentation](http://docs.bolt.cm/installation).
