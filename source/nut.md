@@ -30,27 +30,39 @@ Options:
   --no-interaction -n Do not ask any interactive question.
 
 Available commands:
-  browscap             Update our local browscap files.
-  extensions           Lists all installed extensions, and whether they're enabled or disabled.
+  _completion          BASH completion hook.
+  cron                 Cron virtual daemon
+  extensions           Lists all installed extensions
   help                 Displays help for a command
   info                 Display phpinfo().
   list                 Lists commands
-cache
+ cache
   cache:clear          Clear the cache
-config
+ config
   config:get           Get a value from config.yml.
   config:set           Set a value in config.yml.
-database
+ database
   database:check       Check the database for missing tables and/or columns.
+  database:export      [EXPERIMENTAL] Export the database records to a YAML or JSON file.
+  database:import      [EXPERIMENTAL] Import database records from a YAML or JSON file
+  database:prefill     Pre-fill the database Lorem Ipsum records
   database:update      Repair and/or update the database.
-extensions
-  extensions:disable   Disables an extension.
-  extensions:enable    Enables an extension.
-log
-  log:clear            Clear (truncate) the activitylog.
-  log:trim             Trim the activitylog to recent/important items only.
-tests
+ extensions
+  extensions:disable   Uninstalls an extension.
+  extensions:enable    Installs an extension by name and version.
+  extensions:install   Installs an extension by name and version.
+  extensions:uninstall Uninstalls an extension.
+ log
+  log:clear            Clear (truncate) the system & change logs.
+  log:trim             Trim the system & change logs.
+ role
+  role:add             Add a certain role to a user.
+  role:remove          Remove a certain role from a user.
+ tests
   tests:run            Runs all available tests
+ user
+  user:add             Add a new user.
+  user:reset-password  Reset a user password.
 ```
 
 Run any of these commands, to perform their actions, like `php app/nut cache:clear`.
