@@ -67,3 +67,4 @@ howto:
   howto/upgrade-version-1-to-2: "Upgrading a Bolt 1.x install to 2.x"
   howto/building-multilingual-websites: "Building Multilingual Websites with Bolt"
   howto/select-field-type: "Getting the most out of the 'Select' fieldtype"
+  howto/resetting-a-password: "Resetting a password"
