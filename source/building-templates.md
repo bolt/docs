@@ -285,6 +285,61 @@ from those of the current one. Bolt will do its best to warn you when this will 
 <img src="/files/templatefields-warning.png" alt="Templatefields Warning" width="500" />
 </a></p>
 
+Building Templates for the Live Editor
+--------------------------------------
+<p class="meta">
+    <strong>Bolt 2.2+</strong><br>
+    The following functionality is only available in Bolt 2.2 and later.
+</p>
+
+Bolt comes with built in support for editing records as they'll appear on your website.
+It requires a little bit of set up, but once it's ready, the experience will 
+look something like this:
+
+<a href="/files/live-editor-demo.gif" class="popup">
+<img src="/files/live-editor-demo.gif" alt="The Live Editor" width="500" />
+</a>
+
+<p class="tip"> <strong>Tip:</strong> the default Bolt-2014 theme is live-editor enabled. 
+If you're unsure about how this all works, take a look at its source code in your
+Bolt installation.</p>
+
+In any record that has a corresponding page (which means `viewless: false` -
+the default for the contenttype), you can make any *HTML*, *text* or *textarea* field 
+editable. When it is editable, clicking on the "live edit" button while editing that
+record will open an inline, live editor. Any field that is editable will have a yellow 
+outline around it. After making changes, an editor can click "close editor" at the top 
+right and those changes will propagate to their relevant fields in the regular editor.
+
+To enable a field to be editble, Bolt has to know what field to map it to. It requires a 
+very small and easy change to your theme code. For the live editor to work, **the field
+must be the only contents of the element it is in**. Then, you just add a `data-bolt-field`
+attribute set to the name of the field. For example, if you have a title field set up in
+your templates like this:
+
+```twig
+<h1>{{ record.title }}</h1>
+```
+
+This is how you would set it up for live editing:
+
+```twig
+<h1 data-bolt-field="title">{{ record.title }}</h1>
+```
+
+Simple!
+
+To enable this for [template fields](#template-specific-fields), you need to make a
+reference with the text `templatefields` followed by the name of the field in square
+brackets. For example:
+
+```twig
+<section data-bolt-field="templatefields[section_1]">{{ record.templatefields.section_1 }}</section>
+```
+<p class="note"> <strong>Note:</strong> to disable the live editor for a content type,
+give it the property <code>liveeditor: false</code>. To disable it across your *entire Bolt
+installation*, set <code>liveeditor: false</code> in your <code>config.yml</code>.</p>
+
 
 [twig]: http://twig.sensiolabs.org/documentation
 [2]: http://twig.sensiolabs.org/doc/templates.html
