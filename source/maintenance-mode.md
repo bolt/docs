@@ -6,6 +6,9 @@ visitors to the site will see this page:
 
 <a href="/files/maintenance.png" class="popup"><img src="/files/maintenance.png" width="450"></a>
 
+<p class="tip"><strong>Note:</strong> This page returns a HTTP 503 status code.
+This means "Service Unavailable" and makes the maintenance page search engine friendly.</p>
+
 Any users that are logged in, will be able to use the site as normal, while
 other visitors will see the maintenance screen. You can enable the Maintenance
 mode with these settings in the `config.yml` file:
