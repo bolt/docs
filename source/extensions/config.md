@@ -58,8 +58,7 @@ and namespaces. There are three files you need to edit, `composer.json`,
 The above steps will get you started, and below is some more indepth information
 about the configuration.
 
-<p class="note"><strong>Tip:</strong> As noted in <a href="/howto/installing-local-extensions">Installing Local Extensions</a>, local extensions have no autoloader by default. Use <code>include_once</code> in Extension.php to load any additional class files you may create. If you move the extension to an external repository, remove the <code>include_once</code> lines.</p>
-
+<p class="note"><strong>Tip:</strong> As noted in <a href="/howto/installing-local-extensions">Installing Local Extensions</a>, local extensions need some caution.</p>
 
 ### The JSON file
 

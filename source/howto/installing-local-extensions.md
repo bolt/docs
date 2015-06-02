@@ -6,10 +6,11 @@ extensions site.
 
 There are a couple of caveats:
 
-  - There is no autoloader by default
-  - Must be located in `{web_root}/extensions/local/{author_name}/{extension_name}/`
+  - Autoloading is NOT guaranteed unless you have a properly defined composer.json file
+  - MUST be located in `{web_root}/extensions/local/{author_name}/{extension_name}/`
   - They **will** be automatically enabled if the directories above exist and
     contain `init.php` and `Extension.php`
+  - Updates are NOT available though the web UI.
 
 Step 1
 ------
@@ -22,6 +23,43 @@ Where:
  - `{extension_name}` is a lower-case, space-less name
 
 Step 2
+------
+
+Create a `composer.json` to guarantee autoloding as:
+
+```
+{
+    "name": "{author_name}/{extension_name}",
+    "description": "A description about your extension should go here.",
+    "type": "bolt-extension",
+    "require": {
+        "bolt/bolt": ">=2.0.0,<3.0.0"
+    },
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "your@email.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "init.php"
+        ],
+        "psr-4": {
+            "Bolt\\Extension\\MyName\\MyExtension\\": ["", "src/"]
+        }
+    }
+}
+
+```
+Where:
+ - `{author_name}` is a lower-case, space-less name
+ - `{extension_name}` is a lower-case, space-less name
+ - `MyName` is a camel-case, space-less name
+ - `MyExtension` is a camel-case, space-less name
+
+
+Step 3
 ------
 
 Create an `Extension.php` file that contains something like this:
@@ -46,7 +84,7 @@ class Extension extends \Bolt\BaseExtension
 }
 ```
 
-Step 3
+Step 4
 ------
 
 Create an `init.php` file that contains something like this:
