@@ -60,6 +60,10 @@ about the configuration.
 
 <p class="note"><strong>Tip:</strong> As noted in <a href="/howto/installing-local-extensions">Installing Local Extensions</a>, local extensions have no autoloader by default. Use <code>include_once</code> in Extension.php to load any additional class files you may create. If you move the extension to an external repository, remove the <code>include_once</code> lines.</p>
 
+<p class="meta">
+    <strong>Bolt 2.2+</strong><br>
+    As of Bolt 2.2 autoloading has been made available for local extensions. See <a href="/howto/installing-local-extensions">Installing Local Extensions</a> for more details.
+</p>
 
 ### The JSON file
 
