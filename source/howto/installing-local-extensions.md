@@ -6,11 +6,13 @@ extensions site.
 
 There are a couple of caveats:
 
-  - Autoloading is NOT guaranteed unless you have a properly defined composer.json file
-  - MUST be located in `{web_root}/extensions/local/{author_name}/{extension_name}/`
-  - They **will** be automatically enabled if the directories above exist and
-    contain `init.php` and `Extension.php`
-  - Updates are NOT available though the web UI.
+- There is no autoloader by default
+- Autoloading is available for Bolt 2.2+, but not guaranteed unless you have a 
+  properly defined `"psr-4"` section in your extension's composer.json file
+- Must be located in `{web_root}/extensions/local/{author_name}/{extension_name}/`
+- They **will** be automatically enabled if the directories above exist and
+  contain `init.php` and `Extension.php`
+- Updates are **not** available though the web UI
 
 Step 1
 ------
@@ -57,7 +59,12 @@ Where:
  - `{extension_name}` is a lower-case, space-less name
  - `MyName` is a camel-case, space-less name
  - `MyExtension` is a camel-case, space-less name
-
+ - The provided name spaces must use `\\` double backslash separators
+ - The provided name spaces end with `\\` double backslash separators as per the 
+   PSR-4 standard
+ - The path value may be either:
+   - A string, e.g. `"src/"`, where only *one* directory is required
+   - An array, e.g. `["", "src/"]`, where *multiple* directories are required
 
 Step 3
 ------
