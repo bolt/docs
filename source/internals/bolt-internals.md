@@ -371,6 +371,23 @@ for Twig templates. There are currently three folders Twig looks in for files:
   - The `/app/view` folder
   - The `/app/extensions` folder
 
+If you're using custom Twig templates in your extensions, you need to add an
+extra path, so Twig knows where to find these templates. You _could_ create a
+new Twig instance, but that would also mean losing the global scope. Often,
+it's easier to add the current path of your extension, and use that:
+
+```php
+$this->app['twig.loader.filesystem']->addPath(__DIR__);
+$html = $this->app['render']->render(
+        'assets/myextension_bar.twig',
+        array(
+            'foo' => $foo,
+            'config' => $this->config
+        )
+    );
+return $html;
+```
+
 ### $app['htmlsnippets']
 
 Bolt outputs snippets in the HTML for includes like jQuery and the
