@@ -17,15 +17,15 @@ regardless of whether the request is for a page in the backend, frontend or
 'asynchronous'.
 
 There are four files that contain the controller collections, located in
-`app/src/Bolt/Controllers/`: `Backend.php`, `Frontend.php`, `Async.php` and
+`src/Controllers/`: `Backend.php`, `Frontend.php`, `Async.php` and
 `Routing.php`. As such, they are all in the `\Bolt\Controllers` namespace. They
-are 'set up' in `app/app.php`. The routes in `Backend.php` are all pretty
-straightforward. The ones in `Async.php` are used for 'ajaxy' requests, like the
-'latest activity' widget on the dashboard. Next we have `Routing.php` and
-`Frontend.php`. The first one is the actual Controller that parses the routes
-found in `routing.yml` and the latter contains the methods for all standard
-routes as defined in `routes.yml`. You can modify the `routing.yml` to suit your
-own needs. Examples are included.
+are 'set up' in `src/Application.php`. The routes in `Backend.php` are all
+pretty straightforward. The ones in `Async.php` are used for 'ajaxy' requests,
+like the 'latest activity' widget on the dashboard. Next we have `Routing.php`
+and `Frontend.php`. The first one is the actual Controller that parses the
+routes found in `routing.yml` and the latter contains the methods for all
+standard routes as defined in this file. You can modify the `routing.yml` to
+suit your own needs. Examples are included.
 
 Templating
 ----------
@@ -34,7 +34,7 @@ is a template library that's not only secure, fast and flexible, but it's also
 elegant and concise, so it's easy to use for both 'developer' and 'frontend'
 type persons. Basically, everything that you can do 'vanilla' Twig, you can do
 in the Bolt templates. We've added a few tags of our own. Browse
-`app/src/Bolt/TwigExtension.php` and `app/src/Bolt/SetcontentTokenParser.php`
+`src/TwigExtension.php` and `src/Twig/SetcontentTokenParser.php`
 for details.
 
 More information on this subject can be found in [Templates and Routes](/templates-routes)
@@ -42,20 +42,20 @@ and [Content in Templates](/content-in-templates).
 
 The "Model"
 -----------
-The way Bolt handles its contenttypes is defined in the `contenttypes.yml` file,
-which in turn determines the data-structure of the website. Basically, whatever
-is defined in the contenttypes gets added as columns to the database that's
-configured in `config.yml`. Whenever the 'dashboard' is displayed, Bolt checks
-if the definitions in `contenttypes.yml` matches the database columns, and if it
-doesn't it urges the user to go to the 'repair database' screen.
+The way Bolt handles its contenttypes is defined in the `contenttypes.yml`
+file, which in turn determines the data-structure of the website. Basically,
+whatever is defined in the contenttypes gets added as columns to the database
+that's configured in `config.yml`. Whenever the 'dashboard' is displayed, Bolt
+checks if the definitions in `contenttypes.yml` matches the database columns,
+and if it doesn't it urges the user to go to the 'repair database' screen.
 
-Even though Bolt strives to be as simple as possible, it makes sense to think of
-Bolt as an [MVC application][mvc]. Silex provides the Controller part, the Twig
-templates are the View and the Contenttypes define the Model part.
+Even though Bolt strives to be as simple as possible, it makes sense to think
+of Bolt as an [MVC application][mvc]. Silex provides the Controller part, the
+Twig templates are the View and the Contenttypes define the Model part.
 
-All access to the content and the contentypes is done through the Storage class.
-Records of content have a Content class. Browse the files
-`app/src/Bolt/Storage.php` and `app/src/Bolt/Content.php` for details.
+All access to the content and the contentypes is done through the Storage
+class. Records of content have a Content class. Browse the files
+`src/Storage.php` and `src/Content.php` for details.
 
 Bootstrapping
 -------------
@@ -80,7 +80,7 @@ services defined there are Symfony components, about which you can read on the
 Silex Documentation page on [Service Providers][service], or on the
 [Symfony Components page][comp]. The next largest group are the Bolt components.
 These can be recognized by the `Bolt\` namespace. These components are
-autoloaded, and can be found in `app/src/Bolt/`.
+autoloaded, and can be found in `src/`.
 
 Debug Bar and `dump()`
 ---------------------------------------
@@ -276,7 +276,7 @@ $res = $stmt->execute();
 echo "Result was: " . dump($res);
 ```
 
-Check `app/src/Bolt/Storage.php` for a lot of examples using the DBAL.
+Check `src/Storage.php` for a lot of examples using the DBAL.
 
 
 ### $app['mailer']
@@ -289,7 +289,7 @@ This is an instance of Swiftmailer.
 
 ### $app['log']
 
-Instance of `Bolt\Log`. See `app/src/Bolt/Log.php` for details.
+Instance of `Bolt\Log`. See `src/Logger` for details.
 
 Example:
 
@@ -310,7 +310,7 @@ activity log on the dashboard screen. Otherwise it will only be shown in the ext
 
 ### $app['users']
 
-Instance of `Bolt\Users`. See `app/src/Bolt/Users.php` for details.
+Instance of `Bolt\Users`. See `src/Users.php` for details.
 
 
 ### $app['session']
@@ -329,7 +329,7 @@ $app['session']->setFlash('error', 'Something went horribly wrong.');
 
 ### $app['cache']
 
-Instance of `Bolt\Cache`. See `app/src/Bolt/Cache.php` for details.
+Instance of `Bolt\Cache`. See `/src/Cache.php` for details.
 
 ### $app['extensions']
 
@@ -356,11 +356,10 @@ Most controllers return a rendered Twig template as a result, but you can also
 render a (sub)template as HTML, process it further if needed, and return that as
 part of an extension or callback.
 
-Inspect the various controllers `app/app_backend.php`, `app/app_frontend.php`
-and `app/app_async.php` for details. To use a template in your own code as part
+Inspect the various controllers in the `src/Controllers/` folder for details. To use a template in your own code as part
 of the result, see this example:
 
-```
+```php
 $html = $app['render']->render("assets/bla.twig", array('form' =>  $data));
 ```
 
@@ -370,6 +369,23 @@ for Twig templates. There are currently three folders Twig looks in for files:
   - The `/theme/themename/` folder, where 'themename' is the current theme as set in `config.yml`.
   - The `/app/view` folder
   - The `/app/extensions` folder
+
+If you're using custom Twig templates in your extensions, you need to add an
+extra path, so Twig knows where to find these templates. You _could_ create a
+new Twig instance, but that would also mean losing the global scope. Often,
+it's easier to add the current path of your extension, and use that:
+
+```php
+$this->app['twig.loader.filesystem']->addPath(__DIR__);
+$html = $this->app['render']->render(
+        'assets/myextension_bar.twig',
+        array(
+            'foo' => $foo,
+            'config' => $this->config
+        )
+    );
+return $html;
+```
 
 ### $app['htmlsnippets']
 
