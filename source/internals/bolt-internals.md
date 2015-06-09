@@ -418,3 +418,5 @@ $this->app['htmlsnippets'] = true;
 [swift1]: http://silex.sensiolabs.org/doc/providers/swiftmailer.html
 [swift2]: http://swiftmailer.org/
 [session]: http://silex.sensiolabs.org/doc/providers/session.html
+
+
