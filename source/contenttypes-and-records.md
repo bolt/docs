@@ -345,6 +345,7 @@ The following fieldtypes are available:
                 # contentsCss: ["/css/custom.css"]
 ```
 
+  - `markdown`: [Markdown](http://daringfireball.net/projects/markdown/) format input field.
   - `textarea`: Simple multi-line textarea input, for longer texts without HTML
     markup.
   - `select`: A drop-down list to make a pre-defined selection from. There are
@@ -698,8 +699,8 @@ Advanced: YAML Repeated Nodes
 </p>
 
 In order to make your Contenttype definitions more compact, and consistent, you
-can use YAML repeated nodes. Bolt has a special YAML key called `__nodes` that 
-it will use only for repeated nodes, and not create a Contenttype or table for. 
+can use YAML repeated nodes. Bolt has a special YAML key called `__nodes` that
+it will use only for repeated nodes, and not create a Contenttype or table for.
 These nodes then become selectable in a Contenttype definition.
 
 Each node is defined by an `key_name: &node_name` with the fields then included,
