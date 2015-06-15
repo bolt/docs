@@ -2,7 +2,7 @@
 
 require_once './vendor/autoload.php';
 
-$version = "2.2.1";
+$version = "2.2.3";
 
 
 // Let's see if there's a search-parameter.
