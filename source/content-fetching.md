@@ -24,6 +24,7 @@ This will set a _variable_ to contain the records of the given _contenttype_.
 For example: `{% setcontent mypages = 'pages' %}` will set `{{ mypages }}` to
 an array of all the records in 'pages'.
 
+
 Trimming the amount of results
 ------------------------------
 Normally, you don't need _all_ records, but a subset of the available records.
@@ -245,7 +246,6 @@ you _do_ know their name, you can use the `getuserid()` function.
 {% setcontent mypages = 'pages' where { ownerid: getuserid('bob') } %}
 ```
 
-
 Using `limit`
 -------------
 There's no built-in limit to the amount of records returned. It is good
@@ -302,3 +302,17 @@ following is the case:
 
 If you use `limit 1`, you will get an array with 1 record. Unless, of course,
 one of the above criteria was met.
+
+Using the `printquery` option
+-----------------------------
+If you're working on selecting some content, but aren't quite getting the desired results, you can add `printquery` to the `{% setcontent %}`- tag. Doing this will output the SQL query Bolt creates and executes. For example:
+
+```
+{% setcontent entries = 'entries/latest/5' printquery %}
+
+will show:
+
+SELECT bolt_entries.* FROM bolt_entries WHERE (`bolt_entries`.`status` = 'published')
+ORDER BY `datepublish` DESC LIMIT 5
+```
+
