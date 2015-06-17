@@ -204,7 +204,7 @@ where statement that will never give good results:
 {% setcontent mypages = 'pages' where { ownerid: '!3 || !4' } %}
 
 {# This will never work: #}
-{% setcontent mypages = 'pages' where { id: '>29 && <=37' } %}
+{% setcontent mypages = 'pages' where { id: '<29 && >37' } %}
 ```
 
 By using the `|||`-operator (three pipes) you can create an `OR`-part for
