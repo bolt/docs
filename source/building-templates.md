@@ -267,6 +267,22 @@ happen automatically.
 <img src="/files/templatefields-notification.png" alt="Templatefields Notification" width="500" />
 </a>
 
+To change the name shown for each template in the templateselect field you can define the
+names and their associated contenttypes in the theme's `config.yml`.
+
+```yml
+templateselect:
+    templates:
+        - name: 'Homepage template'
+          filename: 'index.twig'
+        - name: 'Page with gallery'
+          filename: 'page_with_gallery.twig'
+```
+
+<a href="/files/template_custom_name.png" class="popup">
+<img src="/files/template_custom_name.png" alt="Template with custom name" width="500" />
+</a>
+
 Then you will be able to go to the `Template` section of the record editing and change
 the content to your heart's desire. Once saved, accessing this data is very simple.
 Just go through the `templatefields`property of the record.
