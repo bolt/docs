@@ -1,13 +1,6 @@
 Bolt Internals
 ==============
 
-<p class="meta">
-    <strong>Bolt 2.3+</strong><br>
-    The following functionality is only available in Bolt 2.3 and later,
-    <a href="historical/bolt-internals">please see here</a> for details of
-    older versions.
-</p>
-
 Bolt is an application built on top of the awesome [Silex micro-framework][silex],
 and uses a lot of components from the [Symfony framework][comp]. Bolt strives to
 adhere to [the PSR-2 coding style][psr2]. When writing your own
@@ -23,101 +16,16 @@ Every request to a page on a Bolt website is routed to a Silex controller,
 regardless of whether the request is for a page in the backend, frontend or
 'asynchronous'.
 
-Bolt's controllers are classified into 3 different 'zones':
-* Frontend - `Bolt\Controller` namespace
-* Backend - `Bolt\Controller\Backend` namespace
-* Asynchronous - `Bolt\Controller\Async` namespace
-
-### Frontend
-
-
-
-#### Backend
-The backend controllers are:
-* Bolt\Controller\Backend\Authentication
-  * Authentication specific
-* Bolt\Controller\Backend\General
-  * Generic routes for the backend such as the dashboard
-* Bolt\Controller\Backend\Database
-  * Database maintenance
-* Bolt\Controller\Backend\Extend
-  * Bolt extension management
-* Bolt\Controller\Backend\FileManager
-  * File maintenance and management
-* Bolt\Controller\Backend\Log
-  * System & content log maintenance and management
-* Bolt\Controller\Backend\Records
-  * Content record manipulation
-* Bolt\Controller\Backend\Upload
-  * File upload handling
-* Bolt\Controller\Backend\Users
-  * User maintenance and management
-
-### Asynchronous
-These are used for 'AJAXy' requests, like the 'Latest Activity' widget on the
-dashboard.
-
-* Bolt\Controller\Async\FilesystemManager
-  * File and directory management
-* Bolt\Controller\Async\General
-  * General asynchronous routes
-* Bolt\Controller\Async\Stack
-  * Bolt's "stack" functionality
-* Bolt\Controller\Async\SystemTests
-  * System test functionality, such as sending test emails
-
-### Controller Mounting
-Controllers are collectively mounted/initialized in
-`Bolt\Provider\ControllerServiceProvider` and exist as Dependency Injection
-objects, e.g.
-`$app['controller.foo']`
-
-The general code path is:
-* During the `Application::initialize()` a `ControllerServiceProvider` is
-  registered
-* In the `ControllerServiceProvider::register()` function the controller is
-  added to the DI container via a closure, e.g.
-```php
-$app['controller.foo] = $app->share(function () {
-   return new Controller\Foo();
-});
-```
-* During `ControllerServiceProvider::boot()`:
-  * `ControllerServiceProvider` adds itself as an event subscriber
-  * `ControllerServiceProvider` dispatches a mount event to notify which
-  controllers should be mounted
-  * `ControllerServiceProvider`, being an EventSubscriber, gets this event
-  dispatched to `ControllerServiceProvider::mount()` (this method replaces
-  `Application::initMountpoints()`)
-* `ControllerServiceProvider::mount()` then calls `Bolt\Events\MountEvent::mount($pathPrefix, $app['controller.foo'], $priority)`
-  which adds the controller object from the DI container to the event:
-```php
-$event->mount('/my-route', $app['controller.foo'], 0);
-```
-* After the event is done dispatching, `MountEvent::finish` is called which:
-  * Sorts the controllers based on priorities given
-  * Actually mounts them to the `Bolt\Application`
-
-## Middlewares (Request and Response Handling)
-
-
-
-## Response Handling
-
-As Response objects are manipulated using kernel events, do not use functions
-like these:
-  * session_*()
-  * headers_*()
-  * setcookie()
-
-Where cookie or header manipulation is required, it should be done via the
-`Response` object in an _after middleware_.
-
-After middlewares can be created a couple different ways:
-  * Creating a "Listener" class that implements `EventSubscriberInterface`. This
-  class should be attached to the EventDispatcher at boot.
-  * Calling `$app->after()` with an anonymous function.
-
+There are four files that contain the controller collections, located in
+`app/src/Bolt/Controllers/`: `Backend.php`, `Frontend.php`, `Async.php` and
+`Routing.php`. As such, they are all in the `\Bolt\Controllers` namespace. They
+are 'set up' in `app/app.php`. The routes in `Backend.php` are all pretty
+straightforward. The ones in `Async.php` are used for 'ajaxy' requests, like the
+'latest activity' widget on the dashboard. Next we have `Routing.php` and
+`Frontend.php`. The first one is the actual Controller that parses the routes
+found in `routing.yml` and the latter contains the methods for all standard
+routes as defined in `routes.yml`. You can modify the `routing.yml` to suit your
+own needs. Examples are included.
 
 Templating
 ----------
@@ -126,7 +34,7 @@ is a template library that's not only secure, fast and flexible, but it's also
 elegant and concise, so it's easy to use for both 'developer' and 'frontend'
 type persons. Basically, everything that you can do 'vanilla' Twig, you can do
 in the Bolt templates. We've added a few tags of our own. Browse
-`src/TwigExtension.php` and `src/SetcontentTokenParser.php`
+`app/src/Bolt/TwigExtension.php` and `app/src/Bolt/SetcontentTokenParser.php`
 for details.
 
 More information on this subject can be found in [Templates and Routes](/templates-routes)
@@ -134,7 +42,7 @@ and [Content in Templates](/content-in-templates).
 
 The "Model"
 -----------
-The way Bolt handles its Contenttypes is defined in the `contenttypes.yml` file,
+The way Bolt handles its contenttypes is defined in the `contenttypes.yml` file,
 which in turn determines the data-structure of the website. Basically, whatever
 is defined in the contenttypes gets added as columns to the database that's
 configured in `config.yml`. Whenever the 'dashboard' is displayed, Bolt checks
@@ -147,7 +55,7 @@ templates are the View and the Contenttypes define the Model part.
 
 All access to the content and the contentypes is done through the Storage class.
 Records of content have a Content class. Browse the files
-`src/Storage.php` and `src/Content.php` for details.
+`app/src/Bolt/Storage.php` and `app/src/Bolt/Content.php` for details.
 
 Bootstrapping
 -------------
@@ -172,7 +80,7 @@ services defined there are Symfony components, about which you can read on the
 Silex Documentation page on [Service Providers][service], or on the
 [Symfony Components page][comp]. The next largest group are the Bolt components.
 These can be recognized by the `Bolt\` namespace. These components are
-autoloaded, and can be found in `src/`.
+autoloaded, and can be found in `app/src/Bolt/`.
 
 Debug Bar and `dump()`
 ---------------------------------------
@@ -191,6 +99,22 @@ This profiler bar contains a lot of useful information to see what's going on
 behind the scenes. Click the different tabs to see information about the current
 request, used templates, matched routes, used queries, server variables and a
 lot more.
+
+Note that the debug bar is appended to all your frontend templates by default.
+If you don't want the bar in a custom template, just use this, anywhere in the
+template:
+
+```
+    {{ debugbar(false) }}
+```
+
+When creating an extension or custom controller, the debug is not added by
+default. In your code you can enable or disable it using the following:
+
+```
+$this->app['debugbar'] = false;
+$this->app['debugbar'] = true;
+```
 
 ### `{{ dump() }}` and `dump()`
 
@@ -295,8 +219,7 @@ inspect the current values.
 
 ### $app['paths']
 
-The 'paths' array contains references to paths, folders and links for the
-current website.
+The 'paths' array contains references to paths, folders and links in your current website.
 
 ```
 echo "<pre>\n" . dump($app['paths'], true) . "</pre>\n";
@@ -308,45 +231,27 @@ The path variables are also accessible in your templates:
     {{ dump(paths) }}
 ```
 
-An example printout of the 'paths' might look like this:
+A sample printout of the 'paths' might look like this:
 
 ```
-array:34 [▼
-  "root" => "/"
-  "rootpath" => "/var/www/sites/bolt.cm/"
-  "apppath" => "/var/www/sites/bolt.cm/app"
-  "extensionsconfig" => "/var/www/sites/bolt.cm/app/config/extensions"
-  "extensionsconfigpath" => "/var/www/sites/bolt.cm/app/config/extensions"
-  "extensionspath" => "/var/www/sites/bolt.cm/extensions"
-  "filespath" => "/var/www/sites/bolt.cm/files"
-  "web" => "/var/www/sites/bolt.cm/."
-  "webpath" => "/var/www/sites/bolt.cm/."
-  "cache" => "/var/www/sites/bolt.cm/app/cache"
-  "cachepath" => "/var/www/sites/bolt.cm/app/cache"
-  "config" => "/var/www/sites/bolt.cm/app/config"
-  "configpath" => "/var/www/sites/bolt.cm/app/config"
-  "database" => "/var/www/sites/bolt.cm/app/database"
-  "databasepath" => "/var/www/sites/bolt.cm/app/database"
-  "themebase" => "/var/www/sites/bolt.cm/theme"
-  "themebasepath" => "/var/www/sites/bolt.cm/theme"
-  "themepath" => "/var/www/sites/bolt.cm/theme/base-2014"
-  "templatespath" => "/var/www/sites/bolt.cm/theme/base-2014"
-  "app" => "/app/"
-  "extensions" => "/extensions/"
-  "files" => "/files/"
-  "async" => "/async/"
-  "upload" => "/upload/"
-  "bolt" => "/bolt/"
-  "theme" => "/theme/base-2014/"
-  "current" => "/"
-  "canonicalurl" => "http://bolt.cm/pages/about"
-  "currenturl" => "http://bolt.cm/pages/about"
-  "hosturl" => "http://bolt.cm"
-  "rooturl" => "http://bolt.cm/"
-  "canonical" => "http://bolt.cm"
-  "protocol" => "http"
-  "hostname" => "bolt.cm"
-]
+… arr(17) …
+  hostname str(14) => bolt.localhost
+  root str(1) => /
+  rootpath str(21) => /Users/bob/Sites/bolt
+  theme str(17) => /theme/base-2013/
+  themepath str(37) => /Users/bob/Sites/bolt/theme/base-2013
+  app str(5) => /app/
+  apppath str(25) => /Users/bob/Sites/bolt/app
+  bolt str(6) => /bolt/
+  async str(7) => /async/
+  files str(7) => /files/
+  filespath str(27) => /Users/bob/Sites/bolt/files
+  canonical str(14) => bolt.localhost
+  current str(43) => /kitchensink/sed-residamus-inquit-si-placet
+  hosturl str(21) => https://bolt.localhost
+  rooturl str(22) => https://bolt.localhost/
+  canonicalurl str(64) => https://bolt.localhost/kitchensink/sed-residamus-inquit-si-placet
+  currenturl str(64) => https://bolt.localhost/kitchensink/sed-residamus-inquit-si-placet
 ```
 
 
@@ -371,7 +276,7 @@ $res = $stmt->execute();
 echo "Result was: " . dump($res);
 ```
 
-Check `src/Storage.php` for a lot of examples using the DBAL.
+Check `app/src/Bolt/Storage.php` for a lot of examples using the DBAL.
 
 
 ### $app['mailer']
@@ -382,61 +287,30 @@ This is an instance of Swiftmailer.
 - [http://swiftmailer.org/][swift2]
 
 
-### $app['logger.system']
+### $app['log']
 
-Instance of `Bolt\Logger\Handler\SystemHandler`, and implements the PSR-3 logger
-interface.
+Instance of `Bolt\Log`. See `app/src/Bolt/Log.php` for details.
 
-The function call utilised will set the log level, and can be any applicable one
-of the following:
-  * emergency()
-  * alert()
-  * critical()
-  * error()
-  * warning()
-  * notice()
-  * info()
-  * debug()
-
-Each of the functions takes two parameters, a string message and a context array.
-
-The context array should, at a minimum, carry the 'event' key and a value of one
-of the following:
-  * authentication
-  * config
-  * content
-  * cron
-  * deprecated
-  * exception
-  * news
-  * nut
-  * security
-  * storage
-  * template
-  * translation
-  * twig
-  * upload
-
-Example use:
+Example:
 
 ```
-    $app['logger.system']->info('User logged in.', ['event' => 'authentication']);
+$app['log']->add("Login " . $request->get('username') , 2, '', 'login');
 ```
 
-For PHP exception handling, we use an additional key, 'exception' with the array
-value being an \Exception class object.
+The `add()` function takes four parameters:
 
-Example use:
+ - The message to log.
+ - The 'severity level' of the log entry.
+ - Optional '$content'. If you pass a Content record, it will be logged.
+ - 'code'. by passing a code you can group different log entries together.
 
-```
-    $app['logger.system']->critical('Something went wrong', ['event' => 'exception', 'exception' => $e]);
-```
-
-See `src/Logger/Handler/SystemHandler.php` for details.
+If something is logged with a level of '3' or higher and a 'code', it will be shown in the
+activity log on the dashboard screen. Otherwise it will only be shown in the extended
+'activity log' screen.
 
 ### $app['users']
 
-Instance of `Bolt\Users`. See `src/Users.php` for details.
+Instance of `Bolt\Users`. See `app/src/Bolt/Users.php` for details.
 
 
 ### $app['session']
@@ -455,7 +329,7 @@ $app['session']->setFlash('error', 'Something went horribly wrong.');
 
 ### $app['cache']
 
-Instance of `Bolt\Cache`. See `src/Cache.php` for details.
+Instance of `Bolt\Cache`. See `app/src/Bolt/Cache.php` for details.
 
 ### $app['extensions']
 
@@ -487,7 +361,7 @@ and `app/app_async.php` for details. To use a template in your own code as part
 of the result, see this example:
 
 ```
-$html = $app['render']->render('assets/bla.twig', ['form' =>  $data]);
+$html = $app['render']->render("assets/bla.twig", array('form' =>  $data));
 ```
 
 Note that the template file must be somewhere in (or below) the allowed folders
@@ -497,22 +371,21 @@ for Twig templates. There are currently three folders Twig looks in for files:
   - The `/app/view` folder
   - The `/app/extensions` folder
 
-If you're using custom Twig templates in your extensions, you need to add an
-extra path, so Twig knows where to find these templates. You _could_ create a
-new Twig instance, but that would also mean losing the global scope. Often,
-it's easier to add the current path of your extension, and use that:
+### $app['htmlsnippets']
 
-```php
-$this->app['twig.loader.filesystem']->addPath(__DIR__);
-$html = $this->app['render']->render(
-        'assets/myextension_bar.twig',
-        array(
-            'foo' => $foo,
-            'config' => $this->config
-        )
-    );
-return $html;
+Bolt outputs snippets in the HTML for includes like jQuery and the
+`<meta generator>` tag. By default these snippets are only output in the
+`frontend`, and not in `async` or `backend` pages. Extensions that use `addCSS`
+or `addJavascript` are also affected by this.
+
+When creating an extension or custom controller, the debug is not added by default. In
+your code you can enable or disable the output of these snippets using the following:
+
 ```
+$this->app['htmlsnippets'] = false;
+$this->app['htmlsnippets'] = true;
+```
+
 
 [silex]: http://silex.sensiolabs.org
 [comp]: http://symfony.com/components
@@ -528,3 +401,5 @@ return $html;
 [swift1]: http://silex.sensiolabs.org/doc/providers/swiftmailer.html
 [swift2]: http://swiftmailer.org/
 [session]: http://silex.sensiolabs.org/doc/providers/session.html
+
+
