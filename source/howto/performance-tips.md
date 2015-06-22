@@ -72,18 +72,31 @@ have to resize images on each request, but there _is_ a certain overhead in this
 saved to `thumbs/`, any request to a thumbnail that's cached completely bypasses the PHP layer
 entirely, which uses significantly less resources on the server.
 
-Configure the backend path
---------------------------
+Configure the backend path and other branding
+---------------------------------------------
 
 The default path to the Bolt backend is `/bolt`, but this can be configured in `config.yml`. Doing
 this has a tiny benefit when it comes to security, because bots and crawlers won't be able to use
 the default location to try for passwords, but it also looks professional, for your clients.
+
+The news shown on the dashboard can be pulled from an alternate source. Check http://news.bolt.cm/
+for an example of how this source should look. If you use the bolt JSON extension (bolt/jsonaccess)
+as the source for the news you will also need to fill out the news_variable.
+
+You can also customize the backend favicon and the various apple-touch-icons.
 
 ```
 branding:
   name: Bolt
   path: /admin
   provided_by: [ supercool@example.org, "Supercool Webdesign Co." ]
+  news_source: http://news.example.org
+  news_variable: news
+  favicon: /files/icons/favicon.ico
+  apple-touch-icon: /files/icons/apple-touch-icon.png
+  apple-touch-icon-72x72: /files/icons/apple-touch-icon-72x72.png
+  apple-touch-icon-114x114: /files/icons/apple-touch-icon-114x114.png
+  apple-touch-icon-144x144: /files/icons/apple-touch-icon-144x144.png
 ```
 
 This is what it will look like in the Bolt backend: 
@@ -149,6 +162,13 @@ branding:
  name: Bolt
  path: /admin
  provided_by: [ supercool@example.org, "Supercool Webdesign Co." ]
+ news_source: http://news.example.org
+ news_variable: news
+ favicon: /files/icons/favicon.ico
+ apple-touch-icon: /files/icons/apple-touch-icon.png
+ apple-touch-icon-72x72: /files/icons/apple-touch-icon-72x72.png
+ apple-touch-icon-114x114: /files/icons/apple-touch-icon-114x114.png
+ apple-touch-icon-144x144: /files/icons/apple-touch-icon-144x144.png
 
 # Debug settings
 debug: false
