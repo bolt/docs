@@ -356,11 +356,13 @@ There are no events for specific content types. However you can use the passed
 An example to log whenever a content has been saved.
 
 ```
-$app['dispatcher']->addListener(\Bolt\StorageEvents::postSave, 'postSave');
+$app['dispatcher']->addListener(\Bolt\StorageEvents::postSave, array('MyClass', 'postSaveCallback'));
 
-function postSave(\Bolt\StorageEvent $event)
+function postSaveCallback(\Bolt\StorageEvent $event)
 {
-    $entry = date('Y-m-d H:i:s').' '.$event->getContentType().' with id '.$event->getId().' has been saved'."\n";
+    $id = $event->getId();
+    $contentType = $event->getContentType();
+    $entry = date('Y-m-d H:i:s').' '.$contentType.' with id '.$id.' has been saved'."\n";
     file_put_contents('storage.log', $entry, FILE_APPEND);
 }
 ```
