@@ -13,6 +13,8 @@ There are a couple of caveats:
 - They **will** be automatically enabled if the directories above exist and
   contain `init.php` and `Extension.php`
 - Updates are **not** available though the web UI
+ 
+**Note:** If your local extension requires libraries from Packagist, simply add them to the `composer.json` in the root directory of your Bolt install and perform a `composer install`.
 
 Step 1
 ------
