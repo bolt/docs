@@ -347,7 +347,7 @@ there are 4 events defined:
   - postDelete - called after a content delete
 
 There are no events for specific content types. However you can use the passed
-`\Bolt\StorageEvent` to retrieve the following information:
+`\Bolt\Events\StorageEvent` to retrieve the following information:
 
   - $event->getId() - returns the id of the content
   - $event->getContentType() - returns the content type
@@ -356,9 +356,9 @@ There are no events for specific content types. However you can use the passed
 An example to log whenever a content has been saved.
 
 ```
-$app['dispatcher']->addListener(\Bolt\StorageEvents::postSave, array('MyClass', 'postSaveCallback'));
+$app['dispatcher']->addListener(\Bolt\Events\StorageEvents::POST_SAVE, array('MyClass', 'postSaveCallback'));
 
-function postSaveCallback(\Bolt\StorageEvent $event)
+function postSaveCallback(\Bolt\Events\StorageEvent $event)
 {
     $id = $event->getId();
     $contentType = $event->getContentType();
