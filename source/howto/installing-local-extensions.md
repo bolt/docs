@@ -7,13 +7,13 @@ extensions site.
 There are a couple of caveats:
 
 - There is no autoloader by default
-- Autoloading is available for Bolt 2.2+, but not guaranteed unless you have a 
+- Autoloading is available for Bolt 2.2+, but not guaranteed unless you have a
   properly defined `"psr-4"` section in your extension's composer.json file
 - Must be located in `{web_root}/extensions/local/{author_name}/{extension_name}/`
 - They **will** be automatically enabled if the directories above exist and
   contain `init.php` and `Extension.php`
 - Updates are **not** available though the web UI
- 
+
 **Note:** If your local extension requires libraries from Packagist, simply add them to the `composer.json` in the root directory of your Bolt install and perform a `composer install`.
 
 Step 1
@@ -62,7 +62,7 @@ Where:
  - `MyName` is a camel-case, space-less name
  - `MyExtension` is a camel-case, space-less name
  - The provided name spaces must use `\\` double backslash separators
- - The provided name spaces end with `\\` double backslash separators as per the 
+ - The provided name spaces end with `\\` double backslash separators as per the
    PSR-4 standard
  - The path value may be either:
    - A string, e.g. `"src/"`, where only *one* directory is required
@@ -105,3 +105,9 @@ $app['extensions']->register(new Extension($app));
 ```
 - Your extension should now appear in the Extend page in the *"Your Currently
     Installed Extensions"* section on your Bolt site
+
+Updating/Importing extension
+------
+
+Developers often create the extension locally and import the changes (e.g. through `git pull`). If you do that, you will experience a fatal error, because the autoloader from composer has not been updated automatically.
+You can fix it through a `composer update` inside the extension folder.
