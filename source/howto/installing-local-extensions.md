@@ -106,8 +106,19 @@ $app['extensions']->register(new Extension($app));
 - Your extension should now appear in the Extend page in the *"Your Currently
     Installed Extensions"* section on your Bolt site
 
-Updating/Importing extension
-------
+Updating/Importing
+------------------
 
-Developers often create the extension locally and import the changes (e.g. through `git pull`). If you do that, you will experience a fatal error, because the autoloader from composer has not been updated automatically.
-You can fix it through a `composer update` inside the extension folder.
+Many times developers create the extension locally and import changes and updates (e.g. via `git pull`). 
+
+In doing this, the PHP namespace may change, potentially triggering a fatal error because the autoloader does not get updated automatically, for performance reasons.
+
+If this occurs, there are several approaches to fixing this but the first thing you should do is temporarily rename the extension's `init.php` file and try the following in order:
+- Dumping the Bolt cache using Nut `./app/nut cache:clear`, and then loading the backend. This will tell Bolt to rescan the local 
+  extension `composer.json` files for PSR-4 autoload data, import that into `extensions/composer.json` and rebuild the extension 
+  autoloader.
+
+- Performing a `composer dumpautoload` in the `extensions/` directory of your Bolt install.
+
+At this point, it should be safe to rename the `init.php` file back to normal and enjoy your updated extension.
+
