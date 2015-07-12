@@ -79,7 +79,7 @@ news:
         text:
             type: html
             height: 300px
-    template: newsitem.twig
+    record_template: newsitem.twig
 ```
 
 <p class="note"><strong>Note:</strong> This file is in the YAML format, which
@@ -88,7 +88,7 @@ intact.</p>
 
 This creates a new contenttype 'news'. Its name is 'News', and a single record
 is named 'Newsitem'. We've defined fields for 'title', 'slug', 'image' and
-'text'. The 'template' defines the default template to use, when displaying a
+'text'. The 'record_template' defines the default template to use, when displaying a
 single record in the browser.
 
 After you've saved the file and Refresh the Dashboard screen in your browser,
