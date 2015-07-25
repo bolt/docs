@@ -134,9 +134,11 @@ and adjust where needed.
     </listeners>
 </phpunit>
 ```
+**Note:** We refer to a `tests/bootstrap.php` file that doesn't exist yet.
 
-The important settings you may need to modify are the arguments passed into the PHPUnit listener.
-With these settings you can specify a pre-built set of configuration files, theme, and/or Sqlite database.
+**Note:** The listener is optional, it will copy in an Sqlite database with table 
+structure matching current Bolt tests, and it will also copy in the specified 
+theme, and configuration files which is helpful if you're writing unit tests. 
 
 <p class="meta">
     <strong>Bolt <= 2.2.5</strong><br>
@@ -177,23 +179,40 @@ With these settings you can specify a pre-built set of configuration files, them
 </phpunit>
 ```
 
-**Note:** We refer to a `tests/bootsrap.php` file that doesn't exist yet.
+**Note:** We refer to a `tests/bootstrap.php` file that doesn't exist yet.
 
 **Note:** The listener is optional, it will copy in an Sqlite database with table 
 structure matching current Bolt tests, and it will also copy in the specified 
-theme, which is helpful if you're writing UI tests. 
+theme, which is helpful if you're writing unit tests. 
 
 Step 3: Create a bootstrap.php file
 -----------------------------------
 
-This sets up a tmp dir to store required Bolt files and sets a couple of
+This sets up a tmp directory to store required Bolt files and sets a couple of
 constants.
 
 Create the file `tests/bootstrap.php` containing the following:
+<p class="meta">
+    <strong>Bolt 2.2.6</strong><br>
+    The following phpunit.xml.dist is only available in Bolt 2.2.6 and later, 
+    for older versions see the example below this one.
+</p>
 
 ```
 <?php
+include_once __DIR__ . '/../vendor/bolt/bolt/tests/phpunit/bootstrap.php';
 
+define('EXTENSION_AUTOLOAD',  realpath(dirname(__DIR__) . '/vendor/autoload.php'));
+
+require_once EXTENSION_AUTOLOAD;
+```
+<p class="meta">
+    <strong>Bolt <= 2.2.5</strong><br>
+    The following functionality is for versoins of Bolt before 2.2.5.
+</p>
+
+```
+<?php
 define('TEST_ROOT',    __DIR__ . '/tmp');
 define('PHPUNIT_ROOT', realpath(dirname(__DIR__) . '/vendor/bolt/bolt/tests/phpunit/unit/'));
 define('BOLT_AUTOLOAD',  realpath(dirname(__DIR__) . '/vendor/autoload.php'));
