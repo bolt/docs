@@ -39,7 +39,11 @@ test directory to suit.
             "Bolt\\Extensions\\Bolt\\Colourpicker\\Tests\\": "tests"
         }
     },
-
+    "autoload-dev" : {
+        "psr-4" : {
+            "Bolt\\Tests\\" : "vendor/bolt/bolt/tests/phpunit/unit/"
+        }
+    },
     "extra": {
         "bolt-assets": "assets",
         "bolt-screenshots": [
