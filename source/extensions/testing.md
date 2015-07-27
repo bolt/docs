@@ -2,7 +2,7 @@ Extensions: Testing and debugging
 =================================
 
 It's essential that by the time you submit your extension to the Bolt
-Marketplace you have tested your extension as thouroughly as possible. To help
+Marketplace you have tested your extension as thoroughly as possible. To help
 you do this we've put together some suggested workflows that will help you to
 both get started, develop and then deploy your extension.
 
@@ -113,7 +113,7 @@ Once you have a public url for the Git repository then you can submit your
 extension to the Bolt Marketplace. To do so visit [extensions.bolt.cm][ext], sign up for an account
 if you need to and then submit your extension.
 
-If everything looks ok at this point you will be able to see your extension
+If everything looks OK at this point you will be able to see your extension
 listed on the marketplace.
 
 ### Approved Builds and Stable Versions
@@ -135,7 +135,7 @@ git tag 1.0
 git push --tags
 ```
 
-You should ensure that you have throughly tested each released version, we'd
+You should ensure that you have thoroughly tested each released version, we'd
 recommend following [semantic version numbers][semver]</a>
 for your releases.
 
