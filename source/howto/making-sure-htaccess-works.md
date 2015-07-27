@@ -1,10 +1,10 @@
 # Making sure .htaccess and mod_rewrite are working as they should
 
 Bolt makes extensive use of a common feature called 'url rewriting'. This
-basically means that you can request a pretty url like `/page/about-this-
-website` in your browser, and behind the screens your websever will just
-'translate' this to run the `index.php` with the correct parameters, so that
-Bolt can produce the correct page for you.
+basically means that you can request a pretty url like `/page/about-this-website`
+in your browser, and behind the scenes your websever will just 'translate' this
+to run the `index.php` with the correct parameters, so that Bolt can produce the
+correct page for you.
 
 This doesn't work out-of-the-box on all webservers, but it _is_ a hard
 requirement for using Bolt. If you're reading this page, you are likely in the
@@ -27,7 +27,7 @@ One of the three following possibilities is giving you problems:
 
 ## Test if `.htaccess` is working
 
-The simplest way to test if apache uses tour `.htaccess` file, or if it ignores
+The simplest way to test if apache uses your `.htaccess` file, or if it ignores
 it, is to intentionally break it.
 
 Edit the `.htaccess` file, so the first line reads 'Test.':
@@ -56,7 +56,7 @@ far, so good!
 
 If you do _not_ see an 'Internal Server Error', your Apache setup ignores the
 `.htaccess` file, and you need to fix that. If you are not sure if the file
-exists and is readable, download our test- script:
+exists and is readable, download our test script:
 
  - Download the script here: [htaccess_tester.php on Github](https://raw.githubu
    sercontent.com/bolt/htaccess_tester/master/htaccess_tester.php)
@@ -136,8 +136,8 @@ your hosting provider to do it for you.
 
 ### Enable `mod_rewrite` in Apache
 
-There are a number of ways to enable `mod_rewrite`, if it's not yet enabled on
-your setup. See this Stack Overflow thread for various ways to fix this,
+There are a number of ways to enable `mod_rewrite` if it's not yet enabled on
+your setup. See this Stack Overflow thread for various ways to fix this
 depending on your setup:
 [How to enable mod_rewrite for Apache 2.2](http://stackoverflow.com/questions/869092/how-to-enable-mod-rewrite-for-apache-2-2).
 
