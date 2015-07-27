@@ -2,7 +2,7 @@
 
 Bolt makes extensive use of a common feature called 'url rewriting'. This
 basically means that you can request a pretty url like `/page/about-this-
-website` in your browser, and behind the screens your websever will just
+website` in your browser, and behind the screens your webserver will just
 'translate' this to run the `index.php` with the correct parameters, so that
 Bolt can produce the correct page for you.
 
