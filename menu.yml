@@ -70,3 +70,4 @@ howto:
   howto/resetting-a-password: "Resetting a password"
   howto/using-php-built-in-web-server.md: "Running Bolt using PHP's built-in web server"
   howto/performance-tips: "Performance and finetuning for Bolt websites"
+  howto/making-sure-htaccess-works: "Making sure .htaccess and mod_rewrite are working as they should"
