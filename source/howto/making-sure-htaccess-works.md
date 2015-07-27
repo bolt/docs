@@ -16,14 +16,11 @@ to the page `/bolt/userfirst`, where you saw the following error message:
     <img src="../files/htaccess-4.png" width="660"></a><br>
 </div>
 
-
 One of the three following possibilities is giving you problems:
 
 - You've misplaced the .htaccess file
 - Apache ignores `.htaccess` altogether
 - Mod_rewrite is not enabled
-
-
 
 ## Test if `.htaccess` is working
 
@@ -32,7 +29,7 @@ it, is to intentionally break it.
 
 Edit the `.htaccess` file, so the first line reads 'Test.':
 
-```
+```apache
 Test.
 
 # Set the default handler.
@@ -83,7 +80,7 @@ To test if `mod_rewrite` is working correctly, do the following:
  - Place it in the folder where you've put Bolt.
  - Create a `.htaccess` file with the contents as below.
 
-```
+```apache
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteRule ^.*$ htaccess_tester.php
@@ -114,15 +111,15 @@ It's unusual, but possible that .htaccess is not enabled on your site. If you
 are hosting it yourself, it's easy enough to fix. Open your httpd.conf in a text
 editor, and locate the `<Directory>` section:
 
-```
+```apache
 <Directory "/var/www/htdocs">
     AllowOverride None
 ```
 
 Change the `AllowOverride` line to:
 
-```
-AllowOverride All
+```apache
+    AllowOverride All
 ```
 
 Be sure to restart Apache after making any modifications to this file. Now, your
@@ -156,14 +153,14 @@ for the `RewriteBase` setting.
 
 Change
 
-```
+```apache
   # Some servers require the RewriteBase to be set. If so, set to the correct folder.
   # RewriteBase /
 ```
 
 to:
 
-```
+```apache
   # Some servers require the RewriteBase to be set. If so, set to the correct folder.
   RewriteBase /
 ```
