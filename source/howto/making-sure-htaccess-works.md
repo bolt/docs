@@ -1,19 +1,19 @@
-# Making sure `.htaccess` and `mod_rewrite` are working as they should
+# Making sure .htaccess and mod_rewrite are working as they should
 
 Bolt makes extensive use of a common feature called 'url rewriting'. This
-basically means that in your browser you can request a pretty url like `/page/about-this-website`,
-and behind the screens your websever will just 'translate' this to run the `index.php`
-with the correct parameters, so that Bolt can produce the correct page for you.
-One of the requirements of running Bolt correctly on any webserver is that
+basically means that you can request a pretty url like `/page/about-this-
+website` in your browser, and behind the screens your websever will just
+'translate' this to run the `index.php` with the correct parameters, so that
+Bolt can produce the correct page for you.
 
-This doesn't work on all webservers out-of-the-box, but it _is_ a hard
+This doesn't work out-of-the-box on all webservers, but it _is_ a hard
 requirement for using Bolt. If you're reading this page, you are likely in the
-process of setting up Bolt. After requesting the first page, you got redirected
+process of setting up Bolt and after requesting the first page, you got redirected
 to the page `/bolt/userfirst`, where you saw the following error message:
 
 <div class="gallery-popup">
-    <a href="../files/htaccess-2.png" class="gallery-popup" title="Htaccess working">
-    <img src="../files/htaccess-2.png" width="660"></a><br>
+    <a href="../files/htaccess-4.png" class="gallery-popup" title="bolt/userfirst not found">
+    <img src="../files/htaccess-4.png" width="660"></a><br>
 </div>
 
 
@@ -50,11 +50,11 @@ this:
     <img src="../files/htaccess-2.png" width="660"></a><br>
 </div>
 
-If you see this error, this means that Apache is actually parsing the
-`.htaccess` file, and it encounters the error we've put in there! So far, so
-good!
+If you see this error, that's **actually good**! This means that Apache is
+parsing the `.htaccess` file, and it encounters the error we've put in there! So
+far, so good!
 
-If you do not see an 'Internal Server Error', your Apache setup ignores the
+If you do _not_ see an 'Internal Server Error', your Apache setup ignores the
 `.htaccess` file, and you need to fix that. If you are not sure if the file
 exists and is readable, download our test- script:
 
@@ -70,8 +70,8 @@ exists and is readable, download our test- script:
 This is correct:
 
 <div class="gallery-popup">
-    <a href="../files/htaccess-1.png" class="gallery-popup" title="Htaccess working">
-    <img src="../files/htaccess-1.png" width="660"></a><br>
+    <a href="../files/htaccess-3.png" class="gallery-popup" title="Htaccess working">
+    <img src="../files/htaccess-3.png" width="660"></a><br>
 </div>
 
 ## Test if `mod_rewrite` is working
@@ -102,8 +102,6 @@ This is correct:
     <img src="../files/htaccess-1.png" width="660" style="bor"></a><br>
 </div>
 
-
-
 ## My htaccess is broken? What do?
 
 There are a plethora of reasons why it might not work on your system, and these
@@ -132,14 +130,16 @@ Be sure to restart Apache after making any modifications to this file. Now, your
 which would normally be preferable, but that depends on the way Apache is set
 up.
 
-If your site is hosted elsewhere, check your control panel (Plesk,
-DirectAdmin, CPanel, whatever) to see if you can enable `.htaccess` there. If
-not, contact your hosting provider to do it for you.
+If your site is hosted elsewhere, check your control panel (Plesk, DirectAdmin,
+CPanel, whatever) to see if you can enable `.htaccess` there. If not, contact
+your hosting provider to do it for you.
 
 ### Enable `mod_rewrite` in Apache
 
-There are a number of ways to enable `mod_rewrite`, if it's not yet enabled on your setup. See this Stack Overflow thread for various ways to fix this, depending on your setup:
-[How to enable mod_rewrite for Apache 2.2](http://stackoverflow.com/questions/869092/how-to-enable-mod-rewrite-for-apache-2-2)
+There are a number of ways to enable `mod_rewrite`, if it's not yet enabled on
+your setup. See this Stack Overflow thread for various ways to fix this,
+depending on your setup:
+[How to enable mod_rewrite for Apache 2.2](http://stackoverflow.com/questions/869092/how-to-enable-mod-rewrite-for-apache-2-2).
 
 ### Inspect Apache's logfiles.
 
@@ -151,7 +151,8 @@ system. Check your apache `.conf` file to see where these files might be hiding.
 
 ### Enabling Rewritebase.
 
-If you're setting up Bolt in a subfolder, you might have to uncomment the line with
+If you're setting up Bolt in a subfolder, you might have to uncomment the line
+for the `RewriteBase` setting.
 
 Change
 
