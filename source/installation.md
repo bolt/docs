@@ -131,6 +131,8 @@ set up the first user. If not, see below. If you do see the 'Create the first
 user'-screen, do accordingly, and log in to the Bolt backend. You should now
 see the (empty) Dashboard screen.
 
+<p class="note"><strong>Note:</strong> When you first open a Bolt page in your browser, you will be redirected to a page like <tt>/bolt/userfirst</tt> where you can set up the first user. If you get a 'File not found'-error, this means your webserver isn't configured to handle rewrites correctly. If you're using Apache, see our page on <a href="/howto/making-sure-htaccess-works">Making sure .htaccess and mod_rewrite are working as they should</a>.</p>
+
 If you want to get a quick way to see how your site looks with some content you
 can add some generated pages using the built-in <a href="http://loripsum.net">
 Loripsum</a> tool. This is a simple method to test-drive your theme quickly.
