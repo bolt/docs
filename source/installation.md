@@ -376,8 +376,13 @@ server {
         deny all;
     }
 
-    # Block access to Sqlite database files, Apache .htaccess & .htpasswd files
-    location ~ \.(?:db|htaccess|htpasswd)$ {
+    # Block hidden files
+    location ~ \. {
+        deny all;
+    }
+
+    # Block access to Sqlite database files
+    location ~ \.(?:db)$ {
         deny all;
     }
 
