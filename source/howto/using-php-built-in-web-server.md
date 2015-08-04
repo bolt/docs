@@ -13,7 +13,7 @@ Git & Zip Installs
 Simply navigate to your Bolt directory and issue the command:
 
 ```
-/usr/bin/php -S localhost:80 -t . local.php
+/usr/bin/php -S localhost:80 -t . index.php
 ```
 
 
