@@ -322,9 +322,9 @@ Use this to set Flash messages: Messages that appear on the current or next
 pageview, for the current user. Example:
 
 ```
-$app['session']->setFlash('success', 'Something went A-OK.');
-$app['session']->setFlash('info', 'A neutral message.');
-$app['session']->setFlash('error', 'Something went horribly wrong.');
+$app['session']->getFlashBag()->set('success', 'Something went A-OK.');
+$app['session']->getFlashBag()->set('info', 'A neutral message.');
+$app['session']->getFlashBag()->set('error', 'Something went horribly wrong.');
 ```
 
 ### $app['cache']
