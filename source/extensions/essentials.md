@@ -179,59 +179,55 @@ outputted HTML in the frontend. To do so, use the `addJavascript()` and
 ```
 function initialize()
 {
-
     // Add CSS file
-    $this->addCSS($this->app['paths']['app'] . "extensions/Namespace/assets/namespace.css");
+    $this->addCSS($this->app['resources']->getPath('extensions/Namespace/assets/namespace.css'));
 
     // Add javascript file
     $this->addJavascript(
-        $this->app['paths']['app'] . "extensions/Namespace/assets/namespace.js",
-        true,
-        1000
-      );
-
-
+        $this->app['resources']->getPath('extensions/Namespace/assets/namespace.js'),
+        array('late' => true, 'priority' => 1000)
+    );
 }
 ```
 
 Both of these functions take three parameters:
 
- - An absolute path to the desired .js or .css file. Use the
-   `$app['paths']['app']` variable to always get the correct path, regardless of
-   how Bolt is installed. See the [Paths section in Internals](/internals/bolt-
+ - An absolute path to the desired .js or .css file. Use 
+   `$this->app['resources']->getPath()` function to always get the correct
+   path, regardless of how Bolt is installed. See the [Paths section in Internals](/internals/bolt-
    internals#app8216paths8217) for more details.
- - An (optional) boolean that controls where the code insertion happens:
-    - HTML head, by default (`false`)
-    - End of the body section (`true`)
- - An (optional) integer to determine the ordering in which the files are
-   included in the rendered HTML. The default is `0`, any _lower_ value will get
-   inserted before, while any _higher_ value will get inserted later.
+ - An (optional) associative array:
+   - `late`     — Either `true` (end of the HTML `<body>`) or `false` (inside HTML `<head>`) 
+   - `priority` — Loading priority, any _lower_ value will get inserted before, while any _higher_ value will get inserted later.
+   - `attrib`   — A string containing either/or 'defer', and 'async'
 
 Be careful though. If you insert dependant code before the relevant JavaScript
 itself, this will cause breakage.
 
 There's a special function for adding jQuery to the outputted HTML. A lot of
 extensions might or might not require jQuery to function, and the developer of
-the HTML might have already included it. If several extensions added additional
-jQuery includes, your HTML would quickly become a mess at best. Most likely it
-will break, because having more than one instance of jQuery might cause
-conflicts in your page. If your extension requires jQuery, use the following:
+the HTML might have already included it. 
+
+If several extensions added additional jQuery includes, your HTML would quickly
+become a mess at best. Most likely it will break, because having more than one
+instance of jQuery might cause conflicts in your page. If your extension 
+requires jQuery, use the following:
 
 ```
 function initialize()
 {
-
     $this->addJquery();
-
 }
 ```
 
 This will make sure jQuery is added to the outputted HTML, but only if it's not
 included by the theme developer already. It also will not be included more than
 once, even if several extensions have `addJquery()` in the
-`initialize()`-function. It will correctly detect jQuery if it's already present
-in the templates, whether the templates are using the minified version or not,
-and whether it's a local version or one that's hosted on a remote CDN.
+`initialize()`-function. 
+
+It will correctly detect jQuery if it's already present in the templates,
+whether the templates are using the minified version or not, and whether it's a
+local version or one that's hosted on a remote CDN.
 
 The version of jQuery included will be the one that ships with Bolt. This will
 most likely be the most recent one, at the time of the release of the Bolt
@@ -263,10 +259,8 @@ templates:
 ```
 function initialize()
 {
-
     // Initialize the Twig function
     $this->addTwigFunction('foo', 'twigFoo');
-
 }
 
 /**
@@ -274,9 +268,7 @@ function initialize()
  */
 function twigFoo($var1, $var2)
 {
-
     return "Twig function Namespace.";
-
 }
 ```
 

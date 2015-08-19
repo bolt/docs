@@ -12,29 +12,53 @@ curious what makes Bolt tick.
 
 Routing
 -------
+
+<p class="meta">
+    <strong>Bolt 2.3+</strong><br>
+    The following functionality is only applicable for Bolt 2.3+ versions.
+</p>
+
+The request handling functionality, and associated controllers have been 
+completely refactored for the upcoming Bolt 2.3.
+
+More information will be available closer to release and this section will be
+updated to reflect was will be finalised. 
+
+<p class="meta">
+    <strong>Bolt 2.0 to 2.2</strong><br>
+    The following functionality is only applicable for Bolt 2.0 to 2.2 versions.
+</p>
+
 Every request to a page on a Bolt website is routed to a Silex controller,
-regardless of whether the request is for a page in the backend, frontend or
+regardless of whether the request is for a page in the 'backend', 'frontend' or
 'asynchronous'.
 
 There are four files that contain the controller collections, located in
-`app/src/Bolt/Controllers/`: `Backend.php`, `Frontend.php`, `Async.php` and
-`Routing.php`. As such, they are all in the `\Bolt\Controllers` namespace. They
-are 'set up' in `app/app.php`. The routes in `Backend.php` are all pretty
-straightforward. The ones in `Async.php` are used for 'ajaxy' requests, like the
-'latest activity' widget on the dashboard. Next we have `Routing.php` and
-`Frontend.php`. The first one is the actual Controller that parses the routes
-found in `routing.yml` and the latter contains the methods for all standard
-routes as defined in `routes.yml`. You can modify the `routing.yml` to suit your
-own needs. Examples are included.
+`src/Controllers/`: `Backend.php`, `Frontend.php`, `Async.php` and
+`Routing.php`. 
+
+As such, they are all in the `\Bolt\Controllers` namespace. They are 'set up'
+in `src/Application.php`. 
+
+* `Backend` rotues are all pretty straightforward. 
+* `Async.php` routes are used for 'ajaxy' requests, like the
+'latest activity' widget on the dashboard. 
+* `Routing` is the actual Controller that parses the routes found in `routing.yml`
+* `Frontend` contains the methods for all standard routes as defined in `routes.yml`. 
+
+You can modify the `routing.yml` to suit your own needs. Examples are included.
 
 Templating
 ----------
-All templating in Bolt is done through [Twig][twig]. Twig
-is a template library that's not only secure, fast and flexible, but it's also
-elegant and concise, so it's easy to use for both 'developer' and 'frontend'
-type persons. Basically, everything that you can do 'vanilla' Twig, you can do
-in the Bolt templates. We've added a few tags of our own. Browse
-`app/src/Bolt/TwigExtension.php` and `app/src/Bolt/SetcontentTokenParser.php`
+All templating in Bolt is done through [Twig][twig]. 
+
+Twig is a template library that's not only secure, fast and flexible, but it's
+also elegant and concise, so it's easy to use for both 'developer' and 'frontend'
+type persons. 
+
+Basically, everything that you can do 'vanilla' Twig, you can do in the Bolt 
+templates. We've added a few tags of our own. Browse
+`src/Twig/TwigExtension.php` and `src/Twig/SetcontentTokenParser.php`
 for details.
 
 More information on this subject can be found in [Templates and Routes](/templates-routes)
@@ -43,30 +67,51 @@ and [Content in Templates](/content-in-templates).
 The "Model"
 -----------
 The way Bolt handles its contenttypes is defined in the `contenttypes.yml` file,
-which in turn determines the data-structure of the website. Basically, whatever
-is defined in the contenttypes gets added as columns to the database that's
-configured in `config.yml`. Whenever the 'dashboard' is displayed, Bolt checks
-if the definitions in `contenttypes.yml` matches the database columns, and if it
-doesn't it urges the user to go to the 'repair database' screen.
+which in turn determines the data-structure of the website. 
+
+Basically, whatever is defined in the contenttypes gets added as columns to the
+database that's configured in `config.yml`. 
+
+Whenever the 'dashboard' is displayed, Bolt checks if the definitions in
+`contenttypes.yml` matches the database columns, and if it doesn't it urges
+the user to go to the 'repair database' screen.
 
 Even though Bolt strives to be as simple as possible, it makes sense to think of
 Bolt as an [MVC application][mvc]. Silex provides the Controller part, the Twig
 templates are the View and the Contenttypes define the Model part.
 
+<p class="meta">
+    <strong>Bolt 2.3+</strong><br>
+    The following functionality is only applicable for Bolt 2.3+ versions.
+</p>
+
+The storage layer has been completely refactored for the upcoming Bolt 2.3.
+
+More information will be available closer to release and this section will be
+updated to reflect was will be finalised. 
+
+<p class="meta">
+    <strong>Bolt 2.0 to 2.2</strong><br>
+    The following functionality is only applicable for Bolt 2.0 to 2.2 versions.
+</p>
+
 All access to the content and the contentypes is done through the Storage class.
-Records of content have a Content class. Browse the files
-`app/src/Bolt/Storage.php` and `app/src/Bolt/Content.php` for details.
+Records of content have a Content class. Browse the files `src/Storage.php`
+and `src/Content.php` for details.
 
 Bootstrapping
 -------------
 As mentioned before, Bolt is a Silex application. As such, it is a good idea to
 familiarize yourself with Silex, because when hacking the code or creating your
 own extensions, you can basically do whatever can be done in Silex in general.
+
 In the Bolt code, there is an ubiquitous `$app`, which is an instance of
-`Bolt\Application`, which extends `\Silex\Application`. Basically, this is 'the
-application', and most of the components that are used in Bolt are created as
-services via Dependency Injection. If you want to know more about these
-subjects, we heartily recommend these articles about Dependency Injection:
+`Bolt\Application`, which extends `\Silex\Application`. Basically, this is 
+'the application', and most of the components that are used in Bolt are created
+as services via Dependency Injection. 
+
+If you want to know more about these subjects, we heartily recommend these 
+articles about Dependency Injection:
 
   - [An introduction to Pimple and Service Containers][intro]
   - [What is Dependency Injection?][depinj]
@@ -74,13 +119,15 @@ subjects, we heartily recommend these articles about Dependency Injection:
 In Bolt, this `$app` will be available in the majority of the code, and so are
 all of the services, libraries and variables that are part of the application.
 
-All of these are created in `app/bootstrap.php`. Read the code in that file, to
-get a feeling for what can be accessed through the `$app` object. Most of the
+All of these are created in `src/Application.php`. Read the code in that file,
+to get a feeling for what can be accessed through the `$app` object. Most of the
 services defined there are Symfony components, about which you can read on the
 Silex Documentation page on [Service Providers][service], or on the
-[Symfony Components page][comp]. The next largest group are the Bolt components.
-These can be recognized by the `Bolt\` namespace. These components are
-autoloaded, and can be found in `app/src/Bolt/`.
+[Symfony Components page][comp]. 
+
+The next largest group are the Bolt components. These can be recognized by the
+`Bolt\` namespace. These components are autoloaded, and can be found in
+`src/Bolt/`.
 
 Debug Bar and `dump()`
 ---------------------------------------
@@ -99,22 +146,6 @@ This profiler bar contains a lot of useful information to see what's going on
 behind the scenes. Click the different tabs to see information about the current
 request, used templates, matched routes, used queries, server variables and a
 lot more.
-
-Note that the debug bar is appended to all your frontend templates by default.
-If you don't want the bar in a custom template, just use this, anywhere in the
-template:
-
-```
-    {{ debugbar(false) }}
-```
-
-When creating an extension or custom controller, the debug is not added by
-default. In your code you can enable or disable it using the following:
-
-```
-$this->app['debugbar'] = false;
-$this->app['debugbar'] = true;
-```
 
 ### `{{ dump() }}` and `dump()`
 
@@ -152,10 +183,12 @@ Or, using the (global) shortcut:
 ```
 
 Like above, the `$variable` can be a normal variable, an object or whatever.
+
 Note that Bolt has built-in protection for when you're tyring to 'dump' Silex or
-Symfony objects like `$app` or a variable that's `\Bolt\Application`. Since
-these would be too large to render because of internal references and recursion,
-they are not expanded further.
+Symfony objects like `$app` or a variable that's `\Bolt\Application`. 
+
+Since these would be too large to render because of internal references and
+recursion, they are not expanded further.
 
 ### `{{ backtrace() }}`
 
@@ -191,8 +224,8 @@ Object Reference
 ----------------
 
 Below you'll find a reference for a lot of the objects, arrays, services and
-libraries that are accessible in the code through `$app`, and - if relevant -
-how to use these in the templates.
+libraries that are accessible in the code through `$app`, and, if relevant, how
+to use these in the templates.
 
 ### `$app['config']`
 
@@ -217,56 +250,86 @@ These variables are also accessible in your templates:
 Remember to use `{{ dump() }}` and `dump()` to dump these arrays to
 inspect the current values.
 
-### $app['paths']
+### $app['resources']
 
-The 'paths' array contains references to paths, folders and links in your current website.
+The 'resources' object contains an instance of the `Bolt\Configuration\ResourceManager`
+class.
 
-```
-echo "<pre>\n" . dump($app['paths'], true) . "</pre>\n";
-```
+This obejct is most useful for obtaining and managing references to paths, 
+folders and links in your current website.
 
-The path variables are also accessible in your templates:
-
-```
-    {{ dump(paths) }}
-```
-
-A sample printout of the 'paths' might look like this:
+File system paths are fetched/set by:
 
 ```
-… arr(17) …
-  hostname str(14) => bolt.localhost
-  root str(1) => /
-  rootpath str(21) => /Users/bob/Sites/bolt
-  theme str(17) => /theme/base-2013/
-  themepath str(37) => /Users/bob/Sites/bolt/theme/base-2013
-  app str(5) => /app/
-  apppath str(25) => /Users/bob/Sites/bolt/app
-  bolt str(6) => /bolt/
-  async str(7) => /async/
-  files str(7) => /files/
-  filespath str(27) => /Users/bob/Sites/bolt/files
-  canonical str(14) => bolt.localhost
-  current str(43) => /kitchensink/sed-residamus-inquit-si-placet
-  hosturl str(21) => https://bolt.localhost
-  rooturl str(22) => https://bolt.localhost/
-  canonicalurl str(64) => https://bolt.localhost/kitchensink/sed-residamus-inquit-si-placet
-  currenturl str(64) => https://bolt.localhost/kitchensink/sed-residamus-inquit-si-placet
+$app['resources']->getPath()
+$app['resources']->setPath()
 ```
 
+URL paths are fetched/set by:
+
+```
+$app['resources']->getUrl()
+$app['resources']->setUrl()
+```
+
+File system paths available are:
+
+```
+    "root" => "/path/to/bolt"
+    "rootpath" => "/path/to/bolt"
+    "apppath" => "/path/to/bolt/app"
+    "extensionsconfig" => "/path/to/bolt/app/config/extensions"
+    "extensionsconfigpath" => "/path/to/bolt/app/config/extensions"
+    "extensionspath" => "/path/to/bolt/extensions"
+    "filespath" => "/path/to/bolt/files"
+    "web"  => "/path/to/bolt/"
+    "webpath" => "/path/to/bolt/"
+    "cache" => "/path/to/bolt/app/cache"
+    "cachepath" => "/path/to/bolt/appcache"
+    "config" => "/path/to/bolt/app/config"
+    "configpath" => "/path/to/bolt/app/config"
+    "database" => "/path/to/bolt/app/database"
+    "databasepath" => "/path/to/bolt/app/database"
+    "themebase" => "/path/to/bolt/theme"
+    "themebasepath" => "/path/to/bolt/theme"
+    "themepath" => "/path/to/bolt/theme/base-2014"
+    "templatespath" => "/path/to/bolt/theme/base-2014"
+  ]
+```
+
+URL paths available are:
+
+```
+    "root" => "/"
+    "app" => "/app/"
+    "extensions" => "/extensions/"
+    "files" => "/files/"
+    "async" => "/async/"
+    "upload" => "/upload/"
+    "bolt" => "/bolt/"
+    "theme" => "/theme/base-2014/"
+    "current" => "/"
+    "canonicalurl" => "http://www.bolt.cm/page/about"
+    "currenturl" => "http://bolt.cm/page/about"
+    "hosturl" => "http://bolt.cm"
+    "rooturl" => "http://bolt.cm/"
+  ]
+```
 
 ### $app['db']
 
 The 'db' object is a Doctrine Database Abstraction Layer object. Use it to query
-"stuff" in the database. Because of the DBAL, you don't need to worry about
-whether the site is set up as MySQL, PostgreSQL or SQLite. Just make sure to use
-SQL/DQL that Doctrine understands. For more information, see this page on the
-Doctrine DBAL: [Data Retrieval And Manipulation][dbal].
+"stuff" in the database. 
+
+Because of the DBAL, you don't need to worry about whether the site is set up as
+MySQL, PostgreSQL or SQLite. Just make sure to use SQL/DQL that Doctrine 
+understands. For more information, see this page on the Doctrine DBAL: 
+[Data Retrieval And Manipulation][dbal].
 
 Example:
 
 ```
-$tablename = $this->config['general']['database']['prefix'] . $contenttype;
+$tablename = $app['config']->get('general/database/prefix') . $contenttype;
 $query = "UPDATE $tablename SET $field = ? WHERE id = ?";
 $stmt = $app['db']->prepare($query);
 $stmt->bindValue(1, $value);
@@ -276,7 +339,7 @@ $res = $stmt->execute();
 echo "Result was: " . dump($res);
 ```
 
-Check `app/src/Bolt/Storage.php` for a lot of examples using the DBAL.
+Check `src/Storage.php` for a lot of examples using the DBAL.
 
 
 ### $app['mailer']
@@ -287,36 +350,72 @@ This is an instance of Swiftmailer.
 - [http://swiftmailer.org/][swift2]
 
 
-### $app['log']
+### $app['logger.system']
 
-Instance of `Bolt\Log`. See `app/src/Bolt/Log.php` for details.
+Instance of `Monolog\Logger` and implements the [PSR-3][psr3] logging interface
 
 Example:
 
 ```
-$app['log']->add("Login " . $request->get('username') , 2, '', 'login');
+$message = 'Login: ' . $request->get('username');
+$app['logger.system']->info($message, array('event' => 'authentication'));
 ```
 
-The `add()` function takes four parameters:
+Logger calls can be any of:
+  * emergency()
+  * alert()
+  * critical()
+  * error()
+  * warning()
+  * notice()
+  * info()
+  * debug()
 
- - The message to log.
- - The 'severity level' of the log entry.
- - Optional '$content'. If you pass a Content record, it will be logged.
- - 'code'. by passing a code you can group different log entries together.
+The first parameter is a message string.
 
-If something is logged with a level of '3' or higher and a 'code', it will be shown in the
-activity log on the dashboard screen. Otherwise it will only be shown in the extended
-'activity log' screen.
+The second parameter is the context array, and must contain an `event` key with
+a value of any of the following:
+  * authentication
+  * config
+  * content
+  * cron
+  * deprecated
+  * exception
+  * extension
+  * news
+  * nut
+  * security
+  * storage
+  * template
+  * translation
+  * twig
+  * upload
 
 ### $app['users']
 
-Instance of `Bolt\Users`. See `app/src/Bolt/Users.php` for details.
+Instance of `Bolt\Users`. See `src/Users.php` for details.
 
 
 ### $app['session']
 
 Instance of Silex Session. See [Silex SessionServiceProvider][session] for
 details.
+
+
+<p class="meta">
+    <strong>Bolt 2.3+</strong><br>
+    The following functionality is only applicable for Bolt 2.3+ versions.
+</p>
+
+The session handline has been completely refactored for the upcoming Bolt 2.3.
+
+More information will be available closer to release and this section will be
+updated to reflect was will be finalised. 
+
+<p class="meta">
+    <strong>Bolt 2.0 to 2.2</strong><br>
+    The following functionality is only applicable for Bolt 2.0 to 2.2 versions.
+</p>
 
 Use this to set Flash messages: Messages that appear on the current or next
 pageview, for the current user. Example:
@@ -329,7 +428,7 @@ $app['session']->getFlashBag()->set('error', 'Something went horribly wrong.');
 
 ### $app['cache']
 
-Instance of `Bolt\Cache`. See `app/src/Bolt/Cache.php` for details.
+Instance of `Bolt\Cache`. See `src/Cache.php` for details.
 
 ### $app['extensions']
 
@@ -356,9 +455,8 @@ Most controllers return a rendered Twig template as a result, but you can also
 render a (sub)template as HTML, process it further if needed, and return that as
 part of an extension or callback.
 
-Inspect the various controllers `app/app_backend.php`, `app/app_frontend.php`
-and `app/app_async.php` for details. To use a template in your own code as part
-of the result, see this example:
+Inspect the various controllers for details. To use a template in your own code 
+as part of the result, see this example:
 
 ```
 $html = $app['render']->render("assets/bla.twig", array('form' =>  $data));
@@ -390,13 +488,30 @@ return $html;
 
 ### $app['htmlsnippets']
 
+
+<p class="meta">
+    <strong>Bolt 2.3+</strong><br>
+    The following functionality is only applicable for Bolt 2.3+ versions.
+</p>
+
+The $app['htmlsnippets'] has been removed in the upcoming Bolt 2.3.
+
+More information will be available closer to release and this section will be
+updated to reflect was will be finalised. 
+
+<p class="meta">
+    <strong>Bolt 2.0 to 2.2</strong><br>
+    The following functionality is only applicable for Bolt 2.0 to 2.2 versions.
+</p>
+
 Bolt outputs snippets in the HTML for includes like jQuery and the
 `<meta generator>` tag. By default these snippets are only output in the
 `frontend`, and not in `async` or `backend` pages. Extensions that use `addCSS`
 or `addJavascript` are also affected by this.
 
-When creating an extension or custom controller, the debug is not added by default. In
-your code you can enable or disable the output of these snippets using the following:
+When creating an extension or custom controller, the debug is not added by 
+default. In your code you can enable or disable the output of these snippets 
+using the following:
 
 ```
 $this->app['htmlsnippets'] = false;
@@ -407,9 +522,10 @@ $this->app['htmlsnippets'] = true;
 [silex]: http://silex.sensiolabs.org
 [comp]: http://symfony.com/components
 [psr2]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
+[psr3]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md
 [ext]: /extensions/introduction
 [twig]: http://twig.sensiolabs.org/
-[mvc]: http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+[mvc]: https://en.wikipedia.org/wiki/Model-view-controller
 [intro]: https://jtreminio.com/2012/10/an-introduction-to-pimple-and-service-containers/
 [depinj]: http://fabien.potencier.org/article/11/what-is-dependency-injection
 [service]: http://silex.sensiolabs.org/documentation
