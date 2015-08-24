@@ -76,6 +76,11 @@ the page. You can change this by either defining another template in
 information about this can be found in the chapter
 [Working with Content and Content types](/contenttypes-and-records).
 
+By using the `template_directory` setting in your theme's config.yml you can choose the location of the templates within your theme structure. For example to place all your templates in a directory called `twig` you would add the following to your theme's config.yml:
+```
+template_directory: twig
+```
+
 
 Template tags
 -------------
