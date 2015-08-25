@@ -265,7 +265,7 @@ The available options are:
     the Bolt backend. If there are more records, they will be paginated.
   - `show_on_dashboard` (optional): When set to `false` the contenttype will
     not appear in the 'Recently edited &hellip;' list on the dashboard page.
-  - `show_in_menu` (optional): When set to `false` the contenttype will
+  - `show_in_menu` (optional): When set to `false` the contenttype will show
     in a submenu instead of as a top level menu. Can also be set to a word or 
     sentence to group contenttypes under different menus.
   - `default_status` (optional): Use this to set the default status for new
