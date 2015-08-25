@@ -272,6 +272,9 @@ The available options are:
   - `viewless` (optional): When set to `true`, routes will not be set for the
     Contenttype listing, or the records themselves. Useful for creating
     [resource contenttypes](/howto/resource-contenttype).
+  - `title_format` (optional): Is used to determine the format of the title in
+    the backend. For example if you have two fields for `firstname` and 
+    `lastname` you might put `[ firstname, lastname ]` here.
   - `icon_many` (optional): A [Font Awesome](http://fortawesome.github.io/Font-
     Awesome/) icon to be used in the sidebar for this contenttype. For example:
     `fa:cubes`
