@@ -254,7 +254,8 @@ file. Put all settings you share over all environments in the default
 Every setting which is different per environment, or which you do not want in
 version control (like database info), you put in `config_local.yml`. First
 `config.yml` is loaded and then `config_local.yml`, so  that `config_local.yml`
-can override any setting in `config.yml`.
+can override any setting in `config.yml`. Bolt will always load `config_local.yml`
+if it's available, so be sure not to deploy it to your server.
 
 <p class="tip"><strong>Tip:</strong> You might want to disable <code>debug</code> in
 <code>config.yml</code> and only enable <code>debug</code> in <code>config_local.yml</code>
