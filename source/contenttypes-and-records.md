@@ -258,7 +258,9 @@ The available options are:
     overview of Records of this Contenttype. The template itself should be
     located in your `theme/foo/` folder, in Bolt's root folder.
   - `listing_records`: The amount of records to show on a single overview page
-    in the frontend. If there are more records, the results will be paginated.
+    in the frontend. If there are more records, the results will be paginated  
+  - `listing_sort`: The field used to sort the results on. You can reverse the
+    order by adding a '-'. For example `title` or `-datepublish`.
   - `sort` (optional): The default sorting of this contenttype, in the overview
     in Bolt's backend interface. For example `-datecreated`.
   - `recordsperpage` (optional): The amount of records shown on each page in
