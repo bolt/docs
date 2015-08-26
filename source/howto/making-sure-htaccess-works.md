@@ -105,11 +105,11 @@ There are a plethora of reasons why it might not work on your system, and these
 reasons vary so wildly, that we can't give an exhaustive solution for that. That
 said, here are a few pointers that might help you fix it:
 
-### Enable `.htaccess` in your `httpd.conf`
+### Enable `.htaccess` in your `httpd.conf` or `apache.conf`.
 
-It's unusual, but possible that .htaccess is not enabled on your site. If you
-are hosting it yourself, it's easy enough to fix. Open your httpd.conf in a text
-editor, and locate the `<Directory>` section:
+It's unusual, but possible that `.htaccess` is not enabled on your site. If you
+are hosting it yourself, it's easy enough to fix. Open your `httpd.conf` or 
+`apache.conf` in a text editor, and locate the `<Directory>` section:
 
 ```apache
 <Directory "/var/www/htdocs">
@@ -131,7 +131,7 @@ If your site is hosted elsewhere, check your control panel (Plesk, DirectAdmin,
 CPanel, whatever) to see if you can enable `.htaccess` there. If not, contact
 your hosting provider to do it for you.
 
-### Enable `mod_rewrite` in Apache
+### Enable `mod_rewrite` in Apache.
 
 There are a number of ways to enable `mod_rewrite`, in case it's not yet enabled
 on your setup. See this Stack Overflow thread for various ways this may be done
@@ -172,19 +172,19 @@ might try setting up Bolt in it's own subdomain, since that usually gives less
 problems. So, instead of using `http://example.org/testingbolt`, set it up as
 `http://testingbolt.example.org/`.
 
-### Contact your webhost
+### Contact your webhost.
 
 Ask your webhost what might be wrong. The more info you give them, the bigger
 the chance that they might be able to help you out.
 
-### Use a pre-configured build of apache
+### Use a pre-configured build of Apache.
 
 If you're setting up Apache on your own computer, and it's turning out to be
 hard to configure, you should consider using [XAMPP](https://www.apachefriends.org/index.html)
 (Windows), [MAMP](https://www.mamp.info/en/) (OS X) or [AMPPS](http://www.ampps.com/)
 (Windows, OS X, Linux).
 
-### Use Nginx instead
+### Use Nginx instead.
 
 If you're fed up with Apache's shenanigans, you might consider ditching it in
 favor of [Nginx](http://nginx.org/en/download.html). Nginx is a high-performance
