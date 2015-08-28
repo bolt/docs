@@ -577,12 +577,12 @@ Available variables in Twig
 ### app
 
 ```
-{{ app.config.general.sitename }}
+{{ app.config.get('general/sitename') }}
 ```
 
 
 ```
-{{ dump(app.config.general) }}
+{{ dump(app.config.get('general') }}
 ```
 
 For more info on `app`, see the chapter on [Bolt Internals](/internals/bolt-internals).
