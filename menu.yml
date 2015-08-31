@@ -71,3 +71,4 @@ howto:
   howto/using-php-built-in-web-server: "Running Bolt using PHP's built-in web server"
   howto/performance-tips: "Performance and finetuning for Bolt websites"
   howto/making-sure-htaccess-works: "Making sure .htaccess and mod_rewrite are working as they should"
+  howto/muti-site-setup: "Running Multiple Bolt sites from one source directory"
