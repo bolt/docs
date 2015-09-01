@@ -22,7 +22,7 @@ The request handling functionality, and associated controllers have been
 completely refactored for the upcoming Bolt 2.3.
 
 More information will be available closer to release and this section will be
-updated to reflect was will be finalised. 
+updated to reflect the finalised implementation.
 
 <p class="meta">
     <strong>Bolt 2.0 to 2.2</strong><br>
@@ -88,7 +88,7 @@ templates are the View and the Contenttypes define the Model part.
 The storage layer has been completely refactored for the upcoming Bolt 2.3.
 
 More information will be available closer to release and this section will be
-updated to reflect was will be finalised. 
+updated to reflect the finalised implementation.
 
 <p class="meta">
     <strong>Bolt 2.0 to 2.2</strong><br>
@@ -410,7 +410,7 @@ details.
 The session handline has been completely refactored for the upcoming Bolt 2.3.
 
 More information will be available closer to release and this section will be
-updated to reflect was will be finalised. 
+updated to reflect the finalised implementation.
 
 <p class="meta">
     <strong>Bolt 2.0 to 2.2</strong><br>
@@ -497,7 +497,7 @@ return $html;
 The $app['htmlsnippets'] has been removed in the upcoming Bolt 2.3.
 
 More information will be available closer to release and this section will be
-updated to reflect was will be finalised. 
+updated to reflect the finalised implementation.
 
 <p class="meta">
     <strong>Bolt 2.0 to 2.2</strong><br>
