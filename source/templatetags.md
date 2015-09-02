@@ -645,4 +645,5 @@ string to do the test. Don't forget the quotes!</p>
 [number]: http://twig.sensiolabs.org/doc/filters/number_format.html
 [popup]: http://dimsemenov.com/plugins/magnific-popup/
 [strftime]: http://php.net/manual/en/function.strftime.php
-[date]: http://nl3.php.net/manual/en/function.date.php
+[date]: http://php.net/manual/en/function.date.php
+
