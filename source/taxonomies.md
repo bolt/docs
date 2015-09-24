@@ -12,7 +12,8 @@ main types of taxonomy:
     tags, that do not have to be selected from a predefined list. Just add tags,
     as you go! Examples of websites that use tags extensively are
     [Flickr](http://www.flickr.com/search/?q=tag%3Akitten) or
-    [Delicious](https://delicious.com/tag/kittens).
+    [Delicious](https://delicious.com/tag/kittens). The taxonomy can be set up to
+    allow spaces in tag names or not.
   - `categories`: Categories are chosen predefined categorizations for your
     record. These are often found on weblogging sites, to define the different
     types of blogpostings. The taxonomy can be limited to either one or more
@@ -32,6 +33,7 @@ tags:
     slug: tags
     singular_slug: tag
     behaves_like: tags
+    allow_spaces: false
     #listing_template: tag-listing.twig #custom template
 
 chapters:
