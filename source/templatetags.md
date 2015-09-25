@@ -408,13 +408,13 @@ Use this modifier to return a "safe" version of the string. For example:
 => bonum-patria-miserum-exilium-ut-optime-secundum
 ```
 
-Characters in the string are converted to lowercase, accented ones are converted to their lowercase ASCII equivalent. 
+Characters in the string are converted to lowercase, accented ones are converted to their lowercase ASCII equivalent.
 Punctuation signs, and trailing space if present, are replaced by hyphens.
 
 You can specify two parameters: strict mode and extrachars.
 
   - Strict mode (boolean, default to false): spaces are converted to hyphens.
-  - Extra chars (string, default to empty): A string containing extra non-alphabetical characters to keep in result. 
+  - Extra chars (string, default to empty): A string containing extra non-alphabetical characters to keep in result.
 
 ```
 {# Default settings #}
@@ -427,7 +427,7 @@ You can specify two parameters: strict mode and extrachars.
 {% set text = "Bonum patria: miserum exilium. Ut optime, secundum" %}
 {{ text|safestring(true) }}
 
-=> bonum-patria-miserum-exilium-ut-optime-secundum 
+=> bonum-patria-miserum-exilium-ut-optime-secundum
 
 {# Keep dots #}
 {% set text = "my beautiful image.jpg" %}
@@ -612,16 +612,16 @@ Examples:
 ```
 
 
-### available
+### defined (for extensions)
 
-Use this test to determine if a Twig function, test or filter is available. You
+Use this test to determine if a certain extension is available. You
 can use this in your themes, where it's not apparent whether or not the user
 will have a certain extension installed.
 
 Examples:
 
 ```
-{% if 'facebooklike' is available %}
+{% if FacebookLike is defined %}
     {{ facebooklike() }}
 {% endif %}
 ```
@@ -629,15 +629,15 @@ Examples:
 You can use this, to output a friendly warning to users of the templates:
 
 ```
-{% if 'simpleform' is available %}
-    {{ simpleform('contact') }}
+{% if BoltForms is defined %}
+    {{ boltforms('contact') }}
 {% else %}
-    <p>Warning: This theme suggests you install the 'Simpleforms' extension.</p>
+    <p>Warning: This theme suggests you install the 'Bolt Forms' extension.</p>
 {% endif %}
 ```
 
-<p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must use a
-string to do the test. Don't forget the quotes!</p>
+<p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must use the
+*name* of the extension. Don't add quotes!</p>
 
 [twig]: http://twig.sensiolabs.org/doc/templates.html
 [inc]: http://twig.sensiolabs.org/doc/tags/include.html
