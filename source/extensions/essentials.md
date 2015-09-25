@@ -248,6 +248,15 @@ Or if you want to retrieve them in a twig template, use `app.extensions.assets`.
 {{ dump(app.extensions.assets) }}
 ```
 
+If you need to remove all other extensions assets you can call `clearAssets()`.
+This should only be done on an extension specific route and as a last recourse
+as it denies other extensions access to addAsset. An example where this might
+be needed is if another extension causes javascript errors with your javascript
+on a backend view.
+
+```
+$this->clearAssets();
+```
 
 Add a Twig function or filter
 -----------------------------
