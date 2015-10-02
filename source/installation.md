@@ -382,12 +382,12 @@ server {
     }
 
     # Block hidden files
-    location ~ \. {
+    location ~ /\. {
         deny all;
     }
 
     # Block access to Sqlite database files
-    location ~ \.(?:db)$ {
+    location ~ /\.(?:db)$ {
         deny all;
     }
 
