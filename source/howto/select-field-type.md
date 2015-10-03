@@ -113,6 +113,38 @@ If you have a lot of options, you can put them on separate lines in your
               undecided: "Well, it can go either way"
 
 ```
+Practical Examples of using the select field with a large number of options.
+
+```apache
+        time:
+            type: select
+            values:
+              - 12 AM
+              - 1 AM
+              - 2 AM
+              - 3 AM
+              - 4 AM
+              - 5 AM
+              - 6 AM
+              - 7 AM
+              - 8 AM
+              - 9 AM
+              - 10 AM
+              - 11 AM
+              - 12 PM
+              - 1 PM
+              - 2 PM
+              - 3 PM
+              - 4 PM
+              - 5 PM
+              - 6 PM
+              - 7 PM
+              - 8 PM
+              - 9 PM
+              - 10 pm
+              - 11 pm
+            multiple: false
+```
 
 Populating the list from a contenttype
 --------------------------------------
@@ -188,14 +220,14 @@ If the list is growing longer, there are a few ways to make it more manageable:
  - Use `limit` to limit the amount of items. Note that the default is `500`, so
    if you have a long list, and you need to show them all to the user, raise
    this limit.
-   
+
 ####Filtering the results
 
-Finally you can pass filters to the query using the `filter` option. For a full 
-reference of what can be passed to a where filter you can see the 
-<a href="/content-fetching#using-where">content fetching documentation</a>. 
+Finally you can pass filters to the query using the `filter` option. For a full
+reference of what can be passed to a where filter you can see the
+<a href="/content-fetching#using-where">content fetching documentation</a>.
 
-As well as filters on the contenttype values you can also pass in taxonomy conditions 
+As well as filters on the contenttype values you can also pass in taxonomy conditions
 too, as in the example below.
 
 ```apache
@@ -206,4 +238,3 @@ too, as in the example below.
             filter: {categories:news}
             autocomplete: true
 ```
-
