@@ -113,7 +113,8 @@ If you have a lot of options, you can put them on separate lines in your
               undecided: "Well, it can go either way"
 
 ```
-Practical Examples of using the select field with a large number of options.
+
+Practical example of using the select field with a large number of options.
 
 ```apache
         time:
@@ -141,8 +142,8 @@ Practical Examples of using the select field with a large number of options.
               - 7 PM
               - 8 PM
               - 9 PM
-              - 10 pm
-              - 11 pm
+              - 10 PM
+              - 11 PM
             multiple: false
 ```
 
