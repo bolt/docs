@@ -361,6 +361,11 @@ server {
     location ~* /bolt/(.*)$ {
         try_files $uri $uri/ /index.php?$query_string;
     }
+    
+    # Backend async routes
+    location ~* /async/(.*)$ {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
 
     # Enforce caching for certain file extension types
     location ~* \.(?:ico|css|js|gif|jpe?g|png|ttf|woff|woff2)$ {
