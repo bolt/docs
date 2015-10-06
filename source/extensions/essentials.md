@@ -372,9 +372,7 @@ Using your own `config.yml` file
 --------------------------------
 
 Extensions can use their own config files using the YAML format. It should be
-named `config.yml`, and it should be in the folder of your extension. The
-extension configuration will be automatically loaded. To use it in a snippet
-callback, or a Twig function or modifier, use it like this:
+named `config.yml.dist`, and it should be in the folder of your extension. Bolt will copy it as `{extension-name}.{vendor-name}.yml` into `/app/config/extensions` when it doesn't already exist there. The extension configuration will be automatically loaded. To use it in a snippet callback, or a Twig function or modifier, use it like this:
 
 ```
 function foo()
