@@ -72,4 +72,4 @@ howto:
   howto/performance-tips: "Performance and finetuning for Bolt websites"
   howto/making-sure-htaccess-works: "Making sure .htaccess and mod_rewrite are working as they should"
   howto/muti-site-setup: "Running Multiple Bolt sites from one source directory"
-  howto/curl-ca-certificates.md: "Setting Up cURL SSL/TLS Certificate Authority Certificates"
+  howto/curl-ca-certificates: "Setting Up cURL SSL/TLS Certificate Authority Certificates"
