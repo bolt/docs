@@ -30,13 +30,13 @@ class MyExtCommand extends Command
             ->addArgument(
                 'type',
                 InputArgument::OPTIONAL,
-                'Who type of thing do you want to do?';
+                'Who type of thing do you want to do?'
             )
             ->addOption(
                'summary',
                null,
                InputOption::VALUE_NONE,
-               'Display final summary output from Doing It';
+               'Display final summary output from Doing It'
             )
         ;
     }
