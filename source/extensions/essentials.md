@@ -353,10 +353,10 @@ There are no events for specific content types. However you can use the passed
   - $event->getId() - returns the id of the content
   - $event->getContentType() - returns the content type
   - $event->getContent() - returns the content object (only available in preSave/postSave)
-  - $event->isCreate() - returns `true`, `false` or `null` depending on whether the content was created, updated or deleted.
-    - True: created
-    - False: Updated
-    - Null: Deleted
+  - $event->isCreate() - returns `true`, `false` or `null` depending on whether the content record was created, updated or deleted.
+    - `true` - Record creation event
+    - `false` - Record update event
+    - `null` - Record deletion event
 
 An example to log whenever a content has been saved.
 
