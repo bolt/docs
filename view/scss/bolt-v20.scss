@@ -311,7 +311,7 @@ header {
          // LARGE  //
         @media #{$large-up} {
         margin: 0 auto;
-        width: 650px; //fixen: geen absolute waarde, maar liever een relatieve!
+        width: 880px; //fixen: geen absolute waarde, maar liever een relatieve!
         }
         &:after {
           content: "";
