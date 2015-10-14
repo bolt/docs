@@ -10,7 +10,7 @@ rules.
 - Our slogan is "**Simple, sophisticated and straightforward<sup>1</sup>**".
   This embodies everything we strive to do with Bolt: It is as simple as
   possible, but not simpler. It uses sophisticated technology to achieve this,
-  and use of the system should be straighforward and evident.
+  and use of the system should be straightforward and evident.
 - Bolt aims at **three groups of users**: Editors (content writers and
   editorial staff), Frontend developers (HTML/CSS specialists and implementers)
   and Backend developers (coders, devops and sysops). All three are equally
