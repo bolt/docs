@@ -407,7 +407,7 @@ details.
     The following functionality is only applicable for Bolt 2.3+ versions.
 </p>
 
-The session handline has been completely refactored for the upcoming Bolt 2.3.
+The session handling has been completely refactored for the upcoming Bolt 2.3.
 
 More information will be available closer to release and this section will be
 updated to reflect the finalised implementation.
