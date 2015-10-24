@@ -20,7 +20,10 @@ test directory to suit.
     "description": "An extension to add a colourpicker as a field type within Bolt",
     "type": "bolt-extension",
     "require": {
-        "bolt/bolt": ">1.9,<3.0.0"
+        "bolt/bolt": ">2.2,<3.0.0"
+    },
+    "require-dev" : {
+        "phpunit/phpunit" : "^4.7"
     },
     "license": "MIT",
     "authors": [{"name": "Ross Riley", "email": "riley.ross@gmail.com"}
@@ -35,12 +38,12 @@ test directory to suit.
             "init.php"
         ],
         "psr-4": {
-            "Bolt\\Extensions\\Bolt\\Colourpicker\\": "",
-            "Bolt\\Extensions\\Bolt\\Colourpicker\\Tests\\": "tests"
+            "Bolt\\Extensions\\Bolt\\Colourpicker\\": ""
         }
     },
     "autoload-dev" : {
         "psr-4" : {
+            "Bolt\\Extensions\\Bolt\\Colourpicker\\Tests\\": "tests",
             "Bolt\\Tests\\" : "vendor/bolt/bolt/tests/phpunit/unit/"
         }
     },
