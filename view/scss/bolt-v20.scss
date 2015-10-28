@@ -297,7 +297,6 @@ header {
     @media #{$large-up} {
         display: block;
         background: rgba($black,0.4);
-        max-width: $row-width;
         margin: -44px auto 0;
         position: relative;
         height: 44px;
@@ -383,6 +382,7 @@ main {
 .maininfo {
     max-width: 3000px;
     margin-top: 0;
+    padding: 0;
 
 }
 
@@ -447,6 +447,15 @@ main {
     margin-top: 4em;
 }
 
+.content {
+    padding: 3.5em;
+
+    p, ul, ol {
+        max-width: 650px; // magic number: good linewidth to keep it readable
+    }
+}
+
+
 /* -------- Specific Docs stuff -------- */
 
 .maininfo {
@@ -482,9 +491,10 @@ mark {
  * Styles for the sidebar
  */
 
- .sidebar {
-background: $darkblue;
-padding: 0 2rem;
+.sidebar {
+    background: $darkblue;
+    padding: 2rem 2rem 0;
+    max-width: 300px; // Magic number : looks nice
  }
 
 
