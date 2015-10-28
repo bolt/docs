@@ -1,12 +1,19 @@
 $white          : #ffffff;
 $lightgrey      : #eae6dc;
+
+//new styling okt 2015
+$boltnewbackendblue    : #33363E;
+$fadedtext            : #99A2A8;
+
+// inherited from bolt site
 $mediumblue     : #3478a7;
-$darkblue       : #152833;
+$darkblue       : $boltnewbackendblue; // Was iets donkerder kleur #152833;
 $red            : #F6350C; //was #FF4934;
 $lessred        : desaturate(lighten($red, 20), 40);
 $black          : #000;
 $mediumgrey		: #6f6f6f;
 $boltblue       : #204499;
+
 
 $sans-serif     : 'Source Sans Pro', arial, sans-serif;
 

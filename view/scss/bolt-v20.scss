@@ -376,6 +376,16 @@ section{   // was .maininfo, .secinfo
     }
 }
 
+main {
+    background: #fff;
+}
+
+.maininfo {
+    max-width: 3000px;
+    margin-top: 0;
+
+}
+
 
 .maininfo .column,
 .secinfo .column {
@@ -471,31 +481,64 @@ mark {
 /**
  * Styles for the sidebar
  */
+
+ .sidebar {
+background: $darkblue;
+padding: 0 2rem;
+ }
+
+
 .sidebar ul {
-    margin: 0;
+    margin: 0 0 36px 0;
     padding:0;
+    color: $fadedtext;
+
+    &.currentsection {
+        color: $white;
+        border-top: 1px solid $fadedtext;
+        border-bottom: 1px solid $fadedtext;
+    }
 }
+
+
 
 .sidebar ul li {
     padding: 3px 0 3px 0;
-    margin-left: 18px;
-    line-height: 1.2em;
-    list-style: disc;
-    list-style-position: outside;
+    line-height: 1.75em;
+    list-style: none;
+    font-size: 0.8125rem;
 }
 
 .sidebar ul li.section {
     margin: 12px 0 0 0;
     font-weight: bold;
     list-style: none;
+    font-size: 1rem;
+
 }
 
 .sidebar ul li a{
     text-decoration: none;
+    color: $fadedtext;
+    font-family: "Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
+
 }
 
-.sidebar ul li.current a {
-    color: darken($red, 20);
+.sidebar ul.currentsection li a {
+    color: $white;
+}
+
+
+
+.sidebar ul li.current {
+    background: $mediumblue;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+
+    a {
+        color: $white;
+    }
 }
 
 .sidebar ul li a:hover {
