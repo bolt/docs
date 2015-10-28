@@ -3,10 +3,11 @@ $lightgrey      : #eae6dc;
 
 //new styling okt 2015
 $boltnewbackendblue    : #33363E;
-$fadedtext            : #99A2A8;
+$fadedtext             : #99A2A8;
+$boltnewgreyblue       : #42627B;
 
 // inherited from bolt site
-$mediumblue     : #3478a7;
+$mediumblue     : $boltnewgreyblue ; // Was helderder: #3478a7;
 $darkblue       : $boltnewbackendblue; // Was iets donkerder kleur #152833;
 $red            : #F6350C; //was #FF4934;
 $lessred        : desaturate(lighten($red, 20), 40);

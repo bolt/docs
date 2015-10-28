@@ -487,6 +487,14 @@ mark {
     background-color: rgba(255, 255, 0, 0.6);
 }
 
+.body-docs p.note,
+.body-docs p.tip {
+    background-color: lighten($mediumblue, 50%);
+    border-color: lighten($mediumblue, 45%);
+    color: $mediumblue;
+}
+
+
 /**
  * Styles for the sidebar
  */
@@ -495,18 +503,20 @@ mark {
     background: $darkblue;
     padding: 2rem 2rem 0;
     max-width: 300px; // Magic number : looks nice
+    color: $white;
  }
 
 
-.sidebar ul {
-    margin: 0 0 36px 0;
-    padding:0;
+.sidebar > ul {
+    margin: 0 0 1rem 0;
+    padding:0 0 1rem 0;
     color: $fadedtext;
+    //border-top: 1px solid lighten($darkblue, 5%);
+    border-bottom: 1px solid lighten($darkblue, 5%);
 
     &.currentsection {
         color: $white;
-        border-top: 1px solid $fadedtext;
-        border-bottom: 1px solid $fadedtext;
+
     }
 }
 
@@ -710,15 +720,15 @@ h4:hover a.anchor {
         font-size: 19px;
         font-weight: bold;
         margin: 0;
-        background-color: $lessred;
-        color: #444;
+        background-color: $mediumblue;
+        color: $white;
 
         small {
             font-size: 14px;
             font-weight: normal;
         }
         &:hover {
-            background-color: darken($lessred, 20);
+            background-color: darken($mediumblue, 20);
         }
     }
 
@@ -727,6 +737,7 @@ h4:hover a.anchor {
         margin-right: 18px;
         font-size: 19px;
         font-weight: bold;
+        color: $darkblue;
 
         background-color: #DDD;
         display: inline-block;
@@ -975,6 +986,13 @@ section.logos {
 /* -------------- FOOTER --------------- */
 
 footer {
+    display: none;
+}
+/*
+No footer on docs
+
+
+ footer {   
     background: $darkblue;
     color: $white;
     padding: 0 0 2rem;
@@ -1151,15 +1169,15 @@ p {
 }
 
 .content a {
-    color: lighten($boltblue, 10);
-    border-bottom: 1px solid lighten($boltblue, 30);
+    color: $mediumblue;
+    border-bottom: 1px solid lighten($mediumblue, 30);
 }
 
 
 .content a:hover {
     text-decoration: none;
-    color: darken($boltblue, 10);
-    border-bottom: 1px solid darken($boltblue, 10);
+    color: darken($mediumblue, 20);
+    border-bottom: 1px solid darken($mediumblue, 20);
 }
 
 
