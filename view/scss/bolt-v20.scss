@@ -392,7 +392,9 @@ section{   // was .maininfo, .secinfo
 }
 
 .maincolumn {
-    @extend .column;
+    @include grid-column(
+        $columns:12
+        )
 
     padding: 0;
 
