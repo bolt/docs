@@ -32,9 +32,21 @@ Here's what you should see...
 If you already have a Composer project setup then run this command inside the
 root directory:
 
+`composer require composer/composer dev-master@dev` (See note below)
+
 `composer require bolt/bolt ~2.2`
 
 If you use this method you will need to bootstrap Bolt yourself, depending on
 when you want to dispatch requests to Bolt. For some ideas of how to setup a
 bootstrap file see the <a href="/installation-advanced">advanced
 installation</a> page.
+
+##### Why do I have to require composer/composer?
+
+Bolt specifies the composer package as a required dependency, however, it does
+not have a stable release. Composer (CLI) will fail installing Bolt, because it
+cannot find a stable version of the composer package to install. You have to 
+tell composer (CLI) that you are allowing a version of the composer package with 
+a "dev" stability to be installed. This is done by requiring the composer package 
+with a version suffixed with `@dev`. This has to be done in the root 
+composer.json (yours), or else we would not be bothering you with this :).
