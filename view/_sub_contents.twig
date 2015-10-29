@@ -3,7 +3,7 @@
 <ul>
     {% for link,name in section %}
         {% if link is empty %}
-        <li class="section"><a>{{ name }}</a></li>
+        <li class="section">{{ name }}</li>
         {% else %}
         <li {% if current==link %}class='current'{% endif %}><a href="{{ prefix|default('') }}/{{link}}">{{name}}</a>
             {% if current==link and submenu is not empty %}
@@ -18,4 +18,3 @@
     {% endfor %}
 </ul>
 {% endfor %}
- 
