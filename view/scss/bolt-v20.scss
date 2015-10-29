@@ -448,7 +448,10 @@ main {
 }
 
 .content {
-    padding: 3.5em;
+    
+    @media #{$large-up} {
+         padding: 3.5em;
+    }
 
     p, ul, ol {
         max-width: 650px; // magic number: good linewidth to keep it readable
@@ -457,6 +460,14 @@ main {
 
 
 /* -------- Specific Docs stuff -------- */
+
+.maininfo .maincolumn a.button.jumpbutton {
+    background-color: $mediumblue;
+
+    &:hover{
+        background-color: darken($mediumblue,10%)
+    }
+}
 
 .maininfo {
     h1, h2, h3, h4 {
@@ -502,8 +513,12 @@ mark {
 .sidebar {
     background: $darkblue;
     padding: 2rem 2rem 0;
-    max-width: 300px; // Magic number : looks nice
     color: $white;
+
+    @media #{$large-up} {
+        max-width: 300px; // Magic number : looks nice
+    
+    }
  }
 
 
@@ -584,7 +599,9 @@ mark {
         color: $white;
     }
 
-    &:after {
+    @media #{$large-up}{
+        
+        &:after {
         content: "";
         display: inline-block;
         width: 0; 
@@ -595,7 +612,10 @@ mark {
         position: absolute;
         right: 10px;
         top: 10px;
+        }
     }
+
+    
 }
 
 .sidebar ul li a:hover {
