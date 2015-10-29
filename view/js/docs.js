@@ -35,7 +35,7 @@ jQuery(function($) {
     // collapse the chapter that is not current
 
     //hide all
-    $('#sidebar li:not(.section)').hide();
+    $('#sidebar>ul>li:not(.section)').hide();
     $('#sidebar>ul').addClass('hiddensection');
     
     //show current and siblings
