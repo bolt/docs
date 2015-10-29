@@ -31,46 +31,38 @@ jQuery(function($) {
         $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
     });
 
-
     // collapse the chapter that is not current
 
     //hide all
     $('#sidebar>ul>li:not(.section)').hide();
     $('#sidebar>ul').addClass('hiddensection');
-    
+
     //show current and siblings
     $('#sidebar li.current').show();
     $('#sidebar li.current').siblings().show();
     $('#sidebar li.current').parent('ul').addClass('currentsection').removeClass('hiddensection');
-    
+
     // show all li, when clicked on the sectionheader
     $('#sidebar li.section').click(function(){
         $(this).siblings().toggle();
     });
-    
-    
-    //make sidebar equalheight, when content is taller. 
+
+
+    //make sidebar equalheight, when content is taller.
     // (only execute after all graphics have loaded)
     $( window ).load(function() {
 
         var sidebarheight = $('#sidebar').height();
         var contentheight = $('.content').outerHeight();
-        
-        console.log('sidebar= '+ sidebarheight);
-        console.log('content= '+ contentheight);
 
+        // console.log('sidebar= '+ sidebarheight);
+        // console.log('content= '+ contentheight);
 
         if ( sidebarheight < contentheight ){
-            //var sidebarheight = contentheight;
-
             $('#sidebar').height(contentheight);
         }
 
     });
-
-
-  
-
 
     /* ----- no sticky header for the docs. ---------
     if($(window).width() > 801) { // ONLY LARGE-UP
@@ -107,8 +99,6 @@ jQuery(function($) {
       }
     });
 
-
-
     $("#searchbox").select2({
         placeholder: "Search …",
         minimumInputLength: 3,
@@ -133,7 +123,6 @@ jQuery(function($) {
         window.location = prefix + "/" + e.val;
     });
 
-
     //Zero Clipboard stuff..
     $('pre code').each(function(index) {
         // Get the text to be copied to the clipboard
@@ -143,15 +132,23 @@ jQuery(function($) {
         var copyBtn = $('<span class="copy-btn">[ Copy Code ]</span>')
             .attr('data-clipboard-text', text) // set the text to be copied
             .insertBefore(this); // insert copy button before <pre>
-
-        // Create the clip, and glue it to the copy button
-        new ZeroClipboard(copyBtn).on( "aftercopy", function( event ) {
-            $(copyBtn).html('[ Copied ]');
-        });
     });
+
+    initClipBoard();
 
 });
 
+function initClipBoard() {
+
+    var clipboard = new Clipboard('.copy-btn');
+
+    clipboard.on('success', function(e) {
+        $(e.trigger).text('[ Copied ]');
+        window.setTimeout(function(){ $(e.trigger).text('[ Copy code ]'); }, 2000);
+        e.clearSelection();
+    });
+
+}
 
 function formatForUrl(str) {
     return str.replace(/_/g, '-')
