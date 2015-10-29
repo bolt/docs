@@ -48,9 +48,28 @@ jQuery(function($) {
         $(this).siblings().toggle();
     });
     
-    //hide all li, when toggled
     
+    //make sidebar equalheight, when content is taller. 
+    // (only execute after all graphics have loaded)
+    $( window ).load(function() {
 
+        var sidebarheight = $('#sidebar').height();
+        var contentheight = $('.content').outerHeight();
+        
+        console.log('sidebar= '+ sidebarheight);
+        console.log('content= '+ contentheight);
+
+
+        if ( sidebarheight < contentheight ){
+            //var sidebarheight = contentheight;
+
+            $('#sidebar').height(contentheight);
+        }
+
+    });
+
+
+  
 
 
     /* ----- no sticky header for the docs. ---------
