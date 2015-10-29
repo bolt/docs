@@ -116,9 +116,9 @@
         <section class="maininfo">
             <div class="maincolumn ">
 
-                <div class="small-12 medium-12 large-7 large-push-3 columns content">
+                <div class="small-12 medium-12 large-9 large-push-3 columns content">
 
-                    <a href="#sidebar" class="button hide-for-large-up">Jump to navigation</a>
+                    <a href="#sidebar" class="button hide-for-large-up jumpbutton">Jump to docs navigation</a>
 
                     {# temporary for the transition phase between 1.6 and 2.0
                     <p class="note">
@@ -133,11 +133,12 @@
 
                 </div>
 
-                <div class="small-12 medium-12 large-3 large-pull-7 end columns sidebar" id="sidebar">
+                <div class="small-12 medium-12 large-3 large-pull-9 end columns sidebar" id="sidebar">
 
-                    <p><strong>Search</strong><br>
+                    <p>
                         <input type="text" id="searchbox" style="width: 100%;">
                     </p>
+                    
                     {% include '_sub_contents.twig' %}
 
                     <p style="font-size: 85%; margin-top: 2em;"><em>Current version: <strong>Bolt {{ version }}</strong></em>.</p>

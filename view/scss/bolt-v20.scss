@@ -297,7 +297,6 @@ header {
     @media #{$large-up} {
         display: block;
         background: rgba($black,0.4);
-        max-width: $row-width;
         margin: -44px auto 0;
         position: relative;
         height: 44px;
@@ -376,6 +375,17 @@ section{   // was .maininfo, .secinfo
     }
 }
 
+main {
+    background: #fff;
+}
+
+.maininfo {
+    max-width: 3000px;
+    margin-top: 0;
+    padding: 0;
+
+}
+
 
 .maininfo .column,
 .secinfo .column {
@@ -437,7 +447,27 @@ section{   // was .maininfo, .secinfo
     margin-top: 4em;
 }
 
+.content {
+    
+    @media #{$large-up} {
+         padding: 3.5em;
+    }
+
+    p, ul, ol {
+        max-width: 650px; // magic number: good linewidth to keep it readable
+    }
+}
+
+
 /* -------- Specific Docs stuff -------- */
+
+.maininfo .maincolumn a.button.jumpbutton {
+    background-color: $mediumblue;
+
+    &:hover{
+        background-color: darken($mediumblue,10%)
+    }
+}
 
 .maininfo {
     h1, h2, h3, h4 {
@@ -468,34 +498,124 @@ mark {
     background-color: rgba(255, 255, 0, 0.6);
 }
 
+.body-docs p.note,
+.body-docs p.tip {
+    background-color: lighten($mediumblue, 50%);
+    border-color: lighten($mediumblue, 45%);
+    color: $mediumblue;
+}
+
+
 /**
  * Styles for the sidebar
  */
-.sidebar ul {
-    margin: 0;
-    padding:0;
+
+.sidebar {
+    background: $darkblue;
+    padding: 2rem 2rem 0;
+    color: $white;
+
+    @media #{$large-up} {
+        max-width: 300px; // Magic number : looks nice
+    
+    }
+ }
+
+
+.sidebar > ul {
+    margin: 0 0 1rem 0;
+    padding:0 0 1rem 0;
+    color: $fadedtext;
+    
+    &.currentsection {
+        color: $white;
+
+    }
 }
+
+
 
 .sidebar ul li {
     padding: 3px 0 3px 0;
-    margin-left: 18px;
-    line-height: 1.2em;
-    list-style: disc;
-    list-style-position: outside;
+    line-height: 1.75em;
+    list-style: none;
+    font-size: 0.8125rem;
 }
 
 .sidebar ul li.section {
     margin: 12px 0 0 0;
     font-weight: bold;
     list-style: none;
+    font-size: 1rem;
+
 }
 
 .sidebar ul li a{
     text-decoration: none;
+    color: $fadedtext;
+    font-family: "Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
+
 }
 
-.sidebar ul li.current a {
-    color: darken($red, 20);
+.sidebar ul li.section a{
+    text-decoration: none;
+    color: $fadedtext;
+    font-family: $sans-serif;
+    font-weight: normal;
+
+    &:hover {
+        color: $white;
+        text-decoration: none;
+    }
+
+}
+
+.sidebar ul.currentsection {
+    
+    margin-top: 10px;
+    border-top: 1px solid lighten($darkblue, 10%);
+    border-bottom: 1px solid lighten($darkblue, 10%);
+
+    li a {
+        color: $white;
+    }
+}
+
+.sidebar ul.hiddensection {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+
+
+.sidebar ul li.current {
+    background: $mediumblue;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+    position: relative;
+
+    a {
+        color: $white;
+    }
+
+    @media #{$large-up}{
+        
+        &:after {
+        content: "";
+        display: inline-block;
+        width: 0; 
+        height: 0; 
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid $white;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        }
+    }
+
+    
 }
 
 .sidebar ul li a:hover {
@@ -657,15 +777,15 @@ h4:hover a.anchor {
         font-size: 19px;
         font-weight: bold;
         margin: 0;
-        background-color: $lessred;
-        color: #444;
+        background-color: $mediumblue;
+        color: $white;
 
         small {
             font-size: 14px;
             font-weight: normal;
         }
         &:hover {
-            background-color: darken($lessred, 20);
+            background-color: darken($mediumblue, 20);
         }
     }
 
@@ -674,6 +794,7 @@ h4:hover a.anchor {
         margin-right: 18px;
         font-size: 19px;
         font-weight: bold;
+        color: $darkblue;
 
         background-color: #DDD;
         display: inline-block;
@@ -922,6 +1043,13 @@ section.logos {
 /* -------------- FOOTER --------------- */
 
 footer {
+    display: none;
+}
+/*
+No footer on docs - AW
+
+
+ footer {   
     background: $darkblue;
     color: $white;
     padding: 0 0 2rem;
@@ -1098,15 +1226,15 @@ p {
 }
 
 .content a {
-    color: lighten($boltblue, 10);
-    border-bottom: 1px solid lighten($boltblue, 30);
+    color: $mediumblue;
+    border-bottom: 1px solid lighten($mediumblue, 30);
 }
 
 
 .content a:hover {
     text-decoration: none;
-    color: darken($boltblue, 10);
-    border-bottom: 1px solid darken($boltblue, 10);
+    color: darken($mediumblue, 20);
+    border-bottom: 1px solid darken($mediumblue, 20);
 }
 
 
