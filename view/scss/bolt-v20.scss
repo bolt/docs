@@ -511,9 +511,7 @@ mark {
     margin: 0 0 1rem 0;
     padding:0 0 1rem 0;
     color: $fadedtext;
-    //border-top: 1px solid lighten($darkblue, 5%);
-    border-bottom: 1px solid lighten($darkblue, 5%);
-
+    
     &.currentsection {
         color: $white;
 
@@ -544,8 +542,33 @@ mark {
 
 }
 
-.sidebar ul.currentsection li a {
-    color: $white;
+.sidebar ul li.section a{
+    text-decoration: none;
+    color: $fadedtext;
+    font-family: $sans-serif;
+    font-weight: normal;
+
+    &:hover {
+        color: $white;
+        text-decoration: none;
+    }
+
+}
+
+.sidebar ul.currentsection {
+    
+    margin-top: 10px;
+    border-top: 1px solid lighten($darkblue, 10%);
+    border-bottom: 1px solid lighten($darkblue, 10%);
+
+    li a {
+        color: $white;
+    }
+}
+
+.sidebar ul.hiddensection {
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 
@@ -555,9 +578,23 @@ mark {
     margin-left: -2rem;
     margin-right: -2rem;
     padding-left: 2rem;
+    position: relative;
 
     a {
         color: $white;
+    }
+
+    &:after {
+        content: "";
+        display: inline-block;
+        width: 0; 
+        height: 0; 
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid $white;
+        position: absolute;
+        right: 10px;
+        top: 10px;
     }
 }
 
@@ -989,7 +1026,7 @@ footer {
     display: none;
 }
 /*
-No footer on docs
+No footer on docs - AW
 
 
  footer {   

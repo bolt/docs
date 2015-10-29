@@ -31,6 +31,28 @@ jQuery(function($) {
         $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
     });
 
+
+    // collapse the chapter that is not current
+
+    //hide all
+    $('#sidebar li:not(.section)').hide();
+    $('#sidebar>ul').addClass('hiddensection');
+    
+    //show current and siblings
+    $('#sidebar li.current').show();
+    $('#sidebar li.current').siblings().show();
+    $('#sidebar li.current').parent('ul').addClass('currentsection').removeClass('hiddensection');
+    
+    // show all li, when clicked on the sectionheader
+    $('#sidebar li.section').click(function(){
+        $(this).siblings().toggle();
+    });
+    
+    //hide all li, when toggled
+    
+
+
+
     /* ----- no sticky header for the docs. ---------
     if($(window).width() > 801) { // ONLY LARGE-UP
 
