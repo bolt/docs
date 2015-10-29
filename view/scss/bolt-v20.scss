@@ -448,7 +448,7 @@ main {
 }
 
 .content {
-    
+
     @media #{$large-up} {
          padding: 3.5em;
     }
@@ -517,7 +517,7 @@ mark {
 
     @media #{$large-up} {
         max-width: 300px; // Magic number : looks nice
-    
+
     }
  }
 
@@ -526,7 +526,7 @@ mark {
     margin: 0 0 1rem 0;
     padding:0 0 1rem 0;
     color: $fadedtext;
-    
+
     &.currentsection {
         color: $white;
 
@@ -547,7 +547,7 @@ mark {
     font-weight: bold;
     list-style: none;
     font-size: 1rem;
-
+    cursor: pointer;
 }
 
 .sidebar ul li a{
@@ -558,10 +558,6 @@ mark {
 }
 
 .sidebar ul li.section a{
-    text-decoration: none;
-    color: $fadedtext;
-    font-family: $sans-serif;
-    font-weight: normal;
 
     &:hover {
         color: $white;
@@ -571,7 +567,7 @@ mark {
 }
 
 .sidebar ul.currentsection {
-    
+
     margin-top: 10px;
     border-top: 1px solid lighten($darkblue, 10%);
     border-bottom: 1px solid lighten($darkblue, 10%);
@@ -600,12 +596,12 @@ mark {
     }
 
     @media #{$large-up}{
-        
+
         &:after {
         content: "";
         display: inline-block;
-        width: 0; 
-        height: 0; 
+        width: 0;
+        height: 0;
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         border-left: 5px solid $white;
@@ -615,7 +611,7 @@ mark {
         }
     }
 
-    
+
 }
 
 .sidebar ul li a:hover {
@@ -809,7 +805,7 @@ h4:hover a.anchor {
         }
 
     }
-    
+
     a.button.docsintro.layer {
         &:before {
             content:"";
@@ -1049,7 +1045,7 @@ footer {
 No footer on docs - AW
 
 
- footer {   
+ footer {
     background: $darkblue;
     color: $white;
     padding: 0 0 2rem;
