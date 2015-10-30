@@ -537,18 +537,16 @@ mark {
 
 
     ul li {
-        padding: 3px 0 3px 0;
-        line-height: 1.75em;
+        padding: 6px 15px 7px 0;
+        line-height: 1.3em;
         list-style: none;
         font-size: 0.8125rem;
     }
 
     ul li.section {
         margin: 12px 0 0 0;
-        font-weight: bold;
         list-style: none;
         font-size: 1rem;
-        cursor: pointer;
     }
 
     ul li a{
@@ -565,6 +563,10 @@ mark {
             text-decoration: none;
         }
 
+    }
+
+    ul li ul li {
+        
     }
 
     ul.currentsection {
