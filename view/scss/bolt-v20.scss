@@ -558,7 +558,9 @@ mark {
 
     ul li.section a{
 
-        &:hover {
+        font-family: $sans-serif;
+
+        &:hover, &:active, &:focus {
             color: $white;
             text-decoration: none;
         }
