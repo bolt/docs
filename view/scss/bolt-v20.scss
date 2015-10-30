@@ -78,7 +78,7 @@ p {
 }
 
 
-nav {
+nav.main-nav {
     ul {
         // LARGE //
         @media #{$large-up} {
@@ -519,109 +519,113 @@ mark {
         max-width: 300px; // Magic number : looks nice
 
     }
- }
-
-
-.sidebar > ul {
-    margin: 0 0 1rem 0;
-    padding:0 0 1rem 0;
-    color: $fadedtext;
-
-    &.currentsection {
-        color: $white;
-
-    }
-}
-
-
-
-.sidebar ul li {
-    padding: 3px 0 3px 0;
-    line-height: 1.75em;
-    list-style: none;
-    font-size: 0.8125rem;
-}
-
-.sidebar ul li.section {
-    margin: 12px 0 0 0;
-    font-weight: bold;
-    list-style: none;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.sidebar ul li a{
-    text-decoration: none;
-    color: $fadedtext;
-    font-family: "Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
 
 }
 
-.sidebar ul li.section a{
+#sidebar-nav {
 
-    &:hover {
-        color: $white;
-        text-decoration: none;
-    }
+    > ul {
+        margin: 0 0 1rem 0;
+        padding:0 0 1rem 0;
+        color: $fadedtext;
 
-}
+        &.currentsection {
+            color: $white;
 
-.sidebar ul.currentsection {
-
-    margin-top: 10px;
-    border-top: 1px solid lighten($darkblue, 10%);
-    border-bottom: 1px solid lighten($darkblue, 10%);
-
-    li a {
-        color: $white;
-    }
-}
-
-.sidebar ul.hiddensection {
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-
-
-
-.sidebar ul li.current {
-    background: $mediumblue;
-    margin-left: -2rem;
-    margin-right: -2rem;
-    padding-left: 2rem;
-    position: relative;
-
-    a {
-        color: $white;
-    }
-
-    @media #{$large-up}{
-
-        &:after {
-        content: "";
-        display: inline-block;
-        width: 0;
-        height: 0;
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        border-left: 5px solid $white;
-        position: absolute;
-        right: 10px;
-        top: 10px;
         }
     }
 
 
+    ul li {
+        padding: 3px 0 3px 0;
+        line-height: 1.75em;
+        list-style: none;
+        font-size: 0.8125rem;
+    }
+
+    ul li.section {
+        margin: 12px 0 0 0;
+        font-weight: bold;
+        list-style: none;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    ul li a{
+        text-decoration: none;
+        color: $fadedtext;
+        font-family: "Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
+
+    }
+
+    ul li.section a{
+
+        &:hover {
+            color: $white;
+            text-decoration: none;
+        }
+
+    }
+
+    ul.currentsection {
+
+        margin-top: 10px;
+        border-top: 1px solid lighten($darkblue, 10%);
+        border-bottom: 1px solid lighten($darkblue, 10%);
+
+        li a {
+            color: $white;
+        }
+    }
+
+    ul.hiddensection {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+
+
+    ul li.current {
+        background: $mediumblue;
+        margin-left: -2rem;
+        margin-right: -2rem;
+        padding-left: 2rem;
+        position: relative;
+
+        a {
+            color: $white;
+        }
+
+        @media #{$large-up}{
+
+            &:after {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid $white;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            }
+        }
+
+
+    }
+
+    ul li a:hover {
+        text-decoration: underline;
+    }
+
+    ul ul{
+        margin-top: 4px;
+        margin-left: 18px;
+    }
+
 }
 
-.sidebar ul li a:hover {
-    text-decoration: underline;
-}
-
-.sidebar ul ul{
-    margin-top: 4px;
-    margin-left: 18px;
-}
 
 p {
     font-size: 16.5px;
