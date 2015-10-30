@@ -34,35 +34,39 @@ jQuery(function($) {
     // collapse the chapter that is not current
 
     //hide all
-    $('#sidebar>ul>li:not(.section)').hide();
-    $('#sidebar>ul').addClass('hiddensection');
+    $('#sidebar-nav>ul>li:not(.section)').hide();
+    $('#sidebar-nav>ul').addClass('hiddensection');
 
     //show current and siblings
-    $('#sidebar li.current').show();
-    $('#sidebar li.current').siblings().show();
-    $('#sidebar li.current').parent('ul').addClass('currentsection').removeClass('hiddensection');
+    $('#sidebar-nav li.current').show();
+    $('#sidebar-nav li.current').siblings().show();
+    $('#sidebar-nav li.current').parent('ul').addClass('currentsection').removeClass('hiddensection');
 
     // show all li, when clicked on the sectionheader
-    $('#sidebar li.section').click(function(){
+    $('#sidebar-nav li.section').click(function(){
         $(this).siblings().toggle();
     });
 
+    if($(window).width() > 801) { // ONLY LARGE-UP
 
-    //make sidebar equalheight, when content is taller.
-    // (only execute after all graphics have loaded)
-    $( window ).load(function() {
+        $('#sidebar-nav').hcSticky({ top: 40 });
 
-        var sidebarheight = $('#sidebar').height();
-        var contentheight = $('.content').outerHeight();
+        //make sidebar equalheight, when content is taller.
+        // (only execute after all graphics have loaded)
+        $( window ).load(function() {
 
-        // console.log('sidebar= '+ sidebarheight);
-        // console.log('content= '+ contentheight);
+            var sidebarheight = $('#sidebar').height();
+            var contentheight = $('.content').outerHeight();
 
-        if ( sidebarheight < contentheight ){
-            $('#sidebar').height(contentheight);
-        }
+            // console.log('sidebar= '+ sidebarheight);
+            // console.log('content= '+ contentheight);
 
-    });
+            if ( sidebarheight < contentheight ){
+                $('#sidebar').height(contentheight);
+            }
+
+        });
+    }
 
     /* ----- no sticky header for the docs. ---------
     if($(window).width() > 801) { // ONLY LARGE-UP
