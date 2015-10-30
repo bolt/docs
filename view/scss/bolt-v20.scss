@@ -724,15 +724,12 @@ p code {
 
 span.copy-btn {
     color: #ddd;
-    position: absolute;
+    display: block;
+    margin: 0 8px -20px;
     text-align: right;
-    margin-top: 2px;
-    right: -144px;
+    cursor: pointer;
     text-transform: uppercase;
     font-size: 12px;
-    @media #{$xlarge-up} {
-        right: -174px;
-    }
 }
 
 .content h2 code {
