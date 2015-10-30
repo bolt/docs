@@ -43,7 +43,8 @@ jQuery(function($) {
     $('#sidebar-nav li.current').parent('ul').addClass('currentsection').removeClass('hiddensection');
 
     // show all li, when clicked on the sectionheader
-    $('#sidebar-nav li.section').click(function(){
+    $('#sidebar-nav li.section').click(function(e){
+        e.preventDefault();
         $(this).siblings().toggle();
     });
 
