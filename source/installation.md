@@ -10,7 +10,7 @@ Bolt:
   - The nerdy way, [for developers](#option-3-developer-way-using-git-and-composer).
   - The lazy way, [with the Bolt Installer](#option-4-lazy-way-using-bolt-installer).
 
-Use one of the three methods described below to get the Bolt source files, and
+Use one of the four methods described below to get the Bolt source files, and
 set them up on your webserver. After you've done this, skip to the section for
 [Setting up Bolt ](#setting-bolt).
 
