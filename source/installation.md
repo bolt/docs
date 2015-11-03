@@ -2,15 +2,14 @@ Installing Bolt
 ===============
 
 This page explains the various ways of installing Bolt. You can either use the
-command-line or your FTP-client to install it. There are four ways to install
+command-line or your FTP-client to install it. There are three ways to install
 Bolt:
 
   - The easiest way, [from the command-line](#option-1-easy-way-using-command-line).
   - The traditional way, [using (S)FTP](#option-2-traditional-way-using-sftp).
   - The nerdy way, [for developers](#option-3-developer-way-using-git-and-composer).
-  - The lazy way, [with the Bolt Installer](#option-4-lazy-way-using-bolt-installer).
 
-Use one of the four methods described below to get the Bolt source files, and
+Use one of the three methods described below to get the Bolt source files, and
 set them up on your webserver. After you've done this, skip to the section for
 [Setting up Bolt ](#setting-bolt).
 
@@ -38,6 +37,24 @@ provider.
 That's all! After you've done this, skip to the section [Setting up Bolt](#setting-bolt).
 If this didn't work because your server doesn't have `curl`, use `wget`
 instead.
+
+#### Quick Note: Bolt Installer
+
+You can install the Bolt Installer, created by a community member, globally via Composer:
+
+```
+composer global require "ohlandt/bolt-installer=~1"
+```
+
+Make sure you have the `~/.composer/vendor/bin` directory in your PATH.
+
+Then you can install Bolt everywhere on your system via:
+
+```
+bolt new blog
+```
+
+This example will create a folder named `blog` in your current directory with a fresh installation of the latest Bolt release.
 
 ### Option 2: The traditional way, using (S)FTP.
 
@@ -119,24 +136,6 @@ chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
 It depends on the exact server configuration if you will need to use `777` or
 if an other setting is better. If you wish to know for sure, ask your hosting
 provider.
-
-### Option 4: The lazy way, using the Bolt Installer.
-
-You can install the Bolt Installer, created by a community member, globally via Composer:
-
-```
-composer global require "ohlandt/bolt-installer=~1"
-```
-
-Make sure you have the `~/.composer/vendor/bin` directory in your PATH.
-
-Then you can install Bolt everywhere on your system via:
-
-```
-bolt new blog
-```
-
-This example will create a folder named `blog` in your current directory with a fresh installation of the latest Bolt release.
 
 Setting up Bolt
 ---------------
