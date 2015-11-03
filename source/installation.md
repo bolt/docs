@@ -38,6 +38,24 @@ That's all! After you've done this, skip to the section [Setting up Bolt](#setti
 If this didn't work because your server doesn't have `curl`, use `wget`
 instead.
 
+#### Quick Note: Bolt Installer
+
+You can install the Bolt Installer, created by a community member, globally via Composer:
+
+```
+composer global require "ohlandt/bolt-installer=~1"
+```
+
+Make sure you have the `~/.composer/vendor/bin` directory in your PATH.
+
+Then you can install Bolt everywhere on your system via:
+
+```
+bolt new blog
+```
+
+This example will create a folder named `blog` in your current directory with a fresh installation of the latest Bolt release.
+
 ### Option 2: The traditional way, using (S)FTP.
 
 Download the [latest version of Bolt](http://bolt.cm/distribution/bolt-latest.zip).
