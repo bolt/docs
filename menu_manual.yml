@@ -1,7 +1,8 @@
 # The Bolt docs main menu.
 
 about:
-  about: About Bolt
+  "": User Manual
+  introduction: Introduction
 
 first-steps:
   "": First steps
