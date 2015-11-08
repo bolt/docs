@@ -1,9 +1,10 @@
 <?php
 
+use Symfony\Component\Yaml\Parser;
+
 require_once './vendor/autoload.php';
 
 $version = "2.2.13";
-
 
 // Let's see if there's a search-parameter.
 $parseurl = parse_url($_SERVER['REQUEST_URI']);
@@ -24,22 +25,30 @@ if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request 
 	die();
 }
 
-// dump($request);
-// dump($prefix);
+// Determine if we're on 'docs' or on 'manual'
+$hostname = $_SERVER['SERVER_NAME'];
+if (strpos($hostname, 'manual') !== false) {
+    $sourcefolder = './source_manual/';
+    $menufile = 'menu_manual.yml';
+    $sitetitle = 'Bolt user manual';
+} else {
+    $sourcefolder = './source_docs/';
+    $menufile = 'menu_docs.yml';
+    $sitetitle = 'Bolt documentation';
+}
 
-if (!file_exists("./source/".$request.".md")) {
+if (!file_exists($sourcefolder . $request . ".md")) {
     header("HTTP/1.0 404 Not Found");
     echo "No proper name for a page in the docs. Bye!";
     die();
 }
 
-use Symfony\Component\Yaml\Parser;
 
 $yaml = new Parser();
 
-$menu = $yaml->parse(file_get_contents('menu.yml'));
+$menu = $yaml->parse(file_get_contents($menufile));
 
-$source = file_get_contents("./source/".$request.".md");
+$source = file_get_contents($sourcefolder . $request . ".md");
 $source = \ParsedownExtra::instance()->text($source);
 $source = Michelf\SmartyPants::defaultTransform($source);
 
@@ -117,6 +126,7 @@ $twig->addFilter($slug);
 
 echo $twig->render('index.twig', array(
 	'title' => $maintitle,
+    'sitetitle' => $sitetitle,
 	'source' => $source,
 	'menu' => $menu,
 	'submenu' => $submenu,

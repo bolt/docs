@@ -1,0 +1,24 @@
+# The Bolt docs main menu.
+
+about:
+  "": User Manual
+  introduction: Introduction
+
+first-steps:
+  "": First steps
+  first-user: Creating the first user
+  login: Login
+  dashboard: Dashboard
+  content-overview: Content overview
+
+edit-content:
+  "": Editing and creating content
+  new-content: Creating content
+  edit-content: Editing content
+  contenttypes: Contenttypes
+
+activity-log:
+  "": Files and activity
+  uploaded-files: Uploaded files
+  global-actions: Global actions
+  profile: Profile
