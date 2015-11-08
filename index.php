@@ -29,9 +29,11 @@ if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request 
 $hostname = $_SERVER['SERVER_NAME'];
 if (strpos($hostname, 'manual') !== false) {
     $sourcefolder = './source_manual/';
+    $menufile = 'menu_manual.yml';
     $sitetitle = 'Bolt user manual';
 } else {
     $sourcefolder = './source_docs/';
+    $menufile = 'menu_docs.yml';
     $sitetitle = 'Bolt documentation';
 }
 
@@ -44,7 +46,7 @@ if (!file_exists($sourcefolder . $request . ".md")) {
 
 $yaml = new Parser();
 
-$menu = $yaml->parse(file_get_contents('menu.yml'));
+$menu = $yaml->parse(file_get_contents($menufile));
 
 $source = file_get_contents($sourcefolder . $request . ".md");
 $source = \ParsedownExtra::instance()->text($source);
