@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ title|raw }} | Bolt documentation </title>
+    <title>{{ title|raw }} | {{ sitetitle }} </title>
     <meta name="DCTERMS.title" content="Bolt CMS"/>
     <meta name="robots" content="noydir, noodp"/>
 
@@ -135,6 +135,15 @@
 
                 <div class="small-12 medium-12 large-3 large-pull-9 end columns sidebar" id="sidebar">
                     <nav id="sidebar-nav">
+
+                        <p>
+                            {% if sitetitle == "Bolt documentation" %}
+                                [ <strong>Documentation</strong> | <a href='https://manual.bolt.cm'>User manual</a> ]
+                            {% else %}
+                                [ <a href='https://docs.bolt.cm'>Documentation</a> | <strong>User manual</strong> ]
+                            {% endif %}
+                        </p>
+
                         <p>
                             <input type="text" id="searchbox" style="width: 100%;">
                         </p>

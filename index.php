@@ -27,10 +27,12 @@ if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request 
 
 // Determine if we're on 'docs' or on 'manual'
 $hostname = $_SERVER['SERVER_NAME'];
-if (strpos('manual', $hostname) !== false) {
+if (strpos($hostname, 'manual') !== false) {
     $sourcefolder = './source_manual/';
+    $sitetitle = 'Bolt user manual';
 } else {
     $sourcefolder = './source_docs/';
+    $sitetitle = 'Bolt documentation';
 }
 
 if (!file_exists($sourcefolder . $request . ".md")) {
@@ -44,7 +46,7 @@ $yaml = new Parser();
 
 $menu = $yaml->parse(file_get_contents('menu.yml'));
 
-$source = file_get_contents("./source/".$request.".md");
+$source = file_get_contents($sourcefolder . $request . ".md");
 $source = \ParsedownExtra::instance()->text($source);
 $source = Michelf\SmartyPants::defaultTransform($source);
 
@@ -122,6 +124,7 @@ $twig->addFilter($slug);
 
 echo $twig->render('index.twig', array(
 	'title' => $maintitle,
+    'sitetitle' => $sitetitle,
 	'source' => $source,
 	'menu' => $menu,
 	'submenu' => $submenu,

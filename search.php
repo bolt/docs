@@ -52,8 +52,16 @@ class Search
             return;
         }
 
+        // Determine if we're on 'docs' or on 'manual'
+        $hostname = $_SERVER['SERVER_NAME'];
+        if (strpos($hostname, 'manual') !== false) {
+            $sourcefolder = __DIR__ . '/source_manual';
+        } else {
+            $sourcefolder = __DIR__ . '/source_docs';
+        }
+
         $finder = new Finder();
-        $finder->files()->in(__DIR__."/source")->contains('/' . $q . '/i');
+        $finder->files()->in($sourcefolder)->contains('/' . $q . '/i');
 
         foreach ($finder as $file) {
 
