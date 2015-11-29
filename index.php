@@ -4,7 +4,7 @@ use Symfony\Component\Yaml\Parser;
 
 require_once './vendor/autoload.php';
 
-$version = "2.2.13";
+$version = "2.2.14";
 
 // Let's see if there's a search-parameter.
 $parseurl = parse_url($_SERVER['REQUEST_URI']);
