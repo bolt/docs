@@ -38,7 +38,9 @@ curl -O http://bolt.cm/distribution/bolt-latest.tar.gz
 tar -xzf bolt-latest.tar.gz --strip-components=1
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
 ```
-<p class="note"><strong>Note:</strong> If you have made edits to your .htaccess file, make a backup of this file on your own computer (e.g. renamed clientname_v01.htaccess so it becomes visible) or make sure that it does not get overwritten by changing the permissions.</p>
+<p class="note"><strong>Note:</strong> If you have made edits to your `.htaccess`
+file, make a backup of this file (e.g. `.htaccess.bak` prior to performing 
+the update so changes are not lost.</p>
 
 Option 2: The traditional way, using (S)FTP
 -------------------------------------------
