@@ -13,22 +13,6 @@ curious what makes Bolt tick.
 Routing
 -------
 
-<p class="meta">
-    <strong>Bolt 2.3+</strong><br>
-    The following functionality is only applicable for Bolt 2.3+ versions.
-</p>
-
-The request handling functionality, and associated controllers have been 
-completely refactored for the upcoming Bolt 2.3.
-
-More information will be available closer to release and this section will be
-updated to reflect the finalised implementation.
-
-<p class="meta">
-    <strong>Bolt 2.0 to 2.2</strong><br>
-    The following functionality is only applicable for Bolt 2.0 to 2.2 versions.
-</p>
-
 Every request to a page on a Bolt website is routed to a Silex controller,
 regardless of whether the request is for a page in the 'backend', 'frontend' or
 'asynchronous'.
@@ -79,21 +63,6 @@ the user to go to the 'repair database' screen.
 Even though Bolt strives to be as simple as possible, it makes sense to think of
 Bolt as an [MVC application][mvc]. Silex provides the Controller part, the Twig
 templates are the View and the Contenttypes define the Model part.
-
-<p class="meta">
-    <strong>Bolt 2.3+</strong><br>
-    The following functionality is only applicable for Bolt 2.3+ versions.
-</p>
-
-The storage layer has been completely refactored for the upcoming Bolt 2.3.
-
-More information will be available closer to release and this section will be
-updated to reflect the finalised implementation.
-
-<p class="meta">
-    <strong>Bolt 2.0 to 2.2</strong><br>
-    The following functionality is only applicable for Bolt 2.0 to 2.2 versions.
-</p>
 
 All access to the content and the contentypes is done through the Storage class.
 Records of content have a Content class. Browse the files `src/Storage.php`
@@ -401,22 +370,6 @@ Instance of `Bolt\Users`. See `src/Users.php` for details.
 Instance of Silex Session. See [Silex SessionServiceProvider][session] for
 details.
 
-
-<p class="meta">
-    <strong>Bolt 2.3+</strong><br>
-    The following functionality is only applicable for Bolt 2.3+ versions.
-</p>
-
-The session handling has been completely refactored for the upcoming Bolt 2.3.
-
-More information will be available closer to release and this section will be
-updated to reflect the finalised implementation.
-
-<p class="meta">
-    <strong>Bolt 2.0 to 2.2</strong><br>
-    The following functionality is only applicable for Bolt 2.0 to 2.2 versions.
-</p>
-
 Use this to set Flash messages: Messages that appear on the current or next
 pageview, for the current user. Example:
 
@@ -487,22 +440,6 @@ return $html;
 ```
 
 ### $app['htmlsnippets']
-
-
-<p class="meta">
-    <strong>Bolt 2.3+</strong><br>
-    The following functionality is only applicable for Bolt 2.3+ versions.
-</p>
-
-The $app['htmlsnippets'] has been removed in the upcoming Bolt 2.3.
-
-More information will be available closer to release and this section will be
-updated to reflect the finalised implementation.
-
-<p class="meta">
-    <strong>Bolt 2.0 to 2.2</strong><br>
-    The following functionality is only applicable for Bolt 2.0 to 2.2 versions.
-</p>
 
 Bolt outputs snippets in the HTML for includes like jQuery and the
 `<meta generator>` tag. By default these snippets are only output in the
