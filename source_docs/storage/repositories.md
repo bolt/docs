@@ -1,8 +1,8 @@
 # Repositories
 
 <p class="meta">
-    <strong>Bolt 2.3+</strong><br>
-    The following functionality is only available in Bolt 2.3 and later, 
+    <strong>Bolt 3.0+</strong><br>
+    The following functionality is only available in Bolt 3.0 and later, 
     <a href="../content-fetching">please see here</a> for usage in older versions.
 </p>
 
