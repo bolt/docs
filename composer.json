@@ -9,6 +9,7 @@
         "jbroadway/urlify": "dev-master",
         "michelf/php-smartypants": "1.6.0-beta1",
         "symfony/finder": "^2.8",
+        "symfony/console": "^2.4",
         "symfony/var-dumper": "^2.8",
         "symfony/yaml": "^2.8",
         "twig/twig": ">=1.8,<2.0-dev"
@@ -17,5 +18,11 @@
     "config": {
         "preferred-install": "dist"
     },
-    "prefer-stable": true
+    "prefer-stable": true,
+
+    "autoload": {
+        "psr-4": {
+            "Bolt\\Docs\\": "./src/"
+        }
+    }
 }
