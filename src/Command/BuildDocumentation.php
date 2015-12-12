@@ -46,6 +46,10 @@ class BuildDocumentation extends Command
                 @mkdir(dirname($directory.$branch.'/'.$file), 0755, true);
                 file_put_contents($directory.$branch.'/'.$file, $content);
             }
+
+            $menu = shell_exec('git show '.$branch.":menu_docs.yml");
+            file_put_contents($directory.$branch.'/menu_docs.yml', $menu);
+
             $output->writeln("<info>Branch $branch written to $directory$branch</info>");
         }
 
