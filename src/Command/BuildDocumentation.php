@@ -6,6 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Yaml\Dumper;
 
 /**
  * Class BuildDocumentation console command
@@ -16,6 +17,7 @@ class BuildDocumentation extends Command
 {
 
     public $rootdir = '/version/';
+    public $versions = 'versions.yml';
 
     protected function configure()
     {
@@ -27,7 +29,7 @@ class BuildDocumentation extends Command
     /**
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return int|null|void
+     * @return void
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -46,5 +48,13 @@ class BuildDocumentation extends Command
             }
             $output->writeln("<info>Branch $branch written to $directory$branch</info>");
         }
+
+        // Write the passed in versions to the yml file
+
+        $dumper = new Dumper();
+        $yaml = $dumper->dump($input->getArgument('branches'));
+        $path = getcwd() . '/' . $this->versions;
+        file_put_contents($path, $yaml);
+        $output->writeln("<info>Versions saved to $path</info>");
     }
 }
