@@ -14,6 +14,9 @@ use Symfony\Component\Console\Input\InputArgument;
  */
 class BuildDocumentation extends Command
 {
+
+    public $rootdir = '/version/';
+
     protected function configure()
     {
         $this->setName("bolt:build-docs")
@@ -28,6 +31,20 @@ class BuildDocumentation extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        print_r($input->getArgument('branches'));
+
+        $directory = getcwd().$this->rootdir;
+
+        foreach ($input->getArgument('branches') as $branch) {
+            $tree = shell_exec('git ls-tree '.$branch." ./source/");
+            $tree = array_filter(explode("\n", $tree));
+            $filelist = array_map('str_getcsv', $tree, array_fill(0, count($tree), "\t"));
+            foreach ($filelist as $source) {
+                $file = $source[1];
+                $content = shell_exec('git show '.$branch.":".$file);
+                @mkdir(dirname($directory.$branch.'/'.$file), 0755, true);
+                file_put_contents($directory.$branch.'/'.$file, $content);
+            }
+            $output->writeln("<info>Branch $branch written to $directory$branch</info>");
+        }
     }
 }
