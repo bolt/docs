@@ -25,6 +25,10 @@ if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request 
 	die();
 }
 
+// Setup the parser and read the versions
+$yaml = new Parser();
+$versions = $yaml->parse(file_get_contents('versions.yml'));
+
 // Determine if we're on 'docs' or on 'manual'
 $hostname = $_SERVER['SERVER_NAME'];
 if (strpos($hostname, 'manual') !== false) {
@@ -44,7 +48,6 @@ if (!file_exists($sourcefolder . $request . ".md")) {
 }
 
 
-$yaml = new Parser();
 
 $menu = $yaml->parse(file_get_contents($menufile));
 
