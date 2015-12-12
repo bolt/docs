@@ -6,3 +6,4 @@ cache/*
 .DS_*
 node_modules
 bower_components
+version/
