@@ -531,8 +531,8 @@ add the `raw` modifier.
 
 In most cases the results of `{% setcontent %}` or `{{ record.related() }}` are
 in the desired order. In some cases you might want to reorder them, by using the
-`order`-filter. The filter takes one parameter: the name of the field you wish
-to order the results on:
+`order`-filter. The filter takes one or two parameters: the names of the fields
+you wish to order the results on:
 
 ```
 {% set relatedrecords = record.related() %}
@@ -551,7 +551,7 @@ or:
 {# get the 10 latest entries by date, but sort them on the title field %}
 {% setcontent entries = "entries/latest/10" %}
 <ul>
-{% for entry in entries|order('title') %}
+{% for entry in entries|order('title', 'subtitle') %}
     <li><a href="{{ entry.link }}">{{ entry.title }}</a></li>
 {%  endfor %}
 </ul>
