@@ -401,8 +401,13 @@ server {
         deny all;
     }
 
+    # Block access to certain JSON files
+    location ~ /(?:bower|composer|jsdoc|package)\.json$ {
+        deny all;
+    }
+
     # Block access to Markdown, Twig & YAML files directly
-    location ~* /(.*)\.(?:markdown|md|twig|yaml|yml)$ {
+    location ~* /(.*)\.(?:dist|markdown|md|twig|yaml|yml)$ {
         deny all;
     }
 
