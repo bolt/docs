@@ -25,6 +25,11 @@ if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request 
 	die();
 }
 
+// Setup the parser and read the versions
+$yaml = new Parser();
+$versions = $yaml->parse(file_get_contents('versions.yml'));
+
+
 // Determine if we're on 'docs' or on 'manual'
 $hostname = $_SERVER['SERVER_NAME'];
 if (strpos($hostname, 'manual') !== false) {
@@ -32,9 +37,17 @@ if (strpos($hostname, 'manual') !== false) {
     $menufile = 'menu_manual.yml';
     $sitetitle = 'Bolt user manual';
 } else {
-    $sourcefolder = './source_docs/';
-    $menufile = 'menu_docs.yml';
-    $sitetitle = 'Bolt documentation';
+    if (in_array(ltrim($prefix, '/'), $versions)) {
+        $sourcefolder = './version'.$prefix.'/source_docs/';
+        $menufile = './version'.$prefix.'/menu_docs.yml';
+        $sitetitle = 'Bolt documentation';
+        $prefix = '';
+    } else {
+        $sourcefolder = './source_docs/';
+        $menufile = 'menu_docs.yml';
+        $sitetitle = 'Bolt documentation';
+    }
+
 }
 
 if (!file_exists($sourcefolder . $request . ".md")) {
@@ -44,7 +57,6 @@ if (!file_exists($sourcefolder . $request . ".md")) {
 }
 
 
-$yaml = new Parser();
 
 $menu = $yaml->parse(file_get_contents($menufile));
 
