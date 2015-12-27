@@ -1,4 +1,4 @@
-Bolt docs (version 2.x / master)
+Bolt docs (version 2.x)
 ================================
 
 These are the docs for [Bolt](http://bolt.cm/). This repository is the
