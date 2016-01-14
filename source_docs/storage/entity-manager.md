@@ -1,11 +1,14 @@
 # The Entity Manager
 
+The Bolt Entity Manager manages access to the various layers of the Bolt storage system. It does this mainly by 
+delegating to Repository classes which have the primary responsibility of interacting with the database.
 
+Below are some links to the `EntityManager` methods you may need to call.
 ## Quick Links
 
  - <a href="#getrepositoryentity">getRepository</a>
  - <a href="#setrepositoryentity-repositoryclass">setRepository</a>
- - <a href="#createquerybuilder">createqueryBuilder</a>
+ - <a href="#createquerybuilder">createQueryBuilder</a>
  - <a href="#findentity-id">find</a>
  - <a href="#saveentity">save</a>
  - <a href="#deleteentity">delete</a>
@@ -13,11 +16,11 @@
 
 ## Overview
 
-The Bolt Entity Manager manages access to the various layers of the Bolt storage system. It does this mainly by delegating to Repository classes which have the primary responsibility of interacting with the database.
+At a conceptual level a Repository will normally interact with a single table of the storage system, for instance a 
+UserRepository will look after fetching, updating and deleting User entities to the `bolt_user` table in the database. 
 
-At a conceptual level a Repository will normally interact with a single table of the storage system, for instance a UserRepository will look after fetching, updating and deleting User entities to the `bolt_user` table in the database. 
-
-Since the EntityManager sits above the next layer of repositories then most methods on the Entity Manager or `$app['storage]'` will simply pass the request on to the relevant repository class.
+The EntityManager sits above this next layer of repositories, most methods on the Entity Manager 
+or `$app['storage]'` will simply pass the request on to the relevant repository class.
 
 
 ### getRepository($entity)
