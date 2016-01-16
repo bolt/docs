@@ -1,7 +1,13 @@
 # Repositories
 
+Repositories manage collections of entities. At a conceptual level where an entity represents a row of data in the 
+database, the repository represents the table. When you request a repository in Bolt you will normally ask for it
+via the name of the entity, and you will receive back an object that will be able to perform find, save and delete
+operations on a collection of (or single) entities.
 
-## Quick Links
+Here are some of the built in ways to interact with a repository.
+
+## Quick Links to Repository Methods
 
  - <a href="#createquerybuilder">createQueryBuilder</a>
  - <a href="#findid">find</a>
