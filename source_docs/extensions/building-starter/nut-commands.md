@@ -1,18 +1,58 @@
-Providing Nut Console Commands
-==============================
+Extension Building: Nut Console Commands
+========================================
 
 With your extension, you may want to provide console commands via Bolt's built-
 in `nut` command.
 
-Step 1: Create a Command Class
-------------------------------
+Bolt provides the `registerNutCommands()` that accepts an array of 
+`Symfony\Component\Console\Command\Command` objects for registration as 
+Nut commands.
 
-You should create a class for your extension that extends
-`Symfony\Component\Console\Command\Command` that should have both a minimum of
-`configure()` and `execute()` functions
+A simple example of an extension that registers some Nut commands would look 
+like:
 
+```php
+namespace Bolt\Extension\DropBear\KoalaCatcher;
+
+use Bolt\Extension\SimpleExtension;
+use Symfony\Component\Console\Command\Command;
+
+/**
+ * An extension for catching koalas. 
+ *
+ * @author Kenny Koala <kenny@dropbear.com.au>
+ */
+class KoalaCatcherExtension extends SimpleExtension
+{
+    /**
+     * {@inheritdoc}
+     */
+    protected function registerNutCommands(Container $container)
+    {
+        return [
+            new Nut\DropBearCommand(),
+            new Nut\KoalaCommand($container),
+        ];
+    }
+}
 ```
-namespace Bolt\Extensions\Author\ExtensionName;
+
+**NOTE:** There are two classes you might choose to extend for a Nut application.
+
+For simple Nut commands that don't need to interact with any services provided 
+by Bolt itself, you need only extend `Symfony\Component\Console\Command\Command` 
+
+More complex commands that need to access Bolt provided services should 
+alternatively extend `Bolt\Nut\BaseCommand`.
+
+Creating a Command Class
+------------------------
+
+The command class should have both a minimum of `configure()` and `execute()`
+functions.
+
+```php
+namespace Bolt\Extension\DropBear\KoalaCatcher\Nut;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -20,23 +60,28 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MyExtCommand extends Command
+/**
+ * An nut command for then KoalaCatcher extension. 
+ *
+ * @author Kenny Koala <kenny@dropbear.com.au>
+ */
+class KoalaCommand extends Command
 {
     protected function configure()
     {
         $this
-            ->setName('myext:doit')
-            ->setDescription('Do It from this extension')
+            ->setName('koala:gumleaves')
+            ->setDescription('Give your koala some gum leaves')
             ->addArgument(
                 'type',
                 InputArgument::OPTIONAL,
-                'Who type of thing do you want to do?'
+                'What type of gum tree should we use?'
             )
             ->addOption(
                'summary',
                null,
                InputOption::VALUE_NONE,
-               'Display final summary output from Doing It'
+               'Display final summary output from feeding.'
             )
         ;
     }
@@ -44,16 +89,16 @@ class MyExtCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $type = $input->getArgument('type');
-        if ($type == 'fast') {
+        if ($type == 'blue') {
             // Code execution here
-            $text = "<info>Processing fast</info>\n";
+            $text = "<info>Feeding the koala leaves from a Blue Gum</info>\n";
         } else {
-            $text = "<info>Processing slow</info>\n";
+            $text = "<info>Feeding the koala leaves from a Red Gum</info>\n";
         }
 
         if ($input->getOption('summary')) {
             $num = 12;
-            $text .= "<comment>While processing we completed $num things</comment>";
+            $text .= "<comment>Your koala ate $num gum leaves</comment>";
         }
 
         $output->writeln($text);
@@ -64,24 +109,8 @@ class MyExtCommand extends Command
 In the above example we've added an option `--summary` and an (optional)
 argument labelled `type`.
 
-This can be called from your Bolt installation:
+This can then be called from your Bolt installation:
 
 ```bash
-./app/nut myext:doit [--summary] [type]
-```
-
-Step 2: Call from inside your extension
----------------------------------------
-
-Finally you need only add a call to `addConsoleCommand()` and pass it a new
-instance of your Command class.
-
-```
-public function initialize()
-{
-    // Add your command
-    $this->addConsoleCommand(new MyExtCommand());
-
-    // Do the rest of your extension logic
-}
+./app/nut koala:gumleaves [--summary] [type]
 ```
