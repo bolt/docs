@@ -28,8 +28,99 @@ of this to bring Bolt's database metadata into a larger ecosystem.
 
 ### getClassMetadata($classname)
 
-This method returns all the metadata for a given class name, for example:
+This method returns all the metadata for a given class name as an array, you can access it for example:
 
 ```
-$meta = $app['storage.metadata']->getClassMetadata('Bolt\Entity\User');
+$meta = $app['storage.metadata']->getClassMetadata('Bolt\Storage\Entity\Users');
 ```
+
+The structure of this output will look something like this:
+
+```
+array:4 [▼
+  "identifier" => Index {#1380 ▶}
+  "table" => "bolt_users"
+  "boltname" => "users"
+  "fields" => array:15 [▼
+    "id" => array:11 [▶]
+    "username" => array:11 [▼
+      "fieldname" => "username"
+      "type" => "string"
+      "fieldtype" => "Bolt\Storage\Field\Type\TextType"
+      "length" => 32
+      "nullable" => true
+      "platformOptions" => []
+      "precision" => 10
+      "scale" => 0
+      "default" => null
+      "columnDefinition" => null
+      "autoincrement" => false
+    ]
+    "password" => array:11 [▶]
+    "email" => array:11 [▶]
+    "lastseen" => array:11 [▶]
+    "lastip" => array:11 [▶]
+    "displayname" => array:11 [▶]
+    "stack" => array:11 [▶]
+    "enabled" => array:11 [▶]
+    "shadowpassword" => array:11 [▶]
+    "shadowtoken" => array:11 [▶]
+    "shadowvalidity" => array:11 [▶]
+    "failedlogins" => array:11 [▶]
+    "throttleduntil" => array:11 [▶]
+    "roles" => array:11 [▶]
+  ]
+]
+```
+
+### loadMetadataForClass($classname)
+
+This method returns an instance of `Bolt\Storage\Mapping\ClassMetadata` with the data loaded for the given entity,
+for example:
+
+```
+$meta = $app['storage.metadata']->loadMetadataForClass('Bolt\Storage\Entity\Users');
+```
+
+The output will look something like this, each column or field will have a mapping inside the `fieldMappings` array
+
+
+```
+ClassMetadata {#953 ▼
+  #name: "Bolt\Storage\Entity\Users"
+  #boltname: "users"
+  #tableName: "bolt_users"
+  #identifier: Index {#1380 ▶}
+  #namingStrategy: NamingStrategy {#709 ▶}
+  #fieldMappings: array:15 [▼
+    "id" => array:11 [▶]
+    "username" => array:11 [▶]
+    "password" => array:11 [▶]
+    "email" => array:11 [▶]
+    "lastseen" => array:11 [▶]
+    "lastip" => array:11 [▶]
+    "displayname" => array:11 [▶]
+    "stack" => array:11 [▶]
+    "enabled" => array:11 [▶]
+    "shadowpassword" => array:11 [▶]
+    "shadowtoken" => array:11 [▶]
+    "shadowvalidity" => array:11 [▶]
+    "failedlogins" => array:11 [▶]
+    "throttleduntil" => array:11 [▶]
+    "roles" => array:11 [▼
+      "fieldname" => "roles"
+      "type" => "json_array"
+      "fieldtype" => "Bolt\Storage\Field\Type\TextType"
+      "length" => null
+      "nullable" => true
+      "platformOptions" => []
+      "precision" => 10
+      "scale" => 0
+      "default" => null
+      "columnDefinition" => null
+      "autoincrement" => false
+    ]
+  ]
+}
+```
+
