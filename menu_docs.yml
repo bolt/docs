@@ -49,7 +49,7 @@ internals:
 storage:
   "": "Interacting with the Database"
   "storage/introduction": "Overview of Bolt Storage"
-  "storage/repositories": "The Entity Manager"
+  "storage/entity-manager": "The Entity Manager"
   "storage/entities": "Working with Entities"
   "storage/repositories": "Working with Repositories"
   "storage/entity-metadata": "Entity Metadata"
