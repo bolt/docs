@@ -46,6 +46,16 @@ internals:
   internals/task-scheduler: "Task Scheduler (cron)"
   internals/release-process: "Our Release Process"
 
+storage:
+  "": "Interacting with the Database"
+  "storage/introduction": "Overview of Bolt Storage"
+  "storage/entity-manager": "The Entity Manager"
+  "storage/entities": "Working with Entities"
+  "storage/repositories": "Working with Repositories"
+  "storage/entity-metadata": "Entity Metadata"
+  "storage/entity-transforms": "Hydration & Persistence"
+
+
 other:
   "": Other Information
   manifesto: "The Bolt Manifesto"

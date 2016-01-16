@@ -1,5 +1,12 @@
 # The Bolt Storage Interface
 
+The internals of the Bolt storage system have been significantly refactored for the 3.x series of releases.
+This section gives an overview of the responsibilities of each component. Note that this section will only be of 
+interest to you if you need to interact with the storage internals, either when writing application code or perhaps
+in developing an extension. 
+
+If you are just interested in fetching content records then you can continue to refer to the  
+<a href="../content-fetching">content fetching pages</a>.
 
 ## Hierarchy of Storage in Bolt
 
