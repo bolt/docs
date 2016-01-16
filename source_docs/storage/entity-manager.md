@@ -26,7 +26,7 @@ or `$app['storage]'` will simply pass the request on to the relevant repository 
 ### getRepository($entity)
 
 ```
-$repo = $app['storage']->getRepository('Bolt\Entity\User');
+$repo = $app['storage']->getRepository('Bolt\Storage\Entity\Users');
 $repo = $app['storage']->getRepository('users');
 ```
 
@@ -38,7 +38,7 @@ The object returned will typehint against `Bolt\Storage\Repository` although it 
 ### setRepository($entity, $repositoryClass)
 
 ```
-$repo = $app['storage']->setRepository('Bolt\Entity\User', 'Myapp\Storage\UserRepository');
+$repo = $app['storage']->setRepository('Bolt\Storage\Entity\Users', 'Myapp\Storage\UserRepository');
 ```
 
 In any larger Bolt application you will run into occasions where you want to write your own database interactions and for optimum reusability this will usually belong in the repository layer.
@@ -56,7 +56,7 @@ Apart from very basic queries, which can use the simpler finder methods, the pri
 ### find($entity, $id)
 
 ```
-$user = $app['storage']->find('Bolt\Entity\Users', 1);
+$user = $app['storage']->find('Bolt\Storage\Entity\Users', 1);
 ```
 
 This is a simple wrapper for the Repository method of the same name. It is equivalent to getting the repository and then performing a find on the returned instance.

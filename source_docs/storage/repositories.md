@@ -23,7 +23,7 @@ Here are some of the built in ways to interact with a repository.
 A repository in Bolt is the primary method used for interacting with an entity or collections of entities. It's not recommended to create a repository directly, instead you ask the entity manager for an instance, as in the following example.
 
 ```
-$repo = $app['storage']->getRepository('Bolt\Entity\User');
+$repo = $app['storage']->getRepository('Bolt\Storage\Entity\Users');
 ```
 
 You can also use short aliases for any of the built-in tables so the following is equivalent.
