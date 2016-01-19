@@ -265,7 +265,7 @@ suffice. You could create a new contenttype, or use [resource
 contenttypes](/howto/resource-contenttype), but this isn't really an elegent solution.
 
 Template specific fields allow you to define extra fields to use when a template is
-chosen for a record. They're defined in the theme's `config.yml`, and it's just like
+chosen for a record. They're defined in the theme's `theme.yml`, and it's just like
 defining the fields of a contenttype.
 
 ```yml
