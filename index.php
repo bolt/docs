@@ -41,6 +41,7 @@ if (strpos($hostname, 'manual') !== false) {
         $sourcefolder = './version'.$prefix.'/source_docs/';
         $menufile = './version'.$prefix.'/menu_docs.yml';
         $sitetitle = 'Bolt documentation';
+        $linkPrefix = $prefix;
         $prefix = '';
     } else {
         $sourcefolder = './source_docs/';
@@ -145,7 +146,8 @@ echo $twig->render('index.twig', array(
 	'current' => $request,
 	'version' => $version,
     'requested_page' => $request,
-    'prefix' => ($prefix == "/" ? "" : $prefix)
+    'prefix' => ($prefix == "/" ? "" : $prefix),
+    'linkPrefix' => ($linkPrefix == "/" ? "" : $linkPrefix)
 ));
 
 
