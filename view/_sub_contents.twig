@@ -5,7 +5,7 @@
         {% if link is empty %}
         <li class="section"><a href="#">{{ name }}</a></li>
         {% else %}
-        <li {% if current==link %}class='current'{% endif %}><a href="{{ prefix|default('') }}/{{link}}">{{name}}</a>
+        <li {% if current==link %}class='current'{% endif %}><a href="{{ linkPrefix|default('') }}/{{link}}">{{name}}</a>
             {% if current==link and submenu is not empty %}
                 <ul>
                     {% for link,name in submenu %}
