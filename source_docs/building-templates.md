@@ -52,7 +52,7 @@ The current default theme contains the following files and folders:
   - `_footer.twig` - same, but for the footer.
   - `_recordfooter.twig`, `_sub_menu.twig`, `_sub_searchbox.twig` - small
     utility files, that are included in the other templates
-  - `config.yml` - A file with configuration related to the theme and how it
+  - `theme.yml` - A file with configuration related to the theme and how it
     works with bolt. Can also contain configuration for template specific fields
     and values for the theme to use in its templates.
   - `javascripts/` - a folder with some javascript files.
@@ -79,7 +79,7 @@ the page. You can change this by either defining another template in
 information about this can be found in the chapter
 [Working with Content and Content types](/contenttypes-and-records).
 
-Using your themes `config.yml` you can also provide fallbacks for certain settings 
+Using your themes `theme.yml` you can also provide fallbacks for certain settings 
 of the main `config.yml`. These are useful when building themes and you want to 
 provide your own templates. Keep in mind that these are overridden by the main 
 `config.yml` if the same key exists there. These are (provided with examples):
@@ -94,10 +94,10 @@ maintenance_template: maintenance.twig
 `listing_template` is used for both contenttype listing and taxonomy listing unless
 one of the is defined in the main `config.yml`.
 
-By using the `template_directory` setting in your themes config.yml you can 
+By using the `template_directory` setting in your themes theme.yml you can 
 choose the location of the templates within your theme structure. For example to
 place all your templates in a directory called `twig` you would add the 
-following to your theme's config.yml:
+following to your theme's theme.yml:
 ```
 template_directory: twig
 ```
@@ -288,7 +288,7 @@ happen automatically.
 </a>
 
 To change the name shown for each template in the templateselect field you can define the
-names and their associated contenttypes in the theme's `config.yml`.
+names and their associated contenttypes in the theme's `theme.yml`.
 
 ```yml
 templateselect:
