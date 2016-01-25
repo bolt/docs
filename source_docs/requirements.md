@@ -15,6 +15,11 @@ minimum required version of Bolt, we strongly recommend a newer version, like
 PHP 5.5 or 5.6. These newer versions are not only safer, but your website will
 be significantly faster as well. </p>
 
+<p class="note"><strong>Note:</strong> While Bolt 2.X will work very well in
+PHP 7, the included version of the error reporting package 
+<a href="http://filp.github.io/whoops/">whoops</a> will in certain cases not.
+This will probably not affect your experience. </p>
+
 The PHP installation has a few additional requirements. On most servers these
 are default settings, and Bolt should work out-of-the-box.
 
