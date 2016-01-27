@@ -33,8 +33,11 @@ class BuildDocumentation extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $directory = getcwd().$this->rootdir;
+
+        $slugify = new \Cocur\Slugify\Slugify();
+
+        $versionsArray = [];
 
         foreach ($input->getArgument('branches') as $branch) {
             $tree = shell_exec('git ls-tree '.$branch." ./source_docs/");
@@ -43,22 +46,27 @@ class BuildDocumentation extends Command
             foreach ($filelist as $source) {
                 $file = $source[1];
                 $content = shell_exec('git show '.$branch.":".$file);
-                @mkdir(dirname($directory.$branch.'/'.$file), 0755, true);
-                file_put_contents($directory.$branch.'/'.$file, $content);
+
+                $foldername = $slugify->slugify($branch);
+
+                @mkdir(dirname($directory . $foldername . '/' . $file), 0755, true);
+                file_put_contents($directory . $foldername . '/' . $file, $content);
             }
 
             $menu = shell_exec('git show '.$branch.":menu_docs.yml");
             file_put_contents($directory.$branch.'/menu_docs.yml', $menu);
 
-            $output->writeln("<info>Branch $branch written to $directory$branch</info>");
+            $versionsArray[$branch] = $foldername;
+
+            $output->writeln("<info>Branch $branch written to $directory$foldername</info>");
         }
 
-        // Write the passed in versions to the yml file
-
         $dumper = new Dumper();
-        $yaml = $dumper->dump($input->getArgument('branches'));
-        $path = getcwd() . '/' . $this->versions;
-        file_put_contents($path, $yaml);
+
+        // Write the passed in versions to the yml file
+        $path = getcwd() . '/app/' . $this->versions;
+        dump($versionsArray);
+        file_put_contents($path, $dumper->dump($versionsArray));
         $output->writeln("<info>Versions saved to $path</info>");
     }
 }
