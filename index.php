@@ -1,5 +1,23 @@
 <?php
 
+
+if (!file_exists(__DIR__.'/app/config.yml')) {
+    echo "<p>The file <tt>app/config.yml</tt> doesn't exist. Copy <tt>config.yml.dist</tt> to <tt>config.yml</tt> and add the correct settings.</p>";
+    die();
+}
+if (!file_exists(__DIR__.'/vendor/autoload.php')) {
+    echo "<p>The file <tt>vendor/autoload.php</tt> doesn't exist. Make sure you've installed the Silex components with Composer. See the README.md file.</p>";
+    die();
+}
+
+require_once __DIR__.'/vendor/autoload.php';
+
+$app = require_once __DIR__.'/app/bootstrap.php';
+
+$app->run();
+
+/*
+
 use Symfony\Component\Yaml\Parser;
 
 require_once './vendor/autoload.php';
@@ -90,7 +108,7 @@ if (!empty($_GET['q'])) {
         return $output;
     }, $source);
 }
----- */
+----  * /
 
 // Markup for <h1> and <h2>..
 $source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function($matches) {
@@ -107,7 +125,7 @@ $source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function($match
 
 $loader = new Twig_Loader_Filesystem('./view');
 $twig = new Twig_Environment($loader, array(
-/*    'cache' => './cache', */
+/ *    'cache' => './cache', * /
 ));
 
 
@@ -163,10 +181,11 @@ echo $twig->render('index.twig', array(
  * @param string $str
  * @param string $type
  * @return string
- */
+ * /
 function makeSlug($str) {
 
     return \URLify::filter(strip_tags($str));
 
 }
 
+*/

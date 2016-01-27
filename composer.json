@@ -5,24 +5,26 @@
     "keywords": ["Bolt", "Docs", "Documentation", "CMS", "Silex", "PHP", "Symfony"],
     "license": "MIT",
     "require": {
-        "erusev/parsedown-extra": "~0.6",
-        "jbroadway/urlify": "dev-master",
-        "michelf/php-smartypants": "1.6.0-beta1",
-        "symfony/finder": "^2.8",
-        "symfony/console": "^2.4",
-        "symfony/var-dumper": "^2.8",
-        "symfony/yaml": "^2.8",
-        "twig/twig": ">=1.8,<2.0-dev"
+        "cocur/slugify" : "~1.0",
+        "erusev/parsedown-extra": "~0.7",
+        "monolog/monolog": "~1.12",
+        "silex/silex": "~2.0@dev",
+        "silex/web-profiler": "~2.0@dev",
+        "symfony/console": "^3.0",
+        "symfony/finder": "^3.0",
+        "symfony/var-dumper": "^3.0",
+        "symfony/web-profiler-bundle" : "^3.0",
+        "symfony/yaml": "^3.0",
+        "twig/twig": "~1.21"
     },
     "minimum-stability": "beta",
     "config": {
         "preferred-install": "dist"
     },
-    "prefer-stable": true,
-
     "autoload": {
         "psr-4": {
             "Bolt\\Docs\\": "./src/"
         }
-    }
+    },
+    "prefer-stable": true
 }
