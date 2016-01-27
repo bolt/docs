@@ -1,6 +1,6 @@
 <?php
 
-namespace Cheatsheet;
+namespace Bolt\Docs;
 
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
@@ -22,6 +22,9 @@ class Controllers implements ControllerProviderInterface
         $ctr->get("/", array($this, 'home'))
             ->bind('home');
 
+        $ctr->get("/{version}/{slug}", array($this, 'page'))
+            ->bind('page');
+
         $ctr->before(array($this, 'before'));
 
         return $ctr;
@@ -35,6 +38,22 @@ class Controllers implements ControllerProviderInterface
 
         return $app['twig']->render('index.twig', ['cheatsheet' => $cheatsheet]);
     }
+
+
+    public function page(Application $app, $version, $slug)
+    {
+//        $yaml = new Parser();
+//        $cheatsheet = $yaml->parse(file_get_contents(__DIR__ . '/../app/cheatsheet.yml'));
+//
+        dump($version);
+        dump($slug);
+
+        return 'ok';
+
+        return $app['twig']->render('index.twig', ['cheatsheet' => $cheatsheet]);
+    }
+
+
 
     /**
      * Middleware function to do some tasks that should be done for all requests.
