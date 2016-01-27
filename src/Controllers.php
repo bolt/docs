@@ -55,11 +55,11 @@ class Controllers implements ControllerProviderInterface
             return "404, dude";
         }
 
+
         $twigVars = [
-            'title' => $maintitle,
-            'sitetitle' => $sitetitle,
+            'title' => $contentGetter->getTitle(),
             'source' => $source,
-            'menu' => $menu,
+            'menu' => $contentGetter->menu($version, 'menu_docs.yml'),
             'submenu' => $submenu,
             'current' => $request,
             'version' => $version,
@@ -70,8 +70,6 @@ class Controllers implements ControllerProviderInterface
         $html = $app['twig']->render('index.twig', $twigVars);
 
         return $html;
-
-        return $app['twig']->render('index.twig', ['cheatsheet' => $cheatsheet]);
     }
 
 

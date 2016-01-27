@@ -33,6 +33,9 @@ $app['config'] = $yaml->parse(file_get_contents(__DIR__ . '/config.yml'));
 if (isset($app['config']['debug']) && $app['config']['debug'] == true) {
     $app['debug'] = true;
 
+    ini_set('display_errors', 1);
+    ini_set('error_reporting', -1);
+
     $app->register(new MonologServiceProvider(), [
         'monolog.logfile' => __DIR__ . '/../cache/silex_dev.log',
     ]);
