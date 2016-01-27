@@ -54,7 +54,7 @@ class BuildDocumentation extends Command
             }
 
             $menu = shell_exec('git show '.$branch.":menu_docs.yml");
-            file_put_contents($directory.$branch.'/menu_docs.yml', $menu);
+            file_put_contents($directory . $foldername . '/menu_docs.yml', $menu);
 
             $versionsArray[$branch] = $foldername;
 

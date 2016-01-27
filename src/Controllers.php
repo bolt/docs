@@ -44,11 +44,32 @@ class Controllers implements ControllerProviderInterface
     {
 //        $yaml = new Parser();
 //        $cheatsheet = $yaml->parse(file_get_contents(__DIR__ . '/../app/cheatsheet.yml'));
-//
-        dump($version);
-        dump($slug);
 
-        return 'ok';
+
+        $contentGetter = new ContentGetter();
+
+        $source = $contentGetter->source($version, $slug);
+
+        if (empty($source)) {
+            // todo: 404 handling
+            return "404, dude";
+        }
+
+        $twigVars = [
+            'title' => $maintitle,
+            'sitetitle' => $sitetitle,
+            'source' => $source,
+            'menu' => $menu,
+            'submenu' => $submenu,
+            'current' => $request,
+            'version' => $version,
+            'requested_page' => $request,
+            'prefix' => ($prefix == "/" ? "" : $prefix)
+        ];
+
+        $html = $app['twig']->render('index.twig', $twigVars);
+
+        return $html;
 
         return $app['twig']->render('index.twig', ['cheatsheet' => $cheatsheet]);
     }
