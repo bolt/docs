@@ -42,6 +42,7 @@ class BuildDocumentation extends Command
         foreach ($input->getArgument('branches') as $branch) {
             $tree = shell_exec('git ls-tree '.$branch." ./source_docs/");
             $tree = array_filter(explode("\n", $tree));
+            dump($tree);
             $filelist = array_map('str_getcsv', $tree, array_fill(0, count($tree), "\t"));
             foreach ($filelist as $source) {
                 $file = $source[1];

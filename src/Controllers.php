@@ -23,7 +23,8 @@ class Controllers implements ControllerProviderInterface
             ->bind('home');
 
         $ctr->get("/{version}/{slug}", array($this, 'page'))
-            ->bind('page');
+            ->bind('page')
+            ->assert('slug', '.+');
 
         $ctr->before(array($this, 'before'));
 

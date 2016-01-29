@@ -13,6 +13,8 @@ class ContentGetter
     {
         $sourceFile = sprintf('%s/version/%s/source_docs/%s.md', dirname(__DIR__), $version, $slug);
 
+        dump($sourceFile);
+
         if (!is_readable($sourceFile)) {
             return;
         }
