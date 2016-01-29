@@ -42,29 +42,23 @@ class Controllers implements ControllerProviderInterface
 
     public function page(Application $app, $version, $slug)
     {
-//        $yaml = new Parser();
-//        $cheatsheet = $yaml->parse(file_get_contents(__DIR__ . '/../app/cheatsheet.yml'));
+        $contentGetter = new ContentGetter($version, $slug);
 
-
-        $contentGetter = new ContentGetter();
-
-        $source = $contentGetter->source($version, $slug);
+        $source = $contentGetter->source();
 
         if (empty($source)) {
             // todo: 404 handling
             return "404, dude";
         }
 
-
         $twigVars = [
             'title' => $contentGetter->getTitle(),
             'source' => $source,
-            'menu' => $contentGetter->menu($version, 'menu_docs.yml'),
-            'submenu' => $submenu,
-            'current' => $request,
+            'menu' => $contentGetter->getMenu($version, 'menu_docs.yml'),
+            'submenu' => $contentGetter->getSubmenu(),
+            'current' => $slug,
             'version' => $version,
-            'requested_page' => $request,
-            'prefix' => ($prefix == "/" ? "" : $prefix)
+            // 'prefix' => ($prefix == "/" ? "" : $prefix)
         ];
 
         $html = $app['twig']->render('index.twig', $twigVars);

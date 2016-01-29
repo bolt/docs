@@ -65,7 +65,6 @@ class BuildDocumentation extends Command
 
         // Write the passed in versions to the yml file
         $path = getcwd() . '/app/' . $this->versions;
-        dump($versionsArray);
         file_put_contents($path, $dumper->dump($versionsArray));
         $output->writeln("<info>Versions saved to $path</info>");
     }
