@@ -4,7 +4,7 @@ use Symfony\Component\Yaml\Parser;
 
 require_once './vendor/autoload.php';
 
-$version = "2.2.14";
+$version = "2.2.16";
 
 // Let's see if there's a search-parameter.
 $parseurl = parse_url($_SERVER['REQUEST_URI']);
@@ -41,6 +41,7 @@ if (strpos($hostname, 'manual') !== false) {
         $sourcefolder = './version'.$prefix.'/source_docs/';
         $menufile = './version'.$prefix.'/menu_docs.yml';
         $sitetitle = 'Bolt documentation';
+        $linkPrefix = $prefix;
         $prefix = '';
     } else {
         $sourcefolder = './source_docs/';
@@ -145,7 +146,8 @@ echo $twig->render('index.twig', array(
 	'current' => $request,
 	'version' => $version,
     'requested_page' => $request,
-    'prefix' => ($prefix == "/" ? "" : $prefix)
+    'prefix' => ($prefix == "/" ? "" : $prefix),
+    'linkPrefix' => ($linkPrefix == "/" ? "" : $linkPrefix)
 ));
 
 
