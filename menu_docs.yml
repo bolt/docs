@@ -54,6 +54,7 @@ storage:
   "storage/repositories": "Working with Repositories"
   "storage/entity-metadata": "Entity Metadata"
   "storage/entity-transforms": "Hydration & Persistence"
+  "storage/fields": "Fields & Field Types"
 
 
 other:
