@@ -108,4 +108,5 @@ update query, in SQL terms it will look like `UPDATE bolt_pages SET title=:title
 So unless you are trying to do something more complicated then the first step is to get the main query which is
 available via array access `$queries[0]`. Once we have that we are going to add the value to the query. As before
 we fetch the value from the entity `$value = $entity->$key` then we add a set command to the query 
-`$qb->set($key, ':' . $key)` this makes the 
+`$qb->set($key, ':' . $key)` this makes the parameterised query for the Doctrine QueryBuilder equivalent to adding:
+`SET title=:title` and then binding the value of `:title` to the value of the entity.
