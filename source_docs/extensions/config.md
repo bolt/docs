@@ -63,7 +63,7 @@ about the configuration.
 When you want a starter extension with more example code, create a new one from this repository instead of the above one.
 
 ```
-composer create-project --no-install bolt/bolt-extension-starter-extended:~v1.0 <newextname>
+composer create-project --no-install bolt/bolt-extension-starter-extended:~1.0 <newextname>
 ```
 
 <p class="note"><strong>Tip:</strong> As noted in <a href="/howto/installing-local-extensions">Installing Local Extensions</a>, local extensions have no autoloader by default. Use <code>include_once</code> in Extension.php to load any additional class files you may create. If you move the extension to an external repository, remove the <code>include_once</code> lines.</p>
