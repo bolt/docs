@@ -34,10 +34,7 @@ class Controllers implements ControllerProviderInterface
 
     public function home(Application $app)
     {
-        $yaml = new Parser();
-        $cheatsheet = $yaml->parse(file_get_contents(__DIR__ . '/../app/cheatsheet.yml'));
-
-        return $app['twig']->render('index.twig', ['cheatsheet' => $cheatsheet]);
+        return $app->redirect($app['config']['start-page']);
     }
 
 

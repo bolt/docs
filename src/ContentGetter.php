@@ -13,15 +13,13 @@ class ContentGetter
     {
         $sourceFile = sprintf('%s/version/%s/source_docs/%s.md', dirname(__DIR__), $version, $slug);
 
-        dump($sourceFile);
+        // dump($sourceFile);
 
         if (!is_readable($sourceFile)) {
             return;
         }
 
-        $this->source = file_get_contents($sourceFile);
-
-        $this->source = \ParsedownExtra::instance()->text($this->source);
+        $this->source = \ParsedownExtra::instance()->text(file_get_contents($sourceFile));
     }
 
     public function source()

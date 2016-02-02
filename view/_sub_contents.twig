@@ -1,4 +1,4 @@
-{% macro menupart(menu, version) %}
+{% macro menupart(menu, version, current) %}
 
     {% for link,name in menu %}
         {% if link is empty %}
@@ -22,6 +22,6 @@
 
 {% for sectionname, section in menu if sectionname != "howto" %}
 <ul>
-    {{ macro.menupart(section, version) }}
+    {{ macro.menupart(section, version, current) }}
 </ul>
 {% endfor %}
