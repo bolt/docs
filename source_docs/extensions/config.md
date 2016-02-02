@@ -33,7 +33,7 @@ the following. Make sure you replace the last `<myvendorname>` and
 mkdir local
 mkdir local/<myvendorname>
 cd local/<myvendorname>
-composer create-project --no-install bolt/bolt-extension-starter <newextname>
+composer create-project --no-install bolt/bolt-extension-starter:~1.0 <newextname>
 ```
 
 Once you've run the above commands, Composer will create a new directory with
@@ -63,7 +63,7 @@ about the configuration.
 When you want a starter extension with more example code, create a new one from this repository instead of the above one.
 
 ```
-composer create-project --no-install bolt/bolt-extension-starter-extended <newextname>
+composer create-project --no-install bolt/bolt-extension-starter-extended:~1.0 <newextname>
 ```
 
 <p class="note"><strong>Tip:</strong> As noted in <a href="/howto/installing-local-extensions">Installing Local Extensions</a>, local extensions have no autoloader by default. Use <code>include_once</code> in Extension.php to load any additional class files you may create. If you move the extension to an external repository, remove the <code>include_once</code> lines.</p>
