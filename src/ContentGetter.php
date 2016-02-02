@@ -24,6 +24,19 @@ class ContentGetter
 
     public function source()
     {
+
+        // // Markup for <h1> and <h2>..
+        $source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function($matches) {
+            $output = sprintf("<h%s id='%s'>%s<a href='#%s' class='anchor'>¶</a></h%s>",
+                $matches[1],
+                makeSlug($matches[2]),
+                $matches[2],
+                makeSlug($matches[2]),
+                $matches[1]
+            );
+            return $output;
+        }, $this->source);
+
         return $this->source;
     }
 
