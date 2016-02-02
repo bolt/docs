@@ -33,10 +33,31 @@ class BuildDocumentation extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
+=======
+        $versionsArray = [];
+
+        foreach ($input->getArgument('branches') as $branch) {
+            $this->getSubTree($branch, $output, './source_docs/');
+            $versionsArray[$branch] = $foldername;
+        }
+
+        $dumper = new Dumper();
+
+        // Write the passed in versions to the yml file
+        $path = getcwd() . '/app/' . $this->versions;
+        file_put_contents($path, $dumper->dump($versionsArray));
+        $output->writeln("<info>Versions saved to $path</info>");
+    }
+
+    protected function getSubTree($branch, $output, $prefix = '')
+    {
+>>>>>>> master
         $directory = getcwd().$this->rootdir;
 
         $slugify = new \Cocur\Slugify\Slugify();
 
+<<<<<<< HEAD
         $versionsArray = [];
 
         foreach ($input->getArgument('branches') as $branch) {
@@ -68,5 +89,36 @@ class BuildDocumentation extends Command
         $path = getcwd() . '/app/' . $this->versions;
         file_put_contents($path, $dumper->dump($versionsArray));
         $output->writeln("<info>Versions saved to $path</info>");
+=======
+        $tree = shell_exec('git ls-tree '. $branch . " " . $prefix);
+        $tree = array_filter(explode("\n", $tree));
+        $filelist = array_map('str_getcsv', $tree, array_fill(0, count($tree), "\t"));
+
+        foreach ($filelist as $source) {
+            $filemeta = explode(' ', $source[0]);
+
+            if ($filemeta[1] == 'blob') {
+                $file = $source[1];
+
+                $content = shell_exec('git show ' . $branch . ":" . $file);
+
+                $folderName = $slugify->slugify($branch);
+
+                @mkdir(dirname($directory . $folderName . '/' . $file), 0755, true);
+                file_put_contents($directory . $folderName . '/' . $file, $content);
+            } elseif ($filemeta[1] == 'tree') {
+                $this->getSubTree($branch, $output, './' . $source[1] . '/');
+            }
+        }
+
+        // Only get the menu, if we're in the ./source_docs/ top level.
+        if ($prefix == './source_docs/') {
+            $menu = shell_exec('git show ' . $branch . ":menu_docs.yml");
+            file_put_contents($directory . $folderName . '/menu_docs.yml', $menu);
+
+            $output->writeln("<info>Branch $branch written to $directory$folderName</info>");
+        }
+>>>>>>> master
     }
+
 }
