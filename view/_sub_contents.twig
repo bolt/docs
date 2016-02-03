@@ -1,27 +1,46 @@
 {% macro menupart(menu, version, current) %}
 
+    {% from _self import menupart %}
+
+    <li class="section"><a href="#">{{ menu.title }}</a></li>
+    <ul>
+        {% for link, name in menu.items %}
+            {% if name is iterable %}
+                {{ menupart(name, version, current) }}
+            {% else %}
+                <li {% if current==link %}class='current'{% endif %}><a href="/{{ version }}/{{ link }}">{{ name }}</a>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    {#
     {% for link,name in menu %}
         {% if link is empty %}
         <li class="section"><a href="#">{{ name }}</a></li>
+        {% elseif name is iterable %}
+            elseif
+            {{ dump(name.sub) }}
+            {{ menupart(name.sub, version, current) }}
         {% else %}
         <li {% if current==link %}class='current'{% endif %}><a href="/{{ version }}/{{ link }}">{{ name }}</a>
-{#             {% if current==link and submenu is not empty %}
+{ #             {% if current==link and submenu is not empty %}
                 <ul>
                     {% for link,name in submenu %}
                     <li><a href="#{{link}}">{{name|raw}}</a></li>
                         {% endfor %}
                 </ul>
-            {% endif %} #}
+            {% endif %} # }
         </li>
         {% endif %}
     {% endfor %}
+    #}
 
 {% endmacro %}
 
-{% import _self as macro %}
+{% from _self import menupart %}
 
-{% for sectionname, section in menu if sectionname != "howto" %}
+{% for sectionname, section in menu %}
 <ul>
-    {{ macro.menupart(section, version, current) }}
+    {{ menupart(section, version, current) }}
 </ul>
 {% endfor %}
