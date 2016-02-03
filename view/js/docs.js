@@ -31,22 +31,7 @@ jQuery(function($) {
         $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
     });
 
-    // collapse the chapter that is not current
-
-    //hide all
-    //$('#sidebar-nav>ul>li:not(.section)').hide();
-    //$('#sidebar-nav>ul').addClass('hiddensection');
-
-    //show current and siblings
-    //$('#sidebar-nav li.current').show();
-    //$('#sidebar-nav li.current').siblings().show();
-    //$('#sidebar-nav li.current').parent('ul').addClass('currentsection').removeClass('hiddensection');
-
-    // show all li, when clicked on the sectionheader
-    //$('#sidebar-nav li.section').click(function(e){
-    //    e.preventDefault();
-    //    $(this).siblings().toggle();
-    //});
+    $('#tree1').tree();
 
     if($(window).width() > 801) { // ONLY LARGE-UP
 

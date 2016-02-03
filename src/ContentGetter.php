@@ -7,19 +7,26 @@ use Cocur\Slugify\Slugify;
 class ContentGetter
 {
 
-    private $source;
+    private $source = '';
+    private $slug = '';
+    private $version = '';
 
-    public function __construct($version, $slug)
+    public function __construct($version, $slug = '')
     {
-        $sourceFile = sprintf('%s/version/%s/source_docs/%s.md', dirname(__DIR__), $version, $slug);
 
-        // dump($sourceFile);
+        if (!empty($slug)) {
+            $sourceFile = sprintf('%s/version/%s/source_docs/%s.md', dirname(__DIR__), $version, $slug);
 
-        if (!is_readable($sourceFile)) {
-            return;
+            if (!is_readable($sourceFile)) {
+                return;
+            }
+
+            $this->source = \ParsedownExtra::instance()->text(file_get_contents($sourceFile));
         }
 
-        $this->source = \ParsedownExtra::instance()->text(file_get_contents($sourceFile));
+        $this->slug = $slug;
+        $this->version = $version;
+
     }
 
     public function source()
@@ -28,7 +35,7 @@ class ContentGetter
         // phpinfo();
 
         // Markup for <h1> and <h2>..
-        $source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function($matches) {
+        $source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function ($matches) {
             $output = sprintf("<h%s id='%s'>%s<a href='#%s' class='anchor'>¶</a></h%s>",
                 $matches[1],
                 $this->makeSlug($matches[2]),
@@ -50,9 +57,9 @@ class ContentGetter
     }
 
 
-    public function getMenu($version, $filename)
+    public function getMenu($filename)
     {
-        $sourceFile = sprintf('%s/version/%s/%s', dirname(__DIR__), $version, $filename);
+        $sourceFile = sprintf('%s/version/%s/%s', dirname(__DIR__), $this->version, $filename);
 
         if (!is_readable($sourceFile)) {
             return [];
@@ -62,6 +69,38 @@ class ContentGetter
         $this->menu = $yaml->parse(file_get_contents($sourceFile));
 
         return $this->menu;
+    }
+
+    public function getJsonMenu($filename)
+    {
+        $menu = $this->getMenu($filename);
+
+        $menuArray = [];
+        foreach ($menu as $key => $menuItem) {
+            $menuArray[] = $this->menuHelper($menuItem);
+        }
+
+        return $menuArray;
+    }
+
+    public function menuHelper($menu)
+    {
+        $children = [];
+        if (!empty($menu['items'])) {
+            foreach($menu['items'] as $link => $item){
+                if (is_string($item)) {
+                    $link = '/' . $this->version . '/' . $link;
+                    $children[] = ['label' => $item, 'link' => $link ];
+                } elseif (is_array($item)) {
+                    $children[] = $this->menuHelper($item);
+                }
+            }
+        }
+
+        return [
+            'label' => $menu['title'],
+            'children' => $children
+        ];
     }
 
     public function getSubmenu()

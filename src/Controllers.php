@@ -22,6 +22,9 @@ class Controllers implements ControllerProviderInterface
         $ctr->get("/", array($this, 'home'))
             ->bind('home');
 
+        $ctr->get("/tree/{version}.json", array($this, 'tree'))
+            ->bind('tree');
+
         $ctr->get("/{version}/{slug}", array($this, 'page'))
             ->bind('page')
             ->assert('slug', '.+');
@@ -37,6 +40,18 @@ class Controllers implements ControllerProviderInterface
         return $app->redirect($app['config']['start-page']);
     }
 
+    public function tree(Application $app, $version)
+    {
+        $contentGetter = new ContentGetter($version);
+
+        $menu = $contentGetter->getJsonMenu('menu_docs.yml');
+
+        $response = new Response(json_encode($menu, JSON_PRETTY_PRINT), 201);
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $response->headers->set('Content-Type', 'application/vnd.api+json');
+
+        return $response;
+    }
 
     public function page(Application $app, $version, $slug)
     {
@@ -52,7 +67,7 @@ class Controllers implements ControllerProviderInterface
         $twigVars = [
             'title' => $contentGetter->getTitle(),
             'source' => $source,
-            'menu' => $contentGetter->getMenu($version, 'menu_docs.yml'),
+            'menu' => $contentGetter->getMenu('menu_docs.yml'),
             'submenu' => $contentGetter->getSubmenu(),
             'current' => $slug,
             'version' => $version,
