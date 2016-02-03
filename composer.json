@@ -7,7 +7,7 @@
     "require": {
         "cocur/slugify" : "~1.0",
         "erusev/parsedown-extra": "~0.7",
-        "monolog/monolog": "^1.17|^2.0@dev",
+        "monolog/monolog": "1.x-dev",
         "silex/silex": "~2.0@dev",
         "silex/web-profiler": "~2.0@dev",
         "symfony/console": "^3.0",
