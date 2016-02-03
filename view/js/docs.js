@@ -31,7 +31,19 @@ jQuery(function($) {
         $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
     });
 
-    $('#tree1').tree();
+    $('#tree1').tree({ autoOpen: 0 });
+    $('#tree1').bind(
+        'tree.click',
+        function(event) {
+            // The clicked node is 'event.node'
+            var node = event.node;
+            var theURL = node.url;
+            if (theURL) {
+                location.href = theURL;
+            }
+        }
+    );
+
 
     if($(window).width() > 801) { // ONLY LARGE-UP
 

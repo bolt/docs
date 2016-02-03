@@ -6,11 +6,16 @@ ul.jqtree-tree {
 
     ul.jqtree_common {
         list-style: none outside;
-        margin-left: 12px;
+        margin-left: 4px;
         margin-right: 0;
         margin-bottom: 0;
         padding: 0;
         display: block;
+    }
+
+    ul.jqtree_common li {
+        list-style: disc inside !important;
+        margin-left: 24px !important;
     }
 
     li.jqtree-closed > ul.jqtree_common {
@@ -24,12 +29,12 @@ ul.jqtree-tree {
 
     .jqtree-toggler {
         border-bottom: none;
-        color: #333;
+        color: #CCC;
         text-decoration: none;
         vertical-align: middle;
 
         &:hover {
-            color: #000;
+            color: #FFF;
             text-decoration: none;
         }
 
@@ -52,7 +57,7 @@ ul.jqtree-tree {
     }
 
     .jqtree-title {
-        color: #1C4257;
+        color: #CCC;
         vertical-align: middle;
         margin-left: 1.5em;
 
