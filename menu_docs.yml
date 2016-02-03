@@ -1,85 +1,92 @@
 # The Bolt docs main menu.
 
 preface:
-  "": Getting Started
-  about: About Bolt
-  requirements: Requirements
-  installation: Installation
-  installation-composer: "Install with Composer"
-  updating: Updating
-  screenshots: Screenshots
-
+  title: Getting Started
+  items:
+    introduction: Introduction
+    about: About Bolt
+    requirements: Requirements
+    installation:
+      title: Installation
+      items:
+        installation: "Installation"
+        installation/command-line: "The easy way, using the command-line"
+        installation/ftp: "The traditional way, using (S)FTP"
+        installation/git-checkout: "Doing a git checkout"
+        installation/composer: "Install with Composer"
+    updating: Updating
+    screenshots: Screenshots
 working:
-  "": Working with Bolt
-  contenttypes-and-records: Contenttypes and Records
-  content-in-templates: "Content in templates"
-  taxonomies: "Taxonomies"
-  relationships: "Relationships"
-  menus: "Using menus"
-  permissions: "Permissions"
-
+  title: Working with Bolt
+  items:
+    contenttypes-and-records: Contenttypes and Records
+    content-in-templates: "Content in templates"
+    taxonomies: "Taxonomies"
+    relationships: "Relationships"
+    menus: "Using menus"
+    permissions: "Permissions"
 templating:
-  "": "Templating"
-  templates-routes: "Templates and Routes"
-  building-templates: "Building templates"
-  record-and-records: "Record and Records"
-  content-fetching: "Fetching content"
-  content-paging: "Paging content"
-  content-search: "Implementing Search"
-  templatetags: "Bolt template tags"
+  title: "Templating"
+  items:
+    templates-routes: "Templates and Routes"
+    building-templates: "Building templates"
+    record-and-records: "Record and Records"
+    content-fetching: "Fetching content"
+    content-paging: "Paging content"
+    content-search: "Implementing Search"
+    templatetags: "Bolt template tags"
 
 extending:
-  "": "Extending Bolt"
-  extensions/introduction: "Introduction to Bolt Extensions"
-  extensions/config: "Creating a New Extension"
-  extensions/essentials: "The Basics of Extensions"
-  extensions/customfields: "Providing New Field Types"
-  extensions/testing: "Testing Your Extensions"
-  extensions/unit-testing: "Writing Unit Tests for Extensions"
-  extensions/nut-commands: "Providing Nut Console Commands"
-
+  title: "Extending Bolt"
+  items:
+    extensions/introduction: "Introduction to Bolt Extensions"
+    extensions/config: "Creating a New Extension"
+    extensions/essentials: "The Basics of Extensions"
+    extensions/customfields: "Providing New Field Types"
+    extensions/testing: "Testing Your Extensions"
+    extensions/unit-testing: "Writing Unit Tests for Extensions"
+    extensions/nut-commands: "Providing Nut Console Commands"
 internals:
-  "": "Bolt Internals"
-  internals/bolt-internals: "Bolt Internals"
-  internals/contributing: "Contributing to Bolt"
-  internals/code-quality: "Code Quality"
-  internals/task-scheduler: "Task Scheduler (cron)"
-  internals/release-process: "Our Release Process"
-
+  title: "Bolt Internals"
+  items:
+    internals/bolt-internals: "Bolt Internals"
+    internals/contributing: "Contributing to Bolt"
+    internals/code-quality: "Code Quality"
+    internals/task-scheduler: "Task Scheduler (cron)"
+    internals/release-process: "Our Release Process"
 storage:
-  "": "Interacting with the Database"
-  "storage/introduction": "Overview of Bolt Storage"
-  "storage/entity-manager": "The Entity Manager"
-  "storage/entities": "Working with Entities"
-  "storage/repositories": "Working with Repositories"
-  "storage/entity-metadata": "Entity Metadata"
-  "storage/entity-transforms": "Hydration & Persistence"
-  "storage/fields": "Fields & Field Types"
-
-
+  title: "Interacting with the Database"
+  items:
+    "storage/introduction": "Overview of Bolt Storage"
+    "storage/entity-manager": "The Entity Manager"
+    "storage/entities": "Working with Entities"
+    "storage/repositories": "Working with Repositories"
+    "storage/entity-metadata": "Entity Metadata"
+    "storage/entity-transforms": "Hydration & Persistence"
+    "storage/fields": "Fields & Field Types"
 other:
-  "": Other Information
-  manifesto: "The Bolt Manifesto"
-  howto: "Howtos on various subjects"
-  locales: "Locales"
-  nut: "Nut (command line utility)"
-  maintenance-mode: "Maintenance (offline) mode"
-  credits: "Credits"
-  roadmap: "Roadmap"
-  installation-advanced: "Advanced installation details"
-
-# Note: this is a hackish way to make a specific menu for the HOWTO's. Perhaps
-# replace it by something better, someday?
-howto:
-  howto/installing-local-extensions: "Installing Local Extensions"
-  howto/resource-contenttype: "Making a 'resource' Contenttype"
-  howto/simple-menu: "Creating a Simple menu"
-  howto/upgrade-version-1-to-2: "Upgrading a Bolt 1.x install to 2.x"
-  howto/building-multilingual-websites: "Building Multilingual Websites with Bolt"
-  howto/select-field-type: "Getting the most out of the 'Select' fieldtype"
-  howto/resetting-a-password: "Resetting a password"
-  howto/using-php-built-in-web-server: "Running Bolt using PHP's built-in web server"
-  howto/performance-tips: "Performance and finetuning for Bolt websites"
-  howto/making-sure-htaccess-works: "Making sure .htaccess and mod_rewrite are working as they should"
-  howto/muti-site-setup: "Running Multiple Bolt sites from one source directory"
-  howto/curl-ca-certificates: "Setting Up cURL SSL/TLS Certificate Authority Certificates"
+  title: Other Information
+  items:
+    manifesto: "The Bolt Manifesto"
+    howto:
+      title: "Howtos on various subjects"
+      items:
+      howto: "Howtos"
+      howto/installing-local-extensions: "Installing Local Extensions"
+      howto/resource-contenttype: "Making a 'resource' Contenttype"
+      howto/simple-menu: "Creating a Simple menu"
+      howto/upgrade-version-1-to-2: "Upgrading a Bolt 1.x install to 2.x"
+      howto/building-multilingual-websites: "Building Multilingual Websites with Bolt"
+      howto/select-field-type: "Getting the most out of the 'Select' fieldtype"
+      howto/resetting-a-password: "Resetting a password"
+      howto/using-php-built-in-web-server: "Running Bolt using PHP's built-in web server"
+      howto/performance-tips: "Performance and finetuning for Bolt websites"
+      howto/making-sure-htaccess-works: "Making sure .htaccess and mod_rewrite are working as they should"
+      howto/muti-site-setup: "Running Multiple Bolt sites from one source directory"
+      howto/curl-ca-certificates: "Setting Up cURL SSL/TLS Certificate Authority Certificates"
+    locales: "Locales"
+    nut: "Nut (command line utility)"
+    maintenance-mode: "Maintenance (offline) mode"
+    credits: "Credits"
+    roadmap: "Roadmap"
+    installation-advanced: "Advanced installation details"
