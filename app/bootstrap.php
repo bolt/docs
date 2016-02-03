@@ -36,9 +36,9 @@ if (isset($app['config']['debug']) && $app['config']['debug'] == true) {
     ini_set('display_errors', 1);
     ini_set('error_reporting', -1);
 
-    $app->register(new MonologServiceProvider(), [
-        'monolog.logfile' => __DIR__ . '/../cache/silex_dev.log',
-    ]);
+    // $app->register(new MonologServiceProvider(), [
+    //     'monolog.logfile' => __DIR__ . '/../cache/silex_dev.log',
+    // ]);
 
     $app->register(new WebProfilerServiceProvider(), [
         'profiler.cache_dir' => __DIR__.'/../cache/profiler',
