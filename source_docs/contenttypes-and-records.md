@@ -286,6 +286,13 @@ The available options are:
   - `icon_one` (optional): A [Font Awesome](http://fortawesome.github.io/Font-
     Awesome/) icon to be used in the sidebar for a single record of this
     contenttype. For example: `fa:cube`.
+  - `allow_numeric_slugs` (optional, advanced): 
+     By default, Bolt prefixes slugs purely numeric with the contenttype slug
+     (e.g. `entry-123` for an entry with title `123`),
+     in order to distinguish slugs from IDs.
+     If this option is set to `true`, numeric slugs remain unprefixed.
+     Care has to be taken not to use [routes](/templates-routes) of the form `/{contenttype}/{id}`
+     for links in templates or for [fetching content](/content-fetching)!
 
 Field definitions
 -----------------
