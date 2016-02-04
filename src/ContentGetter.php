@@ -11,7 +11,13 @@ class ContentGetter
     private $slug = '';
     private $version = '';
 
-    public function __construct($version, $slug = '')
+    /**
+     * ContentGetter constructor.
+     *
+     * @param string $version
+     * @param string $slug
+     */
+    public function __construct($version, $slug = null)
     {
         if ($version === 'local') {
             $this->basepath = dirname(__DIR__);
@@ -19,7 +25,7 @@ class ContentGetter
             $this->basepath = sprintf('%s/version/%s/', dirname(__DIR__), $version);
         }
 
-        if (!empty($slug)) {
+        if ($slug !== null) {
             $sourceFile = sprintf('%s/source_docs/%s.md', $this->basepath, $slug);
 
             if (!is_readable($sourceFile)) {
@@ -34,6 +40,11 @@ class ContentGetter
 
     }
 
+    /**
+     * Get the source for a page, making internal links for <h2> to <h4>
+     *
+     * @return string
+     */
     public function source()
     {
         // Markup for <h1> and <h2>..
@@ -51,6 +62,11 @@ class ContentGetter
         return $source;
     }
 
+    /**
+     * Get the title for a page.
+     *
+     * @return string
+     */
     public function getTitle()
     {
         preg_match("/<h1>(.*)<\/h1>/i", $this->source, $maintitle);
@@ -58,7 +74,13 @@ class ContentGetter
         return $maintitle[1];
     }
 
-
+    /**
+     * Get the menu for the current 'version' as an array.
+     *
+     * @param string $filename
+     *
+     * @return array
+     */
     public function getMenu($filename)
     {
         $sourceFile = sprintf('%s/%s', $this->basepath, $filename);
@@ -73,6 +95,14 @@ class ContentGetter
         return $this->menu;
     }
 
+    /**
+     * Get the menu for the current 'version' as an array, suitable to return in
+     * a JSON response.
+     *
+     * @param string $filename
+     *
+     * @return array
+     */
     public function getJsonMenu($filename)
     {
         $menu = $this->getMenu($filename);
@@ -85,10 +115,17 @@ class ContentGetter
         return $menuArray;
     }
 
-    public function menuHelper($menu)
+    /**
+     * Helper function for getJsonMenu
+     *
+     * @param array $menu
+     *
+     * @return array
+     */
+    private function menuHelper($menu)
     {
         $children = [];
-        if (!empty($menu['items'])) {
+        if (is_array($menu['items']) && !empty($menu['items'])) {
             foreach($menu['items'] as $link => $item){
                 if (is_string($item)) {
                     $link = '/' . $this->version . '/' . $link;
@@ -105,6 +142,11 @@ class ContentGetter
         ];
     }
 
+    /**
+     * Get a 'submenu', parsed from the <h2> headings in a page.
+     *
+     * @return array
+     */
     public function getSubmenu()
     {
         preg_match_all("/<h2>(.*)<\/h2>/i", $this->source, $matches);
@@ -117,7 +159,14 @@ class ContentGetter
         return $submenu;
     }
 
-    public function makeSlug($str)
+    /**
+     * Create a slug
+     *
+     * @param string $str
+     *
+     * @return string
+     */
+    private function makeSlug($str)
     {
         $s = new Slugify();
         return $s->slugify($str);
