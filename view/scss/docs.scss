@@ -1,8 +1,46 @@
+@charset 'utf-8';
+
 @import 'variables';
 @import 'settings';
 @import 'foundation';
 @import 'jqtree';
 @import 'font-awesome';
+
+@include foundation-global-styles;
+@include foundation-grid;
+@include foundation-typography;
+@include foundation-button;
+// @include foundation-forms;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+// @include foundation-accordion;
+// @include foundation-accordion-menu;
+@include foundation-badge;
+// @include foundation-breadcrumbs;
+@include foundation-button-group;
+// @include foundation-callout;
+// @include foundation-close-button;
+// @include foundation-drilldown-menu;
+// @include foundation-dropdown;
+// @include foundation-dropdown-menu;
+// @include foundation-flex-video;
+@include foundation-label;
+// @include foundation-media-object;
+@include foundation-menu;
+// @include foundation-off-canvas;
+// @include foundation-orbit;
+// @include foundation-pagination;
+// @include foundation-progress-bar;
+// @include foundation-slider;
+// @include foundation-sticky;
+// @include foundation-reveal;
+// @include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+// @include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
 
 /* ------------- only display non-retina, tenzij retina---------------- */
 
@@ -400,51 +438,7 @@ main {
 
 }
 
-.maincolumn {
-    @include grid-column(
-        $columns:12
-        )
 
-    padding: 0;
-
-    // LARGE //
-    @media #{$large-up} {
-        //padding-top: 2em;
-    }
-    h1, h2, h3, p.meta {
-        text-align: left;
-    }
-
-    h2 {
-        margin-bottom: 16px;
-    }
-
-    article {
-        margin-bottom: 4em; //too specific, needs other place
-        padding-bottom: 2em; //too specific, needs other place
-        //border-bottom: 1px solid #ccc; //too specific, needs other place
-        &:last-child {
-	        margin-bottom: 0;
-	        padding-bottom: 0;
-	    }
-        img {
-            margin-bottom: 1em;
-            clear:both;
-        }
-        .articlebody {
-            @media #{$large-up} {
-                @include grid-column(
-                $columns: 8,
-                $center:true
-                );
-            }
-        }
-    }
-}
-
-.disqus {
-    margin-top: 4em;
-}
 
 .content {
 
@@ -724,383 +718,6 @@ div.gallery-popup img {
 
 
 
-/* -------------- HERO SECTION--------------- */
-
-section.hero {
-	padding-top: 4em;
-	padding-bottom: 0em;
-	h1 {
-		margin-bottom: 1em;
-		font-weight: 400;
-	}
-	h2 {
-		font-size: 1.25rem;
-	}
-}
-
-/* -------------- SHORTTEXTS SECTION--------------- */
-
-section.shorttexts {
-	article {
-		@include grid-column(
-            $columns: 6
-            );
-        text-align: center;
-        margin-bottom: 2em;
-         // LARGE  //
-        @media #{$large-up} {
-            @include grid-column(
-            $columns: 3
-            );
-            margin-bottom: 0;
-        }
-        h3, .icon {
-	        text-align: center;
-	        color: $mediumgrey;
-	        font-size: 1.125rem;
-        }
-        i {
-	        color: #fff;
-	        background: $red;
-	        width: 44px;
-	        height: 44px;
-	        border-radius: 22px;
-	        padding-top: 7px;
-	        margin-bottom: .5em;
-	        margin-right: 0;
-        }
-        .icon{
-	        height: 130px;
-	        vertical-align: baseline;
-        }
-	}
-
-}
-
-section.logos {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    //overflow: hidden;
-    h1{
-    	font-size: 1.6875em;
-    	text-align: center;
-	}
-	ul.logolist{
-    	@include block-grid(4);
-    	margin: 0 -0.9375rem;
-    	@media #{$large-up} {
-    	    @include block-grid(9);
-    	}
-    	li{
-        	padding-bottom: 0;
-        	&.sec{
-                display: none;
-                @media #{$large-up}{
-                    display: block;
-                }
-            }
-    	}
-    	h3{
-        	display: none;
-    	}
-	}
-
-	/*article {
-		@include grid-column(
-            $columns: 4
-            );
-		@media #{$medium-up} {
-    		@include grid-column(
-            $columns: 1
-            );
-        }
-    }*/
-}
-/* -------------- SLIDER SECTION--------------- */
-
-.slider{
-    background: #0F0; // $browngrey;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    overflow: hidden;
-    margin-bottom: 3em;
-    //max-width: none;
-    // MEDIUM  //
-    @media #{$medium-up} {
-         padding-left: 10%;
-         padding-right: 10%;
-    }
-
-    // LARGE  //
-    @media #{$large-up} {
-         padding-left: 2.5em;
-         padding-right: 2.5em;
-    }
-
-    // XLARGE  //
-    @media #{$xlarge-up} {
-         padding-left: 3.5em;
-         padding-right: 3.5em;
-    }
-
-    .pager {
-        margin-bottom: 2em;
-        text-align: center;
-        width: 1000px;
-        overflow: hidden;
-        // LARGE //
-        @media #{$large-up}{
-        width: auto;
-        overflow: visible;
-        }
-
-        a{
-            display: inline-block;
-            color: $black;
-            margin-right: 2em;
-            font-size: 1.25rem;
-            line-height: 2;
-        }
-        a:hover, a.cycle-pager-active {
-            color: $white;
-        }
-    }
-    .slide{
-        margin-bottom: 2;
-        width:100%;
-    }
-    .slideimg {
-        @extend .column;
-        @extend .medium-center;
-        @extend .large-8;
-        text-align: center;
-    }
-
-    .slideimg img.large {
-        display:none;
-        // LARGE //
-        @media #{$large-up}{
-            display: block;
-            float: left;
-        }
-    }
-
-    .slideimg img.mobile {
-        max-width: 300px;
-        // LARGE //
-        @media #{$large-up}{
-            display: none;
-        }
-    }
-    .highlights {
-        padding-left: 10px;
-    }
-    .highlights {
-        //display: none;
-        @include grid-column(
-            $columns: 12
-            );
-        margin: 2em 0 0 0;
-        padding-left: 2em;
-
-        // LARGE //
-        @media #{$large-up}{
-            display: block;
-            @include grid-column(
-            $columns: 4
-            );
-        }
-        li {
-            color: $white;
-            list-style-type: none;
-            font-size: 1rem;
-            margin-bottom: 1em;
-            line-height: 1.4;
-            @media #{$large-up}{
-                margin-bottom: 1em;
-            }
-            &:before {
-                content: '\2022\a0';
-                color: $red;
-                font-size: 2.3rem;
-                line-height: 0;
-                vertical-align: -4px;
-                margin-left: -21px;
-            }
-        }
-    }
-}
-
-
-/* -------------- FOOTER --------------- */
-
-footer {
-    display: none;
-}
-/*
-No footer on docs - AW
-
-
- footer {
-    background: $darkblue;
-    color: $white;
-    padding: 0 0 2rem;
-    height: auto;
-    font-size: 0.8125rem;
-    .credits {
-        @extend .columns;
-        @extend .medium-6;
-    }
-    .socials {
-        @extend .columns;
-        @extend .medium-4;
-        @extend .large-4;
-        @extend .right;
-        a{
-            color: $white;
-            display: block;
-        }
-        a:hover {
-            color: $red;
-            text-decoration: underline;
-        }
-    }
-    nav {
-        display: none;
-        @include grid-column(
-            $columns: 12
-            );
-        //background: rgba(0, 0, 0, 0.4);
-        height: 44px;
-        margin: 1em auto 2rem;
-        max-width: 75rem;
-        position: relative;
-        ul {
-            margin: 0 auto;
-            width: 650px;
-            a {
-                display: inline-block;
-                padding: 0.4rem;
-                color: $mediumblue;
-                text-shadow: 1px 1px 1px rgba(0,0,0,.8);
-            }
-        }
-        @media #{$large-up}{
-            display: block;
-        }
-    }
-}
-
-/* --------------- FEATURES ---------------*/
-
-section.features {
-    background: $lightgrey;
-    h1{
-        font-weight: 400;
-        margin-bottom: 1em;
-    }
-    a.button{
-        display: block;
-        margin: 0 auto;
-        max-width: 200px;
-    }
-    ul > li {
-            p {
-            display: none;
-            @media #{$large-up} {
-                display: block;
-            }
-        }
-    }
-}
-
-.featurelist {
-    margin-top: 1rem;
-    @include block-grid(1);
-    // MEDIUM //
-    @media #{$medium-up} {
-        @include block-grid(2);
-    }
-    // LARGE //
-    @media #{$large-up} {
-        @include block-grid(3);
-    }
-    li {
-        h3 {
-            margin-bottom: 1em;
-            @media #{$large-up} {
-                text-align: left;
-            }
-        }
-        padding-left: 3%;
-        padding-right: 3%;
-        padding-bottom: 3em;
-    }
-    .fa {
-            color: $red;
-            font-size: 80%;
-    }
-}
-
-.body-features {
-    h1{
-        font-weight: 400;
-        margin-bottom: 1em;
-    }
-    h2.subheader {
-        font-size: 1.25rem;
-        text-align: center;
-    }
-    section {
-        padding-bottom: 0;
-    }
-}
-
-
-/* --------------- SHOWCASES ---------------*/
-
-section.showcases {
-    background: $lightgrey;
-    h1{
-        margin-bottom: 2rem;
-        text-align: center;
-        font-weight: 400;
-    }
-    ul.showcaselist {
-        margin-top: 1rem;
-        @include block-grid(1);
-        // MEDIUM //
-        @media #{$medium-up} {
-            @include block-grid(2);
-        }
-        // LARGE //
-        @media #{$large-up} {
-            @include block-grid(3);
-        }
-        li{
-            padding-left: 3%;
-            padding-right: 3%;
-            padding-bottom: 3em;
-        }
-        li:nth-child(3){
-            display: none;
-            @media #{$large-up} {
-                display: block;
-            }
-        }
-        h3 {
-            margin-bottom: 1em;
-            font-size: 1.125rem;
-            @media #{$large-up} {
-                text-align: left;
-            }
-        }
-
-    }
-}
-
-
-
 /* -------------- TYPOGRAPHY --------------- */
 
 p {
@@ -1164,128 +781,6 @@ i {
 h1, h2, h3, h4 {
     font-weight: 400;
 }
-
-/* -------------- BUTTONS --------------- */
-
-
-
-.maininfo .column,
-.secinfo .column,
-.maininfo .maincolumn {
-    a.button{
-         @include button(
-         $padding:rem-calc(10),
-         $full-width:true);
-         font-size: 0.8125rem;
-         max-width: 200px;
-         display: block;
-         margin: 10px auto;
-         // MEDIUM  //
-         @media #{$medium-up}{
-              max-width: 200px;
-         }
-         &:before {
-            content:"\00bb";
-            margin-right: 5px;
-         }
-    }
-}
-
-.maininfo .column,
-.secinfo .column {
-    a.button {
-        // LARGE  //
-         @media #{$large-up}{
-              max-width: 200px;
-              margin: 2rem 0 1rem;
-        }
-    }
-}
-
-.maininfo .maincolumn {
-    a.button {
-        // LARGE  //
-         @media #{$large-up}{
-              margin-top: 2em;
-        }
-    }
-}
-
-
-button span.sub, .button span.sub {
-    color: #000000;
-    display: block;
-    font-size: 65%;
-    margin: .5rem 0 0;
-}
-
-a.topbutton {
-    display: block;
-    text-align: center;
-    background: #fff;
-    padding-bottom: 2em;
-    // LARGE  //
-    @media #{$large-up}{
-        display: none;
-        }
-    i {
-        color: #fff;
-        background: $red;
-        width: 44px;
-        height: 44px;
-        border-radius: 22px;
-        padding-top: 6px;
-        margin-bottom: .5em;
-        margin-right: 0;
-        clear: both;
-        }
-
-}
-
-//Buttonlist, possibly in content.
-
-.maininfo .maincolumn ul.buttonlist {
-    margin: 2rem 0 1rem 0;
-    list-style: none;
-    clear: both;
-    li{
-        height: 52px;
-        @media #{$medium-up}{
-        float: left;
-        width: 28%;
-        margin-left: 5%;
-        margin-right: 0;
-        }
-        a.button {
-            margin-left: auto;
-            margin-right: auto;
-            @media #{$medium-up}{
-                margin: 0;
-            }
-
-        }
-    }
-    &:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-}
-
-.community-notice {
-    background: #42627B;
-    color: white;
-    padding: 15px;
-    font-size: 14px;
-    margin-bottom: 20px;
-    display: inline-block !important;
-
-    a {
-        color: white;
-    }
-}
-
-
 
 
 /* -------------- DEBUG --------------- */
