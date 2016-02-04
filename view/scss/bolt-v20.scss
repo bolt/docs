@@ -1,9 +1,8 @@
 @import 'variables';
 @import 'settings';
 @import 'foundation';
+@import 'jqtree';
 @import 'font-awesome';
-
-
 
 /* ------------- only display non-retina, tenzij retina---------------- */
 
@@ -518,110 +517,6 @@ mark {
     @media #{$large-up} {
         max-width: 300px; // Magic number : looks nice
 
-    }
-
-}
-
-#sidebar-nav {
-
-    > ul {
-        margin: 0 0 1rem 0;
-        padding:0 0 1rem 0;
-        color: $fadedtext;
-
-        &.currentsection {
-            color: $white;
-
-        }
-    }
-
-
-    ul li {
-        padding: 6px 15px 7px 0;
-        line-height: 1.3em;
-        list-style: none;
-        font-size: 0.8125rem;
-    }
-
-    ul li.section {
-        margin: 12px 0 0 0;
-        list-style: none;
-        font-size: 1rem;
-    }
-
-    ul li a{
-        text-decoration: none;
-        color: $fadedtext;
-        font-family: "Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
-
-    }
-
-    ul li.section a{
-
-        font-family: $sans-serif;
-
-        &:hover, &:active, &:focus {
-            color: $white;
-            text-decoration: none;
-        }
-
-    }
-
-    ul.currentsection {
-
-        margin-top: 10px;
-        border-top: 1px solid lighten($darkblue, 10%);
-        border-bottom: 1px solid lighten($darkblue, 10%);
-
-        li a {
-            color: $white;
-        }
-    }
-
-    ul.hiddensection {
-        padding-bottom: 0;
-        margin-bottom: 0;
-    }
-
-
-
-    ul li.current {
-        background: $mediumblue;
-        margin-left: -2rem;
-        margin-right: -2rem;
-        padding-left: 2rem;
-        position: relative;
-
-        a {
-            color: $white;
-        }
-
-        @media #{$large-up}{
-
-            &:after {
-            content: "";
-            display: inline-block;
-            width: 0;
-            height: 0;
-            border-top: 5px solid transparent;
-            border-bottom: 5px solid transparent;
-            border-left: 5px solid $white;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            }
-        }
-
-
-    }
-
-    ul li a:hover {
-        text-decoration: underline;
-    }
-
-    ul ul{
-        margin-top: 4px;
-        margin-left: 18px;
     }
 
 }

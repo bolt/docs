@@ -2,6 +2,7 @@
 
 namespace Bolt\Docs\Command;
 
+use Cocur\Slugify\Slugify;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -35,7 +36,7 @@ class BuildDocumentation extends Command
     {
         $versionsArray = [];
 
-        $slugify = new \Cocur\Slugify\Slugify();
+        $slugify = new Slugify();
 
         foreach ($input->getArgument('branches') as $branch) {
             $this->getSubTree($branch, $output, './source_docs/');
@@ -52,11 +53,11 @@ class BuildDocumentation extends Command
 
     protected function getSubTree($branch, $output, $prefix = '')
     {
-        $directory = getcwd().$this->rootdir;
+        $directory = getcwd() . $this->rootdir;
 
-        $slugify = new \Cocur\Slugify\Slugify();
+        $slugify = new Slugify();
 
-        $tree = shell_exec('git ls-tree -r '. $branch . " " . $prefix);
+        $tree = shell_exec('git ls-tree -r ' . $branch . " " . $prefix);
         $tree = array_filter(explode("\n", $tree));
         $filelist = array_map('str_getcsv', $tree, array_fill(0, count($tree), "\t"));
 

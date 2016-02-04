@@ -10,26 +10,12 @@ Options -Indexes
 </FilesMatch>
 
 <IfModule mod_rewrite.c>
-  RewriteEngine on
+    Options -MultiViews
 
-  # Some servers require the RewriteBase to be set. If so, set to the correct folder.
-  # RewriteBase /
-  RewriteRule ^thumbs/(.*)?$ ./app/classes/timthumb.php [L]
-
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} !=/favicon.ico
-  RewriteRule ^ ./index.php [L]
-</IfModule>
-
-# Block access to all hidden files and directories with the exception of
-# the visible content from within the `/.well-known/` hidden directory.
-<IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteCond %{REQUEST_URI} "!(^|/)\.well-known/([^./]+./?)+$" [NC]
-    RewriteCond %{SCRIPT_FILENAME} -d [OR]
-    RewriteCond %{SCRIPT_FILENAME} -f
-    RewriteRule "(^|/)\." - [F]
+    #RewriteBase /path/to/app
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
 </IfModule>
 
 # Block access to all hidden files and directories with the exception of

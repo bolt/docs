@@ -1,29 +1,22 @@
 <?php
 
-use Symfony\Component\Yaml\Parser;
 
-require_once './vendor/autoload.php';
-
-$version = "2.2.14";
-
-// Let's see if there's a search-parameter.
-$parseurl = parse_url($_SERVER['REQUEST_URI']);
-
-// Yeah, this is turning into a bit of black magic voodoo. Refactor at some point.
-$prefix = dirname($parseurl['path']);
-$prefix = strtr($prefix, array("/extensions" => "","/internals" => "", "/tutorial" => "", "/howto" => "", "/storage" => ""));
-
-$request = str_replace($prefix, "", $parseurl['path']);
-
-// Strip of beginning slash.
-if (strpos($request, "/") === 0) {
-    $request = substr($request, 1);
+if (!file_exists(__DIR__.'/app/config.yml')) {
+    echo "<p>The file <tt>app/config.yml</tt> doesn't exist. Copy <tt>config.yml.dist</tt> to <tt>config.yml</tt> and add the correct settings.</p>";
+    die();
+}
+if (!file_exists(__DIR__.'/vendor/autoload.php')) {
+    echo "<p>The file <tt>vendor/autoload.php</tt> doesn't exist. Make sure you've installed the Silex components with Composer. See the README.md file.</p>";
+    die();
 }
 
-if (empty($request) || $request == "v20" || $request == "bolt-docs" || $request == "/" ) {
-	header("location: ./introduction");
-	die();
-}
+require_once __DIR__.'/vendor/autoload.php';
+
+$app = require_once __DIR__.'/app/bootstrap.php';
+
+$app->run();
+
+/*
 
 // Setup the parser and read the versions
 $yaml = new Parser();
@@ -58,22 +51,6 @@ if (!file_exists($sourcefolder . $request . ".md")) {
 
 
 
-$menu = $yaml->parse(file_get_contents($menufile));
-
-$source = file_get_contents($sourcefolder . $request . ".md");
-$source = \ParsedownExtra::instance()->text($source);
-$source = Michelf\SmartyPants::defaultTransform($source);
-
-
-preg_match("/<h1>(.*)<\/h1>/i", $source, $maintitle);
-
-$maintitle = $maintitle[1];
-
-preg_match_all("/<h2>(.*)<\/h2>/i", $source, $matches);
-$submenu = array();
-foreach ($matches[1] as $key => $title) {
-	$submenu[ makeSlug(strip_tags($title)) ] = strip_tags($title);
-}
 
 
 // Let's see if there's a 'q' to highlight..
@@ -90,24 +67,12 @@ if (!empty($_GET['q'])) {
         return $output;
     }, $source);
 }
----- */
-
-// Markup for <h1> and <h2>..
-$source = preg_replace_callback("/<h([234])>(.*)<\/h([234])>/i", function($matches) {
-    $output = sprintf("<h%s id='%s'>%s<a href='#%s' class='anchor'>¶</a></h%s>",
-                    $matches[1],
-                    makeSlug($matches[2]),
-                    $matches[2],
-                    makeSlug($matches[2]),
-                    $matches[1]
-                );
-    return $output;
-}, $source);
+----  * /
 
 
 $loader = new Twig_Loader_Filesystem('./view');
 $twig = new Twig_Environment($loader, array(
-/*    'cache' => './cache', */
+/ *    'cache' => './cache', * /
 ));
 
 
@@ -163,10 +128,11 @@ echo $twig->render('index.twig', array(
  * @param string $str
  * @param string $type
  * @return string
- */
+ * /
 function makeSlug($str) {
 
     return \URLify::filter(strip_tags($str));
 
 }
 
+*/
