@@ -15,8 +15,6 @@ class TwigExtension extends \Twig_Extension
 
     /**
      * @param \Silex\Application $app
-     * @param \Pimple            $handlers
-     * @param boolean            $safe
      */
     public function __construct(Application $app)
     {
