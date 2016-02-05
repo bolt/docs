@@ -101,37 +101,35 @@
         </ul>
     </nav>
 
-    <main class="row" style="border: 1px solid #0F0;">
+    <main class="row">
 
+        <div class="small-12 medium-12 large-9 columns content">
 
-                <div class="small-12 medium-12 large-9 columns content">
+            <a href="#sidebar" class="button hide-for-large-up jumpbutton">Jump to docs navigation</a>
 
-                    <a href="#sidebar" class="button hide-for-large-up jumpbutton">Jump to docs navigation</a>
+            <div class="community-notice hide-for-medium-down">
+                Have you not found what you are looking for? We are happy to help you in the <a href="https://discuss.bolt.cm/" target="_blank">forum</a> or on <a href="http://slack.bolt.cm/" target="_blank">Slack</a>.
+            </div>
 
-                    <div class="community-notice hide-for-medium-down">
-                        Have you not found what you are looking for? We are happy to help you in the <a href="https://discuss.bolt.cm/" target="_blank">forum</a> or on <a href="http://slack.bolt.cm/" target="_blank">Slack</a>.
-                    </div>
+            {# temporary for the transition phase between 1.6 and 2.0
+            <p class="note">
+                <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt 2.0</strong>.
+                Looking for the <a href="https://docs.bolt.cm/v16">documentation for Bolt version 1.6</a> instead?
+            </p>#}
 
-                    {# temporary for the transition phase between 1.6 and 2.0
-                    <p class="note">
-                        <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt 2.0</strong>.
-                        Looking for the <a href="https://docs.bolt.cm/v16">documentation for Bolt version 1.6</a> instead?
-                    </p>#}
+            {{ source|raw }}
 
-                    {{ source|raw }}
+            {% include '_sub_submenu.twig' with {'section': current } %}
 
-                    {% include '_sub_submenu.twig' with {'section': current } %}
+        </div>
 
-                </div>
+        <div class="small-12 medium-12 large-3 large-pull-9 end columns sidebar" id="sidebar">
+            <nav id="sidebar-nav">
 
-                <div class="small-12 medium-12 large-3 large-pull-9 end columns sidebar" id="sidebar" style="border: 1px solid #F00;">
-                    <nav id="sidebar-nav">
+                <div id="tree1" data-url="/tree/{{version}}.json"></div>
 
-                        <div id="tree1" data-url="/tree/{{version}}.json"></div>
-
-                    </nav>
-                </div>
-
+            </nav>
+        </div>
 
     </main>
 
