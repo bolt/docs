@@ -16,7 +16,7 @@ var javascriptFiles = [
 
 // Set up 'sass' task.
 gulp.task('sass', function() {
-  return gulp.src('scss/docs.scss')
+  return gulp.src('source/scss/docs.scss')
     .pipe($.sass({
       includePaths: sassPaths,
       outputStyle: 'compressed' // 'compressed' or 'nested'

@@ -7,7 +7,8 @@
 @import 'font-awesome';
 
 @include foundation-global-styles;
-@include foundation-grid;
+//@include foundation-grid;
+@include foundation-flex-grid;
 @include foundation-typography;
 @include foundation-button;
 // @include foundation-forms;
@@ -101,6 +102,27 @@ header, footer {
     }
 }
 
+main {
+
+}
+
+div.content {
+  order: 2;
+
+  @media #{$large-up} {
+    padding: 3.5em;
+  }
+
+  p, ul, ol {
+    max-width: 650px; // magic number: good linewidth to keep it readable
+  }
+
+}
+
+div.sidebar {
+  order: 1;
+}
+
 p {
     line-height: 1.7;
     font-family: 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
@@ -180,12 +202,12 @@ span.mobile {
 /* ------------ HEADER -------------- */
 
 header {
-    height: 150px;
+    height: 100px;
     position: relative;
     background-size: cover;
     // MEDIUM //
     @media #{$large-up} {
-        height: 200px;
+        height: 100px;
     }
     h1 {
         color: $white;
@@ -439,17 +461,6 @@ main {
 }
 
 
-
-.content {
-
-    @media #{$large-up} {
-         padding: 3.5em;
-    }
-
-    p, ul, ol {
-        max-width: 650px; // magic number: good linewidth to keep it readable
-    }
-}
 
 
 /* -------- Specific Docs stuff -------- */

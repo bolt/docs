@@ -45,26 +45,26 @@ jQuery(function($) {
     );
 
 
-    if($(window).width() > 801) { // ONLY LARGE-UP
-
-        $('#sidebar-nav').hcSticky({ top: 40 });
-
-        //make sidebar equalheight, when content is taller.
-        // (only execute after all graphics have loaded)
-        $( window ).load(function() {
-
-            var sidebarheight = $('#sidebar').height();
-            var contentheight = $('.content').outerHeight();
-
-            // console.log('sidebar= '+ sidebarheight);
-            // console.log('content= '+ contentheight);
-
-            if ( sidebarheight < contentheight ){
-                $('#sidebar').height(contentheight);
-            }
-
-        });
-    }
+    //if($(window).width() > 801) { // ONLY LARGE-UP
+    //
+    //    $('#sidebar-nav').hcSticky({ top: 40 });
+    //
+    //    //make sidebar equalheight, when content is taller.
+    //    // (only execute after all graphics have loaded)
+    //    $( window ).load(function() {
+    //
+    //        var sidebarheight = $('#sidebar').height();
+    //        var contentheight = $('.content').outerHeight();
+    //
+    //        // console.log('sidebar= '+ sidebarheight);
+    //        // console.log('content= '+ contentheight);
+    //
+    //        if ( sidebarheight < contentheight ){
+    //            $('#sidebar').height(contentheight);
+    //        }
+    //
+    //    });
+    //}
 
     /* ----- no sticky header for the docs. ---------
     if($(window).width() > 801) { // ONLY LARGE-UP

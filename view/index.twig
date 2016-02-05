@@ -70,53 +70,41 @@
     <header style="background-image: url({{prefix}}/files/header_57.jpg);">
         <div class="inner">
 
-            <nav class="meta-nav">
-                <ul>
-                    <li class="counter"><a href="https://github.com/bolt/bolt" title="octocat">
-                        <i class="fa fa-lg fa-github"></i><span id="stargazers">2400 Stars</span>
-                    </a></li>
-                    <li class="fork"><a href="https://github.com/bolt/bolt" title="To Bolt on GitHub">Fork Bolt on GitHub</a></li>
-                </ul>
-            </nav>
-            <h1 id="logo"><img src="{{prefix}}/view/images/bolt.png" width='200' alt="BoltCM" /></h1>
-            <h2 class="payoff">Sophisticated, Lightweight and Simple</h2>
-            <a class="button download show-for-large-up" href="https://bolt.cm/pages/download">
-                <span class="desktop">Download Bolt</span><span class="mobile">View download options</span>
-                <span class="sub">Current version v 2.0</span>
-            </a>
             <a class="menu-toggle"><span></span></a>
-                </div>
+        </div>
     </header>
 
     <nav class="main-nav expanded">
         <ul>
             <li class="index-1 first">
-                <a href="https://bolt.cm/">Home</a>
+                <a href="https://bolt.cm/">Home [bolt.cm]</a>
             </li>
-            <li class="index-2">
-                <a href="https://bolt.cm/features">Features</a>
+            <li class="index-2 active">
+                <a href="https://bolt.cm/features">Documentation</a>
             </li>
-            <li class="index-3 active">
-                <a href="{{prefix}}/introduction">Documentation</a>
+            <li class="index-3">
+                <a href="{{prefix}}/introduction">Manual</a>
             </li>
-            <li class="index-4">
-                <a href="https://bolt.cm/news">News</a>
+
+            <li class="index-4 active">
+                <input type="text" id="searchbox" style="width: 100%;">
             </li>
+
             <li class="index-5">
-                <a href="https://bolt.cm/community">Community [IRC/Slack/Forum]</a>
+                <select>
+                    <option>Current version: <strong>Bolt {{ version }}</strong></option>
+                    <option>master</option>
+                </select>
+
             </li>
-            <li class="index-6 last">
-                <a href="https://bolt.cm/download">Download</a>
-            </li>
+
         </ul>
     </nav>
 
-    <main>
+    <main class="row" style="border: 1px solid #0F0;">
 
-        <section class="maininfo">
-            <div class="maincolumn ">
 
-                <div class="small-12 medium-12 large-9 large-push-3 columns content">
+                <div class="small-12 medium-12 large-9 columns content">
 
                     <a href="#sidebar" class="button hide-for-large-up jumpbutton">Jump to docs navigation</a>
 
@@ -136,29 +124,14 @@
 
                 </div>
 
-                <div class="small-12 medium-12 large-3 large-pull-9 end columns sidebar" id="sidebar">
+                <div class="small-12 medium-12 large-3 large-pull-9 end columns sidebar" id="sidebar" style="border: 1px solid #F00;">
                     <nav id="sidebar-nav">
-
-                        <p>
-                            {% if sitetitle == "Bolt documentation" %}
-                                [ <strong>Documentation</strong> | <a href='https://manual.bolt.cm'>User manual</a> ]
-                            {% else %}
-                                [ <a href='https://docs.bolt.cm'>Documentation</a> | <strong>User manual</strong> ]
-                            {% endif %}
-                        </p>
-
-                        <p>
-                            <input type="text" id="searchbox" style="width: 100%;">
-                        </p>
 
                         <div id="tree1" data-url="/tree/{{version}}.json"></div>
 
-                        <p style="font-size: 85%; margin-top: 2em;"><em>Current version: <strong>Bolt {{ version }}</strong></em>.</p>
                     </nav>
                 </div>
 
-            </div>
-        </section>
 
     </main>
 

@@ -65,9 +65,9 @@ class Controllers implements ControllerProviderInterface
         }
 
         $twigVars = [
-            'title' => $contentGetter->getTitle(),
-            'source' => $source,
-            'menu' => $contentGetter->getMenu('menu_docs.yml'),
+            'title'   => $contentGetter->getTitle(),
+            'source'  => $source,
+            'menu'    => $contentGetter->getMenu('menu_docs.yml'),
             'submenu' => $contentGetter->getSubmenu(),
             'current' => $slug,
             'version' => $version,
