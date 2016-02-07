@@ -12,6 +12,7 @@ $parseurl = parse_url($_SERVER['REQUEST_URI']);
 // Yeah, this is turning into a bit of black magic voodoo. Refactor at some point.
 $prefix = dirname($parseurl['path']);
 $prefix = strtr($prefix, array("/extensions" => "","/internals" => "", "/tutorial" => "", "/howto" => "", "/storage" => ""));
+$linkPrefix = '';
 
 $request = str_replace($prefix, "", $parseurl['path']);
 
