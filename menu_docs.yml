@@ -42,6 +42,7 @@ extending:
     extensions/config: "Creating a New Extension"
     extensions/essentials: "The Basics of Extensions"
     extensions/customfields: "Providing New Field Types"
+    extensions/fieldtypes: "Providing New Field Types"
     extensions/testing: "Testing Your Extensions"
     extensions/unit-testing: "Writing Unit Tests for Extensions"
     extensions/nut-commands: "Providing Nut Console Commands"
