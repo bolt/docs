@@ -1,29 +1,30 @@
 Extensions: Providing Custom Fields
 ===================================
 
-To show some of the possiblilities available to extension developers this series
-of tutorials goes through the process of creating an extension that adds
-specific functionality to Bolt.
+The release of Bolt 3.0 has seen a significant amount of power and flexibility added to custom fields. In the 
+2.x series of releases custom fields did not have access to the entire lifecycle of a field and was focused
+more on providing replacement templates for the built in storage types.
+
+With this in mind, the following tutorial is a reworking of the one originally written for the 2.x documentation,
+it no longer represents best practice for custom field development, for that please see the latest tutorial here.
+
+What this updated tutorial will be useful for is to see what changes will be needed to update field extensions
+to be compatible with Bolt 3.0
 
 #### Task: Add a Colour Picker to Bolt
 
-Wouldn't it be good if we could allow editors of your site to add a splash of
-colour to a page banner?
+Wouldn't it be good if we could allow editors of your site to add a splash of colour to a page banner?
 
-Possibly not, but that's no reason to not try, so we're going to add a new field
-type to Bolt that allows content editors to pick a colour. Here's a step-by-step
-guide of how to build and test this extension.
-
+Possibly not, but that's no reason to not try, so we're going to add a new field type to Bolt that allows content 
+editors to pick a colour. Here's a step-by-step guide of how to build and test this extension.
 
 #### Step 1: Configure the extension
 
-As with all Bolt extensions we need to get started with a configuration
-`composer.json` file. So we make a new directory for our extension called `bolt-
-colourpicker` and then within the directory type `git init`. This gets us setup
+As with all Bolt extensions we need to get started with a configuration `composer.json` file. So we make a new 
+directory for our extension called `bolt-colourpicker` and then within the directory type `git init`. This gets us setup
 with a clean empty project.
 
-Next comes the configuration, we'll keep things nice and simple so here's the
-essentials:
+Next comes the configuration, we'll keep things nice and simple so here's the essentials:
 
 ```
 {
@@ -31,137 +32,200 @@ essentials:
     "description": "An extension to add a colourpicker as a field type within Bolt",
     "type": "bolt-extension",
     "require": {
-        "bolt/bolt": ">1.9,<=2.9.999"
+        "bolt/bolt": ">2.0,<4.0"
     },
     "license": "MIT",
     "authors": [{"name": "Ross Riley", "email": "riley.ross@gmail.com"}
     ],
+
     "autoload": {
-        "files": ["init.php"],
         "psr-4": {
-            "Bolt\\Extensions\\Colourpicker\\": ""
+            "Bolt\\Extensions\\Bolt\\Colourpicker\\": "src"
         }
+    },
+    
+    "extra": {
+        "bolt-class": "Bolt\\Extensions\\Bolt\\Colourpicker\\Extension",
+        "bolt-assets": "assets",
+        "bolt-screenshots": ["screenshot.png"]
     }
 }
-```
-
-
-Most of this file is providing meta information for the Marketplace, but the
-`autoload` section is important for loading the extension. The files section
-defines the file that will be loaded first of all.
-
-If you've not yet used PSR-4 autoloading for your PHP code, it's probably good
-at this point to take a look at some examples from the standard documentation
-[here][psr4].
-
-#### The initialization File
-
-Bolt will load up an initialization file which allows us to register our
-extension. As configured in the `composer.json` file above we can now create a
-file called `init.php` that looks like this.
 
 ```
-// init.php
 
-use Bolt\Extensions\Colourpicker\Extension;
 
-$app['extensions']->register(new Extension($app));
-```
+The autoload section maps the root of our extension directory to the PHP namespace, if you've not yet used 
+PSR-4 autoloading for your PHP code, it's probably good at this point to take a look at some  examples from the 
+standard documentation [here][psr4].
+
+Within the extra section we configure two essential bits of information that Bolt uses to run the extension, firstly
+the `bolt-class` setting tells Bolt which class can be used to bootstrap this extension. This will be the fully 
+qualified class name, but with two back-slashes to separate namespace paths.
+
+Then the `bolt-assets` setting tells Bolt which folder stores assets that need to be publicly available. On install
+Bolt will then copy the assets in this folder to an accessible public folder. 
+
 
 #### The Extension Class
 
-Now it's time for the heavy lifting, we need to write our extension class. To
-conform to the standard Bolt Extension interface we need to implement two
-methods on our class, the `initialize()` method and the `getName()` method.
+Now it's time for the heavy lifting, we need to write our extension class. To conform to the standard Bolt Extension 
+interface we need to extend the utility class `SimpleExtension` and implement a few methods that will define the
+features our extension provides.
 
-First of all, here's the final version of the file that we need to make the
-extension, then we'll have a quick run-through of why we need each of these
-setup commands.
+The most important part is that we will need to extend the built in `ConfigProvider` and add our new field.
+
+First of all, here's the final version of the file that we need to make the extension, then we'll have a quick 
+run-through of why we need each of these setup methods.
 
 ```
-// ./Extension.php
+<?php
+// File is in src/Extension.php
+namespace Bolt\Extensions\Bolt\Colourpicker;
 
-namespace Bolt\Extensions\Colourpicker;
+use Bolt\Asset\File\JavaScript;
+use Bolt\Asset\File\Stylesheet;
+use Bolt\Extension\SimpleExtension;
+use Bolt\Extensions\Bolt\Colourpicker\Provider\ConfigProvider;
 
-use Bolt\Application;
-use Bolt\BaseExtension;
-
-class Extension extends BaseExtension
+class Extension extends SimpleExtension
 {
 
-    public function __construct(Application $app)
+    public function getServiceProviders()
     {
-        parent::__construct($app);
-        $this->app['config']->getFields()->addField(new ColourPickField());
-        if ($this->app['config']->getWhichEnd()=='backend') {
-            $this->app['htmlsnippets'] = true;
-            $this->app['twig.loader.filesystem']->prependPath(__DIR__."/twig");
-        }
+        return [
+            $this,
+            new ConfigProvider()
+        ];
     }
 
-
-    public function initialize() {
-        $this->addCss('assets/colourpicker.css');
-        $this->addJavascript('assets/colourpicker.js', true);
-        $this->addJavascript('assets/start.js', true);
+    protected function registerTwigPaths()
+    {
+        return [
+            'twig' => ['position' => 'prepend', 'namespace'=>'bolt']
+        ];
     }
 
-    public function getName()
+    protected function registerAssets()
     {
-        return "colourpicker";
+        return [
+            new Stylesheet('assets/colourpicker.css'),
+            new JavaScript('assets/colourpicker.js'),
+            new JavaScript('assets/start.js')
+        ];
     }
 
 }
+
 ```
 
-Hopefully our `getName()` and `initalize()` methods should be fairly self-
-explanatory. Our colourpicker is primarily based on the
-[jQuery Simple Colorpicker][simple] so we need to add both the css and
-javascript assets to the Bolt markup, we also add a `start.js` file which will
-initalize the javascript.
+Our colourpicker is primarily based on the [jQuery Simple Colorpicker][simple] so we need to add both the css and
+javascript assets to the Bolt markup, we also add a `start.js` file which will initalize the javascript.
 
-The constructor firstly calls the BaseExtension constructor, this is important
-if your extension needs to provide its own constructor method.
+These are all added in the `registerAssets` method, all this method needs to do is return an array of asset objects
+so we make a new object either `new Stylesheet(xxx)` or `new Stylesheets(xxxx)` depending on what we need. These files
+are loaded relative to the root of the extension so `assets/colourpicker.css` loads from the `assets` directory.
 
-Next we add our own custom field onto the avaialable field object (we'll look at
-the makeup of this file in the next section). The next line is an important line
-to remember if you want to provide additional functionality for Bolt, since a
-standard Bolt app has two main areas; the frontend and the backend. This if-
-statement allows us to query which part of the app is currently loaded and only
-apply our functionality where relevant:
+Next we need to add our own custom field onto the built in field manager. To do this we need to make a provider that
+extends the built in `ConfigProvider` we'll come to this provider class shortly, but for now we register it in our
+extension class.
+
+This block does just that:
+
+```
+public function getServiceProviders()
+    {
+        return [
+            $this,
+            new ConfigProvider()
+        ];
+    }
+```
+
+Note that the extension class itself is also a provider so we need to return that first, along with our new provider.
+
 
 ```
 if ($this->app['config']->getWhichEnd()=='backend')
 ```
 
-Our line specifies that the functionality we are adding only applies to the
-backend.
+Finally we want to add our extension's template directory to the system so that Bolt knows it needs to look here for 
+extra templates. We do that by returning an array from the `registerTwigPaths()` method. The precise syntax we use is:
 
-When we need to add custom js and css as we have done in the `initialize()`
-method we need to tell Bolt. The line `$this->app['htmlsnippets'] = true;`
-enables them for this request.
+```
+protected function registerTwigPaths()
+{
+    return [
+        'twig' => ['position' => 'prepend', 'namespace'=>'bolt']
+    ];
+}
+```
 
-Finally we want to add our extension's template directory to the system so that
-Bolt knows it needs to look here for templates. The line
-`$this->app['twig.loader.filesystem']->prependPath(__DIR__."/twig");` puts the
-directory `twig` in our extension onto the available list of directories.
+The key of this array is the directory we want to add relative to the root of the extension, the value is an array of
+options. Both of these settings tell Bolt how and when to load templates from this directory, `position => prepend`
+means that this directory takes precedence over the default templates, the namespace is set to `bolt` as the template
+we are adding needs to appear in the backend of Bolt and this is the namespace used. If you only want to make
+templates available in the frontend then you can omit the namespace.
+ 
+### The Config Provider Class
+
+We now need to extend the built in `ConfigProvider` by making our own provider class, to do this we add a new 
+directory inside our `src` folder called `Provider` and the we add the following class.
+
+```
+<?php
+
+namespace Bolt\Extensions\Bolt\Colourpicker\Provider;
+
+use Bolt\Config;
+use Bolt\Extensions\Bolt\Colourpicker\Field\ColourPickField;
+use Silex\Application;
+use Silex\ServiceProviderInterface;
+
+class ConfigProvider implements ServiceProviderInterface
+{
+    public function register(Application $app)
+    {
+
+        $app['config'] = $app->share(
+            $app->extend(
+                'config',
+                function (Config $config) {
+                    $config->getFields()->addField(new ColourPickField());
+
+                    return $config;
+                }
+            )
+        );
+
+    }
+
+
+    public function boot(Application $app)
+    {
+    }
+}
+
+```
+
+The main bulk of the class is the Silex `$app->extend` call, this code lets us modify the built in config whenever
+a Bolt app is initialized. The important part for our extension is this line: 
+`$config->getFields()->addField(new ColourPickField());`
+That adds our ColourPickField to the list of available fields. 
 
 #### The Field Class
 
-You can see in the main extension class above we added a new instance of
-ColourPickField to the Bolt field manager. Any new field needs to implement the
-`Bolt\Field\FieldInterface` which has a few fairly simple requirements.
+You can see in the provider class above we added a new instance of ColourPickField to the Bolt field manager. 
+Any new field needs to implement the `Bolt\Field\FieldInterface` which has a few fairly simple requirements.
 
-We firstly need to tell Bolt what name the field will use (this is how it will
-be set in `contenttypes.yml`) and also what template will be used to render the
-field.
+We firstly need to tell Bolt what name the field will use (this is how it will be set in `contenttypes.yml`) and also 
+what template will be used to render the field.
 
 Here's the final code for our new field:
 
 ```
 <?php
 
-namespace Bolt\Extensions\Colourpicker;
+namespace Bolt\Extensions\Colourpicker\Field;
 
 use Bolt\Field\FieldInterface;
 
@@ -230,12 +294,10 @@ content editor. Here's how our colourpicker template takes shape:
 </fieldset>
 ```
 
-As you can see the field under the js is a select dropdown of colour options.
-When you define your own field, all of the options specified in
-`contenttypes.yml` are available within the `field` object. Some of the
-potential values are accessed in the options block. In the case of our
-colourpicker field, we will look for a list of `values` and use the key / value
-to build the option list.
+As you can see the field under the js is a select dropdown of colour options. When you define your own field, all of 
+the options specified in `contenttypes.yml` are available within the `field` object. Some of the potential values are 
+accessed in the options block. In the case of our colourpicker field, we will look for a list of `values` and use the 
+key / value to build the option list.
 
 
 #### The Final Completed Extension
@@ -262,9 +324,9 @@ need to add the field to our `contenttypes.yml` file. We add a field like this:
 
 #### The Source Code
 
-It's a good idea to look at the final source code for this extension to help you get
-started making a similar one. There is a repository on [Github here][picker].
+It's a good idea to look at the final source code for this extension to help you get started making a similar one. 
+There is a repository on [Github here][picker].
 
 [psr4]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md
 [simple]: https://github.com/tkrotoff/jquery-simplecolorpicker
-[picker]: https://github.com/rossriley/bolt-extension-colourpicker
+[picker]: https://github.com/rossriley/bolt-extension-colourpicker/tree/v3.0
