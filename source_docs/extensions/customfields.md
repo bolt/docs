@@ -32,21 +32,19 @@ Next comes the configuration, we'll keep things nice and simple so here's the es
     "description": "An extension to add a colourpicker as a field type within Bolt",
     "type": "bolt-extension",
     "require": {
-        "bolt/bolt": ">2.0,<4.0"
+        "bolt/bolt": "^3.0"
     },
     "license": "MIT",
     "authors": [{"name": "Ross Riley", "email": "riley.ross@gmail.com"}
     ],
-
     "autoload": {
         "psr-4": {
-            "Bolt\\Extensions\\Bolt\\Colourpicker\\": "src"
+            "Bolt\\Extensions\\Bolt\\ColourPicker\\": "src"
         }
     },
-    
     "extra": {
-        "bolt-class": "Bolt\\Extensions\\Bolt\\Colourpicker\\Extension",
-        "bolt-assets": "assets",
+        "bolt-assets": "web",
+        "bolt-class": "Bolt\\Extensions\\Bolt\\ColourPicker\\ColourPickerExtension",
         "bolt-screenshots": ["screenshot.png"]
     }
 }
@@ -79,38 +77,36 @@ run-through of why we need each of these setup methods.
 
 ```
 <?php
-// File is in src/Extension.php
-namespace Bolt\Extensions\Bolt\Colourpicker;
+// File is in src/ColourPickerExtension.php
+namespace Bolt\Extensions\Bolt\ColourPicker;
 
 use Bolt\Asset\File\JavaScript;
 use Bolt\Asset\File\Stylesheet;
 use Bolt\Extension\SimpleExtension;
-use Bolt\Extensions\Bolt\Colourpicker\Provider\ConfigProvider;
 
-class Extension extends SimpleExtension
+class ColourPickerExtension extends SimpleExtension
 {
 
-    public function getServiceProviders()
+    public function registerFields()
     {
         return [
-            $this,
-            new ConfigProvider()
+            new ColourPickField(),
         ];
     }
 
     protected function registerTwigPaths()
     {
         return [
-            'twig' => ['position' => 'prepend', 'namespace'=>'bolt']
+            'twig' => ['position' => 'prepend', 'namespace' => 'bolt']
         ];
     }
 
     protected function registerAssets()
     {
         return [
-            new Stylesheet('assets/colourpicker.css'),
-            new JavaScript('assets/colourpicker.js'),
-            new JavaScript('assets/start.js')
+            new Stylesheet('colourpicker.css'),
+            new JavaScript('colourpicker.js'),
+            new JavaScript('start.js')
         ];
     }
 
@@ -122,30 +118,21 @@ Our colourpicker is primarily based on the [jQuery Simple Colorpicker][simple] s
 javascript assets to the Bolt markup, we also add a `start.js` file which will initalize the javascript.
 
 These are all added in the `registerAssets` method, all this method needs to do is return an array of asset objects
-so we make a new object either `new Stylesheet(xxx)` or `new Stylesheets(xxxx)` depending on what we need. These files
-are loaded relative to the root of the extension so `assets/colourpicker.css` loads from the `assets` directory.
+so we make a new object either `new JavaScript(xxx)` or `new Stylesheets(xxxx)` depending on what we need. These files
+are loaded relative to the root of the extension so `web/colourpicker.css` loads from the `web` directory.
 
-Next we need to add our own custom field onto the built in field manager. To do this we need to make a provider that
-extends the built in `ConfigProvider` we'll come to this provider class shortly, but for now we register it in our
-extension class.
+Next we need to add our own custom field onto the built in field manager. To do this we need to create a function called
+`registerFields()` that will return an array of one of more classes that implement `FieldInterface`.
 
 This block does just that:
 
 ```
-public function getServiceProviders()
+    public function registerFields()
     {
         return [
-            $this,
-            new ConfigProvider()
+            new ColourPickField(),
         ];
     }
-```
-
-Note that the extension class itself is also a provider so we need to return that first, along with our new provider.
-
-
-```
-if ($this->app['config']->getWhichEnd()=='backend')
 ```
 
 Finally we want to add our extension's template directory to the system so that Bolt knows it needs to look here for 
@@ -155,7 +142,7 @@ extra templates. We do that by returning an array from the `registerTwigPaths()`
 protected function registerTwigPaths()
 {
     return [
-        'twig' => ['position' => 'prepend', 'namespace'=>'bolt']
+        'twig' => ['position' => 'prepend', 'namespace' => 'bolt']
     ];
 }
 ```
@@ -165,52 +152,6 @@ options. Both of these settings tell Bolt how and when to load templates from th
 means that this directory takes precedence over the default templates, the namespace is set to `bolt` as the template
 we are adding needs to appear in the backend of Bolt and this is the namespace used. If you only want to make
 templates available in the frontend then you can omit the namespace.
- 
-### The Config Provider Class
-
-We now need to extend the built in `ConfigProvider` by making our own provider class, to do this we add a new 
-directory inside our `src` folder called `Provider` and the we add the following class.
-
-```
-<?php
-
-namespace Bolt\Extensions\Bolt\Colourpicker\Provider;
-
-use Bolt\Config;
-use Bolt\Extensions\Bolt\Colourpicker\Field\ColourPickField;
-use Silex\Application;
-use Silex\ServiceProviderInterface;
-
-class ConfigProvider implements ServiceProviderInterface
-{
-    public function register(Application $app)
-    {
-
-        $app['config'] = $app->share(
-            $app->extend(
-                'config',
-                function (Config $config) {
-                    $config->getFields()->addField(new ColourPickField());
-
-                    return $config;
-                }
-            )
-        );
-
-    }
-
-
-    public function boot(Application $app)
-    {
-    }
-}
-
-```
-
-The main bulk of the class is the Silex `$app->extend` call, this code lets us modify the built in config whenever
-a Bolt app is initialized. The important part for our extension is this line: 
-`$config->getFields()->addField(new ColourPickField());`
-That adds our ColourPickField to the list of available fields. 
 
 #### The Field Class
 
@@ -225,7 +166,7 @@ Here's the final code for our new field:
 ```
 <?php
 
-namespace Bolt\Extensions\Colourpicker\Field;
+namespace Bolt\Extensions\ColourPicker\Field;
 
 use Bolt\Field\FieldInterface;
 
@@ -249,14 +190,13 @@ class ColourPickField implements FieldInterface
 
     public function getStorageOptions()
     {
-        return array('default'=>'');
+        return ['default' => ''];
     }
 
 }
 
 
 ```
-
 
 
 #### The Template File
@@ -316,8 +256,7 @@ need to add the field to our `contenttypes.yml` file. We add a field like this:
             "#FF0011": Bright Red
 ```
 
-
-**Our new Colourpicker Field**
+**Our new ColourPicker Field**
 
 <img src="/files/extensions-tutorial-colourpicker.png"></a><br>
 
