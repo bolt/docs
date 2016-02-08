@@ -275,10 +275,59 @@ $qb->setParameter($key, (string)$value);
 
 This is the part where we modify the query object itself. The first two commands cover both updates and inserts, 
 there's no side effects to calling both methods and it saves detecting the type of query we're calling. Finally we 
-bind the value to the key parameter.
+bind the value to the key parameter. You'll note that when we do this `$qb->setParameter($key, (string)$value)` we are
+casting our object to a string which is how it needs to be saved to the database. This conversion will all be handled
+in the `__toString()` method of our `Url` object.
+
+Now we move onto the inverse of persistence, which in Bolt is known as hydration. This is when we take the raw data
+that is fetched from the database and turn it into an object or structure that we want to provide to our users.
+
+In this case we're letting our `Url` class do the work of this, so once again here is the code:
+
+```
+public function hydrate($data, $entity)
+{
+    $key = $this->mapping['fieldname'];
+
+    $val = isset($data[$key]) ? $data[$key] : null;
+    if ($val !== null) {
+        $value = Url::fromNative($val);
+        $this->set($entity, $value);
+    }
+}
+```
+
+A hydrate method within Bolt is passed two parameters, the raw data from the database, and an entity object which
+will be the end result of the hydration process. So again, we want to lookup the specific value from the data that 
+we are interested in, so we consult the mapping data to find out the name of the field -
+`$key = $this->mapping['fieldname']`. then we can look at the raw data value (which is an array) by asking for
+`$data[$key]`. In the case of our field we only want to make the transformation if the value is not null, and so
+we then call `$this->set($entity, $value)` which sets the value to our newly constructed `Url` class.
+ 
+So now we have a complete custom field type extension, the only thing we haven't walked through here is the `Url` class
+itself, but you can see more by [sourcecode][viewing the extension source code]. The final check to do is to see what
+we have in our frontend templates. To do this we just dump the field from the contenttype page we set it up in, you 
+should see something like this:
+
+```
+"web" => Url {#1604 ▼
+      #scheme: "http"
+      #user: "username"
+      #password: "password"
+      #domain: "hostname.com"
+      #path: "/path"
+      #port: 9090
+      #queryString: "arg=value"
+      #fragmentIdentifier: "anchor"
+    }
+```
+
+Within our url class we provide getters to all the parts of the Url, so we can use `{{ record.web.port }}` or 
+`{{ record.web.queryString }}` to access our enhanced field value.
 
 
 
 
 
 [starterkit]: https://github.com/bolt/bolt-extension-starter/tree/master
+[sourcecode]: https://github.com/rossriley/bolt-url-field
