@@ -83,6 +83,7 @@ other:
         howto/making-sure-htaccess-works: "Making sure .htaccess and mod_rewrite are working as they should"
         howto/muti-site-setup: "Running Multiple Bolt sites from one source directory"
         howto/curl-ca-certificates: "Setting Up cURL SSL/TLS Certificate Authority Certificates"
+        howto/sortingorder-in-contenttypes: "Sorting a contenttype with a 'sortorder'"
     locales: "Locales"
     nut: "Nut (command line utility)"
     maintenance-mode: "Maintenance (offline) mode"
