@@ -4,20 +4,15 @@ Requirements
 The system requirements for Bolt are modest, and it should run on any fairly
 modern webserver:
 
-  - PHP 5.3.3 or higher
-  - Access to SQLite (which comes bundled with PHP 5.3), _or_ MySQL _or_
+  - PHP 5.5.9 or higher
+  - Access to SQLite (which comes bundled with PHP), _or_ MySQL _or_
     PostgreSQL
   - Apache with `mod_rewrite` <strong>enabled</strong> (`.htaccess` files) or
     Nginx (virtual host configuration covered below)
 
-<p class="note"><strong>Note:</strong> Although PHP 5.3.3 is the absolutely
-minimum required version of Bolt, we strongly recommend a newer version, like
-PHP 5.5 or 5.6. These newer versions are not only safer, but your website will
-be significantly faster as well. </p>
-
-<p class="note"><strong>Note:</strong> While Bolt 2.X will work very well in
-PHP 7, the included version of the error reporting package 
-<a href="http://filp.github.io/whoops/">whoops</a> will in certain cases not.
+<p class="note"><strong>Note:</strong> While Bolt 3 will work very well in
+PHP 7, the included version of the error reporting package
+<a href="http://filp.github.io/whoops/">Whoops</a> will in certain cases not.
 This will probably not affect your experience. </p>
 
 The PHP installation has a few additional requirements. On most servers these
@@ -44,7 +39,7 @@ Desktop browsers:
   - Chrome 21 or later
   - Firefox 15 or later
   - Safari 6.0 or later
-  - Internet Explorer 9 or later. (IE 8 works somewhat. A bit)
+  - Internet Explorer 10 or later. (IE 9 works somewhat. A bit)
 
 Mobile browsers:
 
