@@ -2,7 +2,7 @@ Extensions: Providing a New Field Type
 ======================================
 
 Bolt 3.0 now gives extension developers access to the complete lifecycle of a field, from the database query that
-loads it, through to the template that displays it to the end user. To tak advantage of that there is a new 
+loads it, through to the template that displays it to the end user. To take advantage of that there is a new 
 `FieldManager` class within Bolt along with a new structure which you can use to build custom fields.
 
 As ever, the best way to see the potential of this system is a walk-through tutorial.
