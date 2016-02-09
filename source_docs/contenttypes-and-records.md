@@ -238,7 +238,7 @@ The available options are:
   - `slug` (optional): This determines the slug of the contenttype, and
     therefore the URLs that are generated for this contenttype. When omitted,
     the slug will be automatically generated.
-  - `singular_slug` (optional): This determines the slug of the a single record
+  - `singular_slug` (optional): This determines the slug of a single record
     in this contenttype, and therefore the URLs that are generated for these
     records. When omitted, the slug will be automatically generated.
   - `description` (optional): A short description of the contenttype. This will
