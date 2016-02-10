@@ -1,5 +1,11 @@
 {% extends '_master.twig' %}
 
+{% block extrahead %}
+    <!-- data tables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" type="text/css" media="all" />
+    <script src="{{prefix}}/view/js/jquery.js"></script>
+{% endblock extrahead %}
+
 {% block content %}
 
     <div class="small-12 medium-12 large-12 columns content">
@@ -14,7 +20,7 @@
 
 var dataSet = [
 
-{% for class in classes if class.type in ['class', 'closure', 'container'] %}
+{% for class in classes if class.type in ['class', 'closure', 'container'] -%}
     {% if class.type == 'class' and class.file|slice(0, 4) == 'src/' %}
         {% set filename = class.value|replace({'\\': '.'}) %}
         {% set link = '<a href="http://dev.bolt.cm/apigen/class-' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
@@ -22,11 +28,8 @@ var dataSet = [
         {% set link = class.file %}
     {% endif %}
 
-  [ '{{ class.name|raw }}',
-    '{{ class.type|raw }}',
-    '{{ class.value|e("js") }}',
-    '{{ link|raw }}' ],
-{% endfor %}
+  [ '{{ class.name|raw }}', '{{ class.type|raw }}', '{{ class.value|e("js") }}', '{{ link|raw }}' ],
+{%- endfor %}
         ];
 
 jQuery(document).ready(function($) {
