@@ -74,6 +74,17 @@ class ContentGetter
         return $maintitle[1];
     }
 
+
+    public function getClassReference()
+    {
+        $sourceFile = sprintf('%s/class_reference.yml', $this->basepath);
+
+        $yaml = new \Symfony\Component\Yaml\Parser();
+        $this->classReference = $yaml->parse(file_get_contents($sourceFile));
+
+        return $this->classReference;
+    }
+
     /**
      * Get the menu for the current 'version' as an array.
      *
