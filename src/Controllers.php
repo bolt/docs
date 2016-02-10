@@ -25,6 +25,9 @@ class Controllers implements ControllerProviderInterface
         $ctr->get("/tree/{version}.json", array($this, 'tree'))
             ->bind('tree');
 
+        $ctr->get("/{version}/class-reference", array($this, 'classReference'))
+            ->bind('classReference');
+
         $ctr->get("/{version}/{slug}", array($this, 'page'))
             ->bind('page')
             ->assert('slug', '.+');
@@ -79,6 +82,25 @@ class Controllers implements ControllerProviderInterface
         return $html;
     }
 
+
+    public function classReference(Application $app, $version)
+    {
+        $contentGetter = new ContentGetter($version);
+
+        $cr = $contentGetter->getClassReference();
+
+        $twigVars = [
+            'title'   => 'Bolt Class Reference',
+            'menu'    => $contentGetter->getMenu('menu_docs.yml'),
+            'version' => $version,
+            'classes' => $cr
+        ];
+
+        $html = $app['twig']->render('classreference.twig', $twigVars);
+
+        return $html;
+
+    }
 
 
     /**
