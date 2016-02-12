@@ -38,6 +38,16 @@ templating:
 extending:
   title: "Extending Bolt"
   items:
+    building-starter:
+      title: "Building Extensions (getting started)"
+      items:
+        building-starter: "Building Extensions (getting started)"
+        building-starter/basics: "Basics"
+        building-starter/configuration: "Configuration"
+        building-starter/twig: "Extending Twig"
+        building-starter/web-assets: "Web Assets (CSS, JavaScript, Snippets & Widgets)"
+        building-starter/controllers-routes: "Controllers & Routes"
+        building-starter/admin-menus: "Back-end Menu Items"
     extensions/introduction: "Introduction to Bolt Extensions"
     extensions/config: "Creating a New Extension"
     extensions/essentials: "The Basics of Extensions"
