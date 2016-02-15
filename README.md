@@ -21,4 +21,3 @@ Just serve it directly e.g. with the builtin PHP web server:
 
 	php -S localhost:8888
 
-More detailed instructions can be found in the [Setup section in the documentation](http://docs.bolt.cm/installation).
