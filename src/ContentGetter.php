@@ -85,6 +85,17 @@ class ContentGetter
         return $this->classReference;
     }
 
+    public function getCheatsheet()
+    {
+        $sourceFile = sprintf('%s/cheatsheet.yml', $this->basepath);
+
+        $yaml = new \Symfony\Component\Yaml\Parser();
+        $this->cheatsheet = $yaml->parse(file_get_contents($sourceFile));
+
+        return $this->cheatsheet;
+    }
+
+
     /**
      * Get the menu for the current 'version' as an array.
      *

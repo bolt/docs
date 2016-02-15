@@ -28,6 +28,9 @@ class Controllers implements ControllerProviderInterface
         $ctr->get("/{version}/class-reference", array($this, 'classReference'))
             ->bind('classReference');
 
+        $ctr->get("/{version}/cheatsheet", array($this, 'cheatsheet'))
+            ->bind('cheatsheet');
+
         $ctr->get("/{version}/{slug}", array($this, 'page'))
             ->bind('page')
             ->assert('slug', '.+');
@@ -99,9 +102,26 @@ class Controllers implements ControllerProviderInterface
         $html = $app['twig']->render('classreference.twig', $twigVars);
 
         return $html;
-
     }
 
+
+    public function cheatsheet(Application $app, $version)
+    {
+        $contentGetter = new ContentGetter($version);
+
+        $cheatsheet = $contentGetter->getCheatsheet();
+
+        $twigVars = [
+            'title'   => 'Bolt Cheatsheet',
+            'menu'    => $contentGetter->getMenu('menu_docs.yml'),
+            'version' => $version,
+            'cheatsheet' => $cheatsheet
+        ];
+
+        $html = $app['twig']->render('cheatsheet.twig', $twigVars);
+
+        return $html;
+    }
 
     /**
      * Middleware function to do some tasks that should be done for all requests.
