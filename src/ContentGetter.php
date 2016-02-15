@@ -74,7 +74,11 @@ class ContentGetter
         return $maintitle[1];
     }
 
-
+    /**
+     * Get the class reference from the correct YAML file.
+     *
+     * @return array
+     */
     public function getClassReference()
     {
         $sourceFile = sprintf('%s/class_reference.yml', $this->basepath);
@@ -85,6 +89,11 @@ class ContentGetter
         return $this->classReference;
     }
 
+    /**
+     * Get the cheatsheet reference from the correct YAML file.
+     *
+     * @return array
+     */
     public function getCheatsheet()
     {
         $sourceFile = sprintf('%s/cheatsheet.yml', $this->basepath);
@@ -94,7 +103,6 @@ class ContentGetter
 
         return $this->cheatsheet;
     }
-
 
     /**
      * Get the menu for the current 'version' as an array.

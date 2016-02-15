@@ -41,11 +41,26 @@ class Controllers implements ControllerProviderInterface
 
     }
 
+    /**
+     * Controller for homepage
+     *
+     * @param Application $app
+     *
+     * @return RedirectResponse
+     */
     public function home(Application $app)
     {
         return $app->redirect($app['config']['start-page']);
     }
 
+    /**
+     * Controller for ajaxy fetching the menu tree
+     *
+     * @param Application $app
+     * @param string      $version
+     *
+     * @return Response
+     */
     public function tree(Application $app, $version)
     {
         $contentGetter = new ContentGetter($version);
@@ -59,6 +74,15 @@ class Controllers implements ControllerProviderInterface
         return $response;
     }
 
+    /**
+     * Controller for pages
+     *
+     * @param Application $app
+     * @param string      $version
+     * @param string      $slug
+     *
+     * @return string
+     */
     public function page(Application $app, $version, $slug)
     {
         $contentGetter = new ContentGetter($version, $slug);
@@ -85,7 +109,14 @@ class Controllers implements ControllerProviderInterface
         return $html;
     }
 
-
+    /**
+     * Controller for the class reference page
+     *
+     * @param Application $app
+     * @param string      $version
+     *
+     * @return mixed
+     */
     public function classReference(Application $app, $version)
     {
         $contentGetter = new ContentGetter($version);
@@ -104,7 +135,14 @@ class Controllers implements ControllerProviderInterface
         return $html;
     }
 
-
+    /**
+     * Controller for the cheatsheet reference page
+     *
+     * @param Application $app
+     * @param string $version
+     *
+     * @return mixed
+     */
     public function cheatsheet(Application $app, $version)
     {
         $contentGetter = new ContentGetter($version);
@@ -125,12 +163,24 @@ class Controllers implements ControllerProviderInterface
 
     /**
      * Middleware function to do some tasks that should be done for all requests.
+     *
+     * @param Request     $request
+     * @param Application $app
      */
     public function before(Request $request, Application $app)
     {
         $app['twig']->addGlobal('config', $app['config']);
     }
 
+    /**
+     * Controller for error pages.
+     *
+     * @param \Exception $e
+     * @param Request    $request
+     * @param integer    $code
+     *
+     * @return Response|void
+     */
     public function error(\Exception $e, Request $request, $code)
     {
         if ($app['debug']) {
