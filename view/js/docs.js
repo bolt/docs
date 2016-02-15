@@ -31,7 +31,10 @@ jQuery(function($) {
         $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
     });
 
-    $('#tree1').tree({ autoOpen: 0 });
+    $('#tree1').tree({
+        autoOpen: 0,
+        saveState: 'boltmenu'
+    });
     $('#tree1').bind(
         'tree.click',
         function(event) {

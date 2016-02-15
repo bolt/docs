@@ -139,9 +139,6 @@ div.content {
 
 }
 
-div.sidebar {
-  order: 1;
-}
 
 p {
     line-height: 1.7;
@@ -535,8 +532,9 @@ mark {
  */
 
 .sidebar {
+    order: 1;
     background: $darkblue;
-    padding: 2rem 2rem 0;
+    padding: 2rem 1rem 0;
     color: $white;
 
     @media #{$large-up} {

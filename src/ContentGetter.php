@@ -10,6 +10,7 @@ class ContentGetter
     private $source = '';
     private $slug = '';
     private $version = '';
+    private $menucounter = 0;
 
     /**
      * ContentGetter constructor.
@@ -158,16 +159,24 @@ class ContentGetter
         if (is_array($menu['items']) && !empty($menu['items'])) {
             foreach($menu['items'] as $link => $item){
                 if (is_string($item)) {
+                    $this->menucounter++;
                     $link = '/' . $this->version . '/' . $link;
-                    $children[] = ['label' => $item, 'url' => $link ];
+                    $children[] = [
+                        'id'    => $this->menucounter . '-' . $this->makeSlug($item),
+                        'label' => $item,
+                        'url'   => $link
+                    ];
                 } elseif (is_array($item)) {
                     $children[] = $this->menuHelper($item);
                 }
             }
         }
 
+        $this->menucounter++;
+
         return [
-            'label' => $menu['title'],
+            'id'       => $this->menucounter . '-' . $this->makeSlug($menu['title']),
+            'label'    => $menu['title'],
             'children' => $children
         ];
     }

@@ -3,10 +3,11 @@ ul.jqtree-tree {
     margin-left: 0;
     margin-bottom: 0;
     padding: 0;
+    font-size: 15px;
 
     ul.jqtree_common {
         list-style: none outside;
-        margin-left: 4px;
+        margin-left: 0;
         margin-right: 0;
         margin-bottom: 0;
         padding: 0;
@@ -14,8 +15,17 @@ ul.jqtree-tree {
     }
 
     ul.jqtree_common li {
-        list-style: disc inside !important;
-        margin-left: 24px !important;
+        list-style: none;
+        margin-left: 16px !important;
+    }
+
+    ul.jqtree_common li li {
+        list-style: disc outside !important;
+        margin-left: 40px !important;
+
+        .jqtree-title {
+            margin-left: 0;
+        }
     }
 
     li.jqtree-closed > ul.jqtree_common {
