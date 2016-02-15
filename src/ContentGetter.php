@@ -74,7 +74,11 @@ class ContentGetter
         return $maintitle[1];
     }
 
-
+    /**
+     * Get the class reference from the correct YAML file.
+     *
+     * @return array
+     */
     public function getClassReference()
     {
         $sourceFile = sprintf('%s/class_reference.yml', $this->basepath);
@@ -83,6 +87,21 @@ class ContentGetter
         $this->classReference = $yaml->parse(file_get_contents($sourceFile));
 
         return $this->classReference;
+    }
+
+    /**
+     * Get the cheatsheet reference from the correct YAML file.
+     *
+     * @return array
+     */
+    public function getCheatsheet()
+    {
+        $sourceFile = sprintf('%s/cheatsheet.yml', $this->basepath);
+
+        $yaml = new \Symfony\Component\Yaml\Parser();
+        $this->cheatsheet = $yaml->parse(file_get_contents($sourceFile));
+
+        return $this->cheatsheet;
     }
 
     /**

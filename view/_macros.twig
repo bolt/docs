@@ -1,0 +1,34 @@
+{% macro table(data, linear) %}
+
+    {% if data is iterable %}
+
+      <table {% if linear %}class="linear"{% endif %}>
+
+      {% for row in data %}
+        <tr>
+        {% if loop.first %}
+          {% set cellcounter = row|length %}
+          {% set header = true %}
+          {% for cell in row %}
+            <th> {{ cell }} </th>
+          {% endfor %}
+
+        {% else %}
+
+          {% for cell in row %}
+            <td> {{ cell|markdown }} </td>
+            {% if loop.last and (loop.index < cellcounter) %}
+              <td>&nbsp;</td>
+            {% endif %}
+          {% endfor %}
+
+        {% endif %}
+
+        </tr>
+        {% endfor %}
+
+      </table>
+
+    {% endif %}
+
+{% endmacro %}

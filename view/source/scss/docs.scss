@@ -4,6 +4,7 @@
 @import 'settings';
 @import 'foundation';
 @import 'jqtree';
+@import 'cheatsheet';
 @import 'font-awesome';
 
 @include foundation-global-styles;
@@ -103,6 +104,25 @@ header, footer {
 }
 
 main {
+
+}
+
+footer {
+    padding: 6px 0 6px;
+
+    nav.bottomnav ul li {
+        float: left;
+        margin-left: 24px;
+        list-style-type: none;
+    }
+
+    i {
+        margin-right: .2em;
+    }
+
+    a {
+        color: lighten(desaturate($boltnewbackendblue, 20), 20);
+    }
 
 }
 
