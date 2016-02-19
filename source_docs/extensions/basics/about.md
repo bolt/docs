@@ -5,7 +5,7 @@ What can you do with Bolt extensions?
 -------------------------------------
 
 The functionality of Bolt can be extended by creating Extensions. The
-possibilites are almost limitless but here are a few of the basic ideas that can
+possibilities are almost limitless but here are a few of the basic ideas that can
 be accomplished:
 
  - Add Twig tags or modifiers, for use in the templates in your themes.
@@ -18,23 +18,19 @@ be accomplished:
 
 A Bolt extension has to follow a few strict rules, so it can be auto-loaded by
 Bolt and to make sure it won't interfere with other Bolt functionality or even
-other Extensions. To do this, we have to keep the following rules:
+other Extensions. 
 
- - An extension must be placed on the Extension Marketplace.
+To do this, we have to keep the following rules:
  - Each extension has its own PSR-4 namespace.
- - If the extension has its own configuration, it should be in a `config.yml`
-   file in the extension folder.
- - The extension should come with a 'readme' file. It must be named `readme.md`,
-   and is written in the Markdown format.
- - The `extension` defines two methods named `getName()`
-   and `initialize()`.
- - The 'entry points' for callbacks and Twig functions and modifiers must be
-   functions in the defined namespace. Additional code can be procedural or
-   implemented in classes.
+ - If the extension has its own configuration, it should be in a `config/config.yml.dist` file in the extension folder.
+ - The extension should come with a 'readme' file. It must be named `README.md`, and is written in the Markdown format.
+ - The `extension` either extends `\Bolt\Extension\SimpleExtension`, or implements `\Bolt\Extension\ExtensionInterface`
+ - The 'entry points' for callbacks and Twig functions and modifiers must be functions in the defined namespace. 
+   Additional code can be procedural or implemented in classes.
 
 To get the hang of how extensions work, it's best to have a look for other popular
 extensions on the Marketplace. They all have a link to the source code on the information
-page..
+page.
 
 Coding your extensions
 ----------------------

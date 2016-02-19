@@ -38,24 +38,28 @@ templating:
 extending:
   title: "Extending Bolt"
   items:
-    building-starter:
-      title: "Building Extensions (getting started)"
-      items:
-        extensions/building-starter-about: "Building Extensions (getting started)"
-        extensions/building-starter/basics: "Basics"
-        extensions/building-starter/configuration: "Configuration"
-        extensions/building-starter/twig: "Extending Twig"
-        extensions/building-starter/web-assets: "Web Assets (CSS, JavaScript, Snippets & Widgets)"
-        extensions/building-starter/controllers-routes: "Controllers & Routes"
-        extensions/building-starter/admin-menus: "Back-end Menu Items"
     extensions/introduction: "Introduction to Bolt Extensions"
-    extensions/config: "Creating a New Extension"
-    extensions/essentials: "The Basics of Extensions"
-    extensions/customfields: "Providing New Field Types"
-    extensions/fieldtypes: "Providing New Field Types"
-    extensions/testing: "Testing Your Extensions"
-    extensions/unit-testing: "Writing Unit Tests for Extensions"
-    extensions/nut-commands: "Providing Nut Console Commands"
+    basics:
+      title: "Basics"
+      items:
+        extensions/basics/about: "About"
+        extensions/basics/basics: "Basics"
+        extensions/basics/config: "Creating a New Extension"
+        extensions/basics/testing: "Testing Your Extensions"
+    building:
+      title: "Intermediate"
+      items:
+        extensions/building/configuration: "Configuration"
+        extensions/building/twig: "Extending Twig"
+        extensions/building/web-assets: "Web Assets (CSS, JavaScript, Snippets & Widgets)"
+        extensions/building/controllers-routes: "Controllers & Routes"
+        extensions/building/admin-menus: "Back-end Menu Items"
+    advanced:
+      title: "Advanced"
+      items:
+        extensions/advanced/customfields: "Providing New Field Types"
+        extensions/advanced/fieldtypes: "Providing New Field Types"
+        extensions/advanced/unit-testing: "Writing Unit Tests for Extensions"
 internals:
   title: "Bolt Internals"
   items:
