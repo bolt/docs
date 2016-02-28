@@ -49,6 +49,10 @@ From within your extensions directory run the following two commands.
 
 This will disable any extensions from loading into Bolt and prevent any fatal errors from incompatible extensions.
 
+When you get to the frontend you may still have issues where you are calling extension functions from within your theme
+twig templates. If this is the case you may also have to temporarily comment these out until you have the relevant
+extension installed and working.
+
 ## Updating your Controllers
 
 Bolt 3.0 has seen a major refactor and simplification of the Request -> Dispatch -> Controller code so if your site
@@ -57,6 +61,22 @@ uses a custom controller this is likely to be the first set of errors you will r
 Firstly controllers have moved to a new namespace, it's likely that if you have a custom controller you will have
 extended the default Bolt frontend controller which previously was at `Bolt\Controllers\Frontend`, this is a simple
 change, you will need to change this to `Bolt\Controller\Frontend`.
+
+In many cases this may be enough to get your app running, however if you are calling any of the main Bolt frontend
+methods then the method signature has changed and you will need to adjust the calls.
+
+For instance you may see this error:
+
+```
+Catchable fatal error: Argument 1 passed to Bolt\Controller\Frontend::record() must be an instance of Symfony\Component\HttpFoundation\Request
+```
+
+This is because the methods now only receive a `Request` object rather than passing in the entire Application object.
+
+So the change will look like this:
+
+Before: `parent::listing($app, $contenttypeslug);` or `parent::record($app, $contenttypeslug, $slug);`
+After: `parent::listing($app['request'], $contenttypeslug);` or `parent::record($app['request'], $contenttypeslug, $slug);`
 
 ## Some notes on removed or renamed services
 
