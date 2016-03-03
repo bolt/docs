@@ -84,12 +84,12 @@ For a execute the following commands:
 ```bash
 git clone git://github.com/bolt/bolt.git bolt
 cd bolt
-git checkout v2.2.6
+git checkout v2.2.18
 curl -s http://getcomposer.org/installer | php
 php composer.phar install
 ```
 
-**Note:** The above example assumes that you want to use the `2.2.6` tag.
+**Note:** The above example assumes that you want to use the `2.2.18` tag.
 Available branches can displayed by executing the following command:
 
 ```bash
