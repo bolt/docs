@@ -44,7 +44,7 @@
 @include foundation-tooltip;
 @include foundation-top-bar;
 
-/* ------------- only display non-retina, tenzij retina---------------- */
+/* ------------- only display non-retina, unless retina---------------- */
 
 img.retina {
     display: none;
@@ -65,7 +65,7 @@ img.retina {
 /* -------------LAY-OUT-------------- */
 
 body {
-    background: $lightgrey;
+    background: mix($boltnewbackendblue, $lightgrey);
     font-family: $sans-serif;
 }
 
@@ -104,7 +104,8 @@ header, footer {
 }
 
 main {
-
+    font-family: $serif;
+    background: #fff;
 }
 
 footer {
@@ -140,18 +141,18 @@ div.content {
 }
 
 
-p {
-    line-height: 1.7;
-    font-family: 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
-}
-
-
-
 .inner {
     //@extend .columns; //Not needed? Floats fuck up header.
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
 }
+
+
+h1, h2, h3 {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
+}
+
+
 
 
 nav.main-nav {
@@ -288,48 +289,6 @@ header {
     z-index: 0;
 }
 
-.meta-nav {
-    position: absolute;
-    right: 0.9375rem;
-    bottom: 3px;
-    background: rgba($black,0.7);
-    color:#fff;
-    padding-left: 1em;
-    // MEDIUM //
-    @media #{$large-up} {
-        bottom: auto;
-        top: 0;
-        width: 16rem;
-        right: 6rem;
-    }
-    ul {
-        list-style: none;
-        margin: 0;
-        a {
-            color:$white;
-            text-decoration: none;
-            font-size: 0.6875rem;
-            &:hover {
-                color: $red;
-            }
-        }
-        i {
-            margin-right: 5px;
-        }
-        li{
-            display: inline;
-            margin: 0 1em 0 0;
-        }
-        li.fork {
-            display: none;
-            // MEDIUM //
-            @media #{$medium-up} {
-                display: inline-block;
-            }
-        }
-
-    }
-}
 
 .menu-toggle {
     display: block;
@@ -451,69 +410,9 @@ section{   // was .maininfo, .secinfo
     }
 }
 
-main {
-    background: #fff;
-}
-
-.maininfo {
-    max-width: 3000px;
-    margin-top: 0;
-    padding: 0;
-
-}
-
-
-.maininfo .column,
-.secinfo .column {
-    margin-bottom: 2em;
-    @media #{$large-up} {
-        @extend .large-4;
-    }
-    // XLARGE  //
-    @media #{$xlarge-up} {
-        padding-left: 3em;
-        padding-right: 1.5em;
-    }
-
-}
-
-
 
 
 /* -------- Specific Docs stuff -------- */
-
-.maininfo .maincolumn a.button.jumpbutton {
-    background-color: $mediumblue;
-
-    &:hover{
-        background-color: darken($mediumblue,10%)
-    }
-}
-
-.maininfo {
-    h1, h2, h3, h4 {
-        text-align: left;
-        font-weight: 400;
-        margin-bottom: 12px;
-    }
-
-    h1 {
-        font-size: 36px;
-    }
-
-    h2 {
-        font-size: 28px;
-    }
-
-    h3 {
-        font-size: 22px;
-    }
-
-    h4 {
-        font-size: 18px;
-    }
-
-}
 
 mark {
     background-color: rgba(255, 255, 0, 0.6);
@@ -536,25 +435,18 @@ mark {
     background: $darkblue;
     padding: 2rem 1rem 0;
     color: $white;
+    font-family: $sans-serif;
+    font-size: 14px;
 
     @media #{$large-up} {
         max-width: 300px; // Magic number : looks nice
-
     }
 
 }
 
 
-p {
-    font-size: 16.5px;
-    line-height: 1.5;
-}
-@media #{$large-up} {
-    p {
-        font-size: 15px;
-        line-height: 1.7;
-    }
-}
+
+
 
 p.note {
     padding: 8px 35px 8px 14px;
@@ -750,6 +642,10 @@ div.gallery-popup img {
 /* -------------- TYPOGRAPHY --------------- */
 
 p {
+
+    font-size: 16.5px;
+    line-height: 1.5;
+
     a {
         border-bottom: 1px solid lighten($red, 25%)
     }
@@ -761,38 +657,43 @@ p {
         font-size: 0.8125rem;
         color: $red;
     }
-}
 
-.content a {
-    color: $mediumblue;
-    border-bottom: 1px solid lighten($mediumblue, 30);
-}
-
-
-.content a:hover {
-    text-decoration: none;
-    color: darken($mediumblue, 20);
-    border-bottom: 1px solid darken($mediumblue, 20);
-}
-
-
-h1 a, h2 a, h3 a, h4 a, h5 a {
-    color: inherit;
-}
-
-.maininfo h2,
-.secinfo h2 {
-    // Not in docs!
-    // text-align: center;
-    // LARGE  //
-    @media #{$large-up}{
-        text-align: left;
+    @media #{$large-up} {
+        font-size: 17px;
+        line-height: 1.7;
     }
-    &.subheader {
-        text-align: center;
-    }
+
 }
 
+
+
+
+
+.content {
+
+    li {
+
+        font-size: 16.5px;
+        line-height: 1.5;
+
+        @media #{$large-up} {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+    }
+
+    a {
+        color: $mediumblue;
+        border-bottom: 1px solid lighten($mediumblue, 30);
+
+    a:hover {
+        text-decoration: none;
+        color: darken($mediumblue, 20);
+        border-bottom: 1px solid darken($mediumblue, 20);
+    }
+
+}
 
 h3.subheader {
     font-size: 1rem;
@@ -809,6 +710,10 @@ i {
 }
 h1, h2, h3, h4 {
     font-weight: 400;
+    a {
+        color: inherit;
+    }
+
 }
 
 
