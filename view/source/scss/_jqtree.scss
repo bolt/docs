@@ -3,7 +3,6 @@ ul.jqtree-tree {
     margin-left: 0;
     margin-bottom: 0;
     padding: 0;
-    font-size: 14px;
 
     ul.jqtree_common {
         list-style: none outside;
@@ -12,6 +11,8 @@ ul.jqtree-tree {
         margin-bottom: 0;
         padding: 0;
         display: block;
+        font-size: 14px;
+        line-height: 1.5em;
     }
 
     ul.jqtree_common li {

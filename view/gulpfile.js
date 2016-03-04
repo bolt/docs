@@ -19,7 +19,7 @@ gulp.task('sass', function() {
   return gulp.src('source/scss/docs.scss')
     .pipe($.sass({
       includePaths: sassPaths,
-      outputStyle: 'nested' // 'compressed' or 'nested'
+      outputStyle: 'compressed' // 'compressed' or 'nested'
     })
       .on('error', $.sass.logError))
     .pipe($.autoprefixer({

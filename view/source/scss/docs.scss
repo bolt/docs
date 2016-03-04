@@ -51,9 +51,9 @@ img.retina {
 }
 
 @media (min--moz-device-pixel-ratio: 1.5), //retina checks
-       (-o-min-device-pixel-ratio: 3/2),
-       (-webkit-min-device-pixel-ratio: 1.5),
-       (min-resolution: 1.5dppx) {
+(-o-min-device-pixel-ratio: 3/2),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 1.5dppx) {
     img.retina {
         display: block;
     }
@@ -79,7 +79,7 @@ section, container {
       content: "";
       display: table;
       clear: both;
-    }
+  }
 }
 
 header, footer {
@@ -87,7 +87,7 @@ header, footer {
     background-position: fixed;
     @media #{$large-up} {
         max-width: 100%;
-        }
+    }
     .inner {
         max-width: 75rem;
         margin-left: auto;
@@ -100,7 +100,7 @@ header, footer {
       content: "";
       display: table;
       clear: both;
-    }
+  }
 }
 
 main {
@@ -132,11 +132,11 @@ div.content {
 
   @media #{$large-up} {
     padding: 3.5em;
-  }
+}
 
-  p, ul, ol {
+p, ul, ol {
     max-width: 650px; // magic number: good linewidth to keep it readable
-  }
+}
 
 }
 
@@ -150,6 +150,74 @@ div.content {
 
 h1, h2, h3 {
     font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
+}
+
+
+p {
+
+    font-size: 16.5px;
+    line-height: 1.5;
+
+    a {
+        border-bottom: 1px solid lighten($red, 25%)
+    }
+    a:hover {
+        text-decoration: none;
+        border-bottom: 1px solid $red;
+    }
+    &.meta {
+        font-size: 0.8125rem;
+        color: $red;
+    }
+
+    @media #{$large-up} {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+}
+
+
+i {
+    margin-right: .5em;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.3em;
+}
+
+
+h1, h2, h3, h4 {
+    font-weight: 400;
+    a {
+        color: inherit;
+    }
+
+    a.anchor{
+        color: lighten($boltblue, 40);
+        margin-left: 14px;
+        font-size: 75%;
+        border: 0;
+    }
+
+    &:hover a.anchor {
+        color: lighten($boltblue, 10);
+        text-decoration: none;
+        border: 0;
+    }
+
 }
 
 
@@ -173,10 +241,10 @@ nav.main-nav {
 .jumpnav {
     background: #fff;
     padding-top: 2em;
-	padding-bottom: 0;
+    padding-bottom: 0;
     // LARGE //
     @media #{$large-up} {
-    display: none;
+        display: none;
     }
     ul {
         list-style: none;
@@ -195,7 +263,7 @@ a.toplink {
     margin: 1em auto 0 auto;
     width: 100px;
     // LARGE //
-        @media #{$large-up} {
+    @media #{$large-up} {
         display: none;
     }
 }
@@ -206,14 +274,14 @@ span.desktop {
     display: none;
     // MEDIUM //
     @media #{$medium-up} {
-    display: inline;
+        display: inline;
     }
 }
 
 span.mobile {
     // MEDIUM //
     @media #{$medium-up} {
-    display: none;
+        display: none;
     }
 }
 
@@ -242,30 +310,30 @@ header {
         // MEDIUM //
         @media #{$medium-up} {
             font-size: 2em;
-       }
+        }
     }
     .download {
-       width: 100%;
-       font-size: 1rem;
-       padding: .5rem;
+     width: 100%;
+     font-size: 1rem;
+     padding: .5rem;
        // MEDIUM //
        @media #{$medium-up} {
-       position: absolute;
-       width: 16rem;
-       right: 6rem;
-       top: 4rem;
-       }
-       &:before {
-           content: "";
-           background: #f09;
-       }
-       span.sub {
-           display: none;
-       }
-    }
+         position: absolute;
+         width: 16rem;
+         right: 6rem;
+         top: 4rem;
+     }
+     &:before {
+         content: "";
+         background: #f09;
+     }
+     span.sub {
+         display: none;
+     }
+ }
 
-    .body-home & {
-        height: 300px;
+ .body-home & {
+    height: 300px;
         // MEDIUM //
         @media #{$medium-up} {
             height: 450px;
@@ -318,8 +386,8 @@ header {
         width: 20px;
     }
     .active & {
-       box-shadow: 0 10px 0 1px $white, 0 16px 0 1px $white, 0 22px 0 1px $white;
-    }
+     box-shadow: 0 10px 0 1px $white, 0 16px 0 1px $white, 0 22px 0 1px $white;
+ }
 }
 
 .main-nav {
@@ -329,40 +397,40 @@ header {
     padding-bottom: 1em;
     transition:display 0s linear 0.5s,opacity 0.5s linear;
      // LARGE  //
-    @media #{$large-up} {
+     @media #{$large-up} {
         display: block;
         background: rgba($black,0.4);
         margin: -44px auto 0;
         position: relative;
         height: 44px;
-   }
-   &.expanded {
-       display: block;
-   }
-    ul{
-        list-style: none;
-        margin-bottom: 0;
+    }
+    &.expanded {
+     display: block;
+ }
+ ul{
+    list-style: none;
+    margin-bottom: 0;
          // LARGE  //
-        @media #{$large-up} {
-        margin: 0 auto;
+         @media #{$large-up} {
+            margin: 0 auto;
         width: 880px; //fixen: geen absolute waarde, maar liever een relatieve!
-        }
-        &:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
-        li {
+    }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  li {
              // MEDIUM  //
              @media #{$medium-only} {
-             width: 50%;
-             float: left;
-             }
-        }
-        a {
-            display: inline-block;
-            padding: .4rem;
-            color: $white;
+               width: 50%;
+               float: left;
+           }
+       }
+       a {
+        display: inline-block;
+        padding: .4rem;
+        color: $white;
             border-bottom: 2px solid transparent; //to prevent skipping when hovered
             // LARGE  //
             @media #{$large-up} {
@@ -430,7 +498,7 @@ mark {
  * Styles for the sidebar
  */
 
-.sidebar {
+ .sidebar {
     order: 1;
     background: $darkblue;
     padding: 2rem 1rem 0;
@@ -554,24 +622,7 @@ span.copy-btn {
     font-size: 19px;
 }
 
-h1 a.anchor,
-h2 a.anchor,
-h3 a.anchor,
-h4 a.anchor {
-    color: lighten($boltblue, 40);
-    margin-left: 14px;
-    font-size: 75%;
-    border: 0;
-}
 
-h1:hover a.anchor,
-h2:hover a.anchor,
-h3:hover a.anchor,
-h4:hover a.anchor {
-    color: lighten($boltblue, 10);
-    text-decoration: none;
-    border: 0;
-}
 
 .select2-results .select2-result-label {
     font-size: 13px;
@@ -621,7 +672,7 @@ h4:hover a.anchor {
         &:before {
             content:"";
             margin-right: 0px;
-         }
+        }
     }
 
     div.docsintro {
@@ -636,36 +687,6 @@ div.gallery-popup img {
     border: 1px solid #bbb;
     display: block;
 }
-
-
-
-/* -------------- TYPOGRAPHY --------------- */
-
-p {
-
-    font-size: 16.5px;
-    line-height: 1.5;
-
-    a {
-        border-bottom: 1px solid lighten($red, 25%)
-    }
-    a:hover {
-        text-decoration: none;
-        border-bottom: 1px solid $red;
-    }
-    &.meta {
-        font-size: 0.8125rem;
-        color: $red;
-    }
-
-    @media #{$large-up} {
-        font-size: 17px;
-        line-height: 1.7;
-    }
-
-}
-
-
 
 
 
@@ -687,33 +708,24 @@ p {
         color: $mediumblue;
         border-bottom: 1px solid lighten($mediumblue, 30);
 
-    a:hover {
-        text-decoration: none;
-        color: darken($mediumblue, 20);
-        border-bottom: 1px solid darken($mediumblue, 20);
+        a:hover {
+            text-decoration: none;
+            color: darken($mediumblue, 20);
+            border-bottom: 1px solid darken($mediumblue, 20);
+        }
+
     }
 
-}
+    h3.subheader {
+        font-size: 1rem;
+        margin-bottom: 2em;
+        text-align: center;
 
-h3.subheader {
-    font-size: 1rem;
-    margin-bottom: 2em;
-    text-align: center;
-    // LARGE  //
-    @media #{$large-up}{
-        text-align: left;
+        // LARGE  //
+        @media #{$large-up}{
+            text-align: left;
+        }
     }
-}
-
-i {
-    margin-right: .5em;
-}
-h1, h2, h3, h4 {
-    font-weight: 400;
-    a {
-        color: inherit;
-    }
-
 }
 
 
