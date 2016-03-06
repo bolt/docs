@@ -48,48 +48,6 @@ jQuery(function($) {
     );
 
 
-    //if($(window).width() > 801) { // ONLY LARGE-UP
-    //
-    //    $('#sidebar-nav').hcSticky({ top: 40 });
-    //
-    //    //make sidebar equalheight, when content is taller.
-    //    // (only execute after all graphics have loaded)
-    //    $( window ).load(function() {
-    //
-    //        var sidebarheight = $('#sidebar').height();
-    //        var contentheight = $('.content').outerHeight();
-    //
-    //        // console.log('sidebar= '+ sidebarheight);
-    //        // console.log('content= '+ contentheight);
-    //
-    //        if ( sidebarheight < contentheight ){
-    //            $('#sidebar').height(contentheight);
-    //        }
-    //
-    //    });
-    //}
-
-    /* ----- no sticky header for the docs. ---------
-    if($(window).width() > 801) { // ONLY LARGE-UP
-
-        $(window).scroll(function () {
-            var nav = $(".main-nav");
-            var navwidth = nav.width();
-            var halfwidth = Math.round(navwidth/2);
-
-            // make main-nav sticky when scrolled lower then header height
-            if (posTop() > ($('header').height()-44)){
-                nav.addClass('is-sticky');
-                nav.css({ 'margin-left':'-'+halfwidth+'px' });
-            };
-            // make main-nav UNsticky when scrolled up again
-            if (posTop() <= ($('header').height()-44)){
-                nav.removeClass('is-sticky');
-                nav.css({'margin-left':'auto'})
-            };
-        });
-    }
-    ------ */
 
     // Update the number of stars. Stolen from foundation.zurb.com.
     $.ajax({
@@ -103,6 +61,13 @@ jQuery(function($) {
         }
       }
     });
+
+    // Jumpmenu for the versions
+    $("#version-changer-submit").hide();
+    $("#version-changer select").change(function() {
+        window.location = $("#version-changer select option:selected").val();
+    })
+
 
     $("#searchbox").select2({
         placeholder: "Search …",

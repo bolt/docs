@@ -84,13 +84,13 @@
                 <a href="https://bolt.cm/">Home [bolt.cm]</a>
             </li>
             <li class="index-2 active">
-                <a href="https://bolt.cm/features">Documentation</a>
+                <a href="/{{version}}/introduction">Documentation</a>
             </li>
             <li class="index-3">
-                <a href="{{prefix}}/introduction">Manual</a>
+                <a href="/{{version}}/manual">Manual</a>
             </li>
             <li class="index-4">
-                <a href="{{prefix}}/cheatsheet">Cheatsheet</a>
+                <a href="/{{version}}/cheatsheet">Cheatsheet</a>
             </li>
 
 
@@ -99,15 +99,23 @@
             </li>
 
             <li class="index-6">
-                <select>
-                    <option>Current version: <strong>Bolt {{ version }}</strong></option>
-                    <option>master</option>
-                </select>
-
+                <form id="version-changer" action="" method="post">
+                    <select>
+                        <option>Current version: <strong>Bolt {{ version }}</strong></option>
+                        <optgroup label='Switch to another version:'>
+                        {% for v in versions if v != version %}
+                            <option value='/{{ v|slug }}/introduction'>Bolt {{ v }}</option>
+                        {% endfor %}
+                        </optgroup>
+                    </select>
+                    <input type="submit" value="Go" id="version-changer-submit" />
+                </form>
             </li>
 
         </ul>
     </nav>
+
+{{ dump(versions) }}
 
     <main class="row">
 
