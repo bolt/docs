@@ -127,18 +127,6 @@ footer {
 
 }
 
-div.content {
-  order: 2;
-
-  @media #{$large-up} {
-    padding: 3.5em;
-}
-
-p, ul, ol {
-    max-width: 650px; // magic number: good linewidth to keep it readable
-}
-
-}
 
 
 .inner {
@@ -155,16 +143,9 @@ h1, h2, h3 {
 
 p {
 
-    font-size: 16.5px;
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 1.4;
 
-    a {
-        border-bottom: 1px solid lighten($red, 25%)
-    }
-    a:hover {
-        text-decoration: none;
-        border-bottom: 1px solid $red;
-    }
     &.meta {
         font-size: 0.8125rem;
         color: $red;
@@ -596,7 +577,8 @@ code {
     border: 1px solid #E8E8E8;
     color: #555;
     font-family: "Menlo", "Consolas", "Courier New", Courier, monospace;
-    font-size: 13px;
+    font-size: 14px;
+    line-height: 1.6em !important;
     font-weight: normal;
 }
 
@@ -613,15 +595,6 @@ span.copy-btn {
     text-transform: uppercase;
     font-size: 12px;
 }
-
-.content h2 code {
-    font-size: 24px;
-}
-
-.content h3 code {
-    font-size: 19px;
-}
-
 
 
 .select2-results .select2-result-label {
@@ -692,6 +665,24 @@ div.gallery-popup img {
 
 .content {
 
+    order: 2;
+
+    @media #{$large-up} {
+        padding: 3.5em 3.5em 1em;
+    }
+
+    h2 code {
+        font-size: 24px;
+    }
+
+    h3 code {
+        font-size: 19px;
+    }
+
+    p, ul, ol {
+        max-width: 650px; // magic number: good linewidth to keep it readable
+    }
+
     li {
 
         font-size: 16.5px;
@@ -706,12 +697,10 @@ div.gallery-popup img {
 
     a {
         color: $mediumblue;
-        border-bottom: 1px solid lighten($mediumblue, 30);
+        text-decoration: underline;
 
         a:hover {
-            text-decoration: none;
             color: darken($mediumblue, 20);
-            border-bottom: 1px solid darken($mediumblue, 20);
         }
 
     }
@@ -726,6 +715,13 @@ div.gallery-popup img {
             text-align: left;
         }
     }
+
+    .community-notice {
+        color: #888;
+        font-style: italic;
+        margin-top: 4em;
+    }
+
 }
 
 
