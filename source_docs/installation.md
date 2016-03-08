@@ -242,6 +242,30 @@ is not needed on.
 on development servers.</p>
 
 
+Dynamic values for config settings
+----------------------------------
+
+Occasionally you may want to set the value of a config setting dynamically at the
+application runtime, rather than have it hardcoded in a config file.
+
+To take advantage of this feature you can surround the value with `%` characters
+and the value will then be looked up from the main Application container.
+
+As a simple example the Bolt version is set as a value on the app container,
+you can access it normally with `$app['bolt_version']` if you wanted to use
+this as a dynamic config variable you could do the following in `config.yml`
+
+```
+mycustomversion: %bolt_version%
+```
+
+after compilation the value of `{{ config.get('mycustomversion') }}` will match
+the value set on the main application container.
+
+Note that at this point only string values are supported.
+
+
+
 Apache: Tweaking the .htaccess file
 ---------------------------
 
