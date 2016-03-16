@@ -602,58 +602,6 @@ span.copy-btn {
 }
 
 
-.maininfo .maincolumn {
-    a.button.docsintro {
-        max-width: 560px;
-        font-size: 19px;
-        font-weight: bold;
-        margin: 0;
-        background-color: $mediumblue;
-        color: $white;
-
-        small {
-            font-size: 14px;
-            font-weight: normal;
-        }
-        &:hover {
-            background-color: darken($mediumblue, 20);
-        }
-    }
-
-    a.button.medium.docsintro {
-        max-width: 270px;
-        margin-right: 18px;
-        font-size: 19px;
-        font-weight: bold;
-        color: $darkblue;
-
-        background-color: #DDD;
-        display: inline-block;
-
-        small {
-            font-size: 13px;
-            font-weight: normal;
-        }
-
-        &:hover {
-            background-color: #999;
-        }
-
-    }
-
-    a.button.docsintro.layer {
-        &:before {
-            content:"";
-            margin-right: 0px;
-        }
-    }
-
-    div.docsintro {
-        clear: both;
-        display: block;
-        margin-bottom: 16px;
-    }
-}
 
 a.popup img,
 div.gallery-popup img {
@@ -720,6 +668,61 @@ div.gallery-popup img {
         color: #888;
         font-style: italic;
         margin-top: 4em;
+    }
+
+
+    a.button.docsintro {
+        max-width: 100%;
+        font-size: 19px;
+        font-weight: bold;
+        margin: 0;
+        display: block;
+        background-color: $mediumblue;
+        color: $white;
+        font-family: $sans-serif;
+        text-decoration: none;
+
+        small {
+            font-size: 14px;
+            font-weight: normal;
+        }
+        &:hover {
+            background-color: darken($mediumblue, 20);
+        }
+    }
+
+    a.button.medium.docsintro {
+        max-width: 270px;
+        margin-right: 18px;
+        font-size: 19px;
+        font-weight: bold;
+        color: $darkblue;
+
+        background-color: #DDD;
+        display: inline-block;
+
+        small {
+            font-size: 13px;
+            font-weight: normal;
+        }
+
+        &:hover {
+            background-color: #999;
+        }
+
+    }
+
+    a.button.docsintro.layer {
+        &:before {
+            content:"";
+            margin-right: 0px;
+        }
+    }
+
+    div.docsintro {
+        clear: both;
+        display: block;
+        margin-bottom: 16px;
     }
 
 }
