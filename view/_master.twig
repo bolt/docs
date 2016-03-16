@@ -83,13 +83,13 @@
             <li class="index-1 first">
                 <a href="https://bolt.cm/">Home [bolt.cm]</a>
             </li>
-            <li class="index-2 active">
+            <li class="index-2 {{ slug != 'cheatsheet' ? 'active' }}">
                 <a href="/{{version}}/introduction">Documentation</a>
             </li>
             <li class="index-3">
                 <a href="/{{version}}/manual">Manual</a>
             </li>
-            <li class="index-4">
+            <li class="index-4 {{ slug == 'cheatsheet' ? 'active' }}">
                 <a href="/{{version}}/cheatsheet">Cheatsheet</a>
             </li>
 
