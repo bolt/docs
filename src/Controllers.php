@@ -101,7 +101,6 @@ class Controllers implements ControllerProviderInterface
             'submenu' => $contentGetter->getSubmenu(),
             'current' => $slug,
             'version' => $version,
-            // 'prefix' => ($prefix == "/" ? "" : $prefix)
         ];
 
         $html = $app['twig']->render('index.twig', $twigVars);
@@ -150,10 +149,11 @@ class Controllers implements ControllerProviderInterface
         $cheatsheet = $contentGetter->getCheatsheet();
 
         $twigVars = [
-            'title'   => 'Bolt Cheatsheet',
-            'menu'    => $contentGetter->getMenu('menu_docs.yml'),
-            'version' => $version,
-            'cheatsheet' => $cheatsheet
+            'title'      => 'Bolt Cheatsheet',
+            'menu'       => $contentGetter->getMenu('menu_docs.yml'),
+            'version'    => $version,
+            'cheatsheet' => $cheatsheet,
+            'slug'       => 'cheatsheet'
         ];
 
         $html = $app['twig']->render('cheatsheet.twig', $twigVars);
