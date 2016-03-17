@@ -18,10 +18,12 @@ class ContentGetter
      * @param string $version
      * @param string $slug
      */
-    public function __construct($version, $slug = null)
+    public function __construct($version = 'local', $slug = null)
     {
+        $this->rootpath = dirname(__DIR__);
+
         if ($version === 'local') {
-            $this->basepath = dirname(__DIR__);
+            $this->basepath = $this->rootpath;
         } else {
             $this->basepath = sprintf('%s/version/%s/', dirname(__DIR__), $version);
         }
@@ -196,6 +198,22 @@ class ContentGetter
         }
 
         return $submenu;
+    }
+
+
+    /**
+     * Get the available versions from the correct YAML file.
+     *
+     * @return array
+     */
+    public function getVersions()
+    {
+        $sourceFile = sprintf('%s/versions.yml', $this->basepath);
+
+        $yaml = new \Symfony\Component\Yaml\Parser();
+        $this->versions = $yaml->parse(file_get_contents($sourceFile));
+
+        return $this->versions;
     }
 
     /**

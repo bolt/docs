@@ -83,14 +83,14 @@
             <li class="index-1 first">
                 <a href="https://bolt.cm/">Home [bolt.cm]</a>
             </li>
-            <li class="index-2 active">
-                <a href="https://bolt.cm/features">Documentation</a>
+            <li class="index-2 {{ slug != 'cheatsheet' ? 'active' }}">
+                <a href="/{{version}}/introduction">Documentation</a>
             </li>
             <li class="index-3">
-                <a href="{{prefix}}/introduction">Manual</a>
+                <a href="/{{version}}/manual">Manual</a>
             </li>
-            <li class="index-4">
-                <a href="{{prefix}}/cheatsheet">Cheatsheet</a>
+            <li class="index-4 {{ slug == 'cheatsheet' ? 'active' }}">
+                <a href="/{{version}}/cheatsheet">Cheatsheet</a>
             </li>
 
 
@@ -99,11 +99,17 @@
             </li>
 
             <li class="index-6">
-                <select>
-                    <option>Current version: <strong>Bolt {{ version }}</strong></option>
-                    <option>master</option>
-                </select>
-
+                <form id="version-changer" action="" method="post">
+                    <select>
+                        <option>Current version: <strong>Bolt {{ version }}</strong></option>
+                        <optgroup label='Switch to another version:'>
+                        {% for v in versions if v != version %}
+                            <option value='/{{ v|slug }}/introduction'>Bolt {{ v }}</option>
+                        {% endfor %}
+                        </optgroup>
+                    </select>
+                    <input type="submit" value="Go" id="version-changer-submit" />
+                </form>
             </li>
 
         </ul>
@@ -116,50 +122,6 @@
 {% endblock content %}
 
     </main>
-
-    <footer>
-            <nav class="bottomnav">
-                <ul>
-                    <li>
-                        <a href="https://bolt.cm/" title="Home">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://bolt.cm/page/features" title="Features">
-                            Features
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://docs.bolt.cm" class="Documentation">
-                            Documentation
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://bolt.cm/page/news" title="The latest news">
-                            News
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://bolt.cm/page/community" title="Get in touch!">
-                            Community
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://bolt.cm/page/download" title="Download the latest release of Bolt.">
-                            Download
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tw" href="https://twitter.com/boltcm"><i class="fa fa-lg fa-twitter"></i>Bolt on Twitter</a>
-                    </li>
-                    <li>
-                        <a class="gh" href="https://github.com/bolt/bolt"><i class="fa fa-lg fa-github"></i>Bolt on Github</a>
-                    </li>
-                </ul>
-            </nav>
-
-    </footer>
 
 
     <script src="{{prefix}}/view/js/select2.min.js"></script>

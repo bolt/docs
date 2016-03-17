@@ -18,6 +18,7 @@ ul.jqtree-tree {
     ul.jqtree_common li {
         list-style: none;
         margin-left: 16px !important;
+        font-size: 15px;
     }
 
     ul.jqtree_common li li {
@@ -136,14 +137,11 @@ ul.jqtree-tree {
         box-sizing: content-box;
     }
 
-    li.jqtree-selected > .jqtree-element,
-    li.jqtree-selected > .jqtree-element:hover {
-        background-color: #97BDD6;
-        background: -webkit-gradient(linear, left top, left bottom, from(#BEE0F5), to(#89AFCA));
-        background: -moz-linear-gradient(top, #BEE0F5, #89AFCA);
-        background: -ms-linear-gradient(top, #BEE0F5, #89AFCA);
-        background: -o-linear-gradient(top, #BEE0F5, #89AFCA);
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    li.jqtree-selected > .jqtree-element span,
+    li.jqtree-selected > .jqtree-element:hover span {
+        background-color: rgba(255, 255, 255, 0.1);
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+        color: #FFF;
     }
 
     .jqtree-moving > .jqtree-element .jqtree-title {
