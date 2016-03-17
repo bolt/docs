@@ -208,7 +208,7 @@ class ContentGetter
      */
     public function getVersions()
     {
-        $sourceFile = sprintf('%s/versions.yml', $this->basepath);
+        $sourceFile = sprintf('%s/app/versions.yml', $this->basepath);
 
         $yaml = new \Symfony\Component\Yaml\Parser();
         $this->versions = $yaml->parse(file_get_contents($sourceFile));
