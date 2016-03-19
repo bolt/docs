@@ -1,102 +1,5 @@
-Installing Bolt
-===============
-
-This page explains the various ways of installing Bolt. You can either use the
-command-line or your FTP-client to install it. There are three ways to install
-Bolt:
-
-  - The easiest way, [from the command-line](#option-1-easy-way-using-command-line).
-  - The traditional way, [using (S)FTP](#option-2-traditional-way-using-sftp).
-  - The nerdy way, [for developers](#option-3-developer-way-using-git-and-composer).
-
-Use one of the three methods described below to get the Bolt source files, and
-set them up on your webserver. After you've done this, skip to the section for
-[Setting up Bolt ](#setting-bolt).
-
-
-### Option 2: The traditional way, using (S)FTP.
-
-Download the [latest version of Bolt](http://bolt.cm/distribution/bolt-latest.zip).
-
-Extract the .zip file, and upload to your webhost using the (S)FTP client of
-your choice. After you've done this, be sure to chmod the following directories
-(_with_ containing files) to `777`, so they are readable and writable by Bolt:
-
-  - `app/cache/`
-  - `app/config/`
-  - `app/database/`
-  - `files/`
-  - `theme/`
-  - `extensions/`
-
-Most FTP clients will allow you to do this quickly, using a 'include files' or
-'apply to enclosed' option. It depends on the exact server configuration if you
-will need to use `777` or if an other setting is better. If you wish to know
-for sure, ask your hosting provider.
-
-<a href="/files/ftp-chmod.png" class="popup"><img src="/files/ftp-chmod.png" width="590"></a><br>
-
-<p class="note"><strong>Note:</strong> Don't forget to upload the
-<code>.htaccess</code> file! Bolt won't work without it. If you can't find the
-file on your filesystem, download this <a
-href="http://bolt.cm/distribution/default.htaccess">
-<code>default.htaccess</code></a> file. Upload it to your server, and then
-rename it to <code>.htaccess</code>.<br/><br/> If you're on OSX and you don't
-see the file, it might be that your system is set up to 'hide' hidden files.
-You can usually still find it, when browsing local files using your FTP
-client.</p>
-
-After you've done this, skip to the section [Setting up Bolt](#setting-bolt).
-
-
-### Option 3: The developer way, using Git and Composer.
-
-If you want to install Bolt using Git and Composer, you need to decide if you
-want to use a stable branch, or the bleeding-edge master branch.
-
-##### Stable Branch
-For a execute the following commands:
-
-```bash
-git clone git://github.com/bolt/bolt.git bolt
-cd bolt
-git checkout v2.2.6
-curl -s http://getcomposer.org/installer | php
-php composer.phar install
-```
-
-**Note:** The above example assumes that you want to use the `2.2.6` tag.
-Available branches can displayed by executing the following command:
-
-```bash
-git tag
-```
-
-##### Master (unstable) Branch
-
-```bash
-git clone git://github.com/bolt/bolt.git bolt
-cd bolt
-curl -s http://getcomposer.org/installer | php
-php composer.phar install
-```
-
-##### Final Step (optional)
-
-This will get the Bolt files and all required components. Most likely all files
-and directories will have the correct file permissions, but if they don't,
-(re)set them using the following command in the `bolt/` directory:
-
-```bash
-chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
-```
-
-It depends on the exact server configuration if you will need to use `777` or
-if an other setting is better. If you wish to know for sure, ask your hosting
-provider.
-
 Setting up Bolt
----------------
+===============
 
 By default, Bolt is configured to use an SQLite database. You can
 [configure the database](#configuring-database), if you want to change this to
@@ -128,9 +31,9 @@ When the basic installation is finished, these are the files where you edit the 
 
   - `app/config/config.yml`  The file where all general configuration of your website is defined.
   - `app/config/contenttypes.yml` The definitions of your contenttypes, e.g. pages, blog items etc.
-  - `app/config/menu.yml` The file that contains the menu(s) for your website.  
+  - `app/config/menu.yml` The file that contains the menu(s) for your website.
   - `app/config/taxonomy.yml` Categories, chapters, tags etc. are defined here.
-  - `app/config/routing.yml` The file where you can define custom urls for you website. 
+  - `app/config/routing.yml` The file where you can define custom urls for you website.
   - `app/config/permissions.yml` Here you can specify groups, users, etc. For most websites, the default permissions settings will be just fine.
   - `app/config/extensions/` If you install extensions, their config files will be located in this directory.
 
@@ -230,11 +133,11 @@ file. Put all settings you share over all environments in the default
 Every setting which is different per environment, or which you do not want in
 version control (like database info), you put in `config_local.yml`. First
 `config.yml` is loaded and then `config_local.yml`, so  that `config_local.yml`
-can override any setting in `config.yml`. 
+can override any setting in `config.yml`.
 
 **Note:**
 Bolt will always load `config_local.yml` if it's available, so committing it to
-version control isn't recommended, and be sure not to deploy it to a server it 
+version control isn't recommended, and be sure not to deploy it to a server it
 is not needed on.
 
 <p class="tip"><strong>Tip:</strong> You might want to disable <code>debug</code> in
@@ -356,12 +259,12 @@ server {
 
     # Bolt backend access
     #
-    # NOTE: If you set a custom branding path, you will need to change '/bolt/' 
+    # NOTE: If you set a custom branding path, you will need to change '/bolt/'
     #       here to match
     location ~* /bolt/(.*)$ {
         try_files $uri $uri/ /index.php?$query_string;
     }
-    
+
     # Backend async routes
     location ~* /async/(.*)$ {
         try_files $uri $uri/ /index.php?$query_string;

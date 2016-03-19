@@ -1,4 +1,5 @@
-# Option 1: The easy way, using the command-line.
+Quick-install, using the command-line
+=====================================
 
 If you have command-line access, you can easily install Bolt by executing a few
 commands. First, create the directory where you want to install Bolt, if it

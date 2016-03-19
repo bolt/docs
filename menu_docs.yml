@@ -6,16 +6,17 @@ preface:
     introduction: Introduction
     about: About Bolt
     requirements: Requirements
-    installation:
-      title: Installation
-      items:
-        installation: "Installation"
-        installation/command-line: "The easy way, using the command-line"
-        installation/ftp: "The traditional way, using (S)FTP"
-        installation/git-checkout: "Doing a git checkout"
-        installation/composer: "Install with Composer"
-    updating: Updating
     screenshots: Screenshots
+installation:
+  title: Installation
+  items:
+    installation/installation: "Installation"
+    installation/command-line: "Using the command-line"
+    installation/composer: "Install with Composer"
+    installation/ftp: "The traditional way, using (S)FTP"
+    installation/git-clone: "Clone the git repository"
+    installation/advanced: "Advanced Installation options"
+    installation/updating: "Updating"
 working:
   title: Working with Bolt
   items:
@@ -78,27 +79,27 @@ storage:
     "storage/entity-metadata": "Entity Metadata"
     "storage/entity-transforms": "Hydration & Persistence"
     "storage/fields": "Fields & Field Types"
+howto:
+  title: "Howtos on various subjects"
+  items:
+    howto: "Howtos"
+    howto/installing-local-extensions: "Installing Local Extensions"
+    howto/resource-contenttype: "Making a 'resource' Contenttype"
+    howto/simple-menu: "Creating a Simple menu"
+    howto/upgrade-version-1-to-2: "Upgrading a Bolt 1.x install to 2.x"
+    howto/building-multilingual-websites: "Building Multilingual Websites with Bolt"
+    howto/select-field-type: "Getting the most out of the 'Select' fieldtype"
+    howto/resetting-a-password: "Resetting a password"
+    howto/using-php-built-in-web-server: "Running Bolt using PHP's built-in web server"
+    howto/performance-tips: "Performance and finetuning for Bolt websites"
+    howto/making-sure-htaccess-works: "Making sure .htaccess and mod_rewrite are working as they should"
+    howto/muti-site-setup: "Running Multiple Bolt sites from one source directory"
+    howto/curl-ca-certificates: "Setting Up cURL SSL/TLS Certificate Authority Certificates"
+    howto/sortingorder-in-contenttypes: "Sorting a contenttype with a 'sortorder'"
 other:
   title: Other Information
   items:
     manifesto: "The Bolt Manifesto"
-    howto:
-      title: "Howtos on various subjects"
-      items:
-        howto: "Howtos"
-        howto/installing-local-extensions: "Installing Local Extensions"
-        howto/resource-contenttype: "Making a 'resource' Contenttype"
-        howto/simple-menu: "Creating a Simple menu"
-        howto/upgrade-version-1-to-2: "Upgrading a Bolt 1.x install to 2.x"
-        howto/building-multilingual-websites: "Building Multilingual Websites with Bolt"
-        howto/select-field-type: "Getting the most out of the 'Select' fieldtype"
-        howto/resetting-a-password: "Resetting a password"
-        howto/using-php-built-in-web-server: "Running Bolt using PHP's built-in web server"
-        howto/performance-tips: "Performance and finetuning for Bolt websites"
-        howto/making-sure-htaccess-works: "Making sure .htaccess and mod_rewrite are working as they should"
-        howto/muti-site-setup: "Running Multiple Bolt sites from one source directory"
-        howto/curl-ca-certificates: "Setting Up cURL SSL/TLS Certificate Authority Certificates"
-        howto/sortingorder-in-contenttypes: "Sorting a contenttype with a 'sortorder'"
     locales: "Locales"
     nut: "Nut (command line utility)"
     maintenance-mode: "Maintenance (offline) mode"
