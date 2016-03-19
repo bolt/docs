@@ -14,8 +14,8 @@ jQuery(function($) {
         $(this).toggleClass('active');
     });
 
-    $('a.popup').magnificPopup({
-    type: 'image'
+    $('main .content a.popup').magnificPopup({
+        type: 'image'
         // other options
     });
 
@@ -31,10 +31,11 @@ jQuery(function($) {
         $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
     });
 
-    $('#tree1').tree({
+    var $tree = $('#tree1').tree({
         autoOpen: 0,
         saveState: 'boltmenu'
     });
+
     $('#tree1').bind(
         'tree.click',
         function(event) {
@@ -44,6 +45,7 @@ jQuery(function($) {
             if (theURL) {
                 location.href = theURL;
             }
+            $tree.tree('toggle', node);
         }
     );
 
@@ -68,30 +70,6 @@ jQuery(function($) {
         window.location = $("#version-changer select option:selected").val();
     })
 
-
-    $("#searchbox").select2({
-        placeholder: "Search …",
-        minimumInputLength: 3,
-        ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
-            url: prefix + "/search.php",
-            dataType: 'json',
-            quietMillis: 250,
-            data: function (term, page) {
-                q = term;
-                return {
-                    q: term, // search term
-                };
-            },
-            results: function (data, page) {
-                return { results: data.items };
-            },
-            cache: true
-        }
-    });
-
-    $('#searchbox').on("select2-selecting", function(e) {
-        window.location = prefix + "/" + e.val;
-    });
 
     //Zero Clipboard stuff..
     $('pre code').each(function(index) {
