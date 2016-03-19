@@ -15,7 +15,7 @@
 
         {{ source|raw }}
 
-        {% include '_sub_submenu.twig' with {'section': current } %}
+        {{ include('_sub_submenu.twig', {'section': current }) }}
 
         <div class="community-notice show-for-large">
             <hr>
