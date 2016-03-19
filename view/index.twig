@@ -31,15 +31,11 @@
         <nav id="sidebar-nav">
 
             <div id="tree1" data-url="/tree/{{version}}.json">
-
-                {{ dump(version) }}
-
                 <ul>
                 {% for key, item in menu %}
                     {{ macro.menu(key, item, version) }}
                 {% endfor %}
                 </ul>
-
             </div>
 
         </nav>
