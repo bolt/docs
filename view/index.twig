@@ -1,5 +1,7 @@
 {% extends '_master.twig' %}
 
+{% import '_macros.twig' as macro %}
+
 {% block content %}
 
     <div class="small-12 medium-12 large-9 columns content">
@@ -15,7 +17,7 @@
 
         {{ source|raw }}
 
-        {% include '_sub_submenu.twig' with {'section': current } %}
+        {{ include('_sub_submenu.twig', {'section': current }) }}
 
         <div class="community-notice show-for-large">
             <hr>
@@ -28,7 +30,13 @@
     <div class="small-12 medium-12 large-3 large-pull-9 end columns sidebar" id="sidebar">
         <nav id="sidebar-nav">
 
-            <div id="tree1" data-url="/tree/{{version}}.json"></div>
+            <div id="tree1" data-url="/tree/{{version}}.json">
+                <ul>
+                {% for key, item in menu %}
+                    {{ macro.menu(key, item, version) }}
+                {% endfor %}
+                </ul>
+            </div>
 
         </nav>
     </div>

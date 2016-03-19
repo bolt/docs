@@ -2,33 +2,55 @@
 
     {% if data is iterable %}
 
-      <table {% if linear %}class="linear"{% endif %}>
+        <table {% if linear %}class="linear"{% endif %}>
 
-      {% for row in data %}
-        <tr>
-        {% if loop.first %}
-          {% set cellcounter = row|length %}
-          {% set header = true %}
-          {% for cell in row %}
-            <th> {{ cell }} </th>
-          {% endfor %}
+        {% for row in data %}
+            <tr>
+            {% if loop.first %}
+                {% set cellcounter = row|length %}
+                {% set header = true %}
+                {% for cell in row %}
+                    <th> {{ cell }} </th>
+                {% endfor %}
 
-        {% else %}
+            {% else %}
 
-          {% for cell in row %}
-            <td> {{ cell|markdown }} </td>
-            {% if loop.last and (loop.index < cellcounter) %}
-              <td>&nbsp;</td>
+                {% for cell in row %}
+                    <td> {{ cell|markdown }} </td>
+                    {% if loop.last and (loop.index < cellcounter) %}
+                        <td>&nbsp;</td>
+                    {% endif %}
+                {% endfor %}
+
             {% endif %}
-          {% endfor %}
 
-        {% endif %}
-
-        </tr>
+            </tr>
         {% endfor %}
 
-      </table>
+        </table>
 
+    {% endif %}
+
+{% endmacro %}
+
+
+{% macro menu(key, item, version) %}
+
+    {% from _self import menu %}
+
+    {% if item is iterable %}
+
+        <li>
+            <strong>{{ item.title }}</strong>
+        </li>
+        {% for key, item in item.items %}
+            {{ menu(key, item, version) }}
+        {% endfor %}
+
+    {% else %}
+        <li>
+            <a href="/{{version}}/{{ key }}">{{ item }}</a>
+        </li>
     {% endif %}
 
 {% endmacro %}
