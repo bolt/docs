@@ -45,7 +45,7 @@ extensions:
       items:
         extensions/basics/about: "About"
         extensions/basics/basics: "Basics"
-        extensions/basics/config: "Creating a New Extension"
+        extensions/basics/creating: "Creating a New Extension"
         extensions/basics/testing: "Testing Your Extensions"
     building:
       title: "Intermediate"
