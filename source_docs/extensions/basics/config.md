@@ -181,5 +181,5 @@ Once you have the above file setup, make sure it is pushed up to your hosted
 repository then visit [extensions.bolt.cm](http://extensions.bolt.cm) to
 register your extension or theme on the Bolt Marketplace.
 
-See [the testing and debugging instructions](/extensions/testing) for
+See [the testing and debugging instructions](./extensions/testing) for
 further information about tagging and automated testing of your extension.

@@ -18,14 +18,14 @@ be accomplished:
 
 A Bolt extension has to follow a few strict rules, so it can be auto-loaded by
 Bolt and to make sure it won't interfere with other Bolt functionality or even
-other Extensions. 
+other Extensions.
 
 To do this, we have to keep the following rules:
  - Each extension has its own PSR-4 namespace.
  - If the extension has its own configuration, it should be in a `config/config.yml.dist` file in the extension folder.
  - The extension should come with a 'readme' file. It must be named `README.md`, and is written in the Markdown format.
  - The `extension` either extends `\Bolt\Extension\SimpleExtension`, or implements `\Bolt\Extension\ExtensionInterface`
- - The 'entry points' for callbacks and Twig functions and modifiers must be functions in the defined namespace. 
+ - The 'entry points' for callbacks and Twig functions and modifiers must be functions in the defined namespace.
    Additional code can be procedural or implemented in classes.
 
 To get the hang of how extensions work, it's best to have a look for other popular
@@ -42,7 +42,7 @@ must also be written in PHP. Bolt is built upon the awesome
 much of the functionality provided by Silex and the included components as
 possible. Don't re-invent the wheel, and things like that.
 
-See the chapter on [Bolt internals](/internals/bolt-internals) for a detailed overview of the
+See the chapter on [Bolt internals](./internals/bolt-internals) for a detailed overview of the
 provided Bolt functionality, Silex objects and included libraries.
 
 Bolt strives to adhere to [the PSR-2 coding style][psr2].
@@ -188,12 +188,12 @@ function initialize()
 
 Both of these functions take three parameters:
 
- - An absolute path to the desired .js or .css file. Use 
+ - An absolute path to the desired .js or .css file. Use
    `$this->app['resources']->getPath()` function to always get the correct
-   path, regardless of how Bolt is installed. See the [Paths section in Internals](/internals/bolt-
+   path, regardless of how Bolt is installed. See the [Paths section in Internals](./internals/bolt-
    internals#app8216paths8217) for more details.
  - An (optional) associative array:
-   - `late`     — Either `true` (end of the HTML `<body>`) or `false` (inside HTML `<head>`) 
+   - `late`     — Either `true` (end of the HTML `<body>`) or `false` (inside HTML `<head>`)
    - `priority` — Loading priority, any _lower_ value will get inserted before, while any _higher_ value will get inserted later.
    - `attrib`   — A string containing either/or 'defer', and 'async'
 
@@ -202,11 +202,11 @@ itself, this will cause breakage.
 
 There's a special function for adding jQuery to the outputted HTML. A lot of
 extensions might or might not require jQuery to function, and the developer of
-the HTML might have already included it. 
+the HTML might have already included it.
 
 If several extensions added additional jQuery includes, your HTML would quickly
 become a mess at best. Most likely it will break, because having more than one
-instance of jQuery might cause conflicts in your page. If your extension 
+instance of jQuery might cause conflicts in your page. If your extension
 requires jQuery, use the following:
 
 ```
@@ -219,7 +219,7 @@ function initialize()
 This will make sure jQuery is added to the outputted HTML, but only if it's not
 included by the theme developer already. It also will not be included more than
 once, even if several extensions have `addJquery()` in the
-`initialize()`-function. 
+`initialize()`-function.
 
 It will correctly detect jQuery if it's already present in the templates,
 whether the templates are using the minified version or not, and whether it's a
@@ -448,7 +448,7 @@ Further reading
 ---------------
 
 If you want to delve deeper into what you can and cannot do with extensions, see
-the chapter on [Bolt internals](/internals/bolt-internals) for a detailed
+the chapter on [Bolt internals](./internals/bolt-internals) for a detailed
 overview of the provided Bolt functionality, Silex objects and included
 libraries.
 

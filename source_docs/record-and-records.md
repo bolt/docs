@@ -65,7 +65,7 @@ Get the next and previous record:
 
 The next and previous functions allow for additional parameters. For example,
 you can base the next record on any field (this is `datepublish` by default),
-filtered by a `where` clause, see [using where](/content-fetching#using-where)
+filtered by a `where` clause, see [using where](./content-fetching#using-where)
 for more details.
 
 ```twig

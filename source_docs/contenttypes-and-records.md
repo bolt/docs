@@ -247,9 +247,9 @@ The available options are:
     [Fields Definition](#field-definitions) section below for details.
   - `taxonomy`: An array listing the different taxonomies used by this
     contenttype. For example `[ categories, tags ]`. See the page on
-    [Taxonomies](/taxonomies) for details.
+    [Taxonomies](./taxonomies) for details.
   - `relations`: An array listing the different relations available to this
-    contenttype. See the page on [Relations](/relationships) for details.
+    contenttype. See the page on [Relations](./relationships) for details.
   - `record_template`: The default template to use, when displaying a single
     Record of this Contenttype. The template itself should be located in your
     `theme/foo/` folder, in Bolt's root folder. This can be overridden on a
@@ -258,7 +258,7 @@ The available options are:
     overview of Records of this Contenttype. The template itself should be
     located in your `theme/foo/` folder, in Bolt's root folder.
   - `listing_records`: The amount of records to show on a single overview page
-    in the frontend. If there are more records, the results will be paginated  
+    in the frontend. If there are more records, the results will be paginated
   - `listing_sort`: The field used to sort the results on. You can reverse the
     order by adding a '-'. For example `title` or `-datepublish`.
   - `sort` (optional): The default sorting of this contenttype, in the overview
@@ -268,7 +268,7 @@ The available options are:
   - `show_on_dashboard` (optional): When set to `false` the contenttype will
     not appear in the 'Recently edited &hellip;' list on the dashboard page.
   - `show_in_menu` (optional): When set to `false` the contenttype will show
-    in a submenu instead of as a top level menu. Can also be set to a word or 
+    in a submenu instead of as a top level menu. Can also be set to a word or
     sentence to group contenttypes under different menus.
   - `default_status` (optional): Use this to set the default status for new
     records in this contenttype, i.e. `published`, `held`, `draft` or `timed`.
@@ -276,9 +276,9 @@ The available options are:
     contenttype should show up in search results.
   - `viewless` (optional): When set to `true`, routes will not be set for the
     Contenttype listing, or the records themselves. Useful for creating
-    [resource contenttypes](/howto/resource-contenttype).
+    [resource contenttypes](./howto/resource-contenttype).
   - `title_format` (optional): Is used to determine the format of the title in
-    the backend. For example if you have two fields for `firstname` and 
+    the backend. For example if you have two fields for `firstname` and
     `lastname` you might put `[ firstname, lastname ]` here.
   - `icon_many` (optional): A [Font Awesome](http://fortawesome.github.io/Font-
     Awesome/) icon to be used in the sidebar for this contenttype. For example:
@@ -286,13 +286,13 @@ The available options are:
   - `icon_one` (optional): A [Font Awesome](http://fortawesome.github.io/Font-
     Awesome/) icon to be used in the sidebar for a single record of this
     contenttype. For example: `fa:cube`.
-  - `allow_numeric_slugs` (optional, advanced): 
+  - `allow_numeric_slugs` (optional, advanced):
      By default, Bolt prefixes slugs purely numeric with the contenttype slug
      (e.g. `entry-123` for an entry with title `123`),
      in order to distinguish slugs from IDs.
      If this option is set to `true`, numeric slugs remain unprefixed.
-     Care has to be taken not to use [routes](/templates-routes) of the form `/{contenttype}/{id}`
-     for links in templates or for [fetching content](/content-fetching)!
+     Care has to be taken not to use [routes](./templates-routes) of the form `/{contenttype}/{id}`
+     for links in templates or for [fetching content](./content-fetching)!
 
 Field definitions
 -----------------
@@ -703,7 +703,7 @@ name of your record or array. In most templates, `{{ dump(record) }}` will work
 as a generic fallback for whatever the name of your record is.
 
 For detailed information on how to access the various fields and values in your
-templates, see the [Template tags](/templatetags) page.
+templates, see the [Template tags](./templatetags) page.
 
 Advanced: YAML Repeated Nodes
 -----------------------------

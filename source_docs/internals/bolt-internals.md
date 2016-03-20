@@ -19,42 +19,42 @@ regardless of whether the request is for a page in the 'backend', 'frontend' or
 
 There are four files that contain the controller collections, located in
 `src/Controllers/`: `Backend.php`, `Frontend.php`, `Async.php` and
-`Routing.php`. 
+`Routing.php`.
 
 As such, they are all in the `\Bolt\Controllers` namespace. They are 'set up'
-in `src/Application.php`. 
+in `src/Application.php`.
 
-* `Backend` rotues are all pretty straightforward. 
+* `Backend` rotues are all pretty straightforward.
 * `Async.php` routes are used for 'ajaxy' requests, like the
-'latest activity' widget on the dashboard. 
+'latest activity' widget on the dashboard.
 * `Routing` is the actual Controller that parses the routes found in `routing.yml`
-* `Frontend` contains the methods for all standard routes as defined in `routes.yml`. 
+* `Frontend` contains the methods for all standard routes as defined in `routes.yml`.
 
 You can modify the `routing.yml` to suit your own needs. Examples are included.
 
 Templating
 ----------
-All templating in Bolt is done through [Twig][twig]. 
+All templating in Bolt is done through [Twig][twig].
 
 Twig is a template library that's not only secure, fast and flexible, but it's
 also elegant and concise, so it's easy to use for both 'developer' and 'frontend'
-type persons. 
+type persons.
 
-Basically, everything that you can do 'vanilla' Twig, you can do in the Bolt 
+Basically, everything that you can do 'vanilla' Twig, you can do in the Bolt
 templates. We've added a few tags of our own. Browse
 `src/Twig/TwigExtension.php` and `src/Twig/SetcontentTokenParser.php`
 for details.
 
-More information on this subject can be found in [Templates and Routes](/templates-routes)
-and [Content in Templates](/content-in-templates).
+More information on this subject can be found in [Templates and Routes](../templates-routes)
+and [Content in Templates](../content-in-templates).
 
 The "Model"
 -----------
 The way Bolt handles its contenttypes is defined in the `contenttypes.yml` file,
-which in turn determines the data-structure of the website. 
+which in turn determines the data-structure of the website.
 
 Basically, whatever is defined in the contenttypes gets added as columns to the
-database that's configured in `config.yml`. 
+database that's configured in `config.yml`.
 
 Whenever the 'dashboard' is displayed, Bolt checks if the definitions in
 `contenttypes.yml` matches the database columns, and if it doesn't it urges
@@ -75,11 +75,11 @@ familiarize yourself with Silex, because when hacking the code or creating your
 own extensions, you can basically do whatever can be done in Silex in general.
 
 In the Bolt code, there is an ubiquitous `$app`, which is an instance of
-`Bolt\Application`, which extends `\Silex\Application`. Basically, this is 
+`Bolt\Application`, which extends `\Silex\Application`. Basically, this is
 'the application', and most of the components that are used in Bolt are created
-as services via Dependency Injection. 
+as services via Dependency Injection.
 
-If you want to know more about these subjects, we heartily recommend these 
+If you want to know more about these subjects, we heartily recommend these
 articles about Dependency Injection:
 
   - [An introduction to Pimple and Service Containers][intro]
@@ -92,7 +92,7 @@ All of these are created in `src/Application.php`. Read the code in that file,
 to get a feeling for what can be accessed through the `$app` object. Most of the
 services defined there are Symfony components, about which you can read on the
 Silex Documentation page on [Service Providers][service], or on the
-[Symfony Components page][comp]. 
+[Symfony Components page][comp].
 
 The next largest group are the Bolt components. These can be recognized by the
 `Bolt\` namespace. These components are autoloaded, and can be found in
@@ -154,7 +154,7 @@ Or, using the (global) shortcut:
 Like above, the `$variable` can be a normal variable, an object or whatever.
 
 Note that Bolt has built-in protection for when you're tyring to 'dump' Silex or
-Symfony objects like `$app` or a variable that's `\Bolt\Application`. 
+Symfony objects like `$app` or a variable that's `\Bolt\Application`.
 
 Since these would be too large to render because of internal references and
 recursion, they are not expanded further.
@@ -224,7 +224,7 @@ inspect the current values.
 The 'resources' object contains an instance of the `Bolt\Configuration\ResourceManager`
 class.
 
-This obejct is most useful for obtaining and managing references to paths, 
+This obejct is most useful for obtaining and managing references to paths,
 folders and links in your current website.
 
 File system paths are fetched/set by:
@@ -288,11 +288,11 @@ URL paths available are:
 ### $app['db']
 
 The 'db' object is a Doctrine Database Abstraction Layer object. Use it to query
-"stuff" in the database. 
+"stuff" in the database.
 
 Because of the DBAL, you don't need to worry about whether the site is set up as
-MySQL, PostgreSQL or SQLite. Just make sure to use SQL/DQL that Doctrine 
-understands. For more information, see this page on the Doctrine DBAL: 
+MySQL, PostgreSQL or SQLite. Just make sure to use SQL/DQL that Doctrine
+understands. For more information, see this page on the Doctrine DBAL:
 [Data Retrieval And Manipulation][dbal].
 
 Example:
@@ -386,7 +386,7 @@ Instance of `Bolt\Cache`. See `src/Cache.php` for details.
 ### $app['extensions']
 
 This is an instance of `Bolt\Extensions`. See the page on
-[Bolt extensions](/extensions/introduction) for details.
+[Bolt extensions](../extensions/introduction) for details.
 
 ### $app['twig']
 
@@ -394,7 +394,7 @@ This is an instance of Twig. A lot more information on this can be found both in
 the Bolt documentation, as well as on the Twig website:
 
   - The [Twig website](http://twig.sensiolabs.org/)
-  - [Templates in Bolt](/templates-routes)
+  - [Templates in Bolt](../templates-routes)
 
 Note: You should not directly use this object, normally. Instead, use
 `$app['render']`. See below.
@@ -408,7 +408,7 @@ Most controllers return a rendered Twig template as a result, but you can also
 render a (sub)template as HTML, process it further if needed, and return that as
 part of an extension or callback.
 
-Inspect the various controllers for details. To use a template in your own code 
+Inspect the various controllers for details. To use a template in your own code
 as part of the result, see this example:
 
 ```
@@ -446,8 +446,8 @@ Bolt outputs snippets in the HTML for includes like jQuery and the
 `frontend`, and not in `async` or `backend` pages. Extensions that use `addCSS`
 or `addJavascript` are also affected by this.
 
-When creating an extension or custom controller, the debug is not added by 
-default. In your code you can enable or disable the output of these snippets 
+When creating an extension or custom controller, the debug is not added by
+default. In your code you can enable or disable the output of these snippets
 using the following:
 
 ```

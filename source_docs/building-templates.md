@@ -77,11 +77,11 @@ version of the title. Bolt will try to use `foo.twig` as the template to render
 the page. You can change this by either defining another template in
 `contenttypes.yml`, or using a 'template select' field in the contenttype. More
 information about this can be found in the chapter
-[Working with Content and Content types](/contenttypes-and-records).
+[Working with Content and Content types](./contenttypes-and-records).
 
-Using your themes `theme.yml` you can also provide fallbacks for certain settings 
-of the main `config.yml`. These are useful when building themes and you want to 
-provide your own templates. Keep in mind that these are overridden by the main 
+Using your themes `theme.yml` you can also provide fallbacks for certain settings
+of the main `config.yml`. These are useful when building themes and you want to
+provide your own templates. Keep in mind that these are overridden by the main
 `config.yml` if the same key exists there. These are (provided with examples):
 ```
 homepage_template: index.twig
@@ -94,9 +94,9 @@ maintenance_template: maintenance.twig
 `listing_template` is used for both contenttype listing and taxonomy listing unless
 one of the is defined in the main `config.yml`.
 
-By using the `template_directory` setting in your themes theme.yml you can 
+By using the `template_directory` setting in your themes theme.yml you can
 choose the location of the templates within your theme structure. For example to
-place all your templates in a directory called `twig` you would add the 
+place all your templates in a directory called `twig` you would add the
 following to your theme's theme.yml:
 ```
 template_directory: twig
@@ -257,7 +257,7 @@ and even *using the same fields* between these pages would provide a limitation.
 For example, your home page may have many different sections with some complex markup
 between them. All of your other pages have a single `body` html field, which really won't
 suffice. You could create a new contenttype, or use [resource
-contenttypes](/howto/resource-contenttype), but this isn't really an elegent solution.
+contenttypes](./howto/resource-contenttype), but this isn't really an elegent solution.
 
 Template specific fields allow you to define extra fields to use when a template is
 chosen for a record. They're defined in the theme's `theme.yml`, and it's just like
@@ -326,25 +326,25 @@ Building Templates for the Live Editor
 
 
 Bolt comes with built in support for editing records as they'll appear on your website.
-It requires a little bit of set up, but once it's ready, the experience will 
+It requires a little bit of set up, but once it's ready, the experience will
 look something like this:
 
 <a href="/files/live-editor-demo.gif" class="popup">
 <img src="/files/live-editor-demo.gif" alt="The Live Editor" width="500" />
 </a>
 
-<p class="tip"> <strong>Tip:</strong> the default Bolt-2014 theme is live-editor enabled. 
+<p class="tip"> <strong>Tip:</strong> the default Bolt-2014 theme is live-editor enabled.
 If you're unsure about how this all works, take a look at its source code in your
 Bolt installation.</p>
 
 In any record that has a corresponding page (which means `viewless: false` -
-the default for the contenttype), you can make any *HTML*, *text* or *textarea* field 
+the default for the contenttype), you can make any *HTML*, *text* or *textarea* field
 editable. When it is editable, clicking on the "live edit" button while editing that
-record will open an inline, live editor. Any field that is editable will have a yellow 
-outline around it. After making changes, an editor can click "close editor" at the top 
+record will open an inline, live editor. Any field that is editable will have a yellow
+outline around it. After making changes, an editor can click "close editor" at the top
 right and those changes will propagate to their relevant fields in the regular editor.
 
-To enable a field to be editble, Bolt has to know what field to map it to. It requires a 
+To enable a field to be editble, Bolt has to know what field to map it to. It requires a
 very small and easy change to your theme code. For the live editor to work, **the field
 must be the only contents of the element it is in**. Then, you just add a `data-bolt-field`
 attribute set to the name of the field. For example, if you have a title field set up in
