@@ -44,8 +44,8 @@ and `src/ExtensionNameExtension.php`.
 
  1. Change the namespace at the top of `src/ExtensionNameExtension.php` to your
     own.
- 2. Rename `src/ExtensionNameExtension.php` to match your extension's name **plus** the "Extension" prefix
-	 * e.g. `src/KoalaCatcherExtension.php` 
+ 2. Rename `src/ExtensionNameExtension.php` to match your extension's name **plus** 
+    the "Extension" suffix, e.g. `src/KoalaCatcherExtension.php` 
  3. In `composer.json` change the name setting to your extension name eg:
     `myvendorname/extensionname`. For clarity, this should match the foldernames
     you've created a little earlier
