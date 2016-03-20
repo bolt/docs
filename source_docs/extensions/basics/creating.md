@@ -63,7 +63,7 @@ about the configuration.
 When you want a starter extension with more example code, create a new one from this repository instead of the above one.
 
 ```
-composer create-project --no-install bolt/bolt-extension-starter-extended:~2.0 <newextname>
+composer create-project --no-install bolt/bolt-extension-starter-extended:^3.0 <newextname>
 ```
 
 
