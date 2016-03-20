@@ -50,8 +50,6 @@ jQuery(function($) {
     );
 
     $('#jqtree-collapse-all').click(function() {
-        console.log('klak');
-
         var tree = $tree.tree('getTree');
 
         tree.iterate(function(node, level) {
@@ -67,7 +65,6 @@ jQuery(function($) {
     });
 
     $('#jqtree-expand-all').click(function() {
-        console.log('klik');
         var tree = $tree.tree('getTree');
 
         tree.iterate(function(node, level) {
