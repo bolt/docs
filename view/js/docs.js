@@ -49,6 +49,39 @@ jQuery(function($) {
         }
     );
 
+    $('#jqtree-collapse-all').click(function() {
+        console.log('klak');
+
+        var tree = $tree.tree('getTree');
+
+        tree.iterate(function(node, level) {
+            if (node.hasChildren()) {
+                // This will close the folder
+                $tree.tree('closeNode', node);
+                return false;
+            }
+
+            return true;
+        });
+
+    });
+
+    $('#jqtree-expand-all').click(function() {
+        console.log('klik');
+        var tree = $tree.tree('getTree');
+
+        tree.iterate(function(node, level) {
+            if (node.hasChildren()) {
+                // This will open the folder
+                $tree.tree('openNode', node);
+                return false;
+            }
+
+            return true;
+        });
+
+    });
+
 
 
     // Update the number of stars. Stolen from foundation.zurb.com.
