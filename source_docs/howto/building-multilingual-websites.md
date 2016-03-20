@@ -42,7 +42,7 @@ Defining Contenttypes
 ---------------------
 
 An important step when making websites, is to properly [define your contenttypes
-](/contenttypes-and-records). Since contenttypes are defined in YAML, there are
+](../contenttypes-and-records). Since contenttypes are defined in YAML, there are
 some handy tricks you can apply. YAML provides node anchors (`&`) and references
 (`*`) for repeated nodes. So once the fields of a contenttype are defined, you
 can simply reference them. Be sure that the anchor is defined before it is used.
@@ -367,7 +367,7 @@ Set the correct locale and call the function `initLocale` to apply a new locale.
 {{ app.initLocale() }}
 ```
 
-When outputting dates, use the [localdate filter](/templatetags#localdate). Note
+When outputting dates, use the [localdate filter](../templatetags#localdate). Note
 that this is only useful if the date structure is identical for every language,
 which is not always the case. You'll want to use a simple `if` statement for
 each exception.
@@ -431,7 +431,7 @@ reusable functions in Twig.</p>
 
 ### Boilerplate Master Template
 
-Check out the [boilerplate template](/howto/boilerplate-for-multilingual-websites)
+Check out the [boilerplate template](./boilerplate-for-multilingual-websites)
 that applies most of the abovementioned tricks to kickstart your theme for your
 multilingual site.
 

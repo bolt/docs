@@ -29,8 +29,8 @@ implement things like Google Analytics trackers, jQuery plugins and such. To
 create a working site out of your static HTML, you'll need to know about how
 Bolt uses Content and Contenttypes, and how to make templates using Twig.
 Information about those topics can be found in the chapters
-[Contenttypes and Records](/contenttypes-and-records) and
-[Building templates](/building-templates).
+[Contenttypes and Records](./contenttypes-and-records) and
+[Building templates](./building-templates).
 
 With creating Bolt we wanted to focus on creating something simple,
 straightforward and enjoyable. Bolt concentrates on being a content management

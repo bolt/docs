@@ -30,6 +30,12 @@
     <div class="small-12 medium-12 large-3 large-pull-9 end columns sidebar" id="sidebar">
         <nav id="sidebar-nav">
 
+            <p class='collapse-nodes'>
+                [
+                <a href='#' id='jqtree-collapse-all'>Collapse all</a> |
+                <a href='#' id='jqtree-expand-all'>Expand all</a>
+                ]
+            </p>
             <div id="tree1" data-url="/tree/{{version}}.json">
                 <ul>
                 {% for key, item in menu %}

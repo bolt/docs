@@ -4079,6 +4079,9 @@ a.toplink {
     a.toplink {
       display: none; } }
 
+p.collapse-nodes {
+  font-size: 14px; }
+
 /* ------------ STUFF -------------- */
 span.desktop {
   display: none; }
