@@ -36,7 +36,7 @@ templating:
     content-paging: "Paging content"
     content-search: "Implementing Search"
     templatetags: "Bolt template tags"
-extending:
+extensions:
   title: "Extending Bolt"
   items:
     extensions/introduction: "Introduction to Bolt Extensions"

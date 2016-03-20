@@ -54,3 +54,22 @@
     {% endif %}
 
 {% endmacro %}
+
+{% macro submenu(items, version) %}
+
+    {% from _self import submenu %}
+
+    <ul>
+        {% for link, name in items %}
+            {% if name.items is defined %}
+                <li><strong>{{ name.title }}</strong>
+                    {{ submenu(name.items, version) }}
+                </li>
+            {% else %}
+                <li><a href="/{{ version }}/{{link}}">{{name}}</a></li>
+            {% endif %}
+
+        {% endfor %}
+    </ul>
+
+{% endmacro %}

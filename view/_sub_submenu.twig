@@ -1,8 +1,9 @@
+{% set section = section|split('/')|first %}
 
-{% if menu[section] is defined %}
-<ul>
-    {% for link,name in menu[section] %}
-    <li><a href="{{ prefix|default('') }}/{{link}}">{{name}}</a></li>
-    {% endfor %}
-</ul>
+{% if attribute(menu[section], 'items') is defined %}
+    <hr>
+    <h3>
+        Other pages in this section:
+    </h3>
+    {{ macro.submenu(attribute(menu[section], 'items'), version) }}
 {% endif %}
