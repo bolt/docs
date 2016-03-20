@@ -74,7 +74,7 @@ The end result looking something like this
         "packagist": false
     },
     "provide": {
-        "bolt/bolt": "2.0.0"
+        "bolt/bolt": "3.0.0"
     },
     "scripts": {
         "post-package-install": "Bolt\\Composer\\ExtensionInstaller::handle",
@@ -163,6 +163,6 @@ on the extensions install window.
 [profile]: http://extensions.bolt.cm/profile
 [semver]: http://semver.org/
 [ext]: http://extensions.bolt.cm
-[starter]: ./config#using-starter-package
+[starter]: /extensions/basics/about#getting-started
 [gh]: https://github.com
 [bb]: https://bitbucket.com
