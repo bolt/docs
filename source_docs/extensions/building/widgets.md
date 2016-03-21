@@ -22,7 +22,7 @@ To register a widget for use in an extension, use the following.
             ->setDefer(true)
         ;
 
-        return [ $$widgetObj ];
+        return [ $widgetObj ];
     }
 ```
 
