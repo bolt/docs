@@ -24,7 +24,7 @@ Widgets is the 'base widget', which can be installed directly from Bolt's
 
 Setting up a widget usually consists of two parts:
 
- - Configuring the widget to assign it to a position, a named areat in the
+ - Configuring the widget to assign it to a position, being a named area in the
    template, where it's allowed to be shown.
  - Adding a widget position to your template or theme, making the widget show
    up in that position.
