@@ -65,8 +65,9 @@ Styling widgets in your theme should be minimal. Every widget is rendered in a
 container that looks like this:
 
 ```
-<div class='widget {{ widget.class }}' id='widget-{{ widget.key }}' data-key='{{ widget.key }}'>
-  [ Widget content goes here ]
+<div class='widget {{ widget.class }}' id='widget-{{ widget.key }}'
+    data-key='{{ widget.key }}'>
+        [ Widget content goes here ]
 </div>
 ```
 
@@ -132,6 +133,12 @@ This function takes an optional second argument for the 'zone':
 `countwidgets('dashboard_top', 'backend')`. Zone must be either `frontend` or
 `backend`.
 
+Implementing widgets as extensions
+----------------------------------
+
+See the page [Extension Building: Creating widgets][ext], for more information.
+
 
 [boltext]: http://extensions.bolt.cm/view/082a7153-8205-11e5-86fe-396a68cabe59
 [read]: https://github.com/bolt/base-widget/blob/master/README.md
+[ext]: ./extensions/building/widgets

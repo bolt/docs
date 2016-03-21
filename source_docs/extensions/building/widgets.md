@@ -11,15 +11,19 @@ In Bolt you can add widgets to both the frontend as well as the backend of the a
 To register a widget for use in an extension, use the following.
 
 ```
-    $widget = new \Bolt\Asset\Widget\Widget();
-    $widget
-        ->setZone('frontend')
-        ->setLocation('..')
-        ->setCallback([$this, 'functionName'])
-        ->setCallbackArguments([])
-        ->setDefer(true)
-    ;
-    $this->addWidget($widget);
+    protected function registerAssets()
+    {
+        $widgetObj = new \Bolt\Asset\Widget\Widget();
+        $widgetObj
+            ->setZone('frontend')
+            ->setLocation('..')
+            ->setCallback([$this, 'functionName'])
+            ->setCallbackArguments([])
+            ->setDefer(true)
+        ;
+
+        return [ $$widgetObj ];
+    }
 ```
 
 If `defer` is true, the rendering of the widget is done in a seperate request,
@@ -37,6 +41,55 @@ authentication of a widget that is rendered 'defered' via Ajax.
 Note: You should not use 'defer' for the `login_top`, `login_middle` and
 `login_bottom` positions. If you use defer on those, they will not show up when
 you're not already logged on.
+
+Locations
+---------
+
+Commonly used widget positions for the frontend are:
+
+ - main_top
+ - main_break
+ - main_bottom
+ - aside_top
+ - aside_middle
+ - aside_bottom
+ - footer
+
+
+Defined positions for the backend are:
+
+ - dashboard_aside_top
+ - dashboard_aside_middle
+ - dashboard_aside_bottom
+ - dashboard_below_header
+ - dashboard_bottom
+ - overview_aside_top
+ - overview_aside_middle
+ - overview_aside_bottom
+ - overview_below_header
+ - overview_bottom
+ - editcontent_aside_top
+ - editcontent_aside_middle
+ - editcontent_aside_bottom
+ - editcontent_below_header
+ - editcontent_bottom
+ - files_below_header
+ - files_bottom
+ - editfile_below_header
+ - editfile_bottom
+ - login_top
+ - login_middle
+ - login_bottom
+
+Styling widgets, using CSS
+--------------------------
+
+See the page [Using Widgets][widgets], for more information.
+
+Using widgets in templates / themes
+-----------------------------------
+
+See the page [Using Widgets][widgets], for more information.
 
 Examples
 --------
@@ -56,7 +109,6 @@ Initialise the widget:
             ->setLocation('footer')
             ->setCallback([$this, 'backendButton'])
         ;
-        $this->addWidget($widget);
 ```
 
 And add the callback function
@@ -86,7 +138,6 @@ Add the widget:
             ->setLocation('dashboard_aside_top')
             ->setCallback([$this, 'backendDashboard'])
         ;
-        $this->addWidget($widget);
 ```
 
 Add the callback function:
@@ -140,6 +191,6 @@ directly from Bolt's 'Extras' menu. More information about the extension can be
 found on the [Bolt extensions website][boltext]. The full [readme can be found
 here][read].
 
-
+[widgets]: ../../widgets
 [boltext]: http://extensions.bolt.cm/view/082a7153-8205-11e5-86fe-396a68cabe59
 [read]: https://github.com/bolt/base-widget/blob/master/README.md
