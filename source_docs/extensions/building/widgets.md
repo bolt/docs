@@ -45,6 +45,14 @@ you're not already logged on.
 Locations
 ---------
 
+You are free to choose any name for the position in the 'frontend', but it is
+good practice to stick with the default names if possible. This way it'll be
+easier for developers to use extensions in your theme, without having to dig
+through the template code to find which widget areas are defined.
+
+For the 'backend', you should stick to the names listed below, because these
+are the only ones that are used.
+
 Commonly used widget positions for the frontend are:
 
  - main_top
