@@ -20,7 +20,7 @@ template that you would use in the 'main' template. You can also use `include`
 inside the included templates.
 
 ```
-{% include '_header.twig' %}
+{{ include('_header.twig') }}
 ```
 
 For more information, see [include][inc].
@@ -216,6 +216,8 @@ Example 2: Using in `setcontent`
 </ul>
 ```
 
+See: [`for` in the Twig documentation][for].
+
 ### dump()
 
 ```
@@ -231,7 +233,24 @@ For more info on debugging your Bolt site, see the chapter on
 true</code> in your <code>config.yml</code> file. Otherwise the
 <code>dump()</code> will output nothing at all.</p>
 
+### switch
 
+This Twig tag implements a `switch` statement, like the one present in
+[PHP][switch] and many other programming languages. It allows you to
+'clean up' a list of if / elseif / else statements, in a more concise
+way. For example:
+
+```
+{% set foo = 1 %}
+{% switch foo %}
+  {% case 1 %}
+    Foo was equal to the number one.
+  {% case 2 %}
+    Foo was two.
+  {% default %}
+    This is the default fallback.
+{% endswitch %}
+```
 
 Twig Filters
 ------------
@@ -640,10 +659,11 @@ You can use this, to output a friendly warning to users of the templates:
 *name* of the extension. Don't add quotes!</p>
 
 [twig]: http://twig.sensiolabs.org/doc/templates.html
-[inc]: http://twig.sensiolabs.org/doc/tags/include.html
+[inc]: http://twig.sensiolabs.org/doc/functions/include.html
 [inheritance]: http://twig.sensiolabs.org/doc/templates.html#template-inheritance
 [number]: http://twig.sensiolabs.org/doc/filters/number_format.html
 [popup]: http://dimsemenov.com/plugins/magnific-popup/
 [strftime]: http://php.net/manual/en/function.strftime.php
 [date]: http://php.net/manual/en/function.date.php
-
+[for]: http://twig.sensiolabs.org/doc/tags/for.html
+[switch]: http://php.net/manual/en/control-structures.switch.php
