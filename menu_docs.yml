@@ -35,6 +35,7 @@ templating:
     content-fetching: "Fetching content"
     content-paging: "Paging content"
     content-search: "Implementing Search"
+    widgets: "Using widgets"
     templatetags: "Bolt template tags"
 extensions:
   title: "Extending Bolt"
@@ -55,6 +56,7 @@ extensions:
         extensions/building/web-assets: "Web Assets (CSS, JavaScript, Snippets & Widgets)"
         extensions/building/controllers-routes: "Controllers & Routes"
         extensions/building/admin-menus: "Back-end Menu Items"
+        extensions/building/widgets: "Creating widgets"
     advanced:
       title: "Advanced"
       items:
