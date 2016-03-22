@@ -18,6 +18,13 @@ installation:
     installation/advanced: "Advanced Installation options"
     installation/updating: "Updating"
     installation/permissions: "File system permissions"
+configuration:
+  title: Configuration
+  items:
+    configuration/introduction: "Setting up Bolt"
+    configuration/database: "Database Configuration"
+    configuration/web-server-apache: "Apache Configuration"
+    configuration/web-server-nginx: "Nginx Configuration"
 working:
   title: Working with Bolt
   items:
