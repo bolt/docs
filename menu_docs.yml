@@ -17,6 +17,7 @@ installation:
     installation/install-git-clone: "Clone the git repository"
     installation/advanced: "Advanced Installation options"
     installation/updating: "Updating"
+    installation/permissions: "File system permissions"
 working:
   title: Working with Bolt
   items:
