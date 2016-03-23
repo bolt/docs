@@ -8,7 +8,6 @@ ul.jqtree-tree {
 
     ul.jqtree_common {
         list-style: none outside;
-        margin-left: 0;
         margin-right: 0;
         margin-bottom: 0;
         padding: 0;
@@ -17,17 +16,13 @@ ul.jqtree-tree {
     }
 
     ul.jqtree_common li {
-        list-style: none;
-        margin-left: 16px !important;
+        list-style: disc outside;
+        margin-left: 21px !important;
     }
 
-    ul.jqtree_common li li {
-        list-style: disc outside !important;
-        margin-left: 40px !important;
-
-        .jqtree-title {
-            margin-left: 0;
-        }
+    ul.jqtree_common li.jqtree-folder {
+        list-style: none outside;
+        margin-left: 0px !important;
     }
 
     li.jqtree-closed > ul.jqtree_common {
@@ -71,7 +66,7 @@ ul.jqtree-tree {
     .jqtree-title {
         color: #CCC;
         vertical-align: middle;
-        margin-left: 1.5em;
+        // margin-left: 1.5em;
 
         &.jqtree-title-folder {
             margin-left: 0;
@@ -137,10 +132,10 @@ ul.jqtree-tree {
         box-sizing: content-box;
     }
 
-    li.jqtree-selected > .jqtree-element span,
-    li.jqtree-selected > .jqtree-element:hover span {
+    li.jqtree-selected,
+    li.jqtree-selected:hover {
         background-color: rgba(255, 255, 255, 0.1);
-        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
         color: #FFF;
     }
 
