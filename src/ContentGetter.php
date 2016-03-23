@@ -177,10 +177,31 @@ class ContentGetter
         $this->menucounter++;
 
         return [
-            'id'       => $this->menucounter . '-' . $this->makeSlug($menu['title']),
-            'label'    => $menu['title'],
-            'children' => $children
+            'id'            => $this->menucounter . '-' . $this->makeSlug($menu['title']),
+            'label'         => $menu['title'],
+            'childrenlinks' => $this->findLinks($children),
+            'children'      => $children
         ];
+    }
+
+    /**
+     * Helper function to build an array of links, recursively.
+     */
+    private function findLinks($arr)
+    {
+        $links = [];
+
+        if (is_array($arr)) {
+            foreach($arr as $item) {
+                if (isset($item['url'])) {
+                    $links[] = $item['url'];
+                } else {
+                    $links = array_merge($links, $this->findLinks($item['children']));
+                }
+            }
+        }
+
+        return $links;
     }
 
     /**

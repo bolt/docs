@@ -31,9 +31,40 @@ jQuery(function($) {
         $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
     });
 
+// // test: 33-basics
+// var node = $tree.tree('getNodeById', '33-basics');
+// console.log('selected', $tree.tree('selectNode', node));
+
+//         $tree.tree('openNode', node);
+
+    console.log('window.location.pathname', window.location.pathname);
+
+    var pathname = window.location.pathname;
+
     var $tree = $('#tree1').tree({
-        autoOpen: 0,
-        saveState: 'boltmenu'
+        autoOpen: 1,
+        saveState: 'boltmenu',
+        onCreateLi: function(node, $li) {
+            // console.log(node.childrenlinks);
+            // Append a link to the jqtree-element div.
+            // The link has an url '#node-[id]' and a data property 'node-id'.
+            if (node.url == pathname) {
+                $li.addClass('jqtree-selected');
+            } else {
+                $li.removeClass('jqtree-selected');
+            }
+
+            if (typeof node.childrenlinks != 'undefined' && node.childrenlinks.indexOf(pathname) >= 0) {
+                console.log("jaaa", pathname, node.childrenlinks);
+                $tree.tree('openNode', node);
+                $li.addClass('jqtree-selected');
+            }
+
+            //$li.find('.jqtree-element').append(
+            //    '&lt;a href="#node-'+ node.id +'" class="edit" data-node-id="'+
+            //    node.id +'"&gt;edit&lt;/a&gt;'
+            //);
+        }
     });
 
     $('#tree1').bind(
@@ -78,6 +109,9 @@ jQuery(function($) {
         });
 
     });
+
+
+
 
 
 
