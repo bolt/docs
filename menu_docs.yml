@@ -11,12 +11,13 @@ installation:
   title: Installation
   items:
     installation/installation: "Installation"
-    installation/command-line: "Using the command-line"
-    installation/composer: "Install with Composer"
-    installation/ftp: "The traditional way, using (S)FTP"
-    installation/git-clone: "Clone the git repository"
+    installation/install-command-line: "Using the command-line"
+    installation/install-composer: "Install with Composer"
+    installation/install-sftp: "The traditional way, using (S)FTP"
+    installation/install-git-clone: "Clone the git repository"
     installation/advanced: "Advanced Installation options"
     installation/updating: "Updating"
+    installation/permissions: "File system permissions"
 working:
   title: Working with Bolt
   items:
