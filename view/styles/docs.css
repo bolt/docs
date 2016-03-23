@@ -13,19 +13,16 @@ ul.jqtree-tree {
   line-height: 1.5em; }
   ul.jqtree-tree ul.jqtree_common {
     list-style: none outside;
-    margin-left: 0;
     margin-right: 0;
     margin-bottom: 0;
     padding: 0;
     display: block; }
   ul.jqtree-tree ul.jqtree_common li {
-    list-style: none;
-    margin-left: 16px !important; }
-  ul.jqtree-tree ul.jqtree_common li li {
-    list-style: disc outside !important;
-    margin-left: 40px !important; }
-    ul.jqtree-tree ul.jqtree_common li li .jqtree-title {
-      margin-left: 0; }
+    list-style: disc outside;
+    margin-left: 21px !important; }
+  ul.jqtree-tree ul.jqtree_common li.jqtree-folder {
+    list-style: none outside;
+    margin-left: 0px !important; }
   ul.jqtree-tree li.jqtree-closed > ul.jqtree_common {
     display: none; }
   ul.jqtree-tree li.jqtree_common {
@@ -50,8 +47,7 @@ ul.jqtree-tree {
     position: relative; }
   ul.jqtree-tree .jqtree-title {
     color: #CCC;
-    vertical-align: middle;
-    margin-left: 1.5em; }
+    vertical-align: middle; }
     ul.jqtree-tree .jqtree-title.jqtree-title-folder {
       margin-left: 0; }
   ul.jqtree-tree li.jqtree-folder {
@@ -93,10 +89,10 @@ ul.jqtree-tree {
     border-radius: 6px;
     margin: 0;
     box-sizing: content-box; }
-  ul.jqtree-tree li.jqtree-selected > .jqtree-element span,
-  ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover span {
+  ul.jqtree-tree li.jqtree-selected,
+  ul.jqtree-tree li.jqtree-selected:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
     color: #FFF; }
   ul.jqtree-tree .jqtree-moving > .jqtree-element .jqtree-title {
     outline: dashed 1px #0000ff; }
