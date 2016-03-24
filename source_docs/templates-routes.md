@@ -89,12 +89,9 @@ The easiest way to add your own is to follow the examples defined in the
 distributed `routing.yml.dist` file. The order of the routes is important
 because it is a first-come first-serve architecture. So if you add your own
 contenttype routes it will probably need to be defined before the general
-**contentlink** route.
+**contentlink** route. Some routing examples are listed below.
 
-### Some routing examples
-
-
-#### Make old `.html` pages work
+### Make old `.html` pages work
 
 In this example we add routes to make old `/contact.html` links work with your
 new Bolt system.
@@ -107,8 +104,7 @@ oldpages:
     slug:       '[a-z0-9-_]+'
 ```
 
-
-#### Host requirement
+### Host requirement
 
 In this example we use the host requirement to show a specific page on the home
 of a particular host. The _defaults_ are set to the regular record-action with a
@@ -121,8 +117,7 @@ example:
   host:     'example.mydomain.org'
 ```
 
-
-#### Contenttype overrides
+### Contenttype overrides
 
 This case overrides the default routing for contenttype **page**. Bolt will no
 longer create `/page/{slug}` links but will now create `/{slug}` routes. The old
@@ -149,8 +144,7 @@ pagebinding:
   contenttype:    pages
 ```
 
-
-#### Single record override
+### Single record override
 
 This example overrides a single record to a specific URL. Useful if you only
 want to exempt a few pages and not a complete contenttype. Don't forget to add
@@ -164,8 +158,7 @@ aboutbinding:
   recordslug:     page/about
 ```
 
-
-#### Filesystem based page generation
+### Filesystem based page generation
 
 There is a way to configure the router to generate statically stored content.
 For the `Bolt\Controllers\Frontend::template` default controller can be assigned
@@ -179,8 +172,7 @@ templatebinding:
   	defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: 'mytemplate' }
 ```
 
-
-#### YAML description of a routing entry
+### YAML description of a routing entry
 
 The complete format of a single route in YAML is as follows:
 
@@ -196,7 +188,6 @@ bindname:
   host:               hostname            # optional
   contenttype:        contenttype         # optional
 ```
-
 
 Explanation of each argument:
 
@@ -216,7 +207,8 @@ Explanation of each argument:
   - `contenttypeslug` - if this route represent a new route for a contenttype,
     the contenttype should be specified.
 
-##### Path
+Path
+----
 
 You are free to specify your own parameters, however when you are adding routes
 for contenttypes or recordslugs you are limited to which parameters you can add.
@@ -229,7 +221,8 @@ fields from a contenttype can be used as a parameter:
   - **datecreated** - only the date part is returned (so yyyy-mm-dd)
   - **datepublish** - only the date part is returned (so yyyy-mm-dd)
 
-##### Required regular expressions
+Required regular expressions
+----------------------------
 
 When the routing is processed no content has been loaded yet, so validation
 cannot be based on actual database checks. Therefore the check is purely a

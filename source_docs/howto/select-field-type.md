@@ -222,7 +222,7 @@ If the list is growing longer, there are a few ways to make it more manageable:
    if you have a long list, and you need to show them all to the user, raise
    this limit.
 
-####Filtering the results
+### Filtering the results
 
 Finally you can pass filters to the query using the `filter` option. For a full
 reference of what can be passed to a where filter you can see the

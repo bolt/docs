@@ -123,7 +123,7 @@ This highlights another change, that you will need to take one of two approaches
 to refactor depending on what your original goal was in extending the native
 routing.
 
-#### If you want to add additional routing requirements
+### If you want to add additional routing requirements
 
 If all you need to do is provide additional requirements (or override the
 existing ones) then you are best served by extending or replacing the new
@@ -142,7 +142,7 @@ Note that you'll also need to check your `routing.yml` file and make sure you
 use the new service syntax `controller.requirement:myCustomCheck` rather than
 the old-style static class calls.
 
-#### If you want to mount additional controllers
+### If you want to mount additional controllers
 
 The `routing.yml` file can now point to a service to use as a controller so the
 best advice is to modify your routing file to point to a custom mounted service
@@ -160,7 +160,6 @@ The routing file will then look for a controller mounted to
 method. You will need to make sure that this mounted service implements
 `ControllerProviderInterface` and then you can safely remove any manual calls to
 `$app->mount()`.
-
 
 ### Console
 
@@ -187,10 +186,6 @@ The most common error will be:
 
 You can safely rename `getName()` to `getId()` or remove the method altogether
 and allow Bolt to automatically name your extension.
-
-
-
-
 
 
 [1]: http://extensions.bolt.cm/bolt3-ready

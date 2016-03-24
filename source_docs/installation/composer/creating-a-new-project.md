@@ -16,12 +16,13 @@ An example of the process is shown here:
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/AhNfk2C_RJo?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-### Create Project
+Create Project
+--------------
 
-#### Interactive Install
+### Interactive Install
 
-To start an interactive install, navigate to the parent directory of your desired project (site),
-and run the following from a command line:
+To start an interactive install, navigate to the parent directory of your
+desired project (site), and run the following from a command line:
 
 ```
 composer create-project bolt/composer-install:^3.0 <MYPROJECT> --prefer-dist
@@ -34,14 +35,13 @@ strategy, you can install Bolt inside a single directory, or you can install the
 public assets inside a public directory and keep the application code outside
 the web root.
 
-
-#### Automated Install
+### Automated Install
 
 To start an automated install, navigate to the parent directory of your desired
 project (site), and run either of the following commands depending on what
 options you desire.
 
-##### Default Options
+### Default Options
 
 To simply use default directory locations, you just apply the `--no-interaction`
 parameter to the `composer create-project` command, e.g.
@@ -52,7 +52,7 @@ composer create-project bolt/composer-install:^3.0 <MYPROJECT> --prefer-dist --n
 
 **NOTE:** Change `<MYPROJECT>` to the name of your project before running the installer.
 
-##### Customised Options
+### Customised Options
 
 If you want an automated install with customised configuration options, you can set any, or all,
 of the following variables and the installer will use them:
@@ -85,7 +85,7 @@ $ mkdir example.com
 $ cd example.com
 ```
 
-#### Configuration File
+### Configuration File
 
 In order for paths to be customised and still have the standard index.php (web)
 and nut (CLI) work, there needs to be a standard place these are defined.
@@ -120,7 +120,7 @@ array.
 This is an very advanced  option, see Bolt's [bootstrap file][bs]
 for more details.
 
-#### Composer JSON File
+### Composer JSON File
 
 You will need to create a `composer.json` file with the following keys at a
 minimum:
@@ -155,13 +155,13 @@ installation:
 composer install
 ```
 
-#### Permissions
+### Permissions
 
 Generally most server should be fine with the default permissions. However, if
 you require guidance on setting up permissions, see our
 [File System Permissions](permissions) page.
 
-#### Finishing Set-up
+### Finishing Set-up
 
 After you've done this, skip to the section [Setting up Bolt](../../configuration/introduction).
 

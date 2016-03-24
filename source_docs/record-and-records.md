@@ -72,8 +72,7 @@ for more details.
 {% set next = page.next('datepublish', {'status': page.taxonomy.status} ) %}
 ```
 
-
-#### Geolocation
+### Geolocation
 
 The 'Geolocation' field type allows you to easily pick and use geolocations. You
 can use the given address, the latitude, longitude, and the reverse geocoded
@@ -91,7 +90,7 @@ Of course, you can use the geolocations with any mapping service you like, since
 latitude and longitude is a common geographic coordinate system used by many
 services.
 
-#### Video
+### Video
 
 If you're using the 'video' field type, more information about the video is
 available. To see the values that are stored, use `{{ dump(page.video) }}`. To
@@ -131,7 +130,7 @@ it, use the following, and add the required CSS to your stylesheet:
 }
 ```
 
-#### Imagelist
+### Imagelist
 
 The imagelist fieldtype is accessible as an array. This is convenient for most
 cases, because this makes it easy to output them as lists in your HTML. This
@@ -164,7 +163,6 @@ custom `first` and `last` class added to them.
   {% endif %}
 ```
 
-
 ### Getting the type of a certain field
 
 If you're iterating over an array of `record.values`, it's sometimes useful to
@@ -192,9 +190,8 @@ function comes in handy:
 records of the same or different contenttypes, see the page on <a
 href="./relationships">Relations</a>.</p>
 
-
 Using `{{ records }}`
--------------------
+--------------------
 
 The `{{ records }}` array is basically a set of several content records. When
 you have a `{{ records }}` array, you can iterate over each of the records to
