@@ -1,7 +1,8 @@
 Extensions: Creating
 =========================
 
-## Creating a Bolt Extension or Theme
+Creating a Bolt Extension or Theme
+----------------------------------
 
 Extensions and themes that are published on the marketplace must follow a few
 simple rules to allow them to hook into a Bolt installation. Information about
@@ -14,8 +15,9 @@ documentation page.
 
 ### PHP namespace
 
-Extensions should use the PHP namespace of `Bolt\Extension\{author name}\{exension name}\`
-e.g. `Bolt\Extension\MyName\MyExtension\`.
+Extensions should use the PHP namespace of
+`Bolt\Extension\{author name}\{exension name}\` e.g.
+`Bolt\Extension\MyName\MyExtension\`.
 
 ### Using the Starter Package
 
@@ -44,8 +46,8 @@ and `src/ExtensionNameExtension.php`.
 
  1. Change the namespace at the top of `src/ExtensionNameExtension.php` to your
     own.
- 2. Rename `src/ExtensionNameExtension.php` to match your extension's name **plus** 
-    the "Extension" suffix, e.g. `src/KoalaCatcherExtension.php` 
+ 2. Rename `src/ExtensionNameExtension.php` to match your extension's name **plus**
+    the "Extension" suffix, e.g. `src/KoalaCatcherExtension.php`
  3. In `composer.json` change the name setting to your extension name eg:
     `myvendorname/extensionname`. For clarity, this should match the foldernames
     you've created a little earlier
@@ -60,14 +62,15 @@ about the configuration.
 
 **Extended starter extension**
 
-When you want a starter extension with more example code, create a new one from this repository instead of the above one.
+When you want a starter extension with more example code, create a new one from
+this repository instead of the above one.
 
 ```
 composer create-project --no-install bolt/bolt-extension-starter-extended:^3.0 <newextname>
 ```
 
-
-## Publishing Your Extension on the Marketplace
+Publishing Your Extension on the Marketplace
+--------------------------------------------
 
 Once you have the above file setup, make sure it is pushed up to your hosted
 repository then visit [extensions.bolt.cm](http://extensions.bolt.cm) to

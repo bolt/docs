@@ -2,7 +2,7 @@ Running Multiple Bolt sites from one source directory
 =====================================================
 
 When running multiple sites on the one host, it is sometimes advantageous to
-only maintain a single directory for Bolt itself, and have each site in a 
+only maintain a single directory for Bolt itself, and have each site in a
 separate directory using the same Bolt install. This is known as a multi-site
 set up.
 
@@ -60,9 +60,9 @@ Each virtual host site you set up will need a few things:
     * index.php
     * app/bootstrap.php
     * app/nut
-  * A template 
+  * A template
 
-#### Site directory set up
+### Site directory set up
 
 In this HOWTO we're going to install each Bolt site in a directory under
 `/var/www/sites/`, the first one in `/var/www/sites/my-sites-1`.
@@ -75,7 +75,7 @@ $ cd /var/www/sites/my-sites-1
 Now create the required directories:
 
 ```
-$ mkdir -p app/cache app/config app/database extensions files theme 
+$ mkdir -p app/cache app/config app/database extensions files theme
 ```
 
 Create a symbolic link to Bolt's templates:
@@ -84,7 +84,7 @@ Create a symbolic link to Bolt's templates:
 ln -s /var/www/bolt-private/app/view/ app/view
 ```
 
-#### Install a theme
+### Install a theme
 
 For this HOWTO, we'll just use the default `base-2014` theme and files. Copy
 the `base-2014` directory into your site's `theme/` directory:
@@ -94,10 +94,10 @@ $ cp -a /var/www/bolt-private/theme/base-2014/ /var/www/sites/my-sites-1/theme/
 $ cp -a /var/www/bolt-private/files/* /var/www/sites/my-sites-1/files/
 ```
 
-#### Site root index file 
+### Site root index file
 
 In the root of the sites web directory, create the `index.php` file and add
-the following: 
+the following:
 
 ```php
 <?php
@@ -105,7 +105,7 @@ $app = require_once __DIR__ . '/app/bootstrap.php';
 $app->run();
 ```
 
-#### Create the application bootstrap  
+### Create the application bootstrap
 
 Next, create the site specific `app/bootstrap.php` file and add the following:
 
@@ -148,16 +148,16 @@ return call_user_func(
 ```
 
 You just need to edit the `$source` and `$site` parameters to set them to the
-correct directory locations for your individual site. 
+correct directory locations for your individual site.
 
 This is the one file you need to change for each site you set up using this
 configuration.
 
-#### Setting up Nut
+### Setting up Nut
 
 As a final step, each site will require a specific Nut command file should you
 wish to use Nut.
- 
+
 To enable this, create the `app/nut` file and add the following:
 
 ```php
@@ -168,7 +168,6 @@ $app = require_once __DIR__ . '/bootstrap.php';
 
 $nut = $app['nut'];
 $nut->run();
-
 ```
 
 Finally make the Nut file executable:

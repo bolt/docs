@@ -1,7 +1,7 @@
 Setting up Bolt
 ===============
 
-By default, Bolt is configured to use an SQLite database. See [configure the database](database), 
+By default, Bolt is configured to use an SQLite database. See [configure the database](database),
 if you want to change this to either MySQL or PostgreSQL.
 
 Open your Bolt site in your browser, and you should be greeted by the screen to
@@ -9,15 +9,15 @@ set up the first user. If not, see below. If you do see the 'Create the first
 user'-screen, do accordingly, and log in to the Bolt backend. You should now
 see the (empty) Dashboard screen.
 
-<p class="note"><strong>Note:</strong> When you first open a Bolt page in your 
-browser, you will be redirected to a page like <tt>/bolt/userfirst</tt> where 
-you can set up the first user. If you get a 'File not found'-error, this means 
-your webserver isn't configured to handle rewrites correctly. If you're using 
-Apache, see our page on <a href="/howto/making-sure-htaccess-works">Making sure 
+<p class="note"><strong>Note:</strong> When you first open a Bolt page in your
+browser, you will be redirected to a page like <tt>/bolt/userfirst</tt> where
+you can set up the first user. If you get a 'File not found'-error, this means
+your webserver isn't configured to handle rewrites correctly. If you're using
+Apache, see our page on <a href="../howto/making-sure-htaccess-works">Making sure
 .htaccess and mod_rewrite are working as they should</a>.</p>
 
 If you want to get a quick way to see how your site looks with some content you
-can add some generated pages using the built-in [Loripsum](http://loripsum.net) 
+can add some generated pages using the built-in [Loripsum](http://loripsum.net)
 tool. This is a simple method to test-drive your theme quickly.
 
 If you're getting unspecified "Internal Server Errors", the most likely cause
@@ -34,8 +34,8 @@ Configuration Files
 
 ### Where the important files are located
 
-When the basic installation is finished, these are the files where you edit the 
-Bolt configuration to build your website according to your specifications. 
+When the basic installation is finished, these are the files where you edit the
+Bolt configuration to build your website according to your specifications.
 All files use the same .yml syntax, and can also be edited via the Bolt backend.
 
   - `app/config/config.yml`  The file where all general configuration of your website is defined.

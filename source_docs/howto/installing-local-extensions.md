@@ -14,12 +14,15 @@ There are a couple of caveats:
   contain `init.php` and `Extension.php`
 - Updates are **not** available though the web UI
 
-**Note:** If your local extension requires libraries from Packagist, simply add them to the `composer.json` in the root directory of your Bolt install and perform a `composer install`.
+**Note:** If your local extension requires libraries from Packagist, simply add
+them to the `composer.json` in the root directory of your Bolt install and
+perform a `composer install`.
 
 Step 1
 ------
 
-Create the directory for you extension in `{web_root}/extensions/local/{author_name}/{extension_name}/`
+Create the directory for you extension in
+`{web_root}/extensions/local/{author_name}/{extension_name}/`
 
 Where:
  - `{web_root}` is the install location of your Bolt site
@@ -109,16 +112,24 @@ $app['extensions']->register(new Extension($app));
 Updating/Importing
 ------------------
 
-Many times developers create the extension locally and import changes and updates (e.g. via `git pull`). 
+Many times developers create the extension locally and import changes and
+updates (e.g. via `git pull`).
 
-In doing this, the PHP namespace may change, potentially triggering a fatal error because the autoloader does not get updated automatically, for performance reasons.
+In doing this, the PHP namespace may change, potentially triggering a fatal
+error because the autoloader does not get updated automatically, for performance
+reasons.
 
-If this occurs, there are several approaches to fixing this but the first thing you should do is temporarily rename the extension's `init.php` file and try the following in order:
-- Dumping the Bolt cache using Nut `./app/nut cache:clear`, and then loading the backend. This will tell Bolt to rescan the local 
-  extension `composer.json` files for PSR-4 autoload data, import that into `extensions/composer.json` and rebuild the extension 
-  autoloader.
+If this occurs, there are several approaches to fixing this but the first thing
+you should do is temporarily rename the extension's `init.php` file and try the
+following in order:
 
-- Performing a `composer dumpautoload` in the `extensions/` directory of your Bolt install.
+- Dumping the Bolt cache using Nut `./app/nut cache:clear`, and then loading the
+  backend. This will tell Bolt to rescan the local extension `composer.json`
+  files for PSR-4 autoload data, import that into `extensions/composer.json` and
+  rebuild the extension autoloader.
+- Performing a `composer dumpautoload` in the `extensions/` directory of your
+  Bolt install.
 
-At this point, it should be safe to rename the `init.php` file back to normal and enjoy your updated extension.
+At this point, it should be safe to rename the `init.php` file back to normal
+and enjoy your updated extension.
 

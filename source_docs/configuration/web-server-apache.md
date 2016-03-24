@@ -54,7 +54,8 @@ single line:
 FallbackResource /index.php
 ```
 
-If you have misplaced your `.htaccess` file, you can get a <a href="http://bolt.cm/distribution/default.htaccess">
-new one here</a>, from our <a href="http://bolt.cm/distribution/">files distribution page</a>.
-Be sure to rename it to `.htaccess`, though.
+If you have misplaced your `.htaccess` file, you can get a
+<a href="http://bolt.cm/distribution/default.htaccess"> new one here</a>, from
+our <a href="http://bolt.cm/distribution/">files distribution page</a>. Be sure
+to rename it to `.htaccess`, though.
 

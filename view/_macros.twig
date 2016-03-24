@@ -55,7 +55,7 @@
 
 {% endmacro %}
 
-{% macro submenu(items, version) %}
+{% macro submenu(items, section, version) %}
 
     {% from _self import submenu %}
 
@@ -63,10 +63,10 @@
         {% for link, name in items %}
             {% if name.items is defined %}
                 <li><strong>{{ name.title }}</strong>
-                    {{ submenu(name.items, version) }}
+                    {{ submenu(name.items, section, version) }}
                 </li>
             {% else %}
-                <li><a href="/{{ version }}/{{link}}">{{name}}</a></li>
+                <li><a href="/{{ version }}/{{link}}" {{ (section == link) ? 'class="selected"' }}>{{name}}</a></li>
             {% endif %}
 
         {% endfor %}

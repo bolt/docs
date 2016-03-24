@@ -20,5 +20,5 @@ taxonomy 'chapter'.
 ```
 
 <p class="note"><strong>Note:</strong> This is a specific sample. In general,
-you're probably better off using Bolt's built in <a href="/menus">menu
+you're probably better off using Bolt's built in <a href="../menus">menu
 functionality</a>.</p>

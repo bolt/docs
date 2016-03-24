@@ -51,23 +51,23 @@ For a new feature there is a three step process:
 
 *Note*: This obviously doesn't include bug fixes
 
-##### Step 1 - RFC submission
+### Step 1 - RFC submission
+
 Create a GitHub issue with the prefix of `[RFC]` in the subject line.
 
 Describe:
 - What the feature is
 - What the impacts are
 
-##### Step 2 - RFC moved to Roadmap
+### Step 2 - RFC moved to Roadmap
 
 Once approved, a core team member will add the feature and contributor's GitHub
 handle to the [Roadmap][roadmap] wiki page
 
-##### Step 3 - Feature implemented and merged into version `-next`
+### Step 3 - Feature implemented and merged into version `-next`
 
 Once the feature window is open the contributor can submit a PR for review and
 merging.
-
 
 Step by step guide to forking, branching and pushing
 ----------------------------------------------------

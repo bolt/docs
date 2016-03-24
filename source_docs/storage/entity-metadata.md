@@ -1,34 +1,44 @@
-# Entity Metadata
+Entity Metadata
+===============
 
-Entity metadata is used to store any information that allows a simple PHP object to be mapped to a database or storage
-system.
+Entity metadata is used to store any information that allows a simple PHP object
+to be mapped to a database or storage system.
 
-Metadata in Bolt is mainly setup via the `contenttypes.yml` file where field names are mapped to types, this information 
-is then read into the application. 
+Metadata in Bolt is mainly setup via the `contenttypes.yml` file where field
+names are mapped to types, this information is then read into the application.
 
-### Overview
+Overview
+--------
 
-It is philosophically important that the complex information that is often needed to persist PHP objects to a database 
-is not encoded into the Entity object itself. Since entities are the objects used to control domain specific application 
-data they should be lightweight and flexible, and whilst they may eventually be persisted to a storage layer they do 
-not need to know any information about what that might entail.
+It is philosophically important that the complex information that is often
+needed to persist PHP objects to a database is not encoded into the Entity
+object itself. Since entities are the objects used to control domain specific
+application data they should be lightweight and flexible, and whilst they may
+eventually be persisted to a storage layer they do not need to know any
+information about what that might entail.
 
-However when it does come time to persist an entity to storage then the application will need to know some information 
-about the types of values held in an entity object.
+However when it does come time to persist an entity to storage then the
+application will need to know some information about the types of values held in
+an entity object.
 
+Interacting with the Metadata Driver
+------------------------------------
 
-### Interacting with the Metadata Driver
+Access to Bolt's internal metadata is provided by accessing
+`$app['storage.metadata']`. Accessing this returns an instance of
+`Bolt\Mapping\MetadataDriver`.
 
-Access to Bolt's internal metadata is provided by accessing `$app['storage.metadata']`. Accessing this returns an 
-instance of `Bolt\Mapping\MetadataDriver`.
+It's important to note that this metadata driver also typehints against
+`Doctrine\Common\Persistence\Mapping\Driver\MappingDriver` so it is fully
+compatible with other Doctrine metadata drivers. More advanced applications may
+want to take advantage of this to bring Bolt's database metadata into a larger
+ecosystem.
 
-It's important to note that this metadata driver also typehints against `Doctrine\Common\Persistence\Mapping\Driver\MappingDriver` 
-so it is fully compatible with other Doctrine metadata drivers. More advanced applications may want to take advantage 
-of this to bring Bolt's database metadata into a larger ecosystem.
+`getClassMetadata($classname)`
+------------------------------
 
-### getClassMetadata($classname)
-
-This method returns all the metadata for a given class name as an array, you can access it for example:
+This method returns all the metadata for a given class name as an array, you can
+access it for example:
 
 ```
 $meta = $app['storage.metadata']->getClassMetadata('Bolt\Storage\Entity\Users');
@@ -75,14 +85,15 @@ array:4 [▼
 
 ### loadMetadataForClass($classname)
 
-This method returns an instance of `Bolt\Storage\Mapping\ClassMetadata` with the data loaded for the given entity,
-for example:
+This method returns an instance of `Bolt\Storage\Mapping\ClassMetadata` with the
+data loaded for the given entity, for example:
 
 ```
 $meta = $app['storage.metadata']->loadMetadataForClass('Bolt\Storage\Entity\Users');
 ```
 
-The output will look something like this, each column or field will have a mapping inside the `fieldMappings` array
+The output will look something like this, each column or field will have a
+mapping inside the `fieldMappings` array
 
 
 ```

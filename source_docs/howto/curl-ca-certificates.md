@@ -8,7 +8,7 @@ certificates, you might get the following error:
 Curl (60) SSL Certificate Problem: Unable to get local issuer certificate
 ```
 
-**Note:**  
+**Note:**
 This is a system configuration problem, and not specific to either cURL or Bolt.
 The information here is provided as a useful **starting point only**.
 
@@ -24,7 +24,7 @@ Installing Automatically Converted CA Certificates from mozilla.org
 ```
 curl.cainfo = "/etc/pki/tls/cacert.pem"
 ```
- 
+
 ```
 curl.cainfo = "C:\php\extras\ssl\cacert.pem"
 ```

@@ -43,8 +43,9 @@ Mounting Bolt on an existing Application
 
 A lot of work has been done on the internals of Bolt which allow it now to run
 as a self- contained `HTTPKernelInterface` application without interfering with
-any of the global namespace or constants. So if you use [StackPHP](http://stackphp.com/) (or similar) you can mount Bolt onto a
-url prefix as simply as this:
+any of the global namespace or constants. So if you use
+[StackPHP](http://stackphp.com/) (or similar) you can mount Bolt onto a url
+prefix as simply as this:
 
 ```
 $map = [

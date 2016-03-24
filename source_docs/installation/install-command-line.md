@@ -17,12 +17,36 @@ That's all!
 Next Steps
 ----------
 
-#### Permissions
+### Web server configuration
 
-Generally most server should be fine with the default permissions. However, if 
-you require guidance on setting up permissions, see our [File System Permissions](permissions)
-page. 
+After extracting the tar file, you'll end up with a structure, similar to this:
 
-#### Finishing Set-up
+```
+.
+├── app/
+├── extensions/
+├── public/
+├── vendor/
+├── README.md
+├── composer.json
+└── composer.lock
+```
 
-After you've done this, skip to the section [Setting up Bolt](#setting-bolt).
+These are the folders that contain all of the bolt code, resources and other
+files. Most of them are placed outside of the so-called webroot. Only the folder
+`public/` needs to be accessible in the browser. To do this, configure your
+webserver to use the `public/` folder as the webroot. For more information about
+this, see the pages on configuring [Apache][apache] or [Nginx][nginx].
+
+### Permissions
+
+Generally most server should be fine with the default permissions. However, if
+you require guidance on setting up permissions, see our [File System
+Permissions](permissions) page.
+
+### Finishing Set-up
+
+After you've done this, skip to the section [Setting up Bolt](../configuration/introduction).
+
+[apache]: ../configuration/web-server-apache
+[nginx]: ../configuration/web-server-nginx

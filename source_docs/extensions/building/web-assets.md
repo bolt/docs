@@ -5,13 +5,16 @@ In this section, we'll explain how to use a Bolt extension to add web assets to
 the target Bolt installation.
 
 A web asset can be:
+
   * Cascading Style Sheet (CSS) files
   * JavaScript files
-  * Snippets — A short fragment of HTML code for inserting in the DOM at required locations
-  * Widget — A special mini function to generate HTML in predefined locations on a page
+  * Snippets — A short fragment of HTML code for inserting in the DOM at
+    required locations
+  * Widget — A special mini function to generate HTML in predefined locations on
+    a page
 
-All asset files should be in your extension's `web/` directory, or a subdirectory
-of `web/`.
+All asset files should be in your extension's `web/` directory, or a
+subdirectory of `web/`.
 
 Registering Assets
 ------------------
@@ -34,7 +37,7 @@ use Bolt\Asset\File\Widget;
 use Bolt\Extension\SimpleExtension;
 
 /**
- * An extension for catching koalas. 
+ * An extension for catching koalas.
  *
  * @author Kenny Koala <kenny@dropbear.com.au>
  */
@@ -58,13 +61,13 @@ class KoalaCatcherExtension extends SimpleExtension
 Cascading Style Sheet (CSS) Files
 ---------------------------------
 
-Sytlesheet asset objects for registration can be created using a `Bolt\Asset\File\Stylesheet`
-class. 
+Sytlesheet asset objects for registration can be created using a
+`Bolt\Asset\File\Stylesheet` class.
 
 There are two ways to create these objects.
 
-The first way is to simply pass the file name, relative to the extension's `web/`
-directory. e.g.
+The first way is to simply pass the file name, relative to the extension's
+`web/` directory. e.g.
 
 ```php
 protected function registerAssets()
@@ -77,6 +80,7 @@ protected function registerAssets()
 
 Sytlesheet classes have fluent setters for properties. So alternatively you can
 create a blank object, and set the required properties. e.g.
+
 ```php
 protected function registerAssets()
 {
@@ -94,10 +98,14 @@ protected function registerAssets()
 ```
 
 In the above example:
+
   * `setFileName()` sets the file name
-  * `setLate(true)` tells the asset injector to insert the `<link rel="stylesheet" href="path/web/koala.css">` at the end of the HTML `<body>`
-  * `setPriority(99)` tells the injector to insert this `<link rel="stylesheet" href="path/web/koala.css">` *after* any other stylesheet tags in that location with a priority lower than 99
-  * `setZone(Zone::BACKEND)` tells the injector to insert the `<link rel="stylesheet" href="path/web/koala.css">` on back-end pages, instead of the default of front-end
+  * `setLate(true)` tells the asset injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
+    at the end of the HTML `<body>`
+  * `setPriority(99)` tells the injector to insert this `<link rel="stylesheet" href="path/web/koala.css">`
+    *after* any other stylesheet tags in that location with a priority lower than 99
+  * `setZone(Zone::BACKEND)` tells the injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
+    on back-end pages, instead of the default of front-end
 
 **NOTE:** To use the `Zone` class parameter, you should add the following `use`
 statement to your extension class file:
@@ -110,13 +118,13 @@ use Bolt\Controller\Zone;
 JavaScript Files
 ----------------
 
-JavaScript asset objects for registration can be created using a `Bolt\Asset\File\JavaScript`
-class. 
+JavaScript asset objects for registration can be created using a
+`Bolt\Asset\File\JavaScript` class.
 
 There are two ways to create these objects.
 
-The first way is to simply pass the file name, relative to the extension's `web/`
-directory. e.g.
+The first way is to simply pass the file name, relative to the extension's
+`web/` directory. e.g.
 
 ```php
 protected function registerAssets()
@@ -129,6 +137,7 @@ protected function registerAssets()
 
 JavaScript classes have fluent setters for properties. So alternatively you can
 create a blank object, and set the required properties. e.g.
+
 ```php
 protected function registerAssets()
 {
@@ -147,11 +156,16 @@ protected function registerAssets()
 ```
 
 In the above example:
+
   * `setFileName()` sets the file name
-  * `setLate(true)` tells the asset injector to insert the `<script src="path/web/dropbear.js"></script>` at the end of the HTML `<body>`
-  * `setPriority(99)` tells the injector to insert this `<script src="path/web/dropbear.js"></script>` *after* any other `<script>` tags in that location with a priority lower than 99
-  * `setAttributes(['defer', 'async'])` adds `defer` and `async` to the `<script>` tage
-  * `setZone(Zone::BACKEND)` tells the injector to insert the `<script src="path/web/dropbear.js"></script>` on back-end pages, instead of the default of front-end
+  * `setLate(true)` tells the asset injector to insert the `<script src="path/web/dropbear.js"></script>`
+     at the end of the HTML `<body>`
+  * `setPriority(99)` tells the injector to insert this `<script src="path/web/dropbear.js"></script>`
+    *after* any other `<script>` tags in that location with a priority lower than 99
+  * `setAttributes(['defer', 'async'])` adds `defer` and `async` to the
+    `<script>` tage
+  * `setZone(Zone::BACKEND)` tells the injector to insert the `<script src="path/web/dropbear.js"></script>`
+    on back-end pages, instead of the default of front-end
 
 **NOTE:** To use the `Zone` class parameter, you should add the following `use`
 statement to your extension class file:
@@ -170,8 +184,8 @@ website.
 This fragment can either be a string to be inserted directly, or it can be the
 return value of a callback string.
 
-Snippet asset objects for registration can be created using a `Bolt\Asset\Snippet\Snippet`
-class. 
+Snippet asset objects for registration can be created using a
+`Bolt\Asset\Snippet\Snippet` class.
 
 Snippet classes have fluent setters for properties. e.g.
 ```php
@@ -195,11 +209,15 @@ public function callbackSnippet()
 ```
 
 In the above example:
-  * `setCallback([$this, 'callbackSnippet'])` calls the extension's `callbackSnippet()` function during render to get the content of the snippet
-  * `setLocation(Target::AFTER_META)` tells the asset injector to insert the snippet after other `<meta>`
-  * `setPriority(99)` tells the injector to insert this snippet's code *after* any other tags in that location with a priority lower than 99
 
-**NOTE:** To use the `Target` and `Zone` class parameters, you should add the 
+  * `setCallback([$this, 'callbackSnippet'])` calls the extension's
+    `callbackSnippet()` function during render to get the content of the snippet
+  * `setLocation(Target::AFTER_META)` tells the asset injector to insert the
+    snippet after other `<meta>`
+  * `setPriority(99)` tells the injector to insert this snippet's code *after*
+    any other tags in that location with a priority lower than 99
+
+**NOTE:** To use the `Target` and `Zone` class parameters, you should add the
 following `use` statements to your extension class file:
 
 ```php
@@ -215,20 +233,20 @@ Widget
 
 Widgets in Bolt are small blocks of content, that can be used to display content.
 
-By design, the widget has no access to the context of the page it is being 
-displayed on. This is because a Widget is a small block of content that can be 
-placed on various locations on a website. This should work regardless of what's 
+By design, the widget has no access to the context of the page it is being
+displayed on. This is because a Widget is a small block of content that can be
+placed on various locations on a website. This should work regardless of what's
 on the page.
- 
-Or, to flip it around: If the contents of a widget would change according to 
-what's on the page, it would become a part of the page itself, and strictly 
+
+Or, to flip it around: If the contents of a widget would change according to
+what's on the page, it would become a part of the page itself, and strictly
 speaking it wouldn't be considered a 'widget' any more.
 
 Widget asset objects for registration can be created using a `Bolt\Asset\Widget\Widget`
-class. 
+class.
 
 Widget classes have fluent setters for properties. e.g.
- 
+
 ```php
 protected function registerAssets()
 {
@@ -249,17 +267,17 @@ public function callbackWidget($arg1, $arg2)
 {
     return $this->renderTemplate('koala.twig', [$arg1, $arg2]);
 }
-                
-```  
+
+```
 
 In the above example:
   * `setType(Zone::FRONTEND)` tells the asset injector to only act on the frontend
   * `setLocation(Target::AFTER_META)` tells the asset injector to insert the snippet after other `<meta>`
   * `setCallback([$this, 'callbackWidget'])` calls the extension's `callbackWidget()` function during render to get the content of the widget
   * `setCallbackArguments(['arg1' => 'Kenny', 'arg2' => 'Koala'])`
-  * `setDefer(true)` defers rendering of the widget to a separate request, so it doesn't block the initial rendering of the page 
+  * `setDefer(true)` defers rendering of the widget to a separate request, so it doesn't block the initial rendering of the page
 
-**NOTE:** To use the `Target` and `Zone` class parameters, you should add the 
+**NOTE:** To use the `Target` and `Zone` class parameters, you should add the
 following `use` statements to your extension class file:
 
 ```php
@@ -267,4 +285,4 @@ use Bolt\Asset\Target;
 use Bolt\Controller\Zone;
 ```
 
-For more information on widgets, see the [Widgets]() page.
+For more information on widgets, see the [Widgets](widgets) page.

@@ -4162,7 +4162,7 @@ header {
       display: none; } }
   .menu-toggle span {
     display: block;
-    box-shadow: 0 10px 0 1px #42627B, 0 16px 0 1px #42627B, 0 22px 0 1px #42627B;
+    box-shadow: 0 10px 0 1px #42628B, 0 16px 0 1px #42628B, 0 22px 0 1px #42628B;
     height: 1px;
     left: 30px;
     position: absolute;
@@ -4241,9 +4241,9 @@ mark {
 
 .body-docs p.note,
 .body-docs p.tip {
-  background-color: #d4dfe8;
-  border-color: #c3d3df;
-  color: #42627B; }
+  background-color: #dde5ef;
+  border-color: #ccd8e7;
+  color: #42628B; }
 
 /**
  * Styles for the sidebar
@@ -4376,10 +4376,12 @@ div.gallery-popup img {
         font-size: 17px;
         line-height: 1.7; } }
   .content a {
-    color: #42627B;
+    color: #42628B;
     text-decoration: underline; }
     .content a a:hover {
-      color: #1e2d39; }
+      color: #213146; }
+    .content a.selected {
+      background-color: rgba(0, 0, 0, 0.1); }
   .content h3.subheader {
     font-size: 1rem;
     margin-bottom: 2em;
@@ -4397,7 +4399,7 @@ div.gallery-popup img {
     font-weight: bold;
     margin: 0;
     display: block;
-    background-color: #42627B;
+    background-color: #42628B;
     color: #fefefe;
     font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     text-decoration: none; }
@@ -4405,7 +4407,7 @@ div.gallery-popup img {
       font-size: 14px;
       font-weight: normal; }
     .content a.button.docsintro:hover {
-      background-color: #1e2d39; }
+      background-color: #213146; }
   .content a.button.medium.docsintro {
     max-width: 270px;
     margin-right: 18px;

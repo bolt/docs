@@ -7,7 +7,7 @@ web server rather than setting up Apache or Ningx.
 The approach to achieving this varies slightly depending on how Bolt is installed
 locally.
 
-Git & Zip Installs 
+Git & Zip Installs
 ------------------
 
 Simply navigate to your Bolt directory and issue the command:
@@ -16,14 +16,13 @@ Simply navigate to your Bolt directory and issue the command:
 /usr/bin/php -S localhost:80 -t . index.php
 ```
 
-
 Composer Installs
 -----------------
 
-Using a Composer install of Bolt is a little more complicated, due to the need 
+Using a Composer install of Bolt is a little more complicated, due to the need
 for redirects, but still rather straightforward.
 
-In your Bolt root directory create a file called `local.php` and add the following: 
+In your Bolt root directory create a file called `local.php` and add the following:
 
 ```php
 <?php

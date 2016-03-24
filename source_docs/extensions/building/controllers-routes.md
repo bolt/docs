@@ -1,22 +1,24 @@
 Extension Building: Controllers & Routes
 ========================================
 
-Depending you your reqirements, there are two ways to create and manage routes
+Depending on your requirements, there are two ways to create and manage routes
 for your Bolt extension:
-  * Descrete route functions in the class loader for simple routes
+
+  * Discrete route functions in the class loader for simple routes
   * Controller classes for more complex routing functionality
 
 Route Callback Functions
 ------------------------
 
-Bolt provides extensions with two functions to register descrete routes:
-  * `registerFrontendRoutes()` 
+Bolt provides extensions with two functions to register discrete routes:
+
+  * `registerFrontendRoutes()`
   * `registerBackendRoutes()`
 
 Both of these functions are passed a `Silex\ControllerCollection` object.
 
 Routes registered via `registerBackendRoutes()` will automatically have the
-admin route added, `/bolt/` by default. 
+admin route added, which is `/bolt/` by default.
 
 An example of an extension using these descrete route functions:
 
@@ -30,7 +32,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * An extension for catching koalas. 
+ * An extension for catching koalas.
  *
  * @author Kenny Koala <kenny@dropbear.com.au>
  */
@@ -52,8 +54,8 @@ class KoalaCatcherExtension extends SimpleExtension
     {
         // GET requests on the /bolt/koala route
         $collection->get('/koala', 'callbackKoalaAdmin');
-        
-        // POST requests on the /bolt/koala route 
+
+        // POST requests on the /bolt/koala route
         $collection->post('/koala', 'callbackKoalaAdmin');
     }
 
@@ -76,7 +78,7 @@ class KoalaCatcherExtension extends SimpleExtension
             // Handle the POST data
             return new Response('Thanks, Kenny', Response::HTTP_OK);
         }
-        
+
         return new Response('Welcome to your admin page, Kenny', Response::HTTP_OK);
     }
 }
@@ -85,18 +87,19 @@ class KoalaCatcherExtension extends SimpleExtension
 Controller Callback Classes
 ---------------------------
 
-When extensions grow lager and have more complex routing requirements, it is 
+When extensions grow larger and have more complex routing requirements, it is
 without doubt better to implement a controller class.
 
-Controller classes nee to implement the `Silex\ControllerProviderInterface`
+Controller classes need to implement the `Silex\ControllerProviderInterface`
 interface contract.
 
 Bolt provides two functions to register controller classes:
-  * `registerFrontendControllers()` 
+
+  * `registerFrontendControllers()`
   * `registerBackendControllers()`
-  
-Controllers registered via `registerBackendControllers()` will automatically 
-have the admin route added, `/bolt/` by default.
+
+Controllers registered via `registerBackendControllers()` will automatically
+have the admin route added, which is `/bolt/` by default.
 
 An example of an extension registering these controller classes would look like:
 
@@ -106,7 +109,7 @@ namespace Bolt\Extension\DropBear\KoalaCatcher;
 use Bolt\Extension\SimpleExtension;
 
 /**
- * An extension for catching koalas. 
+ * An extension for catching koalas.
  *
  * @author Kenny Koala <kenny@dropbear.com.au>
  */
@@ -121,7 +124,7 @@ class KoalaCatcherExtension extends SimpleExtension
             '/dropbear' => new Controller\DropBearController(),
         ];
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -134,8 +137,8 @@ class KoalaCatcherExtension extends SimpleExtension
 }
 ```
 
-The controller class file `src/Controller/DropBearController.php` would 
-then look something like: 
+The controller class file `src/Controller/DropBearController.php` would
+then look something like:
 
 ```php
 namespace Bolt\Extension\DropBear\KoalaCatcher\Controller;
@@ -147,7 +150,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 /**
- * The controller for Drop Bear routes. 
+ * The controller for Drop Bear routes.
  *
  * @author Kenny Koala <kenny@dropbear.com.au>
  */
@@ -170,7 +173,7 @@ DropBearController Base implements ControllerProviderInterface
 
         return $ctr;
     }
-    
+
     /**
      * @param Request $request
      * @param string  $type
@@ -180,7 +183,7 @@ DropBearController Base implements ControllerProviderInterface
         if ($type === 'dropbear') {
             return new Response('Drop bear sighted!', Response::HTTP_OK);
         }
-        
+
         return new Response('Koala in a tree!', Response::HTTP_OK);
     }
 }

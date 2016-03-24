@@ -69,7 +69,7 @@ and adjust where needed.
 
 <p class="meta">
     <strong>Bolt 2.2.6</strong><br>
-    The following phpunit.xml.dist is only available in Bolt 2.2.6 and later, 
+    The following phpunit.xml.dist is only available in Bolt 2.2.6 and later,
     for older versions see the example below this one.
 </p>
 
@@ -139,9 +139,9 @@ and adjust where needed.
 ```
 **Note:** We refer to a `tests/bootstrap.php` file that doesn't exist yet.
 
-**Note:** The listener is optional, it will copy in an Sqlite database with table 
-structure matching current Bolt tests, and it will also copy in the specified 
-theme, and configuration files which is helpful if you're writing unit tests. 
+**Note:** The listener is optional, it will copy in an Sqlite database with table
+structure matching current Bolt tests, and it will also copy in the specified
+theme, and configuration files which is helpful if you're writing unit tests.
 
 <p class="meta">
     <strong>Bolt <= 2.2.5</strong><br>
@@ -184,9 +184,9 @@ theme, and configuration files which is helpful if you're writing unit tests.
 
 **Note:** We refer to a `tests/bootstrap.php` file that doesn't exist yet.
 
-**Note:** The listener is optional, it will copy in an Sqlite database with table 
-structure matching current Bolt tests, and it will also copy in the specified 
-theme, which is helpful if you're writing unit tests. 
+**Note:** The listener is optional, it will copy in an Sqlite database with table
+structure matching current Bolt tests, and it will also copy in the specified
+theme, which is helpful if you're writing unit tests.
 
 Step 3: Create a bootstrap.php file
 -----------------------------------
@@ -197,7 +197,7 @@ constants.
 Create the file `tests/bootstrap.php` containing the following:
 <p class="meta">
     <strong>Bolt 2.2.6</strong><br>
-    The following phpunit.xml.dist is only available in Bolt 2.2.6 and later, 
+    The following phpunit.xml.dist is only available in Bolt 2.2.6 and later,
     for older versions see the example below this one.
 </p>
 
