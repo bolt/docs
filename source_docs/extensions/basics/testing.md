@@ -110,8 +110,8 @@ publicly readable online. If you have a [Github][gh] or [Bitbucket][bb] account
 then those are ideal places to push to.
 
 Once you have a public url for the Git repository then you can submit your
-extension to the Bolt Marketplace. To do so visit [extensions.bolt.cm][ext], sign up for an account
-if you need to and then submit your extension.
+extension to the Bolt Marketplace. To do so visit [extensions.bolt.cm][ext],
+sign up for an account if you need to and then submit your extension.
 
 If everything looks OK at this point you will be able to see your extension
 listed on the marketplace.
@@ -136,8 +136,7 @@ git push --tags
 ```
 
 You should ensure that you have thoroughly tested each released version, we'd
-recommend following [semantic version numbers][semver]</a>
-for your releases.
+recommend following [semantic version numbers][semver]</a> for your releases.
 
 You'll also notice that there's a green badge on the screen above for status
 'approved'. To get this badge, you'll need to run a test after you've logged

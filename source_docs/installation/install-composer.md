@@ -8,7 +8,8 @@ Composer install.
 These methods provide flexibility and increased security by separating out
 programmatic logic from publicly accessible files and data.
 
-### Getting Composer
+Getting Composer
+----------------
 
 If you don't have Composer installed on your system already, it can be obtained
 from the [Composer project website](https://getcomposer.org/download/)

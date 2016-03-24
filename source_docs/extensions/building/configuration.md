@@ -9,7 +9,7 @@ extensions.
 Should you wish to provide a configuration file for your extension users, you
 need to create the template as `config/config.yml.dist`. Upon installation,
 that file will be copied to Bolt's `app/config/extensions/` directory and be
-renamed to the lower-case version of `extension_name.vendor_name.yml` 
+renamed to the lower-case version of `extension_name.vendor_name.yml`
 
 Configuration Files
 -------------------
@@ -28,12 +28,12 @@ pets:
 Providing Defaults
 ------------------
 
-Some times things are accidentally removed, or even added to the extension and 
+Some times things are accidentally removed, or even added to the extension and
 older configuration files not updated.
 
 To cope with this, Bolt extensions can define a `getDefaultConfig()` function
 that returns an array of parameters that will have user specified parameters
-merged over the top of. 
+merged over the top of.
 
 An example of this would look like:
 ```php
@@ -52,7 +52,7 @@ An example of this would look like:
     }
 ```
 
-In the above example, `puppies` would have a default value of 20, unless a 
+In the above example, `puppies` would have a default value of 20, unless a
 value was specificed in the configuration file, in that case the provided value
 would override this default.
 
@@ -68,10 +68,12 @@ $config = $this->getConfig();
 echo 'We are configured to pat ' . $config['pets']['kittens'] . ' kittens.';
 ```
 
-**NOTES:** 
- * Configuration files are lazy loaded, so the `$config` class parameter is 
- `private` and can not be directly accessed.
+**NOTES:**
+
+ * Configuration files are lazy loaded, so the `$config` class parameter is
+   `private` and can not be directly accessed.
  * The `getConfig()` function is `protected` to prevent leaking of configuration
- data. Should you need your configuration data to be shared, you can either:
-   * Pass in the configuration array from `$this->getConfig()` to class constructors
+   data. Should you need your configuration data to be shared, you can either:
+   * Pass in the configuration array from `$this->getConfig()` to class
+     constructors
    * Extend `getConfig()` and call `return parent::getConfig();`

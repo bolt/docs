@@ -30,24 +30,26 @@ composer create-project bolt/composer-install:^3.0 <MYPROJECT> --prefer-dist
 **NOTE:** Change `<MYPROJECT>` to the name of your project before running the installer.
 
 The install process will ask you some questions about your required install
-strategy, you can install Bolt inside a single directory, or you can install
-the public assets inside a public directory and keep the application code
-outside the web root.
+strategy, you can install Bolt inside a single directory, or you can install the
+public assets inside a public directory and keep the application code outside
+the web root.
 
 
 #### Automated Install
 
-To start an automated install, navigate to the parent directory of your desired project (site),
-and run either of the following commands depending on what options you desire.
+To start an automated install, navigate to the parent directory of your desired
+project (site), and run either of the following commands depending on what
+options you desire.
 
 ##### Default Options
 
-To simply use default directory locations, you just apply the `--no-interaction` parameter
-to the `composer create-project` command, e.g.
+To simply use default directory locations, you just apply the `--no-interaction`
+parameter to the `composer create-project` command, e.g.
 
 ```
 composer create-project bolt/composer-install:^3.0 <MYPROJECT> --prefer-dist --no-interaction
 ```
+
 **NOTE:** Change `<MYPROJECT>` to the name of your project before running the installer.
 
 ##### Customised Options
@@ -75,7 +77,8 @@ env BOLT_DIR_MODE=0755 BOLT_WEB_DIR=my_public_dir BOLT_THEME_DIR=my_theme_dir \
 
 ### Initialise a Project
 
-For complete flexibility over the installation of your Bolt site, you can create your own `composer.json` file, and path configuration file.
+For complete flexibility over the installation of your Bolt site, you can create
+your own `composer.json` file, and path configuration file.
 
 ```
 $ mkdir example.com
@@ -87,10 +90,12 @@ $ cd example.com
 In order for paths to be customised and still have the standard index.php (web)
 and nut (CLI) work, there needs to be a standard place these are defined.
 
-This is either `.bolt.yml` (recommended) or `.bolt.php` in the project root. YAML
-works for simple values and PHP supports any programmatic logic if required.
+This is either `.bolt.yml` (recommended) or `.bolt.php` in the project root.
+YAML works for simple values and PHP supports any programmatic logic if
+required.
 
 An example `.bolt.yml` would look like:
+
 ```yaml
 paths:
     cache: app/cache
@@ -102,7 +107,8 @@ paths:
     view: public/bolt-public/view
 ```
 
-If you are creating a `.bolt.php` file instead, it should return the following array.
+If you are creating a `.bolt.php` file instead, it should return the following
+array.
 
 ```php
     $config = [
@@ -111,12 +117,14 @@ If you are creating a `.bolt.php` file instead, it should return the following a
         'paths'       => [],
     ];
 ```
-This is an very advanced  option, see Bolt's [bootstrap file](https://github.com/bolt/bolt/blob/master/app/bootstrap.php)
+This is an very advanced  option, see Bolt's [bootstrap file][bs]
 for more details.
 
 #### Composer JSON File
 
-You will need to create a `composer.json` file with the following keys at a minimum:
+You will need to create a `composer.json` file with the following keys at a
+minimum:
+
 ```
 {
     "require": {
@@ -140,7 +148,8 @@ You will need to create a `composer.json` file with the following keys at a mini
 }
 ```
 
-Finally run Composer to install the required libraries and configure the installation:
+Finally run Composer to install the required libraries and configure the
+installation:
 
 ```
 composer install
@@ -149,9 +158,11 @@ composer install
 #### Permissions
 
 Generally most server should be fine with the default permissions. However, if
-you require guidance on setting up permissions, see our [File System Permissions](permissions)
-page.
+you require guidance on setting up permissions, see our
+[File System Permissions](permissions) page.
 
 #### Finishing Set-up
 
 After you've done this, skip to the section [Setting up Bolt](../../configuration/introduction).
+
+[bs]: https://github.com/bolt/bolt/blob/master/app/bootstrap.php

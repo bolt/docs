@@ -1,10 +1,11 @@
 Extension Building: Events
 ==========================
 
-Bolt uses Symfony run-time events at various points in the application life 
+Bolt uses Symfony run-time events at various points in the application life
 cycle to allow other part of code to interact.
 
 The following events are dispatched and can be listened for, or subscribed to:
+
   * `\Bolt\Events\AccessControlEvents::LOGIN_SUCCESS`
   * `\Bolt\Events\AccessControlEvents::LOGIN_FAILURE`
   * `\Bolt\Events\AccessControlEvents::RESET_REQUEST`
@@ -29,14 +30,14 @@ The following events are dispatched and can be listened for, or subscribed to:
 Subscribing to Events
 ------------------------
 
-Often you might want to build an extension that has the simple task for 
+Often you might want to build an extension that has the simple task for
 subscribing to a set of events and responding as you see fit.
 
-To make this easy, by extending `SimpleExtension` your extension will implement 
-the `EventDispatcherInterface` and will be able to subscribe to events of your 
+To make this easy, by extending `SimpleExtension` your extension will implement
+the `EventDispatcherInterface` and will be able to subscribe to events of your
 choosing.
 
-Below is an example of an extension that listens for `AccessControlEvents` for 
+Below is an example of an extension that listens for `AccessControlEvents` for
 login success & failure events dispatches.
 
 ```php
@@ -48,7 +49,7 @@ use Bolt\Extension\SimpleExtension;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * An extension for catching koalas. 
+ * An extension for catching koalas.
  *
  * @author Kenny Koala <kenny@dropbear.com.au>
  */
@@ -93,20 +94,20 @@ class KoalaCatcherExtension extends SimpleExtension
     }
 }
 ```
-When a login event is triggered, one of the two public functions will be called 
-and passed in an event object. 
+When a login event is triggered, one of the two public functions will be called
+and passed in an event object.
 
 
 Listening for Events
 ------------------------
 
-Extensions that extend `SimpleExtension` can implement a function called 
-`subscribe()` that allows the extension to tell Bolt what events it is 
+Extensions that extend `SimpleExtension` can implement a function called
+`subscribe()` that allows the extension to tell Bolt what events it is
 listening out for, and when then occur what function should be called.
 
 This is most applicable for when you want to use distinct classes to act on events.
 
-Below is an example of an extension that listens into `AccessControlEvents` for 
+Below is an example of an extension that listens into `AccessControlEvents` for
 login success & failure event dispatches.
 
 ```php
@@ -118,7 +119,7 @@ use Bolt\Extension\SimpleExtension;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * An extension for catching koalas. 
+ * An extension for catching koalas.
  *
  * @author Kenny Koala <kenny@dropbear.com.au>
  */

@@ -73,7 +73,7 @@ extensions:
     advanced:
       title: "Advanced"
       items:
-        extensions/advanced/customfields: "Providing New Field Types"
+        extensions/advanced/customfields: "Custom Field Types"
         extensions/advanced/fieldtypes: "Providing New Field Types"
         extensions/advanced/unit-testing: "Writing Unit Tests for Extensions"
 internals:
@@ -120,4 +120,5 @@ other:
     maintenance-mode: "Maintenance (offline) mode"
     credits: "Credits"
     roadmap: "Roadmap"
+    release-process: "Release process"
     installation-advanced: "Advanced installation details"

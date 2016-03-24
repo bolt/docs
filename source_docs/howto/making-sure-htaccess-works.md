@@ -1,4 +1,5 @@
-# Making sure .htaccess and mod_rewrite are working as they should
+Making sure .htaccess and mod_rewrite are working as they should
+================================================================
 
 Bolt makes extensive use of a common feature called 'url rewriting'. This
 basically means that you can request a pretty url like `/page/about-this-website`
@@ -22,7 +23,8 @@ One of the three following possibilities is giving you problems:
 - Apache ignores `.htaccess` altogether
 - Mod_rewrite is not enabled
 
-## Test if `.htaccess` is working
+Test if `.htaccess` is working
+------------------------------
 
 The simplest way to test if apache uses your `.htaccess` file, or if it otherwise
 ignores it, is to intentionally break it.
@@ -55,8 +57,7 @@ If you do _not_ see an 'Internal Server Error', your Apache setup ignores the
 `.htaccess` file, and you need to fix that. If you are not sure if the file
 exists and is readable, download our test script:
 
- - Download the script here: [htaccess_tester.php on Github](https://raw.githubu
-   sercontent.com/bolt/htaccess_tester/master/htaccess_tester.php)
+ - Download the script here: [htaccess_tester.php on Github][tester]
  - Rename it to `htaccess_tester.php`, if needed.
  - Place it in the folder where you've put Bolt.
  - Open it in the browser with the URL. (so, make sure you're not accessing it
@@ -71,11 +72,12 @@ This is correct:
     <img src="/files/htaccess-3.png" width="660"></a><br>
 </div>
 
-## Test if `mod_rewrite` is working
+Test if `mod_rewrite` is working
+--------------------------------
 
 To test if `mod_rewrite` is working correctly, do the following:
 
- - Download the script here: [htaccess_tester.php on Github](https://raw.githubusercontent.com/bolt/htaccess_tester/master/htaccess_tester.php)
+ - Download the script here: [htaccess_tester.php on Github][tester]
  - Rename it to `htaccess_tester.php`, if needed.
  - Place it in the folder where you've put Bolt.
  - Create a `.htaccess` file with the contents as below.
@@ -99,7 +101,8 @@ This is correct:
     <img src="/files/htaccess-1.png" width="660" style="bor"></a><br>
 </div>
 
-## My htaccess is broken? What do?
+My htaccess is broken? What do?
+-------------------------------
 
 There are a plethora of reasons why it might not work on your system, and these
 reasons vary so wildly, that we can't give an exhaustive solution for that. That
@@ -145,7 +148,6 @@ Apache to see if they contain valuable information. A common location for these
 files is `/var/log/apache2/`, but it might be in a different path on your
 system. Check your apache `.conf` file to see where these files might be hiding.
 
-
 ### Enabling Rewritebase
 
 If you're setting up Bolt in a subfolder, you might have to uncomment the line
@@ -190,3 +192,4 @@ If you're fed up with Apache's shenanigans, you might consider ditching it in
 favor of [Nginx](http://nginx.org/en/download.html). Nginx is a high-performance
 webserver, that's actually easier to configure than Apache.
 
+[tester]: https://raw.githubusercontent.com/bolt/htaccess_tester/master/htaccess_tester.php

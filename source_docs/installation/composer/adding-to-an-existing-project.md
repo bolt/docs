@@ -12,7 +12,7 @@ If you use this method you will need to bootstrap Bolt yourself, depending on
 when you want to dispatch requests to Bolt. For some ideas of how to set up a
 bootstrap file see the [advanced installation](installation-advanced) page.
 
-#### Why do I have to require composer/composer?
+### Why do I have to require composer/composer?
 
 Bolt specifies the composer package as a required dependency, however, it does
 not have a stable release. Composer (CLI) will fail installing Bolt, because it
@@ -26,12 +26,12 @@ with a version suffixed with `@beta`. This has to be done in the root
 Next Steps
 ----------
 
-#### Permissions
+### Permissions
 
 Generally most server should be fine with the default permissions. However, if
 you require guidance on setting up permissions, see our [File System Permissions](permissions)
 page.
 
-#### Finishing Set-up
+### Finishing Set-up
 
 After you've done this, skip to the section [Setting up Bolt](../../configuration/introduction).

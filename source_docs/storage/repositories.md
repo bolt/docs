@@ -1,6 +1,6 @@
 # Repositories
 
-Repositories manage collections of entities. At a conceptual level where an entity represents a row of data in the 
+Repositories manage collections of entities. At a conceptual level where an entity represents a row of data in the
 database, the repository represents the table. When you request a repository in Bolt you will normally ask for it
 via the name of the entity, and you will receive back an object that will be able to perform find, save and delete
 operations on a collection of (or single) entities.
@@ -57,7 +57,7 @@ $qb = $repo->createQueryBuilder();
 $qb->where('status="published"')
     ->orderBy('datepublish', 'DESC')
     ->setMaxResults(10);
-    
+
 $entries = $qb->execute()->fetchAll();
 ```
 

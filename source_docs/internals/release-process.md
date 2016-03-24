@@ -1,13 +1,13 @@
 Release Process
 ===============
 
-Since branching Bolt v1 and commencing on the path to Bolt v2 we've spent time
-thinking about how, as a community based project, to best manage our release
+Since branching Bolt v1 and onwards, we've spent time
+thinking about how - as a community based project - we could best manage our release
 process.
 
 Some of the points that we're trying to consider in this discussion are:
 
- - Keep the project moving… don't stagnate
+ - Keep the project moving, don't stagnate
  - Keep our processes in line with our vision of simplicity
  - Keep the management of processes from interfering with the fun we have
    writing the code, documentation, and community interaction
@@ -28,6 +28,6 @@ An example would be:
 
 | Window   | Open (09:00 UTC) | Close (midnight UTC) |
 |----------|------------------|----------------------|
-| Feature  | 09 March 2015    | 22 March 2015        |
-| Bug Fix  | 23 March 2015    | 05 April 2015        |
-| Release  | 06 April 2015    | n/a                  |
+| Feature  | 09 March 2016    | 22 March 2016        |
+| Bug Fix  | 23 March 2016    | 05 April 2016        |
+| Release  | 06 April 2016    | n/a                  |

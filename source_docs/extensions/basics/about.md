@@ -18,25 +18,25 @@ be accomplished:
 
 A Bolt extension has to follow a few strict rules, so it can be auto-loaded by
 Bolt and to make sure it won't interfere with other Bolt functionality or even
-other Extensions. 
+other Extensions.
 
 To do this, we have to keep the following rules:
 
  - Each extension has its own PSR-4 namespace.
- - If the extension has its own configuration file, the default should be in a 
+ - If the extension has its own configuration file, the default should be in a
    `config/config.yml.dist` file in the extension folder.
- - The extension should come with a 'readme' file. It must be named 
+ - The extension should come with a 'readme' file. It must be named
  `README.md`, and is written in the Markdown format.
- - The extension loader class should either extend `\Bolt\Extension\SimpleExtension`, 
+ - The extension loader class should either extend `\Bolt\Extension\SimpleExtension`,
   or implements `\Bolt\Extension\ExtensionInterface` (see `\Bolt\Extension\AbstractExtension`)
- - The 'entry points' for callbacks and Twig functions and modifiers must be functions in the defined namespace. 
+ - The 'entry points' for callbacks and Twig functions and modifiers must be functions in the defined namespace.
    Additional code can be procedural or implemented in classes.
 
 To get the hang of how extensions work, there are a few resource/examples extensions that can be used to follow:
 
   - [Starter](https://github.com/bolt/bolt-extension-starter/)
   - ["Extended" Starter](https://github.com/bolt/bolt-extension-starter-extended/)
-  - [Stencil](https://github.com/bolt/bolt-extension-stencil/) 
+  - [Stencil](https://github.com/bolt/bolt-extension-stencil/)
 
 The two "starter" extensions are commented with lots of information and are good learning resources. The "stencil" extension however is just that, something you can make a copy of and remove everything you don't need.
 
@@ -48,10 +48,10 @@ Coding your extensions
 Because Bolt is written in PHP, it should be no surprise that the extensions
 must also be written in PHP. Bolt is built upon the awesome
 [Silex micro- framework][silex], and uses a lot of components from the
-[Symfony framework][symfony]. 
+[Symfony framework][symfony].
 
-When coding your extensions, you should use as much of the functionality 
-provided by Silex and the included components as possible. Don't re-invent 
+When coding your extensions, you should use as much of the functionality
+provided by Silex and the included components as possible. Don't re-invent
 the wheel, and things like that.
 
 See the chapter on [Bolt internals](/internals/bolt-internals) for a detailed overview of the

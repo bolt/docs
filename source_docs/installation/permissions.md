@@ -1,5 +1,5 @@
 Bolt File System Permissions
-=======================
+============================
 
 On most servers the web server runs in a different group than your user
 account, so to give Bolt write access to these files you have to use the
@@ -15,7 +15,8 @@ Most FTP clients will allow you to do this quickly, using a 'include files' or
 
 <a href="/files/ftp-chmod.png" class="popup"><img src="/files/ftp-chmod.png" width="590"></a><br>
 
-### Setting Permissions (Quick & Easy)
+Setting Permissions (Quick & Easy)
+----------------------------------
 
 This approach is not recommended, but for some hosts, or to just get moving quickly,
 try these commands from inside your Bolt directory:
@@ -25,9 +26,12 @@ chmod -R 777 app/cache/ app/config/ app/database/ extensions/
 chmod -R 777 public/thumbs/ public/extensions/ public/files/ public/theme/
 ```
 
-### Setting Permissions (Secure)
+Setting Permissions (Secure)
+----------------------------
 
-Bolt **must have**  write permissions to the following directories and their files:
+Bolt **must have** write permissions to the following directories and their
+files:
+
   * `app/cache/`
   * `app/database/`
   * `public/thumbs/`
@@ -41,7 +45,10 @@ for dir in app/cache/ app/database/ public/thumbs/ ; do
 done
 ```
 
-For back-end administration using the UI, we strongly advise making the following directories, and the files contained within, writeable by the web server user:
+For back-end administration using the UI, we strongly advise making the
+following directories, and the files contained within, writeable by the web
+server user:
+
   * `app/config/`
   * `extensions/`
   * `public/extensions/`
