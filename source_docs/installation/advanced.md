@@ -38,66 +38,6 @@ $configuration = new Bolt\Configuration\Standard(__DIR__);
 $app = new Bolt\Application(array('resources'=>$configuration));
 ```
 
-
-Installing Bolt as a composer package
--------------------------------------
-
-As in the previous example, Bolt provides out of the box support for running as
-an installed Composer package, you will however need to make a couple of
-additions to your local `composer.json` file as well. Bootstrapping your app
-looks very similar but we will use the `Composer` configuration class instead.
-
-```
-// custom-bootstrap.php
-$configuration = new Bolt\Configuration\Composer(__DIR__);
-$app = new Bolt\Application(array('resources'=>$configuration));
-```
-
-### Composer.json modifications
-
-You also need to add the below to your `composer.json` file:
-
-```json
-    "scripts": {
-        "post-install-cmd": [
-            "Bolt\\Composer\\ScriptHandler::installAssets"
-        ],
-        "post-update-cmd": [
-            "Bolt\\Composer\\ScriptHandler::installAssets"
-        ]
-    },
-
-    "extra":{
-        "bolt-web-dir": "./"
-    }
-```
-
-This will take care of copying the required assets from the `vendor` directory
-into your local project.
-
-### Customising your configuration
-
-Your configuration that is passed into the `Bolt\Application` constructor is
-referred to throughout the execution of a Bolt app to decide what local
-resources to use, for instance whenever a Bolt component wants to write to the
-cache, it will ask your configuration what path to use. Here's a selection of
-some of the things you can alter before an app is initialised.
-
-```
-// custom-bootstrap.php
-$configuration = new Bolt\Configuration\Standard(__DIR__);
-
-// Some customisations:
-$configuration->setPath('cache',    'my/custom/cache');
-$configuration->setPath('config',   'my/custom/config');
-$configuration->setPath('database', 'my/custom/database');
-$configuration->setPath('files',    'my/custom/filestore');
-$configuration->setPath('web',      'my/public');
-
-$app = new Bolt\Application(array('resources'=>$configuration));
-```
-
-
 Mounting Bolt on an existing Application
 ----------------------------------------
 
@@ -134,16 +74,4 @@ hosting environment.
 
 If you are happy using the command line installer then the Composer installer
 allows you to select a separate public directory and the rest of Bolt is stored
-a level below. See the
-<a href="installation-composer#single-command-install">full instructions here</a>.
-
-If you'd rather use the standard distribution and just run your own bootstrap
-then the following will have the same effect:
-
-```
-// root / bootstrap.php
-$configuration = new Bolt\Configuration\Standard(__DIR__);
-$configuration->setPath('web', 'public');
-$app = new Bolt\Application(array('resources'=>$configuration));
-```
-
+a level below. See the [full instructions here](install-composer">full instructions here)
