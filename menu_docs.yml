@@ -12,12 +12,24 @@ installation:
   items:
     installation/installation: "Installation"
     installation/install-command-line: "Using the command-line"
-    installation/install-composer: "Install with Composer"
+    composer:
+      title: Composer installation
+      items:
+        installation/install-composer: "Install with Composer"
+        installation/composer/creating-a-new-project: "Creating a new project"
+        installation/composer/adding-to-an-existing-project: "Adding to an existing project"
     installation/install-sftp: "The traditional way, using (S)FTP"
     installation/install-git-clone: "Clone the git repository"
     installation/advanced: "Advanced Installation options"
     installation/updating: "Updating"
     installation/permissions: "File system permissions"
+configuration:
+  title: Configuration
+  items:
+    configuration/introduction: "Setting up Bolt"
+    configuration/database: "Database Configuration"
+    configuration/web-server-apache: "Apache Configuration"
+    configuration/web-server-nginx: "Nginx Configuration"
 working:
   title: Working with Bolt
   items:
