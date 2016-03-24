@@ -79,7 +79,7 @@ contenttypes:
         - [ "`description`", "(optional) A short description of the contenttype. " ]
         - [ "`fields`", "The fields that make up the content in this contenttype. See the section [Field definitions](#field-definitions-contenttypesyml) for details." ]
         - [ "`taxonomy`", "An array listing the different taxonomies used by this contenttype. See the section on [Taxonomies](#taxonomies-and-taxonomyyml) for details." ]
-        - [ "`relations`", "An array listing the different relations available to this contenttype. See the section on [Relations](/relations) for details." ]
+        - [ "`relations`", "An array listing the different relations available to this contenttype. See the section on [Relations](./relations) for details." ]
         - [ "`record_template`", "The default template to use, when displaying a single record of this contenttype. " ]
         - [ "`listing_template`", "The default template to use, when displaying an overview of records of this contenttype. " ]
         - [ "`listing_records`", "The amount of records to show on a single overview page in the frontend." ]

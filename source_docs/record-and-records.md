@@ -190,7 +190,7 @@ function comes in handy:
 
 <p class="note"><strong>Note:</strong> To create connections between different
 records of the same or different contenttypes, see the page on <a
-href="/relationships">Relations</a>.</p>
+href="./relationships">Relations</a>.</p>
 
 
 Using `{{ records }}`

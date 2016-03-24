@@ -16,10 +16,10 @@ bootstrap file see the [advanced installation](installation-advanced) page.
 
 Bolt specifies the composer package as a required dependency, however, it does
 not have a stable release. Composer (CLI) will fail installing Bolt, because it
-cannot find a stable version of the composer package to install. You have to 
-tell composer (CLI) that you are allowing a version of the composer package with 
-a "beta" stability to be installed. This is done by requiring the composer package 
-with a version suffixed with `@beta`. This has to be done in the root 
+cannot find a stable version of the composer package to install. You have to
+tell composer (CLI) that you are allowing a version of the composer package with
+a "beta" stability to be installed. This is done by requiring the composer package
+with a version suffixed with `@beta`. This has to be done in the root
 `composer.json` (yours), or else we would not be bothering you with this :).
 
 
@@ -28,10 +28,10 @@ Next Steps
 
 #### Permissions
 
-Generally most server should be fine with the default permissions. However, if 
+Generally most server should be fine with the default permissions. However, if
 you require guidance on setting up permissions, see our [File System Permissions](permissions)
-page. 
+page.
 
 #### Finishing Set-up
 
-After you've done this, skip to the section [Setting up Bolt](#setting-bolt).
+After you've done this, skip to the section [Setting up Bolt](../../configuration/introduction).

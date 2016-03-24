@@ -226,7 +226,7 @@ If the list is growing longer, there are a few ways to make it more manageable:
 
 Finally you can pass filters to the query using the `filter` option. For a full
 reference of what can be passed to a where filter you can see the
-<a href="/content-fetching#using-where">content fetching documentation</a>.
+<a href="../content-fetching#using-where">content fetching documentation</a>.
 
 As well as filters on the contenttype values you can also pass in taxonomy conditions
 too, as in the example below.

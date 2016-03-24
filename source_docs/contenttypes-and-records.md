@@ -177,7 +177,7 @@ folder, and add the following HTML-code:
 
 <p class="note"><strong>Tip:</strong> If you're curious about the different
 <code>{{ tags }}</code> in this bit of code, read the <a
-href="/building-templates">Template documentation</a>.</p>
+href="./building-templates">Template documentation</a>.</p>
 
 In the frontend of the website, in your templates, all content is accessible as
 an array. If you're accessing one record, it will be an array containing the

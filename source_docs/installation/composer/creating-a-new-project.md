@@ -1,15 +1,15 @@
 Creating a new Composer installation
 ====================================
 
-If you are starting a new project from scratch then we've made this very 
+If you are starting a new project from scratch then we've made this very
 simple, and flexible.
 
-Bolt's Composer based installs can be performed using either 
-`composer create-project` (recommended), or building your own `composer.json` 
+Bolt's Composer based installs can be performed using either
+`composer create-project` (recommended), or building your own `composer.json`
 and path configuration file for more advanced control.
 
-Composer `create-project` installs can be run interactively (installer will 
-prompt for configuration options), or automatically (installer will use default 
+Composer `create-project` installs can be run interactively (installer will
+prompt for configuration options), or automatically (installer will use default
 configuration options, or alternatively options taken from environment variables).
 
 An example of the process is shown here:
@@ -20,7 +20,7 @@ An example of the process is shown here:
 
 #### Interactive Install
 
-To start an interactive install, navigate to the parent directory of your desired project (site), 
+To start an interactive install, navigate to the parent directory of your desired project (site),
 and run the following from a command line:
 
 ```
@@ -35,14 +35,14 @@ the public assets inside a public directory and keep the application code
 outside the web root.
 
 
-#### Automated Install 
+#### Automated Install
 
-To start an automated install, navigate to the parent directory of your desired project (site), 
+To start an automated install, navigate to the parent directory of your desired project (site),
 and run either of the following commands depending on what options you desire.
 
 ##### Default Options
 
-To simply use default directory locations, you just apply the `--no-interaction` parameter 
+To simply use default directory locations, you just apply the `--no-interaction` parameter
 to the `composer create-project` command, e.g.
 
 ```
@@ -52,7 +52,7 @@ composer create-project bolt/composer-install:^3.0 <MYPROJECT> --prefer-dist --n
 
 ##### Customised Options
 
-If you want an automated install with customised configuration options, you can set any, or all, 
+If you want an automated install with customised configuration options, you can set any, or all,
 of the following variables and the installer will use them:
   * `BOLT_DIR_MODE` — An octal UNIX permission value, e.g. `0775`, `0755`, `0750` (*default*: `0775`)
   * `BOLT_WEB_DIR` — Root web directory name (*default*:  `public`)
@@ -84,10 +84,10 @@ $ cd example.com
 
 #### Configuration File
 
-In order for paths to be customised and still have the standard index.php (web) 
-and nut (CLI) work, there needs to be a standard place these are defined. 
+In order for paths to be customised and still have the standard index.php (web)
+and nut (CLI) work, there needs to be a standard place these are defined.
 
-This is either `.bolt.yml` (recommended) or `.bolt.php` in the project root. YAML 
+This is either `.bolt.yml` (recommended) or `.bolt.php` in the project root. YAML
 works for simple values and PHP supports any programmatic logic if required.
 
 An example `.bolt.yml` would look like:
@@ -102,7 +102,7 @@ paths:
     view: public/bolt-public/view
 ```
 
-If you are creating a `.bolt.php` file instead, it should return the following array. 
+If you are creating a `.bolt.php` file instead, it should return the following array.
 
 ```php
     $config = [
@@ -111,7 +111,7 @@ If you are creating a `.bolt.php` file instead, it should return the following a
         'paths'       => [],
     ];
 ```
-This is an very advanced  option, see Bolt's [bootstrap file](https://github.com/bolt/bolt/blob/master/app/bootstrap.php) 
+This is an very advanced  option, see Bolt's [bootstrap file](https://github.com/bolt/bolt/blob/master/app/bootstrap.php)
 for more details.
 
 #### Composer JSON File
@@ -148,10 +148,10 @@ composer install
 
 #### Permissions
 
-Generally most server should be fine with the default permissions. However, if 
+Generally most server should be fine with the default permissions. However, if
 you require guidance on setting up permissions, see our [File System Permissions](permissions)
-page. 
+page.
 
 #### Finishing Set-up
 
-After you've done this, skip to the section [Setting up Bolt](#setting-bolt).
+After you've done this, skip to the section [Setting up Bolt](../../configuration/introduction).
