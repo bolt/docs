@@ -1576,6 +1576,51 @@ span.jqtree-dragging {
 .fa-plus-square-o:before {
   content: "\f196"; }
 
+input#algolia-search {
+  color: black;
+  width: 100%;
+  margin-bottom: 20px; }
+
+/*
+Algolia Search Results Styles
+Documentation: https://community.algolia.com/docsearch/documentation/
+*/
+/* little hack to get 100% for the input field width */
+.algolia-autocomplete {
+  display: inline !important; }
+
+/* Bottom border of each suggestion */
+.algolia-docsearch-suggestion {
+  border-bottom-color: #ddd; }
+
+/* Main category headers */
+.algolia-docsearch-suggestion--category-header {
+  background-color: #42628B; }
+
+/* Highlighted search terms */
+.algolia-docsearch-suggestion--highlight {
+  color: #42628B; }
+
+/* Highligted search terms in the main category headers */
+.algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--highlight {
+  background-color: #33363E; }
+
+/* Currently selected suggestion */
+.aa-cursor .algolia-docsearch-suggestion--content {
+  color: #42628B; }
+
+.algolia-docsearch-suggestion {
+  color: #6f6f6f; }
+
+.aa-cursor .algolia-docsearch-suggestion {
+  background: #f1f1f1; }
+
+.algolia-docsearch-suggestion__secondary {
+  border-top: 1px solid #ccc; }
+
+.algolia-docsearch-suggestion--subcategory-column {
+  border-right: 1px solid #ccc; }
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
    * 1. Set default font family to sans-serif.
