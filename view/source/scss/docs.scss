@@ -502,7 +502,7 @@ mark {
  */
 
  .sidebar {
-    order: 1;
+    order: 3;
     background: $darkblue;
     padding: 2rem 1rem 0;
     color: $white;
@@ -510,8 +510,11 @@ mark {
     font-size: 14px;
 
     @media #{$large-up} {
+        order: 1;
         max-width: 300px; // Magic number : looks nice
     }
+
+
 
 }
 

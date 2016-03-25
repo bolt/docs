@@ -1579,7 +1579,7 @@ span.jqtree-dragging {
 input#algolia-search {
   color: black;
   width: 100%;
-  margin-bottom: 20px; }
+  padding: 4px; }
 
 /*
 Algolia Search Results Styles
@@ -4121,7 +4121,20 @@ a.toplink {
       display: none; } }
 
 p.collapse-nodes {
-  font-size: 14px; }
+  font-size: 15px; }
+  p.collapse-nodes a {
+    color: #6881a2;
+    font-weight: bold; }
+
+#version-changer form {
+  text-align: right; }
+
+#version-changer div {
+  display: inline-block; }
+
+#version-changer select {
+  max-width: 220px;
+  display: inline-block; }
 
 /* ------------ STUFF -------------- */
 span.desktop {
@@ -4294,9 +4307,9 @@ mark {
  * Styles for the sidebar
  */
 .sidebar {
-  -webkit-order: 1;
-      -ms-flex-order: 1;
-          order: 1;
+  -webkit-order: 3;
+      -ms-flex-order: 3;
+          order: 3;
   background: #33363E;
   padding: 2rem 1rem 0;
   color: #fefefe;
@@ -4304,6 +4317,9 @@ mark {
   font-size: 14px; }
   @media screen and (min-width: 64em) {
     .sidebar {
+      -webkit-order: 1;
+          -ms-flex-order: 1;
+              order: 1;
       max-width: 300px; } }
 
 p.note {
@@ -4406,7 +4422,7 @@ div.gallery-popup img {
           order: 2; }
   @media screen and (min-width: 64em) {
     .content {
-      padding: 3.5em 3.5em 1em; } }
+      padding: 1.5em 3.5em 1em; } }
   .content h2 code {
     font-size: 24px; }
   .content h3 code {
