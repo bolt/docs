@@ -88,6 +88,14 @@ Defined positions for the backend are:
  - login_top
  - login_middle
  - login_bottom
+ - edituser_aside_top
+ - edituser_aside_bottom
+ - edituser_below_header
+ - edituser_bottom
+ - users_aside_top
+ - users_aside_bottom
+ - users_below_header
+ - users_bottom
 
 Styling widgets, using CSS
 --------------------------
