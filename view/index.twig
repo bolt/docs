@@ -8,12 +8,28 @@
 
         <a href="#sidebar" class="button hide-for-large jumpbutton">Jump to docs navigation</a>
 
+        <div id="version-changer">
+            <form action="" method="post">
+                <div>
+                Version:
+                </div>
+                <select>
+                    <option>Current: <strong>Bolt {{ version }}</strong></option>
+                    <optgroup label='Switch to version:'>
+                    {% for v in versions if v != version %}
+                        <option value='/{{ v|slug }}/introduction'>Bolt {{ v }}</option>
+                    {% endfor %}
+                    </optgroup>
+                </select>
+            </form>
+        </div>
 
-        {# temporary for the transition phase between 1.6 and 2.0
-        <p class="note">
-            <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt 2.0</strong>.
-            Looking for the <a href="https://docs.bolt.cm/v16">documentation for Bolt version 1.6</a> instead?
-        </p>#}
+        {% if config['default-version'] != version %}
+        <p class="note" style="margin-top: 1em;">
+            <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt {{ version }}</strong>.
+            Looking for the <a href="">documentation for Bolt {{ config['default-version'] }}</a> instead?
+        </p>
+        {% endif %}
 
         {{ source|raw }}
 
@@ -30,12 +46,14 @@
     <div class="small-12 medium-12 large-3 large-pull-9 end columns sidebar" id="sidebar">
         <nav id="sidebar-nav">
 
+            <p class='collapse-nodes'>Search the documentation:
             <input type="text" placeholder="Search ..." id="algolia-search"/>
+            </p>
 
             <p class='collapse-nodes'>
                 [
-                <a href='#' id='jqtree-collapse-all'>Collapse all</a> |
-                <a href='#' id='jqtree-expand-all'>Expand all</a>
+                <a href='#' id='jqtree-collapse-all'>► Collapse all</a> |
+                <a href='#' id='jqtree-expand-all'>▼ Expand all</a>
                 ]
             </p>
             <div id="tree1" data-url="/tree/{{version}}.json">

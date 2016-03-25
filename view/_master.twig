@@ -100,20 +100,6 @@
             </li>
 #}
 
-            <li class="index-6">
-                <form id="version-changer" action="" method="post">
-                    <select>
-                        <option>Current version: <strong>Bolt {{ version }}</strong></option>
-                        <optgroup label='Switch to another version:'>
-                        {% for v in versions if v != version %}
-                            <option value='/{{ v|slug }}/introduction'>Bolt {{ v }}</option>
-                        {% endfor %}
-                        </optgroup>
-                    </select>
-                    <input type="submit" value="Go" id="version-changer-submit" />
-                </form>
-            </li>
-
         </ul>
     </nav>
 

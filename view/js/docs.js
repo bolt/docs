@@ -16,7 +16,6 @@ jQuery(function($) {
 
     $('main .content a.popup').magnificPopup({
         type: 'image'
-        // other options
     });
 
     $('div.gallery-popup').magnificPopup({
@@ -30,14 +29,6 @@ jQuery(function($) {
     $(window).scroll(function () {
         $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
     });
-
-// // test: 33-basics
-// var node = $tree.tree('getNodeById', '33-basics');
-// console.log('selected', $tree.tree('selectNode', node));
-
-//         $tree.tree('openNode', node);
-
-    console.log('window.location.pathname', window.location.pathname);
 
     var pathname = window.location.pathname;
 
@@ -55,15 +46,9 @@ jQuery(function($) {
             }
 
             if (typeof node.childrenlinks != 'undefined' && node.childrenlinks.indexOf(pathname) >= 0) {
-                console.log("jaaa", pathname, node.childrenlinks);
                 $tree.tree('openNode', node);
                 $li.addClass('jqtree-selected');
             }
-
-            //$li.find('.jqtree-element').append(
-            //    '&lt;a href="#node-'+ node.id +'" class="edit" data-node-id="'+
-            //    node.id +'"&gt;edit&lt;/a&gt;'
-            //);
         }
     });
 
@@ -110,11 +95,6 @@ jQuery(function($) {
 
     });
 
-
-
-
-
-
     // Update the number of stars. Stolen from foundation.zurb.com.
     $.ajax({
       dataType: 'jsonp',
@@ -131,9 +111,9 @@ jQuery(function($) {
     // Jumpmenu for the versions
     $("#version-changer-submit").hide();
     $("#version-changer select").change(function() {
+        console.log('jo');
         window.location = $("#version-changer select option:selected").val();
     })
-
 
     //Zero Clipboard stuff..
     $('pre code').each(function(index) {
