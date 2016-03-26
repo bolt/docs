@@ -4,5 +4,5 @@ version: 3.0.0
 
 debug: true
 
-start-page: /local/introduction
-default-version: local
+start-page: /release-2-2/introduction
+default-version: release-2-2
