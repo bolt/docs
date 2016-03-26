@@ -1,5 +1,5 @@
-Updating Bolt
-=============
+Updating / Upgrading Bolt
+=========================
 
 As with all web-based applications, it's good practice to keep your site up to
 date with the latest version. Bolt is built in such a way, that none of the
