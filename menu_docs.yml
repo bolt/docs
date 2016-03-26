@@ -21,8 +21,13 @@ installation:
     installation/install-sftp: "The traditional way, using (S)FTP"
     installation/install-git-clone: "Clone the git repository"
     installation/advanced: "Advanced Installation options"
-    installation/updating: "Updating"
     installation/permissions: "File system permissions"
+upgrading:
+  title: Upgrading
+  items:
+    upgrading/updating: "Updating / Upgrading Bolt"
+    upgrading/moving-22-30: "Moving a site from version 2.2 to 3.0"
+
 configuration:
   title: Configuration
   items:
