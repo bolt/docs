@@ -16,6 +16,7 @@ class Controllers implements ControllerProviderInterface
 
     public function connect(Application $app)
     {
+
         /** @var $ctr \Silex\ControllerCollection */
         $ctr = $app['controllers_factory'];
 
@@ -36,6 +37,10 @@ class Controllers implements ControllerProviderInterface
             ->assert('slug', '.+');
 
         $ctr->before(array($this, 'before'));
+
+        $app->error(function(\Exception $e, Request $request, $code) use ($app) {
+            return $this->error($e, $request, $app, $code);
+        });
 
         return $ctr;
 
@@ -172,14 +177,14 @@ class Controllers implements ControllerProviderInterface
         // Fetch the available versions.
         $contentGetter = new ContentGetter();
 
-        $versions = $contentGetter->getVersions();
+        $this->versions = $contentGetter->getVersions();
 
         if ($app['config']['debug'] === true) {
             $versions[] = 'local';
         }
 
         $app['twig']->addGlobal('config', $app['config']);
-        $app['twig']->addGlobal('versions', $versions);
+        $app['twig']->addGlobal('versions', $this->versions);
     }
 
     /**
@@ -191,21 +196,24 @@ class Controllers implements ControllerProviderInterface
      *
      * @return Response|void
      */
-    public function error(\Exception $e, Request $request, $code)
+    public function error(\Exception $e, Request $request, Application $app, $code)
     {
-        if ($app['debug']) {
-            return;
+        // Fetch the available versions.
+        $contentGetter = new ContentGetter();
+        $versions = $contentGetter->getVersions();
+
+        $requestUri = explode('/', $request->getRequestUri());
+
+        // If the request didn't start with something that looks like a version,
+        // redirect to the current version, only with the version prefixed.
+        if (!isset($versions[ $requestUri[1] ])) {
+            // return $app->redirect('/' . $app['config']['default-version'] . $request->getRequestUri());
+            $redirect = $app->redirect('/' . $app['config']['default-version'] . $request->getRequestUri());
+            return $redirect;
         }
 
-        // 404.html, or 40x.html, or 4xx.html, or error.html
-        $templates = [
-            'errors/'.$code.'.html.twig',
-            'errors/'.substr($code, 0, 2).'x.html.twig',
-            'errors/'.substr($code, 0, 1).'xx.html.twig',
-            'errors/default.html.twig',
-        ];
-
-        return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
+        // Otherwise, we return, and let Silex handle it.
+        return;
     }
 
 }
