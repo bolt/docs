@@ -16,7 +16,6 @@ class Controllers implements ControllerProviderInterface
 
     public function connect(Application $app)
     {
-
         /** @var $ctr \Silex\ControllerCollection */
         $ctr = $app['controllers_factory'];
 
