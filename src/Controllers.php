@@ -207,8 +207,8 @@ class Controllers implements ControllerProviderInterface
         // Fetch the available versions.
         $currentVersion = $app['config']['default-version'];
         $contentGetter = new ContentGetter($currentVersion);
-        $versions = $contentGetter->getVersions();
-            dump($versions);
+        $versions = array_flip($contentGetter->getVersions());
+
 
         // Pad the versions array with 'local', because it's always there, even if we don't advertise it.
         $versions['local'] = 'local';
@@ -216,20 +216,17 @@ class Controllers implements ControllerProviderInterface
         // If the request didn't start with something that looks like a version,
         // redirect to the current version, only with the version prefixed.
         if (!isset($versions[ $requestUri[1] ])) {
-            dump($versions);
-            // return $app->redirect('/' . $app['config']['default-version'] . $request->getRequestUri());
             $redirect = $app->redirect('/' . $currentVersion . $request->getRequestUri());
-            dump($redirect);
-            die();
             return $redirect;
         }
 
         // If we have a 404 error, show the 404 page.
         if ($code == 404) {
             $twigVars = [
-                'title'   => "404 - Page not found.",
-                'source'  => "This page could not be found. Please click one of the menu items in the
-                              sidebar, or use the search form to look for a specific keyword.",
+                'title'   => "404 - Page not found",
+                'source'  => "<h1>404 - Page not found</h1>" .
+                             "This page could not be found. Please click one of the menu items in the " .
+                             "sidebar, or use the search form to look for a specific keyword.",
                 'menu'    => $contentGetter->getMenu('menu_docs.yml'),
                 'version' => $currentVersion,
             ];
