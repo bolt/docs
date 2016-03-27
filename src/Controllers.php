@@ -175,14 +175,14 @@ class Controllers implements ControllerProviderInterface
         // Fetch the available versions.
         $contentGetter = new ContentGetter();
 
-        $this->versions = $contentGetter->getVersions();
+        $versions = $contentGetter->getVersions();
 
         if ($app['config']['debug'] === true) {
             $versions['local'] = 'local';
         }
 
         $app['twig']->addGlobal('config', $app['config']);
-        $app['twig']->addGlobal('versions', $this->versions);
+        $app['twig']->addGlobal('versions', $versions);
     }
 
     /**
