@@ -1,12 +1,12 @@
 <?php
 
 use Silex\Application;
-use Silex\Provider\TwigServiceProvider;
-use Silex\Provider\RoutingServiceProvider;
-use Silex\Provider\ValidatorServiceProvider;
-use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\MonologServiceProvider;
+use Silex\Provider\RoutingServiceProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\TwigServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 
 $app = new Application();
