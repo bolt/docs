@@ -95,8 +95,7 @@ class Controllers implements ControllerProviderInterface
         $source = $contentGetter->source();
 
         if (empty($source)) {
-            // todo: 404 handling
-            return "404, dude";
+            $app->abort(404, "Page does not exist.");
         }
 
         $twigVars = [
@@ -180,7 +179,7 @@ class Controllers implements ControllerProviderInterface
         $this->versions = $contentGetter->getVersions();
 
         if ($app['config']['debug'] === true) {
-            $versions[] = 'local';
+            $versions['local'] = 'local';
         }
 
         $app['twig']->addGlobal('config', $app['config']);
@@ -198,18 +197,45 @@ class Controllers implements ControllerProviderInterface
      */
     public function error(\Exception $e, Request $request, Application $app, $code)
     {
-        // Fetch the available versions.
-        $contentGetter = new ContentGetter();
-        $versions = $contentGetter->getVersions();
-
         $requestUri = explode('/', $request->getRequestUri());
+
+        // Don't trap Symfony shizzle.
+        if (in_array($requestUri[1], ['a', '_profiler']) || $app['debug']) {
+            return;
+        }
+
+        // Fetch the available versions.
+        $currentVersion = $app['config']['default-version'];
+        $contentGetter = new ContentGetter($currentVersion);
+        $versions = $contentGetter->getVersions();
+            dump($versions);
+
+        // Pad the versions array with 'local', because it's always there, even if we don't advertise it.
+        $versions['local'] = 'local';
 
         // If the request didn't start with something that looks like a version,
         // redirect to the current version, only with the version prefixed.
         if (!isset($versions[ $requestUri[1] ])) {
+            dump($versions);
             // return $app->redirect('/' . $app['config']['default-version'] . $request->getRequestUri());
-            $redirect = $app->redirect('/' . $app['config']['default-version'] . $request->getRequestUri());
+            $redirect = $app->redirect('/' . $currentVersion . $request->getRequestUri());
+            dump($redirect);
+            die();
             return $redirect;
+        }
+
+        // If we have a 404 error, show the 404 page.
+        if ($code == 404) {
+            $twigVars = [
+                'title'   => "404 - Page not found.",
+                'source'  => "This page could not be found. Please click one of the menu items in the
+                              sidebar, or use the search form to look for a specific keyword.",
+                'menu'    => $contentGetter->getMenu('menu_docs.yml'),
+                'version' => $currentVersion,
+            ];
+            $html = $app['twig']->render('index.twig', $twigVars);
+
+            return $html;
         }
 
         // Otherwise, we return, and let Silex handle it.
