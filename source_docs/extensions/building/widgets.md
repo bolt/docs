@@ -110,7 +110,7 @@ See the page [Using Widgets][widgets], for more information.
 Examples
 --------
 
-### Adding a button to the backend, right above the footer on every page
+### Adding a button to the frontend, right above the footer on every page
 
 Initialise the widget:
 
@@ -121,16 +121,16 @@ Initialise the widget:
 
         $widget = new Widget();
         $widget
-            ->setZone('backend')
+            ->setZone('frontend')
             ->setLocation('footer')
-            ->setCallback([$this, 'backendButton'])
+            ->setCallback([$this, 'frontendButton'])
         ;
 ```
 
 And add the callback function
 
 ```
-    public function backendButton()
+    public function frontendButton()
     {
 
         $html = sprintf("<a href='%s' class='btn btn-default'><i class='fa fa-%s'></i> &nbsp;%s</a>",
