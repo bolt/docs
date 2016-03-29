@@ -47,16 +47,6 @@ internals:
     internals/code-quality: "Code Quality"
     internals/task-scheduler: "Task Scheduler (cron)"
     internals/release-process: "Our Release Process"
-storage:
-  title: "Interacting with the Database"
-  items:
-    "storage/introduction": "Overview of Bolt Storage"
-    "storage/entity-manager": "The Entity Manager"
-    "storage/entities": "Working with Entities"
-    "storage/repositories": "Working with Repositories"
-    "storage/entity-metadata": "Entity Metadata"
-    "storage/entity-transforms": "Hydration & Persistence"
-    "storage/fields": "Fields & Field Types"
 other:
   title: Other Information
   items:
