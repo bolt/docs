@@ -74,9 +74,9 @@ for more details.
 
 ### Geolocation
 
-The 'Geolocation' field type allows you to easily pick and use geolocations. You
-can use the given address, the latitude, longitude, and the reverse geocoded
-address. To see the values that are stored, use `{{ dump(page.geolocation) }}`.
+The 'Geolocation' field type allows you to easily pick and use geolocations.
+You can use the given address, the latitude, longitude, and the reverse
+geocoded address. To see the values that are stored, use `{{ dump(page.geolocation) }}`.
 To insert a simple map from Google with a marker at the given location, use:
 
 ```
@@ -86,9 +86,9 @@ To insert a simple map from Google with a marker at the given location, use:
 ```
 
 More info about these static maps, can be found at [Static Maps API V2 Developer Guide][1].
-Of course, you can use the geolocations with any mapping service you like, since
-latitude and longitude is a common geographic coordinate system used by many
-services.
+Of course, you can use the geolocations with any mapping service you like,
+since latitude and longitude is a common geographic coordinate system used by
+many services.
 
 ### Video
 
@@ -190,16 +190,22 @@ function comes in handy:
 records of the same or different contenttypes, see the page on <a
 href="./relationships">Relations</a>.</p>
 
+Outputting all fields
+---------------------
+
+Sometimes you need to output all available fields, without knowing exactly which fields there are. In these cases, the `{{ fields() }}`-tag is
+extremely useful. See the page on <a href="./fields-tag">The Fields-tag</a> for details and examples.</p>
+
 Using `{{ records }}`
 --------------------
 
 The `{{ records }}` array is basically a set of several content records. When
 you have a `{{ records }}` array, you can iterate over each of the records to
-output them as desired. In the following example you can see how to get an array
-of records. You'll notice that in this case it's not actually called `records`,
-but `pages`. Since it's just a variable name, we can call it whatever we like.
-After getting the `{{ pages }}` array, we use a simple `for` loop, so we can
-iterate over each of the separate `{{ page }}` records.
+output them as desired. In the following example you can see how to get an
+array of records. You'll notice that in this case it's not actually called
+`records`, but `pages`. Since it's just a variable name, we can call it
+whatever we like. After getting the `{{ pages }}` array, we use a simple `for`
+loop, so we can iterate over each of the separate `{{ page }}` records.
 
 ```
 {% setcontent pages = 'pages/latest/4' %}
