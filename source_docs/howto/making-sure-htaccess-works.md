@@ -12,8 +12,8 @@ process of setting up Bolt and after requesting the first page, you got redirect
 to the page `/bolt/userfirst`, where you saw the following error message:
 
 <div class="gallery-popup">
-    <a href="../files/htaccess-4.png" class="gallery-popup" title="bolt/userfirst not found">
-    <img src="../files/htaccess-4.png" width="660"></a><br>
+    <a href="/files/htaccess-4.png" class="gallery-popup" title="bolt/userfirst not found">
+    <img src="/files/htaccess-4.png" width="660"></a><br>
 </div>
 
 One of the three following possibilities is giving you problems:
@@ -43,8 +43,8 @@ Now, if you refresh the page in your browser, you should see an error page like
 this:
 
 <div class="gallery-popup">
-    <a href="../files/htaccess-2.png" class="gallery-popup" title="Htaccess working">
-    <img src="../files/htaccess-2.png" width="660"></a><br>
+    <a href="/files/htaccess-2.png" class="gallery-popup" title="Htaccess working">
+    <img src="/files/htaccess-2.png" width="660"></a><br>
 </div>
 
 If you see this error, that's **actually good**! This means that Apache is
@@ -67,8 +67,8 @@ exists and is readable, download our test script:
 This is correct:
 
 <div class="gallery-popup">
-    <a href="../files/htaccess-3.png" class="gallery-popup" title="Htaccess working">
-    <img src="../files/htaccess-3.png" width="660"></a><br>
+    <a href="/files/htaccess-3.png" class="gallery-popup" title="Htaccess working">
+    <img src="/files/htaccess-3.png" width="660"></a><br>
 </div>
 
 ## Test if `mod_rewrite` is working
@@ -95,8 +95,8 @@ To test if `mod_rewrite` is working correctly, do the following:
 This is correct:
 
 <div class="gallery-popup">
-    <a href="../files/htaccess-1.png" class="gallery-popup" title="Htaccess working">
-    <img src="../files/htaccess-1.png" width="660" style="bor"></a><br>
+    <a href="/files/htaccess-1.png" class="gallery-popup" title="Htaccess working">
+    <img src="/files/htaccess-1.png" width="660" style="bor"></a><br>
 </div>
 
 ## My htaccess is broken? What do?
@@ -108,7 +108,7 @@ said, here are a few pointers that might help you fix it:
 ### Enable `.htaccess` in your `httpd.conf` or `apache.conf`
 
 It's unusual, but possible that `.htaccess` is not enabled on your site. If you
-are hosting it yourself, it's easy enough to fix. Open your `httpd.conf` or 
+are hosting it yourself, it's easy enough to fix. Open your `httpd.conf` or
 `apache.conf` in a text editor, and locate the `<Directory>` section:
 
 ```apache
