@@ -123,7 +123,7 @@ indicators for users as to the stability of extensions. Firstly on install you
 will see a list of stable and development versions. It will look similar to the
 screen below.
 
-<img src="../files/extensions-versions-stability.png">
+<img src="/files/extensions-versions-stability.png">
 
 Users will normally only want to install stable versions, and the way you ensure
 you have listed stable versions is to push a tagged version to your Git
@@ -144,12 +144,12 @@ You'll also notice that there's a green badge on the screen above for status
 into the Marketplace site. If you visit [your profile page][profile] and click the
 view button you should see a screen similar to the one below:
 
-<img src="../files/extensions-testing.png">
+<img src="/files/extensions-testing.png">
 
 Next to each version of the extension you will see a button to run a test. After
 clicking on this if all is well you should see a screen like the one below:
 
-<img src="../files/extensions-test-status.png">
+<img src="/files/extensions-test-status.png">
 
 If everything installs ok you should see all green status bars on the screen and
 the green star badge next to your extension. For complete testing you can launch
