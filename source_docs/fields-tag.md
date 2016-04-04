@@ -1,25 +1,26 @@
 The fields-tag
 ==============
 
-When developing a theme and templates, you often know which fields there are,
-and you carefully place them in the templates where you want them to appear,
-and what the markup looks like. On the other hand, in some cases you simply
-can't do this for each separate field, for a number of reasons:
+When developing a theme, you often know which fields there are, and you
+carefully place them in the templates where you want them to appear, and what
+the markup looks like. On the other hand, in some cases you simply can't do
+this for each separate field, for a number of reasons:
 
  - You are creating a theme for others to use, and you don't know what the
-   contenttypes will look like
+   contenttypes will look like.
  - Your contenttype has a Repeater Field, so there can be any number of fields
+   for the record.
  - Your (extended) template is used for different contenttypes, with or without
    Template fields.
  - You want to provide a 'generic' single record template, to go with the
    carefully crafted `entry.twig` or `page.twig`.
  - You are being lazy, and want to whip up a quick prototype.
 
-In these cases, you cannot specify all fields like `{{ record.title }}` by
-hand, because you simply don't know the exact structure of the contenttype. For
-this very usecase, Bolt provides a tag to output these fields when you're
-working on a template without having to know exactly what's in the contenttype.
-This is the `{{ fields() }}`-tag. Basic usage is straightforward:
+In these cases, you cannot specify all of the fields like `{{ record.title }}`
+separately, because you simply don't know the exact structure of the
+contenttype. For this very usecase, Bolt provides a tag to output these fields
+when you're working on a template without having to know exactly what's in the
+contenttype. This is the `{{ fields() }}`-tag. Basic usage is straightforward:
 
 ```twig
 {% extends 'partials/_master.twig' %}
