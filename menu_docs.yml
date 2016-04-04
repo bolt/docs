@@ -51,6 +51,7 @@ templating:
     building-templates: "Building templates"
     record-and-records: "Record and Records"
     content-fetching: "Fetching content"
+    fields-tag: "Using the Fields-tag"
     content-paging: "Paging content"
     content-search: "Implementing Search"
     widgets: "Using widgets"

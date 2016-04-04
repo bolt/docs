@@ -1,5 +1,5 @@
-The `{{ fields() }}-tag`
-========================
+The fields-tag
+==============
 
 When developing a theme and templates, you often know which fields there are,
 and you carefully place them in the templates where you want them to appear,
