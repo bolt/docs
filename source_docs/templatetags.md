@@ -129,7 +129,7 @@ an if/else clause, to redirect visitors based on some criteria.
     </a>
 {% else %}
     {# passive-aggressive way to tell people to find their own image #}
-    {{ redirect('http://http://images.google.com/') }}
+    {{ redirect('http://images.google.com/') }}
 {% endif %}
 ```
 
