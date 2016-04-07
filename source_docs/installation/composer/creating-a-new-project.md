@@ -96,7 +96,7 @@ required.
 
 An example `.bolt.yml` would look like:
 
-```yaml
+```
 paths:
     cache: app/cache
     config: app/config
@@ -114,7 +114,15 @@ array.
     $config = [
         'application' => null,
         'resources'   => null,
-        'paths'       => [],
+        'paths'       => [
+            'cache'     => 'app/cache',
+            'config'    => 'app/config',
+            'database'  => 'app/database',
+            'web'       => 'public',
+            'themebase' => 'public/theme',
+            'files'     => 'public/files',
+            'view'      => 'public/bolt-public/view',
+        ],
     ];
 ```
 This is an very advanced  option, see Bolt's [bootstrap file][bs]
@@ -152,7 +160,7 @@ Finally run Composer to install the required libraries and configure the
 installation:
 
 ```
-composer install
+composer create-project
 ```
 
 ### Permissions
