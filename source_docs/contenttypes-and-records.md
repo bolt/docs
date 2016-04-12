@@ -375,7 +375,7 @@ The following fieldtypes are available:
 
     # i.e. to display both the id and title of 'pages':
     selectapage:
-        type:select
+        type: select
         values: pages/id,title
 ```
 
