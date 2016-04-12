@@ -32,33 +32,23 @@ After extracting the tar file, you'll end up with a structure, similar to this:
 └── composer.lock
 ```
 
-These are the folders that contain all of the bolt code, resources and other
-files. Most of them are placed outside of the so-called webroot. Only the folder
-`public/` needs to be accessible in the browser. 
+These are the folders that contain all of the Bolt code, resources and other
+files. Most of them are placed outside of the so-called webroot. Only the
+folder `public/` needs to be accessible in the browser.
 
-To do this, configure your webserver to use the `public/` folder as the webroot,
-should this be unchangeable in your web server's configuration you can rename
-`public/` and update the settings in the `.bolt.yml` located in the installation
-root directory.
+To do this, configure your webserver to use the `public/` folder as the
+webroot. For more information about this, see the pages on configuring
+[Apache][apache] or [Nginx][nginx].
 
-e.g. to rename `public/` `public_html/`
-
-```
-paths:
-    web: public_html
-    themebase: public_html/theme
-    files: public_html/files
-    view: public_html/bolt-public/view
-```
-
-For more information about this, see the pages on configuring [Apache][apache]
-or [Nginx][nginx].
+If you bump into trouble setting this up, or you have no access to
+unchangeable in your web server's configuration, read the page
+[Troubleshooting 'outside of the webroot'][webroot].
 
 ### Permissions
 
 Generally most server should be fine with the default permissions. However, if
-you require guidance on setting up permissions, see our [File System
-Permissions](permissions) page.
+you require guidance on setting up permissions, see our
+[File System Permissions](permissions) page.
 
 ### Finishing Set-up
 
@@ -66,3 +56,5 @@ After you've done this, skip to the section [Setting up Bolt](../configuration/i
 
 [apache]: ../configuration/web-server-apache
 [nginx]: ../configuration/web-server-nginx
+[webroot]: ../howto/troubleshooting-outside-webroot
+

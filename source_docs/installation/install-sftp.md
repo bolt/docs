@@ -39,11 +39,18 @@ After extracting the tar file, you'll end up with a structure, similar to this:
 └── composer.lock
 ```
 
-These are the folders that contain all of the bolt code, resources and other
-files. Most of them are placed outside of the so-called webroot. Only the folder
-`public/` needs to be accessible in the browser. To do this, configure your
-webserver to use the `public/` folder as the webroot. For more information about
-this, see the pages on configuring [Apache][apache] or [Nginx][nginx].
+These are the folders that contain all of the Bolt code, resources and other
+files. Most of them are placed outside of the so-called webroot. Only the
+folder `public/` needs to be accessible in the browser.
+
+To do this, configure your webserver to use the `public/` folder as the
+webroot. For more information about this, see the pages on configuring
+[Apache][apache] or [Nginx][nginx].
+
+If you bump into trouble setting this up, or you have no access to
+unchangeable in your web server's configuration, read the page
+[Troubleshooting 'outside of the webroot'][webroot].
+
 
 ### Permissions
 
