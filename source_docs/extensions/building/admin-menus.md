@@ -38,7 +38,7 @@ In the above example:
     `bolt/extend/koala` (where branding path is still set to `bolt/`
   * `setLabel('Koala Catcher')` sets the displayed menu label in the left side
     bar to "Koala Catcher"
-  * `setIcon('fa-tree')` set the icon for the menu to any of the
+  * `setIcon('fa:leaf')` set the icon for the menu to any of the
     [Font Awesome icons](https://fortawesome.github.io/Font-Awesome/cheatsheet/)
   * `setPermission('settings')` sets the required permssion, as defined in the
     `app/config/permissions.yml` file
