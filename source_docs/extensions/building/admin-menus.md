@@ -40,5 +40,5 @@ In the above example:
     bar to "Koala Catcher"
   * `setIcon('fa:leaf')` set the icon for the menu to any of the
     [Font Awesome icons](https://fortawesome.github.io/Font-Awesome/cheatsheet/)
-  * `setPermission('settings')` sets the required permssion, as defined in the
+  * `setPermission('settings')` sets the required permission, as defined in the
     `app/config/permissions.yml` file
