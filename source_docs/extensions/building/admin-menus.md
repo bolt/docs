@@ -20,7 +20,7 @@ class object.
     {
         $menu = new MenuEntry('koala-menu', 'koala');
         $menu->setLabel('Koala Catcher')
-            ->setIcon('fa-tree')
+            ->setIcon('fa:leaf')
             ->setPermission('settings')
         ;
 
