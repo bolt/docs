@@ -28,6 +28,10 @@ In the example above `pages`. It takes a few parameters:
    can be any field in the contenttype. Prefix with `-` to reverse the sorting.
    In the case of the example, `-id` means that the records that were created
    last are at the top.
+ - `format` - How to show the titles for each record that can be selected. This
+   takes a twig string where `item` is the record that can be selected. For
+   example if you have two fields for firstname and lastname you might put
+   `'{{item.firstname}} {{item.lastname}}'` here. The default is `'{{ item.title|escape }} (№ {{ item.id }})'`
 
 Editing a record that has relations defined looks like this:
 
