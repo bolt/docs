@@ -154,7 +154,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @author Kenny Koala <kenny@dropbear.com.au>
  */
-DropBearController Base implements ControllerProviderInterface
+DropBearController implements ControllerProviderInterface
 {
     /** @var Application */
     protected $app;
