@@ -28,6 +28,7 @@ class Application extends Silex\Application
             $twig->addExtension(new TwigExtension($this));
             return $twig;
         });
+        $this->register(new Provider\ConsoleServiceProvider());
 
         $this->mount('', new Controllers());
 

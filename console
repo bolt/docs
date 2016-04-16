@@ -1,9 +1,10 @@
 #!/usr/bin/env php
 <?php
-require_once('vendor/autoload.php');
 
-$console = new Symfony\Component\Console\Application("Bolt Docs", "bolt-docs");
-$console->addCommands([
-    new Bolt\Docs\Command\BuildDocumentation()
-]);
-$console->run();
+use Bolt\Docs\Application;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$app = new Application();
+
+$app['console']->run();
