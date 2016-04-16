@@ -14,10 +14,10 @@
                 Version:
                 </div>
                 <select>
-                    <option>Current: <strong>Bolt {{ version }}</strong></option>
+                    <option>Current: <strong>{{ version }}</strong></option>
                     <optgroup label='Switch to version:'>
                     {% for v in versions if v != version %}
-                        <option value='/{{ v|slug }}/introduction'>Bolt {{ v }}</option>
+                        <option value='/{{ v }}/introduction'>{{ v }}</option>
                     {% endfor %}
                     </optgroup>
                 </select>
