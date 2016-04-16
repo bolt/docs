@@ -42,7 +42,6 @@ class TwigExtension extends \Twig_Extension
         $env  = ['needs_environment' => true];
 
         return [
-            new \Twig_SimpleFilter('markdown', [$this, 'markdown'], $safe),
         ];
     }
 
@@ -50,11 +49,5 @@ class TwigExtension extends \Twig_Extension
     {
         return $this->app['request_stack']->getMasterRequest()->getBasepath().'/'.ltrim($asset, '/');
     }
-
-    public function markdown($str)
-    {
-        return \ParsedownExtra::instance()->text($str);
-    }
-
 }
 
