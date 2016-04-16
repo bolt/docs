@@ -22,7 +22,7 @@ doesn't already exist. Enter the directory, and execute the following commands:
 ```bash
 curl -O http://bolt.cm/distribution/bolt-latest.tar.gz
 tar -xzf bolt-latest.tar.gz --strip-components=1
-chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
+chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/ && chmod +x serve
 ```
 
 Bolt needs to be able to read and write certain directories like the cache and
@@ -112,7 +112,7 @@ and directories will have the correct file permissions, but if they don't,
 (re)set them using the following command in the `bolt/` directory:
 
 ```bash
-chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
+chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/ && chmod +x serve
 ```
 
 It depends on the exact server configuration if you will need to use `777` or
