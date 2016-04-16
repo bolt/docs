@@ -24,10 +24,6 @@ class Application extends Silex\Application
                 'cache' => __DIR__ . '/../cache',
             ]
         ]);
-        $this->extend('twig', function ($twig) {
-            $twig->addExtension(new TwigExtension($this));
-            return $twig;
-        });
         $this->register(new Silex\Provider\VarDumperServiceProvider());
         $this->register(new Silex\Provider\AssetServiceProvider(), [
             'assets.base_path' => '/view/',
