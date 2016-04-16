@@ -32,7 +32,6 @@ class TwigExtension extends \Twig_Extension
         $env  = ['needs_environment' => true];
 
         return [
-            new \Twig_SimpleFunction('asset', [$this, 'asset']),
         ];
     }
 
@@ -43,11 +42,6 @@ class TwigExtension extends \Twig_Extension
 
         return [
         ];
-    }
-
-    public function asset($asset)
-    {
-        return $this->app['request_stack']->getMasterRequest()->getBasepath().'/'.ltrim($asset, '/');
     }
 }
 

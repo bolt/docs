@@ -10,6 +10,7 @@
         "monolog/monolog": "1.x-dev",
         "silex/silex": "~2.0@dev",
         "silex/web-profiler": "~2.0@dev",
+        "symfony/asset": "^3.0",
         "symfony/console": "^3.0",
         "symfony/finder": "^3.0",
         "symfony/var-dumper": "^3.0",
