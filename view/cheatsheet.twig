@@ -17,7 +17,7 @@
         <div class="row labelholder">
         {% for block in cheatsheet if block.title %}
             <span class="secondary radius label">
-                <a href="#{{block.title|slug}}">{{ block.shorttitle|default(block.title) }}</a>
+                <a href="#{{ block.title|slugify }}">{{ block.shorttitle|default(block.title) }}</a>
             </span>
         {% endfor %}
         </div>
@@ -29,9 +29,9 @@
 
                     {% if block.title %}
                             {% set title = block.title|markdown|replace({'<p>': '', '</p>': ''}) %}
-                            <h2 id="{{ block.title|slug }}">
+                            <h2 id="{{ block.title|slugify }}">
                                 {{ loop.index -1 }}. {{ title|raw }}
-                                <a href="#{{ block.title|slug}}" class="anchor">&para;</a>
+                                <a href="#{{ block.title|slugify }}" class="anchor">&para;</a>
                             </h2>
                     {% endif %}
 

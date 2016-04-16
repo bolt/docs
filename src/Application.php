@@ -30,6 +30,7 @@ class Application extends Silex\Application
         });
         $this->register(new Silex\Provider\VarDumperServiceProvider());
         $this->register(new Provider\ConsoleServiceProvider());
+        $this->register(new Provider\SlugifyServiceProvider());
 
         $this->mount('', new Controllers());
 

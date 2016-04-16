@@ -2,7 +2,6 @@
 
 namespace Bolt\Docs;
 
-use Cocur\Slugify\Slugify;
 use Silex\Application;
 
 /**
@@ -43,7 +42,6 @@ class TwigExtension extends \Twig_Extension
         $env  = ['needs_environment' => true];
 
         return [
-            new \Twig_SimpleFilter('slug', [$this, 'slug'], $safe),
             new \Twig_SimpleFilter('markdown', [$this, 'markdown'], $safe),
         ];
     }
@@ -51,12 +49,6 @@ class TwigExtension extends \Twig_Extension
     public function asset($asset)
     {
         return $this->app['request_stack']->getMasterRequest()->getBasepath().'/'.ltrim($asset, '/');
-    }
-
-    public function slug($str)
-    {
-        $s = new Slugify();
-        return $s->slugify($str);
     }
 
     public function markdown($str)
