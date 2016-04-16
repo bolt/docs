@@ -2,20 +2,22 @@
 
 namespace Bolt\Docs;
 
+use Silex;
 use Silex\Api\ControllerProviderInterface;
-use Silex\Application;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Yaml\Parser;
 
 class Controllers implements ControllerProviderInterface
 {
+    /** @var Silex\Application */
+    private $app;
 
-    public function connect(Application $app)
+    public function connect(Silex\Application $app)
     {
+        $this->app = $app;
+
         /** @var $ctr \Silex\ControllerCollection */
         $ctr = $app['controllers_factory'];
 
@@ -48,24 +50,21 @@ class Controllers implements ControllerProviderInterface
     /**
      * Controller for homepage
      *
-     * @param Application $app
-     *
      * @return RedirectResponse
      */
-    public function home(Application $app)
+    public function home()
     {
-        return $app->redirect($app['config']['start-page']);
+        return new RedirectResponse($this->app['config']['start-page']);
     }
 
     /**
      * Controller for ajaxy fetching the menu tree
      *
-     * @param Application $app
-     * @param string      $version
+     * @param string $version
      *
      * @return Response
      */
-    public function tree(Application $app, $version)
+    public function tree($version)
     {
         $contentGetter = new ContentGetter($version);
 
@@ -81,20 +80,19 @@ class Controllers implements ControllerProviderInterface
     /**
      * Controller for pages
      *
-     * @param Application $app
-     * @param string      $version
-     * @param string      $slug
+     * @param string $version
+     * @param string $slug
      *
      * @return string
      */
-    public function page(Application $app, $version, $slug)
+    public function page($version, $slug)
     {
         $contentGetter = new ContentGetter($version, $slug);
 
         $source = $contentGetter->source();
 
         if (empty($source)) {
-            $app->abort(404, "Page does not exist.");
+            throw new NotFoundHttpException('Page does not exist.');
         }
 
         $twigVars = [
@@ -106,20 +104,17 @@ class Controllers implements ControllerProviderInterface
             'version' => $version,
         ];
 
-        $html = $app['twig']->render('index.twig', $twigVars);
-
-        return $html;
+        return $this->render('index.twig', $twigVars);
     }
 
     /**
      * Controller for the class reference page
      *
-     * @param Application $app
-     * @param string      $version
+     * @param string $version
      *
      * @return mixed
      */
-    public function classReference(Application $app, $version)
+    public function classReference($version)
     {
         $contentGetter = new ContentGetter($version);
 
@@ -132,20 +127,17 @@ class Controllers implements ControllerProviderInterface
             'classes' => $cr
         ];
 
-        $html = $app['twig']->render('classreference.twig', $twigVars);
-
-        return $html;
+        return $this->render('classreference.twig', $twigVars);
     }
 
     /**
      * Controller for the cheatsheet reference page
      *
-     * @param Application $app
      * @param string $version
      *
      * @return mixed
      */
-    public function cheatsheet(Application $app, $version)
+    public function cheatsheet($version)
     {
         $contentGetter = new ContentGetter($version);
 
@@ -159,9 +151,7 @@ class Controllers implements ControllerProviderInterface
             'slug'       => 'cheatsheet'
         ];
 
-        $html = $app['twig']->render('cheatsheet.twig', $twigVars);
-
-        return $html;
+        return $this->render('cheatsheet.twig', $twigVars);
     }
 
     /**
@@ -185,16 +175,22 @@ class Controllers implements ControllerProviderInterface
         $app['twig']->addGlobal('versions', $versions);
     }
 
+    protected function render($template, array $variables = [])
+    {
+        return $this->app['twig']->render($template, $variables);
+    }
+
     /**
      * Controller for error pages.
      *
-     * @param \Exception $e
-     * @param Request    $request
-     * @param integer    $code
+     * @param \Exception        $e
+     * @param Request           $request
+     * @param Silex\Application $app
+     * @param integer           $code
      *
      * @return Response|void
      */
-    public function error(\Exception $e, Request $request, Application $app, $code)
+    public function error(\Exception $e, Request $request, Silex\Application $app, $code)
     {
         $requestUri = explode('/', $request->getRequestUri());
 
