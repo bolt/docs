@@ -19,8 +19,6 @@ class TwigExtension extends \Twig_Extension
     public function __construct(Application $app)
     {
         $this->app      = $app;
-        // $this->handlers = $handlers;
-        // $this->safe     = $safe;
     }
 
     public function getName()
@@ -36,7 +34,6 @@ class TwigExtension extends \Twig_Extension
 
         return [
             new \Twig_SimpleFunction('asset', [$this, 'asset']),
-            new \Twig_SimpleFunction('dump', [$this, 'dump']),
         ];
     }
 
@@ -54,13 +51,6 @@ class TwigExtension extends \Twig_Extension
     public function asset($asset)
     {
         return $this->app['request_stack']->getMasterRequest()->getBasepath().'/'.ltrim($asset, '/');
-    }
-
-    public function dump($var)
-    {
-        if ($this->app['config']['debug']) {
-            dump($var);
-        }
     }
 
     public function slug($str)
