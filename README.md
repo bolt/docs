@@ -15,7 +15,7 @@ the components:
 	curl -s http://getcomposer.org/installer | php
 	php composer.phar install
 
-The documenation uses the [markdown](http://daringfireball.net/projects/markdown/) format.
+The documentation uses the [markdown](http://daringfireball.net/projects/markdown/) format.
 There is no need to build anything to generate HTML. We parse the markdown with PHP.
 Just serve it directly e.g. with the builtin PHP web server: 
 
