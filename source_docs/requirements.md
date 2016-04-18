@@ -19,9 +19,18 @@ The PHP installation has a few additional requirements. On most servers these
 are default settings, and Bolt should work out-of-the-box.
 
   - A minimum of 32MB of memory allocated to PHP
-  - The PDO extension, to connect to a database
-  - The cUrl extension
-  - The GD Extension
+  - The following PHP extensions:
+    - pdo
+    - mysqlnd (to use MySQL as a database)
+    - pgsql (to use PostgreSQL as a database)
+    - curl
+    - gd
+    - gmp
+    - json
+    - mb_string
+    - opcache (optional)
+    - posix
+    - xml
 
 Note the following PHP modules are known to conflict with Bolt and must be
 disabled:
