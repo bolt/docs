@@ -20,8 +20,7 @@ class DocumentationServiceProvider implements ServiceProviderInterface
                 $container['documentation.page_builder'],
                 $container['documentation.versions_dir'],
                 $container['documentation.versions_file'],
-                $container['documentation.versions.default'],
-                $container['debug']
+                $container['documentation.versions.default']
             );
         };
 

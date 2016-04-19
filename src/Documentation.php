@@ -19,8 +19,6 @@ class Documentation
     private $default;
     /** @var Version[] */
     private $versions = [];
-    /** @var bool */
-    private $debug;
 
     /**
      * Constructor.
@@ -30,16 +28,14 @@ class Documentation
      * @param string      $versionDir
      * @param string      $versionFile
      * @param string      $default
-     * @param bool        $debug
      */
-    public function __construct(Yaml\Parser $yamlParser, PageBuilder $pageBuilder, $versionDir, $versionFile, $default, $debug)
+    public function __construct(Yaml\Parser $yamlParser, PageBuilder $pageBuilder, $versionDir, $versionFile, $default)
     {
         $this->yamlParser = $yamlParser;
         $this->pageBuilder = $pageBuilder;
         $this->versionDir = rtrim($versionDir, '/') . '/';
         $this->versionFile = $versionFile;
         $this->default = (string) $default;
-        $this->debug = $debug;
 
         $this->load();
     }
@@ -53,9 +49,6 @@ class Documentation
         $versions = $this->yamlParser->parse(file_get_contents($this->versionFile));
         foreach ($versions as $version) {
             $this->addVersion($version, $this->versionDir . $version);
-        }
-        if ($this->debug) {
-            $this->addVersion('local', __DIR__ . '/../source_docs');
         }
     }
 
