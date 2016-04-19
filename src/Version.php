@@ -83,7 +83,7 @@ class Version
     private function getRootPage()
     {
         if (!$this->rootPage) {
-            $this->rootPage = $this->builder->build($this->basePath);
+            $this->rootPage = $this->builder->build($this->basePath . '/source_docs');
             $this->rootPage->setName($this->version);
         }
 

@@ -2,7 +2,8 @@
 
 namespace Bolt\Docs;
 
-use Symfony\Component\Filesystem\Exception\FileNotFoundException;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\Yaml;
 
 class Documentation
@@ -14,8 +15,6 @@ class Documentation
     /** @var string */
     private $versionDir;
     /** @var string */
-    private $versionFile;
-    /** @var string */
     private $default;
     /** @var Version[] */
     private $versions = [];
@@ -26,15 +25,13 @@ class Documentation
      * @param Yaml\Parser $yamlParser
      * @param PageBuilder $pageBuilder
      * @param string      $versionDir
-     * @param string      $versionFile
      * @param string      $default
      */
-    public function __construct(Yaml\Parser $yamlParser, PageBuilder $pageBuilder, $versionDir, $versionFile, $default)
+    public function __construct(Yaml\Parser $yamlParser, PageBuilder $pageBuilder, $versionDir, $default)
     {
         $this->yamlParser = $yamlParser;
         $this->pageBuilder = $pageBuilder;
         $this->versionDir = rtrim($versionDir, '/') . '/';
-        $this->versionFile = $versionFile;
         $this->default = (string) $default;
 
         $this->load();
@@ -42,13 +39,11 @@ class Documentation
 
     public function load()
     {
-        if (!file_exists($this->versionFile)) {
-            throw new FileNotFoundException(null, 0, null, $this->versionFile);
-        }
+        $dirs = (new Finder())->directories()->in($this->versionDir)->depth(0);
 
-        $versions = $this->yamlParser->parse(file_get_contents($this->versionFile));
-        foreach ($versions as $version) {
-            $this->addVersion($version, $this->versionDir . $version);
+        foreach ($dirs as $dir) {
+            /** @var SplFileInfo $dir */
+            $this->addVersion($dir->getBasename(), $dir->getRealPath());
         }
     }
 

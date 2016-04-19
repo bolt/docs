@@ -87,7 +87,19 @@ class PageBuilder
 
     protected function loadCollection($dir)
     {
-        $page = $this->loadCachePage($dir . '/index.md');
+        try {
+            $page = $this->loadCachePage($dir . '/index.md');
+        } catch (FileNotFoundException $e) {
+            $page = new Page();
+            $page->setTitle($dir);
+            $page['pages'] = array_map(function($file) {
+                $ext = pathinfo($file, PATHINFO_EXTENSION);
+                if ($ext !== '') {
+                    $ext = '.' . $ext;
+                }
+                return substr($file, 0, strlen($file) - strlen($ext));
+            }, array_diff(scandir($this->root . $dir, SCANDIR_SORT_NONE), ['.', '..']));
+        }
         $page->setName(basename($dir));
 
         foreach ((array) $page['pages'] as $subPageName) {

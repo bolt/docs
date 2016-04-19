@@ -19,13 +19,11 @@ class DocumentationServiceProvider implements ServiceProviderInterface
                 $container['yaml_parser'],
                 $container['documentation.page_builder'],
                 $container['documentation.versions_dir'],
-                $container['documentation.versions_file'],
                 $container['documentation.versions.default']
             );
         };
 
         $container['documentation.versions_dir'] = null;
-        $container['documentation.versions_file'] = null;
         $container['documentation.versions.default'] = null;
 
         $container['documentation.page_builder'] = function($container) {
