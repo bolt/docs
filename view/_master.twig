@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ title|raw }} | {{ config.title }} </title>
+    <title>{{ title|raw }} | Bolt Documentation</title>
     <meta name="DCTERMS.title" content="Bolt CMS"/>
     <meta name="robots" content="noydir, noodp"/>
 
@@ -84,13 +84,13 @@
             <li class="index-1 first">
                 <a href="https://bolt.cm/">Home [bolt.cm]</a>
             </li>
-            <li class="index-2 {{ slug != 'cheatsheet' ? 'active' }}">
+            <li class="index-2 {{ slug|default != 'cheatsheet' ? 'active' }}">
                 <a href="/{{version}}/introduction">Documentation</a>
             </li>
             <li class="index-3">
                 <a href="/{{version}}/manual">Manual</a>
             </li>
-            <li class="index-4 {{ slug == 'cheatsheet' ? 'active' }}">
+            <li class="index-4 {{ slug|default == 'cheatsheet' ? 'active' }}">
                 <a href="/{{version}}/cheatsheet">Cheatsheet</a>
             </li>
 

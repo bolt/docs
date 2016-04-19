@@ -1,5 +1,10 @@
 <?php
 
+if (PHP_SAPI === 'cli-server') {
+    if (is_file($_SERVER['DOCUMENT_ROOT'] . preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']))) {
+        return false;
+    }
+}
 
 if (!file_exists(__DIR__.'/app/config.yml')) {
     echo "<p>The file <tt>app/config.yml</tt> doesn't exist. Copy <tt>config.yml.dist</tt> to <tt>config.yml</tt> and add the correct settings.</p>";

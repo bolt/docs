@@ -21,110 +21,64 @@ class Controllers implements ControllerProviderInterface
         /** @var $ctr \Silex\ControllerCollection */
         $ctr = $app['controllers_factory'];
 
-        $ctr->get("/", array($this, 'home'))
-            ->bind('home');
-
-        $ctr->get("/tree/{version}.json", array($this, 'tree'))
-            ->bind('tree');
-
-        $ctr->get("/{version}/class-reference", array($this, 'classReference'))
+        $ctr->get('/{version}/class-reference', [$this, 'classReference'])
             ->bind('classReference');
 
-        $ctr->get("/{version}/cheatsheet", array($this, 'cheatsheet'))
+        $ctr->get('/{version}/cheatsheet', [$this, 'cheatsheet'])
             ->bind('cheatsheet');
 
-        $ctr->get("/{version}/{slug}", array($this, 'page'))
+        $ctr->get('/{version}/{slug}', [$this, 'page'])
             ->bind('page')
-            ->assert('slug', '.+');
+            ->assert('slug', '.*');
 
-        $ctr->before(array($this, 'before'));
-
-        $app->error(function(\Exception $e, Request $request, $code) use ($app) {
-            return $this->error($e, $request, $app, $code);
+        $ctr->convert('version', function ($version) {
+            if ($version === null) {
+                return $version = $this->app['documentation']->getDefault();
+            }
+            return $this->app['documentation']->getVersion($version);
         });
 
+        $app->error([$this, 'error']);
+
         return $ctr;
-
-    }
-
-    /**
-     * Controller for homepage
-     *
-     * @return RedirectResponse
-     */
-    public function home()
-    {
-        return new RedirectResponse($this->app['config']['start-page']);
-    }
-
-    /**
-     * Controller for ajaxy fetching the menu tree
-     *
-     * @param string $version
-     *
-     * @return Response
-     */
-    public function tree($version)
-    {
-        $contentGetter = new ContentGetter($version);
-
-        $menu = $contentGetter->getJsonMenu('menu_docs.yml');
-
-        $response = new Response(json_encode($menu, JSON_PRETTY_PRINT), 201);
-        $response->headers->set('Access-Control-Allow-Origin', '*');
-        $response->headers->set('Content-Type', 'application/vnd.api+json');
-
-        return $response;
     }
 
     /**
      * Controller for pages
      *
-     * @param string $version
+     * @param Version $version
      * @param string $slug
      *
      * @return string
      */
-    public function page($version, $slug)
+    public function page(Version $version, $slug)
     {
-        $contentGetter = new ContentGetter($version, $slug);
-
-        $source = $contentGetter->source();
-
-        if (empty($source)) {
-            throw new NotFoundHttpException('Page does not exist.');
+        try {
+            $page = $version->getPage($slug);
+        } catch (\Exception $e) {
+            throw new NotFoundHttpException('Page does not exist.', $e);
+        }
+        if ($redirect = $page['redirect']) {
+            return new RedirectResponse("/$version/$redirect");
         }
 
-        $twigVars = [
-            'title'   => $contentGetter->getTitle(),
-            'source'  => $source,
-            'menu'    => $contentGetter->getMenu('menu_docs.yml'),
-            'submenu' => $contentGetter->getSubmenu(),
-            'current' => $slug,
-            'version' => $version,
-        ];
-
-        return $this->render('index.twig', $twigVars);
+        return $this->renderPage($version, $page);
     }
 
     /**
      * Controller for the class reference page
      *
-     * @param string $version
+     * @param Version $version
      *
      * @return mixed
      */
-    public function classReference($version)
+    public function classReference(Version $version)
     {
-        $contentGetter = new ContentGetter($version);
-
-        $cr = $contentGetter->getClassReference();
-
         $twigVars = [
             'title'   => 'Bolt Class Reference',
-            'menu'    => $contentGetter->getMenu('menu_docs.yml'),
-            'version' => $version,
-            'classes' => $cr
+            'menu'    => $version->getMenu(),
+            'version' => $version->getVersion(),
+            'classes' => $version->getClassReference(),
         ];
 
         return $this->render('classreference.twig', $twigVars);
@@ -133,46 +87,36 @@ class Controllers implements ControllerProviderInterface
     /**
      * Controller for the cheatsheet reference page
      *
-     * @param string $version
+     * @param Version $version
      *
      * @return mixed
      */
-    public function cheatsheet($version)
+    public function cheatsheet(Version $version)
     {
-        $contentGetter = new ContentGetter($version);
-
-        $cheatsheet = $contentGetter->getCheatsheet();
-
         $twigVars = [
             'title'      => 'Bolt Cheatsheet',
-            'menu'       => $contentGetter->getMenu('menu_docs.yml'),
-            'version'    => $version,
-            'cheatsheet' => $cheatsheet,
+            'menu'       => $version->getMenu(),
+            'version'    => $version->getVersion(),
+            'cheatsheet' => $version->getCheatSheet(),
             'slug'       => 'cheatsheet'
         ];
 
         return $this->render('cheatsheet.twig', $twigVars);
     }
 
-    /**
-     * Middleware function to do some tasks that should be done for all requests.
-     *
-     * @param Request     $request
-     * @param Application $app
-     */
-    public function before(Request $request, Application $app)
+    protected function renderPage(Version $version, Page $page)
     {
-        // Fetch the available versions.
-        $contentGetter = new ContentGetter();
+        $twigVars = [
+            'title'           => $page->getTitle(),
+            'source'          => $page->getSource(),
+            'menu'            => $version->getMenu(),
+            'current'         => '/' . $version . '/' . $page->getSlug(),
+            'version'         => $version,
+            'versions'        => array_keys($this->app['documentation']->getVersions()),
+            'default_version' => $this->app['documentation']->getDefault(),
+        ];
 
-        $versions = $contentGetter->getVersions();
-
-        if ($app['config']['debug'] === true) {
-            $versions['local'] = 'local';
-        }
-
-        $app['twig']->addGlobal('config', $app['config']);
-        $app['twig']->addGlobal('versions', $versions);
+        return $this->render('index.twig', $twigVars);
     }
 
     protected function render($template, array $variables = [])
@@ -196,42 +140,33 @@ class Controllers implements ControllerProviderInterface
 
         // Don't trap Symfony shizzle.
         if (in_array($requestUri[1], ['a', '_profiler']) || $app['debug']) {
-            return;
+            return null;
         }
 
-        // Fetch the available versions.
-        $currentVersion = $app['config']['default-version'];
-        $contentGetter = new ContentGetter($currentVersion);
-        $versions = array_flip($contentGetter->getVersions());
-
-
-        // Pad the versions array with 'local', because it's always there, even if we don't advertise it.
-        $versions['local'] = 'local';
+        $docs = $this->app['documentation'];
 
         // If the request didn't start with something that looks like a version,
         // redirect to the current version, only with the version prefixed.
-        if (!isset($versions[ $requestUri[1] ])) {
-            $redirect = $app->redirect('/' . $currentVersion . $request->getRequestUri());
+        if (!$docs->hasVersion($requestUri[1])) {
+            $redirect = $app->redirect('/' . $docs->getDefault() . $request->getRequestUri());
             return $redirect;
         }
 
         // If we have a 404 error, show the 404 page.
         if ($code == 404) {
-            $twigVars = [
-                'title'   => "404 - Page not found",
-                'source'  => "<h1>404 - Page not found</h1>" .
-                             "This page could not be found. Please click one of the menu items in the " .
-                             "sidebar, or use the search form to look for a specific keyword.",
-                'menu'    => $contentGetter->getMenu('menu_docs.yml'),
-                'version' => $currentVersion,
-            ];
-            $html = $app['twig']->render('index.twig', $twigVars);
-
-            return $html;
+            $page = new Page();
+            $page->setTitle('404 - Page not found');
+            $page->setSource(<<<HTML
+<h1>404 - Page not found</h1>
+This page could not be found. Please click one of the menu items in the 
+sidebar, or use the search form to look for a specific keyword.
+HTML
+            );
+            return $this->renderPage($docs->getDefault(), $page);
         }
 
         // Otherwise, we return, and let Silex handle it.
-        return;
+        return null;
     }
 
 }

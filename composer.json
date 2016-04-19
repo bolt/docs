@@ -11,6 +11,7 @@
         "silex/silex": "~2.0@dev",
         "silex/web-profiler": "~2.0@dev",
         "symfony/asset": "^3.0",
+        "symfony/config": "^3.0",
         "symfony/console": "^3.0",
         "symfony/finder": "^3.0",
         "symfony/var-dumper": "^3.0",
@@ -18,14 +19,9 @@
         "symfony/yaml": "^3.0",
         "twig/twig": "~1.21"
     },
-    "minimum-stability": "beta",
-    "config": {
-        "preferred-install": "dist"
-    },
     "autoload": {
         "psr-4": {
-            "Bolt\\Docs\\": "./src/"
+            "Bolt\\Docs\\": "src"
         }
-    },
-    "prefer-stable": true
+    }
 }

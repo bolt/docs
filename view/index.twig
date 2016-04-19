@@ -9,7 +9,7 @@
         <a href="#sidebar" class="button hide-for-large jumpbutton">Jump to docs navigation</a>
 
         <div id="version-changer">
-            <form action="" method="post">
+            <form action="" method="get">
                 <div>
                 Version:
                 </div>
@@ -17,18 +17,18 @@
                     <option>Current: <strong>{{ version }}</strong></option>
                     <optgroup label='Switch to version:'>
                     {% for v in versions if v != version %}
-                        <option value='/{{ v }}/introduction'>{{ v }}</option>
+                        <option value="/{{ v }}">{{ v }}</option>
                     {% endfor %}
                     </optgroup>
                 </select>
             </form>
         </div>
 
-        {% if config['default-version'] != version %}
-        <p class="note" style="margin-top: 1em;">
-            <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt {{ version }}</strong>.
-            Looking for the <a href="/">documentation for Bolt {{ config['default-version'] }}</a> instead?
-        </p>
+        {% if version != default_version and version != 'local' %}
+            <p class="note" style="margin-top: 1em;">
+                <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt {{ version }}</strong>.
+                Looking for the <a href="/">documentation for Bolt {{ default_version }}</a> instead?
+            </p>
         {% endif %}
 
         {{ source|raw }}
@@ -56,11 +56,11 @@
                 <a href='#' id='jqtree-expand-all'>▼ Expand all</a>
                 ]
             </p>
-            <div id="tree1" data-url="/tree/{{version}}.json">
-                <ul>
-                {% for key, item in menu %}
-                    {{ macro.menu(key, item, version) }}
-                {% endfor %}
+            <div id="tree1" data-data="{{ menu|json_encode }}">
+                <ul class="jqtree_common jqtree-tree">
+                    {% for page in menu %}
+                        {{ macro.menu(page, current) }}
+                    {% endfor %}
                 </ul>
             </div>
 

@@ -32,22 +32,16 @@ jQuery(function($) {
 
     var pathname = window.location.pathname;
 
-    var $tree = $('#tree1').tree({
-        autoOpen: 1,
+    var $tree = $('#tree1');
+    $tree.tree({
         saveState: 'boltmenu',
+        data: $tree.data('data'),
         onCreateLi: function(node, $li) {
-            // console.log(node.childrenlinks);
-            // Append a link to the jqtree-element div.
-            // The link has an url '#node-[id]' and a data property 'node-id'.
-            if (node.url == pathname) {
-                $li.addClass('jqtree-selected');
-            } else {
-                $li.removeClass('jqtree-selected');
-            }
+            $li.toggleClass('jqtree-selected', node.url === pathname);
 
-            if (typeof node.childrenlinks != 'undefined' && node.childrenlinks.indexOf(pathname) >= 0) {
+            if (pathname !== node.url && pathname.indexOf(node.url) === 0) {
                 $tree.tree('openNode', node);
-                $li.addClass('jqtree-selected');
+                $li.removeClass('jqtree-closed');
             }
         }
     });

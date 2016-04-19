@@ -6,6 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Dumper;
 
 /**
@@ -15,13 +16,31 @@ use Symfony\Component\Yaml\Dumper;
  */
 class BuildDocumentation extends Command
 {
-    private $versionsDir = '/version/';
-    private $versionsFile = 'versions.yml';
+    /** @var string */
+    private $versionsDir;
+    /** @var string */
+    private $versionsFile;
+    /** @var Filesystem */
+    private $filesystem;
+
+    /**
+     * Constructor.
+     *
+     * @param string $versionsDir
+     * @param string $versionsFile
+     */
+    public function __construct($versionsDir, $versionsFile)
+    {
+        parent::__construct();
+        $this->versionsDir = rtrim($versionsDir, '/') . '/';
+        $this->versionsFile = $versionsFile;
+        $this->filesystem = new Filesystem();
+    }
 
     protected function configure()
     {
         $this->setName("bolt:build-docs")
-            ->addArgument('branches', InputArgument::IS_ARRAY, ['master'])
+            ->addArgument('branches', InputArgument::IS_ARRAY, null, ['master'])
             ->setDescription("Builds documentation from an array of git branches");
     }
 
@@ -34,37 +53,31 @@ class BuildDocumentation extends Command
 
         foreach ($input->getArgument('branches') as $branch) {
             $name = str_replace('release/', '', $branch);
-            $this->writeVersion($output, $branch, $name, './source_docs/');
-            $versionsArray[$branch] = $name;
+            $this->writeVersion($output, $branch, $name, 'source_docs/');
+            $versionsArray[] = $name;
         }
 
         $dumper = new Dumper();
 
         // Write the passed in versions to the yml file
-        $path = getcwd() . '/app/' . $this->versionsFile;
-        file_put_contents($path, $dumper->dump($versionsArray));
-        $output->writeln("<info>Versions saved to $path</info>");
+        $this->filesystem->dumpFile($this->versionsFile, $dumper->dump($versionsArray));
+        $output->writeln("<info>Versions saved to {$this->versionsFile}</info>");
     }
 
     protected function writeVersion(OutputInterface $output, $branch, $branchName, $prefix = '')
     {
-        $directory = getcwd() . $this->versionsDir . $branchName;
+        $directory = $this->versionsDir . $branchName;
+        $this->filesystem->remove($directory);
 
-        $tree = shell_exec("git ls-tree -r $branch $prefix");
-        $tree = array_filter(explode("\n", $tree));
-        $filelist = array_map('str_getcsv', $tree, array_fill(0, count($tree), "\t"));
+        $files = shell_exec("git ls-tree -r --name-only $branch $prefix");
+        $files = array_filter(explode("\n", $files));
 
-        foreach ($filelist as $source) {
-            $file = $source[1];
-
+        foreach ($files as $file) {
             $content = shell_exec("git show $branch:$file");
 
-            @mkdir(dirname($directory . '/' . $file), 0755, true);
-            file_put_contents($directory . '/' . $file, $content);
+            $file = $directory . '/' . str_replace($prefix, '', $file);
+            $this->filesystem->dumpFile($file, $content);
         }
-
-        $menu = shell_exec('git show ' . $branch . ":menu_docs.yml");
-        file_put_contents($directory . '/menu_docs.yml', $menu);
 
         $output->writeln("<info>Branch $branch written to $directory</info>");
     }

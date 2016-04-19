@@ -34,25 +34,25 @@
 {% endmacro %}
 
 
-{% macro menu(key, item, version) %}
-
+{% macro menu(page, current) %}
     {% from _self import menu %}
 
-    {% if item is iterable %}
-
-        <li>
-            <strong>{{ item.title }}</strong>
-        </li>
-        {% for key, item in item.items %}
-            {{ menu(key, item, version) }}
-        {% endfor %}
-
-    {% else %}
-        <li>
-            <a href="/{{version}}/{{ key }}">{{ item }}</a>
-        </li>
-    {% endif %}
-
+    {% set selected = current starts with page.url %}
+    <li class="jqtree_common {{ page.children is not empty ? ' jqtree-folder' }}{{ not selected ? ' jqtree-closed' }}{{ current == page.url ? ' jqtree-selected'}}">
+        <div class="jqtree-element">
+            {% if page.children is not empty %}
+                <a href="{{ page.url }}" class="jqtree-toggler jqtree-closed jqtree-toggler-left">{{ selected ? '▼' : '►' }}</a>
+                <a href="{{ page.url }}"><span class="jqtree-title jqtree-title-folder">{{ page.label }}</span></a>
+            {% else %}
+                <a href="{{ page.url }}" class="jqtree-title">{{ page.label }}</a>
+            {% endif %}
+        </div>
+        <ul class="jqtree_common">
+            {% for sub in page.children %}
+                {{ menu(sub, current) }}
+            {% endfor %}
+        </ul>
+    </li>
 {% endmacro %}
 
 {% macro submenu(items, section, version) %}

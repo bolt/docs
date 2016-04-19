@@ -22,9 +22,12 @@ class ConsoleServiceProvider implements ServiceProviderInterface
             return $console;
         };
 
-        $container['console.commands'] = function () {
+        $container['console.commands'] = function ($container) {
             return [
-                new Command\BuildDocumentation(),
+                new Command\BuildDocumentation(
+                    $container['documentation.versions_dir'],
+                    $container['documentation.versions_file']
+                ),
             ];
         };
     }
