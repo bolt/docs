@@ -1,3 +1,6 @@
+---
+title: Back-end Menu Items
+---
 Extension Building: Admin Menus
 ===============================
 

@@ -1,3 +1,6 @@
+---
+title: Storage Repositories & Entity Mappings
+---
 Storage Repositories & Entity Mappings
 ======================================
 

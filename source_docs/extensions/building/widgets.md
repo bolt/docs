@@ -1,3 +1,6 @@
+---
+title: Creating widgets
+---
 Extension Building: Creating widgets
 ====================================
 

@@ -1,3 +1,6 @@
+---
+title: Contributing to Bolt
+---
 Contributing to Bolt code or docs
 =================================
 

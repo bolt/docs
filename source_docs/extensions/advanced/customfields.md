@@ -1,3 +1,6 @@
+---
+title: Custom Field Types
+---
 Extensions: Providing Custom Fields
 ===================================
 

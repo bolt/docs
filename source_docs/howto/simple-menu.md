@@ -1,3 +1,6 @@
+---
+title: Creating a Simple menu
+---
 Simple menu
 ===========
 

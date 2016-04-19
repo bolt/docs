@@ -1,3 +1,6 @@
+---
+title: Setting up Bolt
+---
 Setting up Bolt
 ===============
 

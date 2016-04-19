@@ -1,3 +1,6 @@
+---
+title: Making sure .htaccess and mod_rewrite are working as they should
+---
 Making sure .htaccess and mod_rewrite are working as they should
 ================================================================
 

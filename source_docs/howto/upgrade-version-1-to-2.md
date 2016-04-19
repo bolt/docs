@@ -1,3 +1,6 @@
+---
+title: Upgrading a Bolt 1.x install to 2.x
+---
 Upgrading a Bolt 1.x install to 2.x
 ===================================
 

@@ -1,3 +1,6 @@
+---
+title: Apache Configuration
+---
 Apache: Tweaking the .htaccess file
 ===================================
 

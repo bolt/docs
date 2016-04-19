@@ -1,3 +1,6 @@
+---
+title: Sorting a contenttype with a 'sortorder'
+---
 Sorting a contenttype with a 'sortorder'
 ========================================
 

@@ -1,3 +1,6 @@
+---
+title: Creating a new project
+---
 Creating a new Composer installation
 ====================================
 
@@ -111,19 +114,17 @@ If you are creating a `.bolt.php` file instead, it should return the following
 array.
 
 ```php
-    $config = [
-        'application' => null,
-        'resources'   => null,
-        'paths'       => [
-            'cache'     => 'app/cache',
-            'config'    => 'app/config',
-            'database'  => 'app/database',
-            'web'       => 'public',
-            'themebase' => 'public/theme',
-            'files'     => 'public/files',
-            'view'      => 'public/bolt-public/view',
-        ],
-    ];
+return [
+    'paths'       => [
+        'cache'     => 'app/cache',
+        'config'    => 'app/config',
+        'database'  => 'app/database',
+        'web'       => 'public',
+        'themebase' => 'public/theme',
+        'files'     => 'public/files',
+        'view'      => 'public/bolt-public/view',
+    ],
+];
 ```
 This is an very advanced  option, see Bolt's [bootstrap file][bs]
 for more details.

@@ -1,3 +1,6 @@
+---
+title: Services & Service Providers
+---
 Extension Building: Services & Service Providers
 ================================================
 

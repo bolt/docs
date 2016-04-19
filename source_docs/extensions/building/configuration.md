@@ -1,3 +1,6 @@
+---
+title: Configuration
+---
 Extension Building: Configuration
 =================================
 

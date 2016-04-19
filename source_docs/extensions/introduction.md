@@ -1,3 +1,6 @@
+---
+title: Introduction to Bolt Extensions
+---
 How To Use Bolt extensions
 ===========================
 

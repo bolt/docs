@@ -1,3 +1,6 @@
+---
+title: The Entity Manager
+---
 The Entity Manager
 ==================
 

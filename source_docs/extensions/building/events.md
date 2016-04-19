@@ -1,3 +1,6 @@
+---
+title: Events
+---
 Extension Building: Events
 ==========================
 

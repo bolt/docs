@@ -1,3 +1,6 @@
+---
+title: Basics
+---
 Extension Building: Basics
 ==========================
 

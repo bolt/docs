@@ -1,3 +1,6 @@
+---
+title: Nginx Configuration
+---
 Nginx: Configuring the virtual host
 ===================================
 
