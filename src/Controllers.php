@@ -37,6 +37,7 @@ class Controllers implements ControllerProviderInterface
             }
             return $this->app['documentation']->getVersion($version);
         });
+        $ctr->assert('version', join('|', $this->app['documentation']->getVersions()));
 
         $app->error([$this, 'error']);
 
@@ -127,19 +128,18 @@ class Controllers implements ControllerProviderInterface
     /**
      * Controller for error pages.
      *
-     * @param \Exception        $e
-     * @param Request           $request
-     * @param Silex\Application $app
-     * @param integer           $code
+     * @param \Exception $e
+     * @param Request    $request
+     * @param integer    $code
      *
-     * @return Response|void
+     * @return Response|null
      */
-    public function error(\Exception $e, Request $request, Silex\Application $app, $code)
+    public function error(\Exception $e, Request $request, $code)
     {
         $requestUri = explode('/', $request->getRequestUri());
 
         // Don't trap Symfony shizzle.
-        if (in_array($requestUri[1], ['a', '_profiler']) || $app['debug']) {
+        if (in_array($requestUri[1], ['a', '_profiler']) || $this->app['debug']) {
             return null;
         }
 
@@ -148,8 +148,7 @@ class Controllers implements ControllerProviderInterface
         // If the request didn't start with something that looks like a version,
         // redirect to the current version, only with the version prefixed.
         if (!$docs->hasVersion($requestUri[1])) {
-            $redirect = $app->redirect('/' . $docs->getDefault() . $request->getRequestUri());
-            return $redirect;
+            return new RedirectResponse('/' . $docs->getDefault() . $request->getRequestUri());
         }
 
         // If we have a 404 error, show the 404 page.
