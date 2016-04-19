@@ -6,8 +6,8 @@ commands. First, create the directory where you want to install Bolt, if it
 doesn't already exist. Enter the directory, and execute the following commands:
 
 ```bash
-curl -O http://bolt.cm/distribution/bolt-3.0.0-beta2.tar.gz
-tar -xzf bolt-3.0.0-beta2.tar.gz --strip-components=1
+curl -O http://bolt.cm/distribution/bolt-3.0.0-beta3.tar.gz
+tar -xzf bolt-3.0.0-beta3.tar.gz --strip-components=1
 ```
 If this didn't work because your server doesn't have `curl`, use `wget`
 instead.
