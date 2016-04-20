@@ -3,7 +3,9 @@ Quick-install, using the command-line
 
 If you have command-line access, you can easily install Bolt by executing a few
 commands. First, create the directory where you want to install Bolt, if it
-doesn't already exist. Enter the directory, and execute the following commands:
+doesn't already exist. We recommend installing Bolt outside the webroot, you can read more on this **here**. 
+
+Enter the directory, and execute the following commands:
 
 ```bash
 curl -O http://bolt.cm/distribution/bolt-3.0.0-beta3.tar.gz
