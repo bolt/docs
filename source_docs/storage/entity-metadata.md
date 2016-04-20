@@ -1,3 +1,6 @@
+---
+title: Entity Metadata
+---
 Entity Metadata
 ===============
 

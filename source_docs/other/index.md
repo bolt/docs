@@ -7,7 +7,6 @@ pages:
     - maintenance-mode
     - credits
     - roadmap
-    - installation-advanced
 ---
 Other resources and links
 =========================

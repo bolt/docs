@@ -1,3 +1,6 @@
+---
+title: Database Configuration
+---
 Configuring the Database
 ========================
 

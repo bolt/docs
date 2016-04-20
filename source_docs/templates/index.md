@@ -6,7 +6,9 @@ pages:
     - building-templates
     - record-and-records
     - content-fetching
+    - fields-tag
     - content-paging
     - content-search
+    - widgets
     - templatetags
 ---

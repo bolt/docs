@@ -1,3 +1,6 @@
+---
+title: Creating a New Extension
+---
 Extensions: Creating
 =========================
 

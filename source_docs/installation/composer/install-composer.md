@@ -1,3 +1,6 @@
+---
+title: Install with Composer
+---
 Installing Bolt with Composer
 =============================
 

@@ -1,3 +1,6 @@
+---
+title: Overview of Bolt Storage
+---
 The Bolt Storage Interface
 ==========================
 

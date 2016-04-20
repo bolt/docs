@@ -1,3 +1,6 @@
+---
+title: Extending Twig
+---
 Extension Building: Twig
 ========================
 

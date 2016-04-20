@@ -1,3 +1,6 @@
+---
+title: Hydration & Persistence
+---
 Entity Hydration & Persistence
 ==============================
 

@@ -1,3 +1,6 @@
+---
+title: Moving a site from version 2.2 to 3.0
+---
 Moving a site from version 2.2 to 3.0
 =====================================
 

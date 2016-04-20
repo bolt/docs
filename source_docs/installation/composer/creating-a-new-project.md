@@ -1,3 +1,6 @@
+---
+title: Creating a new project
+---
 Creating a new Composer installation
 ====================================
 

@@ -1,3 +1,6 @@
+---
+title: Advanced Installation options
+---
 Advanced Installation Options
 =============================
 

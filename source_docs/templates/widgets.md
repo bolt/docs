@@ -1,3 +1,6 @@
+---
+title: Using widgets
+---
 Using widgets
 =============
 

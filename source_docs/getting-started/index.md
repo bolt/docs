@@ -5,8 +5,5 @@ pages:
     - introduction
     - about
     - requirements
-    - installation
-    - installation-composer
-    - updating
     - screenshots
 ---

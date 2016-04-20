@@ -1,3 +1,6 @@
+---
+title: The traditional way, using (S)FTP
+---
 The traditional way, using (S)FTP
 =================================
 
