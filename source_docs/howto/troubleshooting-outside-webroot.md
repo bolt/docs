@@ -125,16 +125,9 @@ putting most of Bolt's files outside of the web root. While we agree that it
 might be a very minor nuisance if it's the first time you're doing it like this,
 we _do_ believe this is a very good practice.
 
-For example, the Symfony framework uses a similar structure by default, and
-we're following their example: [How to Override Symfony's default Directory
-Structure][sfdir]
+### Security
 
-Doing this makes maintenance and upgrading more straightforward, because your
-custom files are only in a few distinct places. All other files can just be
-replaced, without having to worry about overwriting your configuration files,
-for example.
-
-The major benefit however, is security: It's widely accepted to be "best
+The major benefit is security: It's widely accepted to be "best
 practice" to keep as many PHP files outside of the web root as possible. What
 we're doing by putting files outside the web root is basically making sure they
 are *not* accessible through a web browser. Simply put, everything that's not
@@ -150,6 +143,17 @@ Database credentials, privacy-sensitive information and perhaps key/secret pairs
 for some external API. While you can 'protect' these files with `.htaccess` or
 your Nginx configuration, it's still more secure to keep these files in a
 location where they aren't accessible at all.
+
+### Maintenance benefits
+
+The Symfony framework uses a similar structure by default, and
+we're following their example: [How to Override Symfony's default Directory
+Structure][sfdir]
+
+Doing this makes maintenance and upgrading more straightforward, because your
+custom files are only in a few distinct places. All other files can just be
+replaced, without having to worry about overwriting your configuration files,
+for example.
 
 [sfdir]: http://symfony.com/doc/current/cookbook/configuration/override_dir_structure.html
 [apache]: ../configuration/web-server-apache
