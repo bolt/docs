@@ -49,7 +49,7 @@ Create a `composer.json` to guarantee autoloding as:
         }
     },
     "extra": {
-        "bolt-asset": "web",
+        "bolt-assets": "web",
         "bolt-class": "Bolt\\Extension\\MyName\\MyExtension\\MyExtensionExtension"
     }
 }
