@@ -1,3 +1,6 @@
+---
+title: Resetting a password
+---
 Resetting a password
 ====================
 

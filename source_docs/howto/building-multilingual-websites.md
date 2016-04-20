@@ -1,3 +1,6 @@
+---
+title: Building Multilingual Websites with Bolt
+---
 Building Multilingual Websites with Bolt
 ========================================
 

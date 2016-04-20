@@ -1,3 +1,6 @@
+---
+title: Setting Up cURL SSL/TLS Certificate Authority Certificates
+---
 Setting Up cURL SSL/TLS Certificate Authority Certificates
 ==========================================================
 

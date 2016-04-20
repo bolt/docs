@@ -1,3 +1,6 @@
+---
+title: The Basics of Extensions
+---
 Extensions: Essentials
 ======================
 

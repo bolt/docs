@@ -1,3 +1,6 @@
+---
+title: Getting the most out of the 'Select' fieldtype
+---
 Getting the most out of the 'Select' fieldtype
 ==============================================
 

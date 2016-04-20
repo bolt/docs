@@ -1,3 +1,6 @@
+---
+title: Performance and finetuning for Bolt websites
+---
 Performance and finetuning for Bolt websites
 ============================================
 

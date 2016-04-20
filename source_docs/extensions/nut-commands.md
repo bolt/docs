@@ -1,3 +1,6 @@
+---
+title: Providing Nut Console Commands
+---
 Providing Nut Console Commands
 ==============================
 

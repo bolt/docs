@@ -1,3 +1,6 @@
+---
+title: Testing Your Extensions
+---
 Extensions: Testing and debugging
 =================================
 

@@ -1,3 +1,6 @@
+---
+title: Code Quality
+---
 Code Quality
 ============
 

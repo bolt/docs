@@ -1,3 +1,6 @@
+---
+title: Installing Local Extensions
+---
 Installing Local Extensions
 ===========================
 
