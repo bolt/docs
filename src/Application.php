@@ -27,15 +27,13 @@ class Application extends Silex\Application
         $this->register(new Silex\Provider\ServiceControllerServiceProvider());
         $this->register(new Silex\Provider\HttpFragmentServiceProvider());
         $this->register(new Silex\Provider\TwigServiceProvider(), [
-            'twig.path'       => dirname(__DIR__) . '/view',
+            'twig.path'       => __DIR__ . '/../view/templates',
             'twig.options' => [
                 'cache' => __DIR__ . '/../cache/twig',
             ]
         ]);
         $this->register(new Silex\Provider\VarDumperServiceProvider());
-        $this->register(new Silex\Provider\AssetServiceProvider(), [
-            'assets.base_path' => '/view/',
-        ]);
+        $this->register(new Silex\Provider\AssetServiceProvider());
         $this->register(new Provider\ConsoleServiceProvider());
         $this->register(new Provider\SlugifyServiceProvider());
         $this->register(new Provider\MarkdownServiceProvider());

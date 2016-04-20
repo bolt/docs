@@ -25,14 +25,14 @@ gulp.task('sass', function() {
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9']
     }))
-    .pipe(gulp.dest('../styles'));
+    .pipe(gulp.dest('../../web/styles'));
 });
 
 // Set up 'compress' task.
 gulp.task('compress', function() {
   return gulp.src('javascript/*.js')
     .pipe($.uglify())
-    .pipe(gulp.dest('../javascript'));
+    .pipe(gulp.dest('../../web/js'));
 });
 
 
