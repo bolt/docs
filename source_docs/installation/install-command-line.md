@@ -3,7 +3,7 @@ Quick-install, using the command-line
 
 If you have command-line access, you can easily install Bolt by executing a few
 commands. First, create the directory where you want to install Bolt, if it
-doesn't already exist. We recommend installing Bolt outside the webroot, you can read more on this **here**. 
+doesn't already exist. We recommend installing Bolt outside the web root, you can read more on this **here**. 
 
 Enter the directory, and execute the following commands:
 
