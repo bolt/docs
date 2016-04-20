@@ -24,8 +24,8 @@ class DocumentationServiceProvider implements ServiceProviderInterface
             );
         };
 
-        $container['documentation.versions_dir'] = __DIR__ . '/../../version';
-        $container['documentation.versions_file'] = __DIR__ . '/../../app/versions.yml';
+        $container['documentation.versions_dir'] = null;
+        $container['documentation.versions_file'] = null;
         $container['documentation.versions.default'] = null;
 
         $container['documentation.page_builder'] = function($container) {
