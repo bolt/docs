@@ -1,3 +1,6 @@
+---
+title: Running Multiple Bolt sites from one source directory
+---
 Running Multiple Bolt sites from one source directory
 =====================================================
 
