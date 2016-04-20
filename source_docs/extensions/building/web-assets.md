@@ -1,3 +1,6 @@
+---
+title: Web Assets (CSS, JavaScript, Snippets & Widgets)
+---
 Extension Building: Web Assets (CSS, JavaScript, Snippets & Widgets)
 ====================================================================
 

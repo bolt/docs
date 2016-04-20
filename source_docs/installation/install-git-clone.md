@@ -1,3 +1,6 @@
+---
+title: Clone the git repository
+---
 Cloning directly from Git
 =========================
 

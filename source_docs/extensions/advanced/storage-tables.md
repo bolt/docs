@@ -1,3 +1,6 @@
+---
+title: Database Tables
+---
 Database Tables
 ===============
 

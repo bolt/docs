@@ -1,3 +1,6 @@
+---
+title: Updating / Upgrading Bolt
+---
 Updating / Upgrading Bolt
 =========================
 

@@ -1,3 +1,6 @@
+---
+title: Nut Console Commands
+---
 Extension Building: Nut Console Commands
 ========================================
 

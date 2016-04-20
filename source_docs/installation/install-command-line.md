@@ -1,3 +1,6 @@
+---
+title: Using the command-line
+---
 Quick-install, using the command-line
 =====================================
 

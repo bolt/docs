@@ -1,9 +1,0 @@
-{% set sub = section|split('/')|first %}
-
-{% if attribute(menu[sub], 'items') is defined %}
-    <hr>
-    <h3>
-        Other pages in this section:
-    </h3>
-    {{ macro.submenu(attribute(menu[sub], 'items'), section, version) }}
-{% endif %}

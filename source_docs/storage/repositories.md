@@ -1,3 +1,6 @@
+---
+title: Working with Repositories
+---
 # Repositories
 
 Repositories manage collections of entities. At a conceptual level where an entity represents a row of data in the

@@ -1,3 +1,6 @@
+---
+title: File system permissions
+---
 Bolt File System Permissions
 ============================
 

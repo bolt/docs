@@ -1,3 +1,6 @@
+---
+title: Controllers & Routes
+---
 Extension Building: Controllers & Routes
 ========================================
 

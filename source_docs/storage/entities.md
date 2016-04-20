@@ -1,3 +1,6 @@
+---
+title: Working with Entities
+---
 Entities
 ========
 

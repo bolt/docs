@@ -1,3 +1,6 @@
+---
+title: Writing Unit Tests for Extensions
+---
 Writing unit tests for an extension
 ===================================
 

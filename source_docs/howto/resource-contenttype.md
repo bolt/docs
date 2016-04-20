@@ -1,3 +1,6 @@
+---
+title: Making a 'resource' Contenttype
+---
 Making a 'resource' Contenttype
 ===============================
 

@@ -1,3 +1,6 @@
+---
+title: Adding to an existing project
+---
 Adding to an existing Composer project
 ======================================
 

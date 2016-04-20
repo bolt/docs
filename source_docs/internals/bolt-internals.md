@@ -1,3 +1,6 @@
+---
+title: Bolt Internals
+---
 Bolt Internals
 ==============
 

@@ -1,3 +1,6 @@
+---
+title: Fields & Field Types
+---
 Fields in Bolt
 ==============
 
