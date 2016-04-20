@@ -26,7 +26,7 @@ class Application extends Silex\Application
         $this->register(new Silex\Provider\TwigServiceProvider(), [
             'twig.path'       => __DIR__ . '/../view/templates',
             'twig.options' => [
-                'cache' => __DIR__ . '/../cache/twig',
+                'cache' => __DIR__ . '/../var/cache/twig',
             ]
         ]);
         $this->register(new Silex\Provider\ServiceControllerServiceProvider());
@@ -37,7 +37,7 @@ class Application extends Silex\Application
         $this->register(new Provider\SlugifyServiceProvider());
         $this->register(new Provider\MarkdownServiceProvider());
         $this->register(new Provider\DocumentationServiceProvider(), [
-            'documentation.page_builder.cache_dir' => __DIR__ . '/../cache/pages',
+            'documentation.page_builder.cache_dir' => __DIR__ . '/../var/cache/pages',
         ]);
 
         $config = Yaml\Yaml::parse(file_get_contents(__DIR__ . '/../app/config.yml'));
@@ -46,7 +46,7 @@ class Application extends Silex\Application
 
         if ($this['debug']) {
             $this->register(new Silex\Provider\WebProfilerServiceProvider(), [
-                'profiler.cache_dir' => __DIR__ . '/../cache/profiler',
+                'profiler.cache_dir' => __DIR__ . '/../var/cache/profiler',
             ]);
 
             ini_set('error_reporting', -1);

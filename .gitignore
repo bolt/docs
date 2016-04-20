@@ -1,7 +1,7 @@
 vendor/
 composer.phar
 composer.lock
-cache/*
+/var/cache/*
 .idea/
 .DS_*
 node_modules
