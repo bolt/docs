@@ -33,8 +33,10 @@ After extracting the tar file, you'll end up with a structure, similar to this:
 ```
 
 These are the folders that contain all of the Bolt code, resources and other
-files. Most of them are placed outside of the so-called webroot. Only the
-folder `public/` needs to be accessible in the browser.
+files. Most of them are placed outside of the so-called webroot. Only the 'public'
+folder needs to be accessible in the browser. After the first installation this folder is 
+named  `public/` but as you read on, you will see that you can rename it to `www/` or 
+whatever your web server requires.
 
 To do this, configure your webserver to use the `public/` folder as the
 webroot. For more information about this, see the pages on configuring
