@@ -17,7 +17,8 @@
         "symfony/var-dumper": "^3.0",
         "symfony/web-profiler-bundle" : "^3.0",
         "symfony/yaml": "^3.0",
-        "twig/twig": "~1.21"
+        "twig/twig": "~1.21",
+        "webmozart/path-util": "^2.3"
     },
     "autoload": {
         "psr-4": {

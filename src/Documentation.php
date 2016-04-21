@@ -31,7 +31,7 @@ class Documentation
     {
         $this->yamlParser = $yamlParser;
         $this->pageBuilder = $pageBuilder;
-        $this->versionDir = rtrim($versionDir, '/') . '/';
+        $this->versionDir = $versionDir;
         $this->default = (string) $default;
 
         $this->load();

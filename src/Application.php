@@ -5,6 +5,7 @@ namespace Bolt\Docs;
 use Silex;
 use Symfony\Component\Config\ConfigCacheFactory;
 use Symfony\Component\Yaml;
+use Webmozart\PathUtil\Path;
 
 class Application extends Silex\Application
 {
@@ -48,6 +49,9 @@ class Application extends Silex\Application
         }
         $this['debug'] = isset($config['debug']) ? $config['debug'] : false;
         $this['documentation.versions.default'] = isset($config['default-version']) ? $config['default-version'] : '2.2';
+        if (isset($config['versions_dir'])) {
+            $this['documentation.versions_dir'] = Path::makeAbsolute($config['versions_dir'], __DIR__ . '/..');
+        }
 
         if ($this['debug']) {
             $this->register(new Silex\Provider\WebProfilerServiceProvider(), [
