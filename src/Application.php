@@ -37,7 +37,7 @@ class Application extends Silex\Application
         $this->register(new Provider\SlugifyServiceProvider());
         $this->register(new Provider\MarkdownServiceProvider());
         $this->register(new Provider\DocumentationServiceProvider(), [
-            'documentation.versions_dir'           => __DIR__ . '/../version',
+            'documentation.versions_dir'           => __DIR__ . '/../var/versions',
             'documentation.page_builder.cache_dir' => __DIR__ . '/../var/cache/pages',
         ]);
 
