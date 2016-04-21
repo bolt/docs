@@ -13,21 +13,25 @@ modern webserver:
   - Apache with `mod_rewrite` <strong>enabled</strong> (`.htaccess` files) or
     Nginx (virtual host configuration covered below)
 
-<p class="note"><strong>Note:</strong> While Bolt 3 will work very well in
-PHP 7, the included version of the error reporting package
-<a href="http://filp.github.io/whoops/">Whoops</a> will in certain cases not.
-This will probably not affect your experience. </p>
-
 The PHP installation has a few additional requirements. On most servers these
 are default settings, and Bolt should work out-of-the-box.
 
   - A minimum of 32MB of memory allocated to PHP
-  - The PDO extension, to connect to a database
-  - The cUrl extension
-  - The GD Extension
+  - The following common PHP extensions:
+    - pdo
+    - mysqlnd (to use MySQL as a database)
+    - pgsql (to use PostgreSQL as a database)
+    - curl
+    - gd
+    - gmp
+    - json
+    - mb_string
+    - opcache (optional)
+    - posix
+    - xml
 
-Note the following PHP modules are known to conflict with Bolt and must be
-disabled:
+Note the following PHP modules are known to conflict with Bolt and it's 
+underlying Symfony components, and must be disabled:
 
   - Zend Guard Loader
   - ionCube

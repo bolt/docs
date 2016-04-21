@@ -9,17 +9,12 @@ extensions site.
 
 There are a couple of caveats:
 
-- There is no autoloader by default
-- Autoloading is available for Bolt 2.2+, but not guaranteed unless you have a
-  properly defined `"psr-4"` section in your extension's composer.json file
 - Must be located in `{web_root}/extensions/local/{author_name}/{extension_name}/`
-- They **will** be automatically enabled if the directories above exist and
-  contain `init.php` and `Extension.php`
 - Updates are **not** available though the web UI
 
 **Note:** If your local extension requires libraries from Packagist, simply add
-them to the `composer.json` in the root directory of your Bolt install and
-perform a `composer install`.
+them to the `composer.json` in the root directory of your Bolt install by
+performing a `composer require author/package`.
 
 Step 1
 ------
@@ -43,7 +38,7 @@ Create a `composer.json` to guarantee autoloding as:
     "description": "A description about your extension should go here.",
     "type": "bolt-extension",
     "require": {
-        "bolt/bolt": ">=2.0.0,<3.0.0"
+        "bolt/bolt": "^3.0"
     },
     "authors": [
         {
@@ -52,12 +47,13 @@ Create a `composer.json` to guarantee autoloding as:
         }
     ],
     "autoload": {
-        "files": [
-            "init.php"
-        ],
         "psr-4": {
-            "Bolt\\Extension\\MyName\\MyExtension\\": ["", "src/"]
+            "Bolt\\Extension\\MyName\\MyExtension\\": "src/"
         }
+    },
+    "extra": {
+        "bolt-assets": "web",
+        "bolt-class": "Bolt\\Extension\\MyName\\MyExtension\\MyExtensionExtension"
     }
 }
 
@@ -77,40 +73,18 @@ Where:
 Step 3
 ------
 
-Create an `Extension.php` file that contains something like this:
+Create an `src/MyExtensionExtension.php` file that contains something like this:
 
 ```
 namespace Bolt\Extension\MyName\MyExtension;
 
-use Bolt;
+use Bolt\Extension\SimpleExtension;
 
-class Extension extends \Bolt\BaseExtension
+class MyExtensionExtension extends SimpleExtension
 {
-
-    public function getName()
-    {
-        return "MyExtension";
-    }
-
-    public function initialize()
-    {
-        // Your extension gets launched from here
-    }
+    // Extension code goes here.
 }
 ```
-
-Step 4
-------
-
-Create an `init.php` file that contains something like this:
-
-```
-use Bolt\Extension\MyName\MyExtension\Extension;
-
-$app['extensions']->register(new Extension($app));
-```
-- Your extension should now appear in the Extend page in the *"Your Currently
-    Installed Extensions"* section on your Bolt site
 
 Updating/Importing
 ------------------
@@ -122,17 +96,8 @@ In doing this, the PHP namespace may change, potentially triggering a fatal
 error because the autoloader does not get updated automatically, for performance
 reasons.
 
-If this occurs, there are several approaches to fixing this but the first thing
-you should do is temporarily rename the extension's `init.php` file and try the
-following in order:
+If this occurs, there are several approaches to fixing this:
 
-- Dumping the Bolt cache using Nut `./app/nut cache:clear`, and then loading the
-  backend. This will tell Bolt to rescan the local extension `composer.json`
-  files for PSR-4 autoload data, import that into `extensions/composer.json` and
-  rebuild the extension autoloader.
+- Running `./app/nut extensions:dumpautoload` from your root directory
 - Performing a `composer dumpautoload` in the `extensions/` directory of your
   Bolt install.
-
-At this point, it should be safe to rename the `init.php` file back to normal
-and enjoy your updated extension.
-
