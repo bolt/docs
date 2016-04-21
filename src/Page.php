@@ -158,7 +158,7 @@ class Page implements \ArrayAccess
      */
     public function getTitle()
     {
-        return $this->variables['title'];
+        return $this['title'];
     }
 
     /**
