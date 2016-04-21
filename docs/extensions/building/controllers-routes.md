@@ -47,7 +47,7 @@ class KoalaCatcherExtension extends SimpleExtension
     protected function registerFrontendRoutes(ControllerCollection $collection)
     {
         // All requests to /koala
-        $collection->match('/koala', 'callbackKoalaCatching');
+        $collection->match('/koala', [$this, 'callbackKoalaCatching']);
     }
 
     /**
@@ -56,10 +56,10 @@ class KoalaCatcherExtension extends SimpleExtension
     protected function registerBackendRoutes(ControllerCollection $collection)
     {
         // GET requests on the /bolt/koala route
-        $collection->get('/koala', 'callbackKoalaAdmin');
+        $collection->get('/koala', [$this, 'callbackKoalaAdmin']);
 
         // POST requests on the /bolt/koala route
-        $collection->post('/koala', 'callbackKoalaAdmin');
+        $collection->post('/koala', [$this, 'callbackKoalaAdmin']);
     }
 
     /**
@@ -87,6 +87,12 @@ class KoalaCatcherExtension extends SimpleExtension
 }
 ```
 
+<p class="note"> <strong>Note:</strong>If you've added a menu entry in your
+extension, it will be mounted on <tt>extend/</tt>, because it shows up under
+the 'Extras' menu option. When adding an accompanying route for it,  make sure
+to catch it correctly. For example, a menu with route 'koala', will match
+<tt>/extend/koala</tt> in your controller. </p>
+
 Controller Callback Classes
 ---------------------------
 
@@ -104,7 +110,8 @@ Bolt provides two functions to register controller classes:
 Controllers registered via `registerBackendControllers()` will automatically
 have the admin route added, which is `/bolt/` by default.
 
-An example of an extension registering these controller classes would look like:
+An example of an extension registering these controller classes would look
+like:
 
 ```php
 namespace Bolt\Extension\DropBear\KoalaCatcher;
