@@ -111,7 +111,8 @@ class Controllers implements ControllerProviderInterface
             'title'           => $page->getTitle(),
             'source'          => $page->getSource(),
             'menu'            => $version->getMenu(),
-            'current'         => '/' . $version . '/' . $page->getSlug(),
+            'current'         => $page->getSlug(),
+            'submenu'         => $page->getSubMenu(),
             'version'         => $version,
             'versions'        => array_keys($this->app['documentation']->getVersions()),
             'default_version' => $this->app['documentation']->getDefault(),
@@ -157,7 +158,7 @@ class Controllers implements ControllerProviderInterface
             $page->setTitle('404 - Page not found');
             $page->setSource(<<<HTML
 <h1>404 - Page not found</h1>
-This page could not be found. Please click one of the menu items in the 
+This page could not be found. Please click one of the menu items in the
 sidebar, or use the search form to look for a specific keyword.
 HTML
             );
