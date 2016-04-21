@@ -31,8 +31,8 @@
             </p>
         {% endif %}
 
-        {% if submenu is not empty %}
-            <div class='quick-links' style='border: 1px solid #ccc; float: right; max-width: 200px; font-size: 12px; margin-top: 12px;'>
+        {% if submenu|length > 1 %}
+            <div class='quick-links show-for-large'>
                 <b>Quick links:</b>
                 <ul>
                     {% for anchor, item in submenu %}
