@@ -41,9 +41,13 @@ class Application extends Silex\Application
             'documentation.page_builder.cache_dir' => __DIR__ . '/../var/cache/pages',
         ]);
 
-        $config = Yaml\Yaml::parse(file_get_contents(__DIR__ . '/../app/config.yml'));
+        $config = [];
+        $configFile = __DIR__ . '/../app/config.yml';
+        if (file_exists($configFile)) {
+            $config = Yaml\Yaml::parse(file_get_contents(__DIR__ . '/../app/config.yml'));
+        }
         $this['debug'] = isset($config['debug']) ? $config['debug'] : false;
-        $this['documentation.versions.default'] = isset($config['default-version']) ? $config['default-version'] : 'master';
+        $this['documentation.versions.default'] = isset($config['default-version']) ? $config['default-version'] : '2.2';
 
         if ($this['debug']) {
             $this->register(new Silex\Provider\WebProfilerServiceProvider(), [
