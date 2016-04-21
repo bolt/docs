@@ -329,7 +329,9 @@ The following fieldtypes are available:
     the root folder of the current theme with a file name that does not begin
     with an underscore. If a specific template is not chosen in the record
     editor, the record will be rendered with the default template for that
-    contenttype.
+    contenttype. If a templateselect field is used in a reapeater or in templatefields
+    it will not affect which template bolt uses to render the record, but can still be
+    used by the theme developer in the theme.
   - `image`: Simple image upload/select field. Currently takes an optional attribute
     (attrib:) parameter `title` — this will allow you to specify text that you can call
     in your templates to retreive either/or captions or alt text for your image layout.
