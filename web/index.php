@@ -6,10 +6,6 @@ if (PHP_SAPI === 'cli-server') {
     }
 }
 
-if (!file_exists(__DIR__ . '/../app/config.yml')) {
-    echo "<p>The file <tt>app/config.yml</tt> doesn't exist. Copy <tt>config.yml.dist</tt> to <tt>config.yml</tt> and add the correct settings.</p>";
-    die();
-}
 if (!file_exists(__DIR__ . '/../vendor/autoload.php')) {
     echo "<p>The file <tt>vendor/autoload.php</tt> doesn't exist. Make sure you've installed the Silex components with Composer. See the README.md file.</p>";
     die();
