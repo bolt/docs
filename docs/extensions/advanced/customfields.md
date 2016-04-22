@@ -193,7 +193,7 @@ Here's the final code for our new field:
 ```
 <?php
 
-namespace Bolt\Extensions\ColourPicker\Field;
+namespace Bolt\Extensions\Bolt\ColourPicker\Field;
 
 use Bolt\Field\FieldInterface;
 
