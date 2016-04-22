@@ -31,9 +31,19 @@
             </p>
         {% endif %}
 
+        {% if submenu|length > 1 %}
+            <div class='quick-links show-for-large'>
+                <b>Quick links:</b>
+                <ul>
+                    {% for anchor, item in submenu %}
+                        <li><a href='#{{ anchor }}'>{{ item }}</a></li>
+                    {% endfor %}
+            </div>
+        {% endif %}
+
         {{ source|raw }}
 
-        {{ include('_sub_submenu.twig', {'section': current }) }}
+        {{ include('_sub_submenu.twig', { section: current }) }}
 
         <div class="community-notice show-for-large">
             <hr>

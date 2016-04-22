@@ -240,6 +240,26 @@ nav.main-nav {
     }
 }
 
+.quick-links {
+    border: 1px solid #CCC;
+    background-color: #F2F2F2;
+    float: right;
+    max-width: 220px;
+    font-size: 14px;
+    font-family: $sans-serif;
+    margin-top: 12px;
+    padding: 6px;
+
+    ul {
+        margin-bottom: 0;
+        li {
+            font-size: 14px;
+            font-family: $sans-serif;
+            line-height: 19px;
+        }
+    }
+}
+
 a.toplink {
     display: block;
     margin: 1em auto 0 auto;
