@@ -54,11 +54,11 @@ gulp.task('copyjavascript', function() {
 });
 
 // Build the "dist" folder by running all of the above tasks
-gulp.task('build', ['sass', 'compress']);
+gulp.task('build', ['sass', 'copyjavascript', 'compress']);
 
 
 // Set up 'default' task, with watches.
-gulp.task('default', ['sass', 'compress'], function() {
+gulp.task('default', ['sass', 'copyjavascript', 'compress'], function() {
   gulp.watch(['scss/**/*.scss'], ['sass']);
   gulp.watch(['js/**/*.js'], ['compress']);
 });
