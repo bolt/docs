@@ -1,5 +1,9 @@
-var gulp   = require('gulp');
-var $      = require('gulp-load-plugins')();
+var gulp = require('gulp');
+var $    = require('gulp-load-plugins')();
+var argv = require('yargs').argv;
+
+// Check for --production flag
+var isProduction = !!(argv.production);
 
 // Define base paths for Sass and Javascript.
 var sassPaths = [
@@ -14,8 +18,12 @@ var javascriptFiles = [
     'bower_components/jquery/dist/jquery.js'
 ];
 
+
 // Set up 'sass' task.
 gulp.task('sass', function() {
+
+  var minifycss = $.if(isProduction, $.minifyCss());
+
   return gulp.src('scss/docs.scss')
     .pipe($.sass({
       includePaths: sassPaths,
@@ -25,12 +33,15 @@ gulp.task('sass', function() {
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9']
     }))
+    .pipe(minifycss)
+    .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('../../web/styles'));
 });
 
 // Set up 'compress' task.
 gulp.task('compress', function() {
-  return gulp.src('javascript/*.js')
+  return gulp.src('js/*.js')
+    .pipe($.concat('docs.js'))
     .pipe($.uglify())
     .pipe(gulp.dest('../../web/js'));
 });
@@ -38,12 +49,16 @@ gulp.task('compress', function() {
 
 gulp.task('copyjavascript', function() {
    gulp.src(javascriptFiles)
-   .pipe(gulp.dest('javascript'));
+   .pipe($.uglify())
+   .pipe(gulp.dest('../../web/js'));
 });
+
+// Build the "dist" folder by running all of the above tasks
+gulp.task('build', ['sass', 'copyjavascript', 'compress']);
 
 
 // Set up 'default' task, with watches.
-gulp.task('default', ['sass', 'compress'], function() {
+gulp.task('default', ['sass', 'copyjavascript', 'compress'], function() {
   gulp.watch(['scss/**/*.scss'], ['sass']);
-  gulp.watch(['javascript/**/*.js'], ['compress']);
+  gulp.watch(['js/**/*.js'], ['compress']);
 });
