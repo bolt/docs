@@ -40,7 +40,8 @@ gulp.task('sass', function() {
 
 // Set up 'compress' task.
 gulp.task('compress', function() {
-  return gulp.src('javascript/*.js')
+  return gulp.src('js/*.js')
+    .pipe($.concat('docs.js'))
     .pipe($.uglify())
     .pipe(gulp.dest('../../web/js'));
 });
@@ -48,7 +49,8 @@ gulp.task('compress', function() {
 
 gulp.task('copyjavascript', function() {
    gulp.src(javascriptFiles)
-   .pipe(gulp.dest('javascript'));
+   .pipe($.uglify())
+   .pipe(gulp.dest('../../web/js'));
 });
 
 // Build the "dist" folder by running all of the above tasks
@@ -58,5 +60,5 @@ gulp.task('build', ['sass', 'compress']);
 // Set up 'default' task, with watches.
 gulp.task('default', ['sass', 'compress'], function() {
   gulp.watch(['scss/**/*.scss'], ['sass']);
-  gulp.watch(['javascript/**/*.js'], ['compress']);
+  gulp.watch(['js/**/*.js'], ['compress']);
 });
