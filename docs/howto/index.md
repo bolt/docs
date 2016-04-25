@@ -6,10 +6,12 @@ pages:
     - simple-menu
     - upgrade-version-1-to-2
     - building-multilingual-websites
+    - boilerplate-for-multilingual-websites
     - select-field-type
     - resetting-a-password
     - using-php-built-in-web-server
     - performance-tips
+    - troubleshooting-outside-webroot
     - making-sure-htaccess-works
     - muti-site-setup
     - curl-ca-certificates
