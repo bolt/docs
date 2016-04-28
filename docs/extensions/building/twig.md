@@ -29,7 +29,7 @@ $this->renderTemplate('template.twig', $context);
 
 When using this function, Bolt will automatically add the extension's `template/`
 directory to the Twig path array. If you need other directories or Twig
-namespaces added, see the [Registering Twig Paths](#RegisteringTwigPaths)
+namespaces added, see the [Registering Twig Paths](#registering-twig-paths)
 section below.
 
 
