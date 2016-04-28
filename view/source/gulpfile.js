@@ -40,9 +40,12 @@ gulp.task('sass', function() {
 
 // Set up 'compress' task.
 gulp.task('compress', function() {
+
+  var uglifyjs = $.if(isProduction, $.minifyCss());
+
   return gulp.src('js/*.js')
     .pipe($.concat('docs.js'))
-    .pipe($.uglify())
+    .pipe($.if(!uglifyjs, $.uglify()))
     .pipe(gulp.dest('../../web/js'));
 });
 
