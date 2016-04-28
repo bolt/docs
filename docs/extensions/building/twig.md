@@ -17,7 +17,7 @@ may find it useful to move your Twig logic to a class file and import the
 Rendering Twig Templates
 ------------------------
 
-Bolt proivdes a helper function for rendering Twig templates `renderTemplate()`.
+Bolt provides a helper function for rendering Twig templates `renderTemplate()`.
 
 ```php
 $context = [
