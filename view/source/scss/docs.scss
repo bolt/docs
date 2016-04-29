@@ -3,7 +3,7 @@
 @import 'variables';
 @import 'settings';
 @import 'foundation';
-@import 'jqtree';
+//@import 'jqtree'; we no need no uglyfugly styling
 @import 'cheatsheet';
 @import 'font-awesome';
 @import 'algolia';
@@ -68,7 +68,7 @@ img.retina {
 /* -------------LAY-OUT-------------- */
 
 body {
-    background: mix($boltnewbackendblue, $lightgrey);
+    background: $lightgrey;
     font-family: $sans-serif;
 }
 
@@ -90,9 +90,10 @@ header, footer {
     background-position: fixed;
     @media #{$large-up} {
         max-width: 100%;
-    }
+        }
     .inner {
         max-width: 75rem;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
         @media #{$large-up} {
@@ -103,11 +104,11 @@ header, footer {
       content: "";
       display: table;
       clear: both;
-  }
+    }
 }
 
 main {
-    font-family: $serif;
+    font-family: $sans-serif;
     background: #fff;
 }
 
@@ -138,25 +139,24 @@ footer {
     padding-right: 0.9375rem;
 }
 
-
-h1, h2, h3 {
-    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
+h1 {
+    margin-bottom: 1em;
 }
 
+h2 {
+    font-weight: 300;
+    margin: 2em 0 1em;
+}
 
-p {
+h3 {
+    margin: 2em 0 1em;
+}
 
-    font-size: 17px;
-    line-height: 1.4;
+/*p {
 
     &.meta {
         font-size: 0.8125rem;
         color: $red;
-    }
-
-    @media #{$large-up} {
-        font-size: 17px;
-        line-height: 1.7;
     }
 
 }
@@ -202,7 +202,7 @@ h1, h2, h3, h4 {
         border: 0;
     }
 
-}
+}*/
 
 
 
@@ -243,6 +243,8 @@ nav.main-nav {
 }
 
 .quick-links {
+    
+    display:none; //come on, seriously? Hide this half baked usability fix. 
     border: 1px solid #CCC;
     background-color: #F2F2F2;
     float: right;
@@ -272,15 +274,20 @@ a.toplink {
     }
 }
 
-p.collapse-nodes {
-    font-size: 15px;
+.search {
+    margin-bottom: 1rem;
+}
+
+.collapse-nodes {
+    margin-bottom: 1rem;
     a {
-        color: mix($mediumblue, $white, 80);
-        font-weight: bold;
+        font-size: 13px;
     }
 }
 
-#version-changer {
+.version-changer {
+    margin-bottom: 1rem;
+
     form {
         text-align: right;
     }
@@ -291,6 +298,7 @@ p.collapse-nodes {
         max-width: 220px;
         display: inline-block;
     }
+
 }
 
 /* ------------ STUFF -------------- */
@@ -313,12 +321,12 @@ span.mobile {
 /* ------------ HEADER -------------- */
 
 header {
-    height: 100px;
+    height: 150px;
     position: relative;
     background-size: cover;
     // MEDIUM //
     @media #{$large-up} {
-        height: 100px;
+        height: 200px;
     }
     h1 {
         color: $white;
@@ -380,6 +388,49 @@ header {
 .headerimg {
     position: absolute;
     z-index: 0;
+}
+
+.meta-nav {
+    position: absolute;
+    right: 0.9375rem;
+    bottom: 3px;
+    background: rgba($black,0.7);
+    color:#fff;
+    padding-left: 1em;
+    // MEDIUM //
+    @media #{$large-up} {
+        bottom: auto;
+        top: 0;
+        width: 16rem;
+        right: 6rem;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        a {
+            color:$white;
+            text-decoration: none;
+            font-size: 0.6875rem;
+            &:hover {
+                color: $red;
+            }
+        }
+        i {
+            margin-right: 5px;
+        }
+        li{
+            display: inline;
+            margin: 0 1em 0 0;
+        }
+        li.fork {
+            display: none;
+            // MEDIUM //
+            @media #{$medium-up} {
+                display: inline-block;
+            }
+        }
+
+    }
 }
 
 
@@ -525,21 +576,80 @@ mark {
 
  .sidebar {
     order: 3;
-    background: $darkblue;
+    background: $lightgrey;
     padding: 2rem 1rem 0;
-    color: $white;
+    color: $black;
     font-family: $sans-serif;
-    font-size: 14px;
+    font-size: 1rem;
 
     @media #{$large-up} {
         order: 1;
         max-width: 300px; // Magic number : looks nice
     }
-
-
-
 }
 
+
+#sidebar-nav {
+    ul.jqtree-tree {
+        margin: 0;
+    }
+
+    li {
+        list-style: none;
+        padding: 3px 0;
+    }
+
+    /*sidebar uses jqtree menubar. Styling was fugly, so original styling disabled. We only need this */
+    
+    ul.jqtree-tree .jqtree-element {
+        cursor: pointer; // there is a special place in hell for me for doing this. But i'll be one level higher then the jqtree guy.
+    }
+
+    li.jqtree-closed > ul.jqtree_common {
+            display: none;
+    }
+
+    .jqtree-toggler {
+        margin-right: .5rem;
+        display: none;
+        color: $white;
+    }
+
+    .jqtree-folder {
+        padding-bottom: .5rem;
+    }
+
+    .jqtree-title-folder {
+        font-weight: bold;
+    }
+
+    .jqtree-selected {
+        background: lighten($lightgrey, 8%);
+        position: relative;
+        margin-right: -1rem;
+        margin-left: -1rem;
+        padding-left: 1rem;
+
+        @media #{$large-up}{
+
+            &:after {
+            content: "►";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            font-size: 13px;
+            color: $black;
+            /*border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid $white;*/
+            position: absolute;
+            right: 24px; //magic number: looks visually ok
+            top: 6px;
+            }
+        }
+    }
+
+}
 
 
 
@@ -609,12 +719,12 @@ p.meta.deprecation {
 }
 
 pre {
-    width: 800px;
+    width: auto;
     margin: 20px 0;
 }
 
 code.hljs {
-    padding: 10px;
+    padding: 1.5rem 10px 10px; //more room on top for the copy button on small screens;
     line-height: 20px;
 }
 
@@ -622,7 +732,7 @@ code {
     padding: 1px 3px;
     background-color: #EEE;
     border: 1px solid #E8E8E8;
-    color: #555;
+    color: #333;
     font-family: "Menlo", "Consolas", "Courier New", Courier, monospace;
     font-size: 14px;
     line-height: 1.6em !important;
@@ -663,7 +773,7 @@ div.gallery-popup img {
     order: 2;
 
     @media #{$large-up} {
-        padding: 1.5em 3.5em 1em;
+        padding: 3em 3.5em 1em;
     }
 
     h2 code {
@@ -674,18 +784,17 @@ div.gallery-popup img {
         font-size: 19px;
     }
 
-    p, ul, ol {
+    p, ul, ol, code.hljs, pre {
         max-width: 650px; // magic number: good linewidth to keep it readable
     }
 
+
     li {
 
-        font-size: 16.5px;
-        line-height: 1.5;
+        //line-height: 1.5;
 
         @media #{$large-up} {
-            font-size: 17px;
-            line-height: 1.7;
+            //line-height: 1.7;
         }
 
     }

@@ -8,7 +8,7 @@
 
         <a href="#sidebar" class="button hide-for-large jumpbutton">Jump to docs navigation</a>
 
-        <div id="version-changer">
+        <div id="version-changer" class="version-changer">
             <form action="" method="get">
                 <div>
                 Version:
@@ -56,16 +56,17 @@
     <div class="small-12 medium-12 large-3 large-pull-9 end columns sidebar" id="sidebar">
         <nav id="sidebar-nav">
 
-            <p class='collapse-nodes'>Search the documentation:
-            <input type="text" placeholder="Search ..." id="algolia-search"/>
-            </p>
+            <div class='search'>
+                <label for="algolia-search"> Search the documentation:</label>
+                <input type="text" placeholder="Search ..." id="algolia-search"/>
+            </div>
 
-            <p class='collapse-nodes'>
-                [
-                <a href='#' id='jqtree-collapse-all'>► Collapse all</a> |
+            <div class='collapse-nodes'>
+                
+                <a href='#' id='jqtree-collapse-all'>► Collapse all</a> &nbsp; &nbsp; &nbsp;
                 <a href='#' id='jqtree-expand-all'>▼ Expand all</a>
-                ]
-            </p>
+                
+            </div>
             <div id="tree1" data-data="{{ menu|json_encode }}">
                 <ul class="jqtree_common jqtree-tree">
                     {% for page in menu %}
