@@ -1464,11 +1464,11 @@ Documentation: https://community.algolia.com/docsearch/documentation/
 
 /* Main category headers */
 .algolia-docsearch-suggestion--category-header {
-  background-color: #42628B; }
+  background-color: #42627B; }
 
 /* Highlighted search terms */
 .algolia-docsearch-suggestion--highlight {
-  color: #42628B; }
+  color: #42627B; }
 
 /* Highligted search terms in the main category headers */
 .algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--highlight {
@@ -1476,7 +1476,7 @@ Documentation: https://community.algolia.com/docsearch/documentation/
 
 /* Currently selected suggestion */
 .aa-cursor .algolia-docsearch-suggestion--content {
-  color: #42628B; }
+  color: #42627B; }
 
 .algolia-docsearch-suggestion {
   color: #6f6f6f; }
@@ -3209,12 +3209,12 @@ h6 {
     font-size: 1rem; } }
 
 a {
-  color: #42628B;
+  color: #42627B;
   text-decoration: none;
   line-height: inherit;
   cursor: pointer; }
   a:hover, a:focus {
-    color: #395478; }
+    color: #39546a; }
   a img {
     border: 0; }
 
@@ -3414,12 +3414,12 @@ kbd {
   padding: 0.85em 1em;
   margin: 0 0 1rem 0;
   font-size: 0.9rem;
-  background-color: #42628B;
+  background-color: #42627B;
   color: #fff; }
   [data-whatinput='mouse'] .button {
     outline: 0; }
   .button:hover, .button:focus {
-    background-color: #385376;
+    background-color: #385369;
     color: #fff; }
   .button.tiny {
     font-size: 0.6rem; }
@@ -3632,7 +3632,7 @@ kbd {
   font-size: 0.6rem;
   text-align: center;
   border-radius: 50%;
-  background: #42628B;
+  background: #42627B;
   color: #fefefe; }
   .badge.secondary {
     background: #777;
@@ -3750,7 +3750,7 @@ kbd {
   white-space: nowrap;
   cursor: default;
   border-radius: 0;
-  background: #42628B;
+  background: #42627B;
   color: #fefefe; }
   .label.secondary {
     background: #777;
@@ -4205,7 +4205,7 @@ h3 {
   margin: 1.5em 0 1em; }
 
 .content a.anchor {
-  color: #bbcade;
+  color: #b3c7d6;
   margin-left: 14px;
   font-size: 75%;
   border: 0;
@@ -4238,9 +4238,9 @@ h3 {
 
 a.button.jumpbutton {
   color: #fff;
-  background-color: #42628B; }
+  background-color: #42627B; }
   a.button.jumpbutton:hover {
-    background-color: #324a68; }
+    background-color: #30485a; }
 
 .quick-links {
   margin: -1rem 0 1.5rem 0;
@@ -4415,7 +4415,7 @@ header {
       display: none; } }
   .menu-toggle span {
     display: block;
-    box-shadow: 0 10px 0 1px #42628B, 0 16px 0 1px #42628B, 0 22px 0 1px #42628B;
+    box-shadow: 0 10px 0 1px #42627B, 0 16px 0 1px #42627B, 0 22px 0 1px #42627B;
     height: 1px;
     left: 30px;
     position: absolute;
@@ -4494,9 +4494,9 @@ mark {
 
 .body-docs p.note,
 .body-docs p.tip {
-  background-color: #dde5ef;
-  border-color: #ccd8e7;
-  color: #42628B; }
+  background-color: #d4dfe8;
+  border-color: #c3d3df;
+  color: #42627B; }
 
 /**
  * Styles for the sidebar
@@ -4525,7 +4525,7 @@ mark {
       color: #0a0a0a; }
     #sidebar-nav ul.jqtree-tree a.jqtree-toggler {
       margin-right: .5rem;
-      color: #42628B;
+      color: #42627B;
       display: none; }
   #sidebar-nav li {
     list-style: none;
@@ -4667,10 +4667,10 @@ div.gallery-popup img {
   .content p, .content ul, .content ol, .content code.hljs, .content pre {
     max-width: 650px; }
   .content a {
-    color: #42628B;
+    color: #42627B;
     text-decoration: underline; }
     .content a a:hover {
-      color: #213146; }
+      color: #1e2d39; }
     .content a.selected {
       background-color: rgba(0, 0, 0, 0.1); }
   .content h3.subheader {
@@ -4690,7 +4690,7 @@ div.gallery-popup img {
     font-weight: bold;
     margin: 0;
     display: block;
-    background-color: #42628B;
+    background-color: #42627B;
     color: #fefefe;
     font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     text-decoration: none; }
@@ -4698,7 +4698,7 @@ div.gallery-popup img {
       font-size: 14px;
       font-weight: normal; }
     .content a.button.docsintro:hover {
-      background-color: #213146; }
+      background-color: #1e2d39; }
   .content a.button.medium.docsintro {
     max-width: 270px;
     margin-right: 18px;
@@ -4734,7 +4734,7 @@ div.gallery-popup img {
   padding: 0.85em 1em;
   margin: 0 0 1rem 0;
   font-size: 0.9rem;
-  background-color: #42628B;
+  background-color: #42627B;
   color: #fff;
   font-size: 0.8125rem;
   max-width: 200px;
@@ -4744,7 +4744,7 @@ div.gallery-popup img {
   [data-whatinput='mouse'] .content a.button {
     outline: 0; }
   .content a.button:hover, .content a.button:focus {
-    background-color: #385376;
+    background-color: #385369;
     color: #fff; }
   @media screen and (min-width: 30em) {
     .content a.button {
