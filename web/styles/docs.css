@@ -4301,14 +4301,22 @@ header {
   height: 150px;
   position: relative;
   background-size: cover; }
-  @media screen and (min-width: 50em) {
-    header {
-      height: 200px; } }
+
+@media screen and (min-width: 50em) and (min-height: 800px) {
+  header {
+    height: 200px; } }
   header h1 {
     color: #fefefe;
     margin-top: 0;
     padding-top: 20px;
-    margin-left: 40px; }
+    margin-left: 40px;
+    width: 150px; }
+
+@media screen and (min-width: 50em) and (min-height: 800px) {
+  header h1 {
+    width: 200px; } }
+    header h1 img {
+      width: 100%; }
   header h2 {
     display: none;
     color: #fefefe;

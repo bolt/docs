@@ -289,15 +289,37 @@ header {
     height: 150px;
     position: relative;
     background-size: cover;
+    
     // MEDIUM //
     @media #{$large-up} {
-        height: 200px;
+        
+        //vertical mediaquery: only show when enough vertical height
+        @media (min-height: 800px) {
+        height: 200px;   
+        }
     }
+
+
+
     h1 {
         color: $white;
         margin-top: 0;
         padding-top: 20px;
         margin-left: 40px;
+        width: 150px;
+
+        // MEDIUM //
+        @media #{$large-up} {
+            
+            //vertical mediaquery: only show when enough vertical height
+            @media (min-height: 800px) {
+                width: 200px;   
+            }
+        }
+
+        img {
+            width: 100%
+        }
     }
     h2 {
         display: none;
@@ -305,6 +327,7 @@ header {
         margin-left: 40px;
         font-size: 1em;
         text-shadow: 2px 2px 3px #000;
+        
         // MEDIUM //
         @media #{$medium-up} {
             font-size: 2em;
