@@ -145,64 +145,20 @@ h1 {
 
 h2 {
     font-weight: 300;
-    margin: 2em 0 1em;
+    margin: 1.5em 0 1em;
 }
 
 h3 {
-    margin: 2em 0 1em;
+    margin: 1.5em 0 1em;
 }
 
-/*p {
-
-    &.meta {
-        font-size: 0.8125rem;
-        color: $red;
-    }
-
-}
-
-
-i {
-    margin-right: .5em;
-}
-
-h1 {
-    font-size: 2.4em;
-}
-
-h2 {
-    font-size: 1.8em;
-}
-
-h3 {
-    font-size: 1.6em;
-}
-
-h4 {
-    font-size: 1.3em;
-}
-
-
-h1, h2, h3, h4 {
-    font-weight: 400;
-    a {
-        color: inherit;
-    }
-
-    a.anchor{
-        color: lighten($boltblue, 40);
+.content a.anchor{
+        color: lighten($mediumblue, 40);
         margin-left: 14px;
         font-size: 75%;
         border: 0;
-    }
-
-    &:hover a.anchor {
-        color: lighten($boltblue, 10);
         text-decoration: none;
-        border: 0;
     }
-
-}*/
 
 
 
@@ -242,9 +198,18 @@ nav.main-nav {
     }
 }
 
+a.button.jumpbutton {
+    color: #fff;
+    background-color: $mediumblue;
+
+    &:hover{
+        background-color: darken($mediumblue,10%)
+    }
+}
+
 .quick-links {
     
-    display:none; //come on, seriously? Hide this half baked usability fix. 
+    //display:none; //come on, seriously? Hide this half baked usability fix. 
     border: 1px solid #CCC;
     background-color: #F2F2F2;
     float: right;
@@ -286,17 +251,17 @@ a.toplink {
 }
 
 .version-changer {
+    text-align: center;
     margin-bottom: 1rem;
 
-    form {
-        text-align: right;
-    }
-    div {
-        display: inline-block;
-    }
     select {
         max-width: 220px;
         display: inline-block;
+        border: 1px solid #ccc;
+    }
+
+    @media #{$large-up} {
+        text-align: right;
     }
 
 }
@@ -592,11 +557,24 @@ mark {
 #sidebar-nav {
     ul.jqtree-tree {
         margin: 0;
+
+        a {
+            color: $black;
+        }
+
+        a.jqtree-toggler {
+            margin-right: .5rem;
+            color: $mediumblue;
+            display: none; //hide the arrows for les clutter
+        
+        }
     }
 
     li {
         list-style: none;
-        padding: 3px 0;
+        padding: 4px 0;
+        line-height: 1.3;
+
     }
 
     /*sidebar uses jqtree menubar. Styling was fugly, so original styling disabled. We only need this */
@@ -606,14 +584,10 @@ mark {
     }
 
     li.jqtree-closed > ul.jqtree_common {
-            display: none;
+            display: none; // start closed.
     }
 
-    .jqtree-toggler {
-        margin-right: .5rem;
-        display: none;
-        color: $white;
-    }
+    
 
     .jqtree-folder {
         padding-bottom: .5rem;
@@ -626,12 +600,13 @@ mark {
     .jqtree-selected {
         background: lighten($lightgrey, 8%);
         position: relative;
-        margin-right: -1rem;
         margin-left: -1rem;
         padding-left: 1rem;
 
         @media #{$large-up}{
-
+            margin-right: -1rem;
+            padding-right: 1rem;
+        
             &:after {
             content: "►";
             display: inline-block;
@@ -886,6 +861,32 @@ div.gallery-popup img {
     }
 
 }
+
+
+/* -------------- BUTTONS --------------- */
+
+
+
+.content {
+    a.button{
+         @include button
+         font-size: 0.8125rem;
+         max-width: 200px;
+         display: block;
+         margin: 10px auto;
+         text-decoration: none;
+         // MEDIUM  //
+         @media #{$medium-up}{
+              max-width: 200px;
+         }
+         &:before {
+            content:"\00bb";
+            margin-right: 5px;
+         }
+    }
+}
+
+
 
 
 /* -------------- DEBUG --------------- */
