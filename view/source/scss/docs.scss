@@ -209,22 +209,30 @@ a.button.jumpbutton {
 
 .quick-links {
     
+    margin: -1rem 0 1.5rem 0;
     //display:none; //come on, seriously? Hide this half baked usability fix. 
-    border: 1px solid #CCC;
+    
+    /*border: 1px solid #CCC;
     background-color: #F2F2F2;
     float: right;
     max-width: 220px;
     font-size: 14px;
     font-family: $sans-serif;
     margin-top: 12px;
-    padding: 6px;
+    padding: 6px;*/
 
     ul {
-        margin-bottom: 0;
+        list-style: none;
+        margin: 0 0 0 0;
+        font-size: 14px;
+            
         li {
-            font-size: 14px;
+            display: inline;
             font-family: $sans-serif;
             line-height: 19px;
+            margin-right: 20px;
+            margin-bottom: 0;
+
         }
     }
 }
@@ -246,7 +254,7 @@ a.toplink {
 .collapse-nodes {
     margin-bottom: 1rem;
     a {
-        font-size: 13px;
+        font-size: 14px;
     }
 }
 
@@ -752,9 +760,6 @@ span.copy-btn {
 }
 
 
-.select2-results .select2-result-label {
-    font-size: 13px;
-}
 
 
 
@@ -930,7 +935,7 @@ div.gallery-popup img {
         left: 0;
         right: 0;
         z-index: 100;
-        font-size: 13px;
+        font-size: 14px;
     }
 }
 

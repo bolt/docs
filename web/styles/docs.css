@@ -4243,20 +4243,25 @@ a.button.jumpbutton {
     background-color: #324a68; }
 
 .quick-links {
-  border: 1px solid #CCC;
-  background-color: #F2F2F2;
-  float: right;
-  max-width: 220px;
-  font-size: 14px;
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-  margin-top: 12px;
-  padding: 6px; }
+  margin: -1rem 0 1.5rem 0;
+  /*border: 1px solid #CCC;
+    background-color: #F2F2F2;
+    float: right;
+    max-width: 220px;
+    font-size: 14px;
+    font-family: $sans-serif;
+    margin-top: 12px;
+    padding: 6px;*/ }
   .quick-links ul {
-    margin-bottom: 0; }
+    list-style: none;
+    margin: 0 0 0 0;
+    font-size: 14px; }
     .quick-links ul li {
-      font-size: 14px;
+      display: inline;
       font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-      line-height: 19px; }
+      line-height: 19px;
+      margin-right: 20px;
+      margin-bottom: 0; }
 
 a.toplink {
   display: block;
@@ -4272,7 +4277,7 @@ a.toplink {
 .collapse-nodes {
   margin-bottom: 1rem; }
   .collapse-nodes a {
-    font-size: 13px; }
+    font-size: 14px; }
 
 .version-changer {
   text-align: center;
@@ -4643,9 +4648,6 @@ span.copy-btn {
   text-transform: uppercase;
   font-size: 12px; }
 
-.select2-results .select2-result-label {
-  font-size: 13px; }
-
 a.popup img,
 div.gallery-popup img {
   border: 1px solid #bbb;
@@ -4767,7 +4769,7 @@ div.gallery-popup img {
         left: 0;
         right: 0;
         z-index: 100;
-        font-size: 13px;
+        font-size: 14px;
     }
 }
 
