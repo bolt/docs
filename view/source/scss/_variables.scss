@@ -4,7 +4,7 @@ $lightgrey      : #eae6dc;
 //new styling okt 2015
 $boltnewbackendblue    : #33363E;
 $fadedtext             : #99A2A8;
-$boltnewgreyblue       : #42628B;
+$boltnewgreyblue       : #42627B;
 
 // inherited from bolt site
 $mediumblue     : $boltnewgreyblue ; // Was helderder: #3478a7;
@@ -13,11 +13,10 @@ $red            : #F6350C; //was #FF4934;
 $lessred        : desaturate(lighten($red, 20), 40);
 $black          : #000;
 $mediumgrey		: #6f6f6f;
-$boltblue       : #204499;
 
 
 $sans-serif     : 'Source Sans Pro', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
-$serif     : 'Source Serif Pro', Georgia, serif;
+$serif          : 'Source Serif Pro', Georgia, serif;
 
 // For the cheatsheet:
 $table-bg: #FFF;

@@ -12,8 +12,8 @@
     <meta name="DCTERMS.title" content="Bolt CMS"/>
     <meta name="robots" content="noydir, noodp"/>
 
-    <link rel="shortcut icon" href="{{ asset('images/favicon-bolt.png') }}">
-    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,600italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="{{ asset('bolts/favicon-bolt.png') }}">
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,600italic' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     <link rel="stylesheet" href="{{ asset('styles/docs.css') }}" type="text/css" media="all" />
@@ -65,6 +65,27 @@
     <header style="background-image: url(/files/header_57.jpg);">
         <div class="inner">
 
+            {#
+            <nav class="meta-nav">
+                <ul>
+                    <li class="counter"><a href="https://github.com/bolt/bolt" title="octocat">
+                        <i class="fa fa-lg fa-github"></i><span id="stargazers">2400 Stars</span>
+                    </a></li>
+                    <li class="fork"><a href="https://github.com/bolt/bolt" title="To Bolt on GitHub">Fork Bolt on GitHub</a></li>
+                </ul>
+            </nav>
+            #}
+            
+            <h1 id="logo"><img src="/images/bolt.png" width='200' alt="BoltCM" /></h1>
+            <h2 class="payoff">Sophisticated, Lightweight and Simple</h2>
+            
+            {#
+            <a class="button download show-for-large-up" href="https://bolt.cm/pages/download">
+                <span class="desktop">Download Bolt</span><span class="mobile">View download options</span>
+                <span class="sub">Current version v 2.0</span>
+            </a>
+            #}
+            
             <a class="menu-toggle"><span></span></a>
         </div>
     </header>
@@ -88,8 +109,8 @@
             <li class="index-5">
                 <input type="text" id="searchbox" style="width: 100%;">
             </li>
-#}
-
+#}  
+            
         </ul>
     </nav>
 

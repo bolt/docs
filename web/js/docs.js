@@ -97,6 +97,10 @@ jQuery(function($) {
 
     });
 
+    //put the quicklinks in a decent place 
+
+    $('.quick-links').insertAfter('.content h1');
+
     // Update the number of stars. Stolen from foundation.zurb.com.
     $.ajax({
       dataType: 'jsonp',
