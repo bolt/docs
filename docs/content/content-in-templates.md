@@ -17,7 +17,7 @@ There are two ways that Bolt makes content accessible in templates:
   - Fetching other content: By using the `{% setcontent %}`-tag, you can
     retrieve records of any contenttype from the database, and make the data
     available to the templates. Much more information about `setcontent`, can
-    be found in the chapter [Fetching content](content-fetching).
+    be found in the chapter [Fetching content](../templates/content-fetching).
 
 Implicitly available content
 ----------------------------
@@ -69,6 +69,6 @@ Then you would have `{{ records }}` available, as well as a variable with the
 name of the contenttype. In this case, it would be `{{ pages }}`.
 
 For more information on how Bolt selects which templates to use, see
-[Templating and Routing](templates-routes). To learn more about actually using
+[Templating and Routing](../templates/templates-routes). To learn more about actually using
 the content records in your templates, see
-[Record and Records](record-and-records).
+[Record and Records](../templates/record-and-records).

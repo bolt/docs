@@ -6,7 +6,7 @@ Record and Records
 
 When writing templates for Bolt, you'll be mostly working with a single record
 with content, or arrays containing a number of records. See the page on
-[Content in templates](content-in-templates) for more information on how they
+[Content in templates](../content/content-in-templates) for more information on how they
 become available in templates.
 
 This page is divided in two parts: working with a single `{{ record }}`, or
@@ -68,7 +68,7 @@ Get the next and previous record:
 
 The next and previous functions allow for additional parameters. For example,
 you can base the next record on any field (this is `datepublish` by default),
-filtered by a `where` clause, see [using where](/content-fetching#using-where)
+filtered by a `where` clause, see [using where](content-fetching#using-where)
 for more details.
 
 ```twig
@@ -193,7 +193,7 @@ function comes in handy:
 
 <p class="note"><strong>Note:</strong> To create connections between different
 records of the same or different contenttypes, see the page on <a
-href="/relationships">Relations</a>.</p>
+href="../content/relationships">Relations</a>.</p>
 
 
 Using `{{ records }}`
