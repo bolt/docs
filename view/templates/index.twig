@@ -30,9 +30,9 @@
 
         {% if submenu|length > 1 %}
             <div class='quick-links show-for-large'>
-                
+
                 <ul>
-                   <li>Jump to:</li> 
+                   <li>Jump to:</li>
                     {% for anchor, item in submenu %}
                         <li><a href='#{{ anchor }}'>{{ item }}</a></li>
                     {% endfor %}
@@ -60,12 +60,17 @@
             </div>
 
             <div class='collapse-nodes'>
-                
                 <a href='#' id='jqtree-collapse-all'>► Collapse all</a> &nbsp; &nbsp; &nbsp;
                 <a href='#' id='jqtree-expand-all'>▼ Expand all</a>
-                
             </div>
+
             <div id="tree1" data-data="{{ menu|json_encode }}">
+                <ul>
+                    {% for v in versions %}
+                        <a href="/{{ v }}">{{ v }}</a>
+                    {% endfor %}
+                </ul>
+
                 <ul class="jqtree_common jqtree-tree">
                     {% for page in menu %}
                         {{ macro.menu(page, current) }}
