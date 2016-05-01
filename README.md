@@ -1,26 +1,30 @@
 Bolt Documentation Site & Content
 =============================
 
-This repository is for both the site, and content, of [Bolt](http://docs.bolt.cm/),
-and should be considered a counterpart of the [Bolt repository](https://github.com/bolt/bolt).
+This repository is for both the site, and content, of
+[Bolt][bolt], and should be considered a counterpart of the
+[Bolt repository][repo].
 
-The documentation uses the [Markdown](http://daringfireball.net/projects/markdown/) format.
+The documentation uses the
+[Markdown][markdown] format.
 
-There is no need to build anything to generate HTML. We parse the markdown with PHP.
+There is no need to build anything to generate HTML. We parse the markdown with
+PHP.
 
 Working on this repository is advised with `git` version 2.5 or later.
 
 Updating Documentation
 ----------------------
 
-The repository uses branches to group documentation relevant to each version in the format of 
-`release/<version>`.
+The repository uses branches to group documentation relevant to each version in
+the format of `release/<version>`.
 
-Changes should be PRed against the *lowest* relevant version and will then be merged down into 
-higher version branches as required.
+Changes should be PR-ed against the *lowest* relevant version and will then be
+merged down into higher version branches as required.
 
-e.g. if you're fixing a typo that exists in the same Markdown file in both version 3.0 & 3.1, you 
-would checkout `release/3.0` and submit your PR against that branch.
+e.g. if you're fixing a typo that exists in the same Markdown file in both
+version 3.0 as well as in 3.1, you would checkout `release/3.0` and submit your
+PR against that branch.
 
 Local site set-up
 -----------------
@@ -42,9 +46,14 @@ git worktree add var/versions/3.0 release/3.0
 composer update
 ```
 
-Finally if you wish to use the built-in PHP web server, it can be run from the `bolt-docs/`
-folder, pointing to `web/` as the document root.
+Finally if you wish to use the built-in PHP web server, it can be run from the
+`bolt-docs/` folder, pointing to `web/` as the document root.
 
 ```
 php -S 0.0.0.0:8000 -t web web/index.php
 ```
+
+[bolt]: http://docs.bolt.cm/
+[markdown]: http://daringfireball.net/projects/markdown/
+[repo]: https://github.com/bolt/bolt
+
