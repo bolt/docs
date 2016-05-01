@@ -1,11 +1,12 @@
+---
+title: Users
+---
 Users
 ===========
 Overview
 ---------------------
 
 To get an overview of users, click the Settings button in the right top menu above every page and select ‘users’ by clicking. Important: Only users with admin permissions may edit other users
-
-
 
 New user
 ---------------------
@@ -22,8 +23,6 @@ From the user overview page you can add a new user by clicking the button ‘New
 
 Click ‘Add user’ to finalize.
 
- 
-
 Change user settings
 ---------------------
 From the user overview page you can edit an existing user by clicking the button ‘Edit’. This will get you to the edit page where you can change the following settings:
@@ -38,8 +37,6 @@ From the user overview page you can edit an existing user by clicking the button
 - User is enabled: activate or deactivate the user
 
 Click ‘Add user’ to finalize.
-
-
 
 Quick actions
 ---------------------

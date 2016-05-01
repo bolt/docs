@@ -1,3 +1,6 @@
+---
+title: Contenttypes
+---
 Contenttypes
 ==================
 
@@ -27,4 +30,4 @@ contain different fields for you to enter content in. By default these are:
   
 Let's move on to how to handle files,  hover over "File Managment" in the left
 menu and click "Uploaded files" to procceed to the next
-[step](/uploaded-files)...
+[step](uploaded-files)...

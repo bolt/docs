@@ -13,4 +13,5 @@ pages:
     - storage
     - howto
     - other
+    - manual
 ---
