@@ -19,9 +19,9 @@ taxonomy 'chapter'.
     {% else %}
         <em>No main navigation items. Add some Pages, and set the 'Chapter' to 'Main'.</em>
     {% endfor %}
-    </nav>
+    </nav> 
 ```
 
 <p class="note"><strong>Note:</strong> This is a specific sample. In general,
-you're probably better off using Bolt's built in <a href="../menus">menu
+you're probably better off using Bolt's built in <a href="../content/menus">menu
 functionality</a>.</p>
