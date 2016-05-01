@@ -5,7 +5,6 @@
 {% block extrahead %}
     <!-- data tables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" type="text/css" media="all" />
-    <script src="{{prefix}}/web/js/jquery.js"></script>
 {% endblock extrahead %}
 
 {% block content %}
@@ -15,7 +14,7 @@
         <h1>{{ title }}</h1>
 
         <div class="row labelholder">
-        {% for block in cheatsheet if block.title %}
+        {% for block in cheatsheet if block.title|default(false) %}
             <span class="secondary radius label">
                 <a href="#{{ block.title|slugify }}">{{ block.shorttitle|default(block.title) }}</a>
             </span>
@@ -27,7 +26,7 @@
             {% for block in cheatsheet|default([]) %}
                 <div class="panel">
 
-                    {% if block.title %}
+                    {% if block.title|default(false) %}
                             {% set title = block.title|markdown|replace({'<p>': '', '</p>': ''}) %}
                             <h2 id="{{ block.title|slugify }}">
                                 {{ loop.index -1 }}. {{ title|raw }}
@@ -36,25 +35,25 @@
                     {% endif %}
 
                     {# prefix #}
-                    {% if block.prefix %}{{ block.prefix|markdown }}{% endif %}
+                    {% if block.prefix|default(false) %}{{ block.prefix|markdown }}{% endif %}
 
                     {# table one #}
-                    {{ macro.table(block.table, block.table_linear|default(false)) }}
+                    {{ macro.table(block.table|default(false), block.table_linear|default(false)) }}
 
                     {# postfix #}
-                    {% if block.postfix %}{{ block.postfix|markdown }}{% endif %}
+                    {% if block.postfix|default(false) %}{{ block.postfix|markdown }}{% endif %}
 
                     {# table two #}
-                    {{ macro.table(block.table2, block.table_linear|default(false)) }}
+                    {{ macro.table(block.table2|default(false), block.table_linear|default(false)) }}
 
                     {# tip #}
-                    {% if block.tip %}
+                    {% if block.tip|default(false) %}
                         <div class="tip"> {{ block.tip|markdown }}</div>
                     {% endif %}
 
 
                     {# links #}
-                    {% if block.links %}
+                    {% if block.links|default(false) %}
                         <p class='readmore'>
                             Read more:
                             {% for text, link in block.links %}
@@ -66,7 +65,7 @@
 
             </div>
 
-            {% if block.add_separator %}
+            {% if block.add_separator|default(false) %}
             </div>
                 <hr>
             <div class="panels">
