@@ -1,5 +1,8 @@
+---
+title: Uploaded files
+---
 Uploaded files
-===========
+==============
 
 To get to the overview of uploaded files, hover over the File management menu
 option and click ‘Uploaded files’.
@@ -21,4 +24,4 @@ files:
 <a href="/files/screenshots/files-upload.png" class="popup"><img src="/files/screenshots/files-upload.png"></a><br>
 
 Next click on your username to the top right and proceed to the next 
-[step](/global-actions)...
+[step](global-actions)...

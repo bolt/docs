@@ -1,5 +1,8 @@
+---
+title: Creating content
+---
 Creating content
-===========
+================
 
 You are now on the page for creating a new record of your contenttype:
 
@@ -9,5 +12,5 @@ Simply fill in a title, a teaser text to be used in listings and a body text to
 be used when the entry is viewed by itself. Then click on save entry and you
 have created your first record in bolt!
 
-Now lets move on to the next [step](/edit-content), about editing existing
+Now lets move on to the next [step](edit-content), about editing existing
 content.

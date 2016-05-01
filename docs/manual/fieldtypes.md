@@ -1,5 +1,8 @@
-Fieldtypes
-==================
+---
+title: Field types
+---
+Field types
+===========
 
 Text and HTML fields
 --------------------

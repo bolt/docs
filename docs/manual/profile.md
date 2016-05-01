@@ -1,5 +1,8 @@
-Profile
-===========
+---
+title: Your Profile
+---
+Your Profile
+============
 
 In the profile screen you can edit your user. You can edit your password, your
 email and your display name.

@@ -180,7 +180,7 @@ folder, and add the following HTML-code:
 
 <p class="note"><strong>Tip:</strong> If you're curious about the different
 <code>{{ tags }}</code> in this bit of code, read the <a
-href="./building-templates">Template documentation</a>.</p>
+href="../templates/building-templates">Template documentation</a>.</p>
 
 In the frontend of the website, in your templates, all content is accessible as
 an array. If you're accessing one record, it will be an array containing the
@@ -250,9 +250,10 @@ The available options are:
     [Fields Definition](#field-definitions) section below for details.
   - `taxonomy`: An array listing the different taxonomies used by this
     contenttype. For example `[ categories, tags ]`. See the page on
-    [Taxonomies](./taxonomies) for details.
+    [Taxonomies](../content/taxonomies) for details.
   - `relations`: An array listing the different relations available to this
-    contenttype. See the page on [Relations](./relationships) for details.
+    contenttype. See the page on [Relations](../content/relationships) for 
+    details.
   - `record_template`: The default template to use, when displaying a single
     Record of this Contenttype. The template itself should be located in your
     `theme/foo/` folder, in Bolt's root folder. This can be overridden on a
@@ -279,7 +280,7 @@ The available options are:
     contenttype should show up in search results.
   - `viewless` (optional): When set to `true`, routes will not be set for the
     Contenttype listing, or the records themselves. Useful for creating
-    [resource contenttypes](./howto/resource-contenttype).
+    [resource contenttypes](../howto/resource-contenttype).
   - `title_format` (optional): Is used to determine the format of the title in
     the backend. For example if you have two fields for `firstname` and
     `lastname` you might put `[ firstname, lastname ]` here.
@@ -391,7 +392,7 @@ The following fieldtypes are available:
         values: pages/id,title
 ```
 
-    **Note:** Much more information and details about `select` fields can be found on this page: [Getting the most out of the ‘Select’ fieldtype](howto/select-field-type).
+    **Note:** Much more information and details about `select` fields can be found on this page: [Getting the most out of the ‘Select’ fieldtype](../howto/select-field-type).
 
   - `checkbox`: A field to store "True or false" type values. Internally stored
     as either `1` for `true` if the checkbox was checked, and `0` for `false`
@@ -708,7 +709,7 @@ name of your record or array. In most templates, `{{ dump(record) }}` will work
 as a generic fallback for whatever the name of your record is.
 
 For detailed information on how to access the various fields and values in your
-templates, see the [Template tags](./templatetags) page.
+templates, see the [Template tags](../templates/templatetags) page.
 
 Advanced: YAML Repeated Nodes
 -----------------------------

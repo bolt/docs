@@ -158,13 +158,12 @@ use Silex\ControllerCollection;
 use Silex\ControllerProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-
 /**
  * The controller for Drop Bear routes.
  *
  * @author Kenny Koala <kenny@dropbear.com.au>
  */
-DropBearController implements ControllerProviderInterface
+class DropBearController implements ControllerProviderInterface
 {
     /** @var Application */
     protected $app;

@@ -1,3 +1,6 @@
+---
+title: Introduction
+---
 Welcome to the Bolt user manual
 ===============================
 
