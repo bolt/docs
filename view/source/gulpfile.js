@@ -21,9 +21,6 @@ var javascriptFiles = [
 
 // Set up 'sass' task.
 gulp.task('sass', function() {
-
-  var minifycss = $.if(isProduction, $.minifyCss());
-
   return gulp.src('scss/docs.scss')
     .pipe($.sass({
       includePaths: sassPaths,
@@ -33,19 +30,16 @@ gulp.task('sass', function() {
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9']
     }))
-    .pipe(minifycss)
+    .pipe($.if(isProduction, $.minifyCss()))
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('../../web/styles'));
 });
 
 // Set up 'compress' task.
 gulp.task('compress', function() {
-
-  var uglifyjs = $.if(isProduction, $.minifyCss());
-
   return gulp.src('js/*.js')
     .pipe($.concat('docs.js'))
-    .pipe($.if(!uglifyjs, $.uglify()))
+    .pipe($.if(isProduction, $.uglify()))
     .pipe(gulp.dest('../../web/js'));
 });
 
