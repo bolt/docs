@@ -34,7 +34,7 @@ jQuery(function($) {
 
     var $tree = $('#tree1');
     $tree.tree({
-        saveState: 'boltmenu',
+        // saveState: 'boltmenu',
         data: $tree.data('data'),
         onCreateLi: function(node, $li) {
             $li.toggleClass('jqtree-selected', node.url === pathname);
@@ -55,7 +55,7 @@ jQuery(function($) {
             if (theURL) {
                 location.href = theURL;
             }
-            $tree.tree('toggle', node);
+            // $tree.tree('toggle', node);
         }
     );
 

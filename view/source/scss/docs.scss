@@ -208,24 +208,14 @@ a.button.jumpbutton {
 }
 
 .quick-links {
-    
+
     margin: -1rem 0 1.5rem 0;
-    //display:none; //come on, seriously? Hide this half baked usability fix. 
-    
-    /*border: 1px solid #CCC;
-    background-color: #F2F2F2;
-    float: right;
-    max-width: 220px;
-    font-size: 14px;
-    font-family: $sans-serif;
-    margin-top: 12px;
-    padding: 6px;*/
 
     ul {
         list-style: none;
         margin: 0 0 0 0;
         font-size: 14px;
-            
+
         li {
             display: inline;
             font-family: $sans-serif;
@@ -297,13 +287,13 @@ header {
     height: 150px;
     position: relative;
     background-size: cover;
-    
+
     // MEDIUM //
     @media #{$large-up} {
-        
+
         //vertical mediaquery: only show when enough vertical height
         @media (min-height: 800px) {
-        height: 200px;   
+        height: 200px;
         }
     }
 
@@ -318,10 +308,10 @@ header {
 
         // MEDIUM //
         @media #{$large-up} {
-            
+
             //vertical mediaquery: only show when enough vertical height
             @media (min-height: 800px) {
-                width: 200px;   
+                width: 200px;
             }
         }
 
@@ -335,7 +325,7 @@ header {
         margin-left: 40px;
         font-size: 1em;
         text-shadow: 2px 2px 3px #000;
-        
+
         // MEDIUM //
         @media #{$medium-up} {
             font-size: 2em;
@@ -597,7 +587,7 @@ mark {
             margin-right: .5rem;
             color: $mediumblue;
             display: none; //hide the arrows for les clutter
-        
+
         }
     }
 
@@ -609,16 +599,9 @@ mark {
     }
 
     /*sidebar uses jqtree menubar. Styling was fugly, so original styling disabled. We only need this */
-    
-    ul.jqtree-tree .jqtree-element {
-        cursor: pointer; // there is a special place in hell for me for doing this. But i'll be one level higher then the jqtree guy.
-    }
-
     li.jqtree-closed > ul.jqtree_common {
             display: none; // start closed.
     }
-
-    
 
     .jqtree-folder {
         padding-bottom: .5rem;
@@ -637,7 +620,7 @@ mark {
         @media #{$large-up}{
             margin-right: -1rem;
             padding-right: 1rem;
-        
+
             &:after {
             content: "►";
             display: inline-block;
