@@ -232,7 +232,6 @@ twiginclude:
         - [ "Syntax", "Meaning"]
         - [ "`{% include '_header.twig' %}`", "Includes the file `_header.twig`."]
         - [ "`{% set v = {'title': 'Hello!'} %}`<br>`{% include '_header.twig' with v %}`", "You can set variables to contain literals, arrays, hashes, etc."]
-        - [ "`{% set foo = 'Hello ' ~ name %}`<br>`{% set foo = foo|merge(bar) %}`", "Use set to append strings or merge arrays."]
     table_linear: true
     postfix: |
         An alternative to using 'include', is to set up your templates using Template
