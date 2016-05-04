@@ -14,7 +14,7 @@ Altogether, there are several installation options that suit any preferred workf
   - **The traditional way**: Uploading the files manually, [using (S)FTP](install-sftp).
   - **The composer way**: Using `composer create-project` or by creating your own `composer.json` file. [for developers](composer/install-composer).
   - **The Bolt contributor way**: Making a `git clone` and doing a direct checkout from our Github repository [for Bolt core development](install-git-clone).
-  - **Integrating in your project**: To ootstrap the Bolt application in code, integrating it completely in an existing project, use the [Advanced Installation Options](advanced).
+  - **Integrating in your project**: To bootstrap the Bolt application in code, integrating it completely in an existing project, use the [Advanced Installation Options](advanced).
 
 Use one of the five methods described above to get the Bolt source files, and
 set them up on your web server. After you've done this, skip to the section for
