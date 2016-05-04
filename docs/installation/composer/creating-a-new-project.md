@@ -128,7 +128,7 @@ array.
         ],
     ];
 ```
-This is an very advanced  option, see Bolt's [bootstrap file][bs]
+This is a very advanced option, see Bolt's [bootstrap file][bs]
 for more details.
 
 ### Composer JSON File
