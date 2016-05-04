@@ -80,4 +80,4 @@ unchangeable in your web server's configuration, read the page
 
 If you are happy using the command line installer then the Composer installer
 allows you to select a separate public directory and the rest of Bolt is stored
-a level below. See the [full instructions here](install-composer).
+a level below. See the [full instructions here](composer).

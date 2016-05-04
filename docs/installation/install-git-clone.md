@@ -10,14 +10,14 @@ want to use a stable branch, or the bleeding-edge master branch.
 Getting Composer
 ----------------
 
-First thing you will need, if you don't have it already, is a recent version of Composer.
-
-To get this, see the [Composer Download](https://getcomposer.org/download/) page for instructions.
+First thing you will need, if you don't have it already, is a recent version of
+Composer. To get this, see the [Composer Download][composer] page for
+instructions.
 
 Stable Branch
 -------------
 
-For a execute the following commands:
+For a checkout of the current 'default' branch, execute the following commands:
 
 ```bash
 git clone git://github.com/bolt/bolt.git bolt
@@ -31,6 +31,9 @@ cloning the repository.
 Master (unstable) Branch
 ------------------------
 
+For a checkout of the bleeding-edge 'master' branch, execute the following
+commands:
+
 ```bash
 git clone git://github.com/bolt/bolt.git bolt
 cd bolt
@@ -43,24 +46,11 @@ Next Steps
 
 ### Web server configuration
 
-After extracting the tar file, you'll end up with a structure, similar to this:
+After extracting the tar file, you'll end up with a structure, containing the
+bolt files. These are the folders that contain all of the Bolt code, resources
+and other files. Unlike the other methods of installation, all of them are placed in the top level of the so-called webroot. The created `bolt/` folder where you've made the git checkout needs to be accessible in the browser.
 
-```
-.
-├── app/
-├── extensions/
-├── public/
-├── vendor/
-├── README.md
-├── composer.json
-└── composer.lock
-```
-
-These are the folders that contain all of the Bolt code, resources and other
-files. Most of them are placed outside of the so-called webroot. Only the
-folder `public/` needs to be accessible in the browser.
-
-To do this, configure your webserver to use the `public/` folder as the
+To do this, configure your webserver to use the `bolt/` folder as the
 webroot. For more information about this, see the pages on configuring
 [Apache][apache] or [Nginx][nginx].
 
@@ -68,10 +58,9 @@ If you bump into trouble setting this up, or you have no access to
 unchangeable in your web server's configuration, read the page
 [Troubleshooting 'outside of the webroot'][webroot].
 
-
 ### Permissions
 
-Generally most server should be fine with the default permissions. However, if
+Generally most servers should be fine with the default permissions. However, if
 you require guidance on setting up permissions, see our [File System
 Permissions](permissions) page.
 
@@ -81,3 +70,4 @@ After you've done this, skip to the section [Setting up Bolt](../configuration/i
 
 [apache]: ../configuration/web-server-apache
 [nginx]: ../configuration/web-server-nginx
+[composer]: https://getcomposer.org/download/
