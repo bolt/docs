@@ -32,14 +32,10 @@ Composer:
 
 ```
 $ cd /var/www/
-$ composer create-project --no-install bolt/bolt bolt-private
+$ composer create-project --no-install bolt/bolt:^2.2 bolt-private
 $ cd bolt-private
 $ composer install --no-dev --optimize-autoloader
 ```
-
-**Note:** The above example assumes that you're wanting to use v2.2.9, the
-latest version of Bolt at the time of writing, but you can change that version
-tag to whatever version you desire.
 
 Individual site set up
 ----------------------
