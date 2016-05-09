@@ -26,20 +26,14 @@ central location, outside of the web root.
 In this HOWTO we're going to use the location of `/var/www/bolt-private/`
 but that is entirely up to your own needs.
 
-Create and navigate to `/var/www/bolt-private/`
-
-```
-$ mkdir /var/www/bolt-private/
-$ cd /var/www/bolt-private/
-```
-
-In this example, we're going to clone the Bolt git repository into the
+In this example, we're going to create the Bolt project into the
 `/var/www/bolt-private/` directory and install the vendor libraries with
 Composer:
 
 ```
-$ git clone https://github.com/bolt/bolt.git .
-$ git checkout v2.2.9
+$ cd /var/www/
+$ composer create-project --no-install bolt/bolt bolt-private
+$ cd bolt-private
 $ composer install --no-dev --optimize-autoloader
 ```
 
