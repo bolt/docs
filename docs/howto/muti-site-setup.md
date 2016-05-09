@@ -32,7 +32,7 @@ Composer:
 
 ```
 $ cd /var/www/
-$ composer create-project --no-install bolt/bolt:^2.2 bolt-private
+$ composer create-project --no-install bolt/bolt:^3.0 bolt-private
 $ cd bolt-private
 $ composer install --no-dev --optimize-autoloader
 ```
