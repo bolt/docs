@@ -18,9 +18,9 @@ Getting the latest version via composer
 Go to your `composer.json` file in the root of your project and make the following modifications to the `require:` block.
 
 ```
-"bolt/bolt": "^3.0@beta",
-"bolt/filesystem": "^2.0@beta",
-"bolt/thumbs": "^3.0@beta",
+"bolt/bolt": "^3.0",
+"bolt/filesystem": "^2.0",
+"bolt/thumbs": "^3.0",
 ```
 
 It's likely that you already have an entry for `bolt/bolt` so you will need to just adjust the version constraint.

@@ -60,7 +60,8 @@ Database
 
 The migration of the database should work right away: Either you've copied over
 the SQLite database in `app/database/` in the previous step, or your copied
-`app/config/config.yml` should point to the correct MySQL or PostGres database.
+`app/config/config.yml` should point to the correct MySQL or PostgreSQL
+database.
 
 Extensions
 ----------
