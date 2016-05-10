@@ -24,7 +24,7 @@ To get your new site working the same as the old one, you need to move over a
 number of files. Copy the following files and folders from your backup to the
 new site, overwriting what was created during the installation process.
 
- - `app/config/config.yml` (and perhaps `app/config/config.yml`)
+ - `app/config/config.yml` (and perhaps `app/config/config_local.yml`)
  - `app/config/contenttypes.yml`
  - `app/config/menu.yml`
  - `app/config/permissions.yml`
