@@ -47,7 +47,7 @@ From within your extensions directory run the following two commands.
 
 `rm -Rf ./vendor/`
 
-`composer dump autoload`
+`composer dump-autoload`
 
 This will disable any extensions from loading into Bolt and prevent any fatal
 errors from incompatible extensions.
@@ -60,9 +60,9 @@ extension installed and working.
 Updating your Controllers
 -------------------------
 
-Bolt 3.0 has seen a major refactor and simplification of the Request -> Dispatch
--> Controller code so if your site uses a custom controller this is likely to be
-the first set of errors you will run into.
+Bolt 3.0 has seen a major refactor and simplification of the Request ->
+Dispatch -> Controller code so if your site uses a custom controller this is
+likely to be the first set of errors you will run into.
 
 Firstly controllers have moved to a new namespace, it's likely that if you have
 a custom controller you will have extended the default Bolt frontend controller
