@@ -13,8 +13,8 @@ Enter the directory where you want to place the files, and execute the
 following commands:
 
 ```bash
-curl -O http://bolt.cm/distribution/bolt-3.0.0-rc2.tar.gz
-tar -xzf bolt-3.0.0-rc2.tar.gz --strip-components=1
+curl -O http://bolt.cm/distribution/bolt-latest.tar.gz
+tar -xzf bolt-latest.tar.gz --strip-components=1
 ```
 
 If this didn't work because your server doesn't have `curl`, use `wget`
