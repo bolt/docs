@@ -19,44 +19,35 @@ test directory to suit.
 
 ```
 {
-    "name": "bolt/colourpicker",
-    "description": "An extension to add a colourpicker as a field type within Bolt",
-    "type": "bolt-extension",
-    "require": {
-        "bolt/bolt": ">2.2,<3.0.0"
+    "name": "bolt/members",
+    "description": "Membership creation and management for Bolt",
+    …
+    "require-dev": {
+        "phpunit/phpunit": "^4.7"
     },
-    "require-dev" : {
-        "phpunit/phpunit" : "^4.7"
-    },
-    "license": "MIT",
-    "authors": [{"name": "Ross Riley", "email": "riley.ross@gmail.com"}
-    ],
-    "keywords": [
-        "backend", "field", "colourpicker"
-    ],
-    "minimum-stability":"dev",
-    "prefer-stable":true,
+    …
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
-        "files": [
-            "init.php"
-        ],
         "psr-4": {
-            "Bolt\\Extensions\\Bolt\\Colourpicker\\": ""
+            "Bolt\\Extension\\Bolt\\Members\\": "src",
+            "League\\Event\\": "lib/League/Event",
+            "League\\OAuth2\\Client\\": "lib/League/OAuth2/Client/",
+            "Stevenmaguire\\OAuth2\\Client\\": "lib/League/OAuth2/Client/"
         }
     },
-    "autoload-dev" : {
-        "psr-4" : {
-            "Bolt\\Extensions\\Bolt\\Colourpicker\\Tests\\": "tests",
-            "Bolt\\Tests\\" : "vendor/bolt/bolt/tests/phpunit/unit/"
+    "autoload-dev": {
+        "psr-4": {
+            "Bolt\\Extension\\Bolt\\Members\\Tests\\": "tests",
+            "Bolt\\Tests\\": "vendor/bolt/bolt/tests/phpunit/unit/"
         }
     },
     "extra": {
-        "bolt-assets": "assets",
-        "bolt-screenshots": [
-            "screenshot.png"
-        ]
+        "bolt-assets": "web",
+        "bolt-class": "Bolt\\Extension\\Bolt\\Members\\MembersExtension",
     }
 }
+
 
 ```
 
@@ -70,11 +61,6 @@ Step 2: Create a phpunit.xml.dist file
 The example file below configures `PHPUnit`, place it in the root of the project
 and adjust where needed.
 
-<p class="meta">
-    <strong>Bolt 2.2.6</strong><br>
-    The following phpunit.xml.dist is only available in Bolt 2.2.6 and later,
-    for older versions see the example below this one.
-</p>
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -147,43 +133,6 @@ structure matching current Bolt tests, and it will also copy in the specified
 theme, and configuration files which is helpful if you're writing unit tests.
 
 <p class="meta">
-    <strong>Bolt <= 2.2.5</strong><br>
-    The following functionality is for versoins of Bolt before 2.2.5.
-</p>
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         bootstrap="tests/bootstrap.php"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="false">
-    <testsuites>
-        <testsuite name="unit">
-            <directory>tests</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <blacklist>
-            <directory>vendor</directory>
-        </blacklist>
-    </filter>
-    <listeners>
-        <listener file="vendor/bolt/bolt/tests/phpunit/BoltListener.php" class="Bolt\Tests\BoltListener">
-           <arguments>
-              <boolean>true</boolean>
-              <boolean>true</boolean>
-              <boolean>true</boolean>
-              <string>vendor/bolt/bolt/theme/base-2014</string>
-           </arguments>
-        </listener>
-    </listeners>
-</phpunit>
-```
 
 **Note:** We refer to a `tests/bootstrap.php` file that doesn't exist yet.
 
@@ -198,11 +147,6 @@ This sets up a tmp directory to store required Bolt files and sets a couple of
 constants.
 
 Create the file `tests/bootstrap.php` containing the following:
-<p class="meta">
-    <strong>Bolt 2.2.6</strong><br>
-    The following phpunit.xml.dist is only available in Bolt 2.2.6 and later,
-    for older versions see the example below this one.
-</p>
 
 ```
 <?php
@@ -211,23 +155,6 @@ include_once __DIR__ . '/../vendor/bolt/bolt/tests/phpunit/bootstrap.php';
 define('EXTENSION_AUTOLOAD',  realpath(dirname(__DIR__) . '/vendor/autoload.php'));
 
 require_once EXTENSION_AUTOLOAD;
-```
-<p class="meta">
-    <strong>Bolt <= 2.2.5</strong><br>
-    The following functionality is for versoins of Bolt before 2.2.5.
-</p>
-
-```
-<?php
-define('TEST_ROOT',    __DIR__ . '/tmp');
-define('PHPUNIT_ROOT', realpath(dirname(__DIR__) . '/vendor/bolt/bolt/tests/phpunit/unit/'));
-define('BOLT_AUTOLOAD',  realpath(dirname(__DIR__) . '/vendor/autoload.php'));
-
-@mkdir(TEST_ROOT . '/app/cache', 0777, true);
-@mkdir(TEST_ROOT . '/app/config', 0777, true);
-@mkdir(TEST_ROOT . '/app/database', 0777, true);
-
-require_once BOLT_AUTOLOAD;
 ```
 
 Step 4: Modify your init.php file
