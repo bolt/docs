@@ -6,7 +6,7 @@ Setting up a fresh Bolt 3.0, moving content
 
 This page describes the process of setting up a fresh Bolt 3.0 install, and moving over all of your existing configuration, data, themes and uploaded media.
 
-If you're running a custom Bolt 2.2 install, see [this](moving-22-30-basic).
+Depending on how heavily customised your Bolt install is, you might need to take additional steps into account. The [advanced upgrade guide][advanced] can be found here.
 
 Before you start, make sure you've made the preparations, as described [here](moving-22-30).
 
@@ -83,3 +83,4 @@ That concludes these steps. You should now have a fully working Bolt 3 website.
 
 [cli]: ../installation/install-command-line
 [routing]: ../templates/templates-routes#routing
+[advanced]: moving-22-30-advanced
