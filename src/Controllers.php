@@ -63,7 +63,7 @@ class Controllers implements ControllerProviderInterface
             return new RedirectResponse("/$version/$redirect");
         }
 
-        return $this->renderPage($version, $page);
+        return $this->renderPage($version, $page, $slug);
     }
 
     /**
@@ -105,10 +105,11 @@ class Controllers implements ControllerProviderInterface
         return $this->render('cheatsheet.twig', $twigVars);
     }
 
-    protected function renderPage(Version $version, Page $page)
+    protected function renderPage(Version $version, Page $page, $slug = '')
     {
         $twigVars = [
             'title'           => $page->getTitle(),
+            'slug'            => $slug,
             'source'          => $page->getSource(),
             'menu'            => $version->getMenu(),
             'current'         => $page->getSlug(),
