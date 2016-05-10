@@ -39,7 +39,7 @@ jQuery(function($) {
         onCreateLi: function(node, $li) {
             $li.toggleClass('jqtree-selected', node.url === pathname);
 
-            if (pathname !== node.url && pathname.indexOf(node.url) === 0) {
+            if (pathname.indexOf(node.url) === 0) {
                 $tree.tree('openNode', node);
                 $li.removeClass('jqtree-closed');
             }
