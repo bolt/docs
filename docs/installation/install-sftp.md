@@ -4,7 +4,7 @@ title: The traditional way, using (S)FTP
 The traditional way, using (S)FTP
 =================================
 
-Download the [latest version of Bolt](http://bolt.cm/distribution/bolt-latest.zip).
+Download the [latest version of Bolt](https://bolt.cm/distribution/bolt-latest.zip).
 
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
 your choice.
@@ -14,7 +14,7 @@ your choice.
 </p>
 
 If you can't find the file on your file system, download this
-[<code>default.htaccess</code>](http://bolt.cm/distribution/default.htaccess)
+[<code>default.htaccess</code>](https://bolt.cm/distribution/default.htaccess)
 file. Upload it to your server, and then rename it to <code>.htaccess</code>.
 
 If you're on OSX and you don't see the file, it might be that your system is

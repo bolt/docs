@@ -183,4 +183,4 @@ The most common error will be:
 You can safely rename `getName()` to `getId()` or remove the method altogether
 and allow Bolt to automatically name your extension.
 
-[1]: http://extensions.bolt.cm/bolt3-ready
+[1]: https://extensions.bolt.cm/bolt3-ready
