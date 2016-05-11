@@ -54,6 +54,7 @@ categories:
     multiple: 1
     options: [ news, events, movies, music, books, life, love, fun ]
 ```
+By default, a taxonomiepage will use the `listing.twig` template. However, by specifying a `listing_template`, you can set a different template for each taxonomy.
 
 Once the taxonomies are added, you need to add them to your contenttypes in
 `contenttypes.yml`, so you can use them in your content. For example:
