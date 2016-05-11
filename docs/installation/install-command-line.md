@@ -13,7 +13,7 @@ Enter the directory where you want to place the files, and execute the
 following commands:
 
 ```bash
-curl -O http://bolt.cm/distribution/bolt-latest.tar.gz
+curl -O https://bolt.cm/distribution/bolt-latest.tar.gz
 tar -xzf bolt-latest.tar.gz --strip-components=1
 ```
 

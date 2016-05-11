@@ -4,20 +4,20 @@ title: Database Tables
 Database Tables
 ===============
 
-Custom database tables can be added by an extension, and require a class that 
+Custom database tables can be added by an extension, and require a class that
 defines the schema (columns, indexes, primary keys and foreign key constraints).
 
 
 ### Table class
 
-The table class should extend `\Bolt\Storage\Database\Schema\Table\BaseTable`, 
-and this base class has a protected property `$table` that is a 
+The table class should extend `\Bolt\Storage\Database\Schema\Table\BaseTable`,
+and this base class has a protected property `$table` that is a
 [`\Doctrine\DBAL\Schema\Table`](http://www.doctrine-project.org/api/dbal/2.5/class-Doctrine.DBAL.Schema.Table.html) object.
 
 
 #### Columns
 
-Columns are added in the `addColumns()` function, with calls to 
+Columns are added in the `addColumns()` function, with calls to
 `$this->table->addColumn()` that takes three parameters:
 
   * Name
@@ -27,8 +27,8 @@ Columns are added in the `addColumns()` function, with calls to
 
 #### Indexes
 
-Indexes are set in the `addIndexes()` function, with calls to 
-`$this->table->addIndex()` that takes an indexed array of column names to create 
+Indexes are set in the `addIndexes()` function, with calls to
+`$this->table->addIndex()` that takes an indexed array of column names to create
 indexes for.
 
 Unique indexes can also be added here with `$this->table->addUniqueIndex()`.
@@ -36,8 +36,8 @@ Unique indexes can also be added here with `$this->table->addUniqueIndex()`.
 
 #### Primary keys
 
-Primary keys are set in the `setPrimaryKey()` function, with calls to 
-`$this->table->setPrimaryKey()` that takes a single string parameter of the 
+Primary keys are set in the `setPrimaryKey()` function, with calls to
+`$this->table->setPrimaryKey()` that takes a single string parameter of the
 column name.
 
 
@@ -84,11 +84,11 @@ class GumTree extends BaseTable
 
 ### Registering the table
 
-Finally, to have Bolt know about your table and include it in it's schema, you 
-need to import the `DatabaseSchemaTrait` trait, and create a `registerExtensionTables()` 
+Finally, to have Bolt know about your table and include it in it's schema, you
+need to import the `DatabaseSchemaTrait` trait, and create a `registerExtensionTables()`
 function and call `extendDatabaseSchemaServices()` in your extension loader class.
 
-This function should return an associative array, the key being the table name 
+This function should return an associative array, the key being the table name
 (without prefix) and the value being the fully qualified class name.
 
 ```php
@@ -107,7 +107,7 @@ use Silex\Application;
 class KoalaCatcherExtension extends SimpleExtension
 {
     use DatabaseSchemaTrait;
-    
+
     /**
      * {@inheritdoc}
      */

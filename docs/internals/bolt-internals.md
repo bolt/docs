@@ -281,10 +281,10 @@ URL paths available are:
     "bolt" => "/bolt/"
     "theme" => "/theme/base-2014/"
     "current" => "/"
-    "canonicalurl" => "http://www.bolt.cm/page/about"
-    "currenturl" => "http://bolt.cm/page/about"
-    "hosturl" => "http://bolt.cm"
-    "rooturl" => "http://bolt.cm/"
+    "canonicalurl" => "https://www.bolt.cm/page/about"
+    "currenturl" => "https://bolt.cm/page/about"
+    "hosturl" => "https://bolt.cm"
+    "rooturl" => "https://bolt.cm/"
   ]
 ```
 

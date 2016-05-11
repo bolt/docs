@@ -22,7 +22,7 @@ Getting Started<br>
     Bolt in 30 minutes (soon!)<br>
     <small>A quick overview of Bolt, and how it works</small>
     </a>
-    <a href="http://cheatsheet.bolt.cm" class="button medium docsintro">
+    <a href="https://cheatsheet.bolt.cm" class="button medium docsintro">
     The Bolt cheatsheet<br>
     <small>A great little reference for all things Bolt</small>
     </a>

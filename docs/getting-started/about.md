@@ -24,7 +24,7 @@ Using Bolt as a content editor: you don't have to know anything about HTML,
 CSS, PHP or any of the other technical stuff we used to build Bolt. Using Bolt
 should be about writing and editing content, so that's the focus of Bolt's user
 interface. Far more information about how Bolt works can be found in the
-[User manual](http://manual.bolt.cm/).
+[User manual](https://docs.bolt.cm/3.0/manual/introduction).
 
 Building a website with Bolt: we assume you have the usual Frontender skills.
 You know HTML/CSS, and have working knowledge about JavaScript so you can

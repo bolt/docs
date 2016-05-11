@@ -72,4 +72,4 @@ php app/nut database:check
 php app/nut database:update
 ```
 
-[latest]: http://bolt.cm/distribution/bolt-latest.zip
+[latest]: https://bolt.cm/distribution/bolt-latest.zip
