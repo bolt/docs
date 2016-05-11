@@ -12,8 +12,9 @@ There are three ways to 'fix' this:
  - [Create a symlink to the `public` folder][3]
  - [Use `.htaccess` to change the web root][4]
 
-Finally, at the end of this page, there's a brief explanation of _why_ it is important to keep your files outside of the webroot: [What's the point of doing this?][5]
-
+Finally, at the end of this page, there's a brief explanation of _why_ it is 
+important to keep your files outside of the webroot: 
+[What's the point of doing this?][5]
 
 Configure Apache or Nginx
 -------------------------
