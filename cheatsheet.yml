@@ -312,6 +312,7 @@ twigfunctions:
         - [ '`popup(filename, w, h) `', 'Helper function to wrap an image in a Magnific popup HTML tag, with thumbnail. <mark>*<mark>' ]
         - [ '`imageinfo(filename) `', 'Get an array with the dimensions of an image, together with its aspectratio and some other info. <mark>*<mark>' ]
         - [ '`file_exists(filename)`', 'Check if a file exists' ]
+        - [ '`fields(record)`', 'Ouputs all or some fields from a record. Many options are available and documented [here](/3.0/templates/fields-tag)' ]
         - [ '`request(para, from)`', 'Return the requested parameter from `$_REQUEST`, `$_GET` or `$_POST`.' ]
         - [ '`first / last() `', 'Returns the first item of an array. <mark>*<mark>' ]
         - [ '`shuffle(array) `', 'Randomly shuffle the contents of a passed array. <mark>*<mark>' ]
