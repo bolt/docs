@@ -8,13 +8,13 @@ This page explains the various ways of installing Bolt. You can either use the
 command-line or your FTP-client to install it. There are three ways to install
 Bolt:
 
-  - The easiest way, [from the command-line](#option-1-easy-way-using-command-line).
-  - The traditional way, [using (S)FTP](#option-2-traditional-way-using-sftp).
-  - The nerdy way, [for developers](#option-3-developer-way-using-git-and-composer).
+  - The easiest way, [from the command-line](#option-1-the-easy-way-using-the-command-line).
+  - The traditional way, [using (S)FTP](#option-2-the-traditional-way-using-s-ftp).
+  - The nerdy way, [for developers](#option-3-the-developer-way-using-git-and-composer).
 
 Use one of the three methods described below to get the Bolt source files, and
 set them up on your webserver. After you've done this, skip to the section for
-[Setting up Bolt ](#setting-bolt).
+[Setting up Bolt ](#setting-up-bolt).
 
 ### Option 1: The easy way, using the command-line.
 
@@ -23,8 +23,8 @@ commands. First, create the directory where you want to install Bolt, if it
 doesn't already exist. Enter the directory, and execute the following commands:
 
 ```bash
-curl -O http://bolt.cm/distribution/bolt-latest.tar.gz
-tar -xzf bolt-latest.tar.gz --strip-components=1
+curl -O https://bolt.cm/distribution/bolt-2.2.20.tar.gz 
+tar -xzf bolt-2.2.20.tar.gz --strip-components=1
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
 ```
 
@@ -43,7 +43,7 @@ instead.
 
 ### Option 2: The traditional way, using (S)FTP.
 
-Download the [latest version of Bolt](http://bolt.cm/distribution/bolt-latest.zip).
+Download the [latest version of Bolt 2.2](http://bolt.cm/distribution/bolt-2.2.20.zip).
 
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
 your choice. After you've done this, be sure to chmod the following directories
@@ -73,7 +73,7 @@ see the file, it might be that your system is set up to 'hide' hidden files.
 You can usually still find it, when browsing local files using your FTP
 client.</p>
 
-After you've done this, skip to the section [Setting up Bolt](#setting-bolt).
+After you've done this, skip to the section [Setting up Bolt](#setting-up-bolt).
 
 
 ### Option 3: The developer way, using Git and Composer.
@@ -126,7 +126,7 @@ Setting up Bolt
 ---------------
 
 By default, Bolt is configured to use an SQLite database. You can
-[configure the database](#configuring-database), if you want to change this to
+[configure the database](#configuring-the-database), if you want to change this to
 MySQL or PostgreSQL.
 
 Open your Bolt site in your browser, and you should be greeted by the screen to
