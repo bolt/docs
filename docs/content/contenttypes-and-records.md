@@ -237,13 +237,14 @@ The available options are:
     the browser. It should be plural, if possible.
   - `singular_name`: The name of one Record in the Contenttype. This should be
     singular. For example, if the Contenttype's name is 'Pages', this should be
-    'Page'
+    'Page'.
   - `slug` (optional): This determines the slug of the contenttype, and
     therefore the URLs that are generated for this contenttype. When omitted,
-    the slug will be automatically generated.
+    the slug will be automatically generated from the `name`.
   - `singular_slug` (optional): This determines the slug of a single record
     in this contenttype, and therefore the URLs that are generated for these
-    records. When omitted, the slug will be automatically generated.
+    records. When omitted, the singular_slug will be automatically generated
+    from the `singular_name`.
   - `description` (optional): A short description of the contenttype. This will
     be shown on the overview screen in the right aside column.
   - `fields`: The fields that make up the content in this contenttype. See the
