@@ -167,6 +167,47 @@ custom `first` and `last` class added to them.
   {% endif %}
 ```
 
+### Repeater Field Sets
+
+If you have repeater fields configured and want to use them in your templates then you
+will need to iterate over a set before you can access the individual fields.
+
+The approach you use may vary slightly on whether you know the names of the fields within
+each set or if you want to allow your template to iterate over all the sub-fields without
+necessarily knowing the field names.
+
+For instance if you just want to iterate over all sets and then all fields within the set
+then the template code will look like this assuming the repeater field is named 'contacts':
+
+```
+{% for contact in record.contacts %}
+    {% for field in contact %}
+         {{ field }}
+    {% endfor %}
+{% endfor %}
+```
+
+In the example above using `{{ field }}` will just output the string value of the sub-field
+but since these are sometimes more complex fields you can use the techniques described in
+the above sections for individual fields to output the specific type of field in the layout
+you require.
+
+If you know the names of the fields you want to render then you can fetch a field from the
+collection by name. For instance using the same example as above but knowing that our
+contact repeat set comprises the individual sub-fields `name`, `telephone` and `email`
+we can output the fields like this:
+
+```
+{% for contact in record.contacts %}
+     <h2>{{ contact.get('name') }}</h2>
+     <h4>Tel: {{ contact.get('telephone') }}</h4>
+     <h4>Email: <a href="mailto:{{ contact.get('email') }}">{{ contact.get('email') }}</a></h4>
+     <hr>
+{% endfor %}
+```
+
+
+
 
 ### Getting the type of a certain field
 
