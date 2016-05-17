@@ -143,7 +143,7 @@ loads from the `web` directory.
 
 Next we need to add our own custom field onto the built in field manager. To do
 this we need to create a function called `registerFields()` that will return an
-array of one of more classes that implement `FieldInterface`.
+array of one or more classes that implement `FieldInterface`.
 
 This block does just that:
 
