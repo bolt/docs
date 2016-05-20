@@ -27,7 +27,7 @@ There are four files that contain the controller collections, located in
 As such, they are all in the `\Bolt\Controllers` namespace. They are 'set up'
 in `src/Application.php`. 
 
-* `Backend` rotues are all pretty straightforward. 
+* `Backend` routes are all pretty straightforward.
 * `Async.php` routes are used for 'ajaxy' requests, like the
 'latest activity' widget on the dashboard. 
 * `Routing` is the actual Controller that parses the routes found in `routing.yml`
