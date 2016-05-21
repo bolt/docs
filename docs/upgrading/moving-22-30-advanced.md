@@ -57,6 +57,44 @@ extension functions from within your theme twig templates. If this is the case
 you may also have to temporarily comment these out until you have the relevant
 extension installed and working.
 
+Updating Other Files
+-------------------------
+Bolt 3 has a couple other files that won't get automatically updated by Composer. First, you'll need to remove `nut` and make a symlink to the one included with Bolt 3:
+```bash
+rm app/nut
+ln -s vendor/bolt/bolt/app/nut
+```
+
+Bolt 3 also expects a .bolt.yml file. Create a this file in the project root:
+```yml
+paths:
+    cache: app/cache
+    config: app/config
+    database: app/database
+    web: web
+    themebase: web/theme
+    files: web/files
+    view: web/bolt-public/view
+```
+
+index.php has also changed, so update accordingly:
+```php
+<?php
+
+/*
+ * `dirname(__FILE__)` is intentional to support PHP 5.2 until legacy.php can be shown.
+ */
+/** @var Silex\Application|false $app */
+$app = require dirname(__FILE__) . '/../vendor/bolt/bolt/app/web.php';
+
+// If web.php returns false, meaning the path is a file, pass it along.
+if ($app === false) {
+    return false;
+}
+
+$app->run();
+```
+
 Updating your Controllers
 -------------------------
 
