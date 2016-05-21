@@ -65,7 +65,7 @@ rm app/nut
 ln -s vendor/bolt/bolt/app/nut
 ```
 
-Bolt 3 also expects a .bolt.yml file. Create a this file in the project root:
+Bolt 3 also expects a .bolt.yml file. Create this file in the project root:
 ```yml
 paths:
     cache: app/cache
