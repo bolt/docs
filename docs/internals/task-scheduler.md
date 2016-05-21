@@ -59,7 +59,7 @@ The parameter passed to `--run` can be any of the following:
 Extending
 ---------
 
-Bolt's task scheduler can be interfaced in extensions by setting an listener. To
+Bolt's task scheduler can be interfaced in extensions by setting a listener. To
 create a listener you need to something similar in your extension:
 
 ```
