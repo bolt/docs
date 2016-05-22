@@ -23,8 +23,8 @@ commands. First, create the directory where you want to install Bolt, if it
 doesn't already exist. Enter the directory, and execute the following commands:
 
 ```bash
-curl -O https://bolt.cm/distribution/bolt-2.2.20.tar.gz 
-tar -xzf bolt-2.2.20.tar.gz --strip-components=1
+curl -O https://bolt.cm/distribution/bolt-2-latest.tar.gz 
+tar -xzf bolt-2-latest.tar.gz --strip-components=1
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
 ```
 
@@ -43,7 +43,7 @@ instead.
 
 ### Option 2: The traditional way, using (S)FTP.
 
-Download the [latest version of Bolt 2.2](http://bolt.cm/distribution/bolt-2.2.20.zip).
+Download the [latest version of Bolt 2.2](http://bolt.cm/distribution/bolt-2-latest.zip).
 
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
 your choice. After you've done this, be sure to chmod the following directories
@@ -82,17 +82,17 @@ If you want to install Bolt using Git and Composer, you need to decide if you
 want to use a stable branch, or the bleeding-edge master branch.
 
 ##### Stable Branch
-For a execute the following commands:
+For a stable release execute the following commands:
 
 ```bash
 git clone git://github.com/bolt/bolt.git bolt
 cd bolt
-git checkout v2.2.18
+git checkout v2.2.21
 curl -s http://getcomposer.org/installer | php
 php composer.phar install
 ```
 
-**Note:** The above example assumes that you want to use the `2.2.18` tag.
+**Note:** The above example assumes that you want to use the `v2.2.21` tag.
 Available branches can displayed by executing the following command:
 
 ```bash
@@ -101,9 +101,12 @@ git tag
 
 ##### Master (unstable) Branch
 
+For the latest 2.x branch execute the following commands:
+
 ```bash
 git clone git://github.com/bolt/bolt.git bolt
 cd bolt
+git checkout release/2.2
 curl -s http://getcomposer.org/installer | php
 php composer.phar install
 ```
