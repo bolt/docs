@@ -28,7 +28,7 @@ process that your end users will use to install and use your extension.
 
 This is the fastest way to get started, in any Bolt site you can put local
 extensions within `extensions/local/{author_name}/{extension_name}` for the
-details see the [how-to article](./config).
+details see the [how-to article](./basics).
 
 In this phase you can edit the extension files directly and the changes will
 immediately take effect in your Bolt application.
