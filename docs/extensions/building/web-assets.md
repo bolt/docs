@@ -34,9 +34,9 @@ A simple example of an extension that registers some assets would look like:
 namespace Bolt\Extension\DropBear\KoalaCatcher;
 
 use Bolt\Asset\File\JavaScript;
-use Bolt\Asset\File\Snippet;
+use Bolt\Asset\Snippet\Snippet;
 use Bolt\Asset\File\Stylesheet;
-use Bolt\Asset\File\Widget;
+use Bolt\Asset\Widget\Widget;
 use Bolt\Extension\SimpleExtension;
 
 /**
