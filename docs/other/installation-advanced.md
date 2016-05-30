@@ -138,7 +138,7 @@ hosting environment.
 If you are happy using the command line installer then the Composer installer
 allows you to select a separate public directory and the rest of Bolt is stored
 a level below. See the
-<a href="installation-composer#single-command-install">full instructions here</a>.
+<a href="/2.2/getting-started/installation-composer#single-command-install">full instructions here</a>.
 
 If you'd rather use the standard distribution and just run your own bootstrap
 then the following will have the same effect:

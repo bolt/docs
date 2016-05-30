@@ -5,7 +5,7 @@ Fetching content
 ================
 
 Besides content that is already available on a specific contenttype listing-
-page or single-page [(content in templates)](content-in-templates), you can
+page or single-page [(Record and Records)](record-and-records), you can
 directly fetch content from the database. For this you can use the
 `{% setcontent ... %}` tag. The following example will get the content record
 with slug 'about' from the 'pages' contenttype:
