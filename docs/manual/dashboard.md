@@ -1,5 +1,8 @@
-Dashboard
-==========
+---
+title: Dashboard
+---
+The Dashboard
+=============
 
 After login you enter the dashboard. Here you will find the latest content
 items and a recent activity log. Also the possibility to start a new content
@@ -23,4 +26,4 @@ latest edited content, and options to quickly start a new page or other
 contenttype.
 
 Click on "Entries" in the left menu to proceed to the next
-[step](/content-overview)...
+[step](content-overview)...

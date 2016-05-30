@@ -1,5 +1,8 @@
+---
+title: Creating the first user
+---
 Creating the first user
-==========
+=======================
 
 *If your site has been setup by a designer or developer you will likely already
 have login credentials and can skip to [login screen](/login)*

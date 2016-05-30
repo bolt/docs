@@ -9,4 +9,5 @@ pages:
     - internals
     - howto
     - other
+    - manual
 ---

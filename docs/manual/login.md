@@ -1,5 +1,8 @@
+---
+title: Login
+---
 Login
-==========
+=====
 
 Go to the login page at http://yourdomain.com/bolt
 Sign up with your:

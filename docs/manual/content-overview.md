@@ -1,3 +1,6 @@
+---
+title: Content overview
+---
 Content overview
 ===========
 You are now on the overview page for one of your contenttypes.
@@ -13,4 +16,4 @@ You can also filter the items by category or keywords. On the right you will
 also find a description of what the contenttype is meant for, and how to use
 it.
 
-Click on "New entry" and lets move on to the next [step](/new-content)...
+Click on "New entry" and lets move on to the next [step](new-content)...
