@@ -80,7 +80,7 @@ version of the title. Bolt will try to use `foo.twig` as the template to render
 the page. You can change this by either defining another template in
 `contenttypes.yml`, or using a 'template select' field in the contenttype. More
 information about this can be found in the chapter
-[Working with Content and Content types](./contenttypes-and-records).
+[Working with Content and Content types](../content/contenttypes-and-records).
 
 Using your themes `theme.yml` you can also provide fallbacks for certain settings
 of the main `config.yml`. These are useful when building themes and you want to
@@ -260,7 +260,7 @@ and even *using the same fields* between these pages would provide a limitation.
 For example, your home page may have many different sections with some complex markup
 between them. All of your other pages have a single `body` html field, which really won't
 suffice. You could create a new contenttype, or use [resource
-contenttypes](./howto/resource-contenttype), but this isn't really an elegent solution.
+contenttypes](../howto/resource-contenttype), but this isn't really an elegent solution.
 
 Template specific fields allow you to define extra fields to use when a template is
 chosen for a record. They're defined in the theme's `theme.yml`, and it's just like
