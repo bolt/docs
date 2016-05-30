@@ -1,3 +1,6 @@
+---
+title: Introduction
+---
 Welcome to the Bolt user manual
 ===============================
 
@@ -14,8 +17,8 @@ Basically, there are three groups of users we've created Bolt for:
    this manual is for.
  - Front-end designers and developers who like to write clean markup, and who
    want to build websites where the CMS doesn't dictate what the templates or
-   site should look like. This group probably want to look at the 
-   [documentation](http://docs.bolt.cm/) after looking through this manual.
+   site should look like. This group probably want to look at the
+   [documentation](https://docs.bolt.cm/) after looking through this manual.
  - Developers who need a system that's easy to set up and configure, that's
    easy to manage and maintain, but is also flexible and versatile. This group
-   probably want to skip to the [documentation](http://docs.bolt.cm/).
+   probably want to skip to the [documentation](https://docs.bolt.cm/).
