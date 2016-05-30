@@ -296,8 +296,8 @@ The available options are:
      (e.g. `entry-123` for an entry with title `123`),
      in order to distinguish slugs from IDs.
      If this option is set to `true`, numeric slugs remain unprefixed.
-     Care has to be taken not to use [routes](./templates-routes) of the form `/{contenttype}/{id}`
-     for links in templates or for [fetching content](./content-fetching)!
+     Care has to be taken not to use [routes](../templates/templates-routes) of the form `/{contenttype}/{id}`
+     for links in templates or for [fetching content](../templates/content-fetching)!
 
 Field definitions
 -----------------
