@@ -48,8 +48,8 @@ templates. We've added a few tags of our own. Browse
 `src/Twig/TwigExtension.php` and `src/Twig/SetcontentTokenParser.php`
 for details.
 
-More information on this subject can be found in [Templates and Routes](../templates-routes)
-and [Content in Templates](../content-in-templates).
+More information on this subject can be found in [Templates and Routes](../templates/templates-routes)
+and [Content in Templates](../templates/record-and-records).
 
 The "Model"
 -----------
@@ -397,7 +397,7 @@ This is an instance of Twig. A lot more information on this can be found both in
 the Bolt documentation, as well as on the Twig website:
 
   - The [Twig website](http://twig.sensiolabs.org/)
-  - [Templates in Bolt](../templates-routes)
+  - [Templates in Bolt](../templates/templates-routes)
 
 Note: You should not directly use this object, normally. Instead, use
 `$app['render']`. See below.
