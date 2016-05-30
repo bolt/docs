@@ -50,4 +50,4 @@ A much longer list of possible options can be found here:
 Bolt's `localdate()` function and filter uses the setting from `config.yml` to
 set the language for the date formatting. For an overview of the options, see
 php.net's [strftime page](http://php.net/strftime), and the documentation
-section on [localdate()](./templatetags#filter-localdate).
+section on [localdate()](../templates/templatetags#filter-localdate).

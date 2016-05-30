@@ -397,7 +397,7 @@ This is an instance of Twig. A lot more information on this can be found both in
 the Bolt documentation, as well as on the Twig website:
 
   - The [Twig website](http://twig.sensiolabs.org/)
-  - [Templates in Bolt](../templates-routes)
+  - [Templates in Bolt](../templates/templates-routes)
 
 Note: You should not directly use this object, normally. Instead, use
 `$app['render']`. See below.
