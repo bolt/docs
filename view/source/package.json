@@ -5,7 +5,9 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp sass"
+    "build": "gulp sass",
+    "preinstall": "npm cache clean",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "bower": "^1.7.9",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
