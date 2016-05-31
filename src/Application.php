@@ -47,7 +47,7 @@ class Application extends Silex\Application
         if (file_exists($configFile)) {
             $config = Yaml\Yaml::parse(file_get_contents(__DIR__ . '/../app/config.yml'));
         }
-        $this['debug'] = isset($config['debug']) ? $config['debug'] : false;
+        $this['debug'] = isset($config['debug']) ? $config['debug'] : true;
         $this['documentation.versions.default'] = isset($config['default-version']) ? $config['default-version'] : '2.2';
         if (isset($config['versions_dir'])) {
             $this['documentation.versions_dir'] = Path::makeAbsolute($config['versions_dir'], __DIR__ . '/..');
