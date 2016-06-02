@@ -11,10 +11,11 @@ There are three ways to 'fix' this:
  - [Configure Bolt to use the existing web root][2]
  - [Create a symlink to the `public` folder][3]
  - [Use `.htaccess` to change the web root][4]
+ - [Move files outside of the `public` folder][5]
 
 Finally, at the end of this page, there's a brief explanation of _why_ it is 
 important to keep your files outside of the webroot: 
-[What's the point of doing this?][5]
+[What's the point of doing this?][point]
 
 Configure Apache or Nginx
 -------------------------
@@ -144,14 +145,61 @@ RewriteRule (.*) /public/$1 [L]
 In the above lines you should replace `domain-name.com` with the hostname of
 your site.
 
+Move the files outside of the `public` folder
+---------------------------------------------
+
+If you are hell-bent on flattening the file structure , you can do that as
+well. Follow the following steps:
+
+First, move _all_ files and folders from `public/` one level up. Don't forget
+to include the `.htaccess` file in there. Then remove the `public` folder.
+
+You will now have a structure that looks like this.
+
+```
+.
+└── example.org
+    ├── app/
+    ├── bolt-public/
+    ├── extensions/
+    ├── files/
+    ├── theme/
+    ├── thumbs/
+    ├── vendor/
+    ├── .bolt.yml
+    ├── .gitignore
+    ├── .htaccess
+    ├── README.md
+    └── index.php
+```
+
+Edit your `.bolt.yml`, so that Bolt knows about the changed structure,
+basically removing `public/` from it:
+
+```
+paths:
+    cache: app/cache
+    config: app/config
+    database: app/database
+    web: .
+    themebase: theme
+    files: files
+    view: bolt-public/view
+```
+
+Finally, edit `index.php`, so the bootstrapping can load successfully. Find the line with the `require` in it, and change it like this: 
+
+```
+$app = require dirname(__FILE__) . '/vendor/bolt/bolt/app/web.php';
+```
 
 What's the point of doing this?
 -------------------------------
 
 Sometimes people ask if we're not making things 'needlessly more complex' by
 putting most of Bolt's files outside of the web root. While we agree that it
-might be a very minor nuisance if it's the first time you're doing it like this,
-we _do_ believe this is a very good practice.
+might be a very minor nuisance if it's the first time you're doing it like
+this, we _do_ believe this is a very good practice.
 
 ### Security
 
@@ -190,5 +238,6 @@ for example.
 [2]: #configure-bolt-to-use-the-web-host
 [3]: #create-a-symlink-to-the-code-public-code-folder
 [4]: #use-htaccess-to-change-the-web-root
-[5]: #what-s-the-point-of-doing-this
+[5]: #use-code-htaccess-code-to-change-the-web-root
+[point]: #what-s-the-point-of-doing-this
 [sg]: https://www.siteground.com/kb/how_to_change_my_document_root_folder_using_an_htaccess_file/
