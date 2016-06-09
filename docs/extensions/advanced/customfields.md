@@ -114,7 +114,7 @@ class ColourPickerExtension extends SimpleExtension
     protected function registerTwigPaths()
     {
         return [
-            'twig' => ['position' => 'prepend', 'namespace' => 'bolt']
+            'templates' => ['position' => 'prepend', 'namespace' => 'bolt']
         ];
     }
 
@@ -164,7 +164,7 @@ array from the `registerTwigPaths()` method. The precise syntax we use is:
 protected function registerTwigPaths()
 {
     return [
-        'twig' => ['position' => 'prepend', 'namespace' => 'bolt']
+        'templates' => ['position' => 'prepend', 'namespace' => 'bolt']
     ];
 }
 ```
