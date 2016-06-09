@@ -137,7 +137,7 @@ Below is an sample file based on our extension's example.
         }
     },
     "extra": {
-        "bolt-asset": "web",
+        "bolt-assets": "web",
         "bolt-class": "Bolt\\Extension\\DropBear\\KoalaCatcher\\KoalaCatcherExtension"
     }
 }
