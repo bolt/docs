@@ -178,7 +178,7 @@ class DropBearController implements ControllerProviderInterface
         /** @var ControllerCollection $ctr */
         $ctr = $app['controllers_factory'];
 
-        $ctr->match('/koala/{type}', 'callbackKoalaCatching');
+        $ctr->match('/koala/{type}', [$this, 'callbackKoalaCatching']);
 
         return $ctr;
     }
