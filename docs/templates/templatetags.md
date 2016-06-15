@@ -286,6 +286,18 @@ dissensio? Cum ageremus, inquit, vitae beatum et eundem supremum diem, scribebam
 Duo Reges: constructio int…
 ```
 
+It is also possible to higlight a keyword in an excerpt, which can be used in search results.
+
+```
+{% set keyword = 'ageremus' %}{# this is the keyword you want to highlight #}
+{% set include_title = false %}{# this will include the title in the results #}
+{% setcontent page = "pages/1" %}
+{{ page|excerpt(200, include_title, keyword|default('')) ) }}
+
+=> …consectetur adipiscing elit. Videsne quam sit magna dissensio? Cum <mark>ageremus</mark>,
+inquit, vitae beatum et eundem supremum diem, scribebamus haec. Duo Reges: constructio int…
+```
+
 ### localdate
 
 Outputs a localized, readable version of a timestamp, based on the `locale`
