@@ -7,10 +7,15 @@ archive install files that you can download as `.tgz` or `.zip` files.
 
 There are three ways to 'fix' this:
 
- - Configure Apache or Nginx to use `public` as web root
- - Use the web root that the web host provides, and configure Bolt to use that.
- - Create a symlink to the `public` folder
+ - [Configure Apache or Nginx to use `public` as web root][1]
+ - [Configure Bolt to use the existing web root][2]
+ - [Create a symlink to the `public` folder][3]
+ - [Use `.htaccess` to change the web root][4]
+ - [Move files outside of the `public` folder][5]
 
+Finally, at the end of this page, there's a brief explanation of _why_ it is 
+important to keep your files outside of the webroot: 
+[What's the point of doing this?][point]
 
 Configure Apache or Nginx
 -------------------------
@@ -116,14 +121,85 @@ The result in the folder will look like this:
 After this, you should be good-to-go, and Bolt will work correctly.
 
 
+Use `.htaccess` to change the web root
+------------------------------------
+
+As a last resort, you can modify the `.htaccess` file to 'proxy' the `public/`
+folder. This is described in a tip from [Siteground][sg].
+
+Let's say that by default your website is loaded from the `public_html` folder
+of your account. This `public_html` directory is effectively the web root
+folder or document root folder. If you've placed all Bolt files in this folder,
+and want to 'serve' Bolt's `public` to be displayed when you type your domain
+name, add the following lines to the `.htaccess` file in the `public_html`
+folder:
+
+```
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^domain-name.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.domain-name.com$
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule (.*) /public/$1 [L]
+```
+
+In the above lines you should replace `domain-name.com` with the hostname of
+your site.
+
+Move the files outside of the `public` folder
+---------------------------------------------
+
+If you are hell-bent on flattening the file structure , you can do that as
+well. Follow the following steps:
+
+First, move _all_ files and folders from `public/` one level up. Don't forget
+to include the `.htaccess` file in there. Then remove the `public` folder.
+
+You will now have a structure that looks like this.
+
+```
+.
+└── example.org
+    ├── app/
+    ├── bolt-public/
+    ├── extensions/
+    ├── files/
+    ├── theme/
+    ├── thumbs/
+    ├── vendor/
+    ├── .bolt.yml
+    ├── .gitignore
+    ├── .htaccess
+    ├── README.md
+    └── index.php
+```
+
+Edit your `.bolt.yml`, so that Bolt knows about the changed structure,
+basically removing `public/` from it:
+
+```
+paths:
+    cache: app/cache
+    config: app/config
+    database: app/database
+    web: .
+    themebase: theme
+    files: files
+    view: bolt-public/view
+```
+
+Finally, edit `index.php`, so the bootstrapping can load successfully. Find the line with the `require` in it, and change it like this: 
+
+```
+$app = require dirname(__FILE__) . '/vendor/bolt/bolt/app/web.php';
+```
 
 What's the point of doing this?
 -------------------------------
 
 Sometimes people ask if we're not making things 'needlessly more complex' by
 putting most of Bolt's files outside of the web root. While we agree that it
-might be a very minor nuisance if it's the first time you're doing it like this,
-we _do_ believe this is a very good practice.
+might be a very minor nuisance if it's the first time you're doing it like
+this, we _do_ believe this is a very good practice.
 
 ### Security
 
@@ -158,3 +234,10 @@ for example.
 [sfdir]: http://symfony.com/doc/current/cookbook/configuration/override_dir_structure.html
 [apache]: ../configuration/web-server-apache
 [nginx]: ../configuration/web-server-nginx
+[1]: #configure-apache-or-nginx
+[2]: #configure-bolt-to-use-the-web-host
+[3]: #create-a-symlink-to-the-code-public-code-folder
+[4]: #use-htaccess-to-change-the-web-root
+[5]: #use-code-htaccess-code-to-change-the-web-root
+[point]: #what-s-the-point-of-doing-this
+[sg]: https://www.siteground.com/kb/how_to_change_my_document_root_folder_using_an_htaccess_file/

@@ -4,49 +4,38 @@ title: Updating / Upgrading Bolt
 Updating / Upgrading Bolt
 =========================
 
+<p class="note"><strong>Note:</strong> This page is for updating an existing
+Bolt 3 installation. If you are updating from Bolt 2.2, see <a href='moving-22-30'>
+Upgrading a site from version 2.2 to 3.0</a> instead.</p>
+
 As with all web-based applications, it's good practice to keep your site up to
 date with the latest version. Bolt is built in such a way, that none of the
 files that are used for the configuration are included in the distribution
-files. In practice, this means that upgrading Bolt works in exactly the same way
+files. In practice, this means that upgrading Bolt works almost the same way
 as installing a new copy of bolt. Skip to the right section below:
 
-  - The easiest way, [from the command-line](#option-1-easy-way-using-command-line).
-  - The traditional way, [using (S)FTP](#option-2-traditional-way-using-sftp).
-  - The nerdy way, [for developers](#option-3-developer-way-using-git-and-composer).
+Updating on the command line
+----------------------------
 
-<p class="note"><strong>Note:</strong> The exception to this rule are the
-default theme folders, i.e. <code>base-2013</code> and <code>base-2014</code>.
-If you've made modifications to these files, they <em>will</em> get overwritten.
-We strongly advise to always work in a template folder with a different name.
-Simply copy <code>base-2014</code>, and change the setting in your
-<code>config.yml</code> for <code>theme: base-2014</code> accordingly.</p>
+If you're using the command line, updating a Bolt 3 installation is _really_ easy.
 
-<p class="tip"><strong>Tip:</strong> Even though nothing <em>should</em> go
-wrong when updating Bolt, it is still a good idea to make sure you have a backup
-of your website. You know, just in case. Better safe than sorry. That sort of
-thing.</p> <p class="tip"><strong>Tip:</strong> In the last step of the
-installation, you may get notifications saying <code>chmod: changing permissions
-of `app/cache/...': Operation not permitted</code>. This is not a problem, but
-if you want to avoid this, it is good to empty the Bolt cache before
-installing.</p>
+ - Check if you have a `composer.json` file. If you've installed from a distribution file, you might have to rename `composer.json.dist` to `composer.json`.
+ - Make sure you have Composer. If not, get it [here](https://getcomposer.org/download/)
+ - Run `php composer.phar update`.
+ - After updating, you should clear the cache, and make sure the database is up
+   to date.
 
-Option 1: The easy way, using the command-line
-----------------------------------------------
-
-If you have command-line access, you can update Bolt by executing a few
-commands.
+Putting it all together:
 
 ```
-curl -O http://bolt.cm/distribution/bolt-latest.tar.gz
-tar -xzf bolt-latest.tar.gz --strip-components=1
-chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
+php composer.phar update
+php app/nut cache:clear
+php app/nut database:update
 ```
-<p class="note"><strong>Note:</strong> If you have made edits to your `.htaccess`
-file, make a backup of this file (e.g. `.htaccess.bak` prior to performing
-the update so changes are not lost.</p>
 
-Option 2: The traditional way, using (S)FTP
--------------------------------------------
+
+Updating over (S)FTP
+--------------------
 
 Download the [latest version of Bolt][latest].
 
@@ -58,8 +47,8 @@ not replace them. Most FTP clients will <em>merge</em> the folders you're
 uploading, but some <em>replace</em> folders instead. Not sure what your client
 does? Test this, before you accidentally wipe a folder and its contents.</p>
 
-Option 3: The developer way, using git and composer
----------------------------------------------------
+Updating a `git clone` install
+------------------------------
 
 If you've installed via Git, you can update by executing the following commands.
 
@@ -83,4 +72,4 @@ php app/nut database:check
 php app/nut database:update
 ```
 
-[latest]: http://bolt.cm/distribution/bolt-latest.zip
+[latest]: https://bolt.cm/distribution/bolt-latest.zip

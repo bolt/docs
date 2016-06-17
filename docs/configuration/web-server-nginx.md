@@ -72,7 +72,7 @@ server {
     }
 
     # Block access to the app, cache & vendor directories
-    location ~ /(?:app|src|tests|vendor) {
+    location ~ /(?:app|src|tests|vendor)/(.*)$ {
         deny all;
     }
 

@@ -31,20 +31,20 @@ these docs, be sure to get in touch, using one of the following ways:
     sure to tag them with [bolt-cms](http://stackoverflow.com/questions/tagged
     /bolt-cms), and we'll gladly help you out.
 
-  - For (potential) bugs and feature requests, open an issue on our [Github
-    Issue Tracker](http://github.com/bolt/bolt/issues). Pull-requests are
-    always welcome, as well.
+  - For (potential) bugs and feature requests, open an issue on our
+    [Github Issue Tracker](https://github.com/bolt/bolt/issues). Pull-requests
+    are always welcome, as well.
 
-  - Look for small snippets of code and some tips & tricks or our [Snippets
-    website](https://snippets.bolt.cm). It's like Pastebin, only powered by
-    Bolt.
+  - Look for small snippets of code and some tips & tricks or our
+    [Snippets website](https://snippets.bolt.cm). It's like Pastebin, only
+    powered by Bolt.
 
   - We have some pages with detailed information on a couple of subjects on the
     wiki at [github.com/bolt/bolt/wiki](https://github.com/bolt/bolt/wiki).
 
   - There's always some people willing to chat in our IRC channel on Freenode
     at #boltcms. No IRC client? Use the embedded IRC on
-    [our website here](http://bolt.cm/irc), or [IRCcloud](http://irccloud.com).
+    [our website here](https://bolt.cm/irc), or [IRCcloud](http://irccloud.com).
 
 Finally, if you're using Bolt in your company, and you need commercial support,
 feel free to get in touch with Two Kings. Two Kings is the Netherlands based

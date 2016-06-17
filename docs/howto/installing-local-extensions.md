@@ -86,6 +86,16 @@ class MyExtensionExtension extends SimpleExtension
 }
 ```
 
+Step 4
+------
+
+Bolt might access your public assets (javascripts, stylesheets, images, etc.). For local extension, copy your assets manually to : `/{public_root}/extensions/local/{MyName}/{MyExtension}/`
+
+Where:
+ - `{public_root}` is the public folder of your Bolt site
+ - `{author_name}` is a lower-case, space-less name
+ - `{extension_name}` is a lower-case, space-less name
+
 Updating/Importing
 ------------------
 

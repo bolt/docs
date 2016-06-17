@@ -27,7 +27,7 @@ There are four files that contain the controller collections, located in
 As such, they are all in the `\Bolt\Controllers` namespace. They are 'set up'
 in `src/Application.php`.
 
-* `Backend` rotues are all pretty straightforward.
+* `Backend` routes are all pretty straightforward.
 * `Async.php` routes are used for 'ajaxy' requests, like the
 'latest activity' widget on the dashboard.
 * `Routing` is the actual Controller that parses the routes found in `routing.yml`
@@ -48,8 +48,8 @@ templates. We've added a few tags of our own. Browse
 `src/Twig/TwigExtension.php` and `src/Twig/SetcontentTokenParser.php`
 for details.
 
-More information on this subject can be found in [Templates and Routes](../templates-routes)
-and [Content in Templates](../content-in-templates).
+More information on this subject can be found in [Templates and Routes](../templates/templates-routes)
+and [Content in Templates](../templates/record-and-records).
 
 The "Model"
 -----------
@@ -281,10 +281,10 @@ URL paths available are:
     "bolt" => "/bolt/"
     "theme" => "/theme/base-2014/"
     "current" => "/"
-    "canonicalurl" => "http://www.bolt.cm/page/about"
-    "currenturl" => "http://bolt.cm/page/about"
-    "hosturl" => "http://bolt.cm"
-    "rooturl" => "http://bolt.cm/"
+    "canonicalurl" => "https://www.bolt.cm/page/about"
+    "currenturl" => "https://bolt.cm/page/about"
+    "hosturl" => "https://bolt.cm"
+    "rooturl" => "https://bolt.cm/"
   ]
 ```
 
@@ -397,7 +397,7 @@ This is an instance of Twig. A lot more information on this can be found both in
 the Bolt documentation, as well as on the Twig website:
 
   - The [Twig website](http://twig.sensiolabs.org/)
-  - [Templates in Bolt](../templates-routes)
+  - [Templates in Bolt](../templates/templates-routes)
 
 Note: You should not directly use this object, normally. Instead, use
 `$app['render']`. See below.

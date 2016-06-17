@@ -114,7 +114,7 @@ class ColourPickerExtension extends SimpleExtension
     protected function registerTwigPaths()
     {
         return [
-            'twig' => ['position' => 'prepend', 'namespace' => 'bolt']
+            'templates' => ['position' => 'prepend', 'namespace' => 'bolt']
         ];
     }
 
@@ -143,7 +143,7 @@ loads from the `web` directory.
 
 Next we need to add our own custom field onto the built in field manager. To do
 this we need to create a function called `registerFields()` that will return an
-array of one of more classes that implement `FieldInterface`.
+array of one or more classes that implement `FieldInterface`.
 
 This block does just that:
 
@@ -164,7 +164,7 @@ array from the `registerTwigPaths()` method. The precise syntax we use is:
 protected function registerTwigPaths()
 {
     return [
-        'twig' => ['position' => 'prepend', 'namespace' => 'bolt']
+        'templates' => ['position' => 'prepend', 'namespace' => 'bolt']
     ];
 }
 ```

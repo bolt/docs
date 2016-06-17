@@ -31,7 +31,7 @@ themestructure:
         - [ "`css/`", contains the (compiled) CSS for the theme ]
         - [ "`scss/`", "optional folder for Sass source files, to be compiled into CSS." ]
         - [ "`config.yml`", optional config file with settings specific to the theme. ]
-    links: { "Templates and routing": https://docs.bolt.cm/templates-routes }
+    links: { "Templates and routing": "/templates/templates-routes" }
 
 templatecascading:
     title: Template cascading
@@ -46,7 +46,7 @@ templatecascading:
         - [ "", "Bolt will check if a template with a suited name exists, like `entry.twig` or `page.twig`"]
         - [ "", "`record_template` is set in the global `config.yml`" ]
         - [ "", "If no other rule matches, Bolt will use a template named `record.twig`" ]
-    links: { "Automatic template selection": "https://docs.bolt.cm/templates-routes#automatic-template-selection" }
+    links: { "Automatic template selection": "/templates/templates-routes#automatic-template-selection" }
 
 menuyml:
     title: Menus and `menu.yml`
@@ -62,7 +62,7 @@ menuyml:
     table2:
         - [ "Example" ]
         - [ "`<ul>{% for item in menu %}`<br>&nbsp;&nbsp;`<li>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<a href='{{ item.link }}'>{{item.label}}</a>`<br>&nbsp;&nbsp;`</li>`<br>`{% endfor %}</ul>`" ]
-    links: { "Menus in the docs": "https://docs.bolt.cm/menus"}
+    links: { "Menus in the docs": "/content/menus"}
 
 contenttypes:
     title: Contenttypes and `contenttypes.yml`
@@ -79,7 +79,7 @@ contenttypes:
         - [ "`description`", "(optional) A short description of the contenttype. " ]
         - [ "`fields`", "The fields that make up the content in this contenttype. See the section [Field definitions](#field-definitions-contenttypesyml) for details." ]
         - [ "`taxonomy`", "An array listing the different taxonomies used by this contenttype. See the section on [Taxonomies](#taxonomies-and-taxonomyyml) for details." ]
-        - [ "`relations`", "An array listing the different relations available to this contenttype. See the section on [Relations](./relations) for details." ]
+        - [ "`relations`", "An array listing the different relations available to this contenttype. See the section on [Relations](./content/relationships) for details." ]
         - [ "`record_template`", "The default template to use, when displaying a single record of this contenttype. " ]
         - [ "`listing_template`", "The default template to use, when displaying an overview of records of this contenttype. " ]
         - [ "`listing_records`", "The amount of records to show on a single overview page in the frontend." ]
@@ -92,7 +92,7 @@ contenttypes:
         - [ "`viewless`", "(optional) A boolean value to determine whether this contenttype should have routing or not. " ]
         - [ "`icon_many`", "(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for this contenttype. For example: `fa:cubes`" ]
         - [ "`icon_one`", "(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for a single record of this contenttype. For example: `fa:cube`." ]
-    links: { "Defining contenttypes in the docs": "https://docs.bolt.cm/contenttypes-and-records#defining-contenttypes" }
+    links: { "Defining contenttypes in the docs": "/content/contenttypes-and-records#defining-contenttypes" }
 
 fielddefinitions:
     title: Fields for contenttypes in `contenttypes.yml`
@@ -115,7 +115,7 @@ fielddefinitions:
         - [ "`datetime`", "Similar to the `date` field, but adds an additional field for time. "]
         - [ "`integer`", "A field to store integers. "]
         - [ "`float`", "A field to store (floating point) numbers. "]
-    links: { "Field definitions in the docs": "https://docs.bolt.cm/contenttypes-and-records#field-definitions" }
+    links: { "Field definitions in the docs": "/content/contenttypes-and-records#field-definitions" }
 
 fieldoptions:
     title: Field options for contenttypes in `contenttypes.yml`
@@ -141,7 +141,7 @@ fieldoptions:
         - [ "`info: ..`", "Use for displaying extra information about the field." ]
         - [ "`extensions: [ .. ]`", "A list of allowed file extensions for uploading. Used with `file`, `filelist`, `image` and `imagelist`" ]
         - [ "`upload: foo`", "A custom path for uploaded files. Used with `file`, `filelist`, `image` and `imagelist`" ]
-    links: { "Field definitions in the docs": "https://docs.bolt.cm/contenttypes-and-records#field-definitions" }
+    links: { "Field definitions in the docs": "/content/contenttypes-and-records#field-definitions" }
 
 relations:
     title: Relationships
@@ -152,7 +152,7 @@ relations:
         - [ "`relations:`<br>&nbsp;&nbsp;&nbsp;&nbsp;`pages:`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`multiple: false`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`label: Select a page`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`order: -id`"]  
     postfix: |
         Accessing `record.relation` will give you nothing but the contenttypes and id’s: `{{ print(record.relation) }}`. To get the actual related records, use `{% set relatedrecords = record.related() %}`.
-    links: { "Relationships in the docs": "https://docs.bolt.cm/relationships"}
+    links: { "Relationships in the docs": "/content/relationships"}
 
 taxonomies:
     title: Taxonomies and `taxonomy.yml`
@@ -164,7 +164,7 @@ taxonomies:
         - [ "`tags`", "Tags are a sort of ‘freeform’ labeling. Each record can have several tags, that do not have to be selected from a predefined list." ]
         - [ "`categories`", "Categories are chosen pre-defined categorizations for your record. These are often found on weblogs." ]
         - [ "`grouping`", "Grouping is like categories but it is - by definition - more strict. When a grouping applies to a certain record, that record should be viewed as a part of the other records with the same grouping." ]
-    links: { "Taxonomies in the docs": "https://docs.bolt.cm/taxonomies"}
+    links: { "Taxonomies in the docs": "/content/taxonomies"}
 
 
 permissionsyml:
@@ -174,7 +174,7 @@ permissionsyml:
         The permissions needed to perform an action are configurable by editing `app/config/permissions.yml`.
         This can be done either directly, or through Bolt’s back-end UI. By changing the permissions you basically change the way
         how people can interact with Bolt, and who is allowed to do what.
-    links: { "Permissions in the docs": "https://docs.bolt.cm/permissions"}
+    links: { "Permissions in the docs": "/content/permissions"}
 
 
 routing:
@@ -189,7 +189,7 @@ routing:
         distributed `routing.yml.dist` file. The order of the routes is important
         because it is routing is done on a first-come first-serve basis.
     add_separator: true
-    links: { "Routing in the docs": "https://docs.bolt.cm/templates-routes#routing"}
+    links: { "Routing in the docs": "/templates/templates-routes#routing"}
 
 
 
@@ -312,6 +312,7 @@ twigfunctions:
         - [ '`popup(filename, w, h) `', 'Helper function to wrap an image in a Magnific popup HTML tag, with thumbnail. <mark>*<mark>' ]
         - [ '`imageinfo(filename) `', 'Get an array with the dimensions of an image, together with its aspectratio and some other info. <mark>*<mark>' ]
         - [ '`file_exists(filename)`', 'Check if a file exists' ]
+        - [ '`fields(record)`', 'Ouputs all or some fields from a record. Many options are available and documented [here](/3.0/templates/fields-tag)' ]
         - [ '`request(para, from)`', 'Return the requested parameter from `$_REQUEST`, `$_GET` or `$_POST`.' ]
         - [ '`first / last() `', 'Returns the first item of an array. <mark>*<mark>' ]
         - [ '`shuffle(array) `', 'Randomly shuffle the contents of a passed array. <mark>*<mark>' ]
@@ -357,7 +358,7 @@ setcontent:
         - [ "`where { title: '%ipsum%' }`", "use `%` in your `where` statement to use 'LIKE' matching."]
         - [ "`where { tags: 'book || movie' }`", "you can also use taxonomies in your `where`."]
         - [ "`where { datepublish: '<today' }`", "use shortcuts like 'now', 'today', 'tomorrow' for date selection."]
-    links: { "{% setcontent %} in the documentation": https://docs.bolt.cm/content-fetching }
+    links: { "{% setcontent %} in the documentation": "/templates/content-fetching" }
 
 twifdefaulttags:
     title: "Twig default tags"
@@ -496,7 +497,7 @@ debug:
         - ["`{{ backtrace() }}`", "Get a backtrace throught the code to the current point in the execution, in the template." ]
         - ["`dump(debug_backtrace());`", " Get a backtrace throught the code to the current point in the execution, in your code. The optional parameter denotes the maximum depth of the output of the backtrace." ]
     table_linear: true
-    links: { "{{ dump() }} in the documentation": "https://docs.bolt.cm/internals/bolt-internals#dump-and-dump" }
+    links: { "{{ dump() }} in the documentation": "/internals/bolt-internals#dump-and-dump" }
 
 
 apppath:
@@ -532,7 +533,7 @@ apppath:
         - ["`themebasepath`", "`/[path]/theme`"]
         - ["`themepath`", "`/[path]/theme/base-2014`"]
         - ["`webpath`", "`/[path]/bolt`"]
-    links: { "app['paths'] in the docs": "https://docs.bolt.cm/internals/bolt-internals#app8216paths8217" }
+    links: { "app['paths'] in the docs": "/internals/bolt-internals#app8216paths8217" }
 
 
 apprequest:

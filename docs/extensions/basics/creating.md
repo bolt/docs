@@ -19,7 +19,7 @@ documentation page.
 ### PHP namespace
 
 Extensions should use the PHP namespace of
-`Bolt\Extension\{author name}\{exension name}\` e.g.
+`Bolt\Extension\{author name}\{extension name}\` e.g.
 `Bolt\Extension\MyName\MyExtension\`.
 
 ### Using the Starter Package

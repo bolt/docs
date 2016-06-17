@@ -142,6 +142,6 @@ Implementing widgets as extensions
 See the page [Extension Building: Creating widgets][ext], for more information.
 
 
-[boltext]: http://extensions.bolt.cm/view/082a7153-8205-11e5-86fe-396a68cabe59
+[boltext]: https://extensions.bolt.cm/view/082a7153-8205-11e5-86fe-396a68cabe59
 [read]: https://github.com/bolt/base-widget/blob/master/README.md
-[ext]: ./extensions/building/widgets
+[ext]: ../extensions/building/widgets

@@ -145,9 +145,9 @@ templates](content-in-templates).
 
 When you refresh the front page of the website, you should see four news items
 listed on the page. You can click the title to go to the news item on a separate
-page, but you'll get an error. In the contenttype we defined the template as
-`newsitem.twig`, but it doesn't exist. Create the file in the `theme/base-2014/`
-folder, and add the following HTML-code:
+page, but it will use the default `record.twig` template. In the contenttype we
+defined the template as `newsitem.twig`, but it doesn't exist. Create the file 
+in the `theme/base-2014/` folder, and add the following HTML-code:
 
 ```
 <!DOCTYPE html>
@@ -237,13 +237,14 @@ The available options are:
     the browser. It should be plural, if possible.
   - `singular_name`: The name of one Record in the Contenttype. This should be
     singular. For example, if the Contenttype's name is 'Pages', this should be
-    'Page'
+    'Page'.
   - `slug` (optional): This determines the slug of the contenttype, and
     therefore the URLs that are generated for this contenttype. When omitted,
-    the slug will be automatically generated.
+    the slug will be automatically generated from the `name`.
   - `singular_slug` (optional): This determines the slug of a single record
     in this contenttype, and therefore the URLs that are generated for these
-    records. When omitted, the slug will be automatically generated.
+    records. When omitted, the singular_slug will be automatically generated
+    from the `singular_name`.
   - `description` (optional): A short description of the contenttype. This will
     be shown on the overview screen in the right aside column.
   - `fields`: The fields that make up the content in this contenttype. See the
@@ -295,8 +296,8 @@ The available options are:
      (e.g. `entry-123` for an entry with title `123`),
      in order to distinguish slugs from IDs.
      If this option is set to `true`, numeric slugs remain unprefixed.
-     Care has to be taken not to use [routes](./templates-routes) of the form `/{contenttype}/{id}`
-     for links in templates or for [fetching content](./content-fetching)!
+     Care has to be taken not to use [routes](../templates/templates-routes) of the form `/{contenttype}/{id}`
+     for links in templates or for [fetching content](../templates/content-fetching)!
 
 Field definitions
 -----------------
@@ -630,6 +631,39 @@ something. The readonly status is only enforced in the browser, so don't
             readonly: true
 ```
 
+### Repeating Field Sets
+
+A special field type available as a field definition is the `repeater` field type which
+allows you to compose an array-like structure of sub-fields within a single field name.
+
+The configuration of a repeating field set comprises the main field set name, along with
+the definition of the sub fields. The following example can also be found in the default
+showcases contenttype which comes with a default install of Bolt.
+
+```apache
+    myrepeatset:
+        type: repeater
+        limit: 3
+        prefix: "<p>This allows you to create multiple sets of fields. Use the add button at the bottom to create a new empty set.</p>"
+        fields:
+            repeattitle:
+                type: text
+            repeatimage:
+                type: image
+                extensions: [ gif, jpg, png ]
+            repeatcontent:
+                type: html
+```
+ 
+As you can see the field is configured with a type of `repeater` and then the sub-fields 
+are configured under the `fields` attribute. In general you can include any valid fields
+within a repeater, there are a few that are not supported `slug`, `templatefield` and 
+`repeater` itself.
+
+The repeater field itself support the standard attributes `group`, `prefix`, `postfix`
+along with an additional `limit` setting which can optionally limit the number of sets
+that can be created. If you omit this setting then an unlimited number of sets can be
+created.
 
 Grouping fields in tabs
 -----------------------

@@ -128,7 +128,7 @@ array.
         ],
     ];
 ```
-This is an very advanced  option, see Bolt's [bootstrap file][bs]
+This is a very advanced option, see Bolt's [bootstrap file][bs]
 for more details.
 
 ### Composer JSON File
@@ -170,7 +170,7 @@ composer create-project
 
 Generally most server should be fine with the default permissions. However, if
 you require guidance on setting up permissions, see our
-[File System Permissions](permissions) page.
+[File System Permissions](../permissions) page.
 
 ### Finishing Set-up
 
