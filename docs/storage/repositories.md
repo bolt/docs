@@ -104,7 +104,7 @@ This method works identically to the `findBy` method above but will return a sin
 
 ```
 $repo = $app['storage']->getRepository('users');
-$user = $repo->findBy(['username' => $postedUser, 'password'=> $passHash]);
+$user = $repo->findOneBy(['username' => $postedUser, 'password'=> $passHash]);
 ```
 
 
