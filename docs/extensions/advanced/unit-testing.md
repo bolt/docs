@@ -132,14 +132,6 @@ and adjust where needed.
 structure matching current Bolt tests, and it will also copy in the specified
 theme, and configuration files which is helpful if you're writing unit tests.
 
-<p class="meta">
-
-**Note:** We refer to a `tests/bootstrap.php` file that doesn't exist yet.
-
-**Note:** The listener is optional, it will copy in an Sqlite database with table
-structure matching current Bolt tests, and it will also copy in the specified
-theme, which is helpful if you're writing unit tests.
-
 Step 3: Create a bootstrap.php file
 -----------------------------------
 
