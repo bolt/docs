@@ -138,7 +138,7 @@ folder:
 RewriteEngine on
 RewriteCond %{HTTP_HOST} ^domain-name.com$ [NC,OR]
 RewriteCond %{HTTP_HOST} ^www.domain-name.com$
-RewriteCond %{REQUEST_URI} !public/
+RewriteCond %{REQUEST_URI} !^/?public/
 RewriteRule (.*) /public/$1 [L]
 ```
 
