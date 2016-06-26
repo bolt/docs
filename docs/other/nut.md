@@ -71,6 +71,7 @@ Available commands:
   tests:run                 Runs all available tests
  user
   user:add                  Add a new user.
+  user:manage               Manage a user.
   user:reset-password       Reset a user password.
 ```
 
