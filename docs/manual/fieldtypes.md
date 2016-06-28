@@ -36,7 +36,7 @@ comfortable using it.
 
 A WYSIWYG field that allows greater freedom to edit styling and presentation of
 text. Often used for the body of a page or article. Features of the WYSIWYG can
-be turn on or of in the Main configuration.
+be turned on or off in the Main configuration.
 
 Media fields
 ------------
