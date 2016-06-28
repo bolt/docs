@@ -109,7 +109,7 @@ class KoalaCatcherExtension extends SimpleExtension
     {
         return [
             'koala'    => 'koalaFunction',
-            'kangaroo' => ['kangarooFunction', ['is_safe' => 'html']]
+            'kangaroo' => ['kangarooFunction', ['is_safe' => ['html']]]
         ];
     }
 
@@ -120,7 +120,7 @@ class KoalaCatcherExtension extends SimpleExtension
     {
         return [
             'koala'    => 'koalaFilter',
-            'kangaroo' => ['kangarooFilter', ['is_safe' => 'html']]
+            'kangaroo' => ['kangarooFilter', ['is_safe' => ['html']]]
         ];
     }
 
