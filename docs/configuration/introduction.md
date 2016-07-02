@@ -23,6 +23,11 @@ If you want to get a quick way to see how your site looks with some content you
 can add some generated pages using the built-in [Loripsum](http://loripsum.net)
 tool. This is a simple method to test-drive your theme quickly.
 
+<p class="tip"><strong>Tip:</strong> The geolocation fields requires the you
+set an api key so for more info see the comment in the main config and
+[this guide](https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key)
+for how to get a key</p>
+
 If you're getting unspecified "Internal Server Errors", the most likely cause
 is a missing or malfunctioning `.htaccess` file. See the section [Tweaking the
 .htaccess file](web-server-apache) for tips. If you still
