@@ -47,10 +47,10 @@ fields are being output and in what format.
    current `{{ record }}` variable from the Twig environment.
  - `common`: Whether to output the most common fields or not. Defaults to
    `true`. This will output the fields that are of type 'html', 'markdown',
-   'textarea', 'text', 'image', 'imagelist', 'video'.
+   'textarea', 'text', 'image', 'video'.
  - `extended`: Whether to output the so-called extended fields, as defined in
    the contenttype. Defaults to `false`. This will output the fields that are
-   of type 'geolocation', 'select', 'checkbox', 'filelist', 'datetime', 'date',
+   of type 'imagelist', 'geolocation', 'select', 'checkbox', 'filelist', 'datetime', 'date',
    'integer' and 'float'.
  - `repeaters`: Whether to output the fields that were added as 'Repeater
    Fields' in the record. Defaults to `true`. This will output all of the
