@@ -82,7 +82,9 @@ selection of size of the video and previewing of it.
 <a href="/files/fieldtypes/geolocation.png" class="popup"><img src="/files/fieldtypes/geolocation.png"></a><br>
 
 A field for selecting geographic locations via either address lookup, manual
-selection on a map or by entering longitude and latitude.
+selection on a map or by entering longitude and latitude. This requires that a
+google api key has been set in the main configuration. To get a key you can
+follow [this guide](https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key)
 
 Number-based fields
 ----------------
