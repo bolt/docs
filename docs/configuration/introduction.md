@@ -98,3 +98,5 @@ after compilation the value of `{{ config.get('mycustomversion') }}` will match
 the value set on the main application container.
 
 Note that at this point only string values are supported.
+
+Also note that configs are namespaced. `{{ config.get('mycustomversion') }}` may not be nessessarily available in your Twig templates directly. For more information regarding this, please refer to the [Bolt Internals] (https://docs.bolt.cm/3.0/internals/bolt-internals#code-app-config-code) documentation. In this particular example, use `{{ config.get('general/mycustomversion') }}` to access the above varaible in your template.
