@@ -20,7 +20,7 @@ All asset files should be in your extension's `web/` directory, or a
 subdirectory of `web/`.
 
 <p class="note"><strong>Note:</strong> Local extensions (often used for testing)
-will not have their assets auto-copied to the web folder, see [the how-to on the subject](/3.0/howto/installing-local-extensions#step-4)
+will not have their assets auto-copied to the web folder, see the <a href="/3.0/howto/installing-local-extensions#step-4">how-to on the subject</a>
  for more info.</p>
 
 Registering Assets
