@@ -26,6 +26,24 @@ Go to your `composer.json` file in the root of your project and make the followi
 It's likely that you already have an entry for `bolt/bolt` so you will need to just adjust the version constraint.
 If you don't have an entry for `filesystem` and `thumbs` you will need to add them too.
 
+Finally you will need to ensure the `scripts` section contains the following event handlers:
+
+```json
+    "scripts": {
+        "post-install-cmd": [
+            "Bolt\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Bolt\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-create-project-cmd": [
+            "Bolt\\Composer\\ScriptHandler::configureProject",
+            "Bolt\\Composer\\ScriptHandler::installThemesAndFiles",
+            "nut extensions:setup"
+        ]
+    },
+```
+
 Once this is complete, run `composer update` to get the latest versions. The command should run and you'll now be running
 on Bolt 3.0.
 
