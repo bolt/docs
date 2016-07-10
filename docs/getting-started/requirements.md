@@ -25,10 +25,12 @@ are default settings, and Bolt should work out-of-the-box.
     - gd
     - gmp
     - json
-    - mb_string
+    - mbstring
     - opcache (optional)
     - posix
     - xml
+    - fileinfo
+    - exif
 
 Note the following PHP modules are known to conflict with Bolt and it's 
 underlying Symfony components, and must be disabled:

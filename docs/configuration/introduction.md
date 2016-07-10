@@ -23,6 +23,11 @@ If you want to get a quick way to see how your site looks with some content you
 can add some generated pages using the built-in [Loripsum](http://loripsum.net)
 tool. This is a simple method to test-drive your theme quickly.
 
+<p class="tip"><strong>Tip:</strong> The geolocation fields requires you
+set an api key, for more info see the comment in the main config and
+[this guide](https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key)
+for how to get a key</p>
+
 If you're getting unspecified "Internal Server Errors", the most likely cause
 is a missing or malfunctioning `.htaccess` file. See the section [Tweaking the
 .htaccess file](web-server-apache) for tips. If you still
@@ -93,3 +98,9 @@ after compilation the value of `{{ config.get('mycustomversion') }}` will match
 the value set on the main application container.
 
 Note that at this point only string values are supported.
+
+Note that configuration settings are namespaced. `{{ config.get('mycustomversion') }}` 
+may not be necessarily available in your Twig templates directly. For more information 
+regarding this, please refer to the [Bolt Internals](https://docs.bolt.cm/internals/bolt-internals#code-app-config-code) 
+documentation. In this particular example, use `{{ config.get('general/mycustomversion') }}`
+to access the above variable in your template.

@@ -6,8 +6,8 @@ Extension Building: Configuration
 
 It is very useful to allow users of your application control over how it behaves.
 
-Bolt uses configuration files in the [YAML]() format, and the same if true for
-extensions.
+Bolt uses configuration files in the [YAML](http://www.yaml.org/) format, and the
+same is true for extensions.
 
 Should you wish to provide a configuration file for your extension users, you
 need to create the template as `config/config.yml.dist`. Upon installation,
@@ -31,7 +31,7 @@ pets:
 Providing Defaults
 ------------------
 
-Some times things are accidentally removed, or even added to the extension and
+Sometimes things are accidentally removed, or even added to the extension and
 older configuration files not updated.
 
 To cope with this, Bolt extensions can define a `getDefaultConfig()` function
