@@ -276,6 +276,12 @@ Note that the records are fetched from the database, according to the `orderby`
 parameter. If you use `orderby 'title'`, you will get records with titles
 starting with 'a'.
 
+If you wish to randomise results, you can pass `RAND()` to the `orderby` clause.
+
+```
+{# get 10 pages, sorted randomly #}
+{% setcontent mypages = 'pages' limit 10 orderby 'RAND()' %}
+```
 
 One record or multiple records?
 -------------------------------
