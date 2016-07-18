@@ -49,7 +49,7 @@ The current default theme contains the following files and folders:
     also taxonomy overview pages.
   - `record.twig` - template for a 'generic' Record page, if the content type
     has no template specified.
-  - `searchresults.twig` - template for displaying search results.
+  - `search.twig` - template for displaying search results.
   - `_aside.twig` - helper template that gets included as the sidebar.
   - `_header.twig` - same, but for the header.
   - `_footer.twig` - same, but for the footer.
