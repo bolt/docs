@@ -38,7 +38,7 @@ commands.
 
 ```
 curl -O http://bolt.cm/distribution/bolt-2-latest.tar.gz
-tar -xzf bolt-latest.tar.gz --strip-components=1
+tar -xzf bolt-2-latest.tar.gz --strip-components=1
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
 ```
 <p class="note"><strong>Note:</strong> If you have made edits to your `.htaccess`
