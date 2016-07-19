@@ -37,7 +37,7 @@ If you have command-line access, you can update Bolt by executing a few
 commands.
 
 ```
-curl -O http://bolt.cm/distribution/bolt-latest.tar.gz
+curl -O http://bolt.cm/distribution/bolt-2-latest.tar.gz
 tar -xzf bolt-latest.tar.gz --strip-components=1
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
 ```
