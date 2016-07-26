@@ -68,3 +68,13 @@ class SelectQueryHandler
     }
 }
 ```
+
+You can add the new handler by registering it with your parser. This can be done 
+by the following code: 
+
+```
+    $app['query.parser']->addHandler('select', new SelectQueryHandler());
+    $app['query.parser']->addOperation('select');
+```
+
+Then you can run the handler by `$app['query']->getContent("pages/select");`
