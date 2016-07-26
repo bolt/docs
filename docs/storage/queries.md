@@ -42,8 +42,8 @@ $pages = $app['query']->getContent('pages/2');
 $page = $app['query']->getContent('pages/1');
 
 foreach ($results->relation['entries'] as $item) {
-    // Access relationship in here ... Item will be EntityProxy, but can be access like a Content object
-    // ... $item->toArray(); will return all fields
+    // Access relationship in here ... Item will be EntityProxy, but can be accessed like a Content object
+    // OR ... $item->toArray(); will return all fields
 }
 
 // Checking if item has related items
