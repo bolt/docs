@@ -13,7 +13,7 @@ pages:
     - performance-tips
     - troubleshooting-outside-webroot
     - making-sure-htaccess-works
-    - muti-site-setup
+    - multi-site-setup
     - curl-ca-certificates
     - sortingorder-in-contenttypes
 ---
