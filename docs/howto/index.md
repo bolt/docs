@@ -11,7 +11,7 @@ pages:
     - using-php-built-in-web-server
     - performance-tips
     - making-sure-htaccess-works
-    - muti-site-setup
+    - multi-site-setup
     - curl-ca-certificates
     - sortingorder-in-contenttypes
 ---
