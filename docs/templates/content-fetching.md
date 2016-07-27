@@ -276,6 +276,8 @@ Note that the records are fetched from the database, according to the `orderby`
 parameter. If you use `orderby 'title'`, you will get records with titles
 starting with 'a'.
 
+You can also get results randomised by using content queries. Please see the [setcontent](https://docs.bolt.cm/3.0/templates/templatetags#setcontent) documentation for examples.
+
 
 One record or multiple records?
 -------------------------------
