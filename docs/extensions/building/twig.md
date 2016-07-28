@@ -27,7 +27,7 @@ $context = [
 $this->renderTemplate('template.twig', $context);
 ```
 
-When using this function, Bolt will automatically add the extension's `template/`
+When using this function, Bolt will automatically add the extension's `templates/`
 directory to the Twig path array. If you need other directories or Twig
 namespaces added, see the [Registering Twig Paths](#registering-twig-paths)
 section below.
@@ -76,7 +76,7 @@ Registering Twig Paths
 ----------------------
 
 When using the `renderTemplate()` function, Bolt will automatically add the
-extension's `template/` directory to the Twig path array, if it hasn't been
+extension's `templates/` directory to the Twig path array, if it hasn't been
 added already.
 
 However, this can be customised with the `registerTwigPaths()` function by
