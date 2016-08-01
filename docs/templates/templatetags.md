@@ -274,7 +274,7 @@ it a string, it will simply strip out HTML and, reduce it to a given length:
 
 If you get an excerpt of a Record, Bolt will attempt to get an excerpt that's
 representative of the Record. If it has a recognisable title, it will start with
-that, and it will use the other text-fields to complete it. If fact, it's the
+that, and it will use the other text-fields to complete it. In fact, it's the
 same function that's used in the Bolt backend, on the dashboard.
 
 ```
@@ -286,7 +286,7 @@ dissensio? Cum ageremus, inquit, vitae beatum et eundem supremum diem, scribebam
 Duo Reges: constructio int…
 ```
 
-It is also possible to higlight a keyword in an excerpt, which can be used in search results.
+It is also possible to highlight a keyword in an excerpt, which can be used in search results.
 
 ```
 {% set keyword = 'ageremus' %}{# this is the keyword you want to highlight #}
