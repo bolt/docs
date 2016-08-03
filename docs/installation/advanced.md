@@ -58,6 +58,13 @@ $config = [
 return $config;
 ```
 
+You can make any modifications you like to the `$app` variable within
+your bootstrap, or to keep things well organised you can register your
+own extensions or providers onto the app.
+
+All you need to ensure is that you return an array with an `application`
+key set to an instance of your Bolt app.
+
 Mounting Bolt on an existing Application
 ----------------------------------------
 
