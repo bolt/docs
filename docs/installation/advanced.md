@@ -15,15 +15,22 @@ application. In the root of your project you will see an `index.php` file that
 should look like this:
 
 ```
-require_once __DIR__ . '/app/bootstrap.php';
+$app = require dirname(__FILE__) . '/../vendor/bolt/bolt/app/web.php';
+if ($app === false) {
+    return false;
+}
 $app->run();
 ```
 
 Ideally you would replace the path to bootstrap.php with a link to your own
-bootstrap file, for example:
+bootstrap file, by convention it is best to name this `.bolt.php` since that filename
+is looked for automatically by other Bolt components. For example:
 
 ```
-require_once __DIR__ . '/custom-bootstrap.php';
+$app = require __DIR__ . '../.bolt.php';
+if ($app === false) {
+    return false;
+}
 $app->run();
 ```
 
@@ -32,14 +39,31 @@ The basics of configuring a Bolt application
 
 The job of your custom bootstrap file is to provide a bootstrapped `$app`
 object that the `index.php` file will then run. The simplest possible bootstrap
-file will look like this, assuming that your bootstrap file is in the same
-directory as your `index.php` file:
+file will look like this, assuming that your bootstrap file is in the 
+project root one level down from your `index.php` file in `./public`:
 
 ```
-// custom-bootstrap.php
-$configuration = new Bolt\Configuration\Standard(__DIR__);
+// .bolt.php
+$configuration = new Bolt\Configuration\Composer(__DIR__);
+$configuration->setPath("web", "public");
+
 $app = new Bolt\Application(array('resources'=>$configuration));
+
+$app->initialize();
+$config = [
+    'application' => $app,
+    'resources' => null,
+];
+
+return $config;
 ```
+
+You can make any modifications you like to the `$app` variable within
+your bootstrap, or to keep things well organised you can register your
+own extensions or providers onto the app.
+
+All you need to ensure is that you return an array with an `application`
+key set to an instance of your Bolt app.
 
 Mounting Bolt on an existing Application
 ----------------------------------------
