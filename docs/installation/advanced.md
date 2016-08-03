@@ -39,8 +39,8 @@ The basics of configuring a Bolt application
 
 The job of your custom bootstrap file is to provide a bootstrapped `$app`
 object that the `index.php` file will then run. The simplest possible bootstrap
-file will look like this, assuming that your bootstrap file is in the project root
-one level down from your `index.php` file in `./public`:
+file will look like this, assuming that your bootstrap file is in the 
+project root one level down from your `index.php` file in `./public`:
 
 ```
 // .bolt.php
