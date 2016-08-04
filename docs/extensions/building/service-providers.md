@@ -52,10 +52,10 @@ class KoalaCatcherExtension extends SimpleExtension
 Extending the 'Global Twig' environment
 ---------------------------------------
 
-The same can be used to extend the global Twig environment. This can be usefull
-for exposing certain global variables in twig. For example, for when you want
-to make certain configuration settings from your extension available in the
-templates.
+The same can be used to extend the global Twig environment. This can be useful
+for exposing certain global variables in Twig. For example, if you want to 
+make certain configuration settings from your extension available in the
+templates, you can use the following:
 
 ```php
     public function registerServices(Application $app)
