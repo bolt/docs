@@ -20,7 +20,7 @@ Configuration Files
 The layout of YAML configuration files needs to adhere to the
 [Symfony YAML format](http://symfony.com/doc/current/components/yaml/yaml_format.html).
 
-```yaml
+```
 pets:
     kittens: 11
     puppies: 12

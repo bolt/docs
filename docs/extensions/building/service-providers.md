@@ -9,7 +9,8 @@ functionality, it is a good idea to break that functionality out into services.
 
 Each service should have responsibility over a single part of the functionality
 provided by the extension, and that responsibility should be contained to the
-class. This is known in computer science as the Single Responsibility Principle (SRP).
+class. This is known in computer science as the Single Responsibility Principle
+(SRP).
 
 It is good practice to aim to have an extension's services narrowly aligned
 with this principle.
@@ -17,9 +18,9 @@ with this principle.
 Registering Services
 --------------------
 
-When you have a small number of classes to register as services, and your extension is
-extending `SimpleExtension`, you can use the `registerServices()` function to
-register your extension's services with the application, e.g.:
+When you have a small number of classes to register as services, and your
+extension is extending `SimpleExtension`, you can use the `registerServices()`
+function to register your extension's services with the application, e.g.:
 
 ```php
 namespace Bolt\Extension\DropBear\KoalaCatcher;
@@ -48,15 +49,39 @@ class KoalaCatcherExtension extends SimpleExtension
 }
 ```
 
+Extending the 'Global Twig' environment
+---------------------------------------
+
+The same can be used to extend the global Twig environment. This can be usefull
+for exposing certain global variables in twig. For example, for when you want
+to make certain configuration settings from your extension available in the
+templates.
+
+```php
+    public function registerServices(Application $app)
+    {
+        $app['twig'] = $app->extend(
+            'twig',
+            function ($twig) use ($app) {
+                $config = $this->getConfig();
+                $twig->addGlobal('extensionsetting_foo', $config['foo']);
+                return $twig;
+            }
+        );
+    }
+```
+
+After doing this, you can use `{{ extensionsetting_foo }}` in your Twig templates.
+
 
 Creating Service Providers
 --------------------------
 
-When adding several services in more complex extensions, you will probably want to
-create a service provider to register your services.
+When adding several services in more complex extensions, you will probably want
+to create a service provider to register your services.
 
-In this case you can use the `getServiceProviders()` function to return an array of
-class objects that implement `Silex\ServiceProviderInterface`.
+In this case you can use the `getServiceProviders()` function to return an
+array of class objects that implement `Silex\ServiceProviderInterface`.
 
 ```php
 namespace Bolt\Extension\DropBear\KoalaCatcher;
@@ -84,7 +109,8 @@ class KoalaCatcherExtension extends SimpleExtension
 }
 ```
 
-The service provider class `src/Provider/KoalaServiceProvider.php` would then look something like:
+The service provider class `src/Provider/KoalaServiceProvider.php` would then
+look something like:
 
 ```php
 namespace Bolt\Extension\DropBear\KoalaCatcher\Provider;
