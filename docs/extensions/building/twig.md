@@ -8,11 +8,10 @@ Twig functions, filters, and template paths can be added to an extension using
 several built-in registration functions, and Twig templates can be simply
 rendered.
 
-**NOTE:** This section is best used for Twig functionality for simple extensions
-that do a limited amount. For more complex extensions and functionality, you
-may find it useful to move your Twig logic to a class file and import the
-`\Bolt\Extension\TwigTrait`.
-
+<p class="note"><strong>Note:</strong> This section is best used for Twig
+functionality for simple extensions that do a limited amount. For more complex
+extensions and functionality, you may find it useful to move your Twig logic to
+a class file and import the <tt>\Bolt\Extension\TwigTrait</tt>. </p>
 
 Rendering Twig Templates
 ------------------------
@@ -180,3 +179,12 @@ class KoalaCatcherExtension extends SimpleExtension
     }
 }
 ```
+
+<p class="note"><strong>Note:</strong> Using these methods you can not add
+variables to Twig's global scope. If you have need of global Twig variables,
+that are available in all templates, see the section 
+<a href="/extensions/building/service-providers#extending-the-global-twig-environment">
+Extending the 'Global Twig' environment</a> for instructions on
+how to do this. </p>
+
+
