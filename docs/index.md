@@ -14,4 +14,5 @@ pages:
     - howto
     - other
     - manual
+    - core-development
 ---
