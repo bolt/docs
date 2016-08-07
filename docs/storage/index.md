@@ -9,4 +9,7 @@ pages:
     - entity-metadata
     - entity-transforms
     - fields
+    - queries
+    - directives
+    - handlers
 ---

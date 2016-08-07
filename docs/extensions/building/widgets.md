@@ -110,6 +110,40 @@ Using widgets in templates / themes
 
 See the page [Using Widgets][widgets], for more information.
 
+Getting the global context
+--------------------------
+
+A Bolt widget has no so-called context, by design. Normally, a widget can be
+used on a number of locations in a website, as chosen by the implementor of the
+theme. As such, when developing the widget, we shouldn't make assumptions as to
+where it's being used.
+
+In rare cases you might still need to get the context from the Twig templates,
+in order to provide a contextual widget. To do this, use the following, before
+rendering your widget's template:
+
+```php
+    public function widgetCallback($widget)
+    {
+        $app = $this->getContainer();
+
+        // Data to pass into the widget
+        $data = [
+            'record'  => $record,
+            'widget'  => $widget,
+            'content' => $widget['content'],
+        ];
+
+        // Grab the current Twig globals, and prepare to pass them back in. 
+        $data = array_merge($data, $app['twig']->getGlobals());
+
+        return $this->renderTemplate($widget['template'], $data);
+    } 
+```
+
+<p class="note"><strong>Note:</strong> This 'trick' will only work for widgets that are not deferred.</p>
+
+
 Examples
 --------
 

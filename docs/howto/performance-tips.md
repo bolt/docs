@@ -71,7 +71,7 @@ Set up thumbs
 You can configure Bolt to save all requested thumbnails as files. To enable this
 feature, do the following:
 
- - Create a folder `thumbs` in the root of your website, and make sure it's
+ - Create a folder `thumbs` in the web root of your website, and make sure it's
    writable to the web server.
  - Set `save_files: true` in the `thumbnails:` section of `config.yml`.
 

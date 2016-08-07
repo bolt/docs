@@ -13,9 +13,11 @@ pages:
     - performance-tips
     - troubleshooting-outside-webroot
     - making-sure-htaccess-works
-    - muti-site-setup
+    - multi-site-setup
     - curl-ca-certificates
     - sortingorder-in-contenttypes
+    - git-useful-commands
+    - git-useful-commands-advanced
 ---
 Howtos and Recipes
 ===================
