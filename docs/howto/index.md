@@ -15,7 +15,6 @@ pages:
     - curl-ca-certificates
     - sortingorder-in-contenttypes
     - git-useful-commands
-    - git-useful-commands-advanced
 ---
 Howtos and Recipes
 ===================
