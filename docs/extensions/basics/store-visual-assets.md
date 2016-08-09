@@ -21,6 +21,8 @@ General recomendations for both an extension and theme screenshots are:
 
 * Use no more or no less than 100% browser zoom. 
 * If there is text in the screenshot please use a PNG image.  
+* One (1) screen shot of your theme cropped to 400x270px (or 1.48 aspect ratio). Please try to show at minimum the navigation and useful theme or extension elements. Please Do Not include any of the browser "chrome" ie: toolbars, scrollbars, statusbar or extensions you may have installed in your browser.  
+  * This screenshot would be used on the Marketplace's front page.  
 * Screenshots shouldn't contain any browser "chrome" or features. Those include:  
   * any extensions you've installed
   * any scroll bars
@@ -32,8 +34,6 @@ __Themes__
 
 Recomendations for your theme screenshots:  
 
-* One (1) screen shot of your theme cropped to 400x270px (or 1.48 aspect ratio). Please try to show at minimum the navigation and useful theme elements. Please Do Not include any of the browser "chrome" ie: toolbars, scrollbars, statusbar or extensions you may have installed in your browser.  
-  * This screenshot would be used on the Marketplace's front page.
 * Be no larger than 1200px wide.
 * show the entirety of the page ( full page screenshot ) and include:  
   * Navigation and menus
