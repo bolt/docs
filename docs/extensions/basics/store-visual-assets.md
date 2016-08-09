@@ -73,14 +73,18 @@ If its an SVG image you can use [svgomg online](https://jakearchibald.github.io/
 
 Example Composer Markup 
 -----------------------  
-Add the paths for your icons to your composer.json in the "extras" section.  
+Add the paths for your icons to your composer.json in the "extras" section. The cropped screenshot (400px x 270px) should be the first screenshot in the ``bolt-screenshots`` array. Follow this up by adding in the screenshots you will supply. How you decide to name them doesn't currently matter.  
+
+Here is an example.
 
 ```json  
  "extra": {  
-     "bolt-icon": "bolt-icon.png",
+     "bolt-icon": "assets/bolt-icon.png",
      "bolt-screenshots": [
-         "screenshots/your-cropped-screenshot.png",
-         "screenshots/screenshot.png"
+         "assets/teaser-400x270.png",
+         "assets/homepage-mobile.png",
+         "assets/homepage-desktop.png",
+         "assets/record-page.png"
     ]
  }  
 ```  
