@@ -300,8 +300,6 @@ following is the case:
 
   - `{% setcontent foo = 'bar/1' %}` or `{% setcontent foo = 'bar/qux' %}`:
     When requesting one specific record, only one is returned.
-  - `{% setcontent foo = 'page' where { .. } %}`: If 'page' is the singular
-    slug of the contenttype 'pages', Bolt assumes you only need one.
   - `{% setcontent foo = 'pages' .. returnsingle %}`: If the `returnsingle`
     parameter is passed, Bolt assumes you only need one result.
 
