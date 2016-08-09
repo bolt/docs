@@ -81,7 +81,7 @@ Here is an example.
  "extra": {  
      "bolt-icon": "assets/bolt-icon.png",
      "bolt-screenshots": [
-         "assets/teaser-400x270.png",
+         "assets/teaser.png",
          "assets/homepage-mobile.png",
          "assets/homepage-desktop.png",
          "assets/record-page.png"
