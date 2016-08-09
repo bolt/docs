@@ -96,7 +96,7 @@ called Bolt Widgets. Here's how we create our `composer.json` file.
         {
             "name": "Bolt",
             "email": "info@bolt.cm",
-            "homepage": "http://bolt.cm"
+            "homepage": "https://bolt.cm"
         }
     ],
     "autoload": {

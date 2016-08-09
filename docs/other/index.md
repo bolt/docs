@@ -45,7 +45,7 @@ these docs, be sure to get in touch, using one of the following ways:
 
   - There's always some people willing to chat in our IRC channel on Freenode
     at #boltcms. No IRC client? Use the embedded IRC on
-    [our website here](http://bolt.cm/irc), or [IRCcloud](http://irccloud.com).
+    [our website here](https://bolt.cm/irc), or [IRCcloud](http://irccloud.com).
 
 Finally, if you're using Bolt in your company, and you need commercial support,
 feel free to get in touch with Two Kings. Two Kings is the Netherlands based
