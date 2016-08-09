@@ -23,7 +23,7 @@ commands. First, create the directory where you want to install Bolt, if it
 doesn't already exist. Enter the directory, and execute the following commands:
 
 ```bash
-curl -O https://bolt.cm/distribution/bolt-2-latest.tar.gz 
+curl -O https://bolt.cm/distribution/bolt-2-latest.tar.gz
 tar -xzf bolt-2-latest.tar.gz --strip-components=1
 chmod -R 777 files/ app/database/ app/cache/ app/config/ theme/ extensions/
 ```
@@ -43,7 +43,7 @@ instead.
 
 ### Option 2: The traditional way, using (S)FTP.
 
-Download the [latest version of Bolt 2.2](http://bolt.cm/distribution/bolt-2-latest.zip).
+Download the [latest version of Bolt 2.2](https://bolt.cm/distribution/bolt-2-latest.zip).
 
 Extract the .zip file, and upload to your webhost using the (S)FTP client of
 your choice. After you've done this, be sure to chmod the following directories
@@ -66,7 +66,7 @@ for sure, ask your hosting provider.
 <p class="note"><strong>Note:</strong> Don't forget to upload the
 <code>.htaccess</code> file! Bolt won't work without it. If you can't find the
 file on your filesystem, download this <a
-href="http://bolt.cm/distribution/default.htaccess">
+href="https://bolt.cm/distribution/default.htaccess">
 <code>default.htaccess</code></a> file. Upload it to your server, and then
 rename it to <code>.htaccess</code>.<br/><br/> If you're on OSX and you don't
 see the file, it might be that your system is set up to 'hide' hidden files.
@@ -158,9 +158,9 @@ When the basic installation is finished, these are the files where you edit the 
 
   - `app/config/config.yml`  The file where all general configuration of your website is defined.
   - `app/config/contenttypes.yml` The definitions of your contenttypes, e.g. pages, blog items etc.
-  - `app/config/menu.yml` The file that contains the menu(s) for your website.  
+  - `app/config/menu.yml` The file that contains the menu(s) for your website.
   - `app/config/taxonomy.yml` Categories, chapters, tags etc. are defined here.
-  - `app/config/routing.yml` The file where you can define custom urls for you website. 
+  - `app/config/routing.yml` The file where you can define custom urls for you website.
   - `app/config/permissions.yml` Here you can specify groups, users, etc. For most websites, the default permissions settings will be just fine.
   - `app/config/extensions/` If you install extensions, their config files will be located in this directory.
 
@@ -260,11 +260,11 @@ file. Put all settings you share over all environments in the default
 Every setting which is different per environment, or which you do not want in
 version control (like database info), you put in `config_local.yml`. First
 `config.yml` is loaded and then `config_local.yml`, so  that `config_local.yml`
-can override any setting in `config.yml`. 
+can override any setting in `config.yml`.
 
 **Note:**
 Bolt will always load `config_local.yml` if it's available, so committing it to
-version control isn't recommended, and be sure not to deploy it to a server it 
+version control isn't recommended, and be sure not to deploy it to a server it
 is not needed on.
 
 <p class="tip"><strong>Tip:</strong> You might want to disable <code>debug</code> in
@@ -328,8 +328,8 @@ single line:
 FallbackResource /index.php
 ```
 
-If you have misplaced your `.htaccess` file, you can get a <a href="http://bolt.cm/distribution/default.htaccess">
-new one here</a>, from our <a href="http://bolt.cm/distribution/">files distribution page</a>.
+If you have misplaced your `.htaccess` file, you can get a <a href="https://bolt.cm/distribution/default.htaccess">
+new one here</a>, from our <a href="https://bolt.cm/distribution/">files distribution page</a>.
 Be sure to rename it to `.htaccess`, though.
 
 Nginx: Configuring the virtual host
@@ -362,12 +362,12 @@ server {
 
     # Bolt backend access
     #
-    # NOTE: If you set a custom branding path, you will need to change '/bolt/' 
+    # NOTE: If you set a custom branding path, you will need to change '/bolt/'
     #       here to match
     location ~* /bolt/(.*)$ {
         try_files $uri $uri/ /index.php?$query_string;
     }
-    
+
     # Backend async routes
     location ~* /async/(.*)$ {
         try_files $uri $uri/ /index.php?$query_string;
