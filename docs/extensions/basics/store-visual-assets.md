@@ -77,8 +77,6 @@ Add the paths for your icons to your composer.json in the "extras" section.
 
 ```json  
  "extra": {  
-     "bolt-assets": "web",
-     "bolt-class": "Bolt\\Extension\\YourName\\ExtensionName\\ExtensionNameExtension",
      "bolt-icon": "bolt-icon.png",
      "bolt-screenshots": [
          "screenshots/your-cropped-screenshot.png",
