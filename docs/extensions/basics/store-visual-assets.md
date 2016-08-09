@@ -79,7 +79,7 @@ Here is an example.
 
 ```json  
  "extra": {  
-     "bolt-icon": "assets/bolt-icon.png",
+     "bolt-icon": "assets/icon.png",
      "bolt-screenshots": [
          "assets/teaser.png",
          "assets/homepage-mobile.png",
