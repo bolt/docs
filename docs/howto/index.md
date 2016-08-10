@@ -16,7 +16,6 @@ pages:
     - multi-site-setup
     - curl-ca-certificates
     - sortingorder-in-contenttypes
-    - git-useful-commands
 ---
 Howtos and Recipes
 ===================

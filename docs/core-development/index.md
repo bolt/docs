@@ -1,5 +1,7 @@
 ---
 title: Bolt core development
+pages:
+    - howto
 ---
 References & documentation for core development
 ===============================================
