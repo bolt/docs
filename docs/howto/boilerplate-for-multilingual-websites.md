@@ -80,7 +80,7 @@ Boilerplate for Multilingual Websites
         <article>
             <header>
                 <h2><a href="{{ record.link }}">{{ entry.title }}</a></h2>
-                <p>{{ l('Posted on') }} <time>{{ entry.datepublish|localdate('%F') }}</time> {{ l('by') }} {{ record.user.displayname }}</p>
+                <p>{{ l('Posted on') }} <time>{{ entry.datepublish|localedatetime('%F') }}</time> {{ l('by') }} {{ record.user.displayname }}</p>
             </header>
             {{ entry.teaser }}
         </article>

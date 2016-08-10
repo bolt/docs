@@ -395,7 +395,7 @@ twigfilters:
         example: `{{ record.title|excerpt(20)|lower }}`.
     table:
         - [ 'Name', 'Function' ]
-        - [ '`localdate(date)`', 'Returns the date and time in a particular format. Takes the locale into account. See [`strftime()`](http://nl3.php.net/strftime) for fomatting options ' ]
+        - [ '`localedatetime(date)`', 'Returns the date and time in a particular format. Takes the locale into account. See [`strftime()`](http://nl3.php.net/strftime) for fomatting options ' ]
         - [ '`twig(string)`', 'Formats the given string as Twig in HTML' ]
         - [ '`ucfirst(string)`', "Make a string's first character uppercase." ]
         - [ '`slug(string)`', "Return the 'sluggified' version of a string: 'Lørüm Ipsum' -> 'lorum-ipsum'" ]

@@ -298,7 +298,7 @@ It is also possible to highlight a keyword in an excerpt, which can be used in s
 inquit, vitae beatum et eundem supremum diem, scribebamus haec. Duo Reges: constructio int…
 ```
 
-### localdate
+### localedatetime
 
 Outputs a localized, readable version of a timestamp, based on the `locale`
 setting in the `config.yml`-file. See the [Locales](../other/locales) page for more
@@ -310,12 +310,12 @@ when it was last edited, and optionally when it was published. These dates are
 stored in a way that makes it easier for the database to work with them when it
 comes to sorting or selecting a specific period. They look like:
 `2013-02-18 09:41:10`, which isn't suitable to output on the website itself.
-The localdate filter transforms the ugly timestamp to a readable, localized
+The localedatetime filter transforms the ugly timestamp to a readable, localized
 text. Examples:
 
 ```
 '{{ record.datepublish }}' is the same as
-'{{ record.datepublish|localdate("%A %B %e") }}'
+'{{ record.datepublish|localedatetime("%A %B %e") }}'
 ```
 
 Outputs:
@@ -329,9 +329,9 @@ Some other examples:
 
 ```
 <ul>
-    <li> Created: {{ record.datecreated|localdate("%c") }}</li>
-    <li> Published: {{ record.datepublish|localdate("The %A in week %V of %Y") }}</li>
-    <li> Last changed: {{ record.datechanged|localdate("%B %e, %Y %r ") }}</li>
+    <li> Created: {{ record.datecreated|localedatetime("%c") }}</li>
+    <li> Published: {{ record.datepublish|localedatetime("The %A in week %V of %Y") }}</li>
+    <li> Last changed: {{ record.datechanged|localedatetime("%B %e, %Y %r ") }}</li>
 </ul>
 ```
 
@@ -341,7 +341,7 @@ Outputs:
   - Published: The Sunday in week 07 of 2013
   - Last changed: February 17, 2013 01:09:30 pm
 
-The `localdate`-filter uses the PHP `strftime()` function internally. For all
+The `localedatetime`-filter uses the PHP `strftime()` function internally. For all
 possible options, see the official [strftime()][strftime] page on php.net.
 
 
@@ -354,7 +354,7 @@ possible options, see the official [strftime()][strftime] page on php.net.
 See the various options for 'date' on the [PHP website][date].
 
 <p class="note"><strong>Note:</strong> This tag does <em>not</em> display a
-localized version of the date. Use the <code>{{ localdate }}</code>-filter if
+localized version of the date. Use the <code>{{ localedatetime }}</code>-filter if
 you want to display dates in other languages than English.</p>
 
 
