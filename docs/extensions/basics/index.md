@@ -6,4 +6,5 @@ pages:
     - basics
     - creating
     - testing
+    - store-visual-assets
 ---
