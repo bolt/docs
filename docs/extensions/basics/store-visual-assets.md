@@ -9,7 +9,7 @@ is recommended you have the following:
 
 ### Icons
 
- * an icon of at least 400x400px in a PNG format.
+ * an icon with a size of 400x400px in PNG format.
 
 If you don't provide an Icon [Bolt's default marketplace icon will be used](https://extensions.bolt.cm/files/bolt-extension.png)
 
@@ -22,7 +22,7 @@ General recommendations for both an extension and theme screenshots are:
 
 * Use no more or no less than 100% browser zoom
 * If there is text in the screenshot please use a PNG image
-* One (1) screen shot cropped to 400x270px (or 1.48 aspect ratio)
+* One (1) screen shot cropped to 800x540px (or 1.48 aspect ratio)
   * Please try to show at minimum the navigation and useful theme or extension elements
   * Please Do Not include any of the browser "chrome" ie: 
     toolbars, scrollbars, statusbar or extensions you may have installed in your browser
@@ -81,7 +81,7 @@ Example Composer Markup
 
 Add the paths for your icons to your composer.json in the "extras" section. 
 
-The cropped screenshot (400px x 270px) should be the first screenshot in the 
+The cropped screenshot (800px x 540px) should be the first screenshot in the 
 `bolt-screenshots` array. Follow this up by adding in the screenshots you will supply. 
 
 How you decide to name them doesn't currently matter.
