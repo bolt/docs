@@ -370,7 +370,7 @@ Set the correct locale and call the function `initLocale` to apply a new locale.
 {{ app.initLocale() }}
 ```
 
-When outputting dates, use the [localdate filter](../templates/templatetags#localdate). Note
+When outputting dates, use the [localedatetime filter](../templates/templatetags#localedatetime). Note
 that this is only useful if the date structure is identical for every language,
 which is not always the case. You'll want to use a simple `if` statement for
 each exception.
@@ -378,12 +378,12 @@ each exception.
 ```twig
 {% if language == 'zh' %}
   {# -- Output a Chinese date -- #}
-  {% set year  = record.datepublish|localdate("%Y") %}
-  {% set month = record.datepublish|localdate("%m") %}
-  {% set day   = record.datepublish|localdate("%d") %}
+  {% set year  = record.datepublish|localedatetime("%Y") %}
+  {% set month = record.datepublish|localedatetime("%m") %}
+  {% set day   = record.datepublish|localedatetime("%d") %}
   {{year}}年{{month}}月{{day}}日
 {% else %}
-  {{ record.datepublish|localdate("%F") }}
+  {{ record.datepublish|localedatetime("%F") }}
 {% endif %}
 ```
 

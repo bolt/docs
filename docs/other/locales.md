@@ -47,7 +47,7 @@ sv_SE    Swedish              Sweden                           sv   SE
 A much longer list of possible options can be found here:
 [List of Locales, languages and countrycodes](https://github.com/bobdenotter/locales/blob/master/locales_list.txt).
 
-Bolt's `localdate()` function and filter uses the setting from `config.yml` to
+Bolt's `localedatetime()` function and filter uses the setting from `config.yml` to
 set the language for the date formatting. For an overview of the options, see
 php.net's [strftime page](http://php.net/strftime), and the documentation
-section on [localdate()](../templates/templatetags#filter-localdate).
+section on [localedatetime()](../templates/templatetags#filter-localedatetime).
