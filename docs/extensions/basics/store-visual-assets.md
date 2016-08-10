@@ -74,11 +74,7 @@ screenshot your-screenshot-name.png --fullpage
 Before Submission
 -----------------
 
-After you have created your marketplace assets we ask that you optimize your images.
-
-  * PNG or JPG images you can use [tinypng.org](https://tinypng.com/)
-  * SVG images you can use [svgomg online](https://jakearchibald.github.io/svgomg/)
-
+After you have created your marketplace assets we ask that you optimize your images. For PNG or JPG images you can use [tinypng.org](https://tinypng.com/).
 
 Example Composer Markup
 -----------------------
