@@ -5,7 +5,7 @@ Screenshots
 ===========
 
 On this page you'll find a bunch of screenshots of Bolt's administrative
-interface. Or just "backend" for short. The screenshost were taken on desktop,
+interface. Or just "backend" for short. The screenshots were taken on desktop,
 tablet and mobile. You can click the screenshots to see a popup, and you can
 navigate between the screenshots using the cursor keys.
 
