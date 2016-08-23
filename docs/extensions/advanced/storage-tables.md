@@ -122,7 +122,7 @@ class KoalaCatcherExtension extends SimpleExtension
     protected function registerExtensionTables()
     {
         return [
-            'gumtree' => Schema\Table\GumTree::class,
+            'gumtree' => Storage\Schema\Table\GumTree::class,
         ];
     }
 ```
