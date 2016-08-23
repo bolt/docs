@@ -30,7 +30,7 @@ Where:
 Step 2
 ------
 
-Create a `composer.json` to guarantee autoloding as:
+Create a `composer.json` to guarantee autoloading as:
 
 ```
 {
@@ -89,7 +89,7 @@ class MyExtensionExtension extends SimpleExtension
 Step 4
 ------
 
-Bolt might access your public assets (javascripts, stylesheets, images, etc.). For local extension, copy your assets manually to : `/{public_root}/extensions/local/{MyName}/{MyExtension}/`
+Bolt might access your public assets (javascripts, stylesheets, images, etc.). For local extension, copy your assets manually to : `/{public_root}/extensions/local/{author_name}/{extension_name}/`
 
 Where:
  - `{public_root}` is the public folder of your Bolt site
