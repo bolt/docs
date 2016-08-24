@@ -2,6 +2,7 @@
 title: Other Information
 pages:
     - manifesto
+    - contributing
     - locales
     - nut
     - maintenance-mode
