@@ -442,23 +442,6 @@ $html = $this->app['render']->render(
 return $html;
 ```
 
-### $app['htmlsnippets']
-
-Bolt outputs snippets in the HTML for includes like jQuery and the
-`<meta generator>` tag. By default these snippets are only output in the
-`frontend`, and not in `async` or `backend` pages. Extensions that use `addCSS`
-or `addJavascript` are also affected by this.
-
-When creating an extension or custom controller, the debug is not added by
-default. In your code you can enable or disable the output of these snippets
-using the following:
-
-```
-$this->app['htmlsnippets'] = false;
-$this->app['htmlsnippets'] = true;
-```
-
-
 [silex]: http://silex.sensiolabs.org
 [comp]: http://symfony.com/components
 [psr2]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
