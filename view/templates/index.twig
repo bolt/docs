@@ -65,17 +65,19 @@
                 <input type="text" placeholder="Search ..." id="algolia-search"/>
             </div>
 
-            <ul class="hide">
-                {% for v in versions %}
-                    <a href="/{{ v }}">{{ v }}</a>
-                {% endfor %}
-            </ul>
+            <div id="tree1">
+                <ul class="hide">
+                    {% for v in versions %}
+                        <a href="/{{ v }}">{{ v }}</a>
+                    {% endfor %}
+                </ul>
 
-            <ul class="jqtree_common jqtree-tree">
-                {% for page in menu %}
-                    {{ macro.menu(page, current) }}
-                {% endfor %}
-            </ul>
+                <ul class="jqtree_common jqtree-tree">
+                    {% for page in menu %}
+                        {{ macro.menu(page, current) }}
+                    {% endfor %}
+                </ul>
+            </div>
 
         </nav>
     </div>
