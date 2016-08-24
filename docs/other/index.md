@@ -3,6 +3,7 @@ title: Other Information
 pages:
     - manifesto
     - contributing
+    - code-quality
     - locales
     - nut
     - maintenance-mode
