@@ -9,6 +9,7 @@ pages:
     - maintenance-mode
     - credits
     - roadmap
+    - release-process
     - installation-advanced
 ---
 Other resources and links
