@@ -65,24 +65,17 @@
                 <input type="text" placeholder="Search ..." id="algolia-search"/>
             </div>
 
-            <div class='collapse-nodes'>
-                <a href='#' id='jqtree-collapse-all'>► Collapse all</a> &nbsp; &nbsp; &nbsp;
-                <a href='#' id='jqtree-expand-all'>▼ Expand all</a>
-            </div>
+            <ul class="hide">
+                {% for v in versions %}
+                    <a href="/{{ v }}">{{ v }}</a>
+                {% endfor %}
+            </ul>
 
-            <div id="tree1" data-data="{{ menu|json_encode }}">
-                <ul>
-                    {% for v in versions %}
-                        <a href="/{{ v }}">{{ v }}</a>
-                    {% endfor %}
-                </ul>
-
-                <ul class="jqtree_common jqtree-tree">
-                    {% for page in menu %}
-                        {{ macro.menu(page, current) }}
-                    {% endfor %}
-                </ul>
-            </div>
+            <ul class="jqtree_common jqtree-tree">
+                {% for page in menu %}
+                    {{ macro.menu(page, current) }}
+                {% endfor %}
+            </ul>
 
         </nav>
     </div>
