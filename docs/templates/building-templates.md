@@ -326,10 +326,6 @@ from those of the current one. Bolt will do its best to warn you when this will 
 
 Building Templates for the Live Editor
 --------------------------------------
-<p class="meta">
-    <strong>Bolt 2.2+</strong><br>
-    The following functionality is only available in Bolt 2.2 and later.
-</p>
 
 Bolt comes with built in support for editing records as they'll appear on your website.
 It requires a little bit of set up, but once it's ready, the experience will 
