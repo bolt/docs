@@ -252,11 +252,6 @@ because an error will be output, if you try to use a non-existing variable:
 Template Specific Fields
 ------------------------
 
-<p class="meta">
-    <strong>Bolt 2.2+</strong><br>
-    The following functionality is only available in Bolt 2.2 and later.
-</p>
-
 It's very difficult to create a *one size fits all* solution for your site. Many pages may
 look quite different to one another. This is why you'd create different templates to suit
 these different requirements. However, one page may be radically different from the other
@@ -331,10 +326,6 @@ from those of the current one. Bolt will do its best to warn you when this will 
 
 Building Templates for the Live Editor
 --------------------------------------
-<p class="meta">
-    <strong>Bolt 2.2+</strong><br>
-    The following functionality is only available in Bolt 2.2 and later.
-</p>
 
 Bolt comes with built in support for editing records as they'll appear on your website.
 It requires a little bit of set up, but once it's ready, the experience will 
