@@ -327,7 +327,6 @@ from those of the current one. Bolt will do its best to warn you when this will 
 Building Templates for the Live Editor
 --------------------------------------
 
-
 Bolt comes with built in support for editing records as they'll appear on your website.
 It requires a little bit of set up, but once it's ready, the experience will
 look something like this:
@@ -372,9 +371,13 @@ brackets. For example:
 ```twig
 <section data-bolt-field="templatefields[section_1]">{{ record.templatefields.section_1 }}</section>
 ```
-<p class="note"> <strong>Note:</strong> to disable the live editor for a content type,
-give it the property <code>liveeditor: false</code>. To disable it across your *entire Bolt
-installation*, set <code>liveeditor: false</code> in your <code>config.yml</code>.</p>
+
+<p class="note"> <strong>Note:</strong> To disable the live editor across your <strong>entire Bolt
+installation</strong>, set <code>liveeditor: false</code> in your <code>config.yml</code>.</p>
+
+<p class="note"> <strong>Note:</strong>To disable the live editor for a content type,
+set <code>liveeditor: false</code> in your <code>contentypes.yml</code>. However, the global 
+setting in <code>config.yml</code> must remain set to <code>true</code></p>
 
 
 [twig]: http://twig.sensiolabs.org/documentation
