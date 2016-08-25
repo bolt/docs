@@ -4,7 +4,6 @@ pages:
     - installing-local-extensions
     - resource-contenttype
     - simple-menu
-    - upgrade-version-1-to-2
     - building-multilingual-websites
     - boilerplate-for-multilingual-websites
     - resetting-a-password

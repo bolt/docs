@@ -22,6 +22,7 @@ pages:
     - geolocation
     - video
     - templateselect
+    - repeater
     - hidden
 ---
 

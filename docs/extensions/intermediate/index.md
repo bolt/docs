@@ -1,12 +1,10 @@
 ---
 title: Intermediate
-redirect: extensions/building/configuration
+redirect: extensions/intermediate/controllers-routes
 pages:
-    - configuration
-    - twig
-    - web-assets
     - controllers-routes
     - admin-menus
+    - customfields
     - widgets
     - service-providers
     - nut-commands

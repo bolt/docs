@@ -4,6 +4,7 @@ redirect: extensions/introduction
 pages:
     - introduction
     - basics
-    - building
+    - intermediate
     - advanced
+    - storage
 ---
