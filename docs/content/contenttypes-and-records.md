@@ -330,11 +330,6 @@ templates, see the [Template tags](../templates/templatetags) page.
 Advanced: YAML Repeated Nodes
 -----------------------------
 
-<p class="meta">
-    <strong>Bolt 2.2+</strong><br>
-    The following functionality is only available in Bolt 2.2 and later.
-</p>
-
 In order to make your Contenttype definitions more compact, and consistent, you
 can use YAML repeated nodes. Bolt has a special YAML key called `__nodes` that
 it will use only for repeated nodes, and not create a Contenttype or table for.
