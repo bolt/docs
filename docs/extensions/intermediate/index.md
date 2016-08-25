@@ -1,6 +1,6 @@
 ---
 title: Intermediate
-redirect: extensions/building/configuration
+redirect: extensions/intermediate/configuration
 pages:
     - configuration
     - twig
