@@ -4,7 +4,7 @@ title: Imagelist
 Imagelist
 =========
 
-A simple list fieldtype to upload/select images. Also contains a title text
+A simple list field type to upload/select images. Also contains a title text
 field for each image.
 
 ### Basic Configuration:

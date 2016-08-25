@@ -1,7 +1,7 @@
 ---
 title: Introduction
 ---
-Introduction to Bolt fieldtypes
+Introduction to Bolt field types
 =========
 
 Each contenttype is defined by a couple of fixed, required **Fields** that are
@@ -18,13 +18,13 @@ All fields have a general structure, like this:
 
 ```apache
         name:
-            type: name-of-fieldtype
+            type: name-of-field-type
             option: value
             option: value
             ..
 ```
 
-All fields have a number of common options, that you can use on all fieldtypes.
+All fields have a number of common options, that you can use on all field types.
 These are mostly different ways to show information to the editor, but also
 includes things like making a field required. See [here](common) for an
 explanation of these.
