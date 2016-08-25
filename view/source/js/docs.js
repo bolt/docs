@@ -32,63 +32,6 @@ jQuery(function($) {
 
     var pathname = window.location.pathname;
 
-    var $tree = $('#tree1');
-    $tree.tree({
-        // saveState: 'boltmenu',
-        data: $tree.data('data'),
-        onCreateLi: function(node, $li) {
-            $li.toggleClass('jqtree-selected', node.url === pathname);
-
-            if (pathname.indexOf(node.url) === 0) {
-                $tree.tree('openNode', node);
-                $li.removeClass('jqtree-closed');
-            }
-        }
-    });
-
-    $('#tree1').bind(
-        'tree.click',
-        function(event) {
-            // The clicked node is 'event.node'
-            var node = event.node;
-            var theURL = node.url;
-            if (theURL) {
-                location.href = theURL;
-            }
-            // $tree.tree('toggle', node);
-        }
-    );
-
-    $('#jqtree-collapse-all').click(function() {
-        var tree = $tree.tree('getTree');
-
-        tree.iterate(function(node, level) {
-            if (node.hasChildren()) {
-                // This will close the folder
-                $tree.tree('closeNode', node);
-                return false;
-            }
-
-            return true;
-        });
-
-    });
-
-    $('#jqtree-expand-all').click(function() {
-        var tree = $tree.tree('getTree');
-
-        tree.iterate(function(node, level) {
-            if (node.hasChildren()) {
-                // This will open the folder
-                $tree.tree('openNode', node);
-                return false;
-            }
-
-            return true;
-        });
-
-    });
-
     // Update the number of stars. Stolen from foundation.zurb.com.
     $.ajax({
       dataType: 'jsonp',

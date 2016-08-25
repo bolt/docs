@@ -23,14 +23,14 @@
   "dependencies": {
     "bower": "^1.7.9",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
+    "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.6.0",
-    "gulp-if": "^2.0.0",
-    "gulp-load-plugins": "^1.2.2",
+    "gulp-if": "^2.0.1",
+    "gulp-load-plugins": "^1.2.4",
     "gulp-minify-css": "^1.2.4",
-    "gulp-sass": "^2.3.1",
+    "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.0.0-alpha",
-    "gulp-uglify": "^1.5.3",
-    "yargs": "^4.6.0"
+    "gulp-uglify": "^2.0.0",
+    "yargs": "^5.0.0"
   }
 }
