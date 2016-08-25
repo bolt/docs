@@ -1,8 +1,7 @@
 ---
 title: Intermediate
-redirect: extensions/intermediate/web-assets
+redirect: extensions/intermediate/controllers-routes
 pages:
-    - web-assets
     - controllers-routes
     - admin-menus
     - widgets

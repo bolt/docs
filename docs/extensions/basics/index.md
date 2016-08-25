@@ -7,6 +7,7 @@ pages:
     - creating
     - configuration
     - twig
+    - web-assets
     - testing
     - store-visual-assets
 ---
