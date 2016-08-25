@@ -5,23 +5,60 @@ Common options for all fields
 =========
 
 
-All fields have few common options to further customize them.
+All fields have few common options to further customize them. We explain them
+in more detail below.
 
-  - `label: ..`: If omitted, the name of the field will be used as a label in
+  - `label`: If omitted, the name of the field will be used as a label in
     the edit-screen. Replace 'Foo' with the desired label of the field.
-  - `group: ..`: Group the field under a certain tab when editing.
-  - `info: ..`: Use for displaying extra information about the field in a info 
+  - `group`: Group the field under a certain tab when editing.
+  - `prefix`: Text/HTML to show before the field.
+  - `postfix`: Text/HTML to show after the field.
+  - `info`: Use for displaying extra information about the field in a info 
      popup besides the label.
-  - `prefix: ..`: Text to show before the field.
-  - `postfix: ..`: Text to show after the field.
-  - `default: ..`: The default value for a field, if applicable. See below for
-    an example.
-  - `required: true`: make this field required so that the record cannot be
+  - `default`: The default value for a field, if applicable.
+  - `required`: make this field required so that the record cannot be
     saved without it being filled.
-  - `index: true`: Add a database index for this field, only add if you know
+  - `pattern`: Add a custom validation pattern to validate against when saving.
+  - `readonly`: Do not allow an editor to change the value of this field.
+  - `index`: Add a database index for this field, only add if you know
     what this means.
 
+### Grouping fields in tabs
 
+
+If you have a number of fields in your contenttype, it might be convenient to
+add grouping to the fields, by using tabs. It will look like this:
+
+<a href="/files/contenttype-tabs.png" class="popup"><img src="/files/contenttype-tabs.png"></a>
+
+To do this, simply add `group` to the fields that you would like to place under
+a certain tab. You don't need to specify _all_ of the fields with a grouping,
+just the ones that are the first on a tab. Any subsequent fields without a
+specified `group` will fall under the previously set grouping.
+
+For example:
+
+```apache
+pages:
+    name: Pages
+    singular_name: Page
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        body:
+            type: html
+        image:
+            type: image
+            group: media
+        file:
+            type: file
+        ..
+```
 
 ### Prefix and Postfix
 
@@ -158,42 +195,4 @@ something. The readonly status is only enforced in the browser, so don't
             type: text
             default: "SN-123456789"
             readonly: true
-```
-
-
-Grouping fields in tabs
------------------------
-
-If you have a number of fields in your contenttype, it might be convenient to
-add grouping to the fields, by using tabs. It will look like this:
-
-<a href="/files/contenttype-tabs.png" class="popup"><img src="/files/contenttype-tabs.png"></a>
-
-To do this, simply add `group` to the fields that you would like to place under
-a certain tab. You don't need to specify _all_ of the fields with a grouping,
-just the ones that are the first on a tab. Any subsequent fields without a
-specified `group` will fall under the previously set grouping.
-
-For example:
-
-```apache
-pages:
-    name: Pages
-    singular_name: Page
-    fields:
-        title:
-            type: text
-            class: large
-            group: content
-        slug:
-            type: slug
-            uses: title
-        body:
-            type: html
-        image:
-            type: image
-            group: media
-        file:
-            type: file
-        ..
 ```
