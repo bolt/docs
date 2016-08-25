@@ -7,6 +7,7 @@ pages:
     - upgrading
     - configuration
     - content
+    - fields
     - templates
     - extensions
     - internals
