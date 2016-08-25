@@ -11,7 +11,6 @@ pages:
     - templates
     - extensions
     - internals
-    - storage
     - howto
     - other
     - manual

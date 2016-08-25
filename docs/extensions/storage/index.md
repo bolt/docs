@@ -1,6 +1,6 @@
 ---
-title: Interacting with the Database
-redirect: storage/introduction
+title: Storage Layer
+redirect: extensions/storage/introduction
 pages:
     - introduction
     - entity-manager

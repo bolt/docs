@@ -6,4 +6,5 @@ pages:
     - basics
     - intermediate
     - advanced
+    - storage
 ---
