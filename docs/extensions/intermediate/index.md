@@ -1,8 +1,7 @@
 ---
 title: Intermediate
-redirect: extensions/intermediate/twig
+redirect: extensions/intermediate/web-assets
 pages:
-    - twig
     - web-assets
     - controllers-routes
     - admin-menus
