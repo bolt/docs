@@ -5,6 +5,7 @@ pages:
     - about
     - basics
     - creating
+    - configuration
     - testing
     - store-visual-assets
 ---
