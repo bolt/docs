@@ -75,25 +75,6 @@ for more details.
 {% set next = page.next('datepublish', {'status': page.taxonomy.status} ) %}
 ```
 
-
-#### Geolocation
-
-The 'Geolocation' field type allows you to easily pick and use geolocations. You
-can use the given address, the latitude, longitude, and the reverse geocoded
-address. To see the values that are stored, use `{{ dump(page.geolocation) }}`.
-To insert a simple map from Google with a marker at the given location, use:
-
-```
-<div>
-<img src="http://maps.googleapis.com/maps/api/staticmap?center={{ page.geolocation.latitude }},{{ page.geolocation.longitude }}&zoom=14&size=617x300&sensor=false&markers={{ page.geolocation.latitude }},{{ page.geolocation.longitude }}">
-</div>
-```
-
-More info about these static maps, can be found at [Static Maps API V2 Developer Guide][1].
-Of course, you can use the geolocations with any mapping service you like, since
-latitude and longitude is a common geographic coordinate system used by many
-services.
-
 #### Video
 
 If you're using the 'video' field type, more information about the video is
