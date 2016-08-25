@@ -75,40 +75,6 @@ for more details.
 {% set next = page.next('datepublish', {'status': page.taxonomy.status} ) %}
 ```
 
-#### Imagelist
-
-The imagelist fieldtype is accessible as an array. This is convenient for most
-cases, because this makes it easy to output them as lists in your HTML. This
-simple example for an imagelist field named 'slider' will output thumnbails for
-each of the images, with links to the full sized versions.
-
-```
-{% for image in page.slider %}
-  <a href="{{ image.filename|image }}" title="{{ image.title }}">
-    <img src="{{ image.filename|thumbnail(100,100) }}">
-  </a>
-{% endfor %}
-```
-
-The next example outputs a wrapping div and an unordered list, but only if the
-list actually contains elements. The first and last item in the list also get a
-custom `first` and `last` class added to them.
-
-```
-  {% if page.slider|length > 0 %}
-  <div class='imageslider'>
-    <ul>
-      {% for image in page.slider %}
-      <li class="{% if loop.first %}first {% endif %}{% if loop.last %}last {% endif %}">
-        <img src="{{ image.filename|thumbnail(320,240) }}" alt="{{ image.title }}">
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-```
-
-
 ### Getting the type of a certain field
 
 If you're iterating over an array of `record.values`, it's sometimes useful to
