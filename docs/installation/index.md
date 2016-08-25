@@ -9,4 +9,5 @@ pages:
     - install-git-clone
     - advanced
     - permissions
+    - webserver
 ---
