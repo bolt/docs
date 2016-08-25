@@ -22,5 +22,6 @@ pages:
     - geolocation
     - video
     - templateselect
+    - hidden
 ---
 
