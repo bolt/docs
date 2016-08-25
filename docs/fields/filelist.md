@@ -4,7 +4,7 @@ title: Filelist
 Filelist
 =========
 
-A simple list fieldtype to upload/select files. Also contains a title text
+A simple list field type to upload/select files. Also contains a title text
 field for each file.
 
 ### Basic Configuration:

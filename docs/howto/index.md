@@ -7,7 +7,6 @@ pages:
     - upgrade-version-1-to-2
     - building-multilingual-websites
     - boilerplate-for-multilingual-websites
-    - select-field-type
     - resetting-a-password
     - using-php-built-in-web-server
     - performance-tips

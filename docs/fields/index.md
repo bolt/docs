@@ -1,5 +1,5 @@
 ---
-title: Fieldtypes
+title: Field types
 redirect: fields/intro
 pages:
     - intro
