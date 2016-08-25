@@ -1,7 +1,7 @@
 ---
 title: Introduction
 ---
-Introduction to Bolt field types
+Introduction to Bolt Field Types
 =========
 
 Each contenttype is defined by a couple of fixed, required **Fields** that are

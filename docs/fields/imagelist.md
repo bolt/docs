@@ -16,6 +16,9 @@ name:
 
 ### Example usage in templates:
 
+This example will output a magnific popup gallery with thumbnails of all the
+images:
+
 ```
 {% for image in record.imagelist %}
     {{ image|popup() }}
