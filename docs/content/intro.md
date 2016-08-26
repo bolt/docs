@@ -15,15 +15,8 @@ reviews' or 'event dates' or even completely different content. All of these
 different types of content are called **ContentTypes** in Bolt, and you can add
 as many different ContentTypes as you need.
 
-Each ContentType is defined by a couple of fixed, required **Fields** that are
-used internally, but otherwise you're free to define how the content in a
-ContentType is structured. For instance, in an 'event', you'll need a date on
-which the event takes place. For a 'book review', you'll need an author and
-publisher of the book. Other commonly used fields are `title`, `introduction`
-or maybe an `image`. Some of the Fields are fixed, which means that every
-ContentType has them. For example, every ContentType has a Field for `id`,
-`slug`, `datecreated` and `ownerid`. Below we'll describe how to define
-ContentTypes and Fields.
+Each contenttype is made up of **Fields**, you can read more about **Fields**
+and what fields are available [here](../fields).
 
 All content on your website is part of one specific ContentType, which
 automatically defines which fields that piece of content has, which in turn
@@ -87,13 +80,13 @@ is named 'Newsitem'. We've defined fields for 'title', 'slug', 'image' and
 'text'. The 'record_template' defines the default template to use, when displaying a
 single record in the browser.
 
-After you've saved the file and Refresh the Dashboard screen in your browser,
+After you've saved the file and refresh the Dashboard screen in your browser,
 you'll be greeted by a warning that the Database needs to be updated. If we do
 this, the new ContentType will be added to the database, with the fields that
 we defined in our `contenttypes.yml` file.
 
 <p class="tip"><strong>Tip:</strong> The Bolt backend is located at
-<code>/bolt</code>, relative from the 'home' location of your website. </p>
+<code>/bolt</code>, relative from the 'home' location of your website.</p>
 
 
 <a href="/files/content-example1.png" class="popup"><img src="/files/content-example1.png" width="500"></a>
@@ -101,17 +94,17 @@ we defined in our `contenttypes.yml` file.
 When you go to Configuration > Check Database, the database will be updated,
 and you'll be given the option to add some "Lorem Ipsum" Records to the newly
 created ContentType. If you do this, and go back to the dashboard, you'll see
-your new ContentType with some example news items. Sweet!
+your new ContentType with some example newsitems. Sweet!
 
 <a href="/files/content-example2.png" class="popup"><img src="/files/content-example2.png" width="500"></a>
 
 <p class="note"><strong>Note:</strong>In the following examples we're going to
-tell you to make modifications to the default `base-2014` theme. This is
+tell you to make modifications to the default `base-2016` theme. This is
 actually a very bad practice, and if you're going to make your own theme, make
-a copy of the `base-2014` theme, and do your modifications in the copy.</p>
+a copy of the `base-2016` theme, and do your modifications in the copy.</p>
 
 To add a listing of these news items to the website, edit the twig template
-`theme/base-2014/index.twig`. Most likely, it'll contain an include for a
+`theme/base-2016/index.twig`. Most likely, it'll contain an include for a
 header and some other things. Add the following to the HTML-code, preferably
 somewhere below the header section:
 
