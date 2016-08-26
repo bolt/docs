@@ -107,7 +107,7 @@ and adjust where needed.
               <!-- Theme directory. Can be relative to TEST_ROOT directory, the Bolt directory, or an absolute path -->
               <array>
                   <element key="theme">
-                      <string>theme/base-2014</string>
+                      <string>theme/base-2016</string>
                   </element>
               </array>
               <!-- The Bolt SQLite database, leave empty to use the one bundled with Bolt's repository -->

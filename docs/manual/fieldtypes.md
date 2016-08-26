@@ -119,7 +119,7 @@ Select fields
 
 A drop-down list to make a pre-defined selection from. There are two ways of
 specifying the list of available options. Either predefined options or by
-selecting from a contenttypes records.
+selecting from a ContentTypes records.
 
 ### Multiselect
 
@@ -146,7 +146,7 @@ record on the frontend.
 
 ### Meta information
 
-This section will be present in all contenttypes and allows for a few different
+This section will be present in all ContentTypes and allows for a few different
 options:
 
 #### Publication date
@@ -196,7 +196,7 @@ Relations and taxonomy
 <a href="/files/fieldtypes/relationships.png" class="popup"><img src="/files/fieldtypes/relationships.png"></a><br>
 
 Relations allows you to tie a record to another record of either the same or a
-different contenttype for usage in your templates. An example of this is often
+different ContentType for usage in your templates. An example of this is often
 seen on ecommerece websites that have a "related products" section.
 
 ### Taxonomy

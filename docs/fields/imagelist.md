@@ -4,7 +4,7 @@ title: Imagelist
 Imagelist
 =========
 
-A simple list fieldtype to upload/select images. Also contains a title text
+A simple list field type to upload/select images. Also contains a title text
 field for each image.
 
 ### Basic Configuration:
@@ -15,6 +15,9 @@ name:
 ```
 
 ### Example usage in templates:
+
+This example will output a magnific popup gallery with thumbnails of all the
+images:
 
 ```
 {% for image in record.imagelist %}

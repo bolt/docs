@@ -26,7 +26,7 @@ or
 ```
 {{ record.name|popup() }}
 ```
-See [Bolt Template tags](../templates/templatetags) for more info.
+See [Bolt Template tags](../templating/templatetags) for more info.
 
 ### Options:
 

@@ -1,8 +1,7 @@
 ---
 title: Advanced
-redirect: extensions/advanced/customfields
+redirect: extensions/advanced/fieldtypes
 pages:
-    - customfields
     - fieldtypes
     - unit-testing
     - storage-repositories

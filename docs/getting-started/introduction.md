@@ -28,12 +28,12 @@ Getting Started<br>
     </a>
 </div>
 
-<a href="../content/contenttypes-and-records" class="button large expand docsintro">
-Working with Bolt<br>
+<a href="../contenttypes" class="button large expand docsintro">
+ContentTypes<br>
 <small>Contenttypes, records, fields, taxonomies, relationships, etc</small>
 </a>
 
-<a href="../templates/templates-routes" class="button large expand docsintro">
+<a href="../templating/templates-routes" class="button large expand docsintro">
 Templating / Theming<br>
 <small>Writing templates, Twig, fetching content, paging, search</small>
 </a>
@@ -43,7 +43,7 @@ Templating / Theming<br>
     Templating tutorial (soon!)<br>
     <small>Building a theme, step by step</small>
     </a> -->
-    <a href="../internals/bolt-internals" class="button medium docsintro">
+    <a href="../internals" class="button medium docsintro">
     Bolt Internals<br>
     <small>Contributing, coding standards</small>
     </a>

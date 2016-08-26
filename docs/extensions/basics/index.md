@@ -5,6 +5,8 @@ pages:
     - about
     - basics
     - creating
+    - configuration
+    - twig
+    - web-assets
     - testing
-    - store-visual-assets
 ---
