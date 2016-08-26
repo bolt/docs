@@ -183,7 +183,7 @@ class KoalaCatcherExtension extends SimpleExtension
 <p class="note"><strong>Note:</strong> Using these methods you can not add
 variables to Twig's global scope. If you have need of global Twig variables,
 that are available in all templates, see the section 
-<a href="/extensions/building/service-providers#extending-the-global-twig-environment">
+<a href="../intermediate/service-providers#extending-the-global-twig-environment">
 Extending the 'Global Twig' environment</a> for instructions on
 how to do this. </p>
 

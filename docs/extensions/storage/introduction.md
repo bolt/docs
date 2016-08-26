@@ -11,7 +11,7 @@ interest to you if you need to interact with the storage internals, either when
 writing application code or perhaps in developing an extension.
 
 If you are just interested in fetching content records then you can continue to
-refer to the <a href="../templates/content-fetching">content fetching pages</a>.
+refer to the <a href="../../templates/content-fetching">content fetching pages</a>.
 
 Hierarchy of Storage in Bolt
 ----------------------------
