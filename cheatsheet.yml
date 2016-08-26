@@ -115,7 +115,7 @@ fielddefinitions:
         - [ "`datetime`", "Similar to the `date` field, but adds an additional field for time. "]
         - [ "`integer`", "A field to store integers. "]
         - [ "`float`", "A field to store (floating point) numbers. "]
-    links: { "Field definitions in the docs": "/fields/intro" }
+    links: { "Field definitions in the docs": "fields/intro" }
 
 fieldoptions:
     title: Field options for ContentTypes in `contenttypes.yml`
@@ -141,7 +141,7 @@ fieldoptions:
         - [ "`info: ..`", "Use for displaying extra information about the field." ]
         - [ "`extensions: [ .. ]`", "A list of allowed file extensions for uploading. Used with `file`, `filelist`, `image` and `imagelist`" ]
         - [ "`upload: foo`", "A custom path for uploaded files. Used with `file`, `filelist`, `image` and `imagelist`" ]
-    links: { "Field definitions in the docs": "/fields/intro" }
+    links: { "Field definitions in the docs": "fields/intro" }
 
 relations:
     title: Relationships
@@ -152,7 +152,7 @@ relations:
         - [ "`relations:`<br>&nbsp;&nbsp;&nbsp;&nbsp;`pages:`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`multiple: false`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`label: Select a page`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`order: -id`"]  
     postfix: |
         Accessing `record.relation` will give you nothing but the ContentTypes and id’s: `{{ print(record.relation) }}`. To get the actual related records, use `{% set relatedrecords = record.related() %}`.
-    links: { "Relationships in the docs": "/contenttypes/relationships"}
+    links: { "Relationships in the docs": "contenttypes/relationships"}
 
 taxonomies:
     title: Taxonomies and `taxonomy.yml`
@@ -164,7 +164,7 @@ taxonomies:
         - [ "`tags`", "Tags are a sort of ‘freeform’ labeling. Each record can have several tags, that do not have to be selected from a predefined list." ]
         - [ "`categories`", "Categories are chosen pre-defined categorizations for your record. These are often found on weblogs." ]
         - [ "`grouping`", "Grouping is like categories but it is - by definition - more strict. When a grouping applies to a certain record, that record should be viewed as a part of the other records with the same grouping." ]
-    links: { "Taxonomies in the docs": "/contenttypes/taxonomies"}
+    links: { "Taxonomies in the docs": "contenttypes/taxonomies"}
 
 
 permissionsyml:
@@ -174,7 +174,7 @@ permissionsyml:
         The permissions needed to perform an action are configurable by editing `app/config/permissions.yml`.
         This can be done either directly, or through Bolt’s back-end UI. By changing the permissions you basically change the way
         how people can interact with Bolt, and who is allowed to do what.
-    links: { "Permissions in the docs": "/configuration/permissions"}
+    links: { "Permissions in the docs": "configuration/permissions"}
 
 
 routing:
@@ -312,7 +312,7 @@ twigfunctions:
         - [ '`popup(filename, w, h) `', 'Helper function to wrap an image in a Magnific popup HTML tag, with thumbnail. <mark>*<mark>' ]
         - [ '`imageinfo(filename) `', 'Get an array with the dimensions of an image, together with its aspectratio and some other info. <mark>*<mark>' ]
         - [ '`file_exists(filename)`', 'Check if a file exists' ]
-        - [ '`fields(record)`', 'Ouputs all or some fields from a record. Many options are available and documented [here](/3.0/templates/fields-tag)' ]
+        - [ '`fields(record)`', 'Ouputs all or some fields from a record. Many options are available and documented [here](templating/fields-tag)' ]
         - [ '`request(para, from)`', 'Return the requested parameter from `$_REQUEST`, `$_GET` or `$_POST`.' ]
         - [ '`first / last() `', 'Returns the first item of an array. <mark>*<mark>' ]
         - [ '`shuffle(array) `', 'Randomly shuffle the contents of a passed array. <mark>*<mark>' ]
@@ -358,7 +358,7 @@ setcontent:
         - [ "`where { title: '%ipsum%' }`", "use `%` in your `where` statement to use 'LIKE' matching."]
         - [ "`where { tags: 'book || movie' }`", "you can also use taxonomies in your `where`."]
         - [ "`where { datepublish: '<today' }`", "use shortcuts like 'now', 'today', 'tomorrow' for date selection."]
-    links: { "{% setcontent %} in the documentation": "/templates/content-fetching" }
+    links: { "{% setcontent %} in the documentation": "templating/content-fetching" }
 
 twifdefaulttags:
     title: "Twig default tags"

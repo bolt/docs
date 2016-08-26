@@ -17,7 +17,7 @@ There are two ways that Bolt makes content accessible in templates:
   - Fetching other content: By using the `{% setcontent %}`-tag, you can
     retrieve records of any ContentType from the database, and make the data
     available to the templates. Much more information about `setcontent`, can
-    be found in the chapter [Fetching content](../templates/content-fetching).
+    be found in the chapter [Fetching content](../templating/content-fetching).
 
 Implicitly available content
 ----------------------------
