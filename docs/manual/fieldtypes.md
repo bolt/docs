@@ -196,7 +196,7 @@ Relations and taxonomy
 <a href="/files/fieldtypes/relationships.png" class="popup"><img src="/files/fieldtypes/relationships.png"></a><br>
 
 Relations allows you to tie a record to another record of either the same or a
-different contenttype for usage in your templates. An example of this is often
+different ContentType for usage in your templates. An example of this is often
 seen on ecommerece websites that have a "related products" section.
 
 ### Taxonomy
