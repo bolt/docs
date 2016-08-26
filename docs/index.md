@@ -10,6 +10,7 @@ pages:
     - fields
     - templates
     - extensions
+    - publishing-marketplace
     - internals
     - howto
     - other
