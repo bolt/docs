@@ -1,5 +1,5 @@
 ---
-title: Fieldtypes
+title: Field types
 redirect: fields/intro
 pages:
     - intro
@@ -22,6 +22,7 @@ pages:
     - geolocation
     - video
     - templateselect
+    - repeater
     - hidden
 ---
 

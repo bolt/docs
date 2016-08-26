@@ -65,7 +65,7 @@ you require guidance on setting up permissions, see our
 
 After you've done this, skip to the section [Setting up Bolt](../configuration/introduction).
 
-[apache]: ../configuration/web-server-apache
-[nginx]: ../configuration/web-server-nginx
+[apache]: ../installation/webserver/apache
+[nginx]: ../installation/webserver/nginx
 [webroot]: ../howto/troubleshooting-outside-webroot
 [outside-why]: ../howto/troubleshooting-outside-webroot#what-s-the-point-of-doing-this

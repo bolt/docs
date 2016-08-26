@@ -24,9 +24,9 @@ name:
 {{ record.name }}
 ```
 
-### Populating the values from a contenttype
+### Populating the values from a ContentType
 
-You can also get the values from a the records of a contenttype.
+You can also get the values from a the records of a ContentType.
 
 ```
         name:
@@ -44,7 +44,7 @@ For example to display both the id and title of 'pages':
             values: pages/id,title
 ```
 
-If you wish to store another field or value from the original contenttype in
+If you wish to store another field or value from the original ContentType in
 your database, use the keys setting. If you do this, it will not store the
 'id', but the value of the field you specify. For example:
 
@@ -79,7 +79,7 @@ Finally you can pass filters to the query using the filter option. For a full
 reference of what can be passed to a where filter you can see the content
 fetching documentation.
 
-As well as filters on the contenttype values you can also pass in taxonomy
+As well as filters on the ContentType values you can also pass in taxonomy
 conditions too, as in the example below.
 
 ```

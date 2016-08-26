@@ -6,14 +6,14 @@ pages:
     - installation
     - upgrading
     - configuration
-    - content
+    - contenttypes
     - fields
-    - templates
+    - templating
     - extensions
-    - internals
-    - storage
+    - publishing-marketplace
     - howto
-    - other
+    - internals
     - manual
+    - other
     - core-development
 ---

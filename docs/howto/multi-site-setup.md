@@ -79,11 +79,11 @@ ln -s /var/www/bolt-private/app/view/ app/view
 
 ### Install a theme
 
-For this HOWTO, we'll just use the default `base-2014` theme and files. Copy
-the `base-2014` directory into your site's `theme/` directory:
+For this HOWTO, we'll just use the default `base-2016` theme and files. Copy
+the `base-2016` directory into your site's `theme/` directory:
 
 ```
-$ cp -a /var/www/bolt-private/theme/base-2014/ /var/www/sites/my-sites-1/theme/
+$ cp -a /var/www/bolt-private/theme/base-2016/ /var/www/sites/my-sites-1/theme/
 $ cp -a /var/www/bolt-private/files/* /var/www/sites/my-sites-1/files/
 ```
 

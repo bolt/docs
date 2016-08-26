@@ -38,11 +38,11 @@ Boilerplate for Multilingual Websites
 
 {{ setLanguage(language) }}
 
-{# --- set the contenttypes --- #}
+{# --- set the ContentTypes --- #}
 
 {% set pagescontenttype      = language ~ '-pages' %}
 {% set entriescontenttype    = language ~ '-entries' %}
-{# ... more contenttypes ... #}
+{# ... more ContentTypes ... #}
 
 {# --- set the menus --- #}
 
