@@ -521,7 +521,7 @@ apppath:
         - ["`canonicalurl`", "`http://example.com/`&shy;`entry/lorum-ipsum`"]
         - ["`protocol`", "`http`"]
         - ["`rooturl`", "`http://example.com/`"]
-        - ["`theme`", "`/theme/base-2014/`"]
+        - ["`theme`", "`/theme/base-2016/`"]
         - ["`apppath`", "`/[path]/app`"]
         - ["`cachepath`", "`/[path]/app/cache`"]
         - ["`configpath`", "`/[path]/app/config`"]
@@ -531,7 +531,7 @@ apppath:
         - ["`filespath`", "`/[path]/files`"]
         - ["`rootpath`", "`/[path]/bolt`"]
         - ["`themebasepath`", "`/[path]/theme`"]
-        - ["`themepath`", "`/[path]/theme/base-2014`"]
+        - ["`themepath`", "`/[path]/theme/base-2016`"]
         - ["`webpath`", "`/[path]/bolt`"]
     links: { "app['paths'] in the docs": "/internals/bolt-internals#app8216paths8217" }
 

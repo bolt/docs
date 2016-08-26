@@ -335,7 +335,7 @@ look something like this:
 <img src="/files/live-editor-demo.gif" alt="The Live Editor" width="500" />
 </a>
 
-<p class="tip"> <strong>Tip:</strong> the default Bolt-2014 theme is live-editor enabled.
+<p class="tip"> <strong>Tip:</strong> the default Bolt-2016 theme is live-editor enabled.
 If you're unsure about how this all works, take a look at its source code in your
 Bolt installation.</p>
 

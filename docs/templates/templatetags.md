@@ -84,7 +84,7 @@ can do with the `thumbnail`-tag.
 ```
 {{ record.photo|popup(100, 100, "r") }}
 or
-{{ popup("2014-10/foo.jpg", 100, 100) }}
+{{ popup("2016-08/foo.jpg", 100, 100) }}
 ```
 
 Note that you should include the Magnific Popup `.js` and `.css` yourself, as

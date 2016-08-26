@@ -73,8 +73,8 @@ File system paths available are:
     "databasepath" => "/path/to/bolt/app/database"
     "themebase" => "/path/to/bolt/theme"
     "themebasepath" => "/path/to/bolt/theme"
-    "themepath" => "/path/to/bolt/theme/base-2014"
-    "templatespath" => "/path/to/bolt/theme/base-2014"
+    "themepath" => "/path/to/bolt/theme/base-2016"
+    "templatespath" => "/path/to/bolt/theme/base-2016"
   ]
 ```
 
@@ -88,7 +88,7 @@ URL paths available are:
     "async" => "/async/"
     "upload" => "/upload/"
     "bolt" => "/bolt/"
-    "theme" => "/theme/base-2014/"
+    "theme" => "/theme/base-2016/"
     "current" => "/"
     "canonicalurl" => "https://www.bolt.cm/page/about"
     "currenturl" => "https://bolt.cm/page/about"

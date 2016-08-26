@@ -133,7 +133,7 @@ When you refresh the front page of the website, you should see four news items
 listed on the page. You can click the title to go to the news item on a separate
 page, but it will use the default `record.twig` template. In the ContentType we
 defined the template as `newsitem.twig`, but it doesn't exist. Create the file 
-in the `theme/base-2014/` folder, and add the following HTML-code:
+in the `theme/base-2016/` folder, and add the following HTML-code:
 
 ```
 <!DOCTYPE html>
