@@ -30,7 +30,7 @@ for how to get a key</p>
 
 If you're getting unspecified "Internal Server Errors", the most likely cause
 is a missing or malfunctioning `.htaccess` file. See the section [Tweaking the
-.htaccess file](web-server-apache) for tips. If you still
+.htaccess file](../installation/webserver/apache) for tips. If you still
 encounter errors, check your vhost configuration and be sure that the
 AllowOverride option is enabled.
 
