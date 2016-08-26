@@ -17,7 +17,7 @@ Bolt and Twig (in particular,
 <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a>).
 Please remember that this is only one way to handle multilingual content.
 Questions and/or suggestions are welcome, please check the
-<a href="/internals/contributing">contributing guide</a> or the
+<a href="../internals/contributing">contributing guide</a> or the
 <a href="https://bolt.cm/community">Bolt community</a> page for more
 information.</p>
 

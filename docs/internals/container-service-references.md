@@ -198,7 +198,7 @@ Instance of `Bolt\Cache`. See `src/Cache.php` for details.
 ## $app['extensions']
 
 This is an instance of `Bolt\Extensions`. See the page on
-[Bolt extensions](/extensions/introduction) for details.
+[Bolt extensions](../extensions/introduction) for details.
 
 ## $app['twig']
 
