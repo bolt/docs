@@ -4,4 +4,5 @@ redirect: configuration/introduction
 pages:
     - introduction
     - database
+    - permissions
 ---

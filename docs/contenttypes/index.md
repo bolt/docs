@@ -7,5 +7,4 @@ pages:
     - taxonomies
     - relationships
     - menus
-    - permissions
 ---
