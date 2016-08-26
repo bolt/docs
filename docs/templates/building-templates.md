@@ -63,7 +63,7 @@ The current default theme contains the following files and folders:
 
 The filenames of the 'helper' templates all start with an underscore. This is
 just a convention, to make it easier to recognize which template does what. If
-one of your contenttypes have a 'template select' field, Bolt will skip these
+one of your ContentTypes have a 'template select' field, Bolt will skip these
 helper templates by default.
 
 
@@ -72,7 +72,7 @@ to insert the header, footer and such, but you're free to use
 <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a>
 if you prefer. </p>
 
-By default, Bolt creates links to single pages based on the contenttypes, and
+By default, Bolt creates links to single pages based on the ContentTypes, and
 it uses a template based on its name. For instance, if your site has a
 contenttype `foos`, a single record in that contenttype will be available under
 <a>domain.com/foo/slug-of-record</a>, where `slug-of-record` is the slugified
@@ -80,7 +80,7 @@ version of the title. Bolt will try to use `foo.twig` as the template to render
 the page. You can change this by either defining another template in
 `contenttypes.yml`, or using a 'template select' field in the contenttype. More
 information about this can be found in the chapter
-[Working with Content and Content types](../content/contenttypes-and-records).
+[Working with Content and Content types](../contenttypes/intro).
 
 Using your themes `theme.yml` you can also provide fallbacks for certain settings
 of the main `config.yml`. These are useful when building themes and you want to
@@ -291,7 +291,7 @@ happen automatically.
 </a>
 
 To change the name shown for each template in the templateselect field you can define the
-names and their associated contenttypes in the theme's `theme.yml`.
+names and their associated ContentTypes in the theme's `theme.yml`.
 
 ```yml
 templateselect:

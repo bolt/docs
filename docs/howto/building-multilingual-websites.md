@@ -41,11 +41,11 @@ Table of Contents
    * [Pagination on Search Results Pages](#pagination-search-results-pages)
 
 
-Defining Contenttypes
+Defining ContentTypes
 ---------------------
 
-An important step when making websites, is to properly [define your contenttypes
-](../content/contenttypes-and-records). Since contenttypes are defined in YAML, there are
+An important step when making websites, is to properly [define your ContentTypes
+](../contenttypes/intro). Since ContentTypes are defined in YAML, there are
 some handy tricks you can apply. YAML provides node anchors (`&`) and references
 (`*`) for repeated nodes. So once the fields of a contenttype are defined, you
 can simply reference them. Be sure that the anchor is defined before it is used.
@@ -83,9 +83,9 @@ pages-de:
     template: page.twig
 ```
 
-A recommended method is to use the same slugs for the same contenttypes with the
+A recommended method is to use the same slugs for the same ContentTypes with the
 language as a prefix or postfix. You can choose to omit the language for the
-_default_ contenttypes if you desire:
+_default_ ContentTypes if you desire:
 
 | postfix               | prefix                |
 | --------------------- | --------------------- |
@@ -129,7 +129,7 @@ en-entries:
   defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'en-entries' }
   contenttype:        en-entries
 
-# ... more contenttypes here ...
+# ... more ContentTypes here ...
 
 en-pages:
   path:               /en/{slug}
@@ -145,7 +145,7 @@ nl-entries:
   defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'nl-entries' }
   contenttype:        nl-entries
 
-# ... more contenttypes here ...
+# ... more ContentTypes here ...
 
 nl-pages:
   path:               /nl/{slug}
@@ -160,7 +160,7 @@ nl-pages:
 Defining Menus
 --------------
 Define your menus as usual. You'll need a duplicate of every menu per language.
-Be sure to prefix (or postfix) them, just like with contenttypes and routes.
+Be sure to prefix (or postfix) them, just like with ContentTypes and routes.
 
 ```apache
 en-main:
@@ -186,7 +186,7 @@ Probably, the most interesting part. It is best to make use of the powerful
 [Template Inheritance](http://twig.sensiolabs.org/doc/templates.html#template-
 inheritance), in Twig, where you define one master template — e.g. `master.twig`
 — that is extended by other pages. Start by determining the current language
-based on the URL and define all contenttypes and menus.
+based on the URL and define all ContentTypes and menus.
 
 ```twig
 {% spaceless %}
@@ -206,7 +206,7 @@ based on the URL and define all contenttypes and menus.
 
 {% set pagescontenttype      = language ~ '-pages' %}
 {% set entriescontenttype    = language ~ '-entries' %}
-{# ... more contenttypes ... #}
+{# ... more ContentTypes ... #}
 
 {% set menumain              = language ~ '-main' %}
 {% set menufooter            = language ~ '-footer' %}
@@ -271,7 +271,7 @@ search results page based on the current language. In your search form, set the
 By default, the `search_results_template` is `listing.twig`. This can be
 modified in `config.yml` if desired. Every time a search is triggered, the
 variable `records` needs to be overridden. Define a variable that has all
-contenttypes you want to search in:
+ContentTypes you want to search in:
 
 ```twig
 {% if search %}

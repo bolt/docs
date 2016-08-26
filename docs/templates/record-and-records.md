@@ -6,7 +6,7 @@ Record and Records
 
 When writing templates for Bolt, you'll be mostly working with a single record
 with content, or arrays containing a number of records. See the page on
-[Content in templates](../content/content-in-templates) for more information on how they
+[ContentTypes](../contenttypes/intro) for more information on how they
 become available in templates.
 
 This page is divided in two parts: working with a single `{{ record }}`, or
@@ -100,7 +100,7 @@ function comes in handy:
 
 <p class="note"><strong>Note:</strong> To create connections between different
 records of the same or different contenttypes, see the page on <a
-href="../content/relationships">Relations</a>.</p>
+href="../contenttypes/relationships">Relations</a>.</p>
 
 
 Using `{{ records }}`

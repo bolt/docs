@@ -237,9 +237,9 @@ The available options are:
     [Fields Definition](#field-definitions) section below for details.
   - `taxonomy`: An array listing the different taxonomies used by this
     ContentType. For example `[ categories, tags ]`. See the page on
-    [Taxonomies](../content/taxonomies) for details.
+    [Taxonomies](../contenttypes/taxonomies) for details.
   - `relations`: An array listing the different relations available to this
-    ContentType. See the page on [Relations](../content/relationships) for 
+    ContentType. See the page on [Relations](../contenttypes/relationships) for 
     details.
   - `record_template`: The default template to use, when displaying a single
     Record of this ContentType. The template itself should be located in your

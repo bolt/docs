@@ -28,8 +28,8 @@ Getting Started<br>
     </a>
 </div>
 
-<a href="../content/contenttypes-and-records" class="button large expand docsintro">
-Working with Bolt<br>
+<a href="../contenttypes class="button large expand docsintro">
+ContentTypes<br>
 <small>Contenttypes, records, fields, taxonomies, relationships, etc</small>
 </a>
 

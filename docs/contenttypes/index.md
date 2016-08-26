@@ -1,6 +1,6 @@
 ---
 title: ContentTypes
-redirect: content/intro
+redirect: contenttypes/intro
 pages:
     - intro
     - content-in-templates

@@ -32,7 +32,7 @@ Global search
 The global search is configured inside the config.yml and the routing.yml. In
 config you define which template will show the results and in the routing you
 could change to default URL. By default this global search will search through
-all contenttypes unless 'searchable' is set to _false_.
+all ContentTypes unless 'searchable' is set to _false_.
 
 You can initiate the search by visiting the URL `/search?q=SEARCH`.
 
@@ -125,7 +125,7 @@ default, a match in any field in the contenttype gets a base score of '50'. A
 match in the title gets a base score of '100', and a matching taxonomy gets a
 base score of '75'.
 
-You can override these scores in the config files for the contenttypes and
+You can override these scores in the config files for the ContentTypes and
 taxonomies. For example, in `contenttypes.yml`:
 
 ```apache

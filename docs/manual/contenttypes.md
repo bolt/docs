@@ -1,20 +1,20 @@
 ---
-title: Contenttypes
+title: ContentTypes
 ---
-Contenttypes
+ContentTypes
 ==================
 
-Your contenttypes
+Your ContentTypes
 --------------------
 
-Your designer has probably set up contenttypes for you that are tailored to
+Your designer has probably set up ContentTypes for you that are tailored to
 your needs. You will find a description of these and how to use them under each
 overview in the section "Content" in the menu. If you are just trying bolt or
-want to set it up yourself your contenttypes will be the ones outlined below.
+want to set it up yourself your ContentTypes will be the ones outlined below.
 
-Default contenttypes
+Default ContentTypes
 --------------------
-All content in bolt is contained within different contenttypes, which in turn
+All content in bolt is contained within different ContentTypes, which in turn
 contain different fields for you to enter content in. By default these are:
 
 * **Pages** - A contenttype meant for normal pages on a site, has fields for a

@@ -6,7 +6,7 @@ pages:
     - installation
     - upgrading
     - configuration
-    - content
+    - contenttypes
     - fields
     - templates
     - extensions

@@ -10,10 +10,10 @@ the markup looks like. On the other hand, in some cases you simply can't do
 this for each separate field, for a number of reasons:
 
  - You are creating a theme for others to use, and you don't know what the
-   contenttypes will look like.
+   ContentTypes will look like.
  - Your contenttype has a Repeater Field, so there can be any number of fields
    for the record.
- - Your (extended) template is used for different contenttypes, with or without
+ - Your (extended) template is used for different ContentTypes, with or without
    Template fields.
  - You want to provide a 'generic' single record template, to go with the
    carefully crafted `entry.twig` or `page.twig`.

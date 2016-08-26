@@ -119,7 +119,7 @@ Select fields
 
 A drop-down list to make a pre-defined selection from. There are two ways of
 specifying the list of available options. Either predefined options or by
-selecting from a contenttypes records.
+selecting from a ContentTypes records.
 
 ### Multiselect
 
@@ -146,7 +146,7 @@ record on the frontend.
 
 ### Meta information
 
-This section will be present in all contenttypes and allows for a few different
+This section will be present in all ContentTypes and allows for a few different
 options:
 
 #### Publication date
