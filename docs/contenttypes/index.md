@@ -6,5 +6,4 @@ pages:
     - content-in-templates
     - taxonomies
     - relationships
-    - menus
 ---

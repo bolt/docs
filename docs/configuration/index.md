@@ -5,4 +5,5 @@ pages:
     - introduction
     - database
     - permissions
+    - menus
 ---
