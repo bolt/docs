@@ -327,7 +327,7 @@ name of your record or array. In most templates, `{{ dump(record) }}` will work
 as a generic fallback for whatever the name of your record is.
 
 For detailed information on how to access the various fields and values in your
-templates, see the [Template tags](../templates/templatetags) page.
+templates, see the [Template tags](../templating/templatetags) page.
 
 Advanced: YAML Repeated Nodes
 -----------------------------

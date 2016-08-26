@@ -17,7 +17,7 @@ Bolt and Twig (in particular,
 <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a>).
 Please remember that this is only one way to handle multilingual content.
 Questions and/or suggestions are welcome, please check the
-<a href="../internals/contributing">contributing guide</a> or the
+<a href="../other/contributing">contributing guide</a> or the
 <a href="https://bolt.cm/community">Bolt community</a> page for more
 information.</p>
 
@@ -370,7 +370,7 @@ Set the correct locale and call the function `initLocale` to apply a new locale.
 {{ app.initLocale() }}
 ```
 
-When outputting dates, use the [localedatetime filter](../templates/templatetags#localedatetime). Note
+When outputting dates, use the [localedatetime filter](../templating/templatetags#localedatetime). Note
 that this is only useful if the date structure is identical for every language,
 which is not always the case. You'll want to use a simple `if` statement for
 each exception.

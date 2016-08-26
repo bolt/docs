@@ -12,7 +12,7 @@ your content and your settings.
 *If your site has been setup by a designer or developer you will likely already
 have content on your site. In that case please click one of the ContentTypes
 under the section Content in the left menu and skip to
-[Content overview](/content-overview)*
+[Content overview](content-overview)*
 
 <a href="/files/screenshots/dashboard-empty.png" class="popup"><img src="/files/screenshots/dashboard-empty.png" width="590"></a><br>
 

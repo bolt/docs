@@ -244,6 +244,6 @@ directly from Bolt's 'Extras' menu. More information about the extension can be
 found on the [Bolt extensions website][boltext]. The full [readme can be found
 here][read].
 
-[widgets]: ../../templates/widgets
+[widgets]: ../../templating/widgets
 [boltext]: http://extensions.bolt.cm/view/082a7153-8205-11e5-86fe-396a68cabe59
 [read]: https://github.com/bolt/base-widget/blob/master/README.md
