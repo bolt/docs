@@ -8,7 +8,7 @@ pages:
     - configuration
     - contenttypes
     - fields
-    - templates
+    - templating
     - extensions
     - publishing-marketplace
     - howto

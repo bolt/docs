@@ -1,6 +1,6 @@
 ---
 title: Templating
-redirect: templates/templates-routes
+redirect: templating/templates-routes
 pages:
     - templates-routes
     - building-templates
