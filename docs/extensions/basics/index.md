@@ -9,5 +9,4 @@ pages:
     - twig
     - web-assets
     - testing
-    - store-visual-assets
 ---

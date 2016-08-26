@@ -1,7 +1,7 @@
 ---
-title: Market Place Visual Assets Best Practices
+title: Visual Assets Best Practices
 ---
-Market Place Visual Assets Best Practices
+Visual Assets Best Practices
 =========================================
 
 When you are ready to submit your Extension or Theme to the Bolt Marketplace it

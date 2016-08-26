@@ -4,7 +4,7 @@ title: Creating content
 Creating content
 ================
 
-You are now on the page for creating a new record of your contenttype:
+You are now on the page for creating a new record of your ContentType:
 
 <a href="/files/screenshots/new-entry.png" class="popup"><img src="/files/screenshots/new-entry.png" width="590"></a><br>
 

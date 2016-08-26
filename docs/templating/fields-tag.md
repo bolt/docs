@@ -10,10 +10,10 @@ the markup looks like. On the other hand, in some cases you simply can't do
 this for each separate field, for a number of reasons:
 
  - You are creating a theme for others to use, and you don't know what the
-   contenttypes will look like.
- - Your contenttype has a Repeater Field, so there can be any number of fields
+   ContentTypes will look like.
+ - Your ContentType has a Repeater Field, so there can be any number of fields
    for the record.
- - Your (extended) template is used for different contenttypes, with or without
+ - Your (extended) template is used for different ContentTypes, with or without
    Template fields.
  - You want to provide a 'generic' single record template, to go with the
    carefully crafted `entry.twig` or `page.twig`.
@@ -21,9 +21,9 @@ this for each separate field, for a number of reasons:
 
 In these cases, you cannot specify all of the fields like `{{ record.title }}`
 separately, because you simply don't know the exact structure of the
-contenttype. For this very usecase, Bolt provides a tag to output these fields
+ContentType. For this very usecase, Bolt provides a tag to output these fields
 when you're working on a template without having to know exactly what's in the
-contenttype. This is the `{{ fields() }}`-tag. Basic usage is straightforward:
+ContentType. This is the `{{ fields() }}`-tag. Basic usage is straightforward:
 
 ```twig
 {% extends 'partials/_master.twig' %}
@@ -49,7 +49,7 @@ fields are being output and in what format.
    `true`. This will output the fields that are of type 'html', 'markdown',
    'textarea', 'text', 'image', 'video'.
  - `extended`: Whether to output the so-called extended fields, as defined in
-   the contenttype. Defaults to `false`. This will output the fields that are
+   the ContentType. Defaults to `false`. This will output the fields that are
    of type 'imagelist', 'geolocation', 'select', 'checkbox', 'filelist', 'datetime', 'date',
    'integer' and 'float'.
  - `repeaters`: Whether to output the fields that were added as 'Repeater
@@ -93,7 +93,7 @@ Using `skip_uses`
 By default, `fields()` skips the fields that are used by the slug. This is why
 the first example on this page works as-is. We manually output the title in an
 `<h1>`-tag, and let `fields()` handle the rest. Doing this assumes that the
-contenttype looks something like this:
+ContentType looks something like this:
 
 ```twig
 pages:
@@ -109,7 +109,7 @@ pages:
             uses: title
 ```
 
-The `fields()`-tag looks at the `uses` in the contenttype, and skips the fields
+The `fields()`-tag looks at the `uses` in the ContentType, and skips the fields
 that are mentioned there.
 
 In case this is not desired behaviour, just use this:

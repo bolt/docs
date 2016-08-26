@@ -232,8 +232,8 @@ replaced, without having to worry about overwriting your configuration files,
 for example.
 
 [sfdir]: http://symfony.com/doc/current/cookbook/configuration/override_dir_structure.html
-[apache]: ../configuration/web-server-apache
-[nginx]: ../configuration/web-server-nginx
+[apache]: ../installation/webserver/apache
+[nginx]: ../installation/webserver/nginx
 [1]: #configure-apache-or-nginx
 [2]: #configure-bolt-to-use-the-web-host
 [3]: #create-a-symlink-to-the-code-public-code-folder

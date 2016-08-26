@@ -9,7 +9,7 @@ Overview
 
 An entity is designed to be a very simple PHP object that represents a single
 object of data. For example a user in Bolt is represented via the
-`Bolt\Entity\User` class and contenttypes setup via the `contenttypes.yml` file
+`Bolt\Entity\User` class and ContentTypes setup via the `contenttypes.yml` file
 will normally return a `Bolt\Entity\Content` object.
 
 Normally an entity will map each property to an object attribute and if you are

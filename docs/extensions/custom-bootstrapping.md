@@ -1,7 +1,7 @@
 ---
-title: Advanced Installation options
+title: Custom Bootstrapping
 ---
-Advanced Installation Options
+Creating your own Bootstrap
 =============================
 
 Whilst Bolt is designed to be simple for anyone to install, its core
@@ -87,21 +87,3 @@ Stack\run($app);
 
 This means that you can, for instance, use Bolt to manage one specific part of
 a larger application set.
-
-### Keeping Code out of the Web Root
-
-The basic installation is designed to be flexible for those users that may be
-limited to shared hosting environments. For this reason an out of the box
-installation will install the entire Bolt application in a single root
-directory.
-
-The location of app resources is completely configurable so you only need to
-store public assets inside the web root directory. We would **strongly
-recommend** that you use this strategy if you have control over your hosting
-environment. If you bump into trouble setting this up, or you have no access to
-unchangeable in your web server's configuration, read the page
-[Troubleshooting 'outside of the webroot'][webroot].
-
-If you are happy using the command line installer then the Composer installer
-allows you to select a separate public directory and the rest of Bolt is stored
-a level below. See the [full instructions here](composer).

@@ -7,6 +7,6 @@ pages:
     - composer
     - install-sftp
     - install-git-clone
-    - advanced
     - permissions
+    - webserver
 ---

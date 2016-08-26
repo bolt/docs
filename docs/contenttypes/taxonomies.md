@@ -56,7 +56,7 @@ categories:
 ```
 By default, a taxonomypage will use the `listing.twig` template. However, by specifying a `listing_template`, you can set a different template for each taxonomy.
 
-Once the taxonomies are added, you need to add them to your contenttypes in
+Once the taxonomies are added, you need to add them to your ContentTypes in
 `contenttypes.yml`, so you can use them in your content. For example:
 
 ```apache
@@ -69,7 +69,7 @@ entries:
 ..
 ```
 
-If you'd like to use more than one taxonomy for a contenttype, be sure to use an
+If you'd like to use more than one taxonomy for a ContentType, be sure to use an
 array:
 
 ```apache

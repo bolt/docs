@@ -15,7 +15,7 @@ templates. We've added a few tags of our own. Browse
 `src/Twig/TwigExtension.php` and `src/Twig/SetcontentTokenParser.php`
 for details.
 
-More information on this subject can be found in [Templates and Routes](/templates-routes)
-and [Content in Templates](/content-in-templates).
+More information on this subject can be found in [Templates and Routes](../templating/templates-routes)
+and [Content in Templates](../contenttypes/content-in-templates).
 
 [twig]: http://twig.sensiolabs.org/

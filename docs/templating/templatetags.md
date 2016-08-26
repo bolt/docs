@@ -84,7 +84,7 @@ can do with the `thumbnail`-tag.
 ```
 {{ record.photo|popup(100, 100, "r") }}
 or
-{{ popup("2014-10/foo.jpg", 100, 100) }}
+{{ popup("2016-08/foo.jpg", 100, 100) }}
 ```
 
 Note that you should include the Magnific Popup `.js` and `.css` yourself, as
@@ -230,7 +230,7 @@ See: [`for` in the Twig documentation][for].
 ```
 
 For more info on debugging your Bolt site, see the chapter on
-[Bolt Internals](../internals/bolt-internals).
+[Bolt Internals](../internals).
 
 <p class="note"><strong>Note:</strong> Don't forget to set <code>debug:
 true</code> in your <code>config.yml</code> file. Otherwise the
@@ -558,7 +558,7 @@ characters by default. If you want to use the HTML as-is, add the raw modifier:
 
 If we didn't add the `raw` modifier, all '<' and '>' characters in the body
 would be output as '&amp;lt;' and '&amp;gt;' respectively. If 'body' is an HTML
-field in our contenttype, we want it to be output as normal HTML, so we have to
+field in our ContentType, we want it to be output as normal HTML, so we have to
 add the `raw` modifier.
 
 ### order
@@ -619,7 +619,7 @@ Available variables in Twig
 {{ dump(app.config.get('general') }}
 ```
 
-For more info on `app`, see the chapter on [Bolt Internals](../internals/bolt-internals).
+For more info on `app`, see the chapter on [Bolt Internals](../internals/container-service-references).
 
 
 Tests
