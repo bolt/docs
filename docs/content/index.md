@@ -1,8 +1,8 @@
 ---
-title: Working with Bolt
-redirect: content/contenttypes-and-records
+title: ContentTypes
+redirect: content/intro
 pages:
-    - contenttypes-and-records
+    - intro
     - content-in-templates
     - taxonomies
     - relationships
