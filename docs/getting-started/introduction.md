@@ -28,7 +28,7 @@ Getting Started<br>
     </a>
 </div>
 
-<a href="../contenttypes class="button large expand docsintro">
+<a href="../contenttypes" class="button large expand docsintro">
 ContentTypes<br>
 <small>Contenttypes, records, fields, taxonomies, relationships, etc</small>
 </a>
