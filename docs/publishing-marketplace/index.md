@@ -1,6 +1,7 @@
 ---
 title: Publishing in the Marketplace
-redirect: publishing-marketplace/visual-assets
+redirect: publishing-marketplace/composer-json
 pages:
+    - composer-json
     - visual-assets
 ---
