@@ -11,9 +11,9 @@ pages:
     - templates
     - extensions
     - publishing-marketplace
-    - internals
     - howto
-    - other
+    - internals
     - manual
+    - other
     - core-development
 ---
