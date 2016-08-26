@@ -348,7 +348,7 @@ So now we have a complete custom field type extension, the only thing we haven't
 walked through here is the `Url` class itself, but you can see more by
 [sourcecode][viewing the extension source code]. The final check to do is to see
 what we have in our frontend templates. To do this we just dump the field from
-the contenttype page we set it up in, you should see something like this:
+the ContentType page we set it up in, you should see something like this:
 
 ```
 "web" => Url {#1604 ▼

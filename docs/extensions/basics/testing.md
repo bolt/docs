@@ -165,6 +165,6 @@ on the extensions install window.
 [profile]: http://extensions.bolt.cm/profile
 [semver]: http://semver.org/
 [ext]: http://extensions.bolt.cm
-[starter]: /extensions/basics/about#getting-started
+[starter]: about#getting-started
 [gh]: https://github.com
 [bb]: https://bitbucket.com

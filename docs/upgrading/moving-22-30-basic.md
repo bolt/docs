@@ -82,5 +82,5 @@ case, you'll notice when you try to view the frontend of the website.
 That concludes these steps. You should now have a fully working Bolt 3 website.
 
 [cli]: ../installation/install-command-line
-[routing]: ../templates/templates-routes#routing
+[routing]: ../templating/templates-routes#routing
 [advanced]: moving-22-30-advanced

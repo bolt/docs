@@ -26,4 +26,4 @@ curious what makes Bolt tick.
 [silex]: http://silex.sensiolabs.org
 [comp]: http://symfony.com/components
 [psr2]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
-[ext]: /extensions/introduction
+[ext]: extensions/introduction

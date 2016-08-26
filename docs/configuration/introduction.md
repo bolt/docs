@@ -30,7 +30,7 @@ for how to get a key</p>
 
 If you're getting unspecified "Internal Server Errors", the most likely cause
 is a missing or malfunctioning `.htaccess` file. See the section [Tweaking the
-.htaccess file](web-server-apache) for tips. If you still
+.htaccess file](../installation/webserver/apache) for tips. If you still
 encounter errors, check your vhost configuration and be sure that the
 AllowOverride option is enabled.
 
@@ -101,6 +101,6 @@ Note that at this point only string values are supported.
 
 Note that configuration settings are namespaced. `{{ config.get('mycustomversion') }}` 
 may not be necessarily available in your Twig templates directly. For more information 
-regarding this, please refer to the [Bolt Internals](https://docs.bolt.cm/internals/bolt-internals#code-app-config-code) 
+regarding this, please refer to the [Bolt Internals](../internals/container-service-references#app-config) 
 documentation. In this particular example, use `{{ config.get('general/mycustomversion') }}`
 to access the above variable in your template.

@@ -1,14 +1,14 @@
 ---
-title: Sorting a contenttype with a 'sortorder'
+title: Sorting a ContentType with a 'sortorder'
 ---
-Sorting a contenttype with a 'sortorder'
+Sorting a ContentType with a 'sortorder'
 ========================================
 
-Sometimes you might need to sort Pages or some other contenttype on an
+Sometimes you might need to sort Pages or some other ContentType on an
 arbitrary order, instead of on "Title, aphabetically" or "Date added". In these
 cases, you can use the built-in taxonomy that can use a given sortorder. This
 will allow you to manually define the order of all records in that specific
-contenttype. To set it up, follow these two steps:
+ContentType. To set it up, follow these two steps:
 
 First, make sure you have a taxonomy set up to use the 'sortorder' sorting.
 Make sure it has set both `behaves_like: grouping` as well as `has_sortorder:
@@ -28,11 +28,11 @@ Tip: You will _need_ to keep the `options:` setting in there. Even if you don't
 really need to order the records into different groups, you'll need to keep at
 least one of the 'options' present in your taxonomy.
 
-Secondly, you'll want to make sure that you configure your contenttype to use
-this taxonomy in your `contenttypes.yml`. Note that the contenttype does _not_
+Secondly, you'll want to make sure that you configure your ContentType to use
+this taxonomy in your `contenttypes.yml`. Note that the ContentType does _not_
 require a `sort:` option. In this case Bolt will use the sorting, as defined in
 our taxonomy, so defining another sort option would make no sense. For example,
-see this `pages` contenttype:
+see this `pages` ContentType:
 
 ```
 pages:

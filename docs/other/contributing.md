@@ -15,7 +15,7 @@ How you can contribute
 - Comment on, or add [issues](https://github.com/bolt/bolt/issues?state=open)
 - Contribute docs to [bolt-docs](https://github.com/bolt/bolt-docs).
 - Contribute code to [bolt](https://github.com/bolt/bolt)
-- Write [extensions](https://docs.bolt.cm/extensions/introduction)
+- Write [extensions](../extensions/introduction)
 
 Contributing docs or code
 -------------------------

@@ -68,6 +68,6 @@ Permissions](permissions) page.
 
 After you've done this, skip to the section [Setting up Bolt](../configuration/introduction).
 
-[apache]: ../configuration/web-server-apache
-[nginx]: ../configuration/web-server-nginx
+[apache]: ../installation/webserver/apache
+[nginx]: ../installation/webserver/nginx
 [composer]: https://getcomposer.org/download/
