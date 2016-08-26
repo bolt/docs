@@ -16,7 +16,7 @@ At the same time, if you create a new record, Bolt will know what the URL for
 that content is. So when that URL is requested by a browser, it can map it back
 to the correct content.
 
-For example, if you have a 'Pages' contenttype, with 'Page' as a
+For example, if you have a 'Pages' ContentType, with 'Page' as a
 `singular_name`, your site will automatically have pages like:
 
   - `http://example.org/pages`
@@ -28,25 +28,25 @@ Automatic template selection
 
 Bolt has some rules to help you quickly build custom templates for your site. If
 your template is named exactly like the `singular_slug` or `slug` for the
-contenttype or record it will be automatically used.
+ContentType or record it will be automatically used.
 
 How does Bolt select what template to use for a given request? Unless specified,
 Bolt will determine the names of these templates automatically via a method we
 call 'cascading templates'. This allows for great flexibility, as well as ease
 of use. Unless you specify anything, pages will get rendered using the basic
-default templates, but you can refine this in the definition of the contenttypes
+default templates, but you can refine this in the definition of the ContentTypes
 or even on a per-record basis. The rules for selecting a template are as
 follows.
 
 ### Selection of a template for an single record page:
 
-  - If an overview page like `/page/foo-bar` is requested, and the contenttype
+  - If an overview page like `/page/foo-bar` is requested, and the ContentType
     has a 'templateselect field' and a template is selected for this record,
     that template will be used.
-  - Otherwise, if the contenttype definition has a value for `record_template`,
+  - Otherwise, if the ContentType definition has a value for `record_template`,
     that template will be used.
   - Otherwise, Bolt will check if a template with a suited name exists. For
-    example, if the contenttype's `singular_name` is 'Entry', Bolt will check
+    example, if the ContentType's `singular_name` is 'Entry', Bolt will check
     for an `entry.twig` template. If it exists, that template will be used.
   - Otherwise, if `record_template` is set in `config.yml`, that template will
     be used.
@@ -54,10 +54,10 @@ follows.
 
 ### Selection of a template for an overview page:
 
-  - If an overview page like `/entries` is requested, and the contenttype
+  - If an overview page like `/entries` is requested, and the ContentType
     definition has a value for `listing_template`, that template will be used.
   - Otherwise, Bolt will check if a template with a suited name exists. For
-    example, if the contenttype's name is 'Entries', Bolt will check for an
+    example, if the ContentType's name is 'Entries', Bolt will check for an
     `entries.twig` template. If it exists, that template will be used.
   - Otherwise, if `listing_template` is set in `config.yml`, that template will
     be used.
@@ -68,13 +68,13 @@ In the default template for a single record, it is available as both `{{ record
 also use `{{ page }}`, without having to set it specifically. Likewise, in the
 default template for multiple records, the content is available as `{{ records
 }}` and also by the name of the
-contenttype, for example `{{ pages }}`.
+ContentType, for example `{{ pages }}`.
 
 <p class="note"><strong>Note:</strong> As you might have noticed, sometimes the
 examples use <code>{{ page }}</code>, sometimes <code>{{ entry }}</code> and
 sometimes something different altogether. These are just the names of the
 objects containing the content, or the array with several records of content. By
-default you can use the singular name of your contenttype, so be sure to replace
+default you can use the singular name of your ContentType, so be sure to replace
 them with whatever the names of your content types or variables are.</p>
 
 
@@ -91,7 +91,7 @@ file.
 The easiest way to add your own is to follow the examples defined in the
 distributed `routing.yml.dist` file. The order of the routes is important
 because it is a first-come first-serve architecture. So if you add your own
-contenttype routes it will probably need to be defined before the general
+ContentType routes it will probably need to be defined before the general
 **contentlink** route. Some routing examples are listed below.
 
 ### Make old `.html` pages work
@@ -111,7 +111,7 @@ oldpages:
 
 In this example we use the host requirement to show a specific page on the home
 of a particular host. The _defaults_ are set to the regular record-action with a
-specific contenttype and slug set up.
+specific ContentType and slug set up.
 
 ```
 example:
@@ -120,14 +120,14 @@ example:
   host:     'example.mydomain.org'
 ```
 
-### Contenttype overrides
+### ContentType overrides
 
-This case overrides the default routing for contenttype **page**. Bolt will no
+This case overrides the default routing for ContentType **page**. Bolt will no
 longer create `/page/{slug}` links but will now create `/{slug}` routes. The old
 routes will still work, but the canonicals will be fixed to the new routes. The
 _defaults_ are set to the regular record-action but we also added an additional
 `contenttype: page` line to tell Bolt to use this route for all records with
-contenttype **page**.
+ContentType **page**.
 
 ```
 pagebinding:
@@ -150,7 +150,7 @@ pagebinding:
 ### Single record override
 
 This example overrides a single record to a specific URL. Useful if you only
-want to exempt a few pages and not a complete contenttype. Don't forget to add
+want to exempt a few pages and not a complete ContentType. Don't forget to add
 the `recordslug: page/about` line. This route should be high in the route list
 for it to work correctly.
 
@@ -207,8 +207,8 @@ Explanation of each argument:
     to be matched. it's also possible to add a callback here. it should return a
     regular expression which should match
   - `hostname` - hostname to match for this route.
-  - `contenttypeslug` - if this route represent a new route for a contenttype,
-    the contenttype should be specified.
+  - `contenttypeslug` - if this route represent a new route for a ContentType,
+    the ContentType should be specified.
 
 Path
 ----
@@ -216,7 +216,7 @@ Path
 You are free to specify your own parameters, however when you are adding routes
 for ContentTypes or recordslugs you are limited to which parameters you can add.
 At least when you don't want to code your own Content-object. The following
-fields from a contenttype can be used as a parameter:
+fields from a ContentType can be used as a parameter:
 
   - **contenttypeslug**
   - **id**
@@ -231,7 +231,7 @@ When the routing is processed no content has been loaded yet, so validation
 cannot be based on actual database checks. Therefore the check is purely a
 syntax check using regular expressions. Bolt adds the ability to specify a
 callback which returns a regular expression. This allows us to dynamically enter
-contenttype slugs as valid URL parts.
+ContentType slugs as valid URL parts.
 
 You can either enter your own regular expression or use the callback notation
 which is `class::method`.

@@ -15,7 +15,7 @@ reviews' or 'event dates' or even completely different content. All of these
 different types of content are called **ContentTypes** in Bolt, and you can add
 as many different ContentTypes as you need.
 
-Each contenttype is made up of **Fields**, you can read more about **Fields**
+Each ContentType is made up of **Fields**, you can read more about **Fields**
 and what fields are available [here](../fields).
 
 All content on your website is part of one specific ContentType, which

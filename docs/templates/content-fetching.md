@@ -4,11 +4,11 @@ title: Fetching content
 Fetching content
 ================
 
-Besides content that is already available on a specific contenttype listing-
+Besides content that is already available on a specific ContentType listing-
 page or single-page [(Record and Records)](record-and-records), you can
 directly fetch content from the database. For this you can use the
 `{% setcontent ... %}` tag. The following example will get the content record
-with slug 'about' from the 'pages' contenttype:
+with slug 'about' from the 'pages' ContentType:
 
 ```
 {% setcontent about = 'page/about' %}
@@ -261,7 +261,7 @@ practice to limit the maximum number of records, by adding a `limit` clause.
 
 Ordering results
 ----------------
-The results can be sorted by any of the fields of the contenttype, using the
+The results can be sorted by any of the fields of the ContentType, using the
 `orderby` clause. You can sort either ascending or descending.
 
 ```

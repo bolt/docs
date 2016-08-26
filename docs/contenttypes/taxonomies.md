@@ -69,7 +69,7 @@ entries:
 ..
 ```
 
-If you'd like to use more than one taxonomy for a contenttype, be sure to use an
+If you'd like to use more than one taxonomy for a ContentType, be sure to use an
 array:
 
 ```apache

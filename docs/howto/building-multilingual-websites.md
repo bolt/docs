@@ -8,7 +8,7 @@ Bolt does not support multilingual websites at the moment. There are often
 multiple ways to handle multilingual websites. This page describes one simple
 method to facilitate one.
 
-In short, with this method you'll duplicate every contenttype per language (or
+In short, with this method you'll duplicate every ContentType per language (or
 region). So this will only work for sites with a few languages or without too
 many contenttypes.
 
@@ -47,7 +47,7 @@ Defining ContentTypes
 An important step when making websites, is to properly [define your ContentTypes
 ](../contenttypes/intro). Since ContentTypes are defined in YAML, there are
 some handy tricks you can apply. YAML provides node anchors (`&`) and references
-(`*`) for repeated nodes. So once the fields of a contenttype are defined, you
+(`*`) for repeated nodes. So once the fields of a ContentType are defined, you
 can simply reference them. Be sure that the anchor is defined before it is used.
 See the use of `&pagefields` and `*pagefields` in the following example. Assume
 `en` is English, `nl` is Dutch, and `de` is German.
@@ -94,9 +94,9 @@ _default_ ContentTypes if you desire:
 | `pages-de`            | `de-pages`            |
 
 Depending on the website and/or your preferences, you can group the definitions
-in `contenttypes.yml` by language or by contenttype:
+in `contenttypes.yml` by language or by ContentType:
 
-| by language  | by contenttype |
+| by language  | by ContentType |
 | ------------ | -------------- |
 | `en-pages`   | `pages-en`     |
 | `en-entries` | `pages-nl`     |
@@ -111,11 +111,11 @@ See the following sections why it might be more useful to use `en-pages` and
 Defining Routes
 ---------------
 
-A new route needs to be defined for every contenttype defined. This section will
+A new route needs to be defined for every ContentType defined. This section will
 make use of the following patterns:
 
  * `[language]/[contenttype]/[slug]`;
- * `[language]/[slug]`, for the `pages` contenttype.
+ * `[language]/[slug]`, for the `pages` ContentType.
 
 This makes the routes fairly straightforward to define:
 

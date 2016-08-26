@@ -26,7 +26,7 @@ in more detail below.
 ### Grouping fields in tabs
 
 
-If you have a number of fields in your contenttype, it might be convenient to
+If you have a number of fields in your ContentType, it might be convenient to
 add grouping to the fields, by using tabs. It will look like this:
 
 <a href="/files/contenttype-tabs.png" class="popup"><img src="/files/contenttype-tabs.png"></a>
@@ -94,7 +94,7 @@ description will override that field type default.
 
 When you want to give a record a default value, use `default:`. For most fields
 this will set the initial value of the field, when you're creating a new record
-of this contenttype. For `date` and `datetime` fields, the value is passed
+of this ContentType. For `date` and `datetime` fields, the value is passed
 through [strtotime](http://php.net/manual/en/function.strtotime.php), meaning
 that you can use a fixed date as default, like "1900-01-01 12:00:00", but also
 relative dates like "first day of this month", "next Monday" or "yesterday".

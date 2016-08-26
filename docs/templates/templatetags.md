@@ -558,7 +558,7 @@ characters by default. If you want to use the HTML as-is, add the raw modifier:
 
 If we didn't add the `raw` modifier, all '<' and '>' characters in the body
 would be output as '&amp;lt;' and '&amp;gt;' respectively. If 'body' is an HTML
-field in our contenttype, we want it to be output as normal HTML, so we have to
+field in our ContentType, we want it to be output as normal HTML, so we have to
 add the `raw` modifier.
 
 ### order

@@ -10,7 +10,7 @@ item with just one click. On the left you will see your menu, which contains
 your content and your settings.
 
 *If your site has been setup by a designer or developer you will likely already
-have content on your site. In that case please click one of the contenttypes
+have content on your site. In that case please click one of the ContentTypes
 under the section Content in the left menu and skip to
 [Content overview](/content-overview)*
 
@@ -23,7 +23,7 @@ example content, and then click on Dashboard to return here.
 
 This is what your dashboard will usually look like, with listings of your
 latest edited content, and options to quickly start a new page or other
-contenttype.
+ContentType.
 
 Click on "Entries" in the left menu to proceed to the next
 [step](content-overview)...
