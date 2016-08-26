@@ -159,6 +159,12 @@ class Controllers implements ControllerProviderInterface
             $page->setTitle('404 - Page not found');
             $page->setSource(<<<HTML
 <h1>404 - Page not found</h1>
+<p class="note">
+    We changed a lot of the documentation structure in order to provide a better and more structured experience. 
+    We might have missed to fix certain links. 
+    If you think this could be one of this cases, 
+    please report it to us via <a target="_blank" href="https://bolt.cm/community">Twitter, Slack, IRC, ...</a>
+</p>
 This page could not be found. Please click one of the menu items in the
 sidebar, or use the search form to look for a specific keyword.
 HTML
