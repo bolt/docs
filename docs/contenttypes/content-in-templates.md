@@ -69,6 +69,6 @@ Then you would have `{{ records }}` available, as well as a variable with the
 name of the ContentType. In this case, it would be `{{ pages }}`.
 
 For more information on how Bolt selects which templates to use, see
-[Templating and Routing](../templates/templates-routes). To learn more about actually using
+[Templating and Routing](../templating/templates-routes). To learn more about actually using
 the content records in your templates, see
-[Record and Records](../templates/record-and-records).
+[Record and Records](../templating/record-and-records).

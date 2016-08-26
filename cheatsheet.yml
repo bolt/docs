@@ -31,7 +31,7 @@ themestructure:
         - [ "`css/`", contains the (compiled) CSS for the theme ]
         - [ "`scss/`", "optional folder for Sass source files, to be compiled into CSS." ]
         - [ "`config.yml`", optional config file with settings specific to the theme. ]
-    links: { "Templates and routing": "/templates/templates-routes" }
+    links: { "Templates and routing": "templating/templates-routes" }
 
 templatecascading:
     title: Template cascading
@@ -46,7 +46,7 @@ templatecascading:
         - [ "", "Bolt will check if a template with a suited name exists, like `entry.twig` or `page.twig`"]
         - [ "", "`record_template` is set in the global `config.yml`" ]
         - [ "", "If no other rule matches, Bolt will use a template named `record.twig`" ]
-    links: { "Automatic template selection": "/templates/templates-routes#automatic-template-selection" }
+    links: { "Automatic template selection": "templating/templates-routes#automatic-template-selection" }
 
 menuyml:
     title: Menus and `menu.yml`
@@ -189,7 +189,7 @@ routing:
         distributed `routing.yml.dist` file. The order of the routes is important
         because it is routing is done on a first-come first-serve basis.
     add_separator: true
-    links: { "Routing in the docs": "/templates/templates-routes#routing"}
+    links: { "Routing in the docs": "templating/templates-routes#routing"}
 
 
 
@@ -497,7 +497,7 @@ debug:
         - ["`{{ backtrace() }}`", "Get a backtrace throught the code to the current point in the execution, in the template." ]
         - ["`dump(debug_backtrace());`", " Get a backtrace throught the code to the current point in the execution, in your code. The optional parameter denotes the maximum depth of the output of the backtrace." ]
     table_linear: true
-    links: { "{{ dump() }} in the documentation": "/internals/bolt-internals#dump-and-dump" }
+    links: { "{{ dump() }} in the documentation": "internals/bolt-internals#dump-and-dump" }
 
 
 apppath:
@@ -533,7 +533,7 @@ apppath:
         - ["`themebasepath`", "`/[path]/theme`"]
         - ["`themepath`", "`/[path]/theme/base-2016`"]
         - ["`webpath`", "`/[path]/bolt`"]
-    links: { "app['paths'] in the docs": "/internals/bolt-internals#app8216paths8217" }
+    links: { "app['paths'] in the docs": "internals/bolt-internals#app8216paths8217" }
 
 
 apprequest:

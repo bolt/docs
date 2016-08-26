@@ -33,7 +33,7 @@ ContentTypes<br>
 <small>Contenttypes, records, fields, taxonomies, relationships, etc</small>
 </a>
 
-<a href="../templates/templates-routes" class="button large expand docsintro">
+<a href="../templating/templates-routes" class="button large expand docsintro">
 Templating / Theming<br>
 <small>Writing templates, Twig, fetching content, paging, search</small>
 </a>

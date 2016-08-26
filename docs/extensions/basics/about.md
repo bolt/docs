@@ -57,7 +57,7 @@ When coding your extensions, you should use as much of the functionality
 provided by Silex and the included components as possible. Don't re-invent
 the wheel, and things like that.
 
-See the chapter on [Bolt internals](/internals/bolt-internals) for a detailed overview of the
+See the chapter on [Bolt internals](../../internals/bolt-internals) for a detailed overview of the
 provided Bolt functionality, Silex objects and included libraries.
 
 Bolt strives to adhere to [the PSR-2 coding style][psr2].
@@ -86,7 +86,7 @@ Further reading
 ---------------
 
 If you want to delve deeper into what you can and cannot do with extensions, see
-the chapter on [Bolt internals](/internals/bolt-internals) for a detailed
+the chapter on [Bolt internals](../../internals/bolt-internals) for a detailed
 overview of the provided Bolt functionality, Silex objects and included
 libraries.
 
