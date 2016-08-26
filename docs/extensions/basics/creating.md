@@ -81,5 +81,5 @@ register your extension or theme on the Bolt Marketplace.
 
 For any screenshots of your extension or theme along with icons see [Market Place Visual Assets Best Practices](extensions/basics/store-visual-assets)
 
-See [the testing and debugging instructions](/extensions/basics/testing) for
+See [the testing and debugging instructions](testing) for
 further information about tagging and automated testing of your extension.

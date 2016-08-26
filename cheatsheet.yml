@@ -92,7 +92,7 @@ contenttypes:
         - [ "`viewless`", "(optional) A boolean value to determine whether this contenttype should have routing or not. " ]
         - [ "`icon_many`", "(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for this contenttype. For example: `fa:cubes`" ]
         - [ "`icon_one`", "(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for a single record of this contenttype. For example: `fa:cube`." ]
-    links: { "Defining ContentTypes in the docs": "/contenttypes/intro#defining-contenttypes" }
+    links: { "Defining ContentTypes in the docs": "contenttypes/intro#defining-contenttypes" }
 
 fielddefinitions:
     title: Fields for ContentTypes in `contenttypes.yml`

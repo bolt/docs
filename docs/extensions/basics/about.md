@@ -94,4 +94,3 @@ libraries.
 [symfony]: http://symfony.com/components
 [psr2]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
 [exttwig]: http://twig.sensiolabs.org/doc/advanced.html
-[ct+r]: /contenttypes-and-records#field-definitions

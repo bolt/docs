@@ -434,7 +434,7 @@ reusable functions in Twig.</p>
 
 ### Boilerplate Master Template
 
-Check out the [boilerplate template](./boilerplate-for-multilingual-websites)
+Check out the [boilerplate template](boilerplate-for-multilingual-websites)
 that applies most of the abovementioned tricks to kickstart your theme for your
 multilingual site.
 
