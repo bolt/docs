@@ -43,7 +43,7 @@ Templating / Theming<br>
     Templating tutorial (soon!)<br>
     <small>Building a theme, step by step</small>
     </a> -->
-    <a href="../internals/bolt-internals" class="button medium docsintro">
+    <a href="../internals" class="button medium docsintro">
     Bolt Internals<br>
     <small>Contributing, coding standards</small>
     </a>

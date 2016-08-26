@@ -230,7 +230,7 @@ See: [`for` in the Twig documentation][for].
 ```
 
 For more info on debugging your Bolt site, see the chapter on
-[Bolt Internals](../internals/bolt-internals).
+[Bolt Internals](../internals).
 
 <p class="note"><strong>Note:</strong> Don't forget to set <code>debug:
 true</code> in your <code>config.yml</code> file. Otherwise the
@@ -619,7 +619,7 @@ Available variables in Twig
 {{ dump(app.config.get('general') }}
 ```
 
-For more info on `app`, see the chapter on [Bolt Internals](../internals/bolt-internals).
+For more info on `app`, see the chapter on [Bolt Internals](../internals/container-service-references).
 
 
 Tests
