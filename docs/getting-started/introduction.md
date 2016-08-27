@@ -30,7 +30,7 @@ Getting Started<br>
 
 <a href="../content/contenttypes-and-records" class="button large expand docsintro">
 Working with Bolt<br>
-<small>Contenttypes, records, fields, taxonomies, relationships, etc</small>
+<small>ContentTypes, records, fields, taxonomies, relationships, etc</small>
 </a>
 
 <a href="../templates/templates-routes" class="button large expand docsintro">
