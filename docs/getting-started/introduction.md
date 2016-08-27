@@ -30,7 +30,7 @@ Getting Started<br>
 
 <a href="../contenttypes" class="button large expand docsintro">
 ContentTypes<br>
-<small>Contenttypes, records, fields, taxonomies, relationships, etc</small>
+<small>ContentTypes, records, fields, taxonomies, relationships, etc</small>
 </a>
 
 <a href="../templating/templates-routes" class="button large expand docsintro">
