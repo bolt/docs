@@ -503,7 +503,7 @@ debug:
 apppath:
     title: "The `paths` variable"
     shorttitle: "{{ paths }}"
-    prefix: "To see the current paths use `{{ dump(paths) }}` in a template. Use a specific path like this: `{{ paths.theme }}`. In PHP, these are available as `$this->app['paths']`."
+    prefix: "To see the current paths use `{{ dump(paths) }}` in a template. Use a specific path like this: `{{ paths.theme }}`."
     table:
         - ["Key", "Value"]
         - ["`app`", "`/app/`"]
@@ -533,7 +533,7 @@ apppath:
         - ["`themebasepath`", "`/[path]/theme`"]
         - ["`themepath`", "`/[path]/theme/base-2016`"]
         - ["`webpath`", "`/[path]/bolt`"]
-    links: { "app['paths'] in the docs": "internals/container-service-references#app-resources" }
+    links: { "app['resources'] in the docs": "internals/container-service-references#app-resources" }
 
 
 apprequest:

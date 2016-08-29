@@ -75,7 +75,6 @@ File system paths available are:
     "themebasepath" => "/path/to/bolt/theme"
     "themepath" => "/path/to/bolt/theme/base-2016"
     "templatespath" => "/path/to/bolt/theme/base-2016"
-  ]
 ```
 
 URL paths available are:
@@ -94,7 +93,6 @@ URL paths available are:
     "currenturl" => "https://bolt.cm/page/about"
     "hosturl" => "https://bolt.cm"
     "rooturl" => "https://bolt.cm/"
-  ]
 ```
 
 ## $app['db']

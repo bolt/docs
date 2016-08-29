@@ -22,7 +22,7 @@ Getting Started<br>
     Bolt in 30 minutes (soon!)<br>
     <small>A quick overview of Bolt, and how it works</small>
     </a>
-    <a href="https://cheatsheet.bolt.cm" class="button medium docsintro">
+    <a href="../cheatsheet" class="button medium docsintro">
     The Bolt cheatsheet<br>
     <small>A great little reference for all things Bolt</small>
     </a>
@@ -30,7 +30,7 @@ Getting Started<br>
 
 <a href="../contenttypes" class="button large expand docsintro">
 ContentTypes<br>
-<small>Contenttypes, records, fields, taxonomies, relationships, etc</small>
+<small>ContentTypes, records, fields, taxonomies, relationships, etc</small>
 </a>
 
 <a href="../templating/templates-routes" class="button large expand docsintro">
