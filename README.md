@@ -31,14 +31,15 @@ To run the site locally you need to complete the following steps:
   * Create worktrees for required versions
   * Run `composer update` to install required vendor libraries
 
-An example that sets up work trees for both 2.2 & 3.0 is:
+An example that sets up work trees for 2.2, 3.0 and 3.1 is:
 
 ```
 git clone git@github.com:bolt/docs.git bolt-docs
 cd bolt-docs
 git checkout site
-git worktree add var/versions/2.2 release/2.2
-git worktree add var/versions/3.0 release/3.0
+git worktree add var/versions/2.2 origin/release/2.2
+git worktree add var/versions/3.0 origin/release/3.0
+git worktree add var/versions/3.1 origin/release/3.1
 composer update
 ```
 
