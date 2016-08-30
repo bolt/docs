@@ -27,7 +27,7 @@ bootstrap file, by convention it is best to name this `.bolt.php` since that fil
 is looked for automatically by other Bolt components. For example:
 
 ```
-$app = require __DIR__ . '../.bolt.php';
+$app = require __DIR__ . '/../.bolt.php';
 if ($app === false) {
     return false;
 }
