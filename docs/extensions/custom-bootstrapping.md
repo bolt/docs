@@ -43,6 +43,7 @@ file will look like this, assuming that your bootstrap file is in the
 project root one level down from your `index.php` file in `./public`:
 
 ```
+<?php
 // .bolt.php
 $configuration = new Bolt\Configuration\Composer(__DIR__);
 $configuration->setPath("web", "public");
