@@ -86,6 +86,13 @@ can do with the `thumbnail`-tag.
 or
 {{ popup("2016-08/foo.jpg", 100, 100) }}
 ```
+By default, Magnific will display the filename under the image in the popup. You can specify another value for this caption by using a fourth parameter (e.g alt or title tag).
+
+```
+{{ popup("2016-08/foo.jpg", 100, 100, 'My title') }}
+or
+{{ popup("2016-08/foo.jpg", 100, 100, record.values.image.alt) }}
+```
 
 Note that you should include the Magnific Popup `.js` and `.css` yourself, as
 well as set up the 'initialization' code:
