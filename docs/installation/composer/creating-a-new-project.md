@@ -163,7 +163,9 @@ Finally run Composer to install the required libraries and configure the
 installation:
 
 ```
-composer install
+composer install --no-scripts
+composer run-script post-create-project-cmd
+composer run-script post-install-cmd
 ```
 
 ### Permissions
