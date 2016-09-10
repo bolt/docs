@@ -163,7 +163,7 @@ Finally run Composer to install the required libraries and configure the
 installation:
 
 ```
-composer create-project
+composer install
 ```
 
 ### Permissions
