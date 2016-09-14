@@ -159,11 +159,31 @@ minimum:
 }
 ```
 
+### Required Folders
+
+Run the following commands to create the required folders. 
+If you defined a different folder structure in `.bolt.yml` or `.bolt.php`, 
+you have to adjust the commands to fit your own folder structure.
+
+```
+mkdir -p app/cache
+mkdir -p app/config
+mkdir -p app/database
+mkdir -p public/theme
+mkdir -p public/files
+mkdir -p public/bolt-public/view
+mkdir -p public/thumbs
+mkdir -p public/extensions
+mkdir -p extensions
+```
+
 Finally run Composer to install the required libraries and configure the
 installation:
 
 ```
-composer create-project
+composer install --no-scripts
+composer run-script post-create-project-cmd
+composer run-script post-install-cmd
 ```
 
 ### Permissions
