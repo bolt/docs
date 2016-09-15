@@ -104,3 +104,9 @@ may not be necessarily available in your Twig templates directly. For more infor
 regarding this, please refer to the [Bolt Internals](../internals/container-service-references#app-config) 
 documentation. In this particular example, use `{{ config.get('general/mycustomversion') }}`
 to access the above variable in your template.
+
+### Regarding Chrome and backend authentication
+
+If you are using Chrome and using a IP based path, e.g. `192.168.60.10/public/somesite/bolt`, unfortunately you will not be able to log in. This is an issue on Chrome's end, as they are very strict with cookie domain paths and destroy the cookie upon creation by Bolt. For further information, please see our Github issue on the matter: https://github.com/bolt/bolt/issues/5746. The resolution is to use virtual hosts, e.g. `dev.somesite.com` to access your Bolt installation.
+
+Firefox and other browsers work correctly however in this circumstance.
