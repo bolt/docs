@@ -9,4 +9,5 @@ pages:
     - twig
     - web-assets
     - testing
+    - translations
 ---
