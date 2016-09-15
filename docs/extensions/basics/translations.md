@@ -3,7 +3,7 @@ title: Handling Translations
 ---
 Registering Translations
 ========================
-As of Bolt *3.1* translations can be automatically included in your extension. This can be done 
+Translations can now be automatically included in your extension. This can be done 
 by creating a new directory in the root folder of your extension called `translations`. You can
  place any translation in that folder with the following naming scheme `en.yml` or `sv.yml`. Then 
  you can use the translations anywhere in your extension. 
