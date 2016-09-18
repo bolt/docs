@@ -10,14 +10,16 @@ behaviour and appearance.
 ### Basic Configuration:
 
 ```
-name:
+content:
     type: html
 ```
 
 ### Example usage in templates:
 
-To print out the HTML field you just need to do in your templates
-`{{ record.name }}`.
+To print out the HTML field you just need to do in your templates:
+```
+{{ record.content }}
+```
 
 ### Options:
 
@@ -31,13 +33,13 @@ field.
   more info on possible options:
 
 ```
-        name:
-            type: html
-            options:
-                ckeditor:
-                    height: 400
-                    autoGrow_maxHeight: 400
-                    autoGrow_onStartup: false
-                    uiColor: '#BADA55'
-                    autoGrow_minHeight: 300
+content:
+    type: html
+    options:
+        ckeditor:
+            height: 400
+            autoGrow_maxHeight: 400
+            autoGrow_onStartup: false
+            uiColor: '#BADA55'
+            autoGrow_minHeight: 300
 ```
