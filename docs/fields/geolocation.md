@@ -14,7 +14,7 @@ see the values that are stored, use `{{ dump(page.geolocation) }}`.
 ### Basic Configuration:
 
 ```
-name:
+location:
     type: geolocation
 ```
 
@@ -23,7 +23,7 @@ name:
 To insert a simple map from Google with a marker at the given location, use:
 
 ```
-<img src="http://maps.googleapis.com/maps/api/staticmap?center={{ page.geolocation.latitude }},{{ page.geolocation.longitude }}&zoom=14&size=617x300&sensor=false&markers={{ page.geolocation.latitude }},{{ page.geolocation.longitude }}">
+<img src="http://maps.googleapis.com/maps/api/staticmap?center={{ record.location.latitude }},{{ record.location.longitude }}&zoom=14&size=617x300&sensor=false&markers={{ record.location.latitude }},{{ record.location.longitude }}">
 ```
 
 More info about these static maps, can be found at [Static Maps API V2 Developer Guide][1].
