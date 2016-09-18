@@ -17,6 +17,7 @@ content:
 ### Example usage in templates:
 
 To print out the HTML field you just need to do in your templates:
+
 ```
 {{ record.content }}
 ```
