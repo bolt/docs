@@ -11,7 +11,7 @@ You can read more about markdown [here](http://daringfireball.net/projects/markd
 ### Basic Configuration:
 
 ```
-name:
+content:
     type: markdown
 ```
 
@@ -19,4 +19,7 @@ name:
 
 A markdown fields contents need to be converted to html before using in
 templates. You do this with the `|markdown` filter in twig, like this:
-`{{ record.name|markdown}}`
+
+```
+{{ record.content|markdown }}
+```
