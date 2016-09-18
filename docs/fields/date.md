@@ -28,7 +28,7 @@ field.
 * `options` contains some options for the datepicker, see below for an example:
 
 ```
-name:
+eventdate:
     type: date
     options:
         datepicker:
