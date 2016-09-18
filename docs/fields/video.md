@@ -13,7 +13,7 @@ values that are stored, use `{{ dump(page.video) }}`.
 ### Basic Configuration:
 
 ```
-name:
+teaser:
     type: video
 ```
 
@@ -22,14 +22,14 @@ name:
 To insert the `<embed>`-code for the video, use:
 
 ```
-{{ page.video.html }}
+{{ record.teaser.html }}
 ```
 
 There's also a special 'responsive' HTML snippet available for videos. To insert
 it, use the following, and add the required CSS to your stylesheet:
 
 ```
-{{ page.video.responsive }}
+{{ record.teaser.responsive }}
 ```
 
 ```
