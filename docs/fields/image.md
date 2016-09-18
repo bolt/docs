@@ -9,22 +9,22 @@ Simple image upload/select field.
 ### Basic Configuration:
 
 ```
-name:
+cover:
     type: image
 ```
 
 ### Example usage in templates:
 
 ```
-{{ record.name|showimage() }}
+{{ record.cover|showimage() }}
 ```
 or
 ```
-{{ record.name|thumbnail() }}
+{{ record.cover|thumbnail() }}
 ```
 or
 ```
-{{ record.name|popup() }}
+{{ record.cover|popup() }}
 ```
 See [Bolt Template tags](../templates/templatetags) for more info.
 
@@ -41,7 +41,7 @@ field.
   * `[title, alt]` Show both fields.
 
 ```
-name:
+cover:
     type: image
     attrib: [title, alt]
 ```
