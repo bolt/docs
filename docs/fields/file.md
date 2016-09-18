@@ -9,14 +9,14 @@ Simple file upload/select field.
 ### Basic Configuration:
 
 ```
-name:
+attachment:
     type: file
 ```
 
 ### Example usage in templates:
 
 ```
-{{ record.name }}
+{{ record.attachment }}
 ```
 
 ### Options:
