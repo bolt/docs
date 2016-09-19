@@ -9,8 +9,8 @@ Datepicker widget, to select a date.
 ### Basic Configuration:
 
 ```
-eventdate:
-    type: date
+        eventdate:
+            type: date
 ```
 
 ### Example usage in templates:
@@ -28,11 +28,11 @@ field.
 * `options` contains some options for the datepicker, see below for an example:
 
 ```
-eventdate:
-    type: date
-    options:
-        datepicker:
-            changeMonth: true
-            changeYear: true
-            yearRange: "-100:-0"
+        eventdate:
+            type: date
+            options:
+                datepicker:
+                    changeMonth: true
+                    changeYear: true
+                    yearRange: "-100:-0"
 ```

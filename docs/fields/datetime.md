@@ -9,8 +9,8 @@ Datetime picker widget, to select a date and a time.
 ### Basic Configuration:
 
 ```
-eventdate:
-    type: datetime
+        eventdate:
+            type: datetime
 ```
 
 ### Example usage in templates:
@@ -29,11 +29,11 @@ field.
   example:
 
 ```
-eventdate:
-    type: datetime
-    options:
-        datetimepicker:
-            changeMonth: true
-            changeYear: true
-            yearRange: "-100:-0"
+        eventdate:
+            type: datetime
+            options:
+                datetimepicker:
+                    changeMonth: true
+                    changeYear: true
+                    yearRange: "-100:-0"
 ```

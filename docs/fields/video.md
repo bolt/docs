@@ -13,8 +13,8 @@ values that are stored, use `{{ dump(page.video) }}`.
 ### Basic Configuration:
 
 ```
-teaser:
-    type: video
+        teaser:
+            type: video
 ```
 
 ### Example usage in templates:

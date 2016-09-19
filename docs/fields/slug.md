@@ -17,9 +17,9 @@ good slug would be <code>about-our-company</code>.</p>
 ### Basic Configuration:
 
 ```
-slug:
-    type: slug
-    uses: title
+        slug:
+            type: slug
+            uses: title
 ```
 
 ### Example usage in templates:

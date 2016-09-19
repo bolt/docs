@@ -10,8 +10,8 @@ behaviour and appearance.
 ### Basic Configuration:
 
 ```
-content:
-    type: html
+        content:
+            type: html
 ```
 
 ### Example usage in templates:
@@ -34,13 +34,13 @@ field.
   more info on possible options:
 
 ```
-content:
-    type: html
-    options:
-        ckeditor:
-            height: 400
-            autoGrow_maxHeight: 400
-            autoGrow_onStartup: false
-            uiColor: '#BADA55'
-            autoGrow_minHeight: 300
+        content:
+            type: html
+            options:
+                ckeditor:
+                    height: 400
+                    autoGrow_maxHeight: 400
+                    autoGrow_onStartup: false
+                    uiColor: '#BADA55'
+                    autoGrow_minHeight: 300
 ```

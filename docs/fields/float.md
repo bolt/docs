@@ -9,8 +9,8 @@ Simple field for inputting decimal numbers.
 ### Basic Configuration:
 
 ```
-number:
-    type: float
+        number:
+            type: float
 ```
 
 ### Example usage in templates:

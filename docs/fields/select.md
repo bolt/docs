@@ -13,9 +13,9 @@ first glance.
 ### Basic Configuration:
 
 ```
-somevalue:
-    type: select
-    values: [ none, foo, bar ]
+        somevalue:
+            type: select
+            values: [ none, foo, bar ]
 ```
 
 ### Example usage in templates:
@@ -29,9 +29,9 @@ somevalue:
 You can also get the values from the records of a contenttype.
 
 ```
-somevalue:
-    type: select
-    values: mycontenttype/fieldname
+        somevalue:
+            type: select
+            values: mycontenttype/fieldname
 ```
 
 To display multiple values simply separate them with commas.
@@ -39,9 +39,9 @@ To display multiple values simply separate them with commas.
 For example to display both the id and title of 'pages':
 
 ```
-somevalue:
-    type: select
-    values: pages/id,title
+        somevalue:
+            type: select
+            values: pages/id,title
 ```
 
 If you wish to store another field or value from the original contenttype in
@@ -49,21 +49,21 @@ your database, use the keys setting. If you do this, it will not store the
 'id', but the value of the field you specify. For example:
 
 ```
-somevalue:
-    type: select
-    values: persons/lastname
-    keys: slug
+        somevalue:
+            type: select
+            values: persons/lastname
+            keys: slug
 ```
 
 If the list is growing longer, there are a few ways to make it more manageable:
 
 ```
-somevalue:
-    type: select
-    values: programme/name
-    sort: name
-    autocomplete: true
-    limit: 1000
+        somevalue:
+            type: select
+            values: programme/name
+            sort: name
+            autocomplete: true
+            limit: 1000
 ```
 
 * The sort-option allows you to specify the sorting of the items in the select
@@ -83,10 +83,10 @@ As well as filters on the contenttype values you can also pass in taxonomy
 conditions too, as in the example below.
 
 ```
-somevalue:
-    type: select
-    values: pages/title
-    filter: { categories: news }
+        somevalue:
+            type: select
+            values: pages/title
+            filter: { categories: news }
 ```
 
 You can then fetch the selected record by using the following code:
@@ -103,10 +103,10 @@ You can also allow the user to select multiple values by setting the options
 `multiple` to true like this:
 
 ```
-somevalues:
-    type: select
-    values: [ none, foo, bar ]
-    multiple: true
+        somevalues:
+            type: select
+            values: [ none, foo, bar ]
+            multiple: true
 ```
 
 If you set it to multiple you will also have some different ways to use it in
@@ -145,7 +145,7 @@ shown in the pull-down selector that the editor sees. If you want to store
 another value than is shown, you can use a so-called 'hash'. For example:
 
 ```
-somevalue:
-    type: select
-    values: { 'yes': "Yes", 'no': "No", 'undecided': "Well, it can go either way" }
+        somevalue:
+            type: select
+            values: { 'yes': "Yes", 'no': "No", 'undecided': "Well, it can go either way" }
 ```

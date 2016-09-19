@@ -9,8 +9,8 @@ Simple text-input, for multi-line fields.
 ### Basic Configuration:
 
 ```
-content:
-    type: textarea
+        content:
+            type: textarea
 ```
 
 ### Example usage in templates:

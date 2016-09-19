@@ -9,8 +9,8 @@ Simple text-input, for single-line fields.
 ### Basic Configuration:
 
 ```
-name:
-    type: text
+        name:
+            type: text
 ```
 
 ### Example usage in templates:

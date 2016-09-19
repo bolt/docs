@@ -10,8 +10,8 @@ except the difference that it's being hidden from the content editor.
 ### Basic Configuration:
 
 ```
-secret:
-    type: hidden
+        secret:
+            type: hidden
 ```
 
 ### Example usage in templates:

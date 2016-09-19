@@ -9,8 +9,8 @@ Simple field for inputting whole numbers.
 ### Basic Configuration:
 
 ```
-number:
-    type: integer
+        number:
+            type: integer
 ```
 
 ### Example usage in templates:

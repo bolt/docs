@@ -9,8 +9,8 @@ Simple checkbox input.
 ### Basic Configuration:
 
 ```
-showteaser:
-    type: checkbox
+        showteaser:
+            type: checkbox
 ```
 
 ### Example usage in templates:

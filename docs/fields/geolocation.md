@@ -14,8 +14,8 @@ see the values that are stored, use `{{ dump(page.geolocation) }}`.
 ### Basic Configuration:
 
 ```
-location:
-    type: geolocation
+        location:
+            type: geolocation
 ```
 
 ### Example usage in templates:

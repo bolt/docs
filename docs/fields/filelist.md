@@ -10,8 +10,8 @@ field for each file.
 ### Basic Configuration:
 
 ```
-attachments:
-    type: filelist
+        attachments:
+            type: filelist
 ```
 
 ### Example usage in templates:

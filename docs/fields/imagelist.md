@@ -10,8 +10,8 @@ field for each image.
 ### Basic Configuration:
 
 ```
-gallery:
-    type: imagelist
+        gallery:
+            type: imagelist
 ```
 
 ### Example usage in templates:

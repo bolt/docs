@@ -9,8 +9,8 @@ Simple image upload/select field.
 ### Basic Configuration:
 
 ```
-cover:
-    type: image
+        cover:
+            type: image
 ```
 
 ### Example usage in templates:
@@ -41,9 +41,9 @@ field.
   * `[title, alt]` Show both fields.
 
 ```
-cover:
-    type: image
-    attrib: [title, alt]
+        cover:
+            type: image
+            attrib: [title, alt]
 ```
 
 You can call these in your templates by using `{{ record.values.image.title }}`

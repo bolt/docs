@@ -15,8 +15,8 @@ render the record, but can still be used by the theme developer in the theme.
 ### Basic Configuration:
 
 ```
-template:
-    type: templateselect
+        template:
+            type: templateselect
 ```
 
 ### Example usage in templates:
@@ -33,7 +33,7 @@ The field has a few options to change the functionality of the field.
   match templates that start with the word pages you can do like this:
 
 ```
-template:
-    type: templateselect
-    filter: 'pages*.twig'
+        template:
+            type: templateselect
+            filter: 'pages*.twig'
 ```

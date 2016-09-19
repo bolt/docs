@@ -9,8 +9,8 @@ Simple file upload/select field.
 ### Basic Configuration:
 
 ```
-attachment:
-    type: file
+        attachment:
+            type: file
 ```
 
 ### Example usage in templates:

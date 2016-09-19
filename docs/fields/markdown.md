@@ -11,8 +11,8 @@ You can read more about markdown [here](http://daringfireball.net/projects/markd
 ### Basic Configuration:
 
 ```
-content:
-    type: markdown
+        content:
+            type: markdown
 ```
 
 ### Example usage in templates:
