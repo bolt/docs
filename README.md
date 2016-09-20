@@ -52,9 +52,11 @@ For your local environment you can add a configuration file, located at `app/con
 ```yml
 debug: true
 
-default-version: 3.1
+default-version: '3.1'
 
 ```
+
+Note: If you want to set it to `3.0` for example, be sure to include the quotes. Otherwise the YML parser will interpret it as `3`. 
 
 Finally if you wish to use the built-in PHP web server, it can be run from the
 `bolt-docs/` folder, pointing to `web/` as the document root.
