@@ -13,16 +13,16 @@ The configuration of a repeating field set comprises the main field set name, al
 the definition of the sub fields.
 
 ```
-name:
-    type: repeater
-    fields:
-        repeattitle:
-            type: text
-        repeatimage:
-            type: image
-            extensions: [ gif, jpg, png ]
-        repeatcontent:
-            type: html
+        features:
+            type: repeater
+            fields:
+                repeattitle:
+                    type: text
+                repeatimage:
+                    type: image
+                    extensions: [ gif, jpg, png ]
+                repeatcontent:
+                    type: html
 ```
 
 As you can see the field is configured with a type of `repeater` and then the sub-fields 
@@ -43,8 +43,8 @@ For instance if you just want to iterate over all sets and then all fields
 within the set then the template code will look like this:
 
 ```
-{% for set in record.name %}
-    {% for field in set %}
+{% for feature in record.features %}
+    {% for field in feature %}
         {{ field }}
     {% endfor %}
 {% endfor %}
@@ -61,10 +61,10 @@ but knowing that our repeat set comprises the individual sub-fields
 `companyname`, `telephone` and `email` we can output the fields like this:
 
 ```
-{% for set in record.name %}
-    <h2>{{ set.get('companyname') }}</h2>
-    <h4>Tel: {{ set.get('telephone') }}</h4>
-    <h4>Email: <a href="mailto:{{ set.get('email') }}">{{ set.get('email') }}</a></h4>
+{% for company in record.companies %}
+    <h2>{{ company.get('companyname') }}</h2>
+    <h4>Tel: {{ company.get('telephone') }}</h4>
+    <h4>Email: <a href="mailto:{{ company.get('email') }}">{{ company.get('email') }}</a></h4>
     <hr>
 {% endfor %}
 ```
@@ -79,15 +79,15 @@ The field has a one option to change the functionality of the field.
   configuration for that looks like this:
 
 ```
-name:
-    type: repeater
-    limit: 3
-    fields:
-        repeattitle:
-            type: text
-        repeatimage:
-            type: image
-            extensions: [ gif, jpg, png ]
-        repeatcontent:
-            type: html
+        features:
+            type: repeater
+            limit: 3
+            fields:
+                repeattitle:
+                    type: text
+                repeatimage:
+                    type: image
+                    extensions: [ gif, jpg, png ]
+                repeatcontent:
+                    type: html
 ```
