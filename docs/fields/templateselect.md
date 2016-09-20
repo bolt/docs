@@ -15,14 +15,14 @@ render the record, but can still be used by the theme developer in the theme.
 ### Basic Configuration:
 
 ```
-name:
-    type: templateselect
+        template:
+            type: templateselect
 ```
 
 ### Example usage in templates:
 
 ```
-{{ record.name }}
+{{ record.template }}
 ```
 
 ### Options:
@@ -33,7 +33,7 @@ The field has a few options to change the functionality of the field.
   match templates that start with the word pages you can do like this:
 
 ```
-        name:
+        template:
             type: templateselect
             filter: 'pages*.twig'
 ```

@@ -10,14 +10,17 @@ behaviour and appearance.
 ### Basic Configuration:
 
 ```
-name:
-    type: html
+        content:
+            type: html
 ```
 
 ### Example usage in templates:
 
-To print out the HTML field you just need to do in your templates
-`{{ record.name }}`.
+To print out the HTML field you just need to do in your templates:
+
+```
+{{ record.content }}
+```
 
 ### Options:
 
@@ -31,7 +34,7 @@ field.
   more info on possible options:
 
 ```
-        name:
+        content:
             type: html
             options:
                 ckeditor:

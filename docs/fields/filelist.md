@@ -10,14 +10,14 @@ field for each file.
 ### Basic Configuration:
 
 ```
-name:
-    type: filelist
+        attachments:
+            type: filelist
 ```
 
 ### Example usage in templates:
 
 ```
-{% for file in record.filelist %}
+{% for file in record.attachments %}
     <a href="{{ file.filename }}">{{ file.title }}</a>
 {% endfor %}
 ```

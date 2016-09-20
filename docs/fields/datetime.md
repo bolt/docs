@@ -9,14 +9,14 @@ Datetime picker widget, to select a date and a time.
 ### Basic Configuration:
 
 ```
-name:
-    type: datetime
+        eventdate:
+            type: datetime
 ```
 
 ### Example usage in templates:
 
 ```
-{{ record.name }}
+{{ record.eventdate }}
 ```
 
 ### Options:
@@ -29,7 +29,7 @@ field.
   example:
 
 ```
-        name:
+        eventdate:
             type: datetime
             options:
                 datetimepicker:

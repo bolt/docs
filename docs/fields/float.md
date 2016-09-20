@@ -9,14 +9,14 @@ Simple field for inputting decimal numbers.
 ### Basic Configuration:
 
 ```
-name:
-    type: float
+        number:
+            type: float
 ```
 
 ### Example usage in templates:
 
 ```
-{{ record.name }}
+{{ record.number }}
 ```
 
 ### Options:
