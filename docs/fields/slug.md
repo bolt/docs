@@ -17,16 +17,25 @@ good slug would be <code>about-our-company</code>.</p>
 ### Basic Configuration:
 
 ```
-name:
-    type: slug
-    uses: title
+        slug:
+            type: slug
+            uses: title
 ```
 
 ### Example usage in templates:
 
 The slug is not often used by itself, but rather as a part of a link. You can
-print the link to a record like this: `{{ record.link() }}` or if you want just
-the slug like this: `{{ record.name }}`.
+print the link to a record like this: 
+
+```
+{{ record.link() }}
+``` 
+
+You can also just output the slug like this:
+
+```
+{{ record.slug }}
+```
 
 ### Options:
 

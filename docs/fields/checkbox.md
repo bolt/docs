@@ -9,15 +9,15 @@ Simple checkbox input.
 ### Basic Configuration:
 
 ```
-name:
-    type: checkbox
+        showteaser:
+            type: checkbox
 ```
 
 ### Example usage in templates:
 
 ```
-{% if record.name %}
-    <p>The checkbox was checked!</p>
+{% if record.showteaser %}
+    <p>Teaser here ...</p>
 {% endif %}
 ```
 

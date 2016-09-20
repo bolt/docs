@@ -9,14 +9,14 @@ Datepicker widget, to select a date.
 ### Basic Configuration:
 
 ```
-name:
-    type: date
+        eventdate:
+            type: date
 ```
 
 ### Example usage in templates:
 
 ```
-{{ record.name }}
+{{ record.eventdate }}
 ```
 
 ### Options:
@@ -28,7 +28,7 @@ field.
 * `options` contains some options for the datepicker, see below for an example:
 
 ```
-        name:
+        eventdate:
             type: date
             options:
                 datepicker:
