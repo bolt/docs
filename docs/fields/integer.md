@@ -9,14 +9,14 @@ Simple field for inputting whole numbers.
 ### Basic Configuration:
 
 ```
-name:
-    type: integer
+        number:
+            type: integer
 ```
 
 ### Example usage in templates:
 
 ```
-{{ record.name }}
+{{ record.number }}
 ```
 
 ### Options:

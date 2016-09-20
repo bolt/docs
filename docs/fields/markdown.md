@@ -11,12 +11,15 @@ You can read more about markdown [here](http://daringfireball.net/projects/markd
 ### Basic Configuration:
 
 ```
-name:
-    type: markdown
+        content:
+            type: markdown
 ```
 
 ### Example usage in templates:
 
 A markdown fields contents need to be converted to html before using in
 templates. You do this with the `|markdown` filter in twig, like this:
-`{{ record.name|markdown}}`
+
+```
+{{ record.content|markdown }}
+```
