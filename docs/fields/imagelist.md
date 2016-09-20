@@ -10,8 +10,8 @@ field for each image.
 ### Basic Configuration:
 
 ```
-name:
-    type: imagelist
+        gallery:
+            type: imagelist
 ```
 
 ### Example usage in templates:
@@ -20,7 +20,7 @@ This example will output a magnific popup gallery with thumbnails of all the
 images:
 
 ```
-{% for image in record.imagelist %}
+{% for image in record.gallery %}
     {{ image|popup() }}
 {% endfor %}
 ```

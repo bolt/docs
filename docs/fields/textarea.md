@@ -9,14 +9,14 @@ Simple text-input, for multi-line fields.
 ### Basic Configuration:
 
 ```
-name:
-    type: textarea
+        content:
+            type: textarea
 ```
 
 ### Example usage in templates:
 
 ```
-{{ record.name }}
+{{ record.content }}
 ```
 
 ### Options:
