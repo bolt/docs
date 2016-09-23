@@ -1,6 +1,5 @@
 vendor/
 composer.phar
-composer.lock
 /var/cache/*
 .idea/
 .DS_*
