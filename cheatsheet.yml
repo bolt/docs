@@ -18,8 +18,8 @@ themestructure:
         - [ Filename, Function ]
         - [ "`index.twig`", "Homepage or root of the site, i.e. `/`" ]
         - [ "`listing.twig`", "listing page for overview of pages, entries or listings per category or search results, e.g. `/entries`, `/tags/movies`, `/search?search=lorem`" ]
-        - [ "`entry.twig`", "single page for a record of the 'entries' contenttype, e.g. `/entry/lorum-ipsum`" ]
-        - [ "`record.twig`", "fallback single template for any contenttype that doesn't have its own single record template, e.g. `/showcase/dolor-sit`" ]
+        - [ "`entry.twig`", "single page for a record of the 'entries' ContentType, e.g. `/entry/lorum-ipsum`" ]
+        - [ "`record.twig`", "fallback single template for any ContentType that doesn't have its own single record template, e.g. `/showcase/dolor-sit`" ]
         - [ "`_aside.twig`", template for the sidebar ]
         - [ "`_footer.twig`", template for the common footer of all pages ]
         - [ "`_header.twig`", template for the common header of all pages ]
@@ -41,8 +41,8 @@ templatecascading:
         type or record it will automatically be used.
     table:
         - [ "", Rules for Records ]
-        - [ "", "The contenttype has a ‘templateselect field’ and a template is selected for this record." ]
-        - [ "", "The contenttype definition has a value for `record_template`."]
+        - [ "", "The ContentType has a ‘templateselect field’ and a template is selected for this record." ]
+        - [ "", "The ContentType definition has a value for `record_template`."]
         - [ "", "Bolt will check if a template with a suited name exists, like `entry.twig` or `page.twig`"]
         - [ "", "`record_template` is set in the global `config.yml`" ]
         - [ "", "If no other rule matches, Bolt will use a template named `record.twig`" ]
@@ -72,32 +72,32 @@ contenttypes:
         this file directly, or from within  the Bolt interface under 'Settings' > 'ContentTypes'.
     table:
         - [ Key, Function ]
-        - [ "`name`", "The name of the contenttype, should be plural." ]
-        - [ "`singular_name`", "The name of one record in the contenttype. Should be singular. " ]
-        - [ "`slug`", "(optional) This determines the slug of the contenttype, and therefore the URLs that are generated for this contenttype." ]
-        - [ "`singular_slug`", "(optional) This determines the slug of the a single record in this contenttype, and therefore the URLs that are generated." ]
-        - [ "`description`", "(optional) A short description of the contenttype. " ]
-        - [ "`fields`", "The fields that make up the content in this contenttype. See the section [Field definitions](#field-definitions-contenttypesyml) for details." ]
-        - [ "`taxonomy`", "An array listing the different taxonomies used by this contenttype. See the section on [Taxonomies](#taxonomies-and-taxonomyyml) for details." ]
-        - [ "`relations`", "An array listing the different relations available to this contenttype. See the section on [Relations](./contenttypes/relationships) for details." ]
-        - [ "`record_template`", "The default template to use, when displaying a single record of this contenttype. " ]
-        - [ "`listing_template`", "The default template to use, when displaying an overview of records of this contenttype. " ]
+        - [ "`name`", "The name of the ContentType, should be plural." ]
+        - [ "`singular_name`", "The name of one record in the ContentType. Should be singular. " ]
+        - [ "`slug`", "(optional) This determines the slug of the ContentType, and therefore the URLs that are generated for this ContentType." ]
+        - [ "`singular_slug`", "(optional) This determines the slug of the a single record in this ContentType, and therefore the URLs that are generated." ]
+        - [ "`description`", "(optional) A short description of the ContentType. " ]
+        - [ "`fields`", "The fields that make up the content in this ContentType. See the section [Field definitions](#field-definitions-ContentTypesyml) for details." ]
+        - [ "`taxonomy`", "An array listing the different taxonomies used by this ContentType. See the section on [Taxonomies](#taxonomies-and-taxonomyyml) for details." ]
+        - [ "`relations`", "An array listing the different relations available to this ContentType. See the section on [Relations](./ContentTypes/relationships) for details." ]
+        - [ "`record_template`", "The default template to use, when displaying a single record of this ContentType. " ]
+        - [ "`listing_template`", "The default template to use, when displaying an overview of records of this ContentType. " ]
         - [ "`listing_records`", "The amount of records to show on a single overview page in the frontend." ]
-        - [ "`sort`", "(optional) The default sorting of this contenttype. For example `-datecreated`." ]
+        - [ "`sort`", "(optional) The default sorting of this ContentType. For example `-datecreated`." ]
         - [ "`recordsperpage`", "(optional) The amount of records shown on each page in the Bolt backend. If there are more records, they will be paginated." ]
-        - [ "`show_on_dashboard`", "(optional) When set to `false` the contenttype will not appear in the 'Recently edited &hellip;' list on the Dashboard page." ]
-        - [ "`show_in_menu`", "(optional) When set to `false` the contenttype will show in a submenu instead of as a top level menu. Can also be set to a word or sentence to group contenttypes." ]
-        - [ "`default_status`", "(optional) The default status for new records in this contenttype, i.e. `published`, `held`, `draft` or `timed`." ]
-        - [ "`searchable`", "(optional) A boolean value to determine whether this contenttype should show up in search results. " ]
-        - [ "`viewless`", "(optional) A boolean value to determine whether this contenttype should have routing or not. " ]
-        - [ "`icon_many`", "(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for this contenttype. For example: `fa:cubes`" ]
-        - [ "`icon_one`", "(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for a single record of this contenttype. For example: `fa:cube`." ]
+        - [ "`show_on_dashboard`", "(optional) When set to `false` the ContentType will not appear in the 'Recently edited &hellip;' list on the Dashboard page." ]
+        - [ "`show_in_menu`", "(optional) When set to `false` the ContentType will show in a submenu instead of as a top level menu. Can also be set to a word or sentence to group ContentTypes." ]
+        - [ "`default_status`", "(optional) The default status for new records in this ContentType, i.e. `published`, `held`, `draft` or `timed`." ]
+        - [ "`searchable`", "(optional) A boolean value to determine whether this ContentType should show up in search results. " ]
+        - [ "`viewless`", "(optional) A boolean value to determine whether this ContentType should have routing or not. " ]
+        - [ "`icon_many`", "(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for this ContentType. For example: `fa:cubes`" ]
+        - [ "`icon_one`", "(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`." ]
     links: { "Defining ContentTypes in the docs": "contenttypes/intro#defining-contenttypes" }
 
 fielddefinitions:
     title: Fields for ContentTypes in `contenttypes.yml`
     shorttitle: Field definitions
-    prefix: The `fields` option in a contenttype lists the fields for that contenttype. The available fields are below. See also [Field options](#field-options-contenttypes-contenttypesyml)
+    prefix: The `fields` option in a ContentType lists the fields for that ContentType. The available fields are below. See also [Field options](#field-options-contenttypes-contenttypesyml)
     table:
         - [ Key, function ]
         - [ "`text`", "Simple text-input, for single-line fields "]
@@ -120,7 +120,7 @@ fielddefinitions:
 fieldoptions:
     title: Field options for ContentTypes in `contenttypes.yml`
     shorttitle: Field options
-    prefix: Each field in the contenttype is an array with several options. The available options are below. See also [Field definitions](#fields-contenttypes-contenttypesyml)
+    prefix: Each field in the ContentType is an array with several options. The available options are below. See also [Field definitions](#fields-contenttypes-contenttypesyml)
     table:
         - [ Key, function ]
         - [ "`class: large`", "Will show the field in a larger font, for `text` fields." ]
@@ -146,7 +146,7 @@ fieldoptions:
 relations:
     title: Relationships
     prefix: |
-        You can use relationships between records by adding a relation to a contenttype. Relationships are always bidirectional.
+        You can use relationships between records by adding a relation to a ContentType. Relationships are always bidirectional.
     table:
         - [ "Example" ]
         - [ "`relations:`<br>&nbsp;&nbsp;&nbsp;&nbsp;`pages:`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`multiple: false`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`label: Select a page`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`order: -id`"]  
@@ -350,7 +350,7 @@ setcontent:
     table:
         - [ Parameter, Function ]
         - [ variable name, The first parameter (before the '=') is always the variable that will contain the result set ]
-        - [ "`'contenttype'`", The name of the contenttype to fetch records from ]
+        - [ "`'contenttype'`", The name of the ContentType to fetch records from ]
         - [ "`'contenttype/latest/10'`", get the latest 10 records from `contenttype` ]
         - [ "`'contenttype/slug'`", get the record from `contenttype` with the slug `slug` ]
         - [ "`'contenttype/123'`", get the record from `contenttype` with the id `123` ]
