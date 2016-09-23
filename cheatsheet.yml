@@ -86,7 +86,7 @@ contenttypes:
         - [ "`sort`", "(optional) The default sorting of this contenttype. For example `-datecreated`." ]
         - [ "`recordsperpage`", "(optional) The amount of records shown on each page in the Bolt backend. If there are more records, they will be paginated." ]
         - [ "`show_on_dashboard`", "(optional) When set to `false` the contenttype will not appear in the 'Recently edited &hellip;' list on the Dashboard page." ]
-        - [ "`show_in_menu`", "(optional) When set to `false` the contenttype will not appear in the normal sidebar menu, but instead under an option called 'Other contenttypes'" ]
+        - [ "`show_in_menu`", "When set to false the ContentType will show in a submenu instead of as a top level menu. Can also be set to a word or sentence to group ContentTypes." ]
         - [ "`default_status`", "(optional) The default status for new records in this contenttype, i.e. `published`, `held`, `draft` or `timed`." ]
         - [ "`searchable`", "(optional) A boolean value to determine whether this contenttype should show up in search results. " ]
         - [ "`viewless`", "(optional) A boolean value to determine whether this contenttype should have routing or not. " ]
