@@ -18,7 +18,7 @@ field for each file.
 
 ```
 {% for file in record.attachments %}
-    <a href="{{ file.filename }}">{{ file.title }}</a>
+    <a href="/files/{{ file.filename }}">{{ file.title }}</a>
 {% endfor %}
 ```
 
