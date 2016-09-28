@@ -1,17 +1,14 @@
 Bolt Documentation Site & Content
-=============================
+=================================
 
-This repository is for both the site, and content, of
-[Bolt][bolt], and should be considered a counterpart of the
-[Bolt repository][repo].
+This repository is for both the site, and content, of [Bolt][bolt], and should
+be considered a counterpart of the [Bolt repository][repo]. 
 
-The documentation uses the
-[Markdown][markdown] format.
+The documentation uses the [Markdown][markdown] format. There is no need to
+build anything to generate HTML. We parse the markdown with PHP.
 
-There is no need to build anything to generate HTML. We parse the markdown with
-PHP.
-
-Working on this repository is advised with `git` version 2.5 or later.
+Since this repository is set up to use git's worktree feature, it is advised
+with to use git version 2.5 or later.
 
 Updating Documentation
 ----------------------
@@ -47,6 +44,20 @@ git worktree add var/versions/3.1 origin/release/3.1
 composer update
 ```
 
+For your local environment you can add a configuration file, located at
+`app/config.yml` to facilitate local development. It should contain the
+following:
+
+```yml
+debug: true
+
+default-version: '3.1'
+
+```
+
+Note: If you want to set it to `3.0` for example, be sure to include the
+quotes. Otherwise the YML parser will interpret it as `3`.
+
 Finally if you wish to use the built-in PHP web server, it can be run from the
 `bolt-docs/` folder, pointing to `web/` as the document root.
 
@@ -54,7 +65,10 @@ Finally if you wish to use the built-in PHP web server, it can be run from the
 php -S 0.0.0.0:8000 -t web web/index.php
 ```
 
+Alternatively, configure your preferred webserver to point at the `web/`
+folder. To see the documentation site go to `example.localhost/3.1/`, from
+where you'll get redirected to the front page of the documentation.
+
 [bolt]: http://docs.bolt.cm/
 [markdown]: http://daringfireball.net/projects/markdown/
 [repo]: https://github.com/bolt/bolt
-
