@@ -22,7 +22,7 @@ of this functionality can be seen here -
 $page = $app['query']->getContent('pages', ['id' => 1]);
 
 // Get about page and only return ONE
-$page = $app['query']->getContent('pages/about', 'returnsingle' => true);
+$page = $app['query']->getContent('pages/about', ['returnsingle' => true]);
 
 // Search pages
 $pages = $app['query']->getContent('pages/search', ['filter' => 'term']);
