@@ -34,8 +34,8 @@ relevant repository class.
 ### getRepository($entity)
 
 ```
-$repo = $app['storage']->getRepository(Bolt\Storage\Entity\Users::class);
-$repo = $app['storage']->getRepository('Bolt\Storage\Entity\Users');
+$repo = $app['storage']->getRepository(\Bolt\Storage\Entity\Users::class);
+$repo = $app['storage']->getRepository('\Bolt\Storage\Entity\Users');
 $repo = $app['storage']->getRepository('users');
 ```
 
