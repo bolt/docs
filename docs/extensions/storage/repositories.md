@@ -13,12 +13,12 @@ Here are some of the built in ways to interact with a repository.
 ## Quick Links to Repository Methods
 
  - <a href="#createquerybuilder">createQueryBuilder</a>
- - <a href="#findid">find</a>
- - <a href="#findbyarray-criteria-array-orderby-limit-offset">findBy</a>
- - <a href="#findonebyarray-criteria-array-orderby">findOneBy</a>
+ - <a href="#find-id">find</a>
+ - <a href="#findby-array-criteria-array-orderby-limit-offset">findBy</a>
+ - <a href="#findoneby-array-criteria-array-orderby">findOneBy</a>
  - <a href="#findall">findAll</a>
- - <a href="#saveentity">save</a>
- - <a href="#deleteentity">delete</a>
+ - <a href="#save-entity">save</a>
+ - <a href="#delete-entity">delete</a>
 
 
 ## Overview
@@ -30,6 +30,8 @@ $repo = $app['storage']->getRepository('Bolt\Storage\Entity\Users');
 ```
 
 You can also use short aliases for any of the built-in tables so the following is equivalent.
+
+There is more informations about [repository and content defined through the contenttypes.yml file](../advanced/storage-repositories#custom-repository-to-manage-entity-defined-in-contenttypeyml) 
 
 ```
 $repo = $app['storage']->getRepository('users');
