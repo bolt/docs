@@ -72,13 +72,14 @@ If your data are going to be stored in the `bolt_foo` table, you alias should be
 
 **Note:** the default table prefix is `bolt_`
 
-Custom repository to manage Entity defined in contenttype.yml
+Custom Repository to Manage Entity Defined in Contenttype.Yml
 -------------------------------------------------------------
-Sometimes it could be convenient to define content structure through the [contenttype.yml](../../contenttypes/intro)  file ( in particular to enjoy easy field declaration and to take advantage of the backend auto generated Create/Read/Update/Delete  UI ). If you also want to manage those content entities through a custom repository : we got you covered !
+Sometimes it could be convenient to define content structure through the [contenttype.yml](../../contenttypes/intro)  file ( in particular to enjoy easy field declaration and to take advantage of the backend auto generated Create/Read/Update/Delete  UI ). If you also want to manage those content entities through a custom repository: we got you covered !
 
-Firstly You must create a custom Entity file which represent your content type and which extends `Bolt\Storage\Entity\Content` and map that entity to your custom repository. Your custom repository must also extend `Bolt\Storage\Repository\ContentRepository` and override the `createQueryBuilder` the whole is covered below :
+Firstly You must create a custom Entity file which represent your content type and which extends `\Bolt\Storage\Entity\Content` and map that entity to your custom repository. Your custom repository must also extend `\Bolt\Storage\Repository\ContentRepository` and override the `createQueryBuilder` the whole is covered below:
 
-For example, if we define a "races" content type like below :
+For example, if we define a "races" content type like below:
+
 ```yml
 races:
     name: Races
@@ -108,11 +109,12 @@ races:
     title_format: ['title', 'race_date']
 ```
 
-We must define a "Race" entity which represent our "races" content type : 
+We must define a "Race" entity which represent our "races" content type: 
+
 ```php
 namespace Bolt\Extension\ACME\Race\Storage\Entity;
 
-class Race extends Bolt\Storage\Entity\Content
+class Race extends \Bolt\Storage\Entity\Content
 {
     /*
      * you can if you want (but dont have to), defined your own getters & setters 
@@ -154,14 +156,14 @@ class Race extends Bolt\Storage\Entity\Content
 }
 ```
 
-Then let's create a custom repository : 
+Then let's create a custom repository: 
 
 ```php
 namespace Bolt\Extension\ACME\Race\Storage\Repository;
 
 use Bolt\Extension\ACME\Race\Storage\Entity\Race;
 
-class RaceRepository extends Bolt\Storage\Repository\ContentRepository
+class RaceRepository extends \Bolt\Storage\Repository\ContentRepository
 {
     /**
      * @return Race[]
@@ -189,7 +191,7 @@ class RaceRepository extends Bolt\Storage\Repository\ContentRepository
 }
 ```
 
-Then, we can map this custom entity and this custom repository together in your extension main file : 
+Then, we can map this custom entity and this custom repository together in your extension main file: 
 
 ```php
 protected function registerRepositoryMappings()
@@ -197,22 +199,22 @@ protected function registerRepositoryMappings()
     //the table generated for my "races" content type is "bolt_races" so the unprefixed name is simply "races"
     return [
         'races' => [
-            Bolt\Extension\ACME\Race\Storage\Entity\Race::class => 
-            Bolt\Extension\ACME\Race\Storage\Repository\RaceRepository::class
+            \Bolt\Extension\ACME\Race\Storage\Entity\Race::class => 
+            \Bolt\Extension\ACME\Race\Storage\Repository\RaceRepository::class
         ],
     ];
 }
 ```
 
-Then you are ready to go ... you can just retrieve your repository like below : 
+Then you are ready to go! You can just retrieve your repository like below: 
 ```php
-$raceRepo = $app['storage']->getRepository(Bolt\Extension\ACME\Race\Storage\Entity\Race::class);
+$raceRepo = $app['storage']->getRepository(\Bolt\Extension\ACME\Race\Storage\Entity\Race::class);
 //you can also retrieve your repository through the previously defined alias : 
 //$raceRepo = $app['storage']->getRepository('races');
 $openRaces = $raceRepo->findOpenRaces(); //$openRaces contains an array of Race Entities
 ```
 
-You can also exploit the features of custom entity in your twig templates :
+You can also exploit the features of custom entity in your twig templates:
 ```twig
 {% for id, race in openRaces %}
     {{ race.getDayLeftCountBeforeRace() }} days before the race !
