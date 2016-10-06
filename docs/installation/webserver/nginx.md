@@ -71,11 +71,6 @@ server {
         deny all;
     }
 
-    # Block access to the app, cache & vendor directories
-    location ~ /(?:app|src|tests|vendor)/(.*)$ {
-        deny all;
-    }
-
     # Block access to certain JSON files
     location ~ /(?:bower|composer|jsdoc|package)\.json$ {
         deny all;
