@@ -56,10 +56,18 @@ server {
         log_not_found off;
     }
 
-    # Block PHP files from being run in upload (files), app, theme and extension directories
-    location ~* /(?:app|extensions|files|theme)/(.*)\.php$ {
-        deny all;
-    }
+    # Block access to the app, cache & vendor directories
+    #
+    # NOTE: If you have one or more of 'app' , 'src', 'test' and 'vendor' as 
+    # sub-directories of your installation root, you should uncomment
+    # this location block to prevent site visitors having access to the 
+    # various directories that contain executable code.
+    #
+    # NOTE: This approach is *not* recommended for production use.
+    #
+    #location ~ /(?:app|src|tests|vendor)/(.*)$ {
+    #    deny all;
+    #}
 
     # Block hidden files
     location ~ /\. {
@@ -68,11 +76,6 @@ server {
 
     # Block access to Sqlite database files
     location ~ /\.(?:db)$ {
-        deny all;
-    }
-
-    # Block access to the app, cache & vendor directories
-    location ~ /(?:app|src|tests|vendor)/(.*)$ {
         deny all;
     }
 
