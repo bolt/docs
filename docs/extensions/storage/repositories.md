@@ -31,7 +31,7 @@ $repo = $app['storage']->getRepository('Bolt\Storage\Entity\Users');
 
 You can also use short aliases for any of the built-in tables so the following is equivalent.
 
-There is more informations about [repository and content defined through the contenttypes.yml file](../advanced/storage-repositories#custom-repository-to-manage-entity-defined-in-contenttypeyml) 
+There is more information about [repository and content defined through the contenttypes.yml file](../advanced/storage-repositories#custom-repository-to-manage-entity-defined-in-contenttypeyml) 
 
 ```
 $repo = $app['storage']->getRepository('users');
