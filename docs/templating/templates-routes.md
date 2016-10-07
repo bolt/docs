@@ -188,8 +188,9 @@ bindname:
     _after:         'after'             # optional
   requirements:
     parameter..:    required-regexp
-  host:               hostname            # optional
-  contenttype:        contenttype         # optional
+  host:             hostname            # optional
+  contenttype:      ContentType         # optional
+  recordslug:       record slug         # optional
 ```
 
 Explanation of each argument:
@@ -207,8 +208,10 @@ Explanation of each argument:
     to be matched. it's also possible to add a callback here. it should return a
     regular expression which should match
   - `hostname` - hostname to match for this route.
-  - `contenttypeslug` - if this route represent a new route for a ContentType,
+  - `contenttype` - flag this route as "preferred" (canonical) for that ContentType
     the ContentType should be specified.
+  - `recordslug` - flag this route as "preferred" (canonical) for that record,
+    the record slug should be specified.
 
 Path
 ----
