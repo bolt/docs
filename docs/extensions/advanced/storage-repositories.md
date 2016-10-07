@@ -74,7 +74,7 @@ If your data are going to be stored in the `bolt_foo` table, you alias should be
 
 Custom Repository to Manage Entity Defined in Contenttype.Yml
 -------------------------------------------------------------
-Sometimes it could be convenient to define content structure through the [contenttype.yml](../../contenttypes/intro)  file ( in particular to enjoy easy field declaration and to take advantage of the backend auto generated Create/Read/Update/Delete  UI ). If you also want to manage those content entities through a custom repository: we got you covered !
+Sometimes it could be convenient to define content structure through the [contenttype.yml](../../contenttypes/intro)  file ( in particular to enjoy easy field declaration and to take advantage of the backend auto generated Create/Read/Update/Delete  UI ). If you also want to manage those content entities through a custom repository: we got you covered!
 
 Firstly You must create a custom Entity file which represent your content type and which extends `\Bolt\Storage\Entity\Content` and map that entity to your custom repository. Your custom repository must also extend `\Bolt\Storage\Repository\ContentRepository` and override the `createQueryBuilder` the whole is covered below:
 
