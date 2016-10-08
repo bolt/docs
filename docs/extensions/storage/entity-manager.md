@@ -13,12 +13,12 @@ Below are some links to the `EntityManager` methods you may need to call.
 Quick Links
 -----------
 
- - <a href="#getrepositoryentity">getRepository</a>
- - <a href="#setrepositoryentity-repositoryclass">setRepository</a>
+ - <a href="#getrepository-entity">getRepository</a>
+ - <a href="#setrepository-entity-repositoryclass">setRepository</a>
  - <a href="#createquerybuilder">createQueryBuilder</a>
- - <a href="#findentity-id">find</a>
- - <a href="#saveentity">save</a>
- - <a href="#deleteentity">delete</a>
+ - <a href="#find-entity-id">find</a>
+ - <a href="#save-entity">save</a>
+ - <a href="#delete-entity">delete</a>
 
 Overview
 --------
@@ -34,13 +34,14 @@ relevant repository class.
 ### getRepository($entity)
 
 ```
+$repo = $app['storage']->getRepository(\Bolt\Storage\Entity\Users::class);
 $repo = $app['storage']->getRepository('Bolt\Storage\Entity\Users');
 $repo = $app['storage']->getRepository('users');
 ```
 
 As shown in the usage above, getRepository is used to select a repository
-instance for an Entity. Primarily the variable passed in is a fully qualified
-entity name, although there is also support  for aliases whereby a short name
+instance for an Entity. The first two rows use fully qualified
+entity name, although there is also support (like in the third row) for aliases whereby a short name
 can be aliased to the fully qualified name.
 
 The object returned will typehint against `Bolt\Storage\Repository` although it
