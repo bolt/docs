@@ -58,6 +58,7 @@ Entity / Repository and Alias.
 -----------------------------
 
 The below code is mapping a custom entity to a custom repository with the "gumtree" alias.
+
 ```php
 protected function registerRepositoryMappings()
 {
@@ -66,17 +67,33 @@ protected function registerRepositoryMappings()
     ];
 }
 ```
-That alias should match the **"unprefixed"** table name your entity data should be stored in. 
 
-If your data are going to be stored in the `bolt_foo` table, you alias should be `foo`
+That alias should match the **"unprefixed"** table name your entity data should
+be stored in. 
 
-**Note:** the default table prefix is `bolt_`
+If your data are going to be stored in the `bolt_foo` table, you alias should
+be `foo`.
+
+**Note:** The default table prefix is `bolt_`
+
 
 Custom Repository to Manage Entity Defined in Contenttype.Yml
 -------------------------------------------------------------
-Sometimes it may be convenient to define content structure through the [contenttype.yml](../../contenttypes/intro)  file ( in particular to enjoy easy field declaration and to take advantage of the backend auto generated Create/Read/Update/Delete  UI ). If you would like to manage those content entities through a custom repository: we've got you covered!
 
-Firstly You must create a custom Entity file which represents your content type and which extends `\Bolt\Storage\Entity\Content` and then map that entity to your custom repository. Your custom repository must also extend `\Bolt\Storage\Repository\ContentRepository` and override the createQueryBuilder method as outlined below:
+Sometimes it may be convenient to define content structure through the 
+[contenttype.yml](../../contenttypes/intro) file (in particular to enjoy easy
+field declaration and to take advantage of the backend auto generated 
+Create/Read/Update/Delete UI ). 
+
+If you would like to manage those content entities through a custom repository:
+we've got you covered!
+
+Firstly You must create a custom Entity file which represents your content type
+and which extends `\Bolt\Storage\Entity\Content`, and then map that entity to
+your custom repository. 
+
+Your custom repository must also extend `\Bolt\Storage\Repository\ContentRepository`
+and override the createQueryBuilder method as outlined below:
 
 For example, if we define a "races" content type like below:
 
@@ -100,7 +117,7 @@ races:
             required: true
             variant: inline
             group: Options
-        aresubscriptionsclosed:
+        areSubscriptionsClosed:
             type: checkbox
             label: "Are Subscription Closed?"
             default: 0
@@ -117,33 +134,34 @@ namespace Bolt\Extension\ACME\Race\Storage\Entity;
 class Race extends \Bolt\Storage\Entity\Content
 {
     /*
-     * you can if you want (but dont have to), defined your own getters & setters 
-     * here we are just defining one for the sample, but by default because we inherit the Bolt Content class, 
-     * we have access to all the common content type value like id/slug/datecreated/relation/taxonomy etc..
+     * You can, if you want (but dont have to), defined your own getters & 
+     * setters. Here we are just defining one for the example, but by default
+     * because we inherit the Bolt Content class, we have access to all the
+     * common content type value like id/slug/datecreated/relation/taxonomy etc,
      * and also to your custom fields.
      */
  
-    protected $aresubscriptionsclosed;
+    protected $areSubscriptionsClosed;
  
     /**
      * @return mixed
      */
     public function getAreSubscriptionsClosed()
     {
-        return  $this->aresubscriptionsclosed;
+        return  $this->areSubscriptionsClosed;
     }
 
     /**
-     * @param mixed $aresubscriptionsclosed
+     * @param mixed $areSubscriptionsClosed
      */
     public function setAreSubscriptionsClosed($value)
     {
-        //you add some additional checks on $value here if you want
-        $this->aresubscriptionsclosed =  $value;
+        // You can add some additional checks on $value here if you want
+        $this->areSubscriptionsClosed =  $value;
     }
     
     /**
-     * just a quick helper function which we can then use in twig
+     * Just a quick helper function which we can then use in Twig
      */
     public function getDayLeftCountBeforeRace()
     {
@@ -162,6 +180,7 @@ Then let's create a custom repository:
 namespace Bolt\Extension\ACME\Race\Storage\Repository;
 
 use Bolt\Extension\ACME\Race\Storage\Entity\Race;
+use Doctrine\DBAL\Query\QueryBuilder;
 
 class RaceRepository extends \Bolt\Storage\Repository\ContentRepository
 {
@@ -171,32 +190,44 @@ class RaceRepository extends \Bolt\Storage\Repository\ContentRepository
     public function findOpenRaces()
     {
         $qb = $this->createQueryBuilder();
-        $qb->where('racedate >= CURRENT_TIMESTAMP()')
-            ->andWhere('aresubscriptionsclosed = 0');
+        $qb
+            ->where('racedate >= CURRENT_TIMESTAMP()')
+            ->andWhere('areSubscriptionsClosed = 0')
+        ;
         $races = $this->findWith($qb);
+
         return $races;
     }
 
     /**
-     * It's very important to override the createQueryBuilder method because 
-     * the parent class force the alias to "content" which is not compatible with our custom entity
+     * @param string $alias
+     *
+     * @return QueryBuilder
      */
     public function createQueryBuilder($alias = null)
     {
+        /*
+         * It's very important to override the createQueryBuilder method because
+         * the parent class force the alias to "content" which is not compatible
+         * with our custom entity.
+         */
         if(empty($alias)){
             $alias = $this->getAlias();
         }
+
         return parent::createQueryBuilder($alias);
     }
 }
 ```
 
-Then, we can map this custom entity and this custom repository together in your extension main file: 
+Then, we can map this custom entity, and this custom repository, together in your
+extension loader file: 
 
 ```php
 protected function registerRepositoryMappings()
 {
-    //the table generated for my "races" content type is "bolt_races" so the unprefixed name is simply "races"
+    // The table generated for my "races" content type is "bolt_races" so the
+    // unprefixed name is simply "races".
     return [
         'races' => [
             \Bolt\Extension\ACME\Race\Storage\Entity\Race::class => 
@@ -206,19 +237,22 @@ protected function registerRepositoryMappings()
 }
 ```
 
-Then you are ready to go! You can just retrieve your repository like below: 
+Then you are ready to go! You can just retrieve your repository like below:
+
 ```php
-$raceRepo = $app['storage']->getRepository(\Bolt\Extension\ACME\Race\Storage\Entity\Race::class);
-//you can also retrieve your repository through the previously defined alias : 
-//$raceRepo = $app['storage']->getRepository('races');
-$openRaces = $raceRepo->findOpenRaces(); //$openRaces contains an array of Race Entities
+    $raceRepo = $app['storage']->getRepository(\Bolt\Extension\ACME\Race\Storage\Entity\Race::class);
+
+    // You can also retrieve your repository through the previously defined alias: 
+    // $raceRepo = $app['storage']->getRepository('races');
+
+    // $openRaces contains an array of Race Entities
+    $openRaces = $raceRepo->findOpenRaces();
 ```
 
-You can also exploit the features of custom entity in your twig templates:
+You can also use the features of your custom entity in your Twig templates:
+
 ```twig
-{% for id, race in openRaces %}
-    {{ race.getDayLeftCountBeforeRace() }} days before the race !
-{% endfor %}
+    {% for id, race in openRaces %}
+        {{ race.getDayLeftCountBeforeRace() }} days before the race!
+    {% endfor %}
 ```
-
-That's all !
