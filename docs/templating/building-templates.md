@@ -47,7 +47,7 @@ The current default theme contains the following files and folders:
   - `entry.twig` - template for a single 'Entry'.
   - `listing.twig` - Template for displaying listings, like 'latest pages', but
     also taxonomy overview pages.
-  - `record.twig` - template for a 'generic' Record page, if the content type
+  - `record.twig` - template for a 'generic' Record page, if the ContentType
     has no template specified.
   - `search.twig` - template for displaying search results.
   - `_aside.twig` - helper template that gets included as the sidebar.
@@ -175,7 +175,7 @@ What happens in this example is the following:
     content.
 
   - `{{ content.datecreated|date("M d, ’y")}}`, line 18: `datecreated` is one
-    of the elements that is always present in all content types, and it
+    of the elements that is always present in all ContentTypes, and it
     contains the date the record was created. It's stored in a machine-readable
     format, so to display it the way we want, we use the `date()` filter. In
     this case, it will output something like 'August 26, ’12'.
@@ -375,7 +375,7 @@ brackets. For example:
 <p class="note"> <strong>Note:</strong> To disable the live editor across your <strong>entire Bolt
 installation</strong>, set <code>liveeditor: false</code> in your <code>config.yml</code>.</p>
 
-<p class="note"> <strong>Note:</strong>To disable the live editor for a content type,
+<p class="note"> <strong>Note:</strong>To disable the live editor for a ContentType,
 set <code>liveeditor: false</code> in your <code>contentypes.yml</code>. However, the global 
 setting in <code>config.yml</code> must remain set to <code>true</code></p>
 

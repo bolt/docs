@@ -141,7 +141,7 @@ HTML-markup:
 As you can see, the `{% for %}`-loop iterated over all of the items in the
 `menu`-array, and wrote out the HTML that you specified. Let's change our menu,
 so it has a submenu, listing some content on our site. In this example, we'll
-assume that you have a `pages` content type, and that records `1`, `2` and `3`
+assume that you have a `pages` ContentType, and that records `1`, `2` and `3`
 exist. If they don't, just replace them with some contenttype/id pairs that you
 do have. Edit the `app/config/menu.yml`-file:
 
