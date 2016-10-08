@@ -75,7 +75,7 @@ examples use <code>{{ page }}</code>, sometimes <code>{{ entry }}</code> and
 sometimes something different altogether. These are just the names of the
 objects containing the content, or the array with several records of content. By
 default you can use the singular name of your ContentType, so be sure to replace
-them with whatever the names of your content types or variables are.</p>
+them with whatever the names of your ContentTypes or variables are.</p>
 
 
 Routing
