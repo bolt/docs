@@ -30,7 +30,7 @@ Next Steps
 
 After extracting the Tar or Zip file, you'll end up with a structure, similar to this:
 
-```
+```bash
 .
 ├── app/
 ├── extensions/
@@ -42,11 +42,11 @@ After extracting the Tar or Zip file, you'll end up with a structure, similar to
 ```
 
 These are the folders that contain all of the Bolt code, resources and other
-files. Most of them are placed outside of the so-called webroot. Only the
+files. Most of them are placed outside of the so-called web root. Only the
 folder `public/` needs to be accessible in the browser.
 
 To do this, configure your webserver to use the `public/` folder as the
-webroot. For more information about this, see the pages on configuring
+web root. For more information about this, see the pages on configuring
 [Apache][apache] or [Nginx][nginx].
 
 If you bump into trouble setting this up, or you have no access to
@@ -56,8 +56,17 @@ unchangeable in your web server's configuration, read the page
 
 ### Permissions
 
-Generally most servers should be fine with the default permissions. However, if
-you require guidance on setting up permissions, see our
+### Permissions
+
+Bolt needs to be able to write data to a number of folders. For example the
+`cache/` folder, and the `files/` folder where uploaded images and other files
+will be saved.
+
+Generally, servers should be fine with the default permissions.
+If your server needs to have the permissions set manually, you'll immediately
+notice when opening your new install in a browser window, because you will
+greeted by an error, and the message that you should fix this. If this happens,
+and you require guidance on setting up permissions, see our
 [File System Permissions](permissions) page.
 
 ### Finishing Set-up

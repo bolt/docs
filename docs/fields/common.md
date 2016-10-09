@@ -13,7 +13,7 @@ in more detail below.
   - `group`: Group the field under a certain tab when editing.
   - `prefix`: Text/HTML to show before the field.
   - `postfix`: Text/HTML to show after the field.
-  - `info`: Use for displaying extra information about the field in a info 
+  - `info`: Use for displaying extra information about the field in a info
      popup besides the label.
   - `default`: The default value for a field, if applicable.
   - `required`: make this field required so that the record cannot be
@@ -147,7 +147,7 @@ use-cases are:
 
 For example, use this to make sure a title is no longer than 80 characters:
 
-```apache
+```yaml
         title:
             type: text
             prefix: "<p>A title is required. The maximum length is 80 characters</p>"
