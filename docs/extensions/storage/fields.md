@@ -9,7 +9,7 @@ Overview
 
 Fields are where the majority of custom functionality happen within Bolt, at
 their simplest they are a way to link a single part of a content record to a
-persisted state in the database, but for Bolt 3.0 the flexibility available to
+persisted state in the database, but for Bolt 3 the flexibility available to
 fields has increased greatly.
 
 To understand the different processes that a field goes through, we'll start by
