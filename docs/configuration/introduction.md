@@ -6,7 +6,7 @@ Setting up Bolt
 
 To get started with setting up the first Admin user in your new Bolt install,
 open the Bolt site in your browser. You should be greeted by the screen to
-create the first user. If you see this 'Create the first user'-screen, do so
+create the first user. If you see this 'Create the first user' screen, do so
 accordingly. After you've created the first 'Administrator' user, you will be
 automatically logged in to the Bolt backend. You should now see the (empty)
 Dashboard screen.
