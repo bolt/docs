@@ -31,7 +31,7 @@ taxonomy has a `behaves_like` value, that defined the type of the taxonomy. If
 `name` and `singular_name` are omitted, they are generated automatically by
 Bolt.
 
-```apache
+```yaml
 tags:
     slug: tags
     singular_slug: tag
@@ -59,7 +59,7 @@ By default, a taxonomypage will use the `listing.twig` template. However, by spe
 Once the taxonomies are added, you need to add them to your ContentTypes in
 `contenttypes.yml`, so you can use them in your content. For example:
 
-```apache
+```yaml
 entries:
     name: Pages
     singular_name: Page
@@ -72,7 +72,7 @@ entries:
 If you'd like to use more than one taxonomy for a ContentType, be sure to use an
 array:
 
-```apache
+```yaml
 pages:
     ..
     taxonomy: [ categories, tags ]

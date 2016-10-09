@@ -14,7 +14,7 @@ written for the 2.x documentation, it no longer represents best practice for
 custom field development, for that please see the latest tutorial here.
 
 What this updated tutorial will be useful for is to see what changes will be
-needed to update field extensions to be compatible with Bolt 3.0
+needed to update field extensions to be compatible with Bolt 3.
 
 Task: Add a Colour Picker to Bolt
 ---------------------------------

@@ -35,7 +35,7 @@ class SelectQueryHandler
         //Loop through all content types that need to be fetched
         foreach ($contentQuery->getContentTypes() as $contenttype) {
         
-            //Grab the Select Query Service = https://github.com/bolt/bolt/blob/release/3.0/src/Storage/Query/SelectQuery.php
+            //Grab the Select Query Service = https://github.com/bolt/bolt/blob/release/3.4/src/Storage/Query/SelectQuery.php
             $query = $contentQuery->getService('select');
             
             //Get the entity manager for the specified content type

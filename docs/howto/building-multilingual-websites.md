@@ -52,7 +52,7 @@ can simply reference them. Be sure that the anchor is defined before it is used.
 See the use of `&pagefields` and `*pagefields` in the following example. Assume
 `en` is English, `nl` is Dutch, and `de` is German.
 
-```apache
+```yaml
 pages-en:
     name: Pages
     singular_name: Page
@@ -119,7 +119,7 @@ make use of the following patterns:
 
 This makes the routes fairly straightforward to define:
 
-```apache
+```yaml
 # ------------------------------------------------------------------------------
 # [en] English
 # ------------------------------------------------------------------------------
@@ -162,7 +162,7 @@ Defining Menus
 Define your menus as usual. You'll need a duplicate of every menu per language.
 Be sure to prefix (or postfix) them, just like with ContentTypes and routes.
 
-```apache
+```yaml
 en-main:
   - label: Home
     path: en-pages/1
@@ -244,7 +244,7 @@ Implementing Multilingual Search
 Define a route for the search results pages for every language. Again, keep the
 same slugs for the routenames prefixed (or postfixed) with the language.
 
-```apache
+```yaml
 en-searchresults:
   path:               /en/searchresults
   defaults:           { _controller: 'Bolt\Controllers\Frontend::search' }
@@ -453,7 +453,7 @@ language-specific taxonomy in your contenttypes.
 If you want to link individual pages directly between languages, you will need
 to add a relationship per language and then manually link the contents.
 
-```apache
+```yaml
 en-pages:
   ...
   relations:
