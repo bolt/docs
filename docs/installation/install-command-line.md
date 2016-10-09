@@ -1,12 +1,12 @@
 ---
 title: Using the command-line
 ---
-Quick-install, using the command-line
+Quick-install, using the command-line 
 =====================================
 
 If you have command-line access, you can easily install Bolt by executing a few
 commands. First, create the directory where you want to install Bolt, if it
-doesn't already exist. We recommend installing Bolt outside the webroot, you
+doesn't already exist. We recommend installing Bolt outside the web root, you
 can read more on this [here][outside-why].
 
 Enter the directory where you want to place the files, and execute the
@@ -15,10 +15,17 @@ following commands:
 ```bash
 curl -O https://bolt.cm/distribution/bolt-latest.tar.gz
 tar -xzf bolt-latest.tar.gz --strip-components=1
+php app/nut init
 ```
 
-If this didn't work because your server doesn't have `curl`, use `wget`
-instead.
+If all goes well, you'll be greeted by the following: 
+
+```
+Welcome to Bolt! - version 3.2.0.
+```
+
+If this set of commands didn't work because your server doesn't have `curl`, use `wget`
+instead. 
 
 That's all!
 
@@ -57,13 +64,21 @@ unchangeable in your web server's configuration, read the page
 
 ### Permissions
 
-Generally most servers should be fine with the default permissions. However, if
-you require guidance on setting up permissions, see our
+Bolt needs to be able to write data to a number of folders, like the `cache/` 
+folder, and the `files/` folder, where uploaded images and other files will 
+be saved.
+Generally, servers should be fine with the default permissions. If your server 
+needs to have the permissions set manually, you'll immediately notice when 
+opening your new install in a browser window, because you will greeted by an 
+error, and the message that you should fix this. If this happens, and you 
+require guidance on setting up permissions, see our 
 [File System Permissions](permissions) page.
 
 ### Finishing Set-up
 
-After you've done this, skip to the section [Setting up Bolt](../configuration/introduction).
+After extracting the files, checking the folder structure and setting up the 
+vhost on your webserver, your Bolt installation should be good to go. Skip 
+to the section [Setting up Bolt](../configuration/introduction).
 
 [apache]: ../installation/webserver/apache
 [nginx]: ../installation/webserver/nginx
