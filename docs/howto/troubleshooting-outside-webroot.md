@@ -13,8 +13,8 @@ There are three ways to 'fix' this:
  - [Use `.htaccess` to change the web root][4]
  - [Move files outside of the `public` folder][5]
 
-Finally, at the end of this page, there's a brief explanation of _why_ it is 
-important to keep your files outside of the webroot: 
+Finally, at the end of this page, there's a brief explanation of _why_ it is
+important to keep your files outside of the web root:
 [What's the point of doing this?][point]
 
 Configure Apache or Nginx
@@ -24,16 +24,16 @@ If you have access to Apache or Nginx's configuration files, you can modify
 those to use the `public` folder as web root. For more information about this,
 see the pages on configuring [Apache][apache] or [Nginx][nginx].
 
-Sometimes this is even possible from the web hosting Control Panel, like Plesk or
-DirectAdmin.
+Sometimes this is even possible from the web hosting Control Panel, like Plesk
+or DirectAdmin.
 
 Configure Bolt to use the web host
 ---------------------------------
 
-Often you'll have a folder structure like this, on your web host. As you can see,
-it doesn't have a `public` folder, but a `www` folder instead. Sometimes this is
-called `public_html`, `html`, `web` or `DEFAULT`. This example works the same,
-just substitute `www` for whatever your web root is called.
+Often you'll have a folder structure like this, on your web host. As you can
+see, it doesn't have a `public` folder, but a `www` folder instead. Sometimes
+this is called `public_html`, `html`, `web` or `DEFAULT`. This example works the
+same, just substitute `www` for whatever your web root is called.
 
 ```
 .
@@ -187,7 +187,8 @@ paths:
     view: bolt-public/view
 ```
 
-Finally, edit `index.php`, so the bootstrapping can load successfully. Find the line with the `require` in it, and change it like this: 
+Finally, edit `index.php`, so the bootstrapping can load successfully. Find the
+line with the `require` in it, and change it like this:
 
 ```
 $app = require dirname(__FILE__) . '/vendor/bolt/bolt/app/web.php';

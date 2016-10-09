@@ -51,7 +51,8 @@ Next you want to add an additional repository to the `repositories` section of
 `extensions/composer.json`
 
 Something similar to:
-```
+
+```json
         "myrepo": {
             "type": "git",
             "url": "/home/user/git/myext"
@@ -60,7 +61,7 @@ Something similar to:
 
 The end result looking something like this
 
-```
+```json
 {
     "require": {
         "authorname/extensionname": "dev-master"
@@ -77,7 +78,7 @@ The end result looking something like this
         "packagist": false
     },
     "provide": {
-        "bolt/bolt": "3.0.0"
+        "bolt/bolt": "3.3.0"
     },
     "scripts": {
         "post-package-install": "Bolt\\Composer\\ExtensionInstaller::handle",
