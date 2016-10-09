@@ -7,7 +7,7 @@ Relationships
 You can define relationships between records by adding a relation to
 `contenttypes.yml`.
 
-```apache
+```yaml
 entries:
     name: Entries
     singular_name: Entry
