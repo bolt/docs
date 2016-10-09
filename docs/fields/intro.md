@@ -16,7 +16,7 @@ of fields that are available and what options one can use with them.
 
 All fields have a general structure, like this:
 
-```apache
+```yaml
         name:
             type: name-of-field-type
             option: value

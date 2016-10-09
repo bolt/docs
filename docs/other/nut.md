@@ -17,7 +17,7 @@ over time.
 
 When running `php app/nut` without any parameters, you'll see the help screen:
 
-```apache
+```yaml
 Usage:
   command [options] [arguments]
 

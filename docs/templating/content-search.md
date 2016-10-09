@@ -39,7 +39,7 @@ You can initiate the search by visiting the URL `/search?q=SEARCH`.
 The template that is used for search by default, is defined in your
 `config.yml` file:
 
-```apache
+```yaml
 # Template for showing the search results. If not defined, uses the settings
 # for listing_template and listing_records
 search_results_template: listing.twig
@@ -128,7 +128,7 @@ base score of '75'.
 You can override these scores in the config files for the ContentTypes and
 taxonomies. For example, in `contenttypes.yml`:
 
-```apache
+```yaml
 pages:
     name: Pages
     singular_name: page
@@ -145,7 +145,7 @@ pages:
 
 Or in `taxonomy.yml`:
 
-```apache
+```yaml
 tags:
     slug: tags
     singular_slug: tag
