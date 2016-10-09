@@ -36,7 +36,7 @@ If you wish to edit the database configuration, you have to change the settings
 in `app/config/config.yml`. Apart from SQLite, you can use MySQL and PostgreSQL
 as database systems. Set the database, username and password:
 
-```apache
+```yaml
 database:
   driver: mysql
   username: bolt
@@ -46,7 +46,7 @@ database:
 
 or:
 
-```apache
+```yaml
 database:
   driver: postgres
   username: bolt
@@ -63,7 +63,7 @@ Support for PostgreSQL is experimental, so use with caution.
 If the hostname or port are something else than `localhost:3306`, you can add them like
 this:
 
-```apache
+```yaml
 database:
   driver: mysql
   username: bolt

@@ -191,7 +191,7 @@ field. However, you can't use something like `where { ownerid: '!3', ownerid:
 overwrite the first. Instead, you can use the `&&` and `||`-parameters to
 either select using `AND` or `OR`. examples:
 
-```apache
+```yaml
 {# get all pages created by ownerid '3' or '4' #}
 {% setcontent mypages = 'pages' where { ownerid: '3 || 4' } %}
 
@@ -202,7 +202,7 @@ either select using `AND` or `OR`. examples:
 Please note that using these operators, it'll be quite easy to create a
 where statement that will never give good results:
 
-```apache
+```yaml
 {# This will _always_ match: #}
 {% setcontent mypages = 'pages' where { ownerid: '!3 || !4' } %}
 

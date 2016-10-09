@@ -30,9 +30,9 @@ In this example, we're going to create the Bolt project into the
 `/var/www/bolt-private/` directory and install the vendor libraries with
 Composer:
 
-```
+```bash
 $ cd /var/www/
-$ composer create-project --no-install bolt/bolt:^3.0 bolt-private
+$ composer create-project --no-install bolt/bolt:^3.2 bolt-private
 $ cd bolt-private
 $ composer install --no-dev --optimize-autoloader
 ```
@@ -61,7 +61,8 @@ In this HOWTO we're going to install each Bolt site in a directory under
 `/var/www/sites/`, the first one in `/var/www/sites/my-sites-1`.
 
 Create and navigate to `/var/www/sites/my-sites-1`:
-```
+
+```bash
 $ mkdir /var/www/sites/my-sites-1
 $ cd /var/www/sites/my-sites-1
 ```
@@ -73,7 +74,7 @@ $ mkdir -p app/cache app/config app/database extensions files theme
 
 Create a symbolic link to Bolt's templates:
 
-```
+```bash
 ln -s /var/www/bolt-private/app/view/ app/view
 ```
 
@@ -82,7 +83,7 @@ ln -s /var/www/bolt-private/app/view/ app/view
 For this HOWTO, we'll just use the default `base-2016` theme and files. Copy
 the `base-2016` directory into your site's `theme/` directory:
 
-```
+```bash
 $ cp -a /var/www/bolt-private/theme/base-2016/ /var/www/sites/my-sites-1/theme/
 $ cp -a /var/www/bolt-private/files/* /var/www/sites/my-sites-1/files/
 ```
@@ -164,6 +165,7 @@ $nut->run();
 ```
 
 Finally make the Nut file executable:
-```
+
+```bash
 $ chmod +x app/nut
 ```

@@ -28,7 +28,7 @@ To start an interactive install, navigate to the parent directory of your
 desired project (site), and run the following from a command line:
 
 ```
-composer create-project bolt/composer-install:^3.0 <MYPROJECT> --prefer-dist
+composer create-project bolt/composer-install:^3.1 <MYPROJECT> --prefer-dist
 ```
 
 **NOTE:** Change `<MYPROJECT>` to the name of your project before running the installer.
@@ -50,7 +50,7 @@ To simply use default directory locations, you just apply the `--no-interaction`
 parameter to the `composer create-project` command, e.g.
 
 ```
-composer create-project bolt/composer-install:^3.0 <MYPROJECT> --prefer-dist --no-interaction
+composer create-project bolt/composer-install:^3.1 <MYPROJECT> --prefer-dist --no-interaction
 ```
 
 **NOTE:** Change `<MYPROJECT>` to the name of your project before running the installer.
@@ -93,11 +93,11 @@ $ cd example.com
 In order for paths to be customised and still have the standard index.php (web)
 and nut (CLI) work, there needs to be a standard place these are defined.
 
-This is either `.bolt.yml` (recommended) or `.bolt.php` in the project root.
+This is either `bolt.yml` (recommended) or `bolt.php` in the project root.
 YAML works for simple values and PHP supports any programmatic logic if
 required.
 
-An example `.bolt.yml` would look like:
+An example `bolt.yml` would look like:
 
 ```
 paths:
@@ -110,7 +110,7 @@ paths:
     view: public/bolt-public/view
 ```
 
-If you are creating a `.bolt.php` file instead, it should return the following
+If you are creating a `bolt.php` file instead, it should return the following
 array.
 
 ```php
@@ -139,7 +139,7 @@ minimum:
 ```
 {
     "require": {
-        "bolt/bolt": "^3.0"
+        "bolt/bolt": "^3.1"
     },
     "minimum-stability": "beta",
     "prefer-stable": true,
@@ -161,9 +161,9 @@ minimum:
 
 ### Required Folders
 
-Run the following commands to create the required folders. 
-If you defined a different folder structure in `.bolt.yml` or `.bolt.php`, 
-you have to adjust the commands to fit your own folder structure.
+Run the following commands to create the required folders. If you defined a
+different folder structure in `bolt.yml` or `bolt.php`, you have to adjust the
+commands to fit your own folder structure.
 
 ```
 mkdir -p app/cache
