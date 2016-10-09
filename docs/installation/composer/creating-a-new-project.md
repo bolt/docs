@@ -93,11 +93,11 @@ $ cd example.com
 In order for paths to be customised and still have the standard index.php (web)
 and nut (CLI) work, there needs to be a standard place these are defined.
 
-This is either `.bolt.yml` (recommended) or `.bolt.php` in the project root.
+This is either `bolt.yml` (recommended) or `bolt.php` in the project root.
 YAML works for simple values and PHP supports any programmatic logic if
 required.
 
-An example `.bolt.yml` would look like:
+An example `bolt.yml` would look like:
 
 ```
 paths:
@@ -110,7 +110,7 @@ paths:
     view: public/bolt-public/view
 ```
 
-If you are creating a `.bolt.php` file instead, it should return the following
+If you are creating a `bolt.php` file instead, it should return the following
 array.
 
 ```php
@@ -161,9 +161,9 @@ minimum:
 
 ### Required Folders
 
-Run the following commands to create the required folders.
-If you defined a different folder structure in `.bolt.yml` or `.bolt.php`,
-you have to adjust the commands to fit your own folder structure.
+Run the following commands to create the required folders. If you defined a
+different folder structure in `bolt.yml` or `bolt.php`, you have to adjust the
+commands to fit your own folder structure.
 
 ```
 mkdir -p app/cache
