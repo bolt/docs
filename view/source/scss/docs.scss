@@ -3,10 +3,9 @@
 @import 'variables';
 @import 'settings';
 @import 'foundation';
-//@import 'jqtree'; we no need no uglyfugly styling
 @import 'cheatsheet';
 @import 'algolia';
-@import 'tomorrow-night';
+@import 'code-highlighting';
 @import 'magnific-popup';
 
 @include foundation-global-styles;
@@ -711,11 +710,6 @@ pre {
     margin: 20px 0;
 }
 
-code.hljs {
-    padding: 1.5rem 10px 10px; //more room on top for the copy button on small screens;
-    line-height: 20px;
-}
-
 code {
     padding: 1px 3px;
     background-color: #EEE;
@@ -732,13 +726,14 @@ p code {
 }
 
 span.copy-btn {
-    color: #ddd;
+    color: #444;
     display: block;
     margin: 0 8px -20px;
     text-align: right;
     cursor: pointer;
     text-transform: uppercase;
     font-size: 12px;
+    font-family: "Menlo", "Consolas", "Courier New", Courier, monospace;
 }
 
 
