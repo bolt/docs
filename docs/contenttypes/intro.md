@@ -108,7 +108,7 @@ To add a listing of these news items to the website, edit the twig template
 header and some other things. Add the following to the HTML-code, preferably
 somewhere below the header section:
 
-```
+```twig
 {% setcontent newsitems = "news/latest/4" %}
 
 {% for newsitem in newsitems %}
@@ -135,7 +135,7 @@ page, but it will use the default `record.twig` template. In the ContentType we
 defined the template as `newsitem.twig`, but it doesn't exist. Create the file
 in the `theme/base-2016/` folder, and add the following HTML-code:
 
-```
+```twig
 <!DOCTYPE html>
 <html lang="en">
 <head>

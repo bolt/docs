@@ -161,8 +161,8 @@ minimum:
 
 ### Required Folders
 
-Run the following commands to create the required folders. 
-If you defined a different folder structure in `.bolt.yml` or `.bolt.php`, 
+Run the following commands to create the required folders.
+If you defined a different folder structure in `.bolt.yml` or `.bolt.php`,
 you have to adjust the commands to fit your own folder structure.
 
 ```

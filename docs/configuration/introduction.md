@@ -19,6 +19,14 @@ your webserver isn't configured to handle rewrites correctly. If you're using
 Apache, see our page on <a href="../howto/making-sure-htaccess-works">Making sure
 .htaccess and mod_rewrite are working as they should</a>.</p>
 
+### Permissions (reminder)
+
+Bolt needs to be able to write data to a number of folders like `cache/` and
+`files/`, where uploaded images and other files will be saved. If your server
+needs to have the permissions set manually, you'll notice when opening your new
+install in a browser window, because you will greeted by an error. If this
+happens, see our [File System Permissions](permissions) page on how to fix this.
+
 If you want to get a quick way to see how your site looks with some content you
 can add some generated pages using the built-in [Loripsum](http://loripsum.net)
 tool. This is a simple method to test-drive your theme quickly.
@@ -99,16 +107,16 @@ the value set on the main application container.
 
 Note that at this point only string values are supported.
 
-Note that configuration settings are namespaced. `{{ config.get('mycustomversion') }}` 
-may not be necessarily available in your Twig templates directly. For more information 
-regarding this, please refer to the [Bolt Internals](../internals/container-service-references#app-config) 
+Note that configuration settings are namespaced. `{{ config.get('mycustomversion') }}`
+may not be necessarily available in your Twig templates directly. For more information
+regarding this, please refer to the [Bolt Internals](../internals/container-service-references#app-config)
 documentation. In this particular example, use `{{ config.get('general/mycustomversion') }}`
 to access the above variable in your template.
 
 ### Regarding Chrome and backend authentication
 
-If you are using Chrome and using a IP based path, e.g. `192.168.60.10/public/bolt`, 
-unfortunately you will not be able to log in. 
+If you are using Chrome and using a IP based path, e.g. `192.168.60.10/public/bolt`,
+unfortunately you will not be able to log in.
 
 This is an issue with Chrome, as it is very strict with cookie domain paths and
 destroys the cookie upon creation by Bolt. For further information, please see
