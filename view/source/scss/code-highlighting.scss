@@ -72,9 +72,10 @@
   display: block;
   overflow-x: auto;
   background: #F5F2F0;
-  color: #4d4d4c;
+  color: #555;
   padding: 1.3rem 10px 10px 1rem; //more room on top for the copy button on small screens;
-  line-height: 20px;
+  line-height: 1.6em;
+  font-size: 0.85em;
 }
 
 .hljs-emphasis {
