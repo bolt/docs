@@ -4,10 +4,10 @@ title: Storage Repositories & Entity Mappings
 Storage Repositories & Entity Mappings
 ======================================
 
-Bolt 3 comes with an extensible [storage interface](/3.0/extensions/storage/introduction). 
+Bolt 3 comes with an extensible [storage interface](../storage/introduction).
 
-If your extension needs to register [entity](/3.0/extensions/storage/entities) 
-and [repository](/3.0/extensions/storage/repositories) mappings, 
+If your extension needs to register [entity](../storage/entities)
+and [repository](../storage/repositories) mappings,
 your extension loader class should import `StorageTrait`, implement the 
 `registerRepositoryMappings()` function and call `extendRepositoryMapping()` in 
 your extension loader class.
