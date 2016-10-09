@@ -52,7 +52,7 @@ you first run Bolt, just copy <code>contenttypes.yml.dist</code> to
 To add this ContentType, edit the file `app/config/contenttypes.yml`, and add
 the following to the bottom or top of the file:
 
-```apache
+```yaml
 news:
     name: News
     singular_name: Newsitem
@@ -108,7 +108,7 @@ To add a listing of these news items to the website, edit the twig template
 header and some other things. Add the following to the HTML-code, preferably
 somewhere below the header section:
 
-```
+```twig
 {% setcontent newsitems = "news/latest/4" %}
 
 {% for newsitem in newsitems %}
@@ -132,10 +132,10 @@ templates](content-in-templates).
 When you refresh the front page of the website, you should see four news items
 listed on the page. You can click the title to go to the news item on a separate
 page, but it will use the default `record.twig` template. In the ContentType we
-defined the template as `newsitem.twig`, but it doesn't exist. Create the file 
+defined the template as `newsitem.twig`, but it doesn't exist. Create the file
 in the `theme/base-2016/` folder, and add the following HTML-code:
 
-```
+```twig
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -191,7 +191,7 @@ added later on, and settings can be changed, so nothing is set in stone.
 
 The general structure of each ContentType is:
 
-```apache
+```yaml
 name:
     option: value
     option: value
@@ -203,14 +203,14 @@ The `name` defines the name of the ContentType, and it should be a 'safe'
 version of the `name:` option below. Basically this means that it should be a
 lowercase version, without any special characters. Like this:
 
-```apache
+```yaml
 pages:
     name: Pages
     singular_name: Page
     ..
 ```
 
-```apache
+```yaml
 cafes:
     name: Cafés
     singular_name: Café
@@ -239,7 +239,7 @@ The available options are:
     ContentType. For example `[ categories, tags ]`. See the page on
     [Taxonomies](../contenttypes/taxonomies) for details.
   - `relations`: An array listing the different relations available to this
-    ContentType. See the page on [Relations](../contenttypes/relationships) for 
+    ContentType. See the page on [Relations](../contenttypes/relationships) for
     details.
   - `record_template`: The default template to use, when displaying a single
     Record of this ContentType. The template itself should be located in your
@@ -340,7 +340,7 @@ These nodes then become selectable in a ContentType definition.
 Each node is defined by an `key_name: &node_name` with the fields then included,
 and indented below.
 
-```apache
+```yaml
 ## Defaults nodes. Does not create a ContentType
 __nodes:
     record_defaults: &record_defaults
@@ -373,7 +373,7 @@ fields, and a `template_defaults` node that defines our template selector.
 Using the above nodes we could simplify a default `Pages` ContentType to look
 like this:
 
-```apache
+```yaml
 pages:
     name: Pages
     singular_name: Page

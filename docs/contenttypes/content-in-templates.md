@@ -49,7 +49,7 @@ pages and search results.
 In your `config.yml` you can set which record is used for the homepage of the
 site, and you can set the template as well:
 
-```apache
+```yaml
 homepage: page/1
 homepage_template: index.twig
 ```
@@ -61,7 +61,7 @@ example above, it would be `{{ page }}`.
 If you've set the `homepage` to use not one singular record, but a group of
 records, like this:
 
-```apache
+```yaml
 homepage: entries/latest/10
 ```
 

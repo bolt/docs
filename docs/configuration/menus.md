@@ -14,7 +14,7 @@ items below it. See the default `menu.yml` for an example of the supported
 options:
 
 
-```apache
+```yaml
 main:
   - label: Home
     title: This is the first menu item. Fo shizzle!
@@ -88,7 +88,7 @@ In this section we'll show you a somewhat more elaborate example of how you can
 create a menu, with submenus. First, start by adding a small menu to your
 `app/config/menu.yml`-file:
 
-```apache
+```yaml
 test:
   - label: Bolt
     link: https://bolt.cm
@@ -145,7 +145,7 @@ assume that you have a `pages` ContentType, and that records `1`, `2` and `3`
 exist. If they don't, just replace them with some contenttype/id pairs that you
 do have. Edit the `app/config/menu.yml`-file:
 
-```apache
+```yaml
 test:
   - label: Bolt
     link: https://bolt.cm
