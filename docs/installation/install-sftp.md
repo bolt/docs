@@ -64,6 +64,7 @@ If your server needs to have the permissions set manually, you'll immediately
 notice when opening your new install in a browser window, because you will
 greeted by an error, and the message that you should fix this. If this happens,
 and you require guidance on setting up permissions, see our
+[File System Permissions](permissions) page.
 
 ### Finishing Set-up
 

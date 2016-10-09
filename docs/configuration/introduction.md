@@ -4,20 +4,34 @@ title: Setting up Bolt
 Setting up Bolt
 ===============
 
-By default, Bolt is configured to use an SQLite database. See [configure the database](database),
-if you want to change this to either MySQL or PostgreSQL.
+To get started with setting up the first Admin user in your new Bolt install,
+open the Bolt site in your browser. You should be greeted by the screen to
+create the first user. If you see this 'Create the first user' screen, do so
+accordingly. After you've created the first 'Administrator' user, you will be
+automatically logged in to the Bolt backend. You should now see the (empty)
+Dashboard screen.
 
-Open your Bolt site in your browser, and you should be greeted by the screen to
-set up the first user. If not, see below. If you do see the 'Create the first
-user'-screen, do accordingly, and log in to the Bolt backend. You should now
-see the (empty) Dashboard screen.
+If this is not the case, but you see an error page instead, see below for a
+number of possible causes and solutions.
 
-<p class="note"><strong>Note:</strong> When you first open a Bolt page in your
+By default, Bolt is configured to use an SQLite database. See
+[configure the database](database), if you want to change this to either MySQL
+or PostgreSQL.
+
+<p class="note"><strong>Note:</strong> When you first open any Bolt page in your
 browser, you will be redirected to a page like <tt>/bolt/userfirst</tt> where
 you can set up the first user. If you get a 'File not found'-error, this means
 your webserver isn't configured to handle rewrites correctly. If you're using
-Apache, see our page on <a href="../howto/making-sure-htaccess-works">Making sure
-.htaccess and mod_rewrite are working as they should</a>.</p>
+Apache, see our page on <a href="../howto/making-sure-htaccess-works">Making
+sure .htaccess and mod_rewrite are working as they should</a>.</p>
+
+### Permissions (reminder)
+
+Bolt needs to be able to write data to a number of folders like `cache/` and
+`files/`, where uploaded images and other files will be saved. If your server
+needs to have the permissions set manually, you'll notice when opening your new
+install in a browser window, because you will greeted by an error. If this
+happens, see our [File System Permissions](permissions) page on how to fix this.
 
 ### Permissions (reminder)
 

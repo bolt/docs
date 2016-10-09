@@ -15,9 +15,16 @@ following commands:
 ```bash
 curl -O https://bolt.cm/distribution/bolt-latest.tar.gz
 tar -xzf bolt-latest.tar.gz --strip-components=1
+php app/nut init
 ```
 
-If this didn't work because your server doesn't have `curl`, use `wget`
+If all goes well, you'll be greeted by the following:
+
+```bash
+Welcome to Bolt! - version 3.0.0.
+```
+
+If this set of commands didn't work because your server doesn't have `curl`, use `wget`
 instead.
 
 That's all!
@@ -66,6 +73,8 @@ If your server needs to have the permissions set manually, you'll immediately
 notice when opening your new install in a browser window, because you will
 greeted by an error, and the message that you should fix this. If this happens,
 and you require guidance on setting up permissions, see our
+[File System Permissions](permissions) page.
+
 
 ### Finishing Set-up
 
