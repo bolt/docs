@@ -387,3 +387,4 @@ pages:
     taxonomy: [ chapters ]
     recordsperpage: 100
 ```
+<p class="note"><strong>UI Tip:</strong> When using <code>group: foo</code> in YAML repeated nodes, you can add a field that is only used in a specific contenttype to that group. Just use the same <code>group: foo</code>.</p>
