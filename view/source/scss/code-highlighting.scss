@@ -1,71 +1,79 @@
-/* Code highlighting for docs.bolt.cm */
+/*
+Code highlighting for docs.bolt.cm, based on Base 16 - base16-default-dark
+@see: https://chriskempson.github.io/base16/
+*/
 
-/* Tomorrow Comment */
+
+/* Gray */
 .hljs-comment,
 .hljs-quote {
   font-style: italic;
   color: #8e908c;
 }
 
-/* Tomorrow Red */
+/* Base 0B: green */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #a1b56c;
+  font-weight: bold;
+}
+
+/* Base 08: Red */
 .hljs-variable,
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-regexp,
 .hljs-deletion {
-  color: #c82829;
+  color: #ab4642;
 }
 
-
+/* Base 08: Red */
 .hljs-name,
 .hljs-tag {
-  color: #915;
+  color: #ab4642;
 }
 
-/* Twig stuff */
-.hljs-template-variable,
-.hljs-template-tag {
-  // font-weight: bold;
-  color: #0080C0;
+/* Base 09: Orange */
+.hljs-attribute,
+.hljs-attr {
+  color: #dc9656;
 }
 
-
-/* Tomorrow Orange */
+/* Base 0B: Green */
 .hljs-number,
 .hljs-built_in,
 .hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-  color: #f5871f;
+.hljs-params {
+  color: #a1b56c;
 }
 
-.hljs-attribute,
-.hljs-attr {
-  color: #098;
+/* Base 0D: Teal */
+.hljs-template-variable,
+.hljs-template-tag {
+  // font-weight: bold;
+  color: #7cafc2;
 }
 
-/* Tomorrow Green */
+/* Base 0E: Lavender */
 .hljs-string,
 .hljs-symbol,
 .hljs-bullet,
 .hljs-addition {
-  color: #380;
+  color: #ba8baf;
+}
+
+.hljs-meta,
+.hljs-link {
+  color: #80b8b1;
 }
 
 /* Tomorrow Blue */
 .hljs-title,
 .hljs-section {
   color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-  color: #8959a8;
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 .hljs {
@@ -76,6 +84,7 @@
   padding: 1.3rem 10px 10px 1rem; //more room on top for the copy button on small screens;
   line-height: 1.6em;
   font-size: 0.85em;
+  text-shadow: 0px 0px 0 rgba(0, 0, 0, 0.1);
 }
 
 .hljs-emphasis {
