@@ -65,7 +65,7 @@ class Controllers implements ControllerProviderInterface
             return new RedirectResponse("/$version/$redirect");
         }
 
-        return $this->renderPage($version, $page, $slug);
+        return $this->renderPage($version, $page);
     }
 
     /**
@@ -101,18 +101,16 @@ class Controllers implements ControllerProviderInterface
             'menu'       => $version->getMenu(),
             'version'    => $version->getVersion(),
             'cheatsheet' => $version->getCheatSheet(),
-            'slug'       => 'cheatsheet'
         ];
 
         return $this->render('cheatsheet.twig', $twigVars);
     }
 
-    protected function renderPage(Version $version, Page $page, $slug = '')
+    protected function renderPage(Version $version, Page $page)
     {
         $twigVars = [
             'page'            => $page,
             'title'           => $page->getTitle(),
-            'slug'            => $slug,
             'menu'            => $version->getMenu(),
             'current'         => $page->getSlug(),
             'version'         => $version,
