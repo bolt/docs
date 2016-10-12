@@ -94,16 +94,18 @@
 
     <nav class="main-nav expanded">
         <ul>
-            <li class="index-1 first">
+            {% set route = global.request.attributes.get('_route') %}
+            {% set route_params = global.request.attributes.get('_route_params') %}
+            <li>
                 <a href="https://bolt.cm/">Home [bolt.cm]</a>
             </li>
-            <li class="index-2 {{ slug|default != 'cheatsheet' ? 'active' }}">
+            <li class="{{ route == 'page' and not (route_params.slug starts with 'manual') ? 'active' }}">
                 <a href="{{ path('page', {version: version})}}">Documentation</a>
             </li>
-            <li class="index-3">
+            <li class="{{ route == 'page' and route_params.slug starts with 'manual' ? 'active' }}">
                 <a href="{{ path('page', {version: version, slug: 'manual'}) }}">Manual</a>
             </li>
-            <li class="index-4 {{ slug|default == 'cheatsheet' ? 'active' }}">
+            <li class="{{ route == 'cheatsheet' ? 'active' }}">
                 <a href="{{ path('cheatsheet', {version: version}) }}">Cheatsheet</a>
             </li>
 
