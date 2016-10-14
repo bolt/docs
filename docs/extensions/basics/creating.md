@@ -49,16 +49,19 @@ and `src/ExtensionNameExtension.php`.
 
  1. Change the namespace at the top of `src/ExtensionNameExtension.php` to your
     own.
- 2. Rename `src/ExtensionNameExtension.php` to match your extension's name **plus**
+ 2. Rename the class `ExtensionNameExtension` to match the name of your extension **plus**
+    the "Extension" suffix, e.g. `KoalaCatcherExtension`.
+ 3. Rename `src/ExtensionNameExtension.php` to match your extension's name **plus**
     the "Extension" suffix, e.g. `src/KoalaCatcherExtension.php`
- 3. In `composer.json` change the name setting to your extension name eg:
+ 4. In `composer.json` change the name setting to your extension name eg:
     `myvendorname/extensionname`. For clarity, this should match the foldernames
     you've created a little earlier
- 4. In `composer.json` give a description and a type, either `bolt-extension` or
+ 5. In `composer.json` give a description and a type, either `bolt-extension` or
     `bolt-theme`
- 5. Add your contact information to the author section.
- 7. In the autoload section update the PSR-4 namespace to the one you have used
-    in your extension files
+ 6. In `composer.json` add your contact information to the author section.
+ 7. In the `autoload` section of `composer.json` update the PSR-4 namespace to the one you have used
+    in your extension files.
+ 8. In the `extra` section of `composer.json` update `bolt-class` to reflect the new namespace and class name (from steps 1 & 2).
 
 The above steps will get you started, and below is some more indepth information
 about the configuration.
