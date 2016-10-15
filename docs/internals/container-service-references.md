@@ -96,7 +96,7 @@ URL paths available are:
 ```
 
 The paths are available in Twig templates under the deprecated `{{ paths }}`
-variable. Because this variable is depracted, its use is discouraged. Use the
+variable. Because this variable is deprecated, its use is discouraged. Use the
 `{{ asset() }}` and `{{ path() }}` tags instead. See
 [asset](../templating/templatetags#asset) and
 [path](../templating/templatetags#path).
