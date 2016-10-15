@@ -82,6 +82,7 @@ more detail in the templates that extend this base template. See the section on
 [Template inheritance][inheritance] on the twig website.
 
 
+
 ### imageinfo
 
 Sometimes it can be useful to have more information about a specific image in
@@ -745,9 +746,9 @@ Examples:
 
 ### defined (for extensions)
 
-Use this test to determine if a certain extension is available. You can use this
-in your themes, where it's not apparent whether or not the user will have a
-certain extension installed.
+Use this test to determine if a certain extension is available. You
+can use this in your themes, where it's not apparent whether or not the user
+will have a certain extension installed.
 
 Examples:
 
@@ -767,8 +768,8 @@ You can use this, to output a friendly warning to users of the templates:
 {% endif %}
 ```
 
-<p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must
-use the *name* of the extension. Don't add quotes!</p>
+<p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must use the 
+*name* of the extension. Don't add quotes!</p>
 
 [twig]: http://twig.sensiolabs.org/doc/templates.html
 [inc]: http://twig.sensiolabs.org/doc/functions/include.html
