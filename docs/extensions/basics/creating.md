@@ -47,20 +47,24 @@ need to make a few changes, giving your new extension the correct configuration
 and namespaces. There are two files you need to edit immediately, `composer.json`,
 and `src/ExtensionNameExtension.php`.
 
- 1. Change the namespace at the top of `src/ExtensionNameExtension.php` to your
-    own.
- 2. Rename `src/ExtensionNameExtension.php` to match your extension's name **plus**
-    the "Extension" suffix, e.g. `src/KoalaCatcherExtension.php`
- 3. In `composer.json` change the name setting to your extension name eg:
-    `myvendorname/extensionname`. For clarity, this should match the foldernames
-    you've created a little earlier
- 4. In `composer.json` give a description and a type, either `bolt-extension` or
-    `bolt-theme`
- 5. Add your contact information to the author section.
- 7. In the autoload section update the PSR-4 namespace to the one you have used
-    in your extension files
+  1. Change the namespace at the top of `src/ExtensionNameExtension.php` to your
+     own.
+  2. Rename the class `ExtensionNameExtension` to match the name of your 
+     extension **plus** the "Extension" suffix, e.g. `KoalaCatcherExtension`
+  3. Rename the file `src/ExtensionNameExtension.php` to match your extension's
+     name **plus** the "Extension" suffix, e.g. `src/KoalaCatcherExtension.php`
+  4. In `composer.json` change the name setting to your extension name eg:
+     `myvendorname/extensionname`. For clarity, this should match the folder
+     names you created earlier
+  5. In `composer.json` give a description and a type, either `bolt-extension`
+     or `bolt-theme`
+  6. In `composer.json` add your contact information to the author section
+  7. In the `autoload` section of `composer.json` update the PSR-4 namespace to
+     the one you have used in your extension files
+  8. In the `extra` section of `composer.json` update `bolt-class` to reflect
+     the new namespace and class name (from steps 1 & 2).
 
-The above steps will get you started, and below is some more indepth information
+The above steps will get you started, and below is some more in depth information
 about the configuration.
 
 **Extended starter extension**
