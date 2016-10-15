@@ -15,6 +15,54 @@ functions, filters, and available variables.
 Twig tags
 ---------
 
+### asset
+
+Use the `{{ asset() }}` Twig tag to create public link to the so-called assets
+in your theme, like JavaScript, CSS or other files. For example:
+
+```
+<link rel="stylesheet" href="{{ asset('css/theme.css', 'theme') }}">
+```
+
+If your theme is called 'foobar', this tag will create a working link to the
+file at `theme/foobar/css/theme.css`, taking into account the configuration of
+the web server. 
+
+The `asset` tag takes two parameters: the path, and the package, under which
+this path can be found. Bolt defines a few of these packages, that can be used
+to create links to files in specific areas of Bolt. The defined packages are:
+
+ - `theme`: The path to the currently selected theme folder, as defined in your
+   `config.yml`. Use this in your theme to transparently create links to your
+   `.js` and `.css` files. Doing this ensures the links will still work, if your
+   theme gets renamed, or if the site gets installed in a subfolder.
+ - `files`: The path to the `files/` folder where images and other files are
+   uploaded by the Editors to be used in the content of the website.
+ - `bolt`: Used to link to Bolt's core asset files. Use of this packagename is
+   discouraged in your own theme, because there is no guarantee that these files
+   that are shipped with Bolt will remain unchanged after an update of Bolt.
+ - `extensions`: The path to the publicly accessible assets of extensions. For
+   example, if an extension requires a `.js` or `.css` file, it will use this,
+   to ensure it gets included in the theme. As with `bolt`, it's usually not
+   necessary to use these yourself if you're developing a theme.
+
+Examples: 
+
+```
+<script src="{{ asset('js/jquery.min.js', 'theme') }}"></script>
+# Include jquery.min.js from the js folder in your theme.
+
+<img src="{{ asset('kitten.jpg', 'files') }}"></script>
+# Display the kitten.jpg image, that was uploaded to the `files/` folder.
+```
+
+For a more in-depth description of the `asset` tag, see the 
+[Symfony documentation on assets][symfonyasset].
+
+<p class="note"><strong>Note:</strong> This tag replaces the deprecated <code>
+{{ paths }}</code> template variable. As such, it's encouraged to use this tag
+instead.</p>
+
 ### include
 
 Use this to include another Twig template in the current template. Twig parses
@@ -32,7 +80,6 @@ An alternative to using 'include', is to set up your templates using Template
 Inheritance. This is a method of defining a base template, and then expand it in
 more detail in the templates that extend this base template. See the section on
 [Template inheritance][inheritance] on the twig website.
-
 
 
 ### imageinfo
@@ -115,6 +162,49 @@ well as set up the 'initialization' code:
 For more information about Magnific Popup, see the
 [Magnific Popup website][popup].
 
+### path
+
+Use this tag to create a link to a controller to another page that's generated
+by Bolt. Instead of creating hardcoded links to `/` or `/pages`, it's advised to
+use the `{{ path() }}` tag to create a working link to the page, taking into
+account the configuration of the web server. Doing this ensures the links will
+still work if the site gets installed in a subfolder.
+
+
+```
+<a href="{{ path('homepage') }}">Home</a>
+```
+
+This will create a simple link to the homepage of the site. Bolt has a Route
+defined that's called 'homepage', and as such, Bolt can generate a link to that
+specific route. You can also pass in extra parameters, that are used to generate
+the link. For example:
+
+```
+{{ path('record', {'slug': record.slug}) }}
+```
+
+This will generate a link like `/page/lorem-ipsum`. In this case, the above
+example is comparable to `{{ record.link() }}`.
+
+Under the hood, this function creates links to paths defined in the Routing
+inside Bolt. This is the case both Bolt core functionality, but extensions can
+also add paths that can be used with this tag.
+
+The most commonly used paths are: 
+
+ - `homepage`: Generate a link to the homepage of the site. 
+ - `search`: Generate a link to the search results page of the site. Often used
+   as the 'target' of a form that allows the user to perform a search. For
+   example: `<form method="get" action="{{ path('search') }}">`
+ - `record`: Generate a link to a specific record. See the example above. 
+ - `contentlisting`: Used for links to the listing view of a contenttype. For
+   example: `{{ path('contentlisting', {'contenttypeslug': 'pages'}) }}` will
+   generate a link like `/pages`.
+
+For more in-depth information about this tag, see [Linking to pages][page] in
+the Symfony documentation.
+
 ### showimage
 
 Use this tag to insert an image in the HTML. You can optionally provide the
@@ -152,7 +242,7 @@ an if/else clause, to redirect visitors based on some criteria.
 
 {% else %}
 
-    {{ redirect(paths.root) }} or {{ redirect('page/some-page') }}
+    {{ redirect(path('homepage')) }} or {{ redirect('page/some-page') }}
 
 {% endfor %}
 ```
@@ -655,9 +745,9 @@ Examples:
 
 ### defined (for extensions)
 
-Use this test to determine if a certain extension is available. You
-can use this in your themes, where it's not apparent whether or not the user
-will have a certain extension installed.
+Use this test to determine if a certain extension is available. You can use this
+in your themes, where it's not apparent whether or not the user will have a
+certain extension installed.
 
 Examples:
 
@@ -677,8 +767,8 @@ You can use this, to output a friendly warning to users of the templates:
 {% endif %}
 ```
 
-<p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must use the
-*name* of the extension. Don't add quotes!</p>
+<p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must
+use the *name* of the extension. Don't add quotes!</p>
 
 [twig]: http://twig.sensiolabs.org/doc/templates.html
 [inc]: http://twig.sensiolabs.org/doc/functions/include.html
@@ -689,3 +779,5 @@ You can use this, to output a friendly warning to users of the templates:
 [date]: http://php.net/manual/en/function.date.php
 [for]: http://twig.sensiolabs.org/doc/tags/for.html
 [switch]: http://php.net/manual/en/control-structures.switch.php
+[symfonyasset]: http://symfony.com/doc/current/templating.html#templating-assets
+[page]: http://symfony.com/doc/current/templating.html#linking-to-pages
