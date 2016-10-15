@@ -26,5 +26,11 @@ field for each file.
 
 The field has a one option to change the functionality of the field:
 
-* `accept_file_types` Allows you to restrict users to only be able to uploads
-  certain filetypes.
+* `extensions` Allows you to restrict users to only be able to upload files with
+  certain file extensions.
+  
+```
+        attachments:
+            type: filelist
+            extensions: [ png, pdf ]
+```
