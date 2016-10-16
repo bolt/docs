@@ -29,7 +29,7 @@ render the record, but can still be used by the theme developer in the theme.
 
 The field has a few options to change the functionality of the field.
 
-* `filter` A pattern that decides which tempates to show. For example to only
+* `filter` A glob pattern that decides which tempates to show. For example to only
   match templates that start with the word pages you can do like this:
 
 ```
