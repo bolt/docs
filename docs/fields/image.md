@@ -33,8 +33,8 @@ See [Bolt Template tags](../templating/templatetags) for more info.
 The field has a few options to change the appearance and functionality of the
 field.
 
-* `accept_file_types` Allows you to restrict users to only be able to uploads
-  certain filetypes.
+* `extensions` Allows you to restrict users to only be able to upload files with
+  certain file extensions.
 * `attrib` Can be set to either of the following:
   * `alt` Show a field for an alt text.
   * `title` Show a field for an title text.
@@ -44,6 +44,7 @@ field.
         cover:
             type: image
             attrib: [title, alt]
+            extensions: [ gif, jpg, png ]
 ```
 
 You can call these in your templates by using `{{ record.values.image.title }}`
