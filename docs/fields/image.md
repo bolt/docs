@@ -2,28 +2,28 @@
 title: Image
 ---
 Image
-=========
+=====
 
 Simple image upload/select field.
 
 ### Basic Configuration:
 
-```
+```yaml
         cover:
             type: image
 ```
 
 ### Example usage in templates:
 
-```
+```twig
 {{ record.cover|showimage() }}
 ```
 or
-```
+```twig
 {{ record.cover|thumbnail() }}
 ```
 or
-```
+```twig
 {{ record.cover|popup() }}
 ```
 See [Bolt Template tags](../templates/templatetags) for more info.
@@ -40,7 +40,7 @@ field.
   * `title` Show a field for an title text.
   * `[title, alt]` Show both fields.
 
-```
+```yaml
         cover:
             type: image
             attrib: [title, alt]
@@ -50,4 +50,3 @@ field.
 You can call these in your templates by using `{{ record.values.image.title }}`
 or `{{ record.values.image.alt }}` and they will also be automatically used by
 bolt's image functions.
-
