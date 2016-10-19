@@ -108,12 +108,11 @@ class Controllers implements ControllerProviderInterface
     protected function renderPage(Version $version, Page $page, $slug = '')
     {
         $twigVars = [
+            'page'            => $page,
             'title'           => $page->getTitle(),
             'slug'            => $slug,
-            'source'          => $page->getSource(),
             'menu'            => $version->getMenu(),
             'current'         => $page->getSlug(),
-            'submenu'         => $page->getSubMenu(),
             'version'         => $version,
             'versions'        => array_keys($this->app['documentation']->getVersions()),
             'default_version' => $this->app['documentation']->getDefault(),

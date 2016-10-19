@@ -1,3 +1,4 @@
+{# page \Bolt\Docs\Page #}
 {% extends '_master.twig' %}
 
 {% import '_macros.twig' as macro %}
@@ -28,18 +29,18 @@
             </p>
         {% endif %}
 
-        {% if submenu|length > 1 %}
+        {% if page.submenu|length > 1 %}
             <div class='quick-links show-for-large'>
-
                 <ul>
                    <li>Jump to:</li>
-                    {% for anchor, item in submenu %}
+                    {% for anchor, item in page.submenu %}
                         <li><a href='#{{ anchor }}'>{{ item }}</a></li>
                     {% endfor %}
+                </ul>
             </div>
         {% endif %}
 
-        {{ source|raw }}
+        {{ page.source|raw }}
 
         {{ include('_sub_submenu.twig', { section: current }) }}
 
