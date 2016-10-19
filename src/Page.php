@@ -7,7 +7,12 @@ class Page implements \ArrayAccess
     /** @var Page|null */
     private $parent;
     /** @var string */
+    private $version;
+    /** @var string The file path relative to the version's "docs" folder. */
+    private $path;
+    /** @var string */
     private $name;
+
     /** @var string */
     private $source;
     /** @var array */
@@ -89,6 +94,40 @@ class Page implements \ArrayAccess
     /**
      * @return string
      */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * @param string $version
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+    }
+
+    /**
+     * The file path relative to the version's "docs" folder.
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * @param string $path
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
+
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
@@ -135,7 +174,7 @@ class Page implements \ArrayAccess
     }
 
     /**
-     * @return Page
+     * @return Page[]
      */
     public function getSubPages()
     {

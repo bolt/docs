@@ -26,6 +26,8 @@ class PageBuilder
 
     /** @var string */
     protected $root;
+    /** @var string */
+    protected $version;
 
     /**
      * Constructor.
@@ -52,12 +54,14 @@ class PageBuilder
 
     /**
      * @param string $root
+     * @param string $version
      *
      * @return Page
      */
-    public function build($root)
+    public function build($root, $version)
     {
         $this->root = rtrim($root, '/') . '/';
+        $this->version = $version;
         return $this->loadCacheCollection('');
     }
 
@@ -150,6 +154,9 @@ class PageBuilder
         }
 
         $page = new Page();
+
+        $page->setVersion($this->version);
+        $page->setPath($file);
 
         $document = file_get_contents($this->root . $file);
         if (strpos($document, '---') === 0) {
