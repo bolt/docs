@@ -2,7 +2,7 @@
 title: Video
 ---
 Video
-=========
+=====
 
 A field for videos from external sources like youtube, vimeo and so on. Will
 also show a preview beside the field.
@@ -12,7 +12,7 @@ values that are stored, use `{{ dump(page.video) }}`.
 
 ### Basic Configuration:
 
-```
+```yaml
         teaser:
             type: video
 ```
@@ -21,18 +21,18 @@ values that are stored, use `{{ dump(page.video) }}`.
 
 To insert the `<embed>`-code for the video, use:
 
-```
+```twig
 {{ record.teaser.html }}
 ```
 
 There's also a special 'responsive' HTML snippet available for videos. To insert
 it, use the following, and add the required CSS to your stylesheet:
 
-```
+```twig
 {{ record.teaser.responsive }}
 ```
 
-```
+```css
 /**
  * Styles for 'responsive video embeds'
  */

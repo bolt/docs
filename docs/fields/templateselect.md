@@ -2,7 +2,7 @@
 title: Templateselect
 ---
 Templateselect
-=========
+==============
 
 Allows setting a template to use when rendering a specific record. Will allow
 the record creator to specify any template in the root folder of the current
@@ -15,14 +15,14 @@ theme.
 
 ### Basic Configuration:
 
-```
+```yaml
         template:
             type: templateselect
 ```
 
 ### Example usage in templates:
 
-```
+```twig
 {{ record.template }}
 ```
 
@@ -33,7 +33,7 @@ The field has a few options to change the functionality of the field.
 * `filter` A glob pattern that decides which templates to show. For example to
 only match templates that start with the word "pages" you can do this:
 
-```
+```yaml
         template:
             type: templateselect
             filter: 'pages*.twig'

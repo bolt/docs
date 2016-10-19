@@ -2,7 +2,7 @@
 title: Introduction
 ---
 Introduction to Bolt Field Types
-=========
+================================
 
 Each contenttype is defined by a couple of fixed, required **Fields** that are
 used internally, but otherwise you're free to define how the content in a
@@ -16,7 +16,7 @@ of fields that are available and what options one can use with them.
 
 All fields have a general structure, like this:
 
-```apache
+```yaml
         name:
             type: name-of-field-type
             option: value

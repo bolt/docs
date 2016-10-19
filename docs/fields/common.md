@@ -2,7 +2,7 @@
 title: Common options
 ---
 Common options for all fields
-=========
+=============================
 
 
 All fields have few common options to further customize them. We explain them
@@ -38,7 +38,7 @@ specified `group` will fall under the previously set grouping.
 
 For example:
 
-```apache
+```yaml
 pages:
     name: Pages
     singular_name: Page
@@ -67,7 +67,7 @@ to how a field is displayed in the Bolt backend, when editing a record. You can
 use the optional `prefix` and `postfix` values to add some markup before or
 after a field. For example:
 
-```apache
+```yaml
         subtitle:
             type: text
             class: large
@@ -115,7 +115,7 @@ Currently, you can use the `required` option for fields of type `text`,
 
 For example, to make a title required, you can do this:
 
-```apache
+```yaml
         title:
             type: text
             prefix: "<p>A title is required.</p>"
@@ -147,7 +147,7 @@ use-cases are:
 
 For example, use this to make sure a title is no longer than 80 characters:
 
-```apache
+```yaml
         title:
             type: text
             prefix: "<p>A title is required. The maximum length is 80 characters</p>"
@@ -170,7 +170,7 @@ You can also define fields that are not required, but that _do_ have a pattern.
 Doing this, the field can be left blank, but if it _is_ filled, it must match
 the pattern. For example, you could make an optional email-address like this:
 
-```apache
+```yaml
         person:
             type: text
             prefix: "<p>An optional email address.</p>"
@@ -190,7 +190,7 @@ You can combine it with the `default` option to make sure that a field contains
 something. The readonly status is only enforced in the browser, so don't
 "trust" any data that's been entered by an editor.
 
-```apache
+```yaml
         serialnumber:
             type: text
             default: "SN-123456789"
