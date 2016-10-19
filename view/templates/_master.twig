@@ -78,7 +78,7 @@
             </nav>
             #}
 
-            <h1 id="logo"><img src="/images/bolt.png" width='200' alt="BoltCM" /></h1>
+            <h1 id="logo"><img src="{{ asset('images/bolt.png') }}" width='200' alt="BoltCM" /></h1>
             <h2 class="payoff">Sophisticated, Lightweight and Simple</h2>
 
             {#
@@ -98,13 +98,13 @@
                 <a href="https://bolt.cm/">Home [bolt.cm]</a>
             </li>
             <li class="index-2 {{ slug|default != 'cheatsheet' ? 'active' }}">
-                <a href="/{{version}}/getting-started/introduction">Documentation</a>
+                <a href="{{ path('page', {version: version})}}">Documentation</a>
             </li>
             <li class="index-3">
-                <a href="/{{version}}/manual">Manual</a>
+                <a href="{{ path('page', {version: version, slug: 'manual'}) }}">Manual</a>
             </li>
             <li class="index-4 {{ slug|default == 'cheatsheet' ? 'active' }}">
-                <a href="/{{version}}/cheatsheet">Cheatsheet</a>
+                <a href="{{ path('cheatsheet', {version: version}) }}">Cheatsheet</a>
             </li>
 
 {#

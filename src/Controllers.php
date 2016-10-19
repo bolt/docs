@@ -29,10 +29,12 @@ class Controllers implements ControllerProviderInterface
 
         $ctr->get('/{version}/{slug}', [$this, 'page'])
             ->bind('page')
+            ->value('version', '')
+            ->value('slug', '')
             ->assert('slug', '.*');
 
         $ctr->convert('version', function ($version) {
-            if ($version === null) {
+            if (!$version) {
                 return $version = $this->app['documentation']->getDefault();
             }
             return $this->app['documentation']->getVersion($version);
