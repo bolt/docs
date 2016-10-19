@@ -6,6 +6,16 @@ class Page implements \ArrayAccess
 {
     /** @var Page|null */
     private $parent;
+
+    /** @var Page|null */
+    private $nextSibling;
+    /** @var Page|null */
+    private $previousSibling;
+    /** @var Page|null */
+    private $next = false;
+    /** @var Page|null */
+    private $previous = false;
+
     /** @var string */
     private $version;
     /** @var string The file path relative to the version's "docs" folder. */
@@ -89,6 +99,30 @@ class Page implements \ArrayAccess
     public function setParent(Page $parent)
     {
         $this->parent = $parent;
+    }
+
+    /**
+     * @return Page|null
+     */
+    public function getNext()
+    {
+        if ($this->next === false) {
+            $this->next = $this->prepareNext();
+        }
+
+        return $this->next;
+    }
+
+    /**
+     * @return Page|null
+     */
+    public function getPrevious()
+    {
+        if ($this->previous === false) {
+            $this->previous = $this->preparePrevious();
+        }
+
+        return $this->previous;
     }
 
     /**
@@ -186,6 +220,12 @@ class Page implements \ArrayAccess
      */
     public function addSubPage(Page $page)
     {
+        $previous = end($this->subPages);
+        if ($previous !== false) {
+            $previous->nextSibling = $page;
+            $page->previousSibling = $previous;
+        }
+
         $this->subPages[$page->getName()] = $page;
         $page->setParent($this);
     }
@@ -256,5 +296,54 @@ class Page implements \ArrayAccess
     public function offsetUnset($offset)
     {
         unset($this->variables[$offset]);
+    }
+
+    /**
+     * @return Page|null
+     */
+    private function prepareNext()
+    {
+        if ($this->subPages) {
+            return reset($this->subPages);
+        }
+
+        $target = $this;
+        do {
+            if ($target->nextSibling !== null) {
+                return $target->nextSibling;
+            }
+        } while (($target = $target->parent) !== null);
+
+        return null;
+    }
+
+    /**
+     * @return Page|null
+     */
+    private function preparePrevious()
+    {
+        if ($this->parent !== null &&
+            $this->parent->subPages &&
+            $this === reset($this->parent->subPages) &&
+            !$this->parent['redirect']
+        ) {
+            return $this->parent;
+        }
+
+        $target = $this;
+        do {
+            if ($target->previousSibling !== null) {
+                $target = $target->previousSibling;
+                break;
+            }
+        } while (($target = $target->parent) !== null);
+
+        if ($target !== null) {
+            while ($target->subPages) {
+                $target = end($target->subPages);
+            }
+        }
+
+        return $target;
     }
 }
