@@ -27,11 +27,11 @@ class Controllers implements ControllerProviderInterface
         $ctr->get('/{version}/cheatsheet', [$this, 'cheatsheet'])
             ->bind('cheatsheet');
 
-        $ctr->get('/{version}/{slug}', [$this, 'page'])
+        $ctr->get('/{version}/{page}', [$this, 'page'])
             ->bind('page')
             ->value('version', '')
-            ->value('slug', '')
-            ->assert('slug', '.*');
+            ->value('page', '')
+            ->assert('page', '.*');
 
         $ctr->convert('version', function ($version) {
             if (!$version) {
@@ -50,14 +50,14 @@ class Controllers implements ControllerProviderInterface
      * Controller for pages
      *
      * @param Version $version
-     * @param string $slug
+     * @param string  $page
      *
      * @return string
      */
-    public function page(Version $version, $slug)
+    public function page(Version $version, $page)
     {
         try {
-            $page = $version->getPage($slug);
+            $page = $version->getPage($page);
         } catch (\Exception $e) {
             throw new NotFoundHttpException('Page does not exist.', $e);
         }

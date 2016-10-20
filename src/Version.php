@@ -61,13 +61,13 @@ class Version
     /**
      * Get a page.
      *
-     * @param string $slug
+     * @param string $page
      *
      * @return Page
      */
-    public function getPage($slug)
+    public function getPage($page)
     {
-        return $this->getRootPage()->getPage($slug);
+        return $this->getRootPage()->getPage($page);
     }
 
     /**

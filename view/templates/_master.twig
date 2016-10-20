@@ -99,11 +99,11 @@
             <li>
                 <a href="https://bolt.cm/">Home [bolt.cm]</a>
             </li>
-            <li class="{{ route == 'page' and not (route_params.slug starts with 'manual') ? 'active' }}">
+            <li class="{{ route == 'page' and not (route_params.page starts with 'manual') ? 'active' }}">
                 <a href="{{ path('page', {version: version})}}">Documentation</a>
             </li>
-            <li class="{{ route == 'page' and route_params.slug starts with 'manual' ? 'active' }}">
-                <a href="{{ path('page', {version: version, slug: 'manual'}) }}">Manual</a>
+            <li class="{{ route == 'page' and route_params.page starts with 'manual' ? 'active' }}">
+                <a href="{{ path('page', {version: version, page: 'manual'}) }}">Manual</a>
             </li>
             <li class="{{ route == 'cheatsheet' ? 'active' }}">
                 <a href="{{ path('cheatsheet', {version: version}) }}">Cheatsheet</a>
