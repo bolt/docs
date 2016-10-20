@@ -2,20 +2,20 @@
 title: Float
 ---
 Float
-=========
+=====
 
 Simple field for inputting decimal numbers.
 
 ### Basic Configuration:
 
-```
+```yaml
         number:
             type: float
 ```
 
 ### Example usage in templates:
 
-```
+```twig
 {{ record.number }}
 ```
 

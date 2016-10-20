@@ -33,14 +33,6 @@ needs to have the permissions set manually, you'll notice when opening your new
 install in a browser window, because you will greeted by an error. If this
 happens, see our [File System Permissions](permissions) page on how to fix this.
 
-### Permissions (reminder)
-
-Bolt needs to be able to write data to a number of folders like `cache/` and
-`files/`, where uploaded images and other files will be saved. If your server
-needs to have the permissions set manually, you'll notice when opening your new
-install in a browser window, because you will greeted by an error. If this
-happens, see our [File System Permissions](permissions) page on how to fix this.
-
 If you want to get a quick way to see how your site looks with some content you
 can add some generated pages using the built-in [Loripsum](http://loripsum.net)
 tool. This is a simple method to test-drive your theme quickly.

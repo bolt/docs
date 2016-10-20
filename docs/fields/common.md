@@ -2,7 +2,7 @@
 title: Common options
 ---
 Common options for all fields
-=========
+=============================
 
 
 All fields have few common options to further customize them. We explain them

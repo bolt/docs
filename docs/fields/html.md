@@ -2,14 +2,14 @@
 title: HTML
 ---
 HTML
-=========
+====
 
 A WYSIWYG HTML field. You can supply extra options to it to customize the
 behaviour and appearance.
 
 ### Basic Configuration:
 
-```
+```yaml
         content:
             type: html
 ```
@@ -18,7 +18,7 @@ behaviour and appearance.
 
 To print out the HTML field you just need to do in your templates:
 
-```
+```twig
 {{ record.content }}
 ```
 
@@ -33,7 +33,7 @@ field.
   an example and [here](http://docs.ckeditor.com/#!/api/CKEDITOR.config) for
   more info on possible options:
 
-```
+```yaml
         content:
             type: html
             options:
