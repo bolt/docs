@@ -95,14 +95,6 @@ class Page implements \ArrayAccess
     }
 
     /**
-     * @param Page $parent
-     */
-    public function setParent(Page $parent)
-    {
-        $this->parent = $parent;
-    }
-
-    /**
      * @return Page|null
      */
     public function getNext()
@@ -228,7 +220,7 @@ class Page implements \ArrayAccess
         }
 
         $this->subPages[$page->getName()] = $page;
-        $page->setParent($this);
+        $page->parent = $this;
     }
 
     /**
