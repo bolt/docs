@@ -9,7 +9,7 @@ field for each image.
 
 ### Basic Configuration:
 
-```
+```yaml
         gallery:
             type: imagelist
 ```
@@ -19,7 +19,7 @@ field for each image.
 This example will output a magnific popup gallery with thumbnails of all the
 images:
 
-```
+```twig
 {% for image in record.gallery %}
     {{ image|popup() }}
 {% endfor %}
@@ -32,7 +32,7 @@ The field has a one option to change the functionality of the field:
 * `extensions` Allows you to restrict users to only be able to upload files with
   certain file extensions.
   
-```
+```yaml
         gallery:
             type: imagelist
             extensions: [ gif, jpg, png ]

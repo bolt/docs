@@ -2,7 +2,7 @@
 title: Slug
 ---
 Slug
-=========
+====
 
 This field will determine what "slug" or permalink is used for accessing the
 record on the frontend. When omitted, the slug will be automatically generated.
@@ -16,7 +16,7 @@ good slug would be <code>about-our-company</code>.</p>
 
 ### Basic Configuration:
 
-```
+```yaml
         slug:
             type: slug
             uses: title
@@ -27,13 +27,13 @@ good slug would be <code>about-our-company</code>.</p>
 The slug is not often used by itself, but rather as a part of a link. You can
 print the link to a record like this: 
 
-```
+```twig
 {{ record.link() }}
 ``` 
 
 You can also just output the slug like this:
 
-```
+```twig
 {{ record.slug }}
 ```
 

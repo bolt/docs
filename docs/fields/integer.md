@@ -2,20 +2,20 @@
 title: Integer
 ---
 Integer
-=========
+=======
 
 Simple field for inputting whole numbers.
 
 ### Basic Configuration:
 
-```
+```yaml
         number:
             type: integer
 ```
 
 ### Example usage in templates:
 
-```
+```twig
 {{ record.number }}
 ```
 

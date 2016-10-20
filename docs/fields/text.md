@@ -2,20 +2,20 @@
 title: Text
 ---
 Text
-=========
+====
 
 Simple text-input, for single-line fields.
 
 ### Basic Configuration:
 
-```
+```yaml
         name:
             type: text
 ```
 
 ### Example usage in templates:
 
-```
+```twig
 {{ record.name }}
 ```
 
