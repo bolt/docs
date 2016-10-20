@@ -52,7 +52,7 @@ within the set then the template code will look like this:
 
 In the example above using `{{ field }}` will just output the string value of 
 the sub-field but since these are sometimes more complex fields you can use the
-techniques described in the above sections for individual fields to output the
+techniques described in the section below for individual fields to output the
 specific type of field in the layout you require.
 
 If you know the names of the fields you want to render then you can fetch a
@@ -69,6 +69,16 @@ but knowing that our repeat set comprises the individual sub-fields
 {% endfor %}
 ```
 
+If you prefer the dot-notation to access field values, you can also omit the `get()` function.
+
+```twig
+{% for company in record.companies %}
+    <h2>{{ company.companyname }}</h2>
+    <h4>Tel: {{ company.telephone }}</h4>
+    <h4>Email: <a href="mailto:{{ company.email }}">{{ company.email }}</a></h4>
+    <hr>
+{% endfor %}
+```
  
 ### Options
 
