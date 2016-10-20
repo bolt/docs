@@ -1,3 +1,4 @@
+{# page \Bolt\Docs\Page #}
 {% extends '_master.twig' %}
 
 {% import '_macros.twig' as macro %}
@@ -14,7 +15,7 @@
                     <option>Current: <strong>{{ version }}</strong></option>
                     <optgroup label='Switch to version:'>
                     {% for v in versions if v != version %}
-                        <option value="/{{ v }}">{{ v }}</option>
+                        <option value="{{ path('page', {version: v}) }}">{{ v }}</option>
                     {% endfor %}
                     </optgroup>
                 </select>
@@ -24,24 +25,24 @@
         {% if version != default_version %}
             <p class="note" style="margin-top: 1em;">
                 <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt {{ version }}</strong>.
-                Looking for the <a href="/">documentation for Bolt {{ default_version }}</a> instead?
+                Looking for the <a href="{{ path('page') }}">documentation for Bolt {{ default_version }}</a> instead?
             </p>
         {% endif %}
 
-        {% if submenu|length > 1 %}
+        {% if page.submenu|length > 1 %}
             <div class='quick-links show-for-large'>
-
                 <ul>
                    <li>Jump to:</li>
-                    {% for anchor, item in submenu %}
+                    {% for anchor, item in page.submenu %}
                         <li><a href='#{{ anchor }}'>{{ item }}</a></li>
                     {% endfor %}
+                </ul>
             </div>
         {% endif %}
 
-        {{ source|raw }}
+        {{ page.content|raw }}
 
-        {{ include('_sub_submenu.twig', { section: current }) }}
+        {{ include('_sub_submenu.twig') }}
 
         <div class="community-notice show-for-large">
             <hr>
@@ -50,8 +51,7 @@
             <a href="http://slack.bolt.cm/" target="_blank">Slack</a> or on
             <a href="http://bolt.cm/irc" target="_blank">IRC</a>.<br>
             Spotted a typo, or have something to add? Edit
-            <a href="https://github.com/bolt/docs/blob/release/{{ version }}/docs/{{ slug }}.md" target="_blank">this page on Github</a>.
-
+            <a href="https://github.com/bolt/docs/blob/release/{{ version }}/docs/{{ page.path }}" target="_blank">this page on GitHub</a>.
         </div>
 
 
@@ -68,13 +68,13 @@
             <div id="tree1">
                 <ul class="hide">
                     {% for v in versions %}
-                        <a href="/{{ v }}">{{ v }}</a>
+                        <a href="{{ path('page', {version: v}) }}">{{ v }}</a>
                     {% endfor %}
                 </ul>
 
                 <ul class="jqtree_common jqtree-tree">
-                    {% for page in menu %}
-                        {{ macro.menu(page, current) }}
+                    {% for sub in page.root.subPages %}
+                        {{ macro.menu(sub, page) }}
                     {% endfor %}
                 </ul>
             </div>

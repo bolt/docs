@@ -1,9 +1,12 @@
-{% set sub = section|split('/')|first %}
-
-{% if attribute(menu[sub], 'items') is defined %}
+{% if page.subPages is not empty %}
     <hr>
     <h3>
         Other pages in this section:
     </h3>
-    {{ macro.submenu(attribute(menu[sub], 'items'), section, version) }}
+
+    <ul>
+        {% for sub in page.subPages %}
+            <li><a href="{{ sub.url }}">{{ sub.title }}</a></li>
+        {% endfor %}
+    </ul>
 {% endif %}

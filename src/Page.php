@@ -6,10 +6,25 @@ class Page implements \ArrayAccess
 {
     /** @var Page|null */
     private $parent;
+
+    /** @var Page|null */
+    private $nextSibling;
+    /** @var Page|null */
+    private $previousSibling;
+    /** @var Page|null */
+    private $next = false;
+    /** @var Page|null */
+    private $previous = false;
+
+    /** @var string */
+    private $version;
+    /** @var string The file path relative to the version's "docs" folder. */
+    private $path;
     /** @var string */
     private $name;
+
     /** @var string */
-    private $source;
+    private $content;
     /** @var array */
     private $variables = [];
     /** @var Page[] */
@@ -46,10 +61,11 @@ class Page implements \ArrayAccess
      */
     public function getMenu()
     {
+        $url = $this->getUrl();
         $menu = [
             'label' => $this->getTitle(),
-            'id'    => $this->getSlug(), // needed for saving state
-            'url'   => $this->getSlug(),
+            'id'    => $url, // needed for saving state
+            'url'   => $url,
             'children' => [],
         ];
 
@@ -63,9 +79,9 @@ class Page implements \ArrayAccess
     /**
      * @return string
      */
-    public function getSlug()
+    public function getUrl()
     {
-        $parent = $this->parent ? rtrim($this->parent->getSlug(), '/') : '';
+        $parent = $this->parent ? rtrim($this->parent->getUrl(), '/') : '';
 
         return $parent . '/' . $this->name;
     }
@@ -79,11 +95,73 @@ class Page implements \ArrayAccess
     }
 
     /**
-     * @param Page $parent
+     * @return Page
      */
-    public function setParent(Page $parent)
+    public function getRoot()
     {
-        $this->parent = $parent;
+        if ($this->parent === null) {
+            return $this;
+        }
+
+        return $this->parent->getRoot();
+    }
+
+    /**
+     * @return Page|null
+     */
+    public function getNext()
+    {
+        if ($this->next === false) {
+            $this->next = $this->prepareNext();
+        }
+
+        return $this->next;
+    }
+
+    /**
+     * @return Page|null
+     */
+    public function getPrevious()
+    {
+        if ($this->previous === false) {
+            $this->previous = $this->preparePrevious();
+        }
+
+        return $this->previous;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * @param string $version
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+    }
+
+    /**
+     * The file path relative to the version's "docs" folder.
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * @param string $path
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
     }
 
     /**
@@ -105,17 +183,17 @@ class Page implements \ArrayAccess
     /**
      * @return string
      */
-    public function getSource()
+    public function getContent()
     {
-        return $this->source;
+        return $this->content;
     }
 
     /**
-     * @param string $source
+     * @param string $content
      */
-    public function setSource($source)
+    public function setContent($content)
     {
-        $this->source = $source;
+        $this->content = $content;
     }
 
     /**
@@ -135,7 +213,7 @@ class Page implements \ArrayAccess
     }
 
     /**
-     * @return Page
+     * @return Page[]
      */
     public function getSubPages()
     {
@@ -147,8 +225,14 @@ class Page implements \ArrayAccess
      */
     public function addSubPage(Page $page)
     {
+        $previous = end($this->subPages);
+        if ($previous !== false) {
+            $previous->nextSibling = $page;
+            $page->previousSibling = $previous;
+        }
+
         $this->subPages[$page->getName()] = $page;
-        $page->setParent($this);
+        $page->parent = $this;
     }
 
     /**
@@ -217,5 +301,54 @@ class Page implements \ArrayAccess
     public function offsetUnset($offset)
     {
         unset($this->variables[$offset]);
+    }
+
+    /**
+     * @return Page|null
+     */
+    private function prepareNext()
+    {
+        if ($this->subPages) {
+            return reset($this->subPages);
+        }
+
+        $target = $this;
+        do {
+            if ($target->nextSibling !== null) {
+                return $target->nextSibling;
+            }
+        } while (($target = $target->parent) !== null);
+
+        return null;
+    }
+
+    /**
+     * @return Page|null
+     */
+    private function preparePrevious()
+    {
+        if ($this->parent !== null &&
+            $this->parent->subPages &&
+            $this === reset($this->parent->subPages) &&
+            !$this->parent['redirect']
+        ) {
+            return $this->parent;
+        }
+
+        $target = $this;
+        do {
+            if ($target->previousSibling !== null) {
+                $target = $target->previousSibling;
+                break;
+            }
+        } while (($target = $target->parent) !== null);
+
+        if ($target !== null) {
+            while ($target->subPages) {
+                $target = end($target->subPages);
+            }
+        }
+
+        return $target;
     }
 }

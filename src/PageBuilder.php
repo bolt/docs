@@ -10,6 +10,7 @@ use Symfony\Component\Config\Resource\DirectoryResource;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 use Symfony\Component\Yaml;
+use Webmozart\PathUtil\Path;
 
 class PageBuilder
 {
@@ -26,6 +27,8 @@ class PageBuilder
 
     /** @var string */
     protected $root;
+    /** @var string */
+    protected $version;
 
     /**
      * Constructor.
@@ -52,12 +55,14 @@ class PageBuilder
 
     /**
      * @param string $root
+     * @param string $version
      *
      * @return Page
      */
-    public function build($root)
+    public function build($root, $version)
     {
         $this->root = rtrim($root, '/') . '/';
+        $this->version = $version;
         return $this->loadCacheCollection('');
     }
 
@@ -151,6 +156,9 @@ class PageBuilder
 
         $page = new Page();
 
+        $page->setVersion($this->version);
+        $page->setPath($file);
+
         $document = file_get_contents($this->root . $file);
         if (strpos($document, '---') === 0) {
             $parts = explode("---\n", $document, 3);
@@ -160,24 +168,27 @@ class PageBuilder
             $source = $document;
         }
 
-        $source = $this->markdown->text($source);
+        $content = $this->markdown->text($source);
 
         if (!$page->getTitle()) {
-            preg_match('#<h1>(.*)</h1>#i', $source, $mainTitle);
-            $page->setTitle($mainTitle[1]);
+            if (preg_match('#<h1>(.*)</h1>#i', $content, $mainTitle)) {
+                $page->setTitle($mainTitle[1]);
+            } else {
+                $page->setTitle(Path::getFilenameWithoutExtension($file));
+            }
         }
 
         $submenu = [];
-        preg_match_all('#<h2>(.*)</h2>#i', $source, $matches);
+        preg_match_all('#<h2>(.*)</h2>#i', $content, $matches);
         foreach ($matches[1] as $key => $title) {
             $title = strip_tags($title);
             $submenu[$this->slugifier->slugify($title)] = $title;
         }
         $page->setSubMenu($submenu);
 
-        $source = $this->markupAnchors($source);
+        $content = $this->markupAnchors($content);
 
-        $page->setSource($source);
+        $page->setContent($content);
 
         return $page;
     }

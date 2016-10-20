@@ -78,7 +78,7 @@
             </nav>
             #}
 
-            <h1 id="logo"><img src="/images/bolt.png" width='200' alt="BoltCM" /></h1>
+            <h1 id="logo"><img src="{{ asset('images/bolt.png') }}" width='200' alt="BoltCM" /></h1>
             <h2 class="payoff">Sophisticated, Lightweight and Simple</h2>
 
             {#
@@ -94,17 +94,19 @@
 
     <nav class="main-nav expanded">
         <ul>
-            <li class="index-1 first">
+            {% set route = global.request.attributes.get('_route') %}
+            {% set route_params = global.request.attributes.get('_route_params') %}
+            <li>
                 <a href="https://bolt.cm/">Home [bolt.cm]</a>
             </li>
-            <li class="index-2 {{ slug|default != 'cheatsheet' ? 'active' }}">
-                <a href="/{{version}}/getting-started/introduction">Documentation</a>
+            <li class="{{ route == 'page' and not (route_params.page starts with 'manual') ? 'active' }}">
+                <a href="{{ path('page', {version: version})}}">Documentation</a>
             </li>
-            <li class="index-3">
-                <a href="/{{version}}/manual">Manual</a>
+            <li class="{{ route == 'page' and route_params.page starts with 'manual' ? 'active' }}">
+                <a href="{{ path('page', {version: version, page: 'manual'}) }}">Manual</a>
             </li>
-            <li class="index-4 {{ slug|default == 'cheatsheet' ? 'active' }}">
-                <a href="/{{version}}/cheatsheet">Cheatsheet</a>
+            <li class="{{ route == 'cheatsheet' ? 'active' }}">
+                <a href="{{ path('cheatsheet', {version: version}) }}">Cheatsheet</a>
             </li>
 
 {#

@@ -27,12 +27,14 @@ class Controllers implements ControllerProviderInterface
         $ctr->get('/{version}/cheatsheet', [$this, 'cheatsheet'])
             ->bind('cheatsheet');
 
-        $ctr->get('/{version}/{slug}', [$this, 'page'])
+        $ctr->get('/{version}/{page}', [$this, 'page'])
             ->bind('page')
-            ->assert('slug', '.*');
+            ->value('version', '')
+            ->value('page', '')
+            ->assert('page', '.*');
 
         $ctr->convert('version', function ($version) {
-            if ($version === null) {
+            if (!$version) {
                 return $version = $this->app['documentation']->getDefault();
             }
             return $this->app['documentation']->getVersion($version);
@@ -48,14 +50,14 @@ class Controllers implements ControllerProviderInterface
      * Controller for pages
      *
      * @param Version $version
-     * @param string $slug
+     * @param string  $page
      *
      * @return string
      */
-    public function page(Version $version, $slug)
+    public function page(Version $version, $page)
     {
         try {
-            $page = $version->getPage($slug);
+            $page = $version->getPage($page);
         } catch (\Exception $e) {
             throw new NotFoundHttpException('Page does not exist.', $e);
         }
@@ -63,7 +65,7 @@ class Controllers implements ControllerProviderInterface
             return new RedirectResponse("/$version/$redirect");
         }
 
-        return $this->renderPage($version, $page, $slug);
+        return $this->renderPage($version, $page);
     }
 
     /**
@@ -99,27 +101,22 @@ class Controllers implements ControllerProviderInterface
             'menu'       => $version->getMenu(),
             'version'    => $version->getVersion(),
             'cheatsheet' => $version->getCheatSheet(),
-            'slug'       => 'cheatsheet'
         ];
 
         return $this->render('cheatsheet.twig', $twigVars);
     }
 
-    protected function renderPage(Version $version, Page $page, $slug = '')
+    protected function renderPage(Version $version, Page $page)
     {
         $twigVars = [
+            'page'            => $page,
             'title'           => $page->getTitle(),
-            'slug'            => $slug,
-            'source'          => $page->getSource(),
-            'menu'            => $version->getMenu(),
-            'current'         => $page->getSlug(),
-            'submenu'         => $page->getSubMenu(),
             'version'         => $version,
             'versions'        => array_keys($this->app['documentation']->getVersions()),
             'default_version' => $this->app['documentation']->getDefault(),
         ];
 
-        return $this->render('index.twig', $twigVars);
+        return $this->render($page['template'] ?: 'index.twig', $twigVars);
     }
 
     protected function render($template, array $variables = [])
@@ -157,7 +154,7 @@ class Controllers implements ControllerProviderInterface
         if ($code == 404) {
             $page = new Page();
             $page->setTitle('404 - Page not found');
-            $page->setSource(<<<HTML
+            $page->setContent(<<<HTML
 <h1>404 - Page not found</h1>
 <p class="note">
     We changed a lot of the documentation structure in order to provide a better and more structured experience. 

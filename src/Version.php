@@ -61,13 +61,13 @@ class Version
     /**
      * Get a page.
      *
-     * @param string $slug
+     * @param string $page
      *
      * @return Page
      */
-    public function getPage($slug)
+    public function getPage($page)
     {
-        return $this->getRootPage()->getPage($slug);
+        return $this->getRootPage()->getPage($page);
     }
 
     /**
@@ -83,7 +83,7 @@ class Version
     private function getRootPage()
     {
         if (!$this->rootPage) {
-            $this->rootPage = $this->builder->build($this->basePath . '/docs');
+            $this->rootPage = $this->builder->build($this->basePath . '/docs', $this->version);
             $this->rootPage->setName($this->version);
         }
 
