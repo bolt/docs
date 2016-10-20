@@ -61,10 +61,11 @@ class Page implements \ArrayAccess
      */
     public function getMenu()
     {
+        $url = $this->getUrl();
         $menu = [
             'label' => $this->getTitle(),
-            'id'    => $this->getSlug(), // needed for saving state
-            'url'   => $this->getSlug(),
+            'id'    => $url, // needed for saving state
+            'url'   => $url,
             'children' => [],
         ];
 
@@ -78,9 +79,9 @@ class Page implements \ArrayAccess
     /**
      * @return string
      */
-    public function getSlug()
+    public function getUrl()
     {
-        $parent = $this->parent ? rtrim($this->parent->getSlug(), '/') : '';
+        $parent = $this->parent ? rtrim($this->parent->getUrl(), '/') : '';
 
         return $parent . '/' . $this->name;
     }
