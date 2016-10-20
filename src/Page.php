@@ -95,6 +95,18 @@ class Page implements \ArrayAccess
     }
 
     /**
+     * @return Page
+     */
+    public function getRoot()
+    {
+        if ($this->parent === null) {
+            return $this;
+        }
+
+        return $this->parent->getRoot();
+    }
+
+    /**
      * @return Page|null
      */
     public function getNext()
