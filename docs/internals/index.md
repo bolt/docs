@@ -10,6 +10,7 @@ pages:
     - backtrace-twig-tag
     - container-service-references
     - task-scheduler
+    - javascript_css_build
 ---
 Bolt Internals
 ==============
