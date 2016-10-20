@@ -2,7 +2,7 @@
 title: Select
 ---
 Select
-=========
+======
 
 ### Choose from Preset values:
 
@@ -12,7 +12,7 @@ first glance.
 
 ### Basic Configuration:
 
-```
+```yaml
         somevalue:
             type: select
             values: [ none, foo, bar ]
@@ -20,7 +20,7 @@ first glance.
 
 ### Example usage in templates:
 
-```
+```twig
 {{ record.somevalue }}
 ```
 
@@ -28,7 +28,7 @@ first glance.
 
 You can also get the values from a the records of a ContentType.
 
-```
+```yaml
         somevalue:
             type: select
             values: mycontenttype/fieldname
@@ -38,7 +38,7 @@ To display multiple values simply separate them with commas.
 
 For example to display both the id and title of 'pages':
 
-```
+```yaml
         somevalue:
             type: select
             values: pages/id,title
@@ -48,7 +48,7 @@ If you wish to store another field or value from the original ContentType in
 your database, use the keys setting. If you do this, it will not store the
 'id', but the value of the field you specify. For example:
 
-```
+```yaml
         somevalue:
             type: select
             values: persons/lastname
@@ -57,7 +57,7 @@ your database, use the keys setting. If you do this, it will not store the
 
 If the list is growing longer, there are a few ways to make it more manageable:
 
-```
+```yaml
         somevalue:
             type: select
             values: programme/name
@@ -82,7 +82,7 @@ fetching documentation.
 As well as filters on the ContentType values you can also pass in taxonomy
 conditions too, as in the example below.
 
-```
+```yaml
         somevalue:
             type: select
             values: pages/title
@@ -91,7 +91,7 @@ conditions too, as in the example below.
 
 You can then fetch the selected record by using the following code:
 
-```
+```twig
 {% setcontent linkedpage = "pages" where { 'id': record.somevalue } returnsingle %}
 ```
 
@@ -102,7 +102,7 @@ You can then fetch the selected record by using the following code:
 You can also allow the user to select multiple values by setting the options
 `multiple` to true like this:
 
-```
+```yaml
         somevalues:
             type: select
             values: [ none, foo, bar ]
@@ -114,7 +114,7 @@ the templates.
 
 For example if you want to see if `bar` was one of the selected values:
 
-```
+```twig
 {% if 'bar' in record.somevalues %}
     ..
 {% endif %}
@@ -122,7 +122,7 @@ For example if you want to see if `bar` was one of the selected values:
 
 Or if you want to print out the selected values in an `ul`:
 
-```
+```twig
 <ul>
     {% for values in record.somevalues %}
         <li>{{ values }}
@@ -132,7 +132,7 @@ Or if you want to print out the selected values in an `ul`:
 
 Or if you just want to print them out after one another separated by commas:
 
-```
+```twig
 {{ record.somevalues|join(', ') }}
 ```
 
@@ -144,7 +144,7 @@ a list (like above), the same values will be stored in the database as they are
 shown in the pull-down selector that the editor sees. If you want to store
 another value than is shown, you can use a so-called 'hash'. For example:
 
-```
+```yaml
         somevalue:
             type: select
             values: { 'yes': "Yes", 'no': "No", 'undecided': "Well, it can go either way" }
