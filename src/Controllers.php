@@ -116,7 +116,7 @@ class Controllers implements ControllerProviderInterface
             'default_version' => $this->app['documentation']->getDefault(),
         ];
 
-        return $this->render('index.twig', $twigVars);
+        return $this->render($page['template'] ?: 'index.twig', $twigVars);
     }
 
     protected function render($template, array $variables = [])
