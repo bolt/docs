@@ -42,7 +42,7 @@
 
         {{ page.content|raw }}
 
-        {{ include('_sub_submenu.twig', { section: current }) }}
+        {{ include('_sub_submenu.twig') }}
 
         <div class="community-notice show-for-large">
             <hr>
@@ -73,8 +73,8 @@
                 </ul>
 
                 <ul class="jqtree_common jqtree-tree">
-                    {% for page in menu %}
-                        {{ macro.menu(page, current) }}
+                    {% for sub in page.root.subPages %}
+                        {{ macro.menu(sub, page) }}
                     {% endfor %}
                 </ul>
             </div>

@@ -111,8 +111,6 @@ class Controllers implements ControllerProviderInterface
         $twigVars = [
             'page'            => $page,
             'title'           => $page->getTitle(),
-            'menu'            => $version->getMenu(),
-            'current'         => $page->getUrl(),
             'version'         => $version,
             'versions'        => array_keys($this->app['documentation']->getVersions()),
             'default_version' => $this->app['documentation']->getDefault(),

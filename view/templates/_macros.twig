@@ -35,41 +35,24 @@
 
 
 {% macro menu(page, current) %}
+    {# page \Bolt\Docs\Page #}
+    {# current \Bolt\Docs\Page #}
     {% from _self import menu %}
 
-    {% set selected = current starts with page.url %}
-    <li class="jqtree_common {{ page.children is not empty ? ' jqtree-folder' }}{{ not selected ? ' jqtree-closed' }}{{ current == page.url ? ' jqtree-selected'}}">
+    {% set selected = current.url starts with page.url %}
+    <li class="jqtree_common {{ page.subPages is not empty ? ' jqtree-folder' }}{{ not selected ? ' jqtree-closed' }}{{ current.url == page.url ? ' jqtree-selected'}}">
         <div class="jqtree-element">
-            {% if page.children is not empty %}
+            {% if page.subPages is not empty %}
                 <a href="{{ page.url }}" class="jqtree-toggler jqtree-closed jqtree-toggler-left">{{ selected ? '▼' : '►' }}</a>
-                <a href="{{ page.url }}"><span class="jqtree-title jqtree-title-folder">{{ page.label }}</span></a>
+                <a href="{{ page.url }}"><span class="jqtree-title jqtree-title-folder">{{ page.title }}</span></a>
             {% else %}
-                <a href="{{ page.url }}" class="jqtree-title">{{ page.label }}</a>
+                <a href="{{ page.url }}" class="jqtree-title">{{ page.title }}</a>
             {% endif %}
         </div>
         <ul class="jqtree_common">
-            {% for sub in page.children %}
+            {% for sub in page.subPages %}
                 {{ menu(sub, current) }}
             {% endfor %}
         </ul>
     </li>
-{% endmacro %}
-
-{% macro submenu(items, section, version) %}
-
-    {% from _self import submenu %}
-
-    <ul>
-        {% for link, name in items %}
-            {% if name.items is defined %}
-                <li><strong>{{ name.title }}</strong>
-                    {{ submenu(name.items, section, version) }}
-                </li>
-            {% else %}
-                <li><a href="/{{ version }}/{{link}}" {{ (section == link) ? 'class="selected"' }}>{{name}}</a></li>
-            {% endif %}
-
-        {% endfor %}
-    </ul>
-
 {% endmacro %}
