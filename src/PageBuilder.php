@@ -167,24 +167,24 @@ class PageBuilder
             $source = $document;
         }
 
-        $source = $this->markdown->text($source);
+        $content = $this->markdown->text($source);
 
         if (!$page->getTitle()) {
-            preg_match('#<h1>(.*)</h1>#i', $source, $mainTitle);
+            preg_match('#<h1>(.*)</h1>#i', $content, $mainTitle);
             $page->setTitle($mainTitle[1]);
         }
 
         $submenu = [];
-        preg_match_all('#<h2>(.*)</h2>#i', $source, $matches);
+        preg_match_all('#<h2>(.*)</h2>#i', $content, $matches);
         foreach ($matches[1] as $key => $title) {
             $title = strip_tags($title);
             $submenu[$this->slugifier->slugify($title)] = $title;
         }
         $page->setSubMenu($submenu);
 
-        $source = $this->markupAnchors($source);
+        $content = $this->markupAnchors($content);
 
-        $page->setSource($source);
+        $page->setContent($content);
 
         return $page;
     }

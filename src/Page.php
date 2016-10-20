@@ -24,7 +24,7 @@ class Page implements \ArrayAccess
     private $name;
 
     /** @var string */
-    private $source;
+    private $content;
     /** @var array */
     private $variables = [];
     /** @var Page[] */
@@ -178,17 +178,17 @@ class Page implements \ArrayAccess
     /**
      * @return string
      */
-    public function getSource()
+    public function getContent()
     {
-        return $this->source;
+        return $this->content;
     }
 
     /**
-     * @param string $source
+     * @param string $content
      */
-    public function setSource($source)
+    public function setContent($content)
     {
-        $this->source = $source;
+        $this->content = $content;
     }
 
     /**

@@ -156,7 +156,7 @@ class Controllers implements ControllerProviderInterface
         if ($code == 404) {
             $page = new Page();
             $page->setTitle('404 - Page not found');
-            $page->setSource(<<<HTML
+            $page->setContent(<<<HTML
 <h1>404 - Page not found</h1>
 <p class="note">
     We changed a lot of the documentation structure in order to provide a better and more structured experience. 
