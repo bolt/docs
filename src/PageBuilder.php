@@ -10,6 +10,7 @@ use Symfony\Component\Config\Resource\DirectoryResource;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 use Symfony\Component\Yaml;
+use Webmozart\PathUtil\Path;
 
 class PageBuilder
 {
@@ -170,8 +171,11 @@ class PageBuilder
         $content = $this->markdown->text($source);
 
         if (!$page->getTitle()) {
-            preg_match('#<h1>(.*)</h1>#i', $content, $mainTitle);
-            $page->setTitle($mainTitle[1]);
+            if (preg_match('#<h1>(.*)</h1>#i', $content, $mainTitle)) {
+                $page->setTitle($mainTitle[1]);
+            } else {
+                $page->setTitle(Path::getFilenameWithoutExtension($file));
+            }
         }
 
         $submenu = [];
