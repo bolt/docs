@@ -387,3 +387,35 @@ pages:
     taxonomy: [ chapters ]
     recordsperpage: 100
 ```
+Keeping fields together in a group
+----------------------------------
+If you have defined groups in a YAML repeated node, you can add a field from a specific contenttype to one of these groups. 
+In the example below, the **slider** field will appear in the tab **media**.
+
+Example:
+```yaml
+__nodes:
+    record_defaults: &record_defaults
+        title:
+            type: text
+            class: large
+            group: main
+        slug:
+            type: slug
+            uses: title
+    content_defaults: &content_defaults
+        image:
+            type: image
+            group: media
+(...)
+
+pages:
+    name: Pages
+    singular_name: Page
+    fields:
+        <<: *record_defaults
+        slider:
+            type: imagelist
+            group: media
+(...)
+```
