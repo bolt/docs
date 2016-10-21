@@ -139,8 +139,8 @@ in the `theme/base-2016/` folder, and add the following HTML-code:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<title>{{ newsitem.title }}</title>
+    <meta charset="utf-8" />
+    <title>{{ newsitem.title }}</title>
 </head>
 
 <body>
@@ -156,8 +156,8 @@ in the `theme/base-2016/` folder, and add the following HTML-code:
         {{ newsitem.text }}
 
         <p class="meta"><a href="{{ newsitem.link }}">Link</a> -
-        	Posted by {{ newsitem.user.displayname }}
-        	on {{ newsitem.datecreated|date("M d, ’y")}}</p>
+            Posted by {{ newsitem.user.displayname }}
+            on {{ newsitem.datecreated|date("M d, ’y")}}</p>
 
     </article>
 </body>
@@ -220,34 +220,34 @@ cafes:
 The available options are:
 
   - `name`: The name of the ContentType, as it should be shown on screen or in
-    the browser. It should be plural, if possible.
+    the browser. It should be plural, if possible
   - `singular_name`: The name of one Record in the ContentType. This should be
     singular. For example, if the ContentType's name is 'Pages', this should be
-    'Page'.
+    'Page'
   - `slug` (optional): This determines the slug of the ContentType, and
     therefore the URLs that are generated for this ContentType. When omitted,
     the slug will be automatically generated from the `name`.
   - `singular_slug` (optional): This determines the slug of a single record
     in this ContentType, and therefore the URLs that are generated for these
     records. When omitted, the singular_slug will be automatically generated
-    from the `singular_name`.
+    from the `singular_name`
   - `description` (optional): A short description of the ContentType. This will
-    be shown on the overview screen in the right aside column.
+    be shown on the overview screen in the right aside column
   - `fields`: The fields that make up the content in this ContentType. See the
-    [Fields Definition](#field-definitions) section below for details.
+    [Fields Definition](#field-definitions) section below for details
   - `taxonomy`: An array listing the different taxonomies used by this
     ContentType. For example `[ categories, tags ]`. See the page on
-    [Taxonomies](../contenttypes/taxonomies) for details.
+    [Taxonomies](../contenttypes/taxonomies) for details
   - `relations`: An array listing the different relations available to this
     ContentType. See the page on [Relations](../contenttypes/relationships) for
-    details.
+    details
   - `record_template`: The default template to use, when displaying a single
     Record of this ContentType. The template itself should be located in your
     `theme/foo/` folder, in Bolt's root folder. This can be overridden on a
-    per-record basis, if one of the fields is defined as type `templateselect`.
+    per-record basis, if one of the fields is defined as type `templateselect`
   - `listing_template`: The default template to use, when displaying an
     overview of Records of this ContentType. The template itself should be
-    located in your `theme/foo/` folder, in Bolt's root folder.
+    located in your `theme/foo/` folder, in Bolt's root folder
   - `listing_records`: The amount of records to show on a single overview page
     in the frontend. If there are more records, the results will be paginated
   - `listing_sort`: The field used to sort the results on. You can reverse the
@@ -267,10 +267,10 @@ The available options are:
     ContentType should show up in search results.
   - `viewless` (optional): When set to `true`, routes will not be set for the
     ContentType listing, or the records themselves. Useful for creating
-    [resource ContentTypes](../howto/resource-contenttype).
+    [resource ContentTypes](../howto/resource-contenttype)
   - `title_format` (optional): Is used to determine the format of the title in
     the backend. For example if you have two fields for `firstname` and
-    `lastname` you might put `[ firstname, lastname ]` here.
+    `lastname` you might put `[ firstname, lastname ]` here
   - `icon_many` (optional): A [Font Awesome](http://fortawesome.github.io/Font-
     Awesome/) icon to be used in the sidebar for this ContentType. For example:
     `fa:cubes`
@@ -389,7 +389,9 @@ pages:
 ```
 Keeping fields together in a group
 ----------------------------------
-If you have defined groups in a YAML repeated node, you can add a field from a specific contenttype to one of these groups. 
+If you have defined groups in a YAML repeated node, you can add a field from a
+specific ContentType to one of these groups.
+
 In the example below, the **slider** field will appear in the tab **media**.
 
 Example:
