@@ -406,7 +406,7 @@ __nodes:
     content_defaults: &content_defaults
         image:
             type: image
-	    group: media
+            group: media
 (...)
 
 pages:
@@ -414,7 +414,7 @@ pages:
     singular_name: Page
     fields:
         <<: *record_defaults
-	slider:
+        slider:
             type: imagelist
             group: media
 (...)
