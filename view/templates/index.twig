@@ -46,13 +46,13 @@
 
         <div class="row">
             <div class="large-6 columns">
-                {% if page.previous.title %}
+                {% if page.previous.title|default() %}
                     {% set path = '/' ~ version ~ '/' ~ page.previous.path|replace({'.md': '', '/index': ''}) %}
                     &laquo; Previous: <a href="{{ path }}">{{ page.previous.title }}</a>
                 {% endif %}
             </div>
             <div class="large-6 columns text-right">
-                {% if page.next.title %}
+                {% if page.next.title|default() %}
                     {% set path = '/' ~ version ~ '/' ~ page.next.path|replace({'.md': '', '/index': ''}) %}
                     Next: <a href="{{ path }}">{{ page.next.title }}</a> &raquo;
                 {% endif %}
