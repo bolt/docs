@@ -31,8 +31,8 @@
 
         {% if page.submenu|length > 1 %}
             <div class='quick-links show-for-large'>
+                Jump to:
                 <ul>
-                   <li>Jump to:</li>
                     {% for anchor, item in page.submenu %}
                         <li><a href='#{{ anchor }}'>{{ item|raw }}</a></li>
                     {% endfor %}

@@ -75,6 +75,10 @@ jQuery(function($) {
         $('input#algolia-search').focus();
     }
 
+    // Swap `h1` and `.quicklinks`.
+    var quicklinks = $('.quick-links').detach().insertAfter('h1:not(#logo)').show();
+    // $('h1').insertAfter(quicklinks);
+
 });
 
 function initClipBoard() {
