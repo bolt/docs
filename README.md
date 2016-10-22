@@ -41,9 +41,9 @@ An example that sets up work trees for 2.2, 3.0 and 3.1 is:
 git clone git@github.com:bolt/docs.git bolt-docs
 cd bolt-docs
 git checkout site
-git worktree add var/versions/2.2 origin/release/2.2
-git worktree add var/versions/3.0 origin/release/3.0
-git worktree add var/versions/3.1 origin/release/3.1
+git worktree add -b release/2.2 var/versions/2.2
+git worktree add -b release/3.0 var/versions/3.0
+git worktree add -b release/3.1 var/versions/3.1
 composer update
 ```
 
