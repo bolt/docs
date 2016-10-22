@@ -34,7 +34,7 @@
                 <ul>
                    <li>Jump to:</li>
                     {% for anchor, item in page.submenu %}
-                        <li><a href='#{{ anchor }}'>{{ item }}</a></li>
+                        <li><a href='#{{ anchor }}'>{{ item|raw }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -43,6 +43,21 @@
         {{ page.content|raw }}
 
         {{ include('_sub_submenu.twig') }}
+
+        <div class="row">
+            <div class="large-6 columns">
+                {% if page.previous.title %}
+                    {% set path = '/' ~ version ~ '/' ~ page.previous.path|replace({'.md': '', '/index': ''}) %}
+                    &laquo; Previous: <a href="{{ path }}">{{ page.previous.title }}</a>
+                {% endif %}
+            </div>
+            <div class="large-6 columns text-right">
+                {% if page.next.title %}
+                    {% set path = '/' ~ version ~ '/' ~ page.next.path|replace({'.md': '', '/index': ''}) %}
+                    Next: <a href="{{ path }}">{{ page.next.title }}</a> &raquo;
+                {% endif %}
+            </div>
+        </div>
 
         <div class="community-notice show-for-large">
             <hr>
