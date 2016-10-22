@@ -138,15 +138,17 @@ footer {
 }
 
 h1 {
+    color: $headercolor;
     margin-bottom: 1em;
 }
 
 h2 {
-    font-weight: 300;
+    color: $headercolor;
     margin: 1.5em 0 1em;
 }
 
 h3 {
+    color: $headercolor;
     margin: 1.5em 0 1em;
 }
 
@@ -206,23 +208,8 @@ a.button.jumpbutton {
 }
 
 .quick-links {
-
-    margin: -1rem 0 1.5rem 0;
-
-    ul {
-        list-style: none;
-        margin: 0 0 0 0;
-        font-size: 14px;
-
-        li {
-            display: inline;
-            font-family: $sans-serif;
-            line-height: 19px;
-            margin-right: 20px;
-            margin-bottom: 0;
-
-        }
-    }
+    display: none;
+    margin: 0 0 2em;
 }
 
 a.toplink {

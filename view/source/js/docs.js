@@ -65,6 +65,20 @@ jQuery(function($) {
 
     initClipBoard();
 
+    // Remove 'version changer' from the hash.
+    if (window.location.hash == '#version-changer') {
+        window.location.hash = '';
+    }
+    // Perhaps set focus to the search input, if there's no hash, and
+    // '#jumpbutton' is visible, meaning we're on a large screen.
+    if (window.location.hash == '' && $('#jumpbutton').not(':visible')) {
+        $('input#algolia-search').focus();
+    }
+
+    // Swap `h1` and `.quicklinks`.
+    var quicklinks = $('.quick-links').detach().insertAfter('h1:not(#logo)').show();
+    // $('h1').insertAfter(quicklinks);
+
 });
 
 function initClipBoard() {

@@ -7,7 +7,7 @@
 
     <div class="small-12 medium-12 large-9 columns content">
 
-        <a href="#sidebar" class="button hide-for-large jumpbutton">Jump to docs navigation</a>
+        <a href="#sidebar" class="button hide-for-large" id="jumpbutton">Jump to docs navigation</a>
 
         <div id="version-changer" class="version-changer">
             <form action="" method="get">
@@ -31,10 +31,10 @@
 
         {% if page.submenu|length > 1 %}
             <div class='quick-links show-for-large'>
+                Jump to:
                 <ul>
-                   <li>Jump to:</li>
                     {% for anchor, item in page.submenu %}
-                        <li><a href='#{{ anchor }}'>{{ item }}</a></li>
+                        <li><a href='#{{ anchor }}'>{{ item|raw }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -43,6 +43,21 @@
         {{ page.content|raw }}
 
         {{ include('_sub_submenu.twig') }}
+
+        <div class="row">
+            <div class="large-6 columns">
+                {% if page.previous.title|default() %}
+                    {% set path = '/' ~ version ~ '/' ~ page.previous.path|replace({'.md': '', '/index': ''}) %}
+                    &laquo; Previous: <a href="{{ path }}">{{ page.previous.title }}</a>
+                {% endif %}
+            </div>
+            <div class="large-6 columns text-right">
+                {% if page.next.title|default() %}
+                    {% set path = '/' ~ version ~ '/' ~ page.next.path|replace({'.md': '', '/index': ''}) %}
+                    Next: <a href="{{ path }}">{{ page.next.title }}</a> &raquo;
+                {% endif %}
+            </div>
+        </div>
 
         <div class="community-notice show-for-large">
             <hr>
@@ -62,7 +77,7 @@
 
             <div class='search'>
                 <label for="algolia-search"> Search the documentation:</label>
-                <input type="text" placeholder="Search ..." id="algolia-search" autofocus/>
+                <input type="text" placeholder="Search ..." id="algolia-search"/>
             </div>
 
             <div id="tree1">
