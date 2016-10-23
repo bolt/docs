@@ -64,8 +64,9 @@ and `src/ExtensionNameExtension.php`.
   8. In the `extra` section of `composer.json` update `bolt-class` to reflect
      the new namespace and class name (from steps 1 & 2).
 
-The above steps will get you started, and below is some more in depth information
-about the configuration.
+If this is your first local extension, Bolt will automatically add an extension called `Local Extension Helper`. You will see the helper extension listed alongside your other extensions. If the helper extension is marked as `-[INVALID]` and `-[DISABLED]` you will need to go to the `extensions/` directory and run `composer update`.
+
+The above steps will get you started, and below is some more in depth information about the configuration.
 
 **Extended starter extension**
 
