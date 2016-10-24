@@ -8,6 +8,7 @@ pages:
     - nut
     - maintenance-mode
     - credits
+    - license
     - roadmap
     - release-process
 ---

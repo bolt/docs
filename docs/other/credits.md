@@ -9,7 +9,7 @@ are a developer you're very welcome to help in the further development of Bolt.
 
 The Bolt project was founded by Bob den Otter, and has become a thriving project
 ever since, with the help of many contributors. See the [contributors page][]
-on GitHub for details. 
+on GitHub for details.
 
 The continuing development of Bolt is backed by [Two Kings][] web development.
 Contact us at info [@] bolt.cm.
@@ -43,7 +43,7 @@ Below are some of the many third party libraries that are used by Bolt:
 
 [contributors page]: https://github.com/bolt/bolt/graphs/contributors
 [Two Kings]: http://www.twokings.nl
-[MIT license]: http://www.opensource.org/licenses/mit-license.php
+[MIT license]: license
 [Silex]: http://silex.sensiolabs.org/
 [Symfony]: http://symfony.com/
 [Doctrine DBAL]: http://www.doctrine-project.org
