@@ -34,8 +34,7 @@ class Controllers implements ControllerProviderInterface
             ->assert('page', '.*');
 
         $ctr->get('/sitemap/{version}.xml', [$this, 'sitemap'])
-            ->bind('sitemap')
-            ->value('version', '');
+            ->bind('sitemap');
 
         $ctr->get('/sitemap.xml', [$this, 'sitemap_list'])
             ->bind('sitemap_list');
@@ -123,7 +122,7 @@ class Controllers implements ControllerProviderInterface
     public function sitemap(Version $version)
     {
         $twigVars = [
-            'menu' => $version->getMenu(),
+            'sitemap' => $version->getPage(''),
         ];
 
         $xml = $this->render('sitemap.twig', $twigVars);
@@ -139,7 +138,7 @@ class Controllers implements ControllerProviderInterface
     public function sitemap_list()
     {
         $twigVars = [
-            'versions' => array_keys($this->app['documentation']->getVersions()),
+            'versions' => $this->app['documentation']->getVersions(),
         ];
 
         $xml = $this->render('sitemap_list.twig', $twigVars);
@@ -153,7 +152,7 @@ class Controllers implements ControllerProviderInterface
             'page'            => $page,
             'title'           => $page->getTitle(),
             'version'         => $version,
-            'versions'        => array_keys($this->app['documentation']->getVersions()),
+            'versions'        => $this->app['documentation']->getVersions(),
             'default_version' => $this->app['documentation']->getDefault(),
         ];
 
