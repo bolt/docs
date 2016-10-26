@@ -122,7 +122,7 @@ class Controllers implements ControllerProviderInterface
     public function sitemap(Version $version)
     {
         $twigVars = [
-            'sitemap' => $version->getPage(''),
+            'root' => $version->getPage(''),
         ];
 
         $xml = $this->render('sitemap.twig', $twigVars);
