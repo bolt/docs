@@ -113,6 +113,13 @@ class Controllers implements ControllerProviderInterface
         return $this->render('cheatsheet.twig', $twigVars);
     }
 
+    /**
+     * Controller for sitemap (single)
+     *
+     * @param Version $version
+     *
+     * @return mixed
+     */
     public function sitemap(Version $version)
     {
         $twigVars = [
@@ -124,6 +131,11 @@ class Controllers implements ControllerProviderInterface
         return new Response($xml, 200, ['Content-Type' => 'application/xml']);
     }
 
+    /**
+     * Controller for sitemap-sitemap (multiple)
+     *
+     * @return mixed
+     */
     public function sitemap_list()
     {
         $twigVars = [
@@ -134,7 +146,6 @@ class Controllers implements ControllerProviderInterface
 
         return new Response($xml, 200, ['Content-Type' => 'application/xml']);
     }
-
 
     protected function renderPage(Version $version, Page $page)
     {
