@@ -33,6 +33,12 @@ class Controllers implements ControllerProviderInterface
             ->value('page', '')
             ->assert('page', '.*');
 
+        $ctr->get('/sitemap/{version}.xml', [$this, 'sitemap'])
+            ->bind('sitemap');
+
+        $ctr->get('/sitemap.xml', [$this, 'sitemap_list'])
+            ->bind('sitemap_list');
+
         $ctr->convert('version', function ($version) {
             if (!$version) {
                 return $version = $this->app['documentation']->getDefault();
@@ -106,13 +112,47 @@ class Controllers implements ControllerProviderInterface
         return $this->render('cheatsheet.twig', $twigVars);
     }
 
+    /**
+     * Controller for sitemap (single)
+     *
+     * @param Version $version
+     *
+     * @return mixed
+     */
+    public function sitemap(Version $version)
+    {
+        $twigVars = [
+            'root' => $version->getPage(''),
+        ];
+
+        $xml = $this->render('sitemap.twig', $twigVars);
+
+        return new Response($xml, 200, ['Content-Type' => 'application/xml']);
+    }
+
+    /**
+     * Controller for sitemap-sitemap (multiple)
+     *
+     * @return mixed
+     */
+    public function sitemap_list()
+    {
+        $twigVars = [
+            'versions' => $this->app['documentation']->getVersions(),
+        ];
+
+        $xml = $this->render('sitemap_list.twig', $twigVars);
+
+        return new Response($xml, 200, ['Content-Type' => 'application/xml']);
+    }
+
     protected function renderPage(Version $version, Page $page)
     {
         $twigVars = [
             'page'            => $page,
             'title'           => $page->getTitle(),
             'version'         => $version,
-            'versions'        => array_keys($this->app['documentation']->getVersions()),
+            'versions'        => $this->app['documentation']->getVersions(),
             'default_version' => $this->app['documentation']->getDefault(),
         ];
 
@@ -157,9 +197,9 @@ class Controllers implements ControllerProviderInterface
             $page->setContent(<<<HTML
 <h1>404 - Page not found</h1>
 <p class="note">
-    We changed a lot of the documentation structure in order to provide a better and more structured experience. 
-    We might have missed to fix certain links. 
-    If you think this could be one of this cases, 
+    We changed a lot of the documentation structure in order to provide a better and more structured experience.
+    We might have missed to fix certain links.
+    If you think this could be one of this cases,
     please report it to us via <a target="_blank" href="https://bolt.cm/community">Twitter, Slack, IRC, ...</a>
 </p>
 This page could not be found. Please click one of the menu items in the

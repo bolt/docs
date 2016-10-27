@@ -56,3 +56,11 @@
         </ul>
     </li>
 {% endmacro %}
+
+{% macro sitemap(page) %}
+    {% from _self import sitemap %}
+    <url><loc>https://docs.bolt.cm{{ page.url }}</loc></url>
+    {% for sub in page.subPages %}
+        {{ sitemap(sub) }}
+    {% endfor %}
+{% endmacro %}
