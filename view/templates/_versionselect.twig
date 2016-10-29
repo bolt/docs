@@ -14,7 +14,7 @@
             <option>Selected version: <strong>Bolt {{ version }}</strong></option>
             <optgroup label=''>
             <optgroup label='Switch to version:'>
-                {% for v in numeric if v matches '/^[-+]?[0-9]*\\.?[0-9]+$/' %}
+                {% for v in numeric|reverse %}
                     <option value="{{ path('page', {version: v}) }}" class="version-{{ v }}">{{ v }}
                         {% if v == default_version %}(current stable){% endif %}
                         {% if v > default_version %}(future release){% endif %}
