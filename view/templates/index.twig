@@ -9,18 +9,7 @@
 
         <a href="#sidebar" class="button hide-for-large" id="jumpbutton">Jump to docs navigation</a>
 
-        <div id="version-changer" class="version-changer">
-            <form action="" method="get">
-                <select>
-                    <option>Current: <strong>{{ version }}</strong></option>
-                    <optgroup label='Switch to version:'>
-                    {% for v in versions if v != version %}
-                        <option value="{{ path('page', {version: v}) }}">{{ v }}</option>
-                    {% endfor %}
-                    </optgroup>
-                </select>
-            </form>
-        </div>
+        {% include '_versionselect.twig' %}
 
         {% if version != default_version %}
             <p class="note" style="margin-top: 1em;">

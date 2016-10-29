@@ -1,0 +1,37 @@
+{% set numeric = [] %}
+{% set other = [] %}
+{% for k, v in versions %}
+    {% if k matches '/^[-+]?[0-9]*\\.?[0-9]+$/' %}
+        {% set numeric = numeric|merge([v]) %}
+    {% else %}
+        {% set other = other|merge([v]) %}
+    {% endif %}
+{% endfor %}
+
+<div id="version-changer" class="version-changer">
+    <form action="" method="get">
+        <select>
+            <option>Selected version: <strong>Bolt {{ version }}</strong></option>
+            <optgroup label=''>
+            <optgroup label='Switch to version:'>
+                {% for v in numeric if v matches '/^[-+]?[0-9]*\\.?[0-9]+$/' %}
+                    <option value="{{ path('page', {version: v}) }}">{{ v }}
+                        {% if v < default_version %}<em>(legacy)</em>{% endif %}
+                        {% if v == default_version %}(current stable){% endif %}
+                        {% if v > default_version %}(future release){% endif %}
+                    </option>
+                {% endfor %}
+            </optgroup>
+
+            {% if other is not empty %}
+            <optgroup label=''>
+            <optgroup label='Other:'>
+                {% for v in other %}
+                    <option value="{{ path('page', {version: v}) }}">{{ v }}</option>
+                {% endfor %}
+            </optgroup>
+            {% endif %}
+        </select>
+    </form>
+</div>
+
