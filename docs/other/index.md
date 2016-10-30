@@ -32,10 +32,6 @@ these docs, be sure to get in touch, using one of the following ways:
     Issue Tracker](http://github.com/bolt/bolt/issues). Pull-requests are
     always welcome, as well.
 
-  - Look for small snippets of code and some tips & tricks or our [Snippets
-    website](https://snippets.bolt.cm). It's like Pastebin, only powered by
-    Bolt.
-
   - We have some pages with detailed information on a couple of subjects on the
     wiki at [github.com/bolt/bolt/wiki](https://github.com/bolt/bolt/wiki).
 
