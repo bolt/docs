@@ -118,20 +118,20 @@ found at [Twig for Template Designers][2] on the official Twig site.
 
 <article>
 
-    <h1><a href="{{ content.link }}">{{ content.title }}</a></h1>
+    <h1><a href="{{ record.link }}">{{ record.title }}</a></h1>
 
     {# Only display the image, if there's an actual image to display #}
     {% if content.image!="" %}
         <div class='imageholder-wide'>
-        	<img src="{{ content.image|thumbnail(320, 240) }}">
+        	<img src="{{ record.image|thumbnail(320, 240) }}">
         </div>
     {% endif %}
 
-    {{ content.body }}
+    {{ record.body }}
 
     <p class="meta">
-    	Posted by {{ content.user.displayname }} on
-    	{{ content.datecreated|date("M d, ’y")}}
+    	Posted by {{ record.user.displayname }} on
+    	{{ record.datecreated|date("M d, ’y")}}
     </p>
 
 </article>
@@ -145,14 +145,14 @@ What happens in this example is the following:
     named `_header.twig`, parses it like any other Twig template, and outputs
     it to the browser.
 
-  - `{{ content.title }}`, line 5: Since this is a generic template, 'content'
+  - `{{ record.title }}`, line 5: Since this is a generic template, 'content'
     contains the record of the current requested page. For example, if the
     current page is <a>domain.com/news/the-website-is-live</a>, `content` would
     contain the record from 'news' that has 'the-website-is-live' as a slug.
     'content' is an array, so to output the 'title' field, we use the
     '.'-notation.
 
-  - `{{ content.link }}`, line 5: Here we use the link property to get the URL
+  - `{{ record.link }}`, line 5: Here we use the link property to get the URL
     that links to the content.
 
   - `{# Only display .. #}`, line 7: This is a simple comment. It will be
@@ -164,17 +164,17 @@ What happens in this example is the following:
     is true. So, in this case, the image is only rendered to the browser, if
     `content.image` does not equal "", i.e. if it is not empty.
 
-  - `{{ content.image|thumbnail(320, 240) }}`, line 10: By using the
+  - `{{ record.image|thumbnail(320, 240) }}`, line 10: By using the
     `thumbnail` filter, we can create thumbnail images on the fly. In this
     case, the image source attribute in the HTML will be something like
     '/thumbs/300x240/imagename.jpg'. Bolt has a built-in image resizer that
     will create the image with the exact dimensions, and caches it for further
     use.
 
-  - `{{ content.body }}`, line 14: This renders the 'body' field of the
+  - `{{ record.body }}`, line 14: This renders the 'body' field of the
     content.
 
-  - `{{ content.datecreated|date("M d, ’y")}}`, line 18: `datecreated` is one
+  - `{{ record.datecreated|date("M d, ’y")}}`, line 18: `datecreated` is one
     of the elements that is always present in all content types, and it
     contains the date the record was created. It's stored in a machine-readable
     format, so to display it the way we want, we use the `date()` filter. In
