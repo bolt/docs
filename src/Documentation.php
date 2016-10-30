@@ -39,7 +39,7 @@ class Documentation
 
     public function load()
     {
-        $dirs = (new Finder())->directories()->in($this->versionDir)->depth(0);
+        $dirs = (new Finder())->directories()->in($this->versionDir)->sortByName()->depth(0);
 
         foreach ($dirs as $dir) {
             /** @var SplFileInfo $dir */
