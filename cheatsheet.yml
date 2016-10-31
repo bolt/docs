@@ -79,7 +79,7 @@ contenttypes:
         - [ "`description`", "(optional) A short description of the ContentType. " ]
         - [ "`fields`", "The fields that make up the content in this ContentType. See the section [Field definitions](#field-definitions-ContentTypesyml) for details." ]
         - [ "`taxonomy`", "An array listing the different taxonomies used by this ContentType. See the section on [Taxonomies](#taxonomies-and-taxonomyyml) for details." ]
-        - [ "`relations`", "An array listing the different relations available to this ContentType. See the section on [Relations](./ContentTypes/relationships) for details." ]
+        - [ "`relations`", "An array listing the different relations available to this ContentType. See the section on [Relations](./contenttypes/relationships) for details." ]
         - [ "`record_template`", "The default template to use, when displaying a single record of this ContentType. " ]
         - [ "`listing_template`", "The default template to use, when displaying an overview of records of this ContentType. " ]
         - [ "`listing_records`", "The amount of records to show on a single overview page in the frontend." ]
@@ -115,7 +115,7 @@ fielddefinitions:
         - [ "`datetime`", "Similar to the `date` field, but adds an additional field for time. "]
         - [ "`integer`", "A field to store integers. "]
         - [ "`float`", "A field to store (floating point) numbers. "]
-    links: { "Field definitions in the docs": "fields/intro" }
+    links: { "Field definitions in the docs": "fields" }
 
 fieldoptions:
     title: Field options for ContentTypes in `contenttypes.yml`
@@ -141,7 +141,7 @@ fieldoptions:
         - [ "`info: ..`", "Use for displaying extra information about the field." ]
         - [ "`extensions: [ .. ]`", "A list of allowed file extensions for uploading. Used with `file`, `filelist`, `image` and `imagelist`" ]
         - [ "`upload: foo`", "A custom path for uploaded files. Used with `file`, `filelist`, `image` and `imagelist`" ]
-    links: { "Field definitions in the docs": "fields/intro" }
+    links: { "Field definitions in the docs": "fields" }
 
 relations:
     title: Relationships
