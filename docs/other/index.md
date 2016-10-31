@@ -31,17 +31,9 @@ these docs, be sure to get in touch, using one of the following ways:
   - We're active on Twitter. Follow us, or say hello at
     [@BoltCM](https://twitter.com/boltcm).
 
-  - You can post questions on [Stack Overflow](http://stackoverflow.com). Be
-    sure to tag them with [bolt-cms](http://stackoverflow.com/questions/tagged
-    /bolt-cms), and we'll gladly help you out.
-
-  - For (potential) bugs and feature requests, open an issue on our
-    [Github Issue Tracker](https://github.com/bolt/bolt/issues). Pull-requests
-    are always welcome, as well.
-
-  - Look for small snippets of code and some tips & tricks or our
-    [Snippets website](https://snippets.bolt.cm). It's like Pastebin, only
-    powered by Bolt.
+  - For (potential) bugs and feature requests, open an issue on our [Github
+    Issue Tracker](http://github.com/bolt/bolt/issues). Pull-requests are
+    always welcome, as well.
 
   - We have some pages with detailed information on a couple of subjects on the
     wiki at [github.com/bolt/bolt/wiki](https://github.com/bolt/bolt/wiki).
