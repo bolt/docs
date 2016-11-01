@@ -6,4 +6,5 @@ pages:
     - database
     - permissions
     - menus
+    - thumbnails
 ---
