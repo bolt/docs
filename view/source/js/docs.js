@@ -71,7 +71,7 @@ jQuery(function($) {
     }
     // Perhaps set focus to the search input, if there's no hash, and
     // '#jumpbutton' is visible, meaning we're on a large screen.
-    if (window.location.hash == '' && $('#jumpbutton').not(':visible')) {
+    if (window.location.hash == '' && !$('#jumpbutton').is(':visible')) {
         $('input#algolia-search').focus();
     }
 
