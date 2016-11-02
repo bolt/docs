@@ -6,7 +6,7 @@ Content in Templates
 
 Perhaps the thing you'll do most in templates is accessing records of content.
 Either by requesting specific content, or implicitly when requesting pages that
-are the defaults for certain contenttypes.
+are the defaults for certain ContentTypes.
 
 There are two ways that Bolt makes content accessible in templates:
 
