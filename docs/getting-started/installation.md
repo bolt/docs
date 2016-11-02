@@ -167,7 +167,7 @@ files use the same `.yml` syntax, and can also be edited via the Bolt backend.
 | File | Description |
 |------|-------------|
 | `app/config/config.yml` | The file where all general configuration of your website is defined. |
-| `app/config/contenttypes.yml` | The definitions of your contenttypes, e.g.  pages, blog items etc.
+| `app/config/contenttypes.yml` | The definitions of your ContentTypes, e.g.  pages, blog items etc.
 | `app/config/menu.yml` | The file that contains the menu(s) for your website.
 | `app/config/taxonomy.yml` | Categories, chapters, tags etc. are defined here. |
 | `app/config/routing.yml` | The file where you can define custom urls for your website.

@@ -7,7 +7,7 @@ Introduction
 This is the Bolt Documentation. There are a lot of docs for Bolt, so it is split
 up in a few sections. If you're getting started with Bolt or looking for
 installation instructions, start with the first part. The second part of the
-docs is about working _in_ Bolt. Setting up contenttypes, taxonomies, etc. The
+docs is about working _in_ Bolt. Setting up ContentTypes, taxonomies, etc. The
 third part is a reference for all things related to building your templates and
 themes for Bolt. If you're just beginning with Bolt, don't forget to check out
 our excellent Bolt Theming Tutorial as well.
