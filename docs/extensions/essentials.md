@@ -324,7 +324,7 @@ As you might know, Bolt has two 'sandboxed' Twig environments, to prevent
 possible security exploits in the templates. This is to prevent having a
 careless developer or implementor allow a user to insert Twig tags where they
 should not. If you want your extension's Twig function to be available inside a
-contenttype's record field, you will need to explicitly add an `isSafe()`
+ContentType's record field, you will need to explicitly add an `isSafe()`
 function to your `Extension.php` file, that simply returns `true`:
 
 ```
@@ -334,10 +334,10 @@ public function isSafe()
 }
 ```
 
-Note: You will _also_ need to set `allowtwig` to `true`, in your contenttype
+Note: You will _also_ need to set `allowtwig` to `true`, in your ContentType
 definition. If either one of them isn't set, the twig tag will not work inside
 the content. This way you have maximum control over where it works, and where it
-doesn't. See also 'Field Definitions' in the page '[Contenttypes and Records][ct+r]'.
+doesn't. See also 'Field Definitions' in the page '[ContentTypes and Records][ct+r]'.
 
 Adding storage events
 ---------------------
@@ -414,14 +414,14 @@ function foo()
 Overriding the default 'Content' class
 --------------------------------------
 
-Contenttypes can specify the class to be used for records of that contenttype.
-This is useful for when you have a specific contenttype, and you would like to
-provide extra functionality to that single contenttype.
+ContentTypes can specify the class to be used for records of that ContentType.
+This is useful for when you have a specific ContentType, and you would like to
+provide extra functionality to that single ContentType.
 
 An extension can then define that class, overriding / extending the default
 behaviour of `\Bolt\Content`.
 
-For example, in your contenttype, use:
+For example, in your ContentType, use:
 ```YAML
 entries:
     name: Entries

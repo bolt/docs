@@ -7,7 +7,7 @@ Select
 ### Choose from Preset values:
 
 A drop-down list to make a pre-defined selection from. This fields has many
-options and many possibilties but is less complicated than it might seem at
+options and many possibilities but is less complicated than it might seem at
 first glance.
 
 ### Basic Configuration:
@@ -24,9 +24,9 @@ first glance.
 {{ record.somevalue }}
 ```
 
-### Populating the values from a contenttype
+### Populating the values from a ContentType
 
-You can also get the values from the records of a contenttype.
+You can also get the values from the records of a ContentType.
 
 ```yaml
         somevalue:
@@ -44,7 +44,7 @@ For example to display both the id and title of 'pages':
             values: pages/id,title
 ```
 
-If you wish to store another field or value from the original contenttype in
+If you wish to store another field or value from the original ContentType in
 your database, use the keys setting. If you do this, it will not store the
 'id', but the value of the field you specify. For example:
 
@@ -79,7 +79,7 @@ Finally you can pass filters to the query using the filter option. For a full
 reference of what can be passed to a where filter you can see the content
 fetching documentation.
 
-As well as filters on the contenttype values you can also pass in taxonomy
+As well as filters on the ContentType values you can also pass in taxonomy
 conditions too, as in the example below.
 
 ```yaml

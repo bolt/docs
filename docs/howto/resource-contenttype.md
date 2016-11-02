@@ -1,20 +1,20 @@
 ---
-title: Making a 'resource' Contenttype
+title: Making a 'resource' ContentType
 ---
-Making a 'resource' Contenttype
+Making a 'resource' ContentType
 ===============================
 
-A common question that comes up is how to create a generic Contenttype for
+A common question that comes up is how to create a generic ContentType for
 things like 404 pages and site header text that can be used in templates. A
-simple approach is to create a '*resource*' Contenttype.
+simple approach is to create a '*resource*' ContentType.
 
 For the purposes of this HOWTO we care going to call it "resource". But as with
-any Contenttype, you can use any unique name.
+any ContentType, you can use any unique name.
 
-Creating the Contenttype
+Creating the ContentType
 ------------------------
 
-Firstly, in your `contenttypes.yml` file create a new Contenttype with the
+Firstly, in your `contenttypes.yml` file create a new ContentType with the
 following parameters:
 
 ```yaml
@@ -83,12 +83,12 @@ confined.
 
 ### Searchable
 
-By setting `searchable: false` these Contenttype records will be excluded from
+By setting `searchable: false` these ContentType records will be excluded from
 search results.
 
 ### Viewless
 
-By setting `viewless: true`, routes will not be set for the Contenttype listing,
+By setting `viewless: true`, routes will not be set for the ContentType listing,
 or the records themselves.
 
 Permissions

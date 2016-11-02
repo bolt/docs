@@ -16,7 +16,7 @@ the user to go to the 'repair database' screen.
 
 Even though Bolt strives to be as simple as possible, it makes sense to think of
 Bolt as an [MVC application][mvc]. Silex provides the Controller part, the Twig
-templates are the View and the Contenttypes define the Model part.
+templates are the View and the ContentTypes define the Model part.
 
 All access to the content and the contentypes is done through the Storage class.
 Records of content have a Content class. Browse the files `src/Storage.php`

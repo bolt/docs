@@ -125,7 +125,7 @@ example:
 ```
 
 
-#### Contenttype overrides
+#### ContentType overrides
 
 This case overrides the default routing for contenttype **page**. Bolt will no
 longer create `/page/{slug}` links but will now create `/{slug}` routes. The old

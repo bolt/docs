@@ -70,7 +70,7 @@ URL route in the Bolt back-end, e.g. the `global:translation` permission maps
 to `http://your-domain.org/bolt/translation`. The default configuration file
 describes those permissions in more detail that do not follow this mapping.
 
-**Per-Contenttype permissions** govern actions specific to a contenttype. They
+**Per-ContentType permissions** govern actions specific to a contenttype. They
 are defined in three "layers": the `contenttype-all`, `contenttype-default`,
 and `contenttypes` sections. The way these work is a bit tricky to wrap one's
 head around, but it allows for maximum flexibility without too much clutter.
@@ -85,7 +85,7 @@ For each contenttype, the following permissions are available:
 | `publish` and `depublish` | required to change the publication state of a record |
 | `change-ownership` | required to transfer ownership of a record to another user |
 
-How Contenttype Specific Permissions Are Calculated
+How ContentType Specific Permissions Are Calculated
 ----------------------------------------------------
 For contenttype related actions, permissions can be set individually for each
 contenttype. For this, we define three groups of permission sets.
