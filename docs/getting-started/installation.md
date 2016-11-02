@@ -137,7 +137,12 @@ set up the first user. If not, see below. If you do see the 'Create the first
 user'-screen, do accordingly, and log in to the Bolt backend. You should now
 see the (empty) Dashboard screen.
 
-<p class="note"><strong>Note:</strong> When you first open a Bolt page in your browser, you will be redirected to a page like <tt>/bolt/userfirst</tt> where you can set up the first user. If you get a 'File not found'-error, this means your webserver isn't configured to handle rewrites correctly. If you're using Apache, see our page on <a href="../howto/making-sure-htaccess-works">Making sure .htaccess and mod_rewrite are working as they should</a>.</p>
+<p class="note"><strong>Note:</strong> When you first open a Bolt page in your
+browser, you will be redirected to a page like <tt>/bolt/userfirst</tt> where
+you can set up the first user. If you get a 'File not found'-error, this means
+your webserver isn't configured to handle rewrites correctly. If you're using
+Apache, see our page on <a href="../howto/making-sure-htaccess-works">Making
+sure .htaccess and mod_rewrite are working as they should</a>.</p>
 
 If you want to get a quick way to see how your site looks with some content you
 can add some generated pages using the built-in <a href="http://loripsum.net">
@@ -154,17 +159,21 @@ AllowOverride option is enabled.
 
 After the installation: where the important files are located
 -------------------------------------------------------------
-When the basic installation is finished, these are the files where you edit the Bolt configuration to build your website according to your specifications. All files use the same .yml syntax, and can also be edited via the Bolt backend.
 
-  - `app/config/config.yml`  The file where all general configuration of your website is defined.
-  - `app/config/contenttypes.yml` The definitions of your contenttypes, e.g. pages, blog items etc.
-  - `app/config/menu.yml` The file that contains the menu(s) for your website.
-  - `app/config/taxonomy.yml` Categories, chapters, tags etc. are defined here.
-  - `app/config/routing.yml` The file where you can define custom urls for you website.
-  - `app/config/permissions.yml` Here you can specify groups, users, etc. For most websites, the default permissions settings will be just fine.
-  - `app/config/extensions/` If you install extensions, their config files will be located in this directory.
+When the basic installation is finished, these are the files where you edit the
+Bolt configuration to build your website according to your specifications. All
+files use the same `.yml` syntax, and can also be edited via the Bolt backend.
 
-  - `theme/` Make a new directory here where you can put your own templates.
+| File | Description |
+|------|-------------|
+| `app/config/config.yml` | The file where all general configuration of your website is defined. |
+| `app/config/contenttypes.yml` | The definitions of your contenttypes, e.g.  pages, blog items etc.
+| `app/config/menu.yml` | The file that contains the menu(s) for your website.
+| `app/config/taxonomy.yml` | Categories, chapters, tags etc. are defined here. |
+| `app/config/routing.yml` | The file where you can define custom urls for your website.
+| `app/config/permissions.yml` | Here you can specify groups, users, etc. For  most websites, the default permissions settings will be just fine.
+| `app/config/extensions/` | If you install extensions, their config files will be located in this directory.
+| `theme/` | Make a new directory here where you can put your own templates. |
 
 
 Configuring the Database
