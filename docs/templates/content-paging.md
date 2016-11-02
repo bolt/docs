@@ -20,8 +20,8 @@ paging. If you want to add paging to your template, add `allowpaging` to your
 
 If you have more than one block of records that you want to paginate on one
 page, you can use their names in a parameter to keep them separate. Note that
-if you start paging different contenttypes by different amounts, you will get
-unexpected results. If you have more than one contenttype on a page that you
+if you start paging different ContentTypes by different amounts, you will get
+unexpected results. If you have more than one ContentType on a page that you
 wish to paginate, it's advised to use the same amount of records for all of the
 `{% setcontent %}` tags.
 
@@ -38,7 +38,7 @@ wish to paginate, it's advised to use the same amount of records for all of the
 ```
 
 <p class="note"><strong>Note:</strong> The parameter passed to the
-<code>pager()</code> function must be the used contenttype, and not the
+<code>pager()</code> function must be the used ContentType, and not the
 variable you've used to set the content to. </p>
 
 You can add an optional parameter do determine how many 'neighboring' pages are

@@ -12,7 +12,7 @@ become available in templates.
 This page is divided in two parts: working with a single `{{ record }}`, or
 with an array of `{{ records }}`. In the examples below we mostly refer to the
 generic `record` variable, but in your own templates you're free to use the
-proper name of the contenttype used.
+proper name of the ContentType used.
 
 Using a `{{ record }}`
 ----------------------
@@ -26,7 +26,7 @@ for that matter) are, is to use the `dump()` function:
 
 <a href="/files/content-example3.png" class="popup"><img src="/files/content-example3.png" width="500"></a>
 
-As you can see in the screenshot, a record of a contenttype is an `object`.
+As you can see in the screenshot, a record of a ContentType is an `object`.
 There are several benefits to this over a regular `array`. We can access the
 fields like regular values, but we can also use specific functionality for
 every object, without the need to define these separately.
@@ -97,9 +97,8 @@ function comes in handy:
 {% endfor %}
 ```
 
-
 <p class="note"><strong>Note:</strong> To create connections between different
-records of the same or different contenttypes, see the page on <a
+records of the same or different ContentTypes, see the page on <a
 href="../content/relationships">Relations</a>.</p>
 
 

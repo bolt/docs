@@ -26,7 +26,7 @@ first glance.
 
 ### Populating the values from a ContentType
 
-You can also get the values from the records of a ContentType.
+You can also get the values from the records of a particular ContentType.
 
 ```yaml
         somevalue:

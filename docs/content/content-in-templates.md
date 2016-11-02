@@ -6,7 +6,7 @@ Content in Templates
 
 Perhaps the thing you'll do most in templates is accessing records of content.
 Either by requesting specific content, or implicitly when requesting pages that
-are the defaults for certain contenttypes.
+are the defaults for certain ContentTypes.
 
 There are two ways that Bolt makes content accessible in templates:
 
@@ -15,7 +15,7 @@ There are two ways that Bolt makes content accessible in templates:
     it via the `setcontent`-tag. See the section below on how to access the the
     content.
   - Fetching other content: By using the `{% setcontent %}`-tag, you can
-    retrieve records of any contenttype from the database, and make the data
+    retrieve records of any ContentType from the database, and make the data
     available to the templates. Much more information about `setcontent`, can
     be found in the chapter [Fetching content](../templates/content-fetching).
 
@@ -30,16 +30,16 @@ are three distinct cases:
 
 In a page that's used for a single record, (like `entry.twig` or
 `record.twig`), the variable `{{ record }}` will always be available,
-regardless of the contenttype. To make the templates more 'semantic', there's
-also a variable with the singular name of the contenttype available, like
+regardless of the ContentType. To make the templates more 'semantic', there's
+also a variable with the singular name of the ContentType available, like
 `{{ page }}`, `{{ entry }}` or `{{ event }}`.
 
 ### Record listing pages
 
 In pages that are used for listings, there's always a variable `{{ records }}`
-available, regardless of the contenttype. Similar to the single record pages,
+available, regardless of the ContentType. Similar to the single record pages,
 there's also a more semanticly named variable with the plural name of the
-contenttype, like `{{ pages }}`, `{{ entries }}` or `{{ events }}`.
+ContentType, like `{{ pages }}`, `{{ entries }}` or `{{ events }}`.
 
 Note: This is the case for all normal listings, but also for taxonomy overview
 pages and search results.
@@ -55,7 +55,7 @@ homepage_template: index.twig
 ```
 
 In this template, you will have a `{{ record }}` available, as well as a
-variable with the same name as the singular version of the contenttype. In the
+variable with the same name as the singular version of the ContentType. In the
 example above, it would be `{{ page }}`.
 
 If you've set the `homepage` to use not one singular record, but a group of
@@ -66,7 +66,7 @@ homepage: entries/latest/10
 ```
 
 Then you would have `{{ records }}` available, as well as a variable with the
-name of the contenttype. In this case, it would be `{{ pages }}`.
+name of the ContentType. In this case, it would be `{{ pages }}`.
 
 For more information on how Bolt selects which templates to use, see
 [Templating and Routing](../templates/templates-routes). To learn more about actually using

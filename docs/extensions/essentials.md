@@ -14,7 +14,7 @@ be accomplished:
  - Add Twig tags or modifiers, for use in the templates in your themes.
  - Add 'hooks' in the templates to either insert small snippets of HTML or the
    result of a callback-function in the templates after rendering.
- - Create custom fields that can be used in contenttypes.yml.
+ - Create custom fields that can be used in `contenttypes.yml`.
  - Create themes that other users can copy and use as a baseline.
  - Add custom upload handlers that support different filesystems.
  - Add a custom thumbnail generator that does more advanced creation of thumbs

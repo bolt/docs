@@ -224,7 +224,7 @@ Some of the more commonly used 'tricks' are:
     we're on the page that the item links to.
   - `{% if item.title is defined %}title='{{ item.title|escape }}'{% endif %}`
     - Add a `title` attribute, but only if it's defined in our `.yml`-file, or
-    if the contenttype has a `subtitle` field.
+    if the ContentType has a `subtitle` field.
   - `{% if item.class is defined %}class='{{item.class}}'{% endif %}` - Add a
     `class` attribute, but only it the item has a `class` defined in the
     `.yml`-file.
