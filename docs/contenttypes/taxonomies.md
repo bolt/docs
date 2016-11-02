@@ -6,7 +6,7 @@ Taxonomies
 
 You can create taxonomies by adding them to `taxonomy.yml`. Basically,
 taxonomies can be created to create automatic 'groupings' between different
-content, regardless of their contenttypes. Common examples of taxonomies on
+content, regardless of their ContentTypes. Common examples of taxonomies on
 websites are 'categories' or 'tags'. In Bolt, taxonomies are a bit more generic:
 You can define your own taxonomies, and choose how they behave. There are three
 main types of taxonomy:

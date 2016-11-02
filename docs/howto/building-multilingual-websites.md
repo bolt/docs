@@ -10,7 +10,7 @@ method to facilitate one.
 
 In short, with this method you'll duplicate every ContentType per language (or
 region). So this will only work for sites with a few languages or without too
-many contenttypes.
+many ContentTypes.
 
 <p class="note"><strong>Note:</strong> This section requires some knowledge of
 Bolt and Twig (in particular,
@@ -25,7 +25,7 @@ information.</p>
 Table of Contents
 -----------------
 
- * [Defining Contenttypes](#defining-contenttypes)
+ * [Defining ContentTypes](#defining-contenttypes)
  * [Defining Routes](#defining-routes)
  * [Defining Menus](#defining-menus)
  * [Making Templates and Fetching Content](#making-templates-and-fetching-content)
@@ -444,7 +444,7 @@ multilingual site.
 
 If you need taxonomy listings per language, duplicate the taxonomies per
 language in `taxonomy.yml`. Then in `contenttypes.yml`, use the
-language-specific taxonomy in your contenttypes.
+language-specific taxonomy in your ContentTypes.
 
 
 

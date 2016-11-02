@@ -30,7 +30,7 @@ Building a website with Bolt: we assume you have the usual Frontender skills.
 You know HTML/CSS, and have working knowledge about JavaScript so you can
 implement things like Google Analytics trackers, jQuery plugins and such. To
 create a working site out of your static HTML, you'll need to know about how
-Bolt uses Content and Contenttypes, and how to make templates using Twig.
+Bolt uses Content and ContentTypes, and how to make templates using Twig.
 Information about those topics can be found in the chapters
 [ContentTypes](../contenttypes/intro) and
 [Building templates](../templating/building-templates).

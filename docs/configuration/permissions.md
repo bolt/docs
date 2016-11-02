@@ -77,15 +77,13 @@ head around, but it allows for maximum flexibility without too much clutter.
 
 For each ContentType, the following permissions are available:
 
-* `create` - required to create new records
-* `edit` - required to modify existing records
-* `delete` - required to delete existing records; (note that it is usually
-  preferable to disallow deletion entirely, and use depublication instead,
-  because deletion cannot be undone)
-* `publish` and `depublish` - required to change the publication state of a
-  record
-* `change-ownership` - required to transfer ownership of a record to another
-  user
+| Permission  | Description |
+|-------------|-------------|
+| `create` | required to create new records |
+| `edit` | required to modify existing records |
+| `delete` | required to delete existing records; (note that it is usually preferable to disallow deletion entirely, and use depublication instead,  because deletion cannot be undone) |
+| `publish` and `depublish` | required to change the publication state of a record |
+| `change-ownership` | required to transfer ownership of a record to another user |
 
 How ContentType Specific Permissions Are Calculated
 ----------------------------------------------------
