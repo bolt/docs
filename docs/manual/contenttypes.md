@@ -1,7 +1,7 @@
 ---
-title: Contenttypes
+title: ContentTypes
 ---
-Contenttypes
+ContentTypes
 ==================
 
 Your contenttypes

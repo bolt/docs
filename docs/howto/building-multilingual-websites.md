@@ -25,7 +25,7 @@ information.</p>
 Table of Contents
 -----------------
 
- * [Defining Contenttypes](#defining-contenttypes)
+ * [Defining ContentTypes](#defining-contenttypes)
  * [Defining Routes](#defining-routes)
  * [Defining Menus](#defining-menus)
  * [Making Templates and Fetching Content](#making-templates-and-fetching-content)
@@ -41,7 +41,7 @@ Table of Contents
    * [Pagination on Search Results Pages](#pagination-search-results-pages)
 
 
-Defining Contenttypes
+Defining ContentTypes
 ---------------------
 
 An important step when making websites, is to properly [define your contenttypes

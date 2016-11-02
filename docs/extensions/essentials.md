@@ -337,7 +337,7 @@ public function isSafe()
 Note: You will _also_ need to set `allowtwig` to `true`, in your contenttype
 definition. If either one of them isn't set, the twig tag will not work inside
 the content. This way you have maximum control over where it works, and where it
-doesn't. See also 'Field Definitions' in the page '[Contenttypes and Records][ct+r]'.
+doesn't. See also 'Field Definitions' in the page '[ContentTypes and Records][ct+r]'.
 
 Adding storage events
 ---------------------
@@ -414,7 +414,7 @@ function foo()
 Overriding the default 'Content' class
 --------------------------------------
 
-Contenttypes can specify the class to be used for records of that contenttype.
+ContentTypes can specify the class to be used for records of that contenttype.
 This is useful for when you have a specific contenttype, and you would like to
 provide extra functionality to that single contenttype.
 
