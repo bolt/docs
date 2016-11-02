@@ -5,10 +5,10 @@ Searching in content
 ====================
 
 There are two ways to search. You can use the global search, which searches
-through all the contenttypes. Or you can use the search which is provided in
+through all the ContentTypes. Or you can use the search which is provided in
 the `{% setcontent .. %}` tag.
 
-Bolt searches through all fields that a contenttype has, including taxonomies
+Bolt searches through all fields that a ContentType has, including taxonomies
 like tags and categories. Note that Relations do not show up in the search
 results, but the actual records these relations point to should show up, if the
 search term is found.
@@ -32,7 +32,7 @@ Global search
 The global search is configured inside the config.yml and the routing.yml. In
 config you define which template will show the results and in the routing you
 could change to default URL. By default this global search will search through
-all contenttypes unless 'searchable' is set to _false_.
+all ContentTypes unless 'searchable' is set to _false_.
 
 You can initiate the search by visiting the URL `/search?q=SEARCH`.
 
@@ -94,13 +94,13 @@ works just like a normal `{% setcontent %}`.
 Some examples:
 
 ```
-{# search for 'Waldo' in the contenttype 'pages' #}
+{# search for 'Waldo' in the ContentType 'pages' #}
 {% setcontent results = 'pages/search' where { filter: 'waldo' } %}
 
-{# search for 'Waldo' in the contenttype 'pages' and return only the first 5 results #}
+{# search for 'Waldo' in the ContentType 'pages' and return only the first 5 results #}
 {% setcontent results = 'pages/search/5' where { filter: 'waldo' } %}
 
-{# search for 'Waldo' in the contenttype 'pages' and the contenttype 'entries' #}
+{# search for 'Waldo' in the ContentType 'pages' and the ContentType 'entries' #}
 {% setcontent results = '(pages,entries)/search' where { filter: 'waldo' } %}
 ```
 
@@ -121,11 +121,11 @@ somewhere.
 Optionally, you can set the scoring for fields and taxonomies, to change the
 scoring for a match in those fields or taxonomies. In our opinion, you seldomly
 need to adjust these scorings manually, and it suffices to use the defaults. By
-default, a match in any field in the contenttype gets a base score of '50'. A
+default, a match in any field in the ContentType gets a base score of '50'. A
 match in the title gets a base score of '100', and a matching taxonomy gets a
 base score of '75'.
 
-You can override these scores in the config files for the contenttypes and
+You can override these scores in the config files for the ContentTypes and
 taxonomies. For example, in `contenttypes.yml`:
 
 ```apache

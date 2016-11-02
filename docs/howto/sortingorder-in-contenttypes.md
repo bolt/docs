@@ -29,7 +29,7 @@ really need to order the records into different groups, you'll need to keep at
 least one of the 'options' present in your taxonomy.
 
 Secondly, you'll want to make sure that you configure your ContentType to use
-this taxonomy in your `ContentTypes.yml`. Note that the ContentType does _not_
+this taxonomy in your `contentTypes.yml`. Note that the ContentType does _not_
 require a `sort:` option. In this case Bolt will use the sorting, as defined in
 our taxonomy, so defining another sort option would make no sense. For example,
 see this `pages` ContentType:

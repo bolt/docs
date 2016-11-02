@@ -8,9 +8,9 @@ Bolt does not support multilingual websites at the moment. There are often
 multiple ways to handle multilingual websites. This page describes one simple
 method to facilitate one.
 
-In short, with this method you'll duplicate every contenttype per language (or
+In short, with this method you'll duplicate every ContentType per language (or
 region). So this will only work for sites with a few languages or without too
-many contenttypes.
+many ContentTypes.
 
 <p class="note"><strong>Note:</strong> This section requires some knowledge of
 Bolt and Twig (in particular,
@@ -44,10 +44,10 @@ Table of Contents
 Defining ContentTypes
 ---------------------
 
-An important step when making websites, is to properly [define your contenttypes
-](/contenttypes-and-records). Since contenttypes are defined in YAML, there are
+An important step when making websites, is to properly [define your s
+](/contenttypes-and-records). Since s are defined in YAML, there are
 some handy tricks you can apply. YAML provides node anchors (`&`) and references
-(`*`) for repeated nodes. So once the fields of a contenttype are defined, you
+(`*`) for repeated nodes. So once the fields of a ContentType are defined, you
 can simply reference them. Be sure that the anchor is defined before it is used.
 See the use of `&pagefields` and `*pagefields` in the following example. Assume
 `en` is English, `nl` is Dutch, and `de` is German.
@@ -83,9 +83,9 @@ pages-de:
     template: page.twig
 ```
 
-A recommended method is to use the same slugs for the same contenttypes with the
+A recommended method is to use the same slugs for the same ContentTypes with the
 language as a prefix or postfix. You can choose to omit the language for the
-_default_ contenttypes if you desire:
+_default_ ContentTypes if you desire:
 
 | postfix               | prefix                |
 | --------------------- | --------------------- |
@@ -94,9 +94,9 @@ _default_ contenttypes if you desire:
 | `pages-de`            | `de-pages`            |
 
 Depending on the website and/or your preferences, you can group the definitions
-in `contenttypes.yml` by language or by contenttype:
+in `contenttypes.yml` by language or by ContentType:
 
-| by language  | by contenttype |
+| by language  | by ContentType |
 | ------------ | -------------- |
 | `en-pages`   | `pages-en`     |
 | `en-entries` | `pages-nl`     |
@@ -111,11 +111,11 @@ See the following sections why it might be more useful to use `en-pages` and
 Defining Routes
 ---------------
 
-A new route needs to be defined for every contenttype defined. This section will
+A new route needs to be defined for every ContentType defined. This section will
 make use of the following patterns:
 
  * `[language]/[contenttype]/[slug]`;
- * `[language]/[slug]`, for the `pages` contenttype.
+ * `[language]/[slug]`, for the `pages` ContentType.
 
 This makes the routes fairly straightforward to define:
 
@@ -160,7 +160,7 @@ nl-pages:
 Defining Menus
 --------------
 Define your menus as usual. You'll need a duplicate of every menu per language.
-Be sure to prefix (or postfix) them, just like with contenttypes and routes.
+Be sure to prefix (or postfix) them, just like with ContentTypes and routes.
 
 ```apache
 en-main:
@@ -186,7 +186,7 @@ Probably, the most interesting part. It is best to make use of the powerful
 [Template Inheritance](http://twig.sensiolabs.org/doc/templates.html#template-
 inheritance), in Twig, where you define one master template — e.g. `master.twig`
 — that is extended by other pages. Start by determining the current language
-based on the URL and define all contenttypes and menus.
+based on the URL and define all ContentTypes and menus.
 
 ```twig
 {% spaceless %}
@@ -271,7 +271,7 @@ search results page based on the current language. In your search form, set the
 By default, the `search_results_template` is `listing.twig`. This can be
 modified in `config.yml` if desired. Every time a search is triggered, the
 variable `records` needs to be overridden. Define a variable that has all
-contenttypes you want to search in:
+ContentTypes you want to search in:
 
 ```twig
 {% if search %}
@@ -444,7 +444,7 @@ multilingual site.
 
 If you need taxonomy listings per language, duplicate the taxonomies per
 language in `taxonomy.yml`. Then in `contenttypes.yml`, use the
-language-specific taxonomy in your contenttypes.
+language-specific taxonomy in your ContentTypes.
 
 
 
