@@ -203,21 +203,17 @@ bindname:
 
 Explanation of each argument:
 
-  - `bindname` - name to bind the route to, used for generating URLs.
-  - `path` - URL of this route, use {..} for parameters.
-  - `_controller` - controller method which will be called when this route
-    matches.
-  - `_before` - called before the controller action will be called. if not set
-    the method `before()` will be called in the controller.
-  - `_after` - called after the controller action is called. if not set the
-    method `after()` will be called in the controller.
-  - `parameter..` - name of the named parameter see `path`.
-  - `required-regexp` - regular expression which should be true for this route
-    to be matched. it's also possible to add a callback here. it should return a
-    regular expression which should match
-  - `hostname` - hostname to match for this route.
-  - `contenttypeslug` - if this route represent a new route for a contenttype,
-    the contenttype should be specified.
+| Argument   | Description |
+|------------|-------------|
+| `bindname` | name to bind the route to, used for generating URLs. |
+| `path` | URL of this route, use {..} for parameters. |
+| `_controller` | controller method which will be called when this route matches. |
+| `_before` | called before the controller action will be called. if not set the method `before()` will be called in the controller. |
+| `_after` | called after the controller action is called. if not set the method `after()` will be called in the controller. |
+| `parameter..` | name of the named parameter see `path`. |
+| `required-regexp` | regular expression which should be true for this route to be matched. it's also possible to add a callback here. it should return a regular expression which should match |
+| `hostname` | hostname to match for this route. |
+| `contenttypeslug` | if this route represent a new route for a contenttype, the contenttype should be specified. |
 
 ##### Path
 

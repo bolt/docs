@@ -21,7 +21,7 @@ Simple text-input, for multi-line fields.
 
 ### Options:
 
-The field has one option to change the functionality of the field.
+The field has a few options to change the functionality of the field.
 
 * `allowtwig` can be set to true or false to control if twig may be used in the
   field
