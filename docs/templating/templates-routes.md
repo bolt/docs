@@ -67,8 +67,7 @@ In the default template for a single record, it is available as both `{{ record
 }}` and also by the name of the singular name. So, in the above example, you can
 also use `{{ page }}`, without having to set it specifically. Likewise, in the
 default template for multiple records, the content is available as `{{ records
-}}` and also by the name of the
-ContentType, for example `{{ pages }}`.
+}}` and also by the name of the ContentType, for example `{{ pages }}`.
 
 <p class="note"><strong>Note:</strong> As you might have noticed, sometimes the
 examples use <code>{{ page }}</code>, sometimes <code>{{ entry }}</code> and
@@ -195,23 +194,18 @@ bindname:
 
 Explanation of each argument:
 
-  - `bindname` - name to bind the route to, used for generating URLs.
-  - `path` - URL of this route, use {..} for parameters.
-  - `_controller` - controller method which will be called when this route
-    matches.
-  - `_before` - called before the controller action will be called. if not set
-    the method `before()` will be called in the controller.
-  - `_after` - called after the controller action is called. if not set the
-    method `after()` will be called in the controller.
-  - `parameter..` - name of the named parameter see `path`.
-  - `required-regexp` - regular expression which should be true for this route
-    to be matched. it's also possible to add a callback here. it should return a
-    regular expression which should match
-  - `hostname` - hostname to match for this route.
-  - `contenttype` - flag this route as "preferred" (canonical) for that ContentType
-    the ContentType should be specified.
-  - `recordslug` - flag this route as "preferred" (canonical) for that record,
-    the record slug should be specified.
+| Argument   | Description |
+|------------|-------------|
+| `bindname`    | Name to bind the route to, used for generating URLs.
+| `path`        | URL of this route, use {..} for parameters.
+| `_controller` | Controller method which will be called when this route matches.
+| `_before`     | Called before the controller action will be called. if not set the method `before()` will be called in the controller.
+| `_after`      | Called after the controller action is called. if not set the method `after()` will be called in the controller.
+| `parameter..` | Name of the named parameter see `path`.
+| `required-regexp` | Regular expression which should be true for this route to be matched. it's also possible to add a callback here. it should return a regular expression which should match
+| `hostname`    | Hostname to match for this route.
+| `contenttype` | Flag this route as "preferred" (canonical) for that ContentType, the ContentType should be specified.
+| `recordslug`  | Flag this route as "preferred" (canonical) for that record, the record slug should be specified.
 
 Path
 ----

@@ -2,7 +2,7 @@
 title: Intro
 ---
 ContentTypes
-========================
+============
 
 All content in Bolt is stored in the database in a logical and flexible
 fashion. In general, when you're building a website, you have an idea what kind
@@ -94,7 +94,7 @@ we defined in our `contenttypes.yml` file.
 When you go to Configuration > Check Database, the database will be updated,
 and you'll be given the option to add some "Lorem Ipsum" Records to the newly
 created ContentType. If you do this, and go back to the dashboard, you'll see
-your new ContentType with some example newsitems. Sweet!
+your new ContentType with some example news items. Sweet!
 
 <a href="/files/content-example2.png" class="popup"><img src="/files/content-example2.png" width="500"></a>
 
@@ -219,72 +219,31 @@ cafes:
 
 The available options are:
 
-  - `name`: The name of the ContentType, as it should be shown on screen or in
-    the browser. It should be plural, if possible
-  - `singular_name`: The name of one Record in the ContentType. This should be
-    singular. For example, if the ContentType's name is 'Pages', this should be
-    'Page'
-  - `slug` (optional): This determines the slug of the ContentType, and
-    therefore the URLs that are generated for this ContentType. When omitted,
-    the slug will be automatically generated from the `name`.
-  - `singular_slug` (optional): This determines the slug of a single record
-    in this ContentType, and therefore the URLs that are generated for these
-    records. When omitted, the singular_slug will be automatically generated
-    from the `singular_name`
-  - `description` (optional): A short description of the ContentType. This will
-    be shown on the overview screen in the right aside column
-  - `fields`: The fields that make up the content in this ContentType. See the
-    [Fields Definition](#field-definitions) section below for details
-  - `taxonomy`: An array listing the different taxonomies used by this
-    ContentType. For example `[ categories, tags ]`. See the page on
-    [Taxonomies](../contenttypes/taxonomies) for details
-  - `relations`: An array listing the different relations available to this
-    ContentType. See the page on [Relations](../contenttypes/relationships) for
-    details
-  - `record_template`: The default template to use, when displaying a single
-    Record of this ContentType. The template itself should be located in your
-    `theme/foo/` folder, in Bolt's root folder. This can be overridden on a
-    per-record basis, if one of the fields is defined as type `templateselect`
-  - `listing_template`: The default template to use, when displaying an
-    overview of Records of this ContentType. The template itself should be
-    located in your `theme/foo/` folder, in Bolt's root folder
-  - `listing_records`: The amount of records to show on a single overview page
-    in the frontend. If there are more records, the results will be paginated
-  - `listing_sort`: The field used to sort the results on. You can reverse the
-    order by adding a '-'. For example `title` or `-datepublish`.
-  - `sort` (optional): The default sorting of this ContentType, in the overview
-    in Bolt's backend interface. For example `-datecreated`.
-  - `recordsperpage` (optional): The amount of records shown on each page in
-    the Bolt backend. If there are more records, they will be paginated.
-  - `show_on_dashboard` (optional): When set to `false` the ContentType will
-    not appear in the 'Recently edited &hellip;' list on the dashboard page.
-  - `show_in_menu` (optional): When set to `false` the ContentType will show
-    in a submenu instead of as a top level menu. Can also be set to a word or
-    sentence to group ContentTypes under different menus.
-  - `default_status` (optional): Use this to set the default status for new
-    records in this ContentType, i.e. `published`, `held`, `draft` or `timed`.
-  - `searchable` (optional): A boolean value to determine whether this
-    ContentType should show up in search results.
-  - `viewless` (optional): When set to `true`, routes will not be set for the
-    ContentType listing, or the records themselves. Useful for creating
-    [resource ContentTypes](../howto/resource-contenttype)
-  - `title_format` (optional): Is used to determine the format of the title in
-    the backend. For example if you have two fields for `firstname` and
-    `lastname` you might put `[ firstname, lastname ]` here
-  - `icon_many` (optional): A [Font Awesome](http://fortawesome.github.io/Font-
-    Awesome/) icon to be used in the sidebar for this ContentType. For example:
-    `fa:cubes`
-  - `icon_one` (optional): A [Font Awesome](http://fortawesome.github.io/Font-
-    Awesome/) icon to be used in the sidebar for a single record of this
-    ContentType. For example: `fa:cube`.
-  - `allow_numeric_slugs` (optional, advanced):
-     By default, Bolt prefixes slugs purely numeric with the ContentType slug
-     (e.g. `entry-123` for an entry with title `123`),
-     in order to distinguish slugs from IDs.
-     If this option is set to `true`, numeric slugs remain unprefixed.
-     Care has to be taken not to use [routes](../templating/templates-routes) of the form `/{contenttype}/{id}`
-     for links in templates or for [fetching content](../templating/content-fetching)!
-
+| Option | Description |
+|--------|-------------|
+| `name` | The name of the ContentType, as it should be shown on screen or in the browser. It should be plural, if possible. |
+| `singular_name` | The name of one Record in the ContentType. This should be singular. For example, if the ContentType's name is 'Pages', this should be 'Page' |
+| `slug` (optional) | This determines the slug of the ContentType, and therefore the URLs that are generated for this ContentType. When omitted, the slug will be automatically generated. |
+| `singular_slug` (optional) | This determines the slug of a single record in this ContentType, and therefore the URLs that are generated for these records. When omitted, the slug will be automatically generated. |
+| `description` (optional) | A short description of the ContentType. This will be shown on the overview screen in the right aside column. |
+| `fields` | The fields that make up the content in this ContentType. See the [Fields Definition](#field-definitions) section below for details. |
+| `taxonomy` | An array listing the different taxonomies used by this ContentType. For example `[ categories, tags ]`. See the page on [Taxonomies](../content/taxonomies) for details. |
+| `relations` | An array listing the different relations available to this ContentType. See the page on [Relations](../content/relationships) for details. |
+| `record_template` | The default template to use, when displaying a single Record of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. This can be overridden on a per-record basis, if one of the fields is defined as type `templateselect`. |
+| `listing_template` | The default template to use, when displaying an overview of Records of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. |
+| `listing_records` | The amount of records to show on a single overview page in the frontend. If there are more records, the results will be paginated   |
+| `listing_sort` | The field used to sort the results on. You can reverse the order by adding a '-'. For example `title` or `-datepublish`. |
+| `sort` (optional) | The default sorting of this ContentType, in the overview in Bolt's backend interface. For example `-datecreated`. |
+| `recordsperpage` (optional) | The amount of records shown on each page in the Bolt backend. If there are more records, they will be paginated. |
+| `show_on_dashboard` (optional) | When set to `false` the ContentType will not appear in the 'Recently edited &hellip;' list on the dashboard page. |
+| `show_in_menu` (optional) | When set to `false` the ContentType will show in a submenu instead of as a top level menu. Can also be set to a word or sentence to group ContentTypes under different menus. |
+| `default_status` (optional) | Use this to set the default status for new records in this ContentType, i.e. `published`, `held`, `draft` or `timed`. |
+| `searchable` (optional) | A boolean value to determine whether this ContentType should show up in search results. |
+| `viewless` (optional) | When set to `true`, routes will not be set for the ContentType listing, or the records themselves. Useful for creating [Resource ContentTypes](../howto/resource-contenttype). |
+| `title_format` (optional) | Is used to determine the format of the title in the backend. For example if you have two fields for `firstname` and `lastname` you might put `[ firstname, lastname ]` here. |
+| `icon_many` (optional) | A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for this ContentType. For example: `fa:cubes` |
+| `icon_one` (optional) | A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`. |
+| `allow_numeric_slugs` (optional, advanced) | By default, Bolt prefixes slugs purely numeric with the ContentType slug (e.g. `entry-123` for an entry with title `123`), in order to distinguish slugs from IDs. If this option is set to `true`, numeric slugs remain unprefixed. Care has to be taken not to use [routes](../templating/templates-routes) of the form `/{contenttype}/{id}` for links in templates or for [fetching content](../templating/content-fetching)!
 
 The structure of a Record
 -------------------------
@@ -296,30 +255,27 @@ well as some meta-information and its taxonomy.
 
 At the topmost level, it contains the following items:
 
-  - `id`: The unique identifying  number of this record in the database, for
-    this ContentType. Note: there are duplicate ids for records in different
-    ContentTypes. For example, there can be a record with id `1` for Pages, and
-    also a record with id `1` for News.
-  - `values`: An array with the values of this record.
-  - `taxonomy`: An array (or `NULL`) for the taxonomy of this record.
-  - `contenttype`: An array representation of the ContentType that this record
-    belongs to, complete with the fields that the record should have.
-  - `user`: an array, containing information about the user, like the
-    displayname, email-address, etcetera.
+| Item | Description |
+|------|-------------|
+| `id` | The unique identifying  number of this record in the database, for this ContentType. Note: there are duplicate ids for records in different ContentTypes. For example, there can be a record with id `1` for Pages, and also a record with id `1` for News. |
+| `values` | `An array with the values of this record. |
+| `taxonomy` | `An array (or `NULL`) for the taxonomy of this record. |
+| `contenttype` | `An array representation of the ContentType that this record belongs to, complete with the fields that the record should have.  |
+| `user` | `an array, containing information about the user, like the displayname, email-address, etcetera. |
 
 The values contain the fields that are defined in the ContentType, together
 with a few other fixed fields. The fixed fields are:
 
-  - `id`: The record's unique identifying number.
-  - `slug`: The record's slug. Either generated automatically, or specified by
-    the content editor.
-  - `datecreated`: The timestamp of when the record was first created.
-  - `datechanged`: The timestamp of when the record was last edited of modified.
-  - `datepublish`: The timestamp when the record was published, or when it _will_ be published.
-  - `datedepublish`: The timestamp when the record was depublished, or when it _will_ be depublished.
-  - `ownerid`: The id of the user that last edited (or created) this record.
-  - `status`: The current status of this record. Can be either `published`,
-    `depublished`, `held`, `timed` or `draft`.
+| Field name | Description |
+|------------|-------------|
+| `id` | The record's unique identifying number. |
+| `slug` | The record's slug. Either generated automatically, or specified by the content editor. |
+| `datecreated` | The timestamp of when the record was first created. |
+| `datechanged` | The timestamp of when the record was last edited of modified. |
+| `datepublish` | The timestamp when the record was published, or when it _will_ be published. |
+| `datedepublish` | The timestamp when the record was depublished, or when it _will_ be depublished. |
+| `ownerid` | The id of the user that last edited (or created) this record. |
+| `status` | The current status of this record. Can be either `published`, `depublished`, `held`, `timed` or `draft`. |
 
 If you're building a template and are unsure of what a certain variable
 contains or how the fields are named, use `{{ dump(foo) }}`, where 'foo' is the

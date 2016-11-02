@@ -31,19 +31,14 @@ main:
 
 In this case `main` is the name of the menu. The options are:
 
-  - `label` - override the 'title' of the record with a defined label. If
-    omitted, the 'title' of the record is used.
-  - `title` - used as a 'title'-attribute in the rendered HTML. If omitted this
-    can be substituted for the `subtitle`-field in a record.
-  - `class` - used to define an HTML `class`-attribute
-  - `path` - The 'path' to a record in Bolt, or a group of records. For example
-    `path: page/about` will make this item link to a record of type 'page' with
-    the slug 'about'. `path: page/1` will link to the 'page' with id '1'.
-    `path: entries` will link to the `/entries` overview page.
-  - `link` - define an external link to another site. For example `link:
-    https://bolt.cm`. Do not use `link` together with `path`!
-  - `submenu` - defines a submenu. In the submenu you can define other items,
-    with the same options as before.
+| Option     | Description |
+|------------|-------------|
+| `label` | override the 'title' of the record with a defined label. If omitted, the 'title' of the record is used. |
+| `title` | used as a 'title'-attribute in the rendered HTML. If omitted this can be substituted for the `subtitle`-field in a record. |
+| `class` | used to define an HTML `class`-attribute  |
+| `path` | The 'path' to a record in Bolt, or a group of records. For example `path: page/about` will make this item link to a record of type 'page'  with the slug 'about'. `path: page/1` will link to the 'page' with id '1'. `path: entries` will link to the `/entries` overview page. |
+| `link` | define an external link to another site. For example `link: https://bolt.cm`. Do not use `link` together with `path`! |
+| `submenu` | defines a submenu. In the submenu you can define other items, with the same options as before. |
 
 To insert a menu in your templates, use
 

@@ -7,7 +7,7 @@ Select
 ### Choose from Preset values:
 
 A drop-down list to make a pre-defined selection from. This fields has many
-options and many possibilties but is less complicated than it might seem at
+options and many possibilities but is less complicated than it might seem at
 first glance.
 
 ### Basic Configuration:
@@ -26,7 +26,7 @@ first glance.
 
 ### Populating the values from a ContentType
 
-You can also get the values from a the records of a ContentType.
+You can also get the values from the records of a particular ContentType.
 
 ```yaml
         somevalue:

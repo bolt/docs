@@ -97,7 +97,6 @@ function comes in handy:
 {% endfor %}
 ```
 
-
 <p class="note"><strong>Note:</strong> To create connections between different
 records of the same or different ContentTypes, see the page on <a
 href="../contenttypes/relationships">Relations</a>.</p>

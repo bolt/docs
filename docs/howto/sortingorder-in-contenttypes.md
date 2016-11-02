@@ -52,7 +52,7 @@ pages:
 ```
 
 Once you've done this, you can edit the records in Bolt, assigning them the
-sortorder you need:
+sort order you need:
 
 <a href="/files/howto_sortorder_1.png" class="popup"><img src="/files/howto_sortorder_1.png" width="590"></a><br>
 
