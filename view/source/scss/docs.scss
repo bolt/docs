@@ -152,17 +152,6 @@ h3 {
     margin: 1.5em 0 1em;
 }
 
-.content a.anchor{
-        color: lighten($mediumblue, 40);
-        margin-left: 14px;
-        font-size: 75%;
-        border: 0;
-        text-decoration: none;
-    }
-
-
-
-
 nav.main-nav {
     ul {
         // LARGE //
@@ -755,7 +744,6 @@ div.gallery-popup img {
         max-width: 650px; // magic number: good linewidth to keep it readable
     }
 
-
     li {
 
         //line-height: 1.5;
@@ -778,6 +766,14 @@ div.gallery-popup img {
             background-color: rgba(0, 0, 0, 0.1);
         }
 
+        &.anchor {
+            color: lighten($mediumblue, 40);
+            margin-left: 14px;
+            font-size: 75%;
+            border: 0;
+            text-decoration: none;
+        }
+
     }
 
     h3.subheader {
@@ -796,7 +792,6 @@ div.gallery-popup img {
         font-style: italic;
         margin-top: 4em;
     }
-
 
     a.button.docsintro {
         max-width: 100%;
@@ -850,6 +845,16 @@ div.gallery-popup img {
         clear: both;
         display: block;
         margin-bottom: 16px;
+    }
+
+    table tbody th,
+    table tbody td {
+        font-size: 90%;
+        vertical-align: top;
+
+        code {
+           font-size: 90%;
+        }
     }
 
 }
