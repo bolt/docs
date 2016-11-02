@@ -43,25 +43,22 @@ can override it using the configuration settings.
 
 The current default theme contains the following files and folders:
 
-  - `index.twig` - template frontpage of the website.
-  - `entry.twig` - template for a single 'Entry'.
-  - `listing.twig` - Template for displaying listings, like 'latest pages', but
-    also taxonomy overview pages.
-  - `record.twig` - template for a 'generic' Record page, if the ContentType
-    has no template specified.
-  - `search.twig` - template for displaying search results.
-  - `_aside.twig` - helper template that gets included as the sidebar.
-  - `_header.twig` - same, but for the header.
-  - `_footer.twig` - same, but for the footer.
-  - `_recordfooter.twig`, `_sub_menu.twig`, `_sub_searchbox.twig` - small
-    utility files, that are included in the other templates
-  - `theme.yml` - A file with configuration related to the theme and how it
-    works with bolt. Can also contain configuration for template specific fields
-    and values for the theme to use in its templates.
-  - `javascripts/` - a folder with some javascript files.
-  - `stylesheets/` - .. and similarly, some css files.
+| File       | Description |
+|------------|-------------|
+| `index.twig` | template frontpage of the website. |
+| `entry.twig` | template for a single 'Entry'. |
+| `listing.twig` | Template for displaying listings, like 'latest pages', but also taxonomy overview pages. |
+| `record.twig` | template for a 'generic' Record page, if the content type has no template specified. |
+| `search.twig` | template for displaying search results. |
+| `_aside.twig` | helper template that gets included as the sidebar. |
+| `_header.twig` | same, but for the header. |
+| `_footer.twig` | same, but for the footer. |
+| `_recordfooter.twig`, `_sub_menu.twig`, `_sub_searchbox.twig` | small utility files, that are included in the other templates |
+| `theme.yml` | A file with configuration related to the theme and how it works with bolt. Can also contain configuration for template specific fields and values for the theme to use in its templates. |
+| `javascripts/` | a folder with some javascript files. |
+| `stylesheets/` | .. and similarly, some css files. |
 
-The filenames of the 'helper' templates all start with an underscore. This is
+The file names of the 'helper' templates all start with an underscore. This is
 just a convention, to make it easier to recognize which template does what. If
 one of your ContentTypes have a 'template select' field, Bolt will skip these
 helper templates by default.
@@ -259,8 +256,8 @@ and even *using the same fields* between these pages would provide a limitation.
 
 For example, your home page may have many different sections with some complex markup
 between them. All of your other pages have a single `body` html field, which really won't
-suffice. You could create a new ContentType, or use [resource
-contenttypes](../howto/resource-contenttype), but this isn't really an elegent solution.
+suffice. You could create a new ContentType, or use [Resource Contenttypes](../howto/resource-contenttype),
+but this isn't really an elegant solution.
 
 Template specific fields allow you to define extra fields to use when a template is
 chosen for a record. They're defined in the theme's `theme.yml`, and it's just like
