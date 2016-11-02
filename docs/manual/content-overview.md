@@ -16,4 +16,4 @@ You can also filter the items by category or keywords. On the right you will
 also find a description of what the ContentType is meant for, and how to use
 it.
 
-Click on "New entry" and lets move on to the next [step](new-content)...
+Click on "New entry" and lets move on to the next [step](new-content)…
