@@ -857,6 +857,15 @@ div.gallery-popup img {
         }
     }
 
+    table tbody tr:nth-child(even) {
+        background-color: #f2f6FB;
+
+        code {
+            background-color: #E4E4E4;
+            border: 1px solid #E8E8E8;
+        }
+    }
+
 }
 
 
