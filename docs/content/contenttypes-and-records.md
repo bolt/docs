@@ -240,7 +240,7 @@ The available options are:
 | `listing_template` | The default template to use, when displaying an overview of Records of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. |
 | `listing_records` | The amount of records to show on a single overview page in the frontend. If there are more records, the results will be paginated   |
 | `listing_sort` | The field used to sort the results on. You can reverse the order by adding a '-'. For example `title` or `-datepublish`. |
-| `sort` (optional) | The default sorting of this ContentType, in the overview in Bolt's backend interface. For example `-datecreated`. |
+| `sort` (optional) | The default sorting of this ContentType, in the overview in Bolt's backend interface. For example `-datecreated`. Note that if your ContentType has a Taxonomy with `has_sortorder`, that the `sort` will be overruled by the Taxonomy's sorting. |
 | `recordsperpage` (optional) | The amount of records shown on each page in the Bolt backend. If there are more records, they will be paginated. |
 | `show_on_dashboard` (optional) | When set to `false` the ContentType will not appear in the 'Recently edited &hellip;' list on the dashboard page. |
 | `show_in_menu` (optional) | When set to `false` the ContentType will show in a submenu instead of as a top level menu. Can also be set to a word or sentence to group ContentTypes under different menus. |
