@@ -13,7 +13,7 @@
 @include foundation-flex-grid;
 @include foundation-typography;
 @include foundation-button;
-// @include foundation-forms;
+@include foundation-forms;
 @include foundation-visibility-classes;
 @include foundation-float-classes;
 // @include foundation-accordion;
@@ -229,7 +229,6 @@ a.toplink {
     select {
         max-width: 220px;
         display: inline-block;
-        border: 1px solid #ccc;
     }
 
     @media #{$large-up} {
@@ -868,12 +867,40 @@ div.gallery-popup img {
 
 }
 
-
 /* -------------- BUTTONS --------------- */
 
-
-
 .content {
+    a.button {
+        background-color: lighten($boltnewgreyblue, 55);
+        color: #666;
+        font-size: 1rem;
+        text-decoration: none;
+
+        span {
+            color: #333;
+        }
+    }
+
+    a.button:hover {
+        background-color: lighten($boltnewgreyblue, 50);
+
+        span {
+            text-decoration: underline;
+        }
+    }
+
+    a.edit-github {
+        height: 2.44rem;
+        margin: -4.5px 0 0 0;
+        padding: 0.6rem;
+        border: 1px solid lighten($boltnewgreyblue, 45);
+        img {
+            height: 18px;
+        }
+    }
+}
+
+.main {
     a.button{
          @include button
          font-size: 0.8125rem;
@@ -892,6 +919,16 @@ div.gallery-popup img {
     }
 }
 
+/* -------------- FORMS --------------- */
+
+label {
+    font-size: rem-calc(16);
+}
+
+select {
+    background-color: lighten($boltnewgreyblue, 40);
+    border: 1px solid lighten($boltnewgreyblue, 40);
+}
 
 
 

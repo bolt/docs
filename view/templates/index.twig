@@ -33,17 +33,21 @@
 
         {{ include('_sub_submenu.twig') }}
 
-        <div class="row">
+        <div class="row" style="max-width: 680px;">
             <div class="large-6 columns">
                 {% if page.previous.title|default() %}
                     {% set path = '/' ~ version ~ '/' ~ page.previous.path|replace({'.md': '', '/index': ''}) %}
-                    &laquo; Previous: <a href="{{ path }}">{{ page.previous.title }}</a>
+                    <a class="button" href="{{ path }}">
+                        &laquo; Previous: <span>{{ page.previous.title }}</span>
+                    </a>
                 {% endif %}
             </div>
             <div class="large-6 columns text-right">
                 {% if page.next.title|default() %}
                     {% set path = '/' ~ version ~ '/' ~ page.next.path|replace({'.md': '', '/index': ''}) %}
-                    Next: <a href="{{ path }}">{{ page.next.title }}</a> &raquo;
+                    <a class="button middle" href="{{ path }}">
+                        Next: <span>{{ page.next.title }}</span> &raquo;
+                    </a>
                 {% endif %}
             </div>
         </div>
@@ -54,8 +58,8 @@
             <a href="https://discuss.bolt.cm/" target="_blank">forum</a>, on
             <a href="http://slack.bolt.cm/" target="_blank">Slack</a> or on
             <a href="http://bolt.cm/irc" target="_blank">IRC</a>.<br>
-            Spotted a typo, or have something to add? Edit
-            <a href="https://github.com/bolt/docs/blob/release/{{ version }}/docs/{{ page.path }}" target="_blank">this page on GitHub</a>.
+            Spotted a typo, or have something to add?
+            <a href="https://github.com/bolt/docs/blob/release/{{ version }}/docs/{{ page.path }}" target="_blank">Edit this page on GitHub</a>.
         </div>
 
 
