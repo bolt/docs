@@ -32,17 +32,35 @@ To run the site locally you need to complete the following steps:
   * Create worktrees for required versions
   * Run `composer update` to install required vendor libraries
 
-An example that sets up work trees for 2.2, 3.0 and 3.1 is:
+
+### Site Set-up
 
 ```
 git clone git@github.com:bolt/docs.git bolt-docs
 cd bolt-docs
 git checkout site
-git worktree add -b release/2.2 var/versions/2.2
-git worktree add -b release/3.0 var/versions/3.0
-git worktree add -b release/3.1 var/versions/3.1
-composer update
+composer install
 ```
+
+### Worktrees Set-up
+
+An example that sets up work trees for version 3.0 of the documentation
+branches:
+
+```
+git worktree add -b release/3.0 var/versions/3.0
+```
+
+Alternatively, if you have `grep` and `sed` installed, this will set up all of
+the version worktrees for you
+
+```
+for VERSION in $(git branch --remotes --list | grep -E "origin\/release\/[2-9]" | sed 's/origin\/release\///g'); do 
+    git worktree add -b release/$VERSION var/versions/$VERSION
+done
+```
+
+### Configure Default Version 
 
 For your local environment you can add a configuration file, located at
 `app/config.yml` to facilitate local development. It should contain the
@@ -51,12 +69,14 @@ following:
 ```yml
 debug: true
 
-default-version: '3.1'
+default-version: '3.0'
 
 ```
 
 Note: If you want to set it to `3.0` for example, be sure to include the
 quotes. Otherwise the YML parser will interpret it as `3`.
+
+### Web Server Set-up
 
 Finally if you wish to use the built-in PHP web server, it can be run from the
 `bolt-docs/` folder, pointing to `web/` as the document root.
