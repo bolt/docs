@@ -1,26 +1,30 @@
 ---
-title: Making a 'resource' ContentType
+title: Making a Resource ContentType
 ---
-Making a 'resource' ContentType
+Making a Resource ContentType
 ===============================
 
 A common question that comes up is how to create a generic ContentType for
 things like 404 pages and site header text that can be used in templates. A
-simple approach is to create a '*resource*' ContentType.
+simple approach is to create a resource, or '*block*', ContentType.
 
-For the purposes of this HOWTO we care going to call it "resource". But as with
-any ContentType, you can use any unique name.
+This is a very useful way to give editor groups the ability to maintain
+information that you can use in your templates, without needing those
+editors to know how to modify Twig templates.
+
+For the purposes of this HOWTO we are going to call our ContentType "blocks".
+But as with any ContentType, you can use any unique name.
 
 Creating the ContentType
 ------------------------
 
-Firstly, in your `contenttypes.yml` file create a new ContentType with the
+Firstly, in your `contenttypes.yml` file, create a new ContentType with the
 following parameters:
 
 ```yaml
-resources:
-    name: Resources
-    singular_name: Resource
+blocks:
+    name: Blocks
+    singular_name: Block
     fields:
         title:
             type: text
@@ -47,8 +51,7 @@ Fields
 ### Title & Slug
 
 You will note that the title and slug fields work together to create a human
-readable resource name that we can use later in `{% setcontent resource =
-'resources/slug' %}`.
+readable name that we can use later in `{% setcontent block = 'blocks/slug' %}`.
 
 ### HTML
 
@@ -99,7 +102,7 @@ under the `contenttypes` key add in something similar to this:
 
 ```yaml
 contenttypes:
-    resources:
+    blocks:
         edit: [ developer ]
         create: [ developer ]
         publish: [ developer ]
@@ -114,19 +117,19 @@ with the `root` and `developer` roles.
 Accessing Resource Records in Templates
 ---------------------------------------
 
-Accessing the resource records in a Twig template file is very easy:
+Accessing your resource records in a Twig template file is very easy:
 
 ```twig
-{% setcontent resource = 'resources/my-resource-slug' %}
-{{ resource.html|raw }}
+{% setcontent block = 'blocks/my-block-slug' %}
+{{ block.html|raw }}
 ```
 
 ## Example Configuration of a 404 Resource
 
-As a final example, lets step though creating a resource record for your 404
+As a final example, lets step though creating a block record for your 404
 page.
 
-First create a `Resource` record, give it the title of "Not Found", which will
+First create a `Blocks` record, give it the title of "Not Found", which will
 generate the slug of `not-found` and set the template to you themes 404 Twig
 template: <a href="/files/howto-resource-contenttype-404.png"><img src="/files
 /howto-resource-contenttype-404.png"></a>
@@ -134,10 +137,10 @@ template: <a href="/files/howto-resource-contenttype-404.png"><img src="/files
 Next, in your `config.yml` file simply set the `notfound` key like so:
 
 ```yaml
-notfound: resources/not-found
+notfound: blocks/not-found
 ```
 
-Important to mention only dynamically routed pages (that have `contenttype`
-entry in `contenttypes.yml`) can be configured as `not-found` page,
-pages routed with `Bolt\Controllers\Frontend::template` can't be
+It is important to mention only dynamically routed pages (that have 
+`contenttype` entry in `contenttypes.yml`) can be configured as `not-found`
+pages. Pages routed with `Bolt\Controllers\Frontend::template` can't be
 used as 404 handler currently.
