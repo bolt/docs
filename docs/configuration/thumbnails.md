@@ -40,7 +40,7 @@ Settings
 | `save_files` | Can be either `true` or `false`. If true, it saves generated thumbnails to disk so they don't need to be generated again. |
 | `allow_upscale` | Can be either `true` or `false`. If true, the thumbnailer can make images bigger than the original. |
 | `exif_orientation` | Can be either `true` or `false`. If true, the thumbnailer will use the image orientation from its EXIF data. |
-| `only_aliases` | Can be either `true` or `false`. If true all thumbnail requests which don't belong to an alias will be blocked |
+| `only_aliases` | Can be either `true` or `false`. If true, all thumbnail requests that don't match an alias will be blocked |
 | `browser_cache_time` | Sets the amount of seconds that the browser will cache images for. Set it to activate browser caching. |
 
 Thumbnail Aliases
@@ -69,13 +69,13 @@ thumbnails:
             cropping: crop 
 ```
 
-As you can see, each alias has a new setting called `size` where you define the width and the height
-of the thumbnails. You can also define how they will be cropped.
+As you can see, each alias has a new setting called `size` where you define 
+the width and the height of the thumbnails. You can also define how they will be cropped.
 
 ### Preventing non-alias Thumbnails
 
-With the `only_aliases` setting in the general thumbnail configuration, you can prevent the generation
-of thumbnails that don't belong to an alias. 
+With the `only_aliases` setting in the general thumbnail configuration, 
+you can prevent the generation of thumbnails that don't belong to an alias. 
 
 This is useful to secure your server from automatically
 generated thumbnails that could flood your cache.
