@@ -227,8 +227,8 @@ The available options are:
 | `singular_slug` (optional) | This determines the slug of a single record in this ContentType, and therefore the URLs that are generated for these records. When omitted, the slug will be automatically generated. |
 | `description` (optional) | A short description of the ContentType. This will be shown on the overview screen in the right aside column. |
 | `fields` | The fields that make up the content in this ContentType. See the [Fields Definition](#field-definitions) section below for details. |
-| `taxonomy` | An array listing the different taxonomies used by this ContentType. For example `[ categories, tags ]`. See the page on [Taxonomies](../content/taxonomies) for details. |
-| `relations` | An array listing the different relations available to this ContentType. See the page on [Relations](../content/relationships) for details. |
+| `taxonomy` | An array listing the different taxonomies used by this ContentType. For example `[ categories, tags ]`. See the page on [Taxonomies](../contenttypes/taxonomies) for details. |
+| `relations` | An array listing the different relations available to this ContentType. See the page on [Relations](../contenttypes/relationships) for details. |
 | `record_template` | The default template to use, when displaying a single Record of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. This can be overridden on a per-record basis, if one of the fields is defined as type `templateselect`. |
 | `listing_template` | The default template to use, when displaying an overview of Records of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. |
 | `listing_records` | The amount of records to show on a single overview page in the frontend. If there are more records, the results will be paginated   |
