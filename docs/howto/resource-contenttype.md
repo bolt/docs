@@ -1,44 +1,58 @@
 ---
-title: Making a 'resource' ContentType
+title: Making a Resource ContentType
 ---
-Making a 'resource' ContentType
+Making a Resource ContentType
 ===============================
 
-A common question that comes up is how to create a generic ContentType for
-things like 404 pages and site header text that can be used in templates. A
-simple approach is to create a '*resource*' ContentType.
+A common question that comes up often, is how to create a generic ContentType
+for things like '404 pages' or 'a snippet for the site header text', that can
+easily be used in your own templates. A simple approach to this problem, is to
+create a resource, or '*block*', ContentType.
 
-For the purposes of this HOWTO we care going to call it "resource". But as with
-any ContentType, you can use any unique name.
+This is a very simple and useful way to give editor groups the ability to
+maintain information that you can use in your templates, without needing those
+editors to know how to modify Twig templates.
+
+For the purposes of this HOWTO we are going to call our ContentType "blocks".
+But as with any ContentType, you can use any unique name.
 
 Creating the ContentType
 ------------------------
 
-Firstly, in your `contenttypes.yml` file create a new ContentType with the
-following parameters:
+Firstly, in your `contenttypes.yml` file, create a new ContentType. for this
+example, we'll use the `blocks` ContentType that comes with a default Bolt
+installation.
 
 ```yaml
-resources:
-    name: Resources
-    singular_name: Resource
+blocks:
+    name: Blocks
+    singular_name: Block
     fields:
         title:
             type: text
             class: large
-            required: true
+            group: "Block"
         slug:
             type: slug
-            uses: title
-        html:
-            type: textarea
+            uses: [ title ]
+        content:
+            type: html
             height: 150px
-        template:
-            type: templateselect
-            filter: '*.twig'
-    default_status: published
+        contentlink:
+            type: text
+            label: Link
+            placeholder: 'contenttype/slug or http://example.org/'
+            postfix: "Use this to add a link for this Block. This could either be an 'internal' link like <tt>page/about</tt>, if you use a contenttype/slug combination. Otherwise use a proper URL, like `http://example.org`."
+        image:
+            type: image
+            attrib: title
+            extensions: [ gif, jpg, png ]
     show_on_dashboard: false
-    searchable: false
     viewless: true
+    default_status: publish
+    searchable: false
+    icon_many: "fa:cubes"
+    icon_one: "fa:cube"
 ```
 
 Fields
@@ -47,15 +61,14 @@ Fields
 ### Title & Slug
 
 You will note that the title and slug fields work together to create a human
-readable resource name that we can use later in `{% setcontent resource =
-'resources/slug' %}`.
+readable name that we can use later in `{% setcontent block = 'blocks/slug' %}`.
 
-### HTML
+### Content
 
-In this example, the `html` field is simply a HTML text area. As this is
-intended for use by developers, it gives us full control over the HTML and
-layout. It is also worth noting that the WYSWYG editor would interfere with this
-layout in an attempt to be user-friendly.
+In this example, the `content` field is simply a HTML text area. As this is
+intended for use by editors, it gives us full control over the HTML and layout.
+It is also worth noting that the WYSWYG editor would interfere with this layout
+in an attempt to be user-friendly.
 
 ### Template
 
@@ -99,13 +112,13 @@ under the `contenttypes` key add in something similar to this:
 
 ```yaml
 contenttypes:
-    resources:
-        edit: [ developer ]
-        create: [ developer ]
-        publish: [ developer ]
-        depublish: [ developer ]
-        delete: [ developer ]
-        view: [ developer ]
+    blocks:
+        edit: [ chief-editor ]
+        create: [ chief-editor ]
+        publish: [ chief-editor ]
+        depublish: [ chief-editor ]
+        delete: [ chief-editor ]
+        view: [ chief-editor ]
 ```
 
 This will limit edit, create, (de)publish, delete and view access to only those
@@ -114,30 +127,49 @@ with the `root` and `developer` roles.
 Accessing Resource Records in Templates
 ---------------------------------------
 
-Accessing the resource records in a Twig template file is very easy:
+Accessing your resource records in a Twig template file is very easy:
 
 ```twig
-{% setcontent resource = 'resources/my-resource-slug' %}
-{{ resource.html|raw }}
+{% setcontent block = 'blocks/my-block-slug' %}
+{{ block.content }}
+```
+
+Often, resource records are used as 'teasers' for content elsewhere. An "about"
+blurb in a footer that links to the full "About us" page, for example. To make
+linking from a resource block to a full page easier, our example uses the
+'contentlink' field. The editor can provide a link, which could either be an
+'internal' link like `page/about`, if you use a contenttype/slug combination.
+Otherwise use a proper URL, like `http://example.org`. Regardless of what the
+editor provides, the snippet below will output a fully working HTML link.
+
+```
+{% setcontent block = "block/about-us" %}
+{% if link(block.contentlink) %}
+    <p>
+        {{ link(block.contentlink, "Read more") }}
+    </p>
+{% endif %}
+
+{# Results in '<a href="/page/about">Read more</a>' #}
 ```
 
 ## Example Configuration of a 404 Resource
 
-As a final example, lets step though creating a resource record for your 404
+As a final example, lets step through creating a block record for your 404
 page.
 
-First create a `Resource` record, give it the title of "Not Found", which will
-generate the slug of `not-found` and set the template to you themes 404 Twig
-template: <a href="/files/howto-resource-contenttype-404.png"><img src="/files
-/howto-resource-contenttype-404.png"></a>
+First create a `Blocks` record and give it the title of "Not Found", which will
+generate the slug of `not-found`. Next, set the template, so that it matches the
+"404" Twig template of your theme:
 
-Next, in your `config.yml` file simply set the `notfound` key like so:
+![](/files/howto-resource-contenttype-404.png)
+
+Finally, in your `config.yml` file you can simply set the `notfound` key so it
+will use the block you've just created:
 
 ```yaml
-notfound: resources/not-found
+notfound: blocks/not-found
 ```
 
-Important to mention only dynamically routed pages (that have `contenttype`
-entry in `contenttypes.yml`) can be configured as `not-found` page,
-pages routed with `Bolt\Controllers\Frontend::template` can't be
-used as 404 handler currently.
+When the visitors of the website access a non-existing page, they will get a
+friendly 404 error message, using the template you've specified.
