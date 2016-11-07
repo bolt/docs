@@ -35,7 +35,7 @@ blocks:
             type: slug
             uses: title
         content:
-            type: textarea
+            type: html
             height: 150px
         template:
             type: templateselect
@@ -57,7 +57,7 @@ readable name that we can use later in `{% setcontent block = 'blocks/slug' %}`.
 ### Content
 
 In this example, the `content` field is simply a HTML text area. As this is
-intended for use by developers, it gives us full control over the HTML and
+intended for use by html, it gives us full control over the HTML and
 layout. It is also worth noting that the WYSWYG editor would interfere with 
 this layout in an attempt to be user-friendly.
 
@@ -104,12 +104,12 @@ under the `contenttypes` key add in something similar to this:
 ```yaml
 contenttypes:
     blocks:
-        edit: [ developer ]
-        create: [ developer ]
-        publish: [ developer ]
-        depublish: [ developer ]
-        delete: [ developer ]
-        view: [ developer ]
+        edit: [ chief-editor ]
+        create: [ chief-editor ]
+        publish: [ chief-editor ]
+        depublish: [ chief-editor ]
+        delete: [ chief-editor ]
+        view: [ chief-editor ]
 ```
 
 This will limit edit, create, (de)publish, delete and view access to only those
