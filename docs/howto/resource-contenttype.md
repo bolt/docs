@@ -18,8 +18,9 @@ But as with any ContentType, you can use any unique name.
 Creating the ContentType
 ------------------------
 
-Firstly, in your `contenttypes.yml` file, create a new ContentType with the
-following parameters:
+Firstly, in your `contenttypes.yml` file, create a new ContentType. for this
+example, we'll use the `blocks` ContentType that comes with a default Bolt
+installation.
 
 ```yaml
 blocks:
@@ -29,20 +30,28 @@ blocks:
         title:
             type: text
             class: large
-            required: true
+            group: "Block"
         slug:
             type: slug
-            uses: title
-        html:
-            type: textarea
+            uses: [ title ]
+        content:
+            type: html
             height: 150px
-        template:
-            type: templateselect
-            filter: '*.twig'
-    default_status: published
+        contentlink:
+            type: text
+            label: Link
+            placeholder: 'contenttype/slug or http://example.org/'
+            postfix: "Use this to add a link for this Block. This could either be an 'internal' link like <tt>page/about</tt>, if you use a contenttype/slug combination. Otherwise use a proper URL, like `http://example.org`."
+        image:
+            type: image
+            attrib: title
+            extensions: [ gif, jpg, png ]
     show_on_dashboard: false
-    searchable: false
     viewless: true
+    default_status: publish
+    searchable: false
+    icon_many: "fa:cubes"
+    icon_one: "fa:cube"
 ```
 
 Fields
@@ -53,12 +62,12 @@ Fields
 You will note that the title and slug fields work together to create a human
 readable name that we can use later in `{% setcontent block = 'blocks/slug' %}`.
 
-### HTML
+### Content
 
-In this example, the `html` field is simply a HTML text area. As this is
-intended for use by developers, it gives us full control over the HTML and
-layout. It is also worth noting that the WYSWYG editor would interfere with this
-layout in an attempt to be user-friendly.
+In this example, the `content` field is simply a HTML text area. As this is
+intended for use by editors, it gives us full control over the HTML and layout.
+It is also worth noting that the WYSWYG editor would interfere with this layout
+in an attempt to be user-friendly.
 
 ### Template
 
@@ -139,8 +148,3 @@ Next, in your `config.yml` file simply set the `notfound` key like so:
 ```yaml
 notfound: blocks/not-found
 ```
-
-It is important to mention only dynamically routed pages (that have 
-`contenttype` entry in `contenttypes.yml`) can be configured as `not-found`
-pages. Pages routed with `Bolt\Controllers\Frontend::template` can't be
-used as 404 handler currently.
