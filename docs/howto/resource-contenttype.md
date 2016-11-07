@@ -134,6 +134,25 @@ Accessing your resource records in a Twig template file is very easy:
 {{ block.content }}
 ```
 
+Often, resource records are used as 'teasers' for content elsewhere. An "about"
+blurb in a footer that links to the full "About us" page, for example. To make
+linking from a resource block to a full page easier, our example uses the
+'contentlink' field. The editor can provide a link, which could either be an
+'internal' link like `page/about`, if you use a contenttype/slug combination.
+Otherwise use a proper URL, like `http://example.org`. Regardless of what the
+editor provides, the snippet below will output a fully working HTML link.
+
+```
+{% setcontent block = "block/about-us" %}
+{% if link(block.contentlink) %}
+    <p>
+        {{ link(block.contentlink, "Read more" }}
+    </p>
+{% endif %}
+
+{# Results in '<a href="/page/about">Read more</a>' #}
+```
+
 ## Example Configuration of a 404 Resource
 
 As a final example, lets step through creating a block record for your 404
@@ -144,7 +163,6 @@ generate the slug of `not-found`. Next, set the template, so that it matches the
 "404" Twig template of your theme:
 
 ![](/files/howto-resource-contenttype-404.png)
-
 
 Finally, in your `config.yml` file you can simply set the `notfound` key so it
 will use the block you've just created:
