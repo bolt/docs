@@ -124,6 +124,13 @@ If your site is accessible on more than one URL, or just with and without the 'w
 canonical: www.example.org
 ```
 
+SQLite only: Running analyze on your database
+---------------------------------------------
+
+If you are using SQLite you can run the `analyze;` command on your database to
+make expensive queries quicker. For more information on this please see the [issue](https://github.com/bolt/bolt/issues/5603)
+on github or the details in the [SQLite docs](https://www.sqlite.org/lang_analyze.html).
+
 Putting it all together
 -----------------------
 
