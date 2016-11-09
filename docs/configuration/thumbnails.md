@@ -51,6 +51,12 @@ like a `teaser` or `cover` thumbnail. This not only makes them easy to change at
 but also prevents people from flooding your cache or server space with automatically generated
 thumbnails.
 
+Example thumbnail alias usage:
+
+```twig
+{{ image|thumbnail('alias') }}
+```
+
 ### Defining Thumbnail Aliases
 
 Because thumbnail aliases are very theme specific, 
