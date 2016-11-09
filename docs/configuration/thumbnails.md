@@ -51,6 +51,8 @@ like a `teaser` or `cover` thumbnail. This not only makes them easy to change at
 but also prevents people from flooding your cache or server space with automatically generated
 thumbnails.
 
+For examples on how to use the alias with your code, please see the [template tag documentation](https://docs.bolt.cm/3.2/templating/templatetags#thumbnail).
+
 ### Defining Thumbnail Aliases
 
 Because thumbnail aliases are very theme specific, 
