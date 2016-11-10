@@ -36,7 +36,7 @@ Disable the debug toolbar, that gets appended to every page request. This
 toolbar shows a _lot_ of useful information, but once a website is put into
 production, you should turn this funtionality off:
 
-```
+```yaml
 debug: false
 ```
 
@@ -51,11 +51,11 @@ We do this, so that whenever something bad happens (like a database that
 crashes, or the server has some malfunction), no sensitive information will be
 shown to the visitors of the site.
 
-```
+```yaml
 debug_error_level: 0
 
 debuglog:
-  enabled: false
+    enabled: false
 ```
 
 Check mail settings
@@ -98,18 +98,18 @@ also need to fill out the news_variable.
 
 You can also customize the backend favicon and the various apple-touch-icons.
 
-```
+```yaml
 branding:
-  name: Bolt
-  path: /admin
-  provided_by: [ supercool@example.org, "Supercool Webdesign Co." ]
-  news_source: http://news.example.org
-  news_variable: news
-  favicon: /files/icons/favicon.ico
-  apple-touch-icon: /files/icons/apple-touch-icon.png
-  apple-touch-icon-72x72: /files/icons/apple-touch-icon-72x72.png
-  apple-touch-icon-114x114: /files/icons/apple-touch-icon-114x114.png
-  apple-touch-icon-144x144: /files/icons/apple-touch-icon-144x144.png
+    name: Bolt
+    path: /admin
+    provided_by: [ supercool@example.org, "Supercool Webdesign Co." ]
+    news_source: http://news.example.org
+    news_variable: news
+    favicon: /files/icons/favicon.ico
+    apple-touch-icon: /files/icons/apple-touch-icon.png
+    apple-touch-icon-72x72: /files/icons/apple-touch-icon-72x72.png
+    apple-touch-icon-114x114: /files/icons/apple-touch-icon-114x114.png
+    apple-touch-icon-144x144: /files/icons/apple-touch-icon-144x144.png
 ```
 
 This is what it will look like in the Bolt backend:
@@ -133,7 +133,7 @@ If your site is accessible on more than one URL, or just with and without the
 'www.'-prefix, you should set the canonical manually, to prevent duplicate
 content in Google:
 
-```
+```yaml
 canonical: www.example.org
 ```
 
@@ -150,67 +150,67 @@ Putting it all together
 Combining the tips mentioned above, here's a full example of what your
 `config_local.yml` could contain.
 
-```
+```yaml
 # Database credentials.
 database:
-  driver: mysql
-  databasename: bolt
-  username: database_user
-  password: 'hunter42'
+    driver: mysql
+    databasename: bolt
+    username: database_user
+    password: 'hunter42'
 
 # Canonical URL
 canonical: www.example.org
 
 # caching settings
 caching:
-  config: true
-  templates: true
-  request: false
-  duration: 10
-  authenticated: false
+    config: true
+    templates: true
+    request: false
+    duration: 10
+    authenticated: false
 
 # Thumbnail settings
 thumbnails:
-  default_thumbnail: [ 160, 120 ]
-  default_image: [ 1000, 750 ]
-  quality: 80
-  cropping: crop
-  notfound_image: view/img/default_notfound.png
-  error_image: view/img/default_error.png
-  save_files: true
-  allow_upscale: false
-  exif_orientation: true
+    default_thumbnail: [ 160, 120 ]
+    default_image: [ 1000, 750 ]
+    quality: 80
+    cropping: crop
+    notfound_image: view/img/default_notfound.png
+    error_image: view/img/default_error.png
+    save_files: true
+    allow_upscale: false
+    exif_orientation: true
 
 # Branding options
 branding:
- name: Bolt
- path: /admin
- provided_by: [ supercool@example.org, "Supercool Webdesign Co." ]
- news_source: http://news.example.org
- news_variable: news
- favicon: /files/icons/favicon.ico
- apple-touch-icon: /files/icons/apple-touch-icon.png
- apple-touch-icon-72x72: /files/icons/apple-touch-icon-72x72.png
- apple-touch-icon-114x114: /files/icons/apple-touch-icon-114x114.png
- apple-touch-icon-144x144: /files/icons/apple-touch-icon-144x144.png
+    name: Bolt
+    path: /admin
+    provided_by: [ supercool@example.org, "Supercool Webdesign Co." ]
+    news_source: http://news.example.org
+    news_variable: news
+    favicon: /files/icons/favicon.ico
+    apple-touch-icon: /files/icons/apple-touch-icon.png
+    apple-touch-icon-72x72: /files/icons/apple-touch-icon-72x72.png
+    apple-touch-icon-114x114: /files/icons/apple-touch-icon-114x114.png
+    apple-touch-icon-144x144: /files/icons/apple-touch-icon-144x144.png
 
 # Debug settings
 debug: false
 debug_error_level: 0
 
 debuglog:
-  enabled: false
+    enabled: false
 
 # Mail options
 mailoptions:
-  transport: smtp
-  spool: true
-  host: localhost
-#  username: username
-#  password: password
-  port: 25
-  encryption: null
-  auth_mode: null
+    transport: smtp
+    spool: true
+    host: localhost
+#    username: username
+#    password: password
+    port: 25
+    encryption: null
+    auth_mode: null
 
 ```
 
