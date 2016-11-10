@@ -1,9 +1,9 @@
 ---
-title: Performance and finetuning for Bolt websites
+title: Introduction
 level: intermediate
 ---
-Performance and finetuning for Bolt websites
-============================================
+Introduction
+============
 
 This page contains a few tips and pointers to optimize and tune your Bolt
 website when putting it 'live'. When developing Bolt, you usually have different
