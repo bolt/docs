@@ -6,7 +6,9 @@ Users
 Overview
 ---------------------
 
-To get an overview of users, click the Settings button in the right top menu above every page and select ‘users’ by clicking. Important: Only users with admin permissions may edit other users
+To get an overview of users, hover over Configuration in the left menu and 
+select 'Users & Permissions' by clicking. Important: Only users with admin 
+permissions may edit other users.
 
 New user
 ---------------------
