@@ -4,9 +4,9 @@ title: Thumbnails
 Thumbnails
 ==========
 
-Bolt comes with a thumbnail system which allows you to scale and crop your
-images. This is particularly useful if images need to fit into a specific
-layout. The reduced file size can also increase the performance of your site.
+Bolt comes with a thumbnail system which allows you to scale and crop your images.
+This is particularly useful if images need to fit into a specific layout.
+The reduced file size can also increase the performance of your site.
 
 The thumbnail settings are defined in `config.yml` under the `thumbnails` key.
 Here is an example with the default settings:
