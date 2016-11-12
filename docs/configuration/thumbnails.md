@@ -46,10 +46,10 @@ Settings
 Thumbnail Aliases
 -----------------
 
-With thumbnail aliases, you can define thumbnail sizes which are specific for your theme,
-like a `teaser` or `cover` thumbnail. This not only makes them easy to change at any time,
-but also prevents people from flooding your cache or server space with automatically generated
-thumbnails.
+With thumbnail aliases, you can define thumbnail sizes which are specific for
+your theme, like a `teaser` or `cover` thumbnail. This not only makes them easy
+to change at any time, but also prevents people from flooding your cache or
+server space with automatically generated thumbnails.
 
 ### Defining Thumbnail Aliases
 
@@ -62,22 +62,42 @@ Here is a little example with a `teaser` and a `cover` alias:
 thumbnails:
     aliases:
         teaser:
-            size: [400,300]
+            size: [400, 300]
             cropping: crop
         cover:
-            size: [600,400]
+            size: [600, 400]
             cropping: crop
 ```
 
-As you can see, each alias has a new setting called `size` where you define
-the width and the height of the thumbnails. You can also define how they will be cropped.
+As you can see, each alias has a new setting called `size` where you define the
+width and the height of the thumbnails. You can also define how they will be
+cropped.
+
+Basic usage is straightforward:
+
+```twig
+{{ record.image|thumbnail(400, 300, 'c') }}
+
+becomes:
+
+{{ record.image|thumbnail('teaser') }}
+```
+
+For further examples on how to use the thumbnail alias with your code, please
+see the [template tag documentation][].
 
 ### Preventing non-alias Thumbnails
 
-With the `only_aliases` setting in the general thumbnail configuration,
-you can prevent the generation of thumbnails that don't belong to an alias.
+With the `only_aliases` setting in the general thumbnail configuration, you can
+prevent the generation of thumbnails that don't belong to an alias. This is
+useful to secure your server from automatically generated thumbnails that could
+flood your cache.
 
-This is useful to secure your server from automatically
-generated thumbnails that could flood your cache.
+When developing a site with this feature turned on, there are two things to note:
 
-For examples on how to use the thumbnail alias with your code, please see the [template tag documentation](https://docs.bolt.cm/3.2/templating/templatetags#thumbnail).
+ - If you're logged on, thumbnails not using an alias will still work. Test them
+   'incognito', or when logged off.
+ - Images that are already generated might still be served from cache. Flush the
+   cache, if you're seeing stale images.
+
+[template tag documentation]: https://docs.bolt.cm/templating/templatetags#thumbnail
