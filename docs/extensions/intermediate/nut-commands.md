@@ -1,5 +1,6 @@
 ---
 title: Nut Console Commands
+level: advanced
 ---
 Extension Building: Nut Console Commands
 ========================================

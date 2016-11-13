@@ -1,8 +1,9 @@
 ---
-title: "Upgrading: Converting (advanced)"
+title: "Converting (advanced)"
+
 ---
 Converting an existing 2.2 install
-==============================
+==================================
 
 This page describes the process of converting an existing Bolt 2.2 install to
 Bolt 3.0. Use this method if you're running a non-default Bolt installation,

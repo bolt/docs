@@ -1,5 +1,6 @@
 ---
 title: Fields & Field Types
+level: advanced
 ---
 Fields in Bolt
 ==============

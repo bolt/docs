@@ -1,8 +1,8 @@
 ---
-title: Textarea
+title: Textarea field
 ---
-Textarea
-========
+Textarea field
+==============
 
 Simple text-input, for multi-line fields.
 

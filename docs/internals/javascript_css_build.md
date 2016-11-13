@@ -1,5 +1,6 @@
 ---
 title: The Bolt JS and CSS assets
+level: advanced
 ---
 Developing and Compiling the Bolt JS and CSS assets
 ===================================================

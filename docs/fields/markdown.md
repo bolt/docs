@@ -1,8 +1,8 @@
 ---
-title: Markdown
+title: Markdown field
 ---
-Markdown
-========
+Markdown field
+==============
 
 A markdown field. This gives you a markdown editor with a preview window.
 

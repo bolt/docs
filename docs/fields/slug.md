@@ -1,8 +1,8 @@
 ---
-title: Slug
+title: Slug field
 ---
-Slug
-====
+Slug field
+==========
 
 This field will determine what "slug" or permalink is used for accessing the
 record on the frontend. When omitted, the slug will be automatically generated.

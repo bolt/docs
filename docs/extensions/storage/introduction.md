@@ -1,5 +1,6 @@
 ---
 title: Overview of Bolt Storage
+level: advanced
 ---
 The Bolt Storage Interface
 ==========================

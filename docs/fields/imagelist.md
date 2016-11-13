@@ -1,8 +1,8 @@
 ---
-title: Imagelist
+title: Imagelist field
 ---
-Imagelist
-=========
+Imagelist field
+===============
 
 A simple list field type to upload/select images. Also contains a title text
 field for each image.
