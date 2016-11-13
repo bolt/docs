@@ -18,10 +18,6 @@ Getting Started<br>
 </a>
 
 <div class="docsintro">
-    <a href="#" onclick="alert('Coming soon!');"  class="button medium docsintro">
-    Bolt in 30 minutes (soon!)<br>
-    <small>A quick overview of Bolt, and how it works</small>
-    </a>
     <a href="../cheatsheet" class="button medium docsintro">
     The Bolt cheatsheet<br>
     <small>A great little reference for all things Bolt</small>
