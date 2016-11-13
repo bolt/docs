@@ -1,5 +1,5 @@
 ---
-title: Testing 
+title: Testing and debugging
 level: intermediate
 ---
 Extensions: Testing and debugging
