@@ -1,5 +1,6 @@
 ---
 title: Running Bolt using PHP's built-in web server
+level: intermediate
 ---
 Running Bolt using PHP's built-in web server
 ============================================

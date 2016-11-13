@@ -1,8 +1,8 @@
 ---
-title: Datetime
+title: Datetime field
 ---
-Datetime
-========
+Datetime field
+==============
 
 Datetime picker widget, to select a date and a time.
 

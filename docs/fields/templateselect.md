@@ -1,8 +1,8 @@
 ---
-title: Templateselect
+title: Templateselect field
 ---
-Templateselect
-==============
+Templateselect field
+====================
 
 Allows setting a template to use when rendering a specific record. Will allow
 the record creator to specify any template in the root folder of the current

@@ -1,5 +1,5 @@
 ---
-title: Upgrading from version 2.2 to 3.0
+title: From version 2.2 to 3.0
 ---
 Upgrading a site from version 2.2 to 3.0
 ========================================

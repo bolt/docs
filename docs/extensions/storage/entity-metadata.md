@@ -1,5 +1,6 @@
 ---
 title: Entity Metadata
+level: advanced
 ---
 Entity Metadata
 ===============

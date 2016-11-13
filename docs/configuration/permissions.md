@@ -1,5 +1,6 @@
 ---
 title: Permissions
+level: intermediate
 ---
 The Bolt Permissions System
 ===========================

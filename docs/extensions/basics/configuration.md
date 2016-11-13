@@ -1,5 +1,6 @@
 ---
 title: Configuration
+level: intermediate
 ---
 Extension Building: Configuration
 =================================

@@ -1,5 +1,7 @@
 ---
 title: Database Tables
+level: advanced
+
 ---
 Database Tables
 ===============
