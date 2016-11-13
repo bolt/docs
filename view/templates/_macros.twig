@@ -48,12 +48,17 @@
             {% else %}
                 <a href="{{ page.url }}" class="jqtree-title">{{ page.title }}</a>
             {% endif %}
+            {% if current.url == page.url %}
+                {{ include('_sub_quicklinks.twig') }}
+            {% endif %}
         </div>
+        {% if page.subPages %}
         <ul class="jqtree_common">
             {% for sub in page.subPages %}
                 {{ menu(sub, current) }}
             {% endfor %}
         </ul>
+        {% endif %}
     </li>
 {% endmacro %}
 

@@ -1,6 +1,6 @@
         {% if page.submenu|length > 1 %}
             <div class='quick-links show-for-large'>
-                Jump to:
+                <span>Jump to:</span>
                 <ul>
                     {% for anchor, item in page.submenu %}
                         <li><a href='#{{ anchor }}'>{{ item|raw }}</a></li>
