@@ -1,8 +1,8 @@
 ---
-title: Date
+title: Date field
 ---
-Date
-====
+Date field
+==========
 
 Datepicker widget, to select a date.
 

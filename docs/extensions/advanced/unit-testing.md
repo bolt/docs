@@ -1,5 +1,5 @@
 ---
-title: Writing Unit Tests for Extensions
+title: Writing Unit Tests
 level: advanced
 
 ---
