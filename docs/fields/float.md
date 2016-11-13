@@ -1,8 +1,8 @@
 ---
-title: Float
+title: Float field
 ---
-Float
-=====
+Float field
+===========
 
 Simple field for inputting decimal numbers.
 

@@ -1,5 +1,6 @@
 ---
 title: The Entity Manager
+level: advanced
 ---
 The Entity Manager
 ==================

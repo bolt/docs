@@ -1,5 +1,6 @@
 ---
-title: Testing Your Extensions
+title: Testing and debugging
+level: intermediate
 ---
 Extensions: Testing and debugging
 =================================

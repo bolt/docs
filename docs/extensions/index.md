@@ -1,5 +1,6 @@
 ---
 title: Extending Bolt
+short_title: Extending
 redirect: extensions/introduction
 pages:
     - introduction

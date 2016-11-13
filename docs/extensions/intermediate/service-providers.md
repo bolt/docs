@@ -1,5 +1,6 @@
 ---
 title: Services & Service Providers
+level: advanced
 ---
 Extension Building: Services & Service Providers
 ================================================

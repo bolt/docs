@@ -1,8 +1,8 @@
 ---
-title: Text
+title: Text field
 ---
-Text
-====
+Text field
+==========
 
 Simple text-input, for single-line fields.
 

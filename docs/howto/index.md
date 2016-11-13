@@ -1,5 +1,6 @@
 ---
 title: Howtos on various subjects
+short_title: Howtos
 pages:
     - installing-local-extensions
     - resource-contenttype

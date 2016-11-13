@@ -1,5 +1,6 @@
 ---
 title: Routing
+level: advanced
 ---
 Routing
 =======

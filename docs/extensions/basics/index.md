@@ -10,4 +10,5 @@ pages:
     - web-assets
     - testing
     - translations
+level: intermediate
 ---

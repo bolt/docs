@@ -1,5 +1,6 @@
 ---
 title: Other Information
+short_title: Other
 pages:
     - manifesto
     - contributing

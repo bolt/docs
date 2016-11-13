@@ -1,8 +1,8 @@
 ---
-title: Hidden
+title: Hidden field
 ---
-Hidden
-======
+Hidden field
+============
 
 The hidden field is like the text field, 
 except the difference that it's being hidden from the content editor.

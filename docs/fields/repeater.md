@@ -1,8 +1,8 @@
 ---
-title: Repeater
+title: Repeater field
 ---
-Repeater
-========
+Repeater field
+==============
 
 A special field type available as a field definition is the `repeater` field type which
 allows you to compose an array-like structure of sub-fields within a single field name.

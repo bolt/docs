@@ -1,5 +1,6 @@
 ---
 title: Bolt Internals
+short_title: Internals
 pages:
     - routing
     - templating

@@ -1,5 +1,6 @@
 ---
 title: Custom Field Types
+level: advanced
 ---
 Extensions: Providing Custom Fields
 ===================================
