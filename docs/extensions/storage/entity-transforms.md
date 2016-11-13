@@ -1,5 +1,6 @@
 ---
 title: Hydration & Persistence
+level: advanced
 ---
 Entity Hydration & Persistence
 ==============================

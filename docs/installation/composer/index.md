@@ -1,5 +1,6 @@
 ---
 title: Composer installation
+short_title: Composer
 redirect: installation/composer/install-composer
 pages:
     - install-composer

@@ -1,8 +1,8 @@
 ---
-title: Checkbox
+title: Checkbox field
 ---
-Checkbox
-========
+Checkbox field
+==============
 
 Simple checkbox input.
 

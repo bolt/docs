@@ -1,5 +1,6 @@
 ---
 title: backtrace() Twig tag
+level: advanced
 ---
 backtrace() Twig tag
 ====================

@@ -1,8 +1,8 @@
 ---
-title: Video
+title: Video field
 ---
-Video
-=====
+Video field
+===========
 
 A field for videos from external sources like youtube, vimeo and so on. Will
 also show a preview beside the field.

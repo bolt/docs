@@ -1,5 +1,6 @@
 ---
 title: Extending Twig
+level: intermediate
 ---
 Extension Building: Twig
 ========================

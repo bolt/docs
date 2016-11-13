@@ -1,5 +1,6 @@
 ---
 title: Adding to an existing project
+level: advanced
 ---
 Adding to an existing Composer project
 ======================================

@@ -1,5 +1,6 @@
 ---
 title: Introduction to Bolt Extensions
+level: intermediate
 ---
 How To Use Bolt extensions
 ===========================

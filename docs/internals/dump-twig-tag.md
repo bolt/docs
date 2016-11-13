@@ -1,5 +1,6 @@
 ---
 title: dump() Twig tag
+level: intermediate
 ---
 dump() Twig tag
 ===============

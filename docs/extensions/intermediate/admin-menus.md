@@ -1,5 +1,6 @@
 ---
 title: Back-end Menu Items
+level: advanced
 ---
 Extension Building: Admin Menus
 ===============================

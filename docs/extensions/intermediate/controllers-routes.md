@@ -1,5 +1,6 @@
 ---
 title: Controllers & Routes
+level: advanced
 ---
 Extension Building: Controllers & Routes
 ========================================
