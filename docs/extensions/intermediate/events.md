@@ -1,5 +1,6 @@
 ---
 title: Events
+level: advanced
 ---
 Extension Building: Events
 ==========================

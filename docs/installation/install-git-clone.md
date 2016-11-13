@@ -1,5 +1,7 @@
 ---
 title: Clone the git repository
+level: advanced
+
 ---
 Cloning directly from Git
 =========================

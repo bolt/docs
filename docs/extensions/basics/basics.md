@@ -1,5 +1,6 @@
 ---
 title: Basics
+level: intermediate
 ---
 Extension Building: Basics
 ==========================

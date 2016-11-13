@@ -1,5 +1,6 @@
 ---
 title: Bootstrapping
+level: advanced
 ---
 Bootstrapping
 =============

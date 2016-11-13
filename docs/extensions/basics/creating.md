@@ -1,5 +1,6 @@
 ---
 title: Creating a New Extension
+level: intermediate
 ---
 Extensions: Creating
 =========================

@@ -1,5 +1,6 @@
 ---
 title: Providing New Field Types
+level: advanced
 ---
 Extensions: Providing a New Field Type
 ======================================

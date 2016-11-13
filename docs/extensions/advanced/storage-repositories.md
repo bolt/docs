@@ -1,5 +1,7 @@
 ---
 title: Storage Repositories & Entity Mappings
+level: advanced
+
 ---
 Storage Repositories & Entity Mappings
 ======================================

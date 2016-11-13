@@ -1,5 +1,6 @@
 ---
 title: Installing Local Extensions
+level: intermediate
 ---
 Installing Local Extensions
 ===========================

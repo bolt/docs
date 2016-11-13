@@ -1,5 +1,6 @@
 ---
 title: Debug Bar
+level: intermediate
 ---
 Debug Bar
 =========

@@ -1,5 +1,6 @@
 ---
 title: Web Assets (CSS, JavaScript, Snippets & Widgets)
+level: intermediate
 ---
 Extension Building: Web Assets (CSS, JavaScript, Snippets & Widgets)
 ====================================================================

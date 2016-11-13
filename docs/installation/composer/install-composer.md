@@ -1,5 +1,6 @@
 ---
 title: Install with Composer
+level: advanced
 ---
 Installing Bolt with Composer
 =============================
