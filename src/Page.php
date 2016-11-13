@@ -254,6 +254,24 @@ class Page implements \ArrayAccess
     }
 
     /**
+     * Get the short title for a page.
+     *
+     * @return string
+     */
+    public function getShortTitle()
+    {
+        return $this['short_title'] ? $this['short_title'] : $this['title'];
+    }
+
+    /**
+     * @param string $short_title
+     */
+    public function setShortTitle($short_title)
+    {
+        $this->variables['short_title'] = $short_title;
+    }
+
+    /**
      * Get a 'submenu', parsed from the <h2> headings in a page.
      *
      * @return array

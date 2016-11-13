@@ -140,6 +140,11 @@ footer {
 h1 {
     color: $headercolor;
     margin-bottom: 1em;
+    span {
+        color: $headercolor-parent;
+        font-size: 40%;
+        display: block;
+    }
 }
 
 h2 {
@@ -197,7 +202,6 @@ a.button.jumpbutton {
 }
 
 .quick-links {
-    display: none;
     margin: 0 0 2em;
 }
 
@@ -608,6 +612,16 @@ mark {
             right: 24px; //magic number: looks visually ok
             top: 6px;
             }
+        }
+    }
+
+    .quick-links {
+        margin: 0.5em 0;
+        span {
+            display: none;
+        }
+        li {
+           list-style: disc;
         }
     }
 

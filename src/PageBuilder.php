@@ -178,6 +178,10 @@ class PageBuilder
             }
         }
 
+        // We don't need the top-level H1 from the content, because we
+        // output it in the template where we need it.
+        $content = preg_replace('#<h1>(.*)</h1>#i', '', $content);
+
         $submenu = [];
         preg_match_all('#<h2>(.*)</h2>#i', $content, $matches);
         foreach ($matches[1] as $key => $title) {
