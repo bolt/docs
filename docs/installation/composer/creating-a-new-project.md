@@ -1,5 +1,6 @@
 ---
 title: Creating a new project
+level: advanced
 ---
 Creating a new Composer installation
 ====================================

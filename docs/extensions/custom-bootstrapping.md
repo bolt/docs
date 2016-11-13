@@ -1,5 +1,6 @@
 ---
 title: Custom Bootstrapping
+level: advanced
 ---
 Customising Bootstrapping
 =========================

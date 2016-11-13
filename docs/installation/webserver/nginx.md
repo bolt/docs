@@ -1,5 +1,6 @@
 ---
 title: Nginx Configuration
+level: intermediate
 ---
 Nginx: Configuring the virtual host
 ===================================

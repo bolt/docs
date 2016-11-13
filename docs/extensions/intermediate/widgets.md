@@ -1,5 +1,6 @@
 ---
 title: Creating widgets
+level: advanced
 ---
 Extension Building: Creating widgets
 ====================================

@@ -1,8 +1,8 @@
 ---
-title: Integer
+title: Integer field
 ---
-Integer
-=======
+Integer field
+=============
 
 Simple field for inputting whole numbers.
 

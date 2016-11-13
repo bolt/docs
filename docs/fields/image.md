@@ -1,8 +1,8 @@
 ---
-title: Image
+title: Image field
 ---
-Image
-=====
+Image field
+===========
 
 Simple image upload/select field.
 

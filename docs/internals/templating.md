@@ -1,5 +1,6 @@
 ---
 title: Templating
+level: advanced
 ---
 Templating
 ==========

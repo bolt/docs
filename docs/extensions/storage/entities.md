@@ -1,5 +1,6 @@
 ---
 title: Working with Entities
+level: advanced
 ---
 Entities
 ========

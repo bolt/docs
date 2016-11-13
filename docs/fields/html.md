@@ -1,8 +1,8 @@
 ---
-title: HTML
+title: HTML field
 ---
-HTML
-====
+HTML field
+==========
 
 A WYSIWYG HTML field. You can supply extra options to it to customize the
 behaviour and appearance.

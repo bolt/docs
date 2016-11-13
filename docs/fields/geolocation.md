@@ -1,8 +1,8 @@
 ---
-title: Geolocation
+title: Geolocation field
 ---
-Geolocation
-===========
+Geolocation field
+=================
 
 A set of fields for easy selection of a geographic location. You can use the
 given address, the latitude, longitude, and the reverse geocoded address. To

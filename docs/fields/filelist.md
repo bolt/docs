@@ -1,8 +1,8 @@
 ---
-title: Filelist
+title: Filelist field
 ---
-Filelist
-========
+Filelist field
+==============
 
 A simple list field type to upload/select files. Also contains a title text
 field for each file.

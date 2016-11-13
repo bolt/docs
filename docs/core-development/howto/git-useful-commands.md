@@ -1,5 +1,6 @@
 ---
 title: Useful git commands
+level: advanced
 ---
 Useful git commands
 ===================

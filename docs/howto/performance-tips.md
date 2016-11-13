@@ -1,5 +1,6 @@
 ---
 title: Performance and finetuning for Bolt websites
+level: intermediate
 ---
 Performance and finetuning for Bolt websites
 ============================================

@@ -1,5 +1,6 @@
 ---
 title: End user Manual
+short_title: User Manual
 pages:
     - first-user
     - login
