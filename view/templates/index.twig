@@ -22,7 +22,7 @@
 
         {{ include('_sub_quicklinks.twig') }}
 
-        {{ page.content|raw }}
+        {{ page.content|replace({'%%VERSION%%': version})|raw }}
 
         {{ include('_sub_submenu.twig') }}
 
