@@ -17,16 +17,10 @@ Getting Started<br>
 <small>About Bolt, System Requirements, Installation and Upgrading.</small>
 </a>
 
-<div class="docsintro">
-    <a href="#" onclick="alert('Coming soon!');"  class="button medium docsintro">
-    Bolt in 30 minutes (soon!)<br>
-    <small>A quick overview of Bolt, and how it works</small>
-    </a>
-    <a href="../cheatsheet" class="button medium docsintro">
-    The Bolt cheatsheet<br>
-    <small>A great little reference for all things Bolt</small>
-    </a>
-</div>
+<a href="../cheatsheet" class="button large expand docsintro">
+The Bolt cheatsheet<br>
+<small>A great little reference for all things Bolt</small>
+</a>
 
 <a href="../content/contenttypes-and-records" class="button large expand docsintro">
 Working with Bolt<br>
