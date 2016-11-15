@@ -111,7 +111,7 @@
 -
     name: bolt_version
     type: string
-    value: 3.0.12
+    value: 3.1.6
     file: ''
 -
     name: bolt_name
@@ -126,7 +126,7 @@
 -
     name: bolt_long_version
     type: string
-    value: 3.0.12
+    value: 3.1.6
     file: ''
 -
     name: deprecated.php
@@ -542,6 +542,11 @@
     name: translator.cache_dir
     type: string
     value: /Users/bob/Sites/bolt-origin/app/cache/trans
+    file: ''
+-
+    name: translator.caching
+    type: bool
+    value: true
     file: ''
 -
     name: translator.loaders
@@ -1069,6 +1074,11 @@
     value: ''
     file: ''
 -
+    name: storage.field_sanitiser
+    type: class
+    value: Bolt\Storage\Field\Sanitiser\Sanitiser
+    file: src/Storage/Field/Sanitiser/Sanitiser.php
+-
     name: storage.field_manager
     type: class
     value: Bolt\Storage\FieldManager
@@ -1256,7 +1266,7 @@
 -
     name: extend.online
     type: bool
-    value: true
+    value: false
     file: ''
 -
     name: extend.enabled
@@ -1299,10 +1309,20 @@
     value: Bolt\Composer\Action\CheckPackage
     file: src/Composer/Action/CheckPackage.php
 -
+    name: 'extend.action -&gt; depends'
+    type: class
+    value: Bolt\Composer\Action\DependsPackage
+    file: src/Composer/Action/DependsPackage.php
+-
     name: 'extend.action -&gt; install'
     type: class
     value: Bolt\Composer\Action\InstallPackage
     file: src/Composer/Action/InstallPackage.php
+-
+    name: 'extend.action -&gt; prohibits'
+    type: class
+    value: Bolt\Composer\Action\ProhibitsPackage
+    file: src/Composer/Action/ProhibitsPackage.php
 -
     name: 'extend.action -&gt; remove'
     type: class
@@ -1731,7 +1751,7 @@
 -
     name: asset.salt.factory
     type: string
-    value: MgbAMok0TO
+    value: tui4eBO2dm
     file: ''
 -
     name: asset.salt
