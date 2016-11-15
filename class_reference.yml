@@ -1,1528 +1,1965 @@
-- name: 'logger'
-  type: 'class'
-  value: 'Monolog\Logger'
-  file: 'vendor/monolog/monolog/src/Monolog/Logger.php'
-- name: 'routes'
-  type: 'class'
-  value: 'Symfony\Component\Routing\RouteCollection'
-  file: 'vendor/symfony/routing/RouteCollection.php'
-- name: 'controllers'
-  type: 'class'
-  value: 'Bolt\Routing\RootControllerCollection'
-  file: 'src/Routing/RootControllerCollection.php'
-- name: 'controllers_factory'
-  type: 'class'
-  value: 'Bolt\Routing\ControllerCollection'
-  file: 'src/Routing/ControllerCollection.php'
-- name: 'route_class'
-  type: 'string'
-  value: 'Silex\Route'
-  file: ''
-- name: 'route_factory'
-  type: 'class'
-  value: 'Silex\Route'
-  file: 'vendor/silex/silex/src/Silex/Route.php'
-- name: 'exception_handler'
-  type: 'class'
-  value: 'Silex\ExceptionHandler'
-  file: 'vendor/silex/silex/src/Silex/ExceptionHandler.php'
-- name: 'dispatcher_class'
-  type: 'string'
-  value: 'Symfony\Component\EventDispatcher\EventDispatcher'
-  file: ''
-- name: 'dispatcher'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher'
-  file: 'vendor/symfony/http-kernel/Debug/TraceableEventDispatcher.php'
-- name: 'callback_resolver'
-  type: 'class'
-  value: 'Bolt\Routing\CallbackResolver'
-  file: 'src/Routing/CallbackResolver.php'
-- name: 'resolver'
-  type: 'class'
-  value: 'Silex\ServiceControllerResolver'
-  file: 'vendor/silex/silex/src/Silex/ServiceControllerResolver.php'
-- name: 'kernel'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\HttpKernel'
-  file: 'vendor/symfony/http-kernel/HttpKernel.php'
-- name: 'request_stack'
-  type: 'class'
-  value: 'Symfony\Component\HttpFoundation\RequestStack'
-  file: 'vendor/symfony/http-foundation/RequestStack.php'
-- name: 'request_context'
-  type: 'class'
-  value: 'Symfony\Component\Routing\RequestContext'
-  file: 'vendor/symfony/routing/RequestContext.php'
-- name: 'url_matcher'
-  type: 'class'
-  value: 'Bolt\Routing\UrlMatcher'
-  file: 'src/Routing/UrlMatcher.php'
-- name: 'request_error'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'request.http_port'
-  type: 'int'
-  value: '80'
-  file: ''
-- name: 'request.https_port'
-  type: 'int'
-  value: '443'
-  file: ''
-- name: 'debug'
-  type: 'bool'
-  value: '1'
-  file: ''
-- name: 'charset'
-  type: 'string'
-  value: 'UTF-8'
-  file: ''
-- name: 'locale'
-  type: 'string'
-  value: 'en_GB'
-  file: ''
-- name: 'resources'
-  type: 'class'
-  value: 'Bolt\Configuration\Standard'
-  file: 'src/Configuration/Standard.php'
-- name: 'bolt_version'
-  type: 'string'
-  value: '3.0.0'
-  file: ''
-- name: 'bolt_name'
-  type: 'string'
-  value: 'alpha 3'
-  file: ''
-- name: 'bolt_released'
-  type: 'bool'
-  value: ''
-  file: ''
-- name: 'bolt_long_version'
-  type: 'string'
-  value: '3.0.0 alpha 3'
-  file: ''
-- name: 'deprecated.php'
-  type: 'bool'
-  value: ''
-  file: ''
-- name: 'pathmanager'
-  type: 'class'
-  value: 'Eloquent\Pathogen\FileSystem\Factory\PlatformFileSystemPathFactory'
-  file: 'vendor/bolt/pathogen/src/FileSystem/Factory/PlatformFileSystemPathFactory.php'
-- name: 'classloader'
-  type: 'class'
-  value: 'Composer\Autoload\ClassLoader'
-  file: '/Users/bob/.composer/vendor/composer/ClassLoader.php'
-- name: 'schema'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Manager'
-  file: 'src/Storage/Database/Schema/Manager.php'
-- name: 'schema.prefix'
-  type: 'string'
-  value: 'bolt_'
-  file: ''
-- name: 'schema.tables_filter'
-  type: 'string'
-  value: '/^bolt_.+/'
-  file: ''
-- name: 'schema.charset'
-  type: 'string'
-  value: 'utf8'
-  file: ''
-- name: 'schema.collate'
-  type: 'string'
-  value: 'utf8_unicode_ci'
-  file: ''
-- name: 'integritychecker'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Manager'
-  file: 'src/Storage/Database/Schema/Manager.php'
-- name: 'schema.base_tables'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'schema.base_tables -&gt; authtoken'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\AuthToken'
-  file: 'src/Storage/Database/Schema/Table/AuthToken.php'
-- name: 'schema.base_tables -&gt; cron'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\Cron'
-  file: 'src/Storage/Database/Schema/Table/Cron.php'
-- name: 'schema.base_tables -&gt; field_value'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\FieldValue'
-  file: 'src/Storage/Database/Schema/Table/FieldValue.php'
-- name: 'schema.base_tables -&gt; log_change'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\LogChange'
-  file: 'src/Storage/Database/Schema/Table/LogChange.php'
-- name: 'schema.base_tables -&gt; log_system'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\LogSystem'
-  file: 'src/Storage/Database/Schema/Table/LogSystem.php'
-- name: 'schema.base_tables -&gt; relations'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\Relations'
-  file: 'src/Storage/Database/Schema/Table/Relations.php'
-- name: 'schema.base_tables -&gt; taxonomy'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\Taxonomy'
-  file: 'src/Storage/Database/Schema/Table/Taxonomy.php'
-- name: 'schema.base_tables -&gt; users'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\Users'
-  file: 'src/Storage/Database/Schema/Table/Users.php'
-- name: 'schema.content_tables'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'schema.content_tables -&gt; dummy'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\ContentType'
-  file: 'src/Storage/Database/Schema/Table/ContentType.php'
-- name: 'schema.content_tables -&gt; pages'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\ContentType'
-  file: 'src/Storage/Database/Schema/Table/ContentType.php'
-- name: 'schema.content_tables -&gt; entries'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\ContentType'
-  file: 'src/Storage/Database/Schema/Table/ContentType.php'
-- name: 'schema.content_tables -&gt; showcases'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\ContentType'
-  file: 'src/Storage/Database/Schema/Table/ContentType.php'
-- name: 'schema.extension_tables'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'schema.tables'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'schema.tables -&gt; authtoken'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\AuthToken'
-  file: 'src/Storage/Database/Schema/Table/AuthToken.php'
-- name: 'schema.tables -&gt; cron'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\Cron'
-  file: 'src/Storage/Database/Schema/Table/Cron.php'
-- name: 'schema.tables -&gt; field_value'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\FieldValue'
-  file: 'src/Storage/Database/Schema/Table/FieldValue.php'
-- name: 'schema.tables -&gt; log_change'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\LogChange'
-  file: 'src/Storage/Database/Schema/Table/LogChange.php'
-- name: 'schema.tables -&gt; log_system'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\LogSystem'
-  file: 'src/Storage/Database/Schema/Table/LogSystem.php'
-- name: 'schema.tables -&gt; relations'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\Relations'
-  file: 'src/Storage/Database/Schema/Table/Relations.php'
-- name: 'schema.tables -&gt; taxonomy'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\Taxonomy'
-  file: 'src/Storage/Database/Schema/Table/Taxonomy.php'
-- name: 'schema.tables -&gt; users'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\Users'
-  file: 'src/Storage/Database/Schema/Table/Users.php'
-- name: 'schema.tables -&gt; dummy'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\ContentType'
-  file: 'src/Storage/Database/Schema/Table/ContentType.php'
-- name: 'schema.tables -&gt; pages'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\ContentType'
-  file: 'src/Storage/Database/Schema/Table/ContentType.php'
-- name: 'schema.tables -&gt; entries'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\ContentType'
-  file: 'src/Storage/Database/Schema/Table/ContentType.php'
-- name: 'schema.tables -&gt; showcases'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Table\ContentType'
-  file: 'src/Storage/Database/Schema/Table/ContentType.php'
-- name: 'schema.builder'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'schema.builder -&gt; base'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Builder\BaseTables'
-  file: 'src/Storage/Database/Schema/Builder/BaseTables.php'
-- name: 'schema.builder -&gt; content'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Builder\ContentTables'
-  file: 'src/Storage/Database/Schema/Builder/ContentTables.php'
-- name: 'schema.builder -&gt; extensions'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Builder\ExtensionTables'
-  file: 'src/Storage/Database/Schema/Builder/ExtensionTables.php'
-- name: 'schema.timer'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Timer'
-  file: 'src/Storage/Database/Schema/Timer.php'
-- name: 'schema.comparator.factory'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'schema.comparator'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Schema\Comparison\MySql'
-  file: 'src/Storage/Database/Schema/Comparison/MySql.php'
-- name: 'config'
-  type: 'class'
-  value: 'Bolt\Config'
-  file: 'src/Config.php'
-- name: 'config.environment'
-  type: 'class'
-  value: 'Bolt\Configuration\Environment'
-  file: 'src/Configuration/Environment.php'
-- name: 'logger.system'
-  type: 'class'
-  value: 'Monolog\Logger'
-  file: 'vendor/monolog/monolog/src/Monolog/Logger.php'
-- name: 'logger.change'
-  type: 'class'
-  value: 'Monolog\Logger'
-  file: 'vendor/monolog/monolog/src/Monolog/Logger.php'
-- name: 'logger.firebug'
-  type: 'class'
-  value: 'Monolog\Logger'
-  file: 'vendor/monolog/monolog/src/Monolog/Logger.php'
-- name: 'logger.flash'
-  type: 'class'
-  value: 'Bolt\Logger\FlashLogger'
-  file: 'src/Logger/FlashLogger.php'
-- name: 'logger.manager'
-  type: 'class'
-  value: 'Bolt\Logger\Manager'
-  file: 'src/Logger/Manager.php'
-- name: 'monolog.logger.class'
-  type: 'string'
-  value: 'Monolog\Logger'
-  file: ''
-- name: 'monolog'
-  type: 'class'
-  value: 'Monolog\Logger'
-  file: 'vendor/monolog/monolog/src/Monolog/Logger.php'
-- name: 'monolog.handler'
-  type: 'class'
-  value: 'Monolog\Handler\NullHandler'
-  file: 'vendor/monolog/monolog/src/Monolog/Handler/NullHandler.php'
-- name: 'monolog.level'
-  type: 'int'
-  value: '100'
-  file: ''
-- name: 'monolog.listener'
-  type: 'class'
-  value: 'Silex\EventListener\LogListener'
-  file: 'vendor/silex/silex/src/Silex/EventListener/LogListener.php'
-- name: 'monolog.name'
-  type: 'string'
-  value: 'bolt'
-  file: ''
-- name: 'monolog.bubble'
-  type: 'bool'
-  value: '1'
-  file: ''
-- name: 'monolog.permission'
-  type: 'null'
-  value: ''
-  file: ''
-- name: 'monolog.logfile'
-  type: 'string'
-  value: '/Users/bob/Sites/bolt-origin/app/cache/bolt-debug.log'
-  file: ''
-- name: 'logger.debug'
-  type: 'class'
-  value: 'Monolog\Logger'
-  file: 'vendor/monolog/monolog/src/Monolog/Logger.php'
-- name: 'editlink'
-  type: 'string'
-  value: ''
-  file: ''
-- name: 'edittitle'
-  type: 'string'
-  value: ''
-  file: ''
-- name: 'jsdata'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'token.session.name'
-  type: 'string'
-  value: 'bolt_session_baa5f78e71742fc22a8503d923936837'
-  file: ''
-- name: 'token.authentication.name'
-  type: 'string'
-  value: 'bolt_authtoken_baa5f78e71742fc22a8503d923936837'
-  file: ''
-- name: 'sessions'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'sessions -&gt; main'
-  type: 'class'
-  value: 'Symfony\Component\HttpFoundation\Session\Session'
-  file: 'vendor/symfony/http-foundation/Session/Session.php'
-- name: 'sessions -&gt; csrf'
-  type: 'class'
-  value: 'Symfony\Component\HttpFoundation\Session\Session'
-  file: 'vendor/symfony/http-foundation/Session/Session.php'
-- name: 'session.factory'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session.storage.factory'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session'
-  type: 'class'
-  value: 'Symfony\Component\HttpFoundation\Session\Session'
-  file: 'vendor/symfony/http-foundation/Session/Session.php'
-- name: 'sessions.listener'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'sessions.listener -&gt; main'
-  type: 'class'
-  value: 'Bolt\Session\SessionListener'
-  file: 'src/Session/SessionListener.php'
-- name: 'sessions.listener -&gt; csrf'
-  type: 'class'
-  value: 'Bolt\Session\SessionListener'
-  file: 'src/Session/SessionListener.php'
-- name: 'session.listener.factory'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session.cookie_path_restriction_listener.factory'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session.default_options'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'session.options.import_from_ini'
-  type: 'bool'
-  value: '1'
-  file: ''
-- name: 'sessions.options.initializer'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session.storage.handler.factory'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session.storage.handler.factory.files'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session.storage.handler.factory.backing_memcache'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session.storage.handler.factory.memcache'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session.storage.handler.factory.memcached'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session.storage.handler.factory.backing_redis'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session.storage.handler.factory.redis'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'session.storage.generator'
-  type: 'class'
-  value: 'Bolt\Session\Generator\RandomGenerator'
-  file: 'src/Session/Generator/RandomGenerator.php'
-- name: 'session.storage.serializer'
-  type: 'class'
-  value: 'Bolt\Session\Serializer\NativeSerializer'
-  file: 'src/Session/Serializer/NativeSerializer.php'
-- name: 'session.bag.attribute'
-  type: 'class'
-  value: 'Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag'
-  file: 'vendor/symfony/http-foundation/Session/Attribute/AttributeBag.php'
-- name: 'session.bag.flash'
-  type: 'class'
-  value: 'Symfony\Component\HttpFoundation\Session\Flash\FlashBag'
-  file: 'vendor/symfony/http-foundation/Session/Flash/FlashBag.php'
-- name: 'session.bag.metadata'
-  type: 'class'
-  value: 'Symfony\Component\HttpFoundation\Session\Storage\MetadataBag'
-  file: 'vendor/symfony/http-foundation/Session/Storage/MetadataBag.php'
-- name: 'sessions.options'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'translator'
-  type: 'class'
-  value: 'Silex\Translator'
-  file: 'vendor/silex/silex/src/Silex/Translator.php'
-- name: 'translator.resources'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'translator.message_selector'
-  type: 'class'
-  value: 'Symfony\Component\Translation\MessageSelector'
-  file: 'vendor/symfony/translation/MessageSelector.php'
-- name: 'translator.domains'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'locale_fallbacks'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'translator.cache_dir'
-  type: 'string'
-  value: '/Users/bob/Sites/bolt-origin/app/cache/trans'
-  file: ''
-- name: 'timezone_offset'
-  type: 'string'
-  value: '+01:00'
-  file: ''
-- name: 'twig.options'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'twig.form.templates'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'twig.path'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'twig.templates'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'twig'
-  type: 'class'
-  value: 'Twig_Environment'
-  file: 'vendor/twig/twig/lib/Twig/Environment.php'
-- name: 'twig.loader.filesystem'
-  type: 'class'
-  value: 'Twig_Loader_Filesystem'
-  file: 'vendor/twig/twig/lib/Twig/Loader/Filesystem.php'
-- name: 'twig.loader.array'
-  type: 'class'
-  value: 'Twig_Loader_Array'
-  file: 'vendor/twig/twig/lib/Twig/Loader/Array.php'
-- name: 'twig.loader'
-  type: 'class'
-  value: 'Twig_Loader_Chain'
-  file: 'vendor/twig/twig/lib/Twig/Loader/Chain.php'
-- name: 'twig.loader.bolt_filesystem'
-  type: 'class'
-  value: 'Bolt\Twig\FilesystemLoader'
-  file: 'src/Twig/FilesystemLoader.php'
-- name: 'twig.handlers'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'twig.handlers -&gt; admin'
-  type: 'class'
-  value: 'Bolt\Twig\Handler\AdminHandler'
-  file: 'src/Twig/Handler/AdminHandler.php'
-- name: 'twig.handlers -&gt; array'
-  type: 'class'
-  value: 'Bolt\Twig\Handler\ArrayHandler'
-  file: 'src/Twig/Handler/ArrayHandler.php'
-- name: 'twig.handlers -&gt; html'
-  type: 'class'
-  value: 'Bolt\Twig\Handler\HtmlHandler'
-  file: 'src/Twig/Handler/HtmlHandler.php'
-- name: 'twig.handlers -&gt; image'
-  type: 'class'
-  value: 'Bolt\Twig\Handler\ImageHandler'
-  file: 'src/Twig/Handler/ImageHandler.php'
-- name: 'twig.handlers -&gt; record'
-  type: 'class'
-  value: 'Bolt\Twig\Handler\RecordHandler'
-  file: 'src/Twig/Handler/RecordHandler.php'
-- name: 'twig.handlers -&gt; text'
-  type: 'class'
-  value: 'Bolt\Twig\Handler\TextHandler'
-  file: 'src/Twig/Handler/TextHandler.php'
-- name: 'twig.handlers -&gt; user'
-  type: 'class'
-  value: 'Bolt\Twig\Handler\UserHandler'
-  file: 'src/Twig/Handler/UserHandler.php'
-- name: 'twig.handlers -&gt; utils'
-  type: 'class'
-  value: 'Bolt\Twig\Handler\UtilsHandler'
-  file: 'src/Twig/Handler/UtilsHandler.php'
-- name: 'twig.handlers -&gt; widget'
-  type: 'class'
-  value: 'Bolt\Twig\Handler\WidgetHandler'
-  file: 'src/Twig/Handler/WidgetHandler.php'
-- name: 'safe_twig.bolt_extension'
-  type: 'class'
-  value: 'Bolt\Twig\TwigExtension'
-  file: 'src/Twig/TwigExtension.php'
-- name: 'safe_twig'
-  type: 'class'
-  value: 'Twig_Environment'
-  file: 'vendor/twig/twig/lib/Twig/Environment.php'
-- name: 'render'
-  type: 'class'
-  value: 'Bolt\Render'
-  file: 'src/Render.php'
-- name: 'safe_render'
-  type: 'class'
-  value: 'Bolt\Render'
-  file: 'src/Render.php'
-- name: 'http_cache'
-  type: 'class'
-  value: 'Silex\HttpCache'
-  file: 'vendor/silex/silex/src/Silex/HttpCache.php'
-- name: 'http_cache.esi'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\HttpCache\Esi'
-  file: 'vendor/symfony/http-kernel/HttpCache/Esi.php'
-- name: 'http_cache.store'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\HttpCache\Store'
-  file: 'vendor/symfony/http-kernel/HttpCache/Store.php'
-- name: 'http_cache.esi_listener'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\EventListener\SurrogateListener'
-  file: 'vendor/symfony/http-kernel/EventListener/SurrogateListener.php'
-- name: 'http_cache.options'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'http_cache.cache_dir'
-  type: 'string'
-  value: '/Users/bob/Sites/bolt-origin/app/cache'
-  file: ''
-- name: 'whoops'
-  type: 'class'
-  value: 'Whoops\Run'
-  file: 'vendor/filp/whoops/src/Whoops/Run.php'
-- name: 'whoops.handler'
-  type: 'class'
-  value: 'Whoops\Handler\PrettyPageHandler'
-  file: 'vendor/filp/whoops/src/Whoops/Handler/PrettyPageHandler.php'
-- name: 'whoops.handler.cli'
-  type: 'class'
-  value: 'Whoops\Handler\PlainTextHandler'
-  file: 'vendor/filp/whoops/src/Whoops/Handler/PlainTextHandler.php'
-- name: 'whoops.handler.page'
-  type: 'class'
-  value: 'Whoops\Handler\PrettyPageHandler'
-  file: 'vendor/filp/whoops/src/Whoops/Handler/PrettyPageHandler.php'
-- name: 'whoops.handler.page.app_info'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'whoops.handler.page.request_info'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'whoops.listener'
-  type: 'class'
-  value: 'Bolt\EventListener\WhoopsListener'
-  file: 'src/EventListener/WhoopsListener.php'
-- name: 'dump'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'dumper'
-  type: 'class'
-  value: 'Symfony\Component\VarDumper\Dumper\HtmlDumper'
-  file: 'vendor/symfony/var-dumper/Dumper/HtmlDumper.php'
-- name: 'dumper.cli'
-  type: 'class'
-  value: 'Symfony\Component\VarDumper\Dumper\CliDumper'
-  file: 'vendor/symfony/var-dumper/Dumper/CliDumper.php'
-- name: 'dumper.html'
-  type: 'class'
-  value: 'Symfony\Component\VarDumper\Dumper\HtmlDumper'
-  file: 'vendor/symfony/var-dumper/Dumper/HtmlDumper.php'
-- name: 'dumper.cloner'
-  type: 'class'
-  value: 'Symfony\Component\VarDumper\Cloner\VarCloner'
-  file: 'vendor/symfony/var-dumper/Cloner/VarCloner.php'
-- name: 'profiler.mount_prefix'
-  type: 'string'
-  value: '/_profiler'
-  file: ''
-- name: 'data_collector.templates'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'data_collectors'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'twig.profiler.profile'
-  type: 'class'
-  value: 'Twig_Profiler_Profile'
-  file: 'vendor/twig/twig/lib/Twig/Profiler/Profile.php'
-- name: 'web_profiler.controller.profiler'
-  type: 'class'
-  value: 'Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController'
-  file: 'vendor/symfony/web-profiler-bundle/Controller/ProfilerController.php'
-- name: 'web_profiler.controller.router'
-  type: 'class'
-  value: 'Symfony\Bundle\WebProfilerBundle\Controller\RouterController'
-  file: 'vendor/symfony/web-profiler-bundle/Controller/RouterController.php'
-- name: 'web_profiler.controller.exception'
-  type: 'class'
-  value: 'Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController'
-  file: 'vendor/symfony/web-profiler-bundle/Controller/ExceptionController.php'
-- name: 'web_profiler.toolbar.listener'
-  type: 'class'
-  value: 'Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener'
-  file: 'vendor/symfony/web-profiler-bundle/EventListener/WebDebugToolbarListener.php'
-- name: 'profiler'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\Profiler\Profiler'
-  file: 'vendor/symfony/http-kernel/Profiler/Profiler.php'
-- name: 'profiler.storage'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\Profiler\FileProfilerStorage'
-  file: 'vendor/symfony/http-kernel/Profiler/FileProfilerStorage.php'
-- name: 'profiler.request_matcher'
-  type: 'null'
-  value: ''
-  file: ''
-- name: 'profiler.only_exceptions'
-  type: 'bool'
-  value: ''
-  file: ''
-- name: 'profiler.only_master_requests'
-  type: 'bool'
-  value: ''
-  file: ''
-- name: 'web_profiler.debug_toolbar.enable'
-  type: 'bool'
-  value: ''
-  file: ''
-- name: 'web_profiler.debug_toolbar.position'
-  type: 'string'
-  value: 'bottom'
-  file: ''
-- name: 'web_profiler.debug_toolbar.intercept_redirects'
-  type: 'bool'
-  value: ''
-  file: ''
-- name: 'profiler.listener'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\EventListener\ProfilerListener'
-  file: 'vendor/symfony/http-kernel/EventListener/ProfilerListener.php'
-- name: 'stopwatch'
-  type: 'class'
-  value: 'Symfony\Component\Stopwatch\Stopwatch'
-  file: 'vendor/symfony/stopwatch/Stopwatch.php'
-- name: 'code.file_link_format'
-  type: 'null'
-  value: ''
-  file: ''
-- name: 'profiler.templates_path'
-  type: 'string'
-  value: '/Users/bob/Sites/bolt-origin/vendor/symfony/web-profiler-bundle/Resources/views'
-  file: ''
-- name: 'profiler.cache_dir'
-  type: 'string'
-  value: '/Users/bob/Sites/bolt-origin/app/cache/profiler'
-  file: ''
-- name: 'db.logger'
-  type: 'class'
-  value: 'Doctrine\DBAL\Logging\DebugStack'
-  file: 'vendor/doctrine/dbal/lib/Doctrine/DBAL/Logging/DebugStack.php'
-- name: 'db.default_options'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'dbs.options.initializer'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'dbs'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'dbs -&gt; default'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Connection'
-  file: 'src/Storage/Database/Connection.php'
-- name: 'dbs.config'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'dbs.config -&gt; default'
-  type: 'class'
-  value: 'Doctrine\DBAL\Configuration'
-  file: 'vendor/doctrine/dbal/lib/Doctrine/DBAL/Configuration.php'
-- name: 'dbs.event_manager'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'dbs.event_manager -&gt; default'
-  type: 'class'
-  value: 'Doctrine\Common\EventManager'
-  file: 'vendor/doctrine/common/lib/Doctrine/Common/EventManager.php'
-- name: 'db'
-  type: 'class'
-  value: 'Bolt\Storage\Database\Connection'
-  file: 'src/Storage/Database/Connection.php'
-- name: 'db.config'
-  type: 'class'
-  value: 'Doctrine\DBAL\Configuration'
-  file: 'vendor/doctrine/dbal/lib/Doctrine/DBAL/Configuration.php'
-- name: 'db.event_manager'
-  type: 'class'
-  value: 'Doctrine\Common\EventManager'
-  file: 'vendor/doctrine/common/lib/Doctrine/Common/EventManager.php'
-- name: 'db.options'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'db.doctrine_listener'
-  type: 'class'
-  value: 'Bolt\EventListener\DoctrineListener'
-  file: 'src/EventListener/DoctrineListener.php'
-- name: 'fragment.handler'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\Fragment\FragmentHandler'
-  file: 'vendor/symfony/http-kernel/Fragment/FragmentHandler.php'
-- name: 'fragment.renderer.inline'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer'
-  file: 'vendor/symfony/http-kernel/Fragment/InlineFragmentRenderer.php'
-- name: 'fragment.renderer.hinclude'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\Fragment\HIncludeFragmentRenderer'
-  file: 'vendor/symfony/http-kernel/Fragment/HIncludeFragmentRenderer.php'
-- name: 'fragment.renderer.esi'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\Fragment\EsiFragmentRenderer'
-  file: 'vendor/symfony/http-kernel/Fragment/EsiFragmentRenderer.php'
-- name: 'fragment.listener'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\EventListener\FragmentListener'
-  file: 'vendor/symfony/http-kernel/EventListener/FragmentListener.php'
-- name: 'uri_signer'
-  type: 'class'
-  value: 'Symfony\Component\HttpKernel\UriSigner'
-  file: 'vendor/symfony/http-kernel/UriSigner.php'
-- name: 'uri_signer.secret'
-  type: 'string'
-  value: 'dbf521ca491bea4c2fd8320ef6afc3ab'
-  file: ''
-- name: 'fragment.path'
-  type: 'string'
-  value: '/_fragment'
-  file: ''
-- name: 'fragment.renderer.hinclude.global_template'
-  type: 'null'
-  value: ''
-  file: ''
-- name: 'fragment.renderers'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'url_generator'
-  type: 'class'
-  value: 'Bolt\Routing\UrlGeneratorFragmentWrapper'
-  file: 'src/Routing/UrlGeneratorFragmentWrapper.php'
-- name: 'validator'
-  type: 'class'
-  value: 'Symfony\Component\Validator\Validator\RecursiveValidator'
-  file: 'vendor/symfony/validator/Validator/RecursiveValidator.php'
-- name: 'validator.builder'
-  type: 'class'
-  value: 'Symfony\Component\Validator\ValidatorBuilder'
-  file: 'vendor/symfony/validator/ValidatorBuilder.php'
-- name: 'validator.mapping.class_metadata_factory'
-  type: 'class'
-  value: 'Symfony\Component\Validator\Mapping\Factory\LazyLoadingMetadataFactory'
-  file: 'vendor/symfony/validator/Mapping/Factory/LazyLoadingMetadataFactory.php'
-- name: 'validator.validator_factory'
-  type: 'class'
-  value: 'Silex\ConstraintValidatorFactory'
-  file: 'vendor/silex/silex/src/Silex/ConstraintValidatorFactory.php'
-- name: 'validator.object_initializers'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'validator.validator_service_ids'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'url_generator.lazy'
-  type: 'class'
-  value: 'Bolt\Routing\LazyUrlGenerator'
-  file: 'src/Routing/LazyUrlGenerator.php'
-- name: 'randomgenerator'
-  type: 'class'
-  value: 'RandomLib\Generator'
-  file: 'vendor/ircmaxell/random-lib/lib/RandomLib/Generator.php'
-- name: 'permissions'
-  type: 'class'
-  value: 'Bolt\AccessControl\Permissions'
-  file: 'src/AccessControl/Permissions.php'
-- name: 'storage.legacy'
-  type: 'class'
-  value: 'Bolt\Legacy\Storage'
-  file: 'src/Legacy/Storage.php'
-- name: 'storage.legacy_service'
-  type: 'class'
-  value: 'Bolt\Storage\ContentLegacyService'
-  file: 'src/Storage/ContentLegacyService.php'
-- name: 'storage'
-  type: 'class'
-  value: 'Bolt\Storage\EntityManager'
-  file: 'src/Storage/EntityManager.php'
-- name: 'storage.content_repository'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'storage.field_manager'
-  type: 'class'
-  value: 'Bolt\Storage\FieldManager'
-  file: 'src/Storage/FieldManager.php'
-- name: 'Bolt\Storage\Field\Type\TemplateFieldsType'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'storage.entity_builder'
-  type: 'class'
-  value: 'Bolt\Storage\Entity\Builder'
-  file: 'src/Storage/Entity/Builder.php'
-- name: 'storage.repository.default'
-  type: 'string'
-  value: 'Bolt\Storage\Repository\ContentRepository'
-  file: ''
-- name: 'storage.typemap'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'storage.repositories'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'storage.metadata'
-  type: 'class'
-  value: 'Bolt\Storage\Mapping\MetadataDriver'
-  file: 'src/Storage/Mapping/MetadataDriver.php'
-- name: 'storage.relations_collection'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'storage.taxonomy_collection'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'storage.collection_manager'
-  type: 'class'
-  value: 'Bolt\Storage\Collection\CollectionManager'
-  file: 'src/Storage/Collection/CollectionManager.php'
-- name: 'storage.request.edit'
-  type: 'class'
-  value: 'Bolt\Storage\ContentRequest\Edit'
-  file: 'src/Storage/ContentRequest/Edit.php'
-- name: 'storage.request.listing'
-  type: 'class'
-  value: 'Bolt\Storage\ContentRequest\Listing'
-  file: 'src/Storage/ContentRequest/Listing.php'
-- name: 'storage.request.modify'
-  type: 'class'
-  value: 'Bolt\Storage\ContentRequest\Modify'
-  file: 'src/Storage/ContentRequest/Modify.php'
-- name: 'storage.request.save'
-  type: 'class'
-  value: 'Bolt\Storage\ContentRequest\Save'
-  file: 'src/Storage/ContentRequest/Save.php'
-- name: 'storage.listener'
-  type: 'class'
-  value: 'Bolt\EventListener\StorageEventListener'
-  file: 'src/EventListener/StorageEventListener.php'
-- name: 'storage.namingstrategy'
-  type: 'class'
-  value: 'Bolt\Storage\NamingStrategy'
-  file: 'src/Storage/NamingStrategy.php'
-- name: 'query'
-  type: 'class'
-  value: 'Bolt\Storage\Query\Query'
-  file: 'src/Storage/Query/Query.php'
-- name: 'query.parser'
-  type: 'class'
-  value: 'Bolt\Storage\Query\ContentQueryParser'
-  file: 'src/Storage/Query/ContentQueryParser.php'
-- name: 'query.parser.handler'
-  type: 'class'
-  value: 'Bolt\Storage\Query\QueryParameterParser'
-  file: 'src/Storage/Query/QueryParameterParser.php'
-- name: 'query.select'
-  type: 'class'
-  value: 'Bolt\Storage\Query\SelectQuery'
-  file: 'src/Storage/Query/SelectQuery.php'
-- name: 'query.search'
-  type: 'class'
-  value: 'Bolt\Storage\Query\SearchQuery'
-  file: 'src/Storage/Query/SearchQuery.php'
-- name: 'query.search_config'
-  type: 'class'
-  value: 'Bolt\Storage\Query\SearchConfig'
-  file: 'src/Storage/Query/SearchConfig.php'
-- name: 'query.search_weighter'
-  type: 'class'
-  value: 'Bolt\Storage\Query\SearchWeighter'
-  file: 'src/Storage/Query/SearchWeighter.php'
-- name: 'access_control.cookie.options'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'access_control.hash.strength'
-  type: 'int'
-  value: '10'
-  file: ''
-- name: 'access_control'
-  type: 'class'
-  value: 'Bolt\AccessControl\AccessChecker'
-  file: 'src/AccessControl/AccessChecker.php'
-- name: 'access_control.login'
-  type: 'class'
-  value: 'Bolt\AccessControl\Login'
-  file: 'src/AccessControl/Login.php'
-- name: 'access_control.password'
-  type: 'class'
-  value: 'Bolt\AccessControl\Password'
-  file: 'src/AccessControl/Password.php'
-- name: 'users'
-  type: 'class'
-  value: 'Bolt\Users'
-  file: 'src/Users.php'
-- name: 'cache'
-  type: 'class'
-  value: 'Bolt\Cache'
-  file: 'src/Cache.php'
-- name: 'extensions'
-  type: 'class'
-  value: 'Bolt\Extension\Manager'
-  file: 'src/Extension/Manager.php'
-- name: 'extensions.stats'
-  type: 'class'
-  value: 'Bolt\Composer\Satis\StatService'
-  file: 'src/Composer/Satis/StatService.php'
-- name: 'extend.site'
-  type: 'string'
-  value: 'https://extensions.bolt.cm/'
-  file: ''
-- name: 'extend.repo'
-  type: 'string'
-  value: 'https://extensions.bolt.cm/list.json'
-  file: ''
-- name: 'extend.urls'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'extend.online'
-  type: 'bool'
-  value: ''
-  file: ''
-- name: 'extend.enabled'
-  type: 'bool'
-  value: '1'
-  file: ''
-- name: 'extend.writeable'
-  type: 'bool'
-  value: '1'
-  file: ''
-- name: 'extend.manager'
-  type: 'class'
-  value: 'Bolt\Composer\PackageManager'
-  file: 'src/Composer/PackageManager.php'
-- name: 'extend.manager.json'
-  type: 'class'
-  value: 'Bolt\Composer\JsonManager'
-  file: 'src/Composer/JsonManager.php'
-- name: 'extend.listener'
-  type: 'class'
-  value: 'Bolt\Composer\EventListener\BufferIOListener'
-  file: 'src/Composer/EventListener/BufferIOListener.php'
-- name: 'extend.info'
-  type: 'class'
-  value: 'Bolt\Composer\Satis\QueryService'
-  file: 'src/Composer/Satis/QueryService.php'
-- name: 'extend.action'
-  type: 'container'
-  value: '<em>(array, see children below)</em>'
-  file: ''
-- name: 'extend.action -&gt; autoload'
-  type: 'class'
-  value: 'Bolt\Composer\Action\DumpAutoload'
-  file: 'src/Composer/Action/DumpAutoload.php'
-- name: 'extend.action -&gt; check'
-  type: 'class'
-  value: 'Bolt\Composer\Action\CheckPackage'
-  file: 'src/Composer/Action/CheckPackage.php'
-- name: 'extend.action -&gt; install'
-  type: 'class'
-  value: 'Bolt\Composer\Action\InstallPackage'
-  file: 'src/Composer/Action/InstallPackage.php'
-- name: 'extend.action -&gt; remove'
-  type: 'class'
-  value: 'Bolt\Composer\Action\RemovePackage'
-  file: 'src/Composer/Action/RemovePackage.php'
-- name: 'extend.action -&gt; require'
-  type: 'class'
-  value: 'Bolt\Composer\Action\RequirePackage'
-  file: 'src/Composer/Action/RequirePackage.php'
-- name: 'extend.action -&gt; search'
-  type: 'class'
-  value: 'Bolt\Composer\Action\SearchPackage'
-  file: 'src/Composer/Action/SearchPackage.php'
-- name: 'extend.action -&gt; show'
-  type: 'class'
-  value: 'Bolt\Composer\Action\ShowPackage'
-  file: 'src/Composer/Action/ShowPackage.php'
-- name: 'extend.action -&gt; update'
-  type: 'class'
-  value: 'Bolt\Composer\Action\UpdatePackage'
-  file: 'src/Composer/Action/UpdatePackage.php'
-- name: 'extend.action.io'
-  type: 'class'
-  value: 'Composer\IO\BufferIO'
-  file: 'vendor/composer/composer/src/Composer/IO/BufferIO.php'
-- name: 'extend.action.options'
-  type: 'class'
-  value: 'Bolt\Composer\Action\Options'
-  file: 'src/Composer/Action/Options.php'
-- name: 'stack'
-  type: 'class'
-  value: 'Bolt\Stack'
-  file: 'src/Stack.php'
-- name: 'templatechooser'
-  type: 'class'
-  value: 'Bolt\TemplateChooser'
-  file: 'src/TemplateChooser.php'
-- name: 'cron'
-  type: 'class'
-  value: 'Bolt\Cron'
-  file: 'src/Cron.php'
-- name: 'filepermissions'
-  type: 'class'
-  value: 'Bolt\Filesystem\FilePermissions'
-  file: 'src/Filesystem/FilePermissions.php'
-- name: 'menu'
-  type: 'class'
-  value: 'Bolt\Menu\MenuBuilder'
-  file: 'src/Menu/MenuBuilder.php'
-- name: 'upload'
-  type: 'class'
-  value: 'Sirius\Upload\Handler'
-  file: 'vendor/siriusphp/upload/src/Handler.php'
-- name: 'upload.container'
-  type: 'class'
-  value: 'Bolt\Filesystem\UploadContainer'
-  file: 'src/Filesystem/UploadContainer.php'
-- name: 'upload.namespace'
-  type: 'string'
-  value: 'files'
-  file: ''
-- name: 'upload.prefix'
-  type: 'string'
-  value: '2016-02/'
-  file: ''
-- name: 'upload.overwrite'
-  type: 'bool'
-  value: ''
-  file: ''
-- name: 'filesystem'
-  type: 'class'
-  value: 'Bolt\Filesystem\Manager'
-  file: 'vendor/bolt/filesystem/src/Manager.php'
-- name: 'controller.thumbnails.mount_prefix'
-  type: 'string'
-  value: '/thumbs'
-  file: ''
-- name: 'controller.thumbnails'
-  type: 'class'
-  value: 'Bolt\Thumbs\Controller'
-  file: 'vendor/bolt/thumbs/src/Controller.php'
-- name: 'thumbnails'
-  type: 'class'
-  value: 'Bolt\Thumbs\Responder'
-  file: 'vendor/bolt/thumbs/src/Responder.php'
-- name: 'thumbnails.creator'
-  type: 'class'
-  value: 'Bolt\Thumbs\Creator'
-  file: 'vendor/bolt/thumbs/src/Creator.php'
-- name: 'thumbnails.finder'
-  type: 'class'
-  value: 'Bolt\Thumbs\Finder'
-  file: 'vendor/bolt/thumbs/src/Finder.php'
-- name: 'thumbnails.filesystems'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'thumbnails.filesystem_cache'
-  type: 'null'
-  value: ''
-  file: ''
-- name: 'thumbnails.cache'
-  type: 'class'
-  value: 'Bolt\Cache'
-  file: 'src/Cache.php'
-- name: 'thumbnails.default_image'
-  type: 'class'
-  value: 'Bolt\Filesystem\Handler\Image'
-  file: 'vendor/bolt/filesystem/src/Handler/Image.php'
-- name: 'thumbnails.error_image'
-  type: 'class'
-  value: 'Bolt\Filesystem\Handler\Image'
-  file: 'vendor/bolt/filesystem/src/Handler/Image.php'
-- name: 'thumbnails.cache_time'
-  type: 'null'
-  value: ''
-  file: ''
-- name: 'thumbnails.limit_upscaling'
-  type: 'bool'
-  value: '1'
-  file: ''
-- name: 'thumbnails.save_files'
-  type: 'bool'
-  value: '1'
-  file: ''
-- name: 'nut'
-  type: 'class'
-  value: 'Bolt\Nut\NutApplication'
-  file: 'src/Nut/NutApplication.php'
-- name: 'nut.commands'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'nut.commands.add'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'console'
-  type: 'class'
-  value: 'Bolt\Nut\NutApplication'
-  file: 'src/Nut/NutApplication.php'
-- name: 'guzzle.base_url'
-  type: 'string'
-  value: '/'
-  file: ''
-- name: 'guzzle.api_version'
-  type: 'int'
-  value: '6'
-  file: ''
-- name: 'guzzle.handler_stack'
-  type: 'class'
-  value: 'GuzzleHttp\HandlerStack'
-  file: 'vendor/guzzlehttp/guzzle/src/HandlerStack.php'
-- name: 'guzzle.plugins'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'guzzle.client'
-  type: 'class'
-  value: 'GuzzleHttp\Client'
-  file: 'vendor/guzzlehttp/guzzle/src/Client.php'
-- name: 'prefill'
-  type: 'class'
-  value: 'Bolt\Storage\Prefill'
-  file: 'src/Storage/Prefill.php'
-- name: 'slugify.regex'
-  type: 'null'
-  value: ''
-  file: ''
-- name: 'slugify.options'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'slugify'
-  type: 'class'
-  value: 'Cocur\Slugify\Slugify'
-  file: 'vendor/cocur/slugify/src/Slugify.php'
-- name: 'markdown'
-  type: 'class'
-  value: 'ParsedownExtra'
-  file: 'vendor/erusev/parsedown-extra/ParsedownExtra.php'
-- name: 'controller.backend.mount_prefix'
-  type: 'string'
-  value: '/bolt'
-  file: ''
-- name: 'controller.async.mount_prefix'
-  type: 'string'
-  value: '/async'
-  file: ''
-- name: 'controller.backend.extend.mount_prefix'
-  type: 'string'
-  value: '/bolt/extend'
-  file: ''
-- name: 'controller.backend.upload.mount_prefix'
-  type: 'string'
-  value: '/bolt/upload'
-  file: ''
-- name: 'controller.backend.authentication'
-  type: 'class'
-  value: 'Bolt\Controller\Backend\Authentication'
-  file: 'src/Controller/Backend/Authentication.php'
-- name: 'controller.backend.extend'
-  type: 'class'
-  value: 'Bolt\Controller\Backend\Extend'
-  file: 'src/Controller/Backend/Extend.php'
-- name: 'controller.backend.database'
-  type: 'class'
-  value: 'Bolt\Controller\Backend\Database'
-  file: 'src/Controller/Backend/Database.php'
-- name: 'controller.backend.file_manager'
-  type: 'class'
-  value: 'Bolt\Controller\Backend\FileManager'
-  file: 'src/Controller/Backend/FileManager.php'
-- name: 'controller.backend.general'
-  type: 'class'
-  value: 'Bolt\Controller\Backend\General'
-  file: 'src/Controller/Backend/General.php'
-- name: 'controller.backend.log'
-  type: 'class'
-  value: 'Bolt\Controller\Backend\Log'
-  file: 'src/Controller/Backend/Log.php'
-- name: 'controller.backend.records'
-  type: 'class'
-  value: 'Bolt\Controller\Backend\Records'
-  file: 'src/Controller/Backend/Records.php'
-- name: 'controller.backend.upload'
-  type: 'class'
-  value: 'Bolt\Controller\Backend\Upload'
-  file: 'src/Controller/Backend/Upload.php'
-- name: 'controller.backend.users'
-  type: 'class'
-  value: 'Bolt\Controller\Backend\Users'
-  file: 'src/Controller/Backend/Users.php'
-- name: 'controller.async.general'
-  type: 'class'
-  value: 'Bolt\Controller\Async\General'
-  file: 'src/Controller/Async/General.php'
-- name: 'controller.async.filesystem_manager'
-  type: 'class'
-  value: 'Bolt\Controller\Async\FilesystemManager'
-  file: 'src/Controller/Async/FilesystemManager.php'
-- name: 'controller.async.records'
-  type: 'class'
-  value: 'Bolt\Controller\Async\Records'
-  file: 'src/Controller/Async/Records.php'
-- name: 'controller.async.stack'
-  type: 'class'
-  value: 'Bolt\Controller\Async\Stack'
-  file: 'src/Controller/Async/Stack.php'
-- name: 'controller.async.system_checks'
-  type: 'class'
-  value: 'Bolt\Controller\Async\SystemChecks'
-  file: 'src/Controller/Async/SystemChecks.php'
-- name: 'controller.async.widget'
-  type: 'class'
-  value: 'Bolt\Controller\Async\Widget'
-  file: 'src/Controller/Async/Widget.php'
-- name: 'controller.frontend'
-  type: 'class'
-  value: 'Bolt\Controller\Frontend'
-  file: 'src/Controller/Frontend.php'
-- name: 'controller.requirement'
-  type: 'class'
-  value: 'Bolt\Controller\Requirement'
-  file: 'src/Controller/Requirement.php'
-- name: 'controller.requirement.deprecated'
-  type: 'class'
-  value: 'Bolt\Controllers\Routing'
-  file: 'src/Controllers/Routing.php'
-- name: 'controller.classmap'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'listener.general'
-  type: 'class'
-  value: 'Bolt\EventListener\GeneralListener'
-  file: 'src/EventListener/GeneralListener.php'
-- name: 'listener.exception'
-  type: 'class'
-  value: 'Bolt\EventListener\ExceptionListener'
-  file: 'src/EventListener/ExceptionListener.php'
-- name: 'listener.not_found'
-  type: 'class'
-  value: 'Bolt\EventListener\NotFoundListener'
-  file: 'src/EventListener/NotFoundListener.php'
-- name: 'listener.redirect'
-  type: 'class'
-  value: 'Bolt\EventListener\RedirectListener'
-  file: 'src/EventListener/RedirectListener.php'
-- name: 'listener.session'
-  type: 'class'
-  value: 'Bolt\EventListener\SessionListener'
-  file: 'src/EventListener/SessionListener.php'
-- name: 'listener.pager'
-  type: 'class'
-  value: 'Bolt\EventListener\PagerListener'
-  file: 'src/EventListener/PagerListener.php'
-- name: 'listener.snippet'
-  type: 'class'
-  value: 'Bolt\EventListener\SnippetListener'
-  file: 'src/EventListener/SnippetListener.php'
-- name: 'listener.zone_guesser'
-  type: 'class'
-  value: 'Bolt\EventListener\ZoneGuesser'
-  file: 'src/EventListener/ZoneGuesser.php'
-- name: 'asset.salt.factory'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'asset.salt'
-  type: 'string'
-  value: 'TQBiAKPl0U'
-  file: ''
-- name: 'asset.file.hash.factory'
-  type: 'closure'
-  value: ''
-  file: ''
-- name: 'asset.injector'
-  type: 'class'
-  value: 'Bolt\Asset\Injector'
-  file: 'src/Asset/Injector.php'
-- name: 'asset.queue.file'
-  type: 'class'
-  value: 'Bolt\Asset\File\Queue'
-  file: 'src/Asset/File/Queue.php'
-- name: 'asset.queue.snippet'
-  type: 'class'
-  value: 'Bolt\Asset\Snippet\Queue'
-  file: 'src/Asset/Snippet/Queue.php'
-- name: 'asset.queue.widget'
-  type: 'class'
-  value: 'Bolt\Asset\Widget\Queue'
-  file: 'src/Asset/Widget/Queue.php'
-- name: 'asset.queues'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'form.secret'
-  type: 'string'
-  value: 'dbf521ca491bea4c2fd8320ef6afc3ab'
-  file: ''
-- name: 'form.types'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'form.type.extensions'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'form.type.guessers'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'form.extension.csrf'
-  type: 'class'
-  value: 'Symfony\Component\Form\Extension\Csrf\CsrfExtension'
-  file: 'vendor/symfony/form/Extension/Csrf/CsrfExtension.php'
-- name: 'form.extensions'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'form.factory'
-  type: 'class'
-  value: 'Symfony\Component\Form\FormFactory'
-  file: 'vendor/symfony/form/FormFactory.php'
-- name: 'form.resolved_type_factory'
-  type: 'class'
-  value: 'Symfony\Component\Form\ResolvedFormTypeFactory'
-  file: 'vendor/symfony/form/ResolvedFormTypeFactory.php'
-- name: 'form.csrf_provider'
-  type: 'class'
-  value: 'Symfony\Component\Security\Csrf\CsrfTokenManager'
-  file: 'vendor/symfony/security-csrf/CsrfTokenManager.php'
-- name: 'swiftmailer.options'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'swiftmailer.use_spool'
-  type: 'bool'
-  value: '1'
-  file: ''
-- name: 'mailer.initialized'
-  type: 'bool'
-  value: ''
-  file: ''
-- name: 'mailer'
-  type: 'class'
-  value: 'Swift_Mailer'
-  file: 'vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mailer.php'
-- name: 'swiftmailer.spooltransport'
-  type: 'class'
-  value: 'Swift_Transport_SpoolTransport'
-  file: 'vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/SpoolTransport.php'
-- name: 'swiftmailer.spool'
-  type: 'class'
-  value: 'Swift_MemorySpool'
-  file: 'vendor/swiftmailer/swiftmailer/lib/classes/Swift/MemorySpool.php'
-- name: 'swiftmailer.transport'
-  type: 'class'
-  value: 'Swift_Transport_EsmtpTransport'
-  file: 'vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/EsmtpTransport.php'
-- name: 'swiftmailer.transport.buffer'
-  type: 'class'
-  value: 'Swift_Transport_StreamBuffer'
-  file: 'vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/StreamBuffer.php'
-- name: 'swiftmailer.transport.authhandler'
-  type: 'class'
-  value: 'Swift_Transport_Esmtp_AuthHandler'
-  file: 'vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/AuthHandler.php'
-- name: 'swiftmailer.transport.eventdispatcher'
-  type: 'class'
-  value: 'Swift_Events_SimpleEventDispatcher'
-  file: 'vendor/swiftmailer/swiftmailer/lib/classes/Swift/Events/SimpleEventDispatcher.php'
-- name: 'pager'
-  type: 'class'
-  value: 'Bolt\Pager\PagerManager'
-  file: 'src/Pager/PagerManager.php'
-- name: 'paths'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'sessions.default'
-  type: 'string'
-  value: 'main'
-  file: ''
-- name: 'dbs.options'
-  type: 'array'
-  value: ''
-  file: ''
-- name: 'dbs.default'
-  type: 'string'
-  value: 'default'
-  file: ''
-- name: 'twig.form.engine'
-  type: 'class'
-  value: 'Symfony\Bridge\Twig\Form\TwigRendererEngine'
-  file: 'vendor/symfony/twig-bridge/Form/TwigRendererEngine.php'
-- name: 'twig.form.renderer'
-  type: 'class'
-  value: 'Symfony\Bridge\Twig\Form\TwigRenderer'
-  file: 'vendor/symfony/twig-bridge/Form/TwigRenderer.php'
+-
+    name: logger
+    type: class
+    value: Monolog\Logger
+    file: vendor/monolog/monolog/src/Monolog/Logger.php
+-
+    name: routes
+    type: class
+    value: Symfony\Component\Routing\RouteCollection
+    file: vendor/symfony/routing/RouteCollection.php
+-
+    name: controllers
+    type: class
+    value: Bolt\Routing\RootControllerCollection
+    file: src/Routing/RootControllerCollection.php
+-
+    name: controllers_factory
+    type: class
+    value: Bolt\Routing\ControllerCollection
+    file: src/Routing/ControllerCollection.php
+-
+    name: route_class
+    type: string
+    value: Silex\Route
+    file: ''
+-
+    name: route_factory
+    type: class
+    value: Silex\Route
+    file: vendor/silex/silex/src/Silex/Route.php
+-
+    name: exception_handler
+    type: class
+    value: Silex\ExceptionHandler
+    file: vendor/silex/silex/src/Silex/ExceptionHandler.php
+-
+    name: dispatcher_class
+    type: string
+    value: Symfony\Component\EventDispatcher\EventDispatcher
+    file: ''
+-
+    name: dispatcher
+    type: class
+    value: Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher
+    file: vendor/symfony/http-kernel/Debug/TraceableEventDispatcher.php
+-
+    name: callback_resolver
+    type: class
+    value: Bolt\Routing\CallbackResolver
+    file: src/Routing/CallbackResolver.php
+-
+    name: resolver
+    type: class
+    value: Silex\ServiceControllerResolver
+    file: vendor/silex/silex/src/Silex/ServiceControllerResolver.php
+-
+    name: kernel
+    type: class
+    value: Symfony\Component\HttpKernel\HttpKernel
+    file: vendor/symfony/http-kernel/HttpKernel.php
+-
+    name: request_stack
+    type: class
+    value: Symfony\Component\HttpFoundation\RequestStack
+    file: vendor/symfony/http-foundation/RequestStack.php
+-
+    name: request_context
+    type: class
+    value: Symfony\Component\Routing\RequestContext
+    file: vendor/symfony/routing/RequestContext.php
+-
+    name: url_matcher
+    type: class
+    value: Bolt\Routing\UrlMatcher
+    file: src/Routing/UrlMatcher.php
+-
+    name: request_error
+    type: closure
+    value: ''
+    file: ''
+-
+    name: request.http_port
+    type: int
+    value: 80
+    file: ''
+-
+    name: request.https_port
+    type: int
+    value: 443
+    file: ''
+-
+    name: debug
+    type: bool
+    value: true
+    file: ''
+-
+    name: charset
+    type: string
+    value: UTF-8
+    file: ''
+-
+    name: locale
+    type: string
+    value: en_GB
+    file: ''
+-
+    name: resources
+    type: class
+    value: Bolt\Configuration\Standard
+    file: src/Configuration/Standard.php
+-
+    name: bolt_version
+    type: string
+    value: 3.1.6
+    file: ''
+-
+    name: bolt_name
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: bolt_released
+    type: bool
+    value: true
+    file: ''
+-
+    name: bolt_long_version
+    type: string
+    value: 3.1.6
+    file: ''
+-
+    name: deprecated.php
+    type: bool
+    value: false
+    file: ''
+-
+    name: pathmanager
+    type: class
+    value: Eloquent\Pathogen\FileSystem\Factory\PlatformFileSystemPathFactory
+    file: vendor/bolt/pathogen/src/FileSystem/Factory/PlatformFileSystemPathFactory.php
+-
+    name: classloader
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: schema
+    type: class
+    value: Bolt\Storage\Database\Schema\Manager
+    file: src/Storage/Database/Schema/Manager.php
+-
+    name: schema.prefix
+    type: string
+    value: bolt_
+    file: ''
+-
+    name: schema.tables_filter
+    type: string
+    value: /^bolt_.+/
+    file: ''
+-
+    name: schema.charset
+    type: string
+    value: utf8
+    file: ''
+-
+    name: schema.collate
+    type: string
+    value: utf8_unicode_ci
+    file: ''
+-
+    name: integritychecker
+    type: class
+    value: Bolt\Storage\Database\Schema\Manager
+    file: src/Storage/Database/Schema/Manager.php
+-
+    name: 'schema.base_tables -&gt; authtoken'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\AuthToken
+    file: src/Storage/Database/Schema/Table/AuthToken.php
+-
+    name: 'schema.base_tables -&gt; cron'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\Cron
+    file: src/Storage/Database/Schema/Table/Cron.php
+-
+    name: 'schema.base_tables -&gt; field_value'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\FieldValue
+    file: src/Storage/Database/Schema/Table/FieldValue.php
+-
+    name: 'schema.base_tables -&gt; log_change'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\LogChange
+    file: src/Storage/Database/Schema/Table/LogChange.php
+-
+    name: 'schema.base_tables -&gt; log_system'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\LogSystem
+    file: src/Storage/Database/Schema/Table/LogSystem.php
+-
+    name: 'schema.base_tables -&gt; relations'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\Relations
+    file: src/Storage/Database/Schema/Table/Relations.php
+-
+    name: 'schema.base_tables -&gt; taxonomy'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\Taxonomy
+    file: src/Storage/Database/Schema/Table/Taxonomy.php
+-
+    name: 'schema.base_tables -&gt; users'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\Users
+    file: src/Storage/Database/Schema/Table/Users.php
+-
+    name: schema.base_tables
+    type: container
+    value: '<em>(array, see children below)</em>'
+    file: ''
+-
+    name: schema.content_tables
+    type: container
+    value: '<em>(array, see children below)</em>'
+    file: ''
+-
+    name: schema.extension_tables
+    type: container
+    value: (array)
+    file: ''
+-
+    name: 'schema.tables -&gt; authtoken'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\AuthToken
+    file: src/Storage/Database/Schema/Table/AuthToken.php
+-
+    name: 'schema.tables -&gt; cron'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\Cron
+    file: src/Storage/Database/Schema/Table/Cron.php
+-
+    name: 'schema.tables -&gt; field_value'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\FieldValue
+    file: src/Storage/Database/Schema/Table/FieldValue.php
+-
+    name: 'schema.tables -&gt; log_change'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\LogChange
+    file: src/Storage/Database/Schema/Table/LogChange.php
+-
+    name: 'schema.tables -&gt; log_system'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\LogSystem
+    file: src/Storage/Database/Schema/Table/LogSystem.php
+-
+    name: 'schema.tables -&gt; relations'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\Relations
+    file: src/Storage/Database/Schema/Table/Relations.php
+-
+    name: 'schema.tables -&gt; taxonomy'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\Taxonomy
+    file: src/Storage/Database/Schema/Table/Taxonomy.php
+-
+    name: 'schema.tables -&gt; users'
+    type: class
+    value: Bolt\Storage\Database\Schema\Table\Users
+    file: src/Storage/Database/Schema/Table/Users.php
+-
+    name: schema.tables
+    type: container
+    value: '<em>(array, see children below)</em>'
+    file: ''
+-
+    name: 'schema.builder -&gt; base'
+    type: class
+    value: Bolt\Storage\Database\Schema\Builder\BaseTables
+    file: src/Storage/Database/Schema/Builder/BaseTables.php
+-
+    name: 'schema.builder -&gt; content'
+    type: class
+    value: Bolt\Storage\Database\Schema\Builder\ContentTables
+    file: src/Storage/Database/Schema/Builder/ContentTables.php
+-
+    name: 'schema.builder -&gt; extensions'
+    type: class
+    value: Bolt\Storage\Database\Schema\Builder\ExtensionTables
+    file: src/Storage/Database/Schema/Builder/ExtensionTables.php
+-
+    name: schema.builder
+    type: container
+    value: '<em>(array, see children below)</em>'
+    file: ''
+-
+    name: schema.timer
+    type: class
+    value: Bolt\Storage\Database\Schema\Timer
+    file: src/Storage/Database/Schema/Timer.php
+-
+    name: schema.comparator.factory
+    type: closure
+    value: ''
+    file: ''
+-
+    name: schema.comparator
+    type: class
+    value: Bolt\Storage\Database\Schema\Comparison\MySql
+    file: src/Storage/Database/Schema/Comparison/MySql.php
+-
+    name: config
+    type: class
+    value: Bolt\Config
+    file: src/Config.php
+-
+    name: config.environment
+    type: class
+    value: Bolt\Configuration\Environment
+    file: src/Configuration/Environment.php
+-
+    name: logger.system
+    type: class
+    value: Monolog\Logger
+    file: vendor/monolog/monolog/src/Monolog/Logger.php
+-
+    name: logger.change
+    type: class
+    value: Monolog\Logger
+    file: vendor/monolog/monolog/src/Monolog/Logger.php
+-
+    name: logger.firebug
+    type: class
+    value: Monolog\Logger
+    file: vendor/monolog/monolog/src/Monolog/Logger.php
+-
+    name: logger.flash
+    type: class
+    value: Bolt\Logger\FlashLogger
+    file: src/Logger/FlashLogger.php
+-
+    name: logger.manager
+    type: class
+    value: Bolt\Logger\Manager
+    file: src/Logger/Manager.php
+-
+    name: monolog.logger.class
+    type: string
+    value: Monolog\Logger
+    file: ''
+-
+    name: monolog
+    type: class
+    value: Monolog\Logger
+    file: vendor/monolog/monolog/src/Monolog/Logger.php
+-
+    name: monolog.handler
+    type: class
+    value: Monolog\Handler\NullHandler
+    file: vendor/monolog/monolog/src/Monolog/Handler/NullHandler.php
+-
+    name: monolog.level
+    type: int
+    value: 100
+    file: ''
+-
+    name: monolog.listener
+    type: class
+    value: Silex\EventListener\LogListener
+    file: vendor/silex/silex/src/Silex/EventListener/LogListener.php
+-
+    name: monolog.name
+    type: string
+    value: bolt
+    file: ''
+-
+    name: monolog.bubble
+    type: bool
+    value: true
+    file: ''
+-
+    name: monolog.permission
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: monolog.logfile
+    type: string
+    value: /Users/bob/Sites/bolt-origin/app/cache/bolt-debug.log
+    file: ''
+-
+    name: logger.debug
+    type: class
+    value: Monolog\Logger
+    file: vendor/monolog/monolog/src/Monolog/Logger.php
+-
+    name: editlink
+    type: string
+    value: ''
+    file: ''
+-
+    name: edittitle
+    type: string
+    value: ''
+    file: ''
+-
+    name: jsdata
+    type: array
+    value: ''
+    file: ''
+-
+    name: session
+    type: class
+    value: Symfony\Component\HttpFoundation\Session\Session
+    file: vendor/symfony/http-foundation/Session/Session.php
+-
+    name: session.storage
+    type: class
+    value: Bolt\Session\SessionStorage
+    file: src/Session/SessionStorage.php
+-
+    name: session.listener
+    type: class
+    value: Bolt\Session\SessionListener
+    file: src/Session/SessionListener.php
+-
+    name: session.options
+    type: array
+    value: ''
+    file: ''
+-
+    name: session.options.import_from_ini
+    type: bool
+    value: true
+    file: ''
+-
+    name: session.options_bag
+    type: class
+    value: Bolt\Session\OptionsBag
+    file: src/Session/OptionsBag.php
+-
+    name: session.handler_factory
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.files
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.filesystem
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.backing_memcache
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.backing_memcached
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.memcache
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.memcached
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.backing_redis
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.redis
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.generator
+    type: class
+    value: Bolt\Session\Generator\RandomGenerator
+    file: src/Session/Generator/RandomGenerator.php
+-
+    name: session.generator.bytes_length
+    type: int
+    value: 32
+    file: ''
+-
+    name: session.serializer
+    type: class
+    value: Bolt\Session\Serializer\NativeSerializer
+    file: src/Session/Serializer/NativeSerializer.php
+-
+    name: session.bag.attribute
+    type: class
+    value: Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag
+    file: vendor/symfony/http-foundation/Session/Attribute/AttributeBag.php
+-
+    name: session.bag.flash
+    type: class
+    value: Symfony\Component\HttpFoundation\Session\Flash\FlashBag
+    file: vendor/symfony/http-foundation/Session/Flash/FlashBag.php
+-
+    name: session.bag.metadata
+    type: class
+    value: Symfony\Component\HttpFoundation\Session\Storage\MetadataBag
+    file: vendor/symfony/http-foundation/Session/Storage/MetadataBag.php
+-
+    name: translator
+    type: class
+    value: Silex\Translator
+    file: vendor/silex/silex/src/Silex/Translator.php
+-
+    name: translator.resources
+    type: array
+    value: ''
+    file: ''
+-
+    name: translator.message_selector
+    type: class
+    value: Symfony\Component\Translation\MessageSelector
+    file: vendor/symfony/translation/MessageSelector.php
+-
+    name: translator.domains
+    type: array
+    value: ''
+    file: ''
+-
+    name: locale_fallbacks
+    type: array
+    value: ''
+    file: ''
+-
+    name: translator.cache_dir
+    type: string
+    value: /Users/bob/Sites/bolt-origin/app/cache/trans
+    file: ''
+-
+    name: translator.caching
+    type: bool
+    value: true
+    file: ''
+-
+    name: translator.loaders
+    type: array
+    value: ''
+    file: ''
+-
+    name: timezone_offset
+    type: string
+    value: '+01:00'
+    file: ''
+-
+    name: twig.options
+    type: array
+    value: ''
+    file: ''
+-
+    name: twig.form.templates
+    type: array
+    value: ''
+    file: ''
+-
+    name: twig.path
+    type: array
+    value: ''
+    file: ''
+-
+    name: twig.templates
+    type: array
+    value: ''
+    file: ''
+-
+    name: twig
+    type: class
+    value: Twig_Environment
+    file: vendor/twig/twig/lib/Twig/Environment.php
+-
+    name: twig.loader.filesystem
+    type: class
+    value: Twig_Loader_Filesystem
+    file: vendor/twig/twig/lib/Twig/Loader/Filesystem.php
+-
+    name: twig.loader.array
+    type: class
+    value: Twig_Loader_Array
+    file: vendor/twig/twig/lib/Twig/Loader/Array.php
+-
+    name: twig.loader
+    type: class
+    value: Twig_Loader_Chain
+    file: vendor/twig/twig/lib/Twig/Loader/Chain.php
+-
+    name: twig.loader.bolt_filesystem
+    type: class
+    value: Bolt\Twig\FilesystemLoader
+    file: src/Twig/FilesystemLoader.php
+-
+    name: 'twig.handlers -&gt; admin'
+    type: class
+    value: Bolt\Twig\Handler\AdminHandler
+    file: src/Twig/Handler/AdminHandler.php
+-
+    name: 'twig.handlers -&gt; array'
+    type: class
+    value: Bolt\Twig\Handler\ArrayHandler
+    file: src/Twig/Handler/ArrayHandler.php
+-
+    name: 'twig.handlers -&gt; html'
+    type: class
+    value: Bolt\Twig\Handler\HtmlHandler
+    file: src/Twig/Handler/HtmlHandler.php
+-
+    name: 'twig.handlers -&gt; image'
+    type: class
+    value: Bolt\Twig\Handler\ImageHandler
+    file: src/Twig/Handler/ImageHandler.php
+-
+    name: 'twig.handlers -&gt; record'
+    type: class
+    value: Bolt\Twig\Handler\RecordHandler
+    file: src/Twig/Handler/RecordHandler.php
+-
+    name: 'twig.handlers -&gt; text'
+    type: class
+    value: Bolt\Twig\Handler\TextHandler
+    file: src/Twig/Handler/TextHandler.php
+-
+    name: 'twig.handlers -&gt; user'
+    type: class
+    value: Bolt\Twig\Handler\UserHandler
+    file: src/Twig/Handler/UserHandler.php
+-
+    name: 'twig.handlers -&gt; utils'
+    type: class
+    value: Bolt\Twig\Handler\UtilsHandler
+    file: src/Twig/Handler/UtilsHandler.php
+-
+    name: 'twig.handlers -&gt; widget'
+    type: class
+    value: Bolt\Twig\Handler\WidgetHandler
+    file: src/Twig/Handler/WidgetHandler.php
+-
+    name: twig.handlers
+    type: container
+    value: '<em>(array, see children below)</em>'
+    file: ''
+-
+    name: twig.extension.asset
+    type: class
+    value: Symfony\Bridge\Twig\Extension\AssetExtension
+    file: vendor/symfony/twig-bridge/Extension/AssetExtension.php
+-
+    name: safe_twig.bolt_extension
+    type: class
+    value: Bolt\Twig\TwigExtension
+    file: src/Twig/TwigExtension.php
+-
+    name: safe_twig
+    type: class
+    value: Twig_Environment
+    file: vendor/twig/twig/lib/Twig/Environment.php
+-
+    name: render
+    type: class
+    value: Bolt\Render
+    file: src/Render.php
+-
+    name: safe_render
+    type: class
+    value: Bolt\Render
+    file: src/Render.php
+-
+    name: http_cache
+    type: class
+    value: Silex\HttpCache
+    file: vendor/silex/silex/src/Silex/HttpCache.php
+-
+    name: http_cache.esi
+    type: class
+    value: Symfony\Component\HttpKernel\HttpCache\Esi
+    file: vendor/symfony/http-kernel/HttpCache/Esi.php
+-
+    name: http_cache.store
+    type: class
+    value: Symfony\Component\HttpKernel\HttpCache\Store
+    file: vendor/symfony/http-kernel/HttpCache/Store.php
+-
+    name: http_cache.esi_listener
+    type: class
+    value: Symfony\Component\HttpKernel\EventListener\SurrogateListener
+    file: vendor/symfony/http-kernel/EventListener/SurrogateListener.php
+-
+    name: http_cache.options
+    type: array
+    value: ''
+    file: ''
+-
+    name: http_cache.cache_dir
+    type: string
+    value: /Users/bob/Sites/bolt-origin/app/cache
+    file: ''
+-
+    name: whoops
+    type: class
+    value: Whoops\Run
+    file: vendor/filp/whoops/src/Whoops/Run.php
+-
+    name: whoops.handler
+    type: class
+    value: Whoops\Handler\PlainTextHandler
+    file: vendor/filp/whoops/src/Whoops/Handler/PlainTextHandler.php
+-
+    name: whoops.handler.cli
+    type: class
+    value: Whoops\Handler\PlainTextHandler
+    file: vendor/filp/whoops/src/Whoops/Handler/PlainTextHandler.php
+-
+    name: whoops.handler.page
+    type: class
+    value: Whoops\Handler\PrettyPageHandler
+    file: vendor/filp/whoops/src/Whoops/Handler/PrettyPageHandler.php
+-
+    name: whoops.handler.page.app_info
+    type: closure
+    value: ''
+    file: ''
+-
+    name: whoops.handler.page.request_info
+    type: closure
+    value: ''
+    file: ''
+-
+    name: whoops.listener
+    type: class
+    value: Bolt\EventListener\WhoopsListener
+    file: src/EventListener/WhoopsListener.php
+-
+    name: dump
+    type: closure
+    value: ''
+    file: ''
+-
+    name: dumper
+    type: class
+    value: Symfony\Component\VarDumper\Dumper\CliDumper
+    file: vendor/symfony/var-dumper/Dumper/CliDumper.php
+-
+    name: dumper.cli
+    type: class
+    value: Symfony\Component\VarDumper\Dumper\CliDumper
+    file: vendor/symfony/var-dumper/Dumper/CliDumper.php
+-
+    name: dumper.html
+    type: class
+    value: Symfony\Component\VarDumper\Dumper\HtmlDumper
+    file: vendor/symfony/var-dumper/Dumper/HtmlDumper.php
+-
+    name: dumper.cloner
+    type: class
+    value: Symfony\Component\VarDumper\Cloner\VarCloner
+    file: vendor/symfony/var-dumper/Cloner/VarCloner.php
+-
+    name: profiler.mount_prefix
+    type: string
+    value: /_profiler
+    file: ''
+-
+    name: data_collector.templates
+    type: array
+    value: ''
+    file: ''
+-
+    name: data_collectors
+    type: array
+    value: ''
+    file: ''
+-
+    name: twig.profiler.profile
+    type: class
+    value: Twig_Profiler_Profile
+    file: vendor/twig/twig/lib/Twig/Profiler/Profile.php
+-
+    name: web_profiler.controller.profiler
+    type: class
+    value: Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController
+    file: vendor/symfony/web-profiler-bundle/Controller/ProfilerController.php
+-
+    name: web_profiler.controller.router
+    type: class
+    value: Symfony\Bundle\WebProfilerBundle\Controller\RouterController
+    file: vendor/symfony/web-profiler-bundle/Controller/RouterController.php
+-
+    name: web_profiler.controller.exception
+    type: class
+    value: Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController
+    file: vendor/symfony/web-profiler-bundle/Controller/ExceptionController.php
+-
+    name: web_profiler.toolbar.listener
+    type: class
+    value: Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener
+    file: vendor/symfony/web-profiler-bundle/EventListener/WebDebugToolbarListener.php
+-
+    name: profiler
+    type: class
+    value: Symfony\Component\HttpKernel\Profiler\Profiler
+    file: vendor/symfony/http-kernel/Profiler/Profiler.php
+-
+    name: profiler.storage
+    type: class
+    value: Symfony\Component\HttpKernel\Profiler\FileProfilerStorage
+    file: vendor/symfony/http-kernel/Profiler/FileProfilerStorage.php
+-
+    name: profiler.request_matcher
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: profiler.only_exceptions
+    type: bool
+    value: false
+    file: ''
+-
+    name: profiler.only_master_requests
+    type: bool
+    value: false
+    file: ''
+-
+    name: web_profiler.debug_toolbar.enable
+    type: bool
+    value: false
+    file: ''
+-
+    name: web_profiler.debug_toolbar.position
+    type: string
+    value: bottom
+    file: ''
+-
+    name: web_profiler.debug_toolbar.intercept_redirects
+    type: bool
+    value: false
+    file: ''
+-
+    name: profiler.listener
+    type: class
+    value: Symfony\Component\HttpKernel\EventListener\ProfilerListener
+    file: vendor/symfony/http-kernel/EventListener/ProfilerListener.php
+-
+    name: stopwatch
+    type: class
+    value: Symfony\Component\Stopwatch\Stopwatch
+    file: vendor/symfony/stopwatch/Stopwatch.php
+-
+    name: code.file_link_format
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: profiler.templates_path
+    type: string
+    value: /Users/bob/Sites/bolt-origin/vendor/symfony/web-profiler-bundle/Resources/views
+    file: ''
+-
+    name: profiler.cache_dir
+    type: string
+    value: /Users/bob/Sites/bolt-origin/app/cache/profiler
+    file: ''
+-
+    name: db.logger
+    type: class
+    value: Doctrine\DBAL\Logging\DebugStack
+    file: vendor/doctrine/dbal/lib/Doctrine/DBAL/Logging/DebugStack.php
+-
+    name: db.default_options
+    type: array
+    value: ''
+    file: ''
+-
+    name: dbs.options.initializer
+    type: closure
+    value: ''
+    file: ''
+-
+    name: 'dbs -&gt; default'
+    type: class
+    value: Bolt\Storage\Database\Connection
+    file: src/Storage/Database/Connection.php
+-
+    name: dbs
+    type: container
+    value: '<em>(array, see children below)</em>'
+    file: ''
+-
+    name: 'dbs.config -&gt; default'
+    type: class
+    value: Doctrine\DBAL\Configuration
+    file: vendor/doctrine/dbal/lib/Doctrine/DBAL/Configuration.php
+-
+    name: dbs.config
+    type: container
+    value: '<em>(array, see children below)</em>'
+    file: ''
+-
+    name: 'dbs.event_manager -&gt; default'
+    type: class
+    value: Doctrine\Common\EventManager
+    file: vendor/doctrine/common/lib/Doctrine/Common/EventManager.php
+-
+    name: dbs.event_manager
+    type: container
+    value: '<em>(array, see children below)</em>'
+    file: ''
+-
+    name: db
+    type: class
+    value: Bolt\Storage\Database\Connection
+    file: src/Storage/Database/Connection.php
+-
+    name: db.config
+    type: class
+    value: Doctrine\DBAL\Configuration
+    file: vendor/doctrine/dbal/lib/Doctrine/DBAL/Configuration.php
+-
+    name: db.event_manager
+    type: class
+    value: Doctrine\Common\EventManager
+    file: vendor/doctrine/common/lib/Doctrine/Common/EventManager.php
+-
+    name: db.options
+    type: array
+    value: ''
+    file: ''
+-
+    name: db.doctrine_listener
+    type: class
+    value: Bolt\EventListener\DoctrineListener
+    file: src/EventListener/DoctrineListener.php
+-
+    name: db.query_cache
+    type: class
+    value: Doctrine\Common\Cache\ArrayCache
+    file: vendor/doctrine/cache/lib/Doctrine/Common/Cache/ArrayCache.php
+-
+    name: db.query_cache_profile
+    type: class
+    value: Doctrine\DBAL\Cache\QueryCacheProfile
+    file: vendor/doctrine/dbal/lib/Doctrine/DBAL/Cache/QueryCacheProfile.php
+-
+    name: fragment.handler
+    type: class
+    value: Symfony\Component\HttpKernel\Fragment\FragmentHandler
+    file: vendor/symfony/http-kernel/Fragment/FragmentHandler.php
+-
+    name: fragment.renderer.inline
+    type: class
+    value: Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer
+    file: vendor/symfony/http-kernel/Fragment/InlineFragmentRenderer.php
+-
+    name: fragment.renderer.hinclude
+    type: class
+    value: Symfony\Component\HttpKernel\Fragment\HIncludeFragmentRenderer
+    file: vendor/symfony/http-kernel/Fragment/HIncludeFragmentRenderer.php
+-
+    name: fragment.renderer.esi
+    type: class
+    value: Symfony\Component\HttpKernel\Fragment\EsiFragmentRenderer
+    file: vendor/symfony/http-kernel/Fragment/EsiFragmentRenderer.php
+-
+    name: fragment.listener
+    type: class
+    value: Symfony\Component\HttpKernel\EventListener\FragmentListener
+    file: vendor/symfony/http-kernel/EventListener/FragmentListener.php
+-
+    name: uri_signer
+    type: class
+    value: Symfony\Component\HttpKernel\UriSigner
+    file: vendor/symfony/http-kernel/UriSigner.php
+-
+    name: uri_signer.secret
+    type: string
+    value: dbf521ca491bea4c2fd8320ef6afc3ab
+    file: ''
+-
+    name: fragment.path
+    type: string
+    value: /_fragment
+    file: ''
+-
+    name: fragment.renderer.hinclude.global_template
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: fragment.renderers
+    type: array
+    value: ''
+    file: ''
+-
+    name: url_generator
+    type: class
+    value: Bolt\Routing\UrlGeneratorFragmentWrapper
+    file: src/Routing/UrlGeneratorFragmentWrapper.php
+-
+    name: validator
+    type: class
+    value: Symfony\Component\Validator\Validator\RecursiveValidator
+    file: vendor/symfony/validator/Validator/RecursiveValidator.php
+-
+    name: validator.builder
+    type: class
+    value: Symfony\Component\Validator\ValidatorBuilder
+    file: vendor/symfony/validator/ValidatorBuilder.php
+-
+    name: validator.mapping.class_metadata_factory
+    type: class
+    value: Symfony\Component\Validator\Mapping\Factory\LazyLoadingMetadataFactory
+    file: vendor/symfony/validator/Mapping/Factory/LazyLoadingMetadataFactory.php
+-
+    name: validator.validator_factory
+    type: class
+    value: Silex\ConstraintValidatorFactory
+    file: vendor/silex/silex/src/Silex/ConstraintValidatorFactory.php
+-
+    name: validator.object_initializers
+    type: array
+    value: ''
+    file: ''
+-
+    name: validator.validator_service_ids
+    type: array
+    value: ''
+    file: ''
+-
+    name: url_generator.lazy
+    type: class
+    value: Bolt\Routing\LazyUrlGenerator
+    file: src/Routing/LazyUrlGenerator.php
+-
+    name: randomgenerator
+    type: class
+    value: RandomLib\Generator
+    file: vendor/ircmaxell/random-lib/lib/RandomLib/Generator.php
+-
+    name: permissions
+    type: class
+    value: Bolt\AccessControl\Permissions
+    file: src/AccessControl/Permissions.php
+-
+    name: storage.legacy
+    type: class
+    value: Bolt\Legacy\Storage
+    file: src/Legacy/Storage.php
+-
+    name: storage.legacy_service
+    type: class
+    value: Bolt\Storage\ContentLegacyService
+    file: src/Storage/ContentLegacyService.php
+-
+    name: storage
+    type: class
+    value: Bolt\Storage\EntityManager
+    file: src/Storage/EntityManager.php
+-
+    name: storage.content_repository
+    type: closure
+    value: ''
+    file: ''
+-
+    name: storage.field_sanitiser
+    type: class
+    value: Bolt\Storage\Field\Sanitiser\Sanitiser
+    file: src/Storage/Field/Sanitiser/Sanitiser.php
+-
+    name: storage.field_manager
+    type: class
+    value: Bolt\Storage\FieldManager
+    file: src/Storage/FieldManager.php
+-
+    name: Bolt\Storage\Field\Type\TemplateFieldsType
+    type: closure
+    value: ''
+    file: ''
+-
+    name: storage.entity_builder
+    type: class
+    value: Bolt\Storage\Entity\Builder
+    file: src/Storage/Entity/Builder.php
+-
+    name: storage.repository.default
+    type: string
+    value: Bolt\Storage\Repository\ContentRepository
+    file: ''
+-
+    name: storage.typemap
+    type: array
+    value: ''
+    file: ''
+-
+    name: storage.repositories
+    type: array
+    value: ''
+    file: ''
+-
+    name: storage.metadata
+    type: class
+    value: Bolt\Storage\Mapping\MetadataDriver
+    file: src/Storage/Mapping/MetadataDriver.php
+-
+    name: storage.relations_collection
+    type: closure
+    value: ''
+    file: ''
+-
+    name: storage.taxonomy_collection
+    type: closure
+    value: ''
+    file: ''
+-
+    name: storage.collection_manager
+    type: class
+    value: Bolt\Storage\Collection\CollectionManager
+    file: src/Storage/Collection/CollectionManager.php
+-
+    name: storage.request.edit
+    type: class
+    value: Bolt\Storage\ContentRequest\Edit
+    file: src/Storage/ContentRequest/Edit.php
+-
+    name: storage.request.listing
+    type: class
+    value: Bolt\Storage\ContentRequest\Listing
+    file: src/Storage/ContentRequest/Listing.php
+-
+    name: storage.request.modify
+    type: class
+    value: Bolt\Storage\ContentRequest\Modify
+    file: src/Storage/ContentRequest/Modify.php
+-
+    name: storage.request.save
+    type: class
+    value: Bolt\Storage\ContentRequest\Save
+    file: src/Storage/ContentRequest/Save.php
+-
+    name: storage.listener
+    type: class
+    value: Bolt\EventListener\StorageEventListener
+    file: src/EventListener/StorageEventListener.php
+-
+    name: storage.namingstrategy
+    type: class
+    value: Bolt\Storage\NamingStrategy
+    file: src/Storage/NamingStrategy.php
+-
+    name: query
+    type: class
+    value: Bolt\Storage\Query\Query
+    file: src/Storage/Query/Query.php
+-
+    name: query.parser
+    type: class
+    value: Bolt\Storage\Query\ContentQueryParser
+    file: src/Storage/Query/ContentQueryParser.php
+-
+    name: query.parser.handler
+    type: class
+    value: Bolt\Storage\Query\QueryParameterParser
+    file: src/Storage/Query/QueryParameterParser.php
+-
+    name: query.select
+    type: class
+    value: Bolt\Storage\Query\SelectQuery
+    file: src/Storage/Query/SelectQuery.php
+-
+    name: query.search
+    type: class
+    value: Bolt\Storage\Query\SearchQuery
+    file: src/Storage/Query/SearchQuery.php
+-
+    name: query.search_config
+    type: class
+    value: Bolt\Storage\Query\SearchConfig
+    file: src/Storage/Query/SearchConfig.php
+-
+    name: query.search_weighter
+    type: class
+    value: Bolt\Storage\Query\SearchWeighter
+    file: src/Storage/Query/SearchWeighter.php
+-
+    name: access_control.cookie.options
+    type: array
+    value: ''
+    file: ''
+-
+    name: access_control.hash.strength
+    type: int
+    value: 10
+    file: ''
+-
+    name: access_control
+    type: class
+    value: Bolt\AccessControl\AccessChecker
+    file: src/AccessControl/AccessChecker.php
+-
+    name: access_control.login
+    type: class
+    value: Bolt\AccessControl\Login
+    file: src/AccessControl/Login.php
+-
+    name: access_control.password
+    type: class
+    value: Bolt\AccessControl\Password
+    file: src/AccessControl/Password.php
+-
+    name: password_factory
+    type: class
+    value: PasswordLib\Password\Factory
+    file: vendor/passwordlib/passwordlib/lib/PasswordLib/Password/Factory.php
+-
+    name: token.authentication.name
+    type: string
+    value: bolt_authtoken_853ae90f0351324bd73ea615e6487517
+    file: ''
+-
+    name: users
+    type: class
+    value: Bolt\Users
+    file: src/Users.php
+-
+    name: cache
+    type: class
+    value: Bolt\Cache
+    file: src/Cache.php
+-
+    name: extensions
+    type: class
+    value: Bolt\Extension\Manager
+    file: src/Extension/Manager.php
+-
+    name: extensions.stats
+    type: class
+    value: Bolt\Composer\Satis\StatService
+    file: src/Composer/Satis/StatService.php
+-
+    name: extend.site
+    type: string
+    value: 'https://extensions.bolt.cm/'
+    file: ''
+-
+    name: extend.repo
+    type: string
+    value: 'https://extensions.bolt.cm/list.json'
+    file: ''
+-
+    name: extend.urls
+    type: array
+    value: ''
+    file: ''
+-
+    name: extend.online
+    type: bool
+    value: false
+    file: ''
+-
+    name: extend.enabled
+    type: bool
+    value: true
+    file: ''
+-
+    name: extend.writeable
+    type: bool
+    value: true
+    file: ''
+-
+    name: extend.manager
+    type: class
+    value: Bolt\Composer\PackageManager
+    file: src/Composer/PackageManager.php
+-
+    name: extend.manager.json
+    type: class
+    value: Bolt\Composer\JsonManager
+    file: src/Composer/JsonManager.php
+-
+    name: extend.listener
+    type: class
+    value: Bolt\Composer\EventListener\BufferIOListener
+    file: src/Composer/EventListener/BufferIOListener.php
+-
+    name: extend.info
+    type: class
+    value: Bolt\Composer\Satis\QueryService
+    file: src/Composer/Satis/QueryService.php
+-
+    name: 'extend.action -&gt; autoload'
+    type: class
+    value: Bolt\Composer\Action\DumpAutoload
+    file: src/Composer/Action/DumpAutoload.php
+-
+    name: 'extend.action -&gt; check'
+    type: class
+    value: Bolt\Composer\Action\CheckPackage
+    file: src/Composer/Action/CheckPackage.php
+-
+    name: 'extend.action -&gt; depends'
+    type: class
+    value: Bolt\Composer\Action\DependsPackage
+    file: src/Composer/Action/DependsPackage.php
+-
+    name: 'extend.action -&gt; install'
+    type: class
+    value: Bolt\Composer\Action\InstallPackage
+    file: src/Composer/Action/InstallPackage.php
+-
+    name: 'extend.action -&gt; prohibits'
+    type: class
+    value: Bolt\Composer\Action\ProhibitsPackage
+    file: src/Composer/Action/ProhibitsPackage.php
+-
+    name: 'extend.action -&gt; remove'
+    type: class
+    value: Bolt\Composer\Action\RemovePackage
+    file: src/Composer/Action/RemovePackage.php
+-
+    name: 'extend.action -&gt; require'
+    type: class
+    value: Bolt\Composer\Action\RequirePackage
+    file: src/Composer/Action/RequirePackage.php
+-
+    name: 'extend.action -&gt; search'
+    type: class
+    value: Bolt\Composer\Action\SearchPackage
+    file: src/Composer/Action/SearchPackage.php
+-
+    name: 'extend.action -&gt; show'
+    type: class
+    value: Bolt\Composer\Action\ShowPackage
+    file: src/Composer/Action/ShowPackage.php
+-
+    name: 'extend.action -&gt; update'
+    type: class
+    value: Bolt\Composer\Action\UpdatePackage
+    file: src/Composer/Action/UpdatePackage.php
+-
+    name: extend.action
+    type: container
+    value: '<em>(array, see children below)</em>'
+    file: ''
+-
+    name: extend.action.io
+    type: class
+    value: Composer\IO\BufferIO
+    file: vendor/composer/composer/src/Composer/IO/BufferIO.php
+-
+    name: extend.action.options
+    type: class
+    value: Bolt\Composer\Action\Options
+    file: src/Composer/Action/Options.php
+-
+    name: stack
+    type: class
+    value: Bolt\Stack
+    file: src/Stack.php
+-
+    name: templatechooser
+    type: class
+    value: Bolt\TemplateChooser
+    file: src/TemplateChooser.php
+-
+    name: cron
+    type: class
+    value: Bolt\Cron
+    file: src/Cron.php
+-
+    name: filepermissions
+    type: class
+    value: Bolt\Filesystem\FilePermissions
+    file: src/Filesystem/FilePermissions.php
+-
+    name: menu
+    type: class
+    value: Bolt\Menu\MenuBuilder
+    file: src/Menu/MenuBuilder.php
+-
+    name: upload
+    type: class
+    value: Sirius\Upload\Handler
+    file: vendor/siriusphp/upload/src/Handler.php
+-
+    name: upload.container
+    type: class
+    value: Bolt\Filesystem\UploadContainer
+    file: src/Filesystem/UploadContainer.php
+-
+    name: upload.namespace
+    type: string
+    value: files
+    file: ''
+-
+    name: upload.prefix
+    type: string
+    value: 2016-11/
+    file: ''
+-
+    name: upload.overwrite
+    type: bool
+    value: false
+    file: ''
+-
+    name: filesystem
+    type: class
+    value: Bolt\Filesystem\Manager
+    file: vendor/bolt/filesystem/src/Manager.php
+-
+    name: controller.thumbnails.mount_prefix
+    type: string
+    value: /thumbs
+    file: ''
+-
+    name: controller.thumbnails
+    type: class
+    value: Bolt\Thumbs\Controller
+    file: vendor/bolt/thumbs/src/Controller.php
+-
+    name: thumbnails
+    type: class
+    value: Bolt\Thumbs\Responder
+    file: vendor/bolt/thumbs/src/Responder.php
+-
+    name: thumbnails.creator
+    type: class
+    value: Bolt\Thumbs\Creator
+    file: vendor/bolt/thumbs/src/Creator.php
+-
+    name: thumbnails.finder
+    type: class
+    value: Bolt\Thumbs\Finder
+    file: vendor/bolt/thumbs/src/Finder.php
+-
+    name: thumbnails.filesystems
+    type: array
+    value: ''
+    file: ''
+-
+    name: thumbnails.filesystem_cache
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: thumbnails.cache
+    type: class
+    value: Bolt\Cache
+    file: src/Cache.php
+-
+    name: thumbnails.default_image
+    type: class
+    value: Bolt\Filesystem\Handler\Image
+    file: vendor/bolt/filesystem/src/Handler/Image.php
+-
+    name: thumbnails.default_imagesize
+    type: array
+    value: ''
+    file: ''
+-
+    name: thumbnails.error_image
+    type: class
+    value: Bolt\Filesystem\Handler\Image
+    file: vendor/bolt/filesystem/src/Handler/Image.php
+-
+    name: thumbnails.cache_time
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: thumbnails.limit_upscaling
+    type: bool
+    value: true
+    file: ''
+-
+    name: thumbnails.only_aliases
+    type: bool
+    value: false
+    file: ''
+-
+    name: thumbnails.aliases
+    type: array
+    value: ''
+    file: ''
+-
+    name: thumbnails.save_files
+    type: bool
+    value: false
+    file: ''
+-
+    name: thumbnails.caching
+    type: bool
+    value: true
+    file: ''
+-
+    name: nut
+    type: class
+    value: Bolt\Nut\NutApplication
+    file: src/Nut/NutApplication.php
+-
+    name: nut.commands
+    type: array
+    value: ''
+    file: ''
+-
+    name: nut.commands.add
+    type: closure
+    value: ''
+    file: ''
+-
+    name: guzzle.base_url
+    type: string
+    value: /
+    file: ''
+-
+    name: guzzle.api_version
+    type: int
+    value: 6
+    file: ''
+-
+    name: guzzle.handler_stack
+    type: class
+    value: GuzzleHttp\HandlerStack
+    file: vendor/guzzlehttp/guzzle/src/HandlerStack.php
+-
+    name: guzzle.plugins
+    type: array
+    value: ''
+    file: ''
+-
+    name: guzzle.client
+    type: class
+    value: GuzzleHttp\Client
+    file: vendor/guzzlehttp/guzzle/src/Client.php
+-
+    name: prefill
+    type: class
+    value: Bolt\Storage\Prefill
+    file: src/Storage/Prefill.php
+-
+    name: slugify.regex
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: slugify.options
+    type: array
+    value: ''
+    file: ''
+-
+    name: slugify
+    type: class
+    value: Cocur\Slugify\Slugify
+    file: vendor/cocur/slugify/src/Slugify.php
+-
+    name: markdown
+    type: class
+    value: ParsedownExtra
+    file: vendor/erusev/parsedown-extra/ParsedownExtra.php
+-
+    name: controller.backend.mount_prefix
+    type: string
+    value: /bolt
+    file: ''
+-
+    name: controller.async.mount_prefix
+    type: string
+    value: /async
+    file: ''
+-
+    name: controller.backend.extend.mount_prefix
+    type: string
+    value: /bolt/extend
+    file: ''
+-
+    name: controller.backend.upload.mount_prefix
+    type: string
+    value: /bolt/upload
+    file: ''
+-
+    name: controller.backend.authentication
+    type: class
+    value: Bolt\Controller\Backend\Authentication
+    file: src/Controller/Backend/Authentication.php
+-
+    name: controller.backend.extend
+    type: class
+    value: Bolt\Controller\Backend\Extend
+    file: src/Controller/Backend/Extend.php
+-
+    name: controller.backend.database
+    type: class
+    value: Bolt\Controller\Backend\Database
+    file: src/Controller/Backend/Database.php
+-
+    name: controller.backend.file_manager
+    type: class
+    value: Bolt\Controller\Backend\FileManager
+    file: src/Controller/Backend/FileManager.php
+-
+    name: controller.backend.general
+    type: class
+    value: Bolt\Controller\Backend\General
+    file: src/Controller/Backend/General.php
+-
+    name: controller.backend.log
+    type: class
+    value: Bolt\Controller\Backend\Log
+    file: src/Controller/Backend/Log.php
+-
+    name: controller.backend.records
+    type: class
+    value: Bolt\Controller\Backend\Records
+    file: src/Controller/Backend/Records.php
+-
+    name: controller.backend.upload
+    type: class
+    value: Bolt\Controller\Backend\Upload
+    file: src/Controller/Backend/Upload.php
+-
+    name: controller.backend.users
+    type: class
+    value: Bolt\Controller\Backend\Users
+    file: src/Controller/Backend/Users.php
+-
+    name: controller.async.general
+    type: class
+    value: Bolt\Controller\Async\General
+    file: src/Controller/Async/General.php
+-
+    name: controller.async.filesystem_manager
+    type: class
+    value: Bolt\Controller\Async\FilesystemManager
+    file: src/Controller/Async/FilesystemManager.php
+-
+    name: controller.async.records
+    type: class
+    value: Bolt\Controller\Async\Records
+    file: src/Controller/Async/Records.php
+-
+    name: controller.async.stack
+    type: class
+    value: Bolt\Controller\Async\Stack
+    file: src/Controller/Async/Stack.php
+-
+    name: controller.async.system_checks
+    type: class
+    value: Bolt\Controller\Async\SystemChecks
+    file: src/Controller/Async/SystemChecks.php
+-
+    name: controller.async.widget
+    type: class
+    value: Bolt\Controller\Async\Widget
+    file: src/Controller/Async/Widget.php
+-
+    name: controller.frontend
+    type: class
+    value: Bolt\Controller\Frontend
+    file: src/Controller/Frontend.php
+-
+    name: controller.requirement
+    type: class
+    value: Bolt\Controller\Requirement
+    file: src/Controller/Requirement.php
+-
+    name: controller.requirement.deprecated
+    type: class
+    value: Bolt\Controller\Routing
+    file: src/Controller/Routing.php
+-
+    name: controller.classmap
+    type: array
+    value: ''
+    file: ''
+-
+    name: listener.access_control
+    type: class
+    value: Bolt\EventListener\AccessControlListener
+    file: src/EventListener/AccessControlListener.php
+-
+    name: listener.general
+    type: class
+    value: Bolt\EventListener\GeneralListener
+    file: src/EventListener/GeneralListener.php
+-
+    name: listener.exception
+    type: class
+    value: Bolt\EventListener\ExceptionListener
+    file: src/EventListener/ExceptionListener.php
+-
+    name: listener.not_found
+    type: class
+    value: Bolt\EventListener\NotFoundListener
+    file: src/EventListener/NotFoundListener.php
+-
+    name: listener.redirect
+    type: class
+    value: Bolt\EventListener\RedirectListener
+    file: src/EventListener/RedirectListener.php
+-
+    name: listener.flash_logger
+    type: class
+    value: Bolt\EventListener\FlashLoggerListener
+    file: src/EventListener/FlashLoggerListener.php
+-
+    name: listener.pager
+    type: class
+    value: Bolt\EventListener\PagerListener
+    file: src/EventListener/PagerListener.php
+-
+    name: listener.snippet
+    type: class
+    value: Bolt\EventListener\SnippetListener
+    file: src/EventListener/SnippetListener.php
+-
+    name: listener.zone_guesser
+    type: class
+    value: Bolt\EventListener\ZoneGuesser
+    file: src/EventListener/ZoneGuesser.php
+-
+    name: asset.packages
+    type: class
+    value: Symfony\Component\Asset\Packages
+    file: vendor/symfony/asset/Packages.php
+-
+    name: asset.package_factory
+    type: closure
+    value: ''
+    file: ''
+-
+    name: asset.version_strategy
+    type: closure
+    value: ''
+    file: ''
+-
+    name: asset.context
+    type: class
+    value: Symfony\Component\Asset\Context\RequestStackContext
+    file: vendor/symfony/asset/Context/RequestStackContext.php
+-
+    name: asset.salt.factory
+    type: string
+    value: tui4eBO2dm
+    file: ''
+-
+    name: asset.salt
+    type: string
+    value: 6OnUTEjupo
+    file: ''
+-
+    name: asset.injector
+    type: class
+    value: Bolt\Asset\Injector
+    file: src/Asset/Injector.php
+-
+    name: asset.queue.file
+    type: class
+    value: Bolt\Asset\File\Queue
+    file: src/Asset/File/Queue.php
+-
+    name: asset.queue.snippet
+    type: class
+    value: Bolt\Asset\Snippet\Queue
+    file: src/Asset/Snippet/Queue.php
+-
+    name: asset.queue.widget
+    type: class
+    value: Bolt\Asset\Widget\Queue
+    file: src/Asset/Widget/Queue.php
+-
+    name: asset.queues
+    type: array
+    value: ''
+    file: ''
+-
+    name: form.secret
+    type: string
+    value: dbf521ca491bea4c2fd8320ef6afc3ab
+    file: ''
+-
+    name: form.types
+    type: array
+    value: ''
+    file: ''
+-
+    name: form.type.extensions
+    type: array
+    value: ''
+    file: ''
+-
+    name: form.type.guessers
+    type: array
+    value: ''
+    file: ''
+-
+    name: form.extension.csrf
+    type: class
+    value: Symfony\Component\Form\Extension\Csrf\CsrfExtension
+    file: vendor/symfony/form/Extension/Csrf/CsrfExtension.php
+-
+    name: form.extensions
+    type: array
+    value: ''
+    file: ''
+-
+    name: form.factory
+    type: class
+    value: Symfony\Component\Form\FormFactory
+    file: vendor/symfony/form/FormFactory.php
+-
+    name: form.resolved_type_factory
+    type: class
+    value: Symfony\Component\Form\ResolvedFormTypeFactory
+    file: vendor/symfony/form/ResolvedFormTypeFactory.php
+-
+    name: form.csrf_provider
+    type: class
+    value: Symfony\Component\Security\Csrf\CsrfTokenManager
+    file: vendor/symfony/security/Csrf/CsrfTokenManager.php
+-
+    name: csrf
+    type: class
+    value: Symfony\Component\Security\Csrf\CsrfTokenManager
+    file: vendor/symfony/security/Csrf/CsrfTokenManager.php
+-
+    name: csrf.generator
+    type: class
+    value: Symfony\Component\Security\Csrf\TokenGenerator\UriSafeTokenGenerator
+    file: vendor/symfony/security/Csrf/TokenGenerator/UriSafeTokenGenerator.php
+-
+    name: csrf.generator.entropy
+    type: int
+    value: 256
+    file: ''
+-
+    name: csrf.storage
+    type: class
+    value: Symfony\Component\Security\Csrf\TokenStorage\SessionTokenStorage
+    file: vendor/symfony/security/Csrf/TokenStorage/SessionTokenStorage.php
+-
+    name: swiftmailer.options
+    type: array
+    value: ''
+    file: ''
+-
+    name: swiftmailer.use_spool
+    type: bool
+    value: true
+    file: ''
+-
+    name: mailer.initialized
+    type: bool
+    value: false
+    file: ''
+-
+    name: mailer
+    type: class
+    value: Swift_Mailer
+    file: vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mailer.php
+-
+    name: swiftmailer.spooltransport
+    type: class
+    value: Swift_Transport_SpoolTransport
+    file: vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/SpoolTransport.php
+-
+    name: swiftmailer.spool
+    type: class
+    value: Swift_MemorySpool
+    file: vendor/swiftmailer/swiftmailer/lib/classes/Swift/MemorySpool.php
+-
+    name: swiftmailer.transport
+    type: class
+    value: Swift_Transport_EsmtpTransport
+    file: vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/EsmtpTransport.php
+-
+    name: swiftmailer.transport.buffer
+    type: class
+    value: Swift_Transport_StreamBuffer
+    file: vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/StreamBuffer.php
+-
+    name: swiftmailer.transport.authhandler
+    type: class
+    value: Swift_Transport_Esmtp_AuthHandler
+    file: vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/AuthHandler.php
+-
+    name: swiftmailer.transport.eventdispatcher
+    type: class
+    value: Swift_Events_SimpleEventDispatcher
+    file: vendor/swiftmailer/swiftmailer/lib/classes/Swift/Events/SimpleEventDispatcher.php
+-
+    name: pager
+    type: class
+    value: Bolt\Pager\PagerManager
+    file: src/Pager/PagerManager.php
+-
+    name: paths
+    type: array
+    value: ''
+    file: ''
+-
+    name: ga.config.config
+    type: class
+    value: Bolt\Extension\Bolt\GoogleAnalytics\Config\Config
+    file: extensions/local/bolt/GoogleAnalytics/src/Config/Config.php
+-
+    name: ga.snippet.analytics
+    type: class
+    value: Bolt\Extension\Bolt\GoogleAnalytics\Snippet\AnalyticsSnippet
+    file: extensions/local/bolt/GoogleAnalytics/src/Snippet/AnalyticsSnippet.php
+-
+    name: ga.handler.googleAnalytics
+    type: class
+    value: Bolt\Extension\Bolt\GoogleAnalytics\Handler\GoogleAnalyticsHandler
+    file: extensions/local/bolt/GoogleAnalytics/src/Handler/GoogleAnalyticsHandler.php
+-
+    name: ga.action.statistics
+    type: class
+    value: Bolt\Extension\Bolt\GoogleAnalytics\Action\StatisticsAction
+    file: extensions/local/bolt/GoogleAnalytics/src/Action/StatisticsAction.php
+-
+    name: labels
+    type: class
+    value: Bolt\Extension\Bolt\Labels\Labels
+    file: extensions/vendor/bolt/labels/src/Labels.php
+-
+    name: labels.config
+    type: class
+    value: Bolt\Extension\Bolt\Labels\Config
+    file: extensions/vendor/bolt/labels/src/Config.php
+-
+    name: labels.controller.backend
+    type: class
+    value: Bolt\Extension\Bolt\Labels\Controller\Backend
+    file: extensions/vendor/bolt/labels/src/Controller/Backend.php
+-
+    name: dbs.options
+    type: array
+    value: ''
+    file: ''
+-
+    name: dbs.default
+    type: string
+    value: default
+    file: ''
+-
+    name: twig.form.engine
+    type: class
+    value: Symfony\Bridge\Twig\Form\TwigRendererEngine
+    file: vendor/symfony/twig-bridge/Form/TwigRendererEngine.php
+-
+    name: twig.form.renderer
+    type: class
+    value: Symfony\Bridge\Twig\Form\TwigRenderer
+    file: vendor/symfony/twig-bridge/Form/TwigRenderer.php
