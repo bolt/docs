@@ -1,8 +1,8 @@
 -
     name: logger
     type: class
-    value: Monolog\Logger
-    file: vendor/monolog/monolog/src/Monolog/Logger.php
+    value: Symfony\Bridge\Monolog\Logger
+    file: vendor/symfony/monolog-bridge/Logger.php
 -
     name: routes
     type: class
@@ -111,7 +111,7 @@
 -
     name: bolt_version
     type: string
-    value: 3.1.6
+    value: 3.2.2
     file: ''
 -
     name: bolt_name
@@ -126,7 +126,7 @@
 -
     name: bolt_long_version
     type: string
-    value: 3.1.6
+    value: 3.2.2
     file: ''
 -
     name: deprecated.php
@@ -144,10 +144,40 @@
     value: ''
     file: ''
 -
+    name: filesystem.config
+    type: class
+    value: Bolt\Filesystem\Filesystem
+    file: vendor/bolt/filesystem/src/Filesystem.php
+-
+    name: filesystem.cache
+    type: class
+    value: Bolt\Filesystem\Filesystem
+    file: vendor/bolt/filesystem/src/Filesystem.php
+-
+    name: filesystem.themes
+    type: class
+    value: Bolt\Filesystem\Filesystem
+    file: vendor/bolt/filesystem/src/Filesystem.php
+-
+    name: filesystem.theme
+    type: class
+    value: Bolt\Filesystem\Filesystem
+    file: vendor/bolt/filesystem/src/Filesystem.php
+-
+    name: filesystem
+    type: class
+    value: Bolt\Filesystem\Manager
+    file: vendor/bolt/filesystem/src/Manager.php
+-
     name: schema
     type: class
     value: Bolt\Storage\Database\Schema\Manager
     file: src/Storage/Database/Schema/Manager.php
+-
+    name: schema.lazy
+    type: class
+    value: Bolt\Storage\Database\Schema\LazySchemaManager
+    file: src/Storage/Database/Schema/LazySchemaManager.php
 -
     name: schema.prefix
     type: string
@@ -319,6 +349,21 @@
     value: Bolt\Configuration\Environment
     file: src/Configuration/Environment.php
 -
+    name: config.validator
+    type: class
+    value: Bolt\Configuration\Validation\Validator
+    file: src/Configuration/Validation/Validator.php
+-
+    name: config.listener
+    type: class
+    value: Bolt\EventListener\ConfigListener
+    file: src/EventListener/ConfigListener.php
+-
+    name: config.pre_boot
+    type: bool
+    value: true
+    file: ''
+-
     name: logger.system
     type: class
     value: Monolog\Logger
@@ -344,15 +389,20 @@
     value: Bolt\Logger\Manager
     file: src/Logger/Manager.php
 -
+    name: monolog.handler.debug
+    type: class
+    value: Symfony\Bridge\Monolog\Handler\DebugHandler
+    file: vendor/symfony/monolog-bridge/Handler/DebugHandler.php
+-
     name: monolog.logger.class
     type: string
-    value: Monolog\Logger
+    value: Symfony\Bridge\Monolog\Logger
     file: ''
 -
     name: monolog
     type: class
-    value: Monolog\Logger
-    file: vendor/monolog/monolog/src/Monolog/Logger.php
+    value: Symfony\Bridge\Monolog\Logger
+    file: vendor/symfony/monolog-bridge/Logger.php
 -
     name: monolog.handler
     type: class
@@ -391,8 +441,13 @@
 -
     name: logger.debug
     type: class
-    value: Monolog\Logger
-    file: vendor/monolog/monolog/src/Monolog/Logger.php
+    value: Symfony\Bridge\Monolog\Logger
+    file: vendor/symfony/monolog-bridge/Logger.php
+-
+    name: environment
+    type: string
+    value: development
+    file: ''
 -
     name: editlink
     type: string
@@ -679,11 +734,6 @@
     value: Bolt\Render
     file: src/Render.php
 -
-    name: http_cache
-    type: class
-    value: Silex\HttpCache
-    file: vendor/silex/silex/src/Silex/HttpCache.php
--
     name: http_cache.esi
     type: class
     value: Symfony\Component\HttpKernel\HttpCache\Esi
@@ -700,184 +750,14 @@
     file: vendor/symfony/http-kernel/EventListener/SurrogateListener.php
 -
     name: http_cache.options
-    type: array
+    type: 'null'
     value: ''
     file: ''
 -
     name: http_cache.cache_dir
     type: string
-    value: /Users/bob/Sites/bolt-origin/app/cache
+    value: /Users/bob/Sites/bolt-origin/app/cache/development/http
     file: ''
--
-    name: whoops
-    type: class
-    value: Whoops\Run
-    file: vendor/filp/whoops/src/Whoops/Run.php
--
-    name: whoops.handler
-    type: class
-    value: Whoops\Handler\PlainTextHandler
-    file: vendor/filp/whoops/src/Whoops/Handler/PlainTextHandler.php
--
-    name: whoops.handler.cli
-    type: class
-    value: Whoops\Handler\PlainTextHandler
-    file: vendor/filp/whoops/src/Whoops/Handler/PlainTextHandler.php
--
-    name: whoops.handler.page
-    type: class
-    value: Whoops\Handler\PrettyPageHandler
-    file: vendor/filp/whoops/src/Whoops/Handler/PrettyPageHandler.php
--
-    name: whoops.handler.page.app_info
-    type: closure
-    value: ''
-    file: ''
--
-    name: whoops.handler.page.request_info
-    type: closure
-    value: ''
-    file: ''
--
-    name: whoops.listener
-    type: class
-    value: Bolt\EventListener\WhoopsListener
-    file: src/EventListener/WhoopsListener.php
--
-    name: dump
-    type: closure
-    value: ''
-    file: ''
--
-    name: dumper
-    type: class
-    value: Symfony\Component\VarDumper\Dumper\CliDumper
-    file: vendor/symfony/var-dumper/Dumper/CliDumper.php
--
-    name: dumper.cli
-    type: class
-    value: Symfony\Component\VarDumper\Dumper\CliDumper
-    file: vendor/symfony/var-dumper/Dumper/CliDumper.php
--
-    name: dumper.html
-    type: class
-    value: Symfony\Component\VarDumper\Dumper\HtmlDumper
-    file: vendor/symfony/var-dumper/Dumper/HtmlDumper.php
--
-    name: dumper.cloner
-    type: class
-    value: Symfony\Component\VarDumper\Cloner\VarCloner
-    file: vendor/symfony/var-dumper/Cloner/VarCloner.php
--
-    name: profiler.mount_prefix
-    type: string
-    value: /_profiler
-    file: ''
--
-    name: data_collector.templates
-    type: array
-    value: ''
-    file: ''
--
-    name: data_collectors
-    type: array
-    value: ''
-    file: ''
--
-    name: twig.profiler.profile
-    type: class
-    value: Twig_Profiler_Profile
-    file: vendor/twig/twig/lib/Twig/Profiler/Profile.php
--
-    name: web_profiler.controller.profiler
-    type: class
-    value: Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController
-    file: vendor/symfony/web-profiler-bundle/Controller/ProfilerController.php
--
-    name: web_profiler.controller.router
-    type: class
-    value: Symfony\Bundle\WebProfilerBundle\Controller\RouterController
-    file: vendor/symfony/web-profiler-bundle/Controller/RouterController.php
--
-    name: web_profiler.controller.exception
-    type: class
-    value: Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController
-    file: vendor/symfony/web-profiler-bundle/Controller/ExceptionController.php
--
-    name: web_profiler.toolbar.listener
-    type: class
-    value: Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener
-    file: vendor/symfony/web-profiler-bundle/EventListener/WebDebugToolbarListener.php
--
-    name: profiler
-    type: class
-    value: Symfony\Component\HttpKernel\Profiler\Profiler
-    file: vendor/symfony/http-kernel/Profiler/Profiler.php
--
-    name: profiler.storage
-    type: class
-    value: Symfony\Component\HttpKernel\Profiler\FileProfilerStorage
-    file: vendor/symfony/http-kernel/Profiler/FileProfilerStorage.php
--
-    name: profiler.request_matcher
-    type: 'null'
-    value: ''
-    file: ''
--
-    name: profiler.only_exceptions
-    type: bool
-    value: false
-    file: ''
--
-    name: profiler.only_master_requests
-    type: bool
-    value: false
-    file: ''
--
-    name: web_profiler.debug_toolbar.enable
-    type: bool
-    value: false
-    file: ''
--
-    name: web_profiler.debug_toolbar.position
-    type: string
-    value: bottom
-    file: ''
--
-    name: web_profiler.debug_toolbar.intercept_redirects
-    type: bool
-    value: false
-    file: ''
--
-    name: profiler.listener
-    type: class
-    value: Symfony\Component\HttpKernel\EventListener\ProfilerListener
-    file: vendor/symfony/http-kernel/EventListener/ProfilerListener.php
--
-    name: stopwatch
-    type: class
-    value: Symfony\Component\Stopwatch\Stopwatch
-    file: vendor/symfony/stopwatch/Stopwatch.php
--
-    name: code.file_link_format
-    type: 'null'
-    value: ''
-    file: ''
--
-    name: profiler.templates_path
-    type: string
-    value: /Users/bob/Sites/bolt-origin/vendor/symfony/web-profiler-bundle/Resources/views
-    file: ''
--
-    name: profiler.cache_dir
-    type: string
-    value: /Users/bob/Sites/bolt-origin/app/cache/profiler
-    file: ''
--
-    name: db.logger
-    type: class
-    value: Doctrine\DBAL\Logging\DebugStack
-    file: vendor/doctrine/dbal/lib/Doctrine/DBAL/Logging/DebugStack.php
 -
     name: db.default_options
     type: array
@@ -1064,6 +944,11 @@
     value: Bolt\Storage\ContentLegacyService
     file: src/Storage/ContentLegacyService.php
 -
+    name: storage.lazy
+    type: class
+    value: Bolt\Storage\LazyEntityManager
+    file: src/Storage/LazyEntityManager.php
+-
     name: storage
     type: class
     value: Bolt\Storage\EntityManager
@@ -1114,6 +999,16 @@
     value: Bolt\Storage\Mapping\MetadataDriver
     file: src/Storage/Mapping/MetadataDriver.php
 -
+    name: storage.config.contenttypes
+    type: class
+    value: Bolt\Configuration\ConfigurationValueProxy
+    file: src/Configuration/ConfigurationValueProxy.php
+-
+    name: storage.config.taxonomy
+    type: class
+    value: Bolt\Configuration\ConfigurationValueProxy
+    file: src/Configuration/ConfigurationValueProxy.php
+-
     name: storage.relations_collection
     type: closure
     value: ''
@@ -1153,6 +1048,11 @@
     type: class
     value: Bolt\EventListener\StorageEventListener
     file: src/EventListener/StorageEventListener.php
+-
+    name: storage.event_processor.timed
+    type: class
+    value: Bolt\Storage\EventProcessor\TimedRecord
+    file: src/Storage/EventProcessor/TimedRecord.php
 -
     name: storage.namingstrategy
     type: class
@@ -1266,7 +1166,7 @@
 -
     name: extend.online
     type: bool
-    value: false
+    value: true
     file: ''
 -
     name: extend.enabled
@@ -1389,6 +1289,11 @@
     value: Bolt\Menu\MenuBuilder
     file: src/Menu/MenuBuilder.php
 -
+    name: menu.admin
+    type: class
+    value: Bolt\Menu\MenuEntry
+    file: src/Menu/MenuEntry.php
+-
     name: upload
     type: class
     value: Sirius\Upload\Handler
@@ -1413,11 +1318,6 @@
     type: bool
     value: false
     file: ''
--
-    name: filesystem
-    type: class
-    value: Bolt\Filesystem\Manager
-    file: vendor/bolt/filesystem/src/Manager.php
 -
     name: controller.thumbnails.mount_prefix
     type: string
@@ -1486,7 +1386,7 @@
 -
     name: thumbnails.only_aliases
     type: bool
-    value: false
+    value: true
     file: ''
 -
     name: thumbnails.aliases
@@ -1664,6 +1564,11 @@
     value: Bolt\Controller\Async\Widget
     file: src/Controller/Async/Widget.php
 -
+    name: controller.exception
+    type: class
+    value: Bolt\Controller\Exception
+    file: src/Controller/Exception.php
+-
     name: controller.frontend
     type: class
     value: Bolt\Controller\Frontend
@@ -1751,7 +1656,7 @@
 -
     name: asset.salt.factory
     type: string
-    value: tui4eBO2dm
+    value: VV0mUA3Vhu
     file: ''
 -
     name: asset.salt
@@ -1821,8 +1726,8 @@
 -
     name: form.resolved_type_factory
     type: class
-    value: Symfony\Component\Form\ResolvedFormTypeFactory
-    file: vendor/symfony/form/ResolvedFormTypeFactory.php
+    value: Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy
+    file: vendor/symfony/form/Extension/DataCollector/Proxy/ResolvedTypeFactoryDataCollectorProxy.php
 -
     name: form.csrf_provider
     type: class
@@ -1909,6 +1814,146 @@
     value: ''
     file: ''
 -
+    name: stopwatch
+    type: class
+    value: Symfony\Component\Stopwatch\Stopwatch
+    file: vendor/symfony/stopwatch/Stopwatch.php
+-
+    name: dump
+    type: closure
+    value: ''
+    file: ''
+-
+    name: dumper
+    type: class
+    value: Symfony\Component\VarDumper\Dumper\CliDumper
+    file: vendor/symfony/var-dumper/Dumper/CliDumper.php
+-
+    name: dumper.cli
+    type: class
+    value: Symfony\Component\VarDumper\Dumper\CliDumper
+    file: vendor/symfony/var-dumper/Dumper/CliDumper.php
+-
+    name: dumper.html
+    type: class
+    value: Symfony\Component\VarDumper\Dumper\HtmlDumper
+    file: vendor/symfony/var-dumper/Dumper/HtmlDumper.php
+-
+    name: dumper.cloner
+    type: class
+    value: Symfony\Component\VarDumper\Cloner\VarCloner
+    file: vendor/symfony/var-dumper/Cloner/VarCloner.php
+-
+    name: profiler.mount_prefix
+    type: string
+    value: /_profiler
+    file: ''
+-
+    name: data_collector.templates
+    type: array
+    value: ''
+    file: ''
+-
+    name: data_collectors
+    type: array
+    value: ''
+    file: ''
+-
+    name: data_collectors.form.extractor
+    type: class
+    value: Symfony\Component\Form\Extension\DataCollector\FormDataExtractor
+    file: vendor/symfony/form/Extension/DataCollector/FormDataExtractor.php
+-
+    name: twig.profiler.profile
+    type: class
+    value: Twig_Profiler_Profile
+    file: vendor/twig/twig/lib/Twig/Profiler/Profile.php
+-
+    name: web_profiler.controller.profiler
+    type: class
+    value: Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController
+    file: vendor/symfony/web-profiler-bundle/Controller/ProfilerController.php
+-
+    name: web_profiler.controller.router
+    type: class
+    value: Symfony\Bundle\WebProfilerBundle\Controller\RouterController
+    file: vendor/symfony/web-profiler-bundle/Controller/RouterController.php
+-
+    name: web_profiler.controller.exception
+    type: class
+    value: Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController
+    file: vendor/symfony/web-profiler-bundle/Controller/ExceptionController.php
+-
+    name: web_profiler.toolbar.listener
+    type: class
+    value: Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener
+    file: vendor/symfony/web-profiler-bundle/EventListener/WebDebugToolbarListener.php
+-
+    name: profiler
+    type: class
+    value: Symfony\Component\HttpKernel\Profiler\Profiler
+    file: vendor/symfony/http-kernel/Profiler/Profiler.php
+-
+    name: profiler.storage
+    type: class
+    value: Symfony\Component\HttpKernel\Profiler\FileProfilerStorage
+    file: vendor/symfony/http-kernel/Profiler/FileProfilerStorage.php
+-
+    name: profiler.request_matcher
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: profiler.only_exceptions
+    type: bool
+    value: false
+    file: ''
+-
+    name: profiler.only_master_requests
+    type: bool
+    value: false
+    file: ''
+-
+    name: web_profiler.debug_toolbar.enable
+    type: bool
+    value: false
+    file: ''
+-
+    name: web_profiler.debug_toolbar.position
+    type: string
+    value: bottom
+    file: ''
+-
+    name: web_profiler.debug_toolbar.intercept_redirects
+    type: bool
+    value: false
+    file: ''
+-
+    name: profiler.listener
+    type: class
+    value: Symfony\Component\HttpKernel\EventListener\ProfilerListener
+    file: vendor/symfony/http-kernel/EventListener/ProfilerListener.php
+-
+    name: code.file_link_format
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: profiler.templates_path
+    type: string
+    value: /Users/bob/Sites/bolt-origin/vendor/symfony/web-profiler-bundle/Resources/views
+    file: ''
+-
+    name: profiler.cache_dir
+    type: string
+    value: /Users/bob/Sites/bolt-origin/app/cache/profiler
+    file: ''
+-
+    name: db.logger
+    type: class
+    value: Doctrine\DBAL\Logging\DebugStack
+    file: vendor/doctrine/dbal/lib/Doctrine/DBAL/Logging/DebugStack.php
+-
     name: ga.config.config
     type: class
     value: Bolt\Extension\Bolt\GoogleAnalytics\Config\Config
@@ -1944,16 +1989,6 @@
     value: Bolt\Extension\Bolt\Labels\Controller\Backend
     file: extensions/vendor/bolt/labels/src/Controller/Backend.php
 -
-    name: dbs.options
-    type: array
-    value: ''
-    file: ''
--
-    name: dbs.default
-    type: string
-    value: default
-    file: ''
--
     name: twig.form.engine
     type: class
     value: Symfony\Bridge\Twig\Form\TwigRendererEngine
@@ -1963,3 +1998,13 @@
     type: class
     value: Symfony\Bridge\Twig\Form\TwigRenderer
     file: vendor/symfony/twig-bridge/Form/TwigRenderer.php
+-
+    name: dbs.options
+    type: array
+    value: ''
+    file: ''
+-
+    name: dbs.default
+    type: string
+    value: default
+    file: ''
