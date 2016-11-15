@@ -111,22 +111,22 @@
 -
     name: bolt_version
     type: string
-    value: 3.2.2
+    value: '3.3.0 alpha 5'
     file: ''
 -
     name: bolt_name
-    type: 'null'
-    value: ''
+    type: string
+    value: alpha
     file: ''
 -
     name: bolt_released
     type: bool
-    value: true
+    value: false
     file: ''
 -
     name: bolt_long_version
     type: string
-    value: 3.2.2
+    value: '3.3.0 alpha 5'
     file: ''
 -
     name: deprecated.php
@@ -168,6 +168,21 @@
     type: class
     value: Bolt\Filesystem\Manager
     file: vendor/bolt/filesystem/src/Manager.php
+-
+    name: filesystem.plugin.url
+    type: class
+    value: Bolt\Filesystem\Plugin\AssetUrl
+    file: src/Filesystem/Plugin/AssetUrl.php
+-
+    name: filesystem.matcher
+    type: class
+    value: Bolt\Filesystem\Matcher
+    file: src/Filesystem/Matcher.php
+-
+    name: filesystem.matcher.mount_points
+    type: array
+    value: ''
+    file: ''
 -
     name: schema
     type: class
@@ -684,6 +699,11 @@
     value: Bolt\Twig\Handler\RecordHandler
     file: src/Twig/Handler/RecordHandler.php
 -
+    name: 'twig.handlers -&gt; routing'
+    type: class
+    value: Bolt\Twig\Handler\RoutingHandler
+    file: src/Twig/Handler/RoutingHandler.php
+-
     name: 'twig.handlers -&gt; text'
     type: class
     value: Bolt\Twig\Handler\TextHandler
@@ -734,6 +754,11 @@
     value: Bolt\Render
     file: src/Render.php
 -
+    name: http_cache
+    type: class
+    value: Silex\HttpCache
+    file: vendor/silex/silex/src/Silex/HttpCache.php
+-
     name: http_cache.esi
     type: class
     value: Symfony\Component\HttpKernel\HttpCache\Esi
@@ -750,7 +775,7 @@
     file: vendor/symfony/http-kernel/EventListener/SurrogateListener.php
 -
     name: http_cache.options
-    type: 'null'
+    type: array
     value: ''
     file: ''
 -
@@ -926,8 +951,8 @@
 -
     name: randomgenerator
     type: class
-    value: RandomLib\Generator
-    file: vendor/ircmaxell/random-lib/lib/RandomLib/Generator.php
+    value: Bolt\Security\Random\Generator
+    file: src/Security/Random/Generator.php
 -
     name: permissions
     type: class
@@ -1268,6 +1293,11 @@
     type: class
     value: Bolt\Stack
     file: src/Stack.php
+-
+    name: omnisearch
+    type: class
+    value: Bolt\Omnisearch
+    file: src/Omnisearch.php
 -
     name: templatechooser
     type: class
@@ -1639,6 +1669,11 @@
     value: Symfony\Component\Asset\Packages
     file: vendor/symfony/asset/Packages.php
 -
+    name: asset.package.bolt
+    type: class
+    value: Bolt\Asset\UnprefixedPathPackage
+    file: src/Asset/UnprefixedPathPackage.php
+-
     name: asset.package_factory
     type: closure
     value: ''
@@ -1656,7 +1691,7 @@
 -
     name: asset.salt.factory
     type: string
-    value: VV0mUA3Vhu
+    value: 2c64f33936
     file: ''
 -
     name: asset.salt
@@ -1809,10 +1844,15 @@
     value: Bolt\Pager\PagerManager
     file: src/Pager/PagerManager.php
 -
+    name: canonical
+    type: class
+    value: Bolt\Canonical
+    file: src/Canonical.php
+-
     name: paths
-    type: array
-    value: ''
-    file: ''
+    type: class
+    value: Bolt\Configuration\PathsProxy
+    file: src/Configuration/PathsProxy.php
 -
     name: stopwatch
     type: class
@@ -1953,26 +1993,6 @@
     type: class
     value: Doctrine\DBAL\Logging\DebugStack
     file: vendor/doctrine/dbal/lib/Doctrine/DBAL/Logging/DebugStack.php
--
-    name: ga.config.config
-    type: class
-    value: Bolt\Extension\Bolt\GoogleAnalytics\Config\Config
-    file: extensions/local/bolt/GoogleAnalytics/src/Config/Config.php
--
-    name: ga.snippet.analytics
-    type: class
-    value: Bolt\Extension\Bolt\GoogleAnalytics\Snippet\AnalyticsSnippet
-    file: extensions/local/bolt/GoogleAnalytics/src/Snippet/AnalyticsSnippet.php
--
-    name: ga.handler.googleAnalytics
-    type: class
-    value: Bolt\Extension\Bolt\GoogleAnalytics\Handler\GoogleAnalyticsHandler
-    file: extensions/local/bolt/GoogleAnalytics/src/Handler/GoogleAnalyticsHandler.php
--
-    name: ga.action.statistics
-    type: class
-    value: Bolt\Extension\Bolt\GoogleAnalytics\Action\StatisticsAction
-    file: extensions/local/bolt/GoogleAnalytics/src/Action/StatisticsAction.php
 -
     name: labels
     type: class
