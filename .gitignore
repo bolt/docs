@@ -1,6 +1,7 @@
 vendor/
 composer.phar
 /var/cache/*
+/web/api/*
 .idea/
 .DS_*
 node_modules
