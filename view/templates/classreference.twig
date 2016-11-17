@@ -16,7 +16,7 @@
         {% for class in classes if class.type in ['class', 'closure', 'container'] -%}
             {% if class.type == 'class' and class.file|slice(0, 4) == 'src/' %}
                 {% set filename = class.value|replace({'\\': '/'}) %}
-                {% set link = '<a href="https://dev.bolt.cm/docs/api/release/' ~ version ~ '/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
+                {% set link = '<a href="/api/release/' ~ version ~ '/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
             {% else %}
                 {% set link = class.file %}
             {% endif %}
