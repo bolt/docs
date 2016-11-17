@@ -6,7 +6,7 @@ Updating / Upgrading Bolt
 
 <p class="note"><strong>Note:</strong> This page is for updating an existing
 Bolt 3 installation. If you are updating from Bolt 2.2, see <a href='moving-22-30'>
-Upgrading a site from version 2.2 to 3.0</a> instead.</p>
+Upgrading a site from version 2.2 to %%VERSION%%</a> instead.</p>
 
 As with all web-based applications, it's good practice to keep your site up to
 date with the latest version. Bolt is built in such a way, that none of the

@@ -4,16 +4,22 @@ title: "Starting fresh (basic)"
 Setting up a fresh Bolt 3.0, moving content
 ===========================================
 
-This page describes the process of setting up a fresh Bolt 3.0 install, and moving over all of your existing configuration, data, themes and uploaded media.
+This page describes the process of setting up a fresh Bolt %%VERSION%% install,
+and moving over all of your existing configuration, data, themes and uploaded
+media.
 
-Depending on how heavily customised your Bolt install is, you might need to take additional steps into account. The [advanced upgrade guide][advanced] can be found here.
+Depending on how heavily customised your Bolt install is, you might need to
+take additional steps into account. The [advanced upgrade guide][advanced] can
+be found here.
 
-Before you start, make sure you've made the preparations, as described [here](moving-22-30).
+Before you start, make sure you've made the preparations, as described
+[here](moving-22-30).
 
 Setting up Bolt 3
 -----------------
 
-Follow the instructions on how to [Install Bolt 3][cli]. You can pick any of the mentioned methods, but we suggest using the simplest installation.
+Follow the instructions on how to [Install Bolt 3][cli]. You can pick any of
+the mentioned methods, but we suggest using the simplest installation.
 
 When you have a working install, move on to the next section
 
@@ -49,8 +55,9 @@ everything is still in working order.
 Routing
 -------
 
-The Bolt 2.2 routing file is not compatible with Bolt 3. If you've made
-modifications to this file, you'll need to make them again in the new format.
+The Bolt 2.2 routing file is not compatible with Bolt %%VERSION%%. If you've
+made modifications to this file, you'll need to make them again in the new
+format.
 
 Just open the file, and you'll see what the changes are. Consult the
 documentation on [Routing][routing] for details.
@@ -76,10 +83,11 @@ Your Theme
 ----------
 
 The copied theme should work 'as is', unless you have modifications for a
-specific extension that is not yet fully supported by Bolt 3.0. If this is the
-case, you'll notice when you try to view the frontend of the website.
+specific extension that is not yet fully supported by Bolt %%VERSION%%. If this
+is the case, you'll notice when you try to view the frontend of the website.
 
-That concludes these steps. You should now have a fully working Bolt 3 website.
+That concludes these steps. You should now have a fully working Bolt
+%%VERSION%% website.
 
 [cli]: ../installation/install-command-line
 [routing]: ../templating/templates-routes#routing

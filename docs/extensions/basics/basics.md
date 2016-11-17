@@ -123,7 +123,7 @@ Below is an sample file based on our extension's example.
     "type": "bolt-extension",
     "keywords": ["koala", "dropbear"],
     "require": {
-        "bolt/bolt": "^3.0"
+        "bolt/bolt": "^%%VERSION%%"
     },
     "license": "MIT",
     "authors": [
