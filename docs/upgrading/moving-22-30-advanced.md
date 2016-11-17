@@ -6,8 +6,8 @@ Converting an existing 2.2 install
 ==================================
 
 This page describes the process of converting an existing Bolt 2.2 install to
-Bolt 3.0. Use this method if you're running a non-default Bolt installation,
-like a customized Composer install.
+Bolt %%VERSION%%. Use this method if you're running a non-default Bolt
+installation, like a customized Composer install.
 
 If you're running a default Bolt 2.2 install, see [this](moving-22-30-advanced).
 
@@ -19,7 +19,7 @@ Getting the latest version via composer
 Go to your `composer.json` file in the root of your project and make the following modifications to the `require:` block.
 
 ```
-"bolt/bolt": "^3.0",
+"bolt/bolt": "^%%VERSION%%",
 "bolt/filesystem": "^2.0",
 "bolt/thumbs": "^3.0",
 ```
@@ -46,7 +46,7 @@ Finally you will need to ensure the `scripts` section contains the following eve
 ```
 
 Once this is complete, run `composer update` to get the latest versions. The command should run and you'll now be running
-on Bolt 3.0.
+on Bolt %%VERSION%%.
 
 Getting the latest version via download
 ----------------------------------------
@@ -57,10 +57,12 @@ the latest version installed you can return to this page.
 Disabling your extensions
 -------------------------
 
-You'll need to use a command-line to do this part. Since extensions aren't compatible between major versions of Bolt
-we'll need to disable all the current ones and then later in the process we can install ones that have a version
-compatible with version 3.0. If you haven't done already it may be a good idea to keep a note of which extensions
-you had installed, an easy way to see this is by looking in the `require` section of `extensions/composer.json`.
+You'll need to use a command-line to do this part. Since extensions aren't
+compatible between major versions of Bolt we'll need to disable all the current
+ones and then later in the process we can install ones that have a version
+compatible with version %%VERSION%%. If you haven't done already it may be a
+good idea to keep a note of which extensions you had installed, an easy way to
+see this is by looking in the `require` section of `extensions/composer.json`.
 
 From within your extensions directory run the following two commands.
 
@@ -78,13 +80,17 @@ extension installed and working.
 
 Updating Other Files
 -------------------------
-Bolt 3 has a couple other files that won't get automatically updated by Composer. First, you'll need to remove `nut` and make a symlink to the one included with Bolt 3:
+Bolt %%VERSION%% has a couple other files that won't get automatically updated
+by Composer. First, you'll need to remove `nut` and make a symlink to the one
+included with Bolt 3:
+
 ```bash
 rm app/nut
 ln -s vendor/bolt/bolt/app/nut
 ```
 
-Bolt 3 also expects a .bolt.yml file. Create this file in the project root:
+Bolt 3 also expects a `.bolt.yml` file. Create this file in the project root:
+
 ```yml
 paths:
     cache: app/cache
@@ -97,6 +103,7 @@ paths:
 ```
 
 index.php has also changed, so update accordingly:
+
 ```php
 <?php
 
@@ -117,7 +124,7 @@ $app->run();
 Updating your Controllers
 -------------------------
 
-Bolt 3.0 has seen a major refactor and simplification of the Request ->
+Bolt %%VERSION%% has seen a major refactor and simplification of the Request ->
 Dispatch -> Controller code so if your site uses a custom controller this is
 likely to be the first set of errors you will run into.
 
@@ -216,7 +223,7 @@ method. You will need to make sure that this mounted service implements
 
 ### Console
 
-The console service has been removed in Bolt 3.0 if you see an error like:
+The console service has been removed in Bolt %%VERSION%% if you see an error like:
 
 ```
 Error: Uncaught exception 'InvalidArgumentException' with message 'Identifier
