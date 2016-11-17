@@ -21,7 +21,7 @@ php app/nut init
 If all goes well, you'll be greeted by the following:
 
 ```bash
-Welcome to Bolt! - version 3.3.0.
+Welcome to Bolt! - version %%VERSION%%.0.
 ```
 
 If this set of commands didn't work because your server doesn't have `curl`, use `wget`
