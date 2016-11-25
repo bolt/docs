@@ -49,7 +49,7 @@ blocks:
             extensions: [ gif, jpg, png ]
     show_on_dashboard: false
     viewless: true
-    default_status: publish
+    default_status: published
     searchable: false
     icon_many: "fa:cubes"
     icon_one: "fa:cube"
@@ -122,7 +122,7 @@ contenttypes:
 ```
 
 This will limit edit, create, (de)publish, delete and view access to only those
-with the `root` and `developer` roles.
+with the `root` and `chief-editor` roles.
 
 Accessing Resource Records in Templates
 ---------------------------------------
