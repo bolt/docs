@@ -23,8 +23,6 @@ The following events are dispatched and can be listened for, or subscribed to:
   * `\Bolt\Events\CronEvents::CRON_YEARLY`
   * `\Bolt\Events\StorageEvents::PRE_SAVE`
   * `\Bolt\Events\StorageEvents::POST_SAVE`
-  * `\Bolt\Events\StorageEvents::PRE_INSERT`
-  * `\Bolt\Events\StorageEvents::POST_INSERT`
   * `\Bolt\Events\StorageEvents::PRE_DELETE`
   * `\Bolt\Events\StorageEvents::POST_DELETE`
   * `\Bolt\Events\StorageEvents::PRE_HYDRATE`
