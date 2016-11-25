@@ -122,7 +122,7 @@ contenttypes:
 ```
 
 This will limit edit, create, (de)publish, delete and view access to only those
-with the `root` and `developer` roles.
+with the `root` and `chief-editor` roles.
 
 Accessing Resource Records in Templates
 ---------------------------------------
