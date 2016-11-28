@@ -684,6 +684,11 @@
     value: Bolt\Twig\Handler\RecordHandler
     file: src/Twig/Handler/RecordHandler.php
 -
+    name: 'twig.handlers -&gt; routing'
+    type: class
+    value: Bolt\Twig\Handler\RoutingHandler
+    file: src/Twig/Handler/RoutingHandler.php
+-
     name: 'twig.handlers -&gt; text'
     type: class
     value: Bolt\Twig\Handler\TextHandler
@@ -714,6 +719,11 @@
     value: Symfony\Bridge\Twig\Extension\AssetExtension
     file: vendor/symfony/twig-bridge/Extension/AssetExtension.php
 -
+    name: twig.extension.http_foundation
+    type: class
+    value: Symfony\Bridge\Twig\Extension\HttpFoundationExtension
+    file: vendor/symfony/twig-bridge/Extension/HttpFoundationExtension.php
+-
     name: safe_twig.bolt_extension
     type: class
     value: Bolt\Twig\TwigExtension
@@ -734,6 +744,11 @@
     value: Bolt\Render
     file: src/Render.php
 -
+    name: http_cache
+    type: class
+    value: Silex\HttpCache
+    file: vendor/silex/silex/src/Silex/HttpCache.php
+-
     name: http_cache.esi
     type: class
     value: Symfony\Component\HttpKernel\HttpCache\Esi
@@ -750,7 +765,7 @@
     file: vendor/symfony/http-kernel/EventListener/SurrogateListener.php
 -
     name: http_cache.options
-    type: 'null'
+    type: array
     value: ''
     file: ''
 -
@@ -1166,7 +1181,7 @@
 -
     name: extend.online
     type: bool
-    value: true
+    value: false
     file: ''
 -
     name: extend.enabled
@@ -1268,6 +1283,11 @@
     type: class
     value: Bolt\Stack
     file: src/Stack.php
+-
+    name: omnisearch
+    type: class
+    value: Bolt\Omnisearch
+    file: src/Omnisearch.php
 -
     name: templatechooser
     type: class
@@ -1656,7 +1676,7 @@
 -
     name: asset.salt.factory
     type: string
-    value: VV0mUA3Vhu
+    value: HFqH/gDkcW
     file: ''
 -
     name: asset.salt
@@ -1953,41 +1973,6 @@
     type: class
     value: Doctrine\DBAL\Logging\DebugStack
     file: vendor/doctrine/dbal/lib/Doctrine/DBAL/Logging/DebugStack.php
--
-    name: ga.config.config
-    type: class
-    value: Bolt\Extension\Bolt\GoogleAnalytics\Config\Config
-    file: extensions/local/bolt/GoogleAnalytics/src/Config/Config.php
--
-    name: ga.snippet.analytics
-    type: class
-    value: Bolt\Extension\Bolt\GoogleAnalytics\Snippet\AnalyticsSnippet
-    file: extensions/local/bolt/GoogleAnalytics/src/Snippet/AnalyticsSnippet.php
--
-    name: ga.handler.googleAnalytics
-    type: class
-    value: Bolt\Extension\Bolt\GoogleAnalytics\Handler\GoogleAnalyticsHandler
-    file: extensions/local/bolt/GoogleAnalytics/src/Handler/GoogleAnalyticsHandler.php
--
-    name: ga.action.statistics
-    type: class
-    value: Bolt\Extension\Bolt\GoogleAnalytics\Action\StatisticsAction
-    file: extensions/local/bolt/GoogleAnalytics/src/Action/StatisticsAction.php
--
-    name: labels
-    type: class
-    value: Bolt\Extension\Bolt\Labels\Labels
-    file: extensions/vendor/bolt/labels/src/Labels.php
--
-    name: labels.config
-    type: class
-    value: Bolt\Extension\Bolt\Labels\Config
-    file: extensions/vendor/bolt/labels/src/Config.php
--
-    name: labels.controller.backend
-    type: class
-    value: Bolt\Extension\Bolt\Labels\Controller\Backend
-    file: extensions/vendor/bolt/labels/src/Controller/Backend.php
 -
     name: twig.form.engine
     type: class
