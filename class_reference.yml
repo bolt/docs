@@ -734,6 +734,11 @@
     value: Symfony\Bridge\Twig\Extension\AssetExtension
     file: vendor/symfony/twig-bridge/Extension/AssetExtension.php
 -
+    name: twig.extension.http_foundation
+    type: class
+    value: Symfony\Bridge\Twig\Extension\HttpFoundationExtension
+    file: vendor/symfony/twig-bridge/Extension/HttpFoundationExtension.php
+-
     name: safe_twig.bolt_extension
     type: class
     value: Bolt\Twig\TwigExtension
@@ -1191,7 +1196,7 @@
 -
     name: extend.online
     type: bool
-    value: true
+    value: false
     file: ''
 -
     name: extend.enabled
@@ -1691,7 +1696,7 @@
 -
     name: asset.salt.factory
     type: string
-    value: 2c64f33936
+    value: HFqH/gDkcW
     file: ''
 -
     name: asset.salt
@@ -1993,21 +1998,6 @@
     type: class
     value: Doctrine\DBAL\Logging\DebugStack
     file: vendor/doctrine/dbal/lib/Doctrine/DBAL/Logging/DebugStack.php
--
-    name: labels
-    type: class
-    value: Bolt\Extension\Bolt\Labels\Labels
-    file: extensions/vendor/bolt/labels/src/Labels.php
--
-    name: labels.config
-    type: class
-    value: Bolt\Extension\Bolt\Labels\Config
-    file: extensions/vendor/bolt/labels/src/Config.php
--
-    name: labels.controller.backend
-    type: class
-    value: Bolt\Extension\Bolt\Labels\Controller\Backend
-    file: extensions/vendor/bolt/labels/src/Controller/Backend.php
 -
     name: twig.form.engine
     type: class
