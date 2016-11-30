@@ -42,7 +42,7 @@ permissions you don't want them to have. Two important considerations:
     `edit users` permission, unless you trust them fully!!**
 
 
-The `permissions.yml` File Format
+The permissions.yml File Format
 ---------------------------------
 
 `permissions.yml`, like all of Bolt's configuration, is a YAML file, and the
