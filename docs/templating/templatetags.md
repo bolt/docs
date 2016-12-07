@@ -771,33 +771,6 @@ Examples:
 {% endif %}
 ```
 
-
-### defined (for extensions)
-
-Use this test to determine if a certain extension is available. You
-can use this in your themes, where it's not apparent whether or not the user
-will have a certain extension installed.
-
-Examples:
-
-```twig
-{% if FacebookLike is defined %}
-    {{ facebooklike() }}
-{% endif %}
-```
-
-You can use this, to output a friendly warning to users of the templates:
-
-```twig
-{% if BoltForms is defined %}
-    {{ boltforms('contact') }}
-{% else %}
-    <p>Warning: This theme suggests you install the 'Bolt Forms' extension.</p>
-{% endif %}
-```
-
-<p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must use the <b>name</b> of the extension. Don't add quotes!</p>
-
 [twig]: http://twig.sensiolabs.org/doc/templates.html
 [inc]: http://twig.sensiolabs.org/doc/functions/include.html
 [inheritance]: http://twig.sensiolabs.org/doc/templates.html#template-inheritance
