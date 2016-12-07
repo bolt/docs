@@ -177,6 +177,8 @@ something like this:
 {% endif %}
 ```
 
+If you are displaying a listing, you can gain access to the taxonomy name by using `{{ slug }}`.
+
 Displaying all used taxonomies
 ------------------------------
 
