@@ -82,6 +82,10 @@ becomes:
 
 {{ record.image|thumbnail('teaser') }}
 ```
+### Autoscaling
+
+To scale the image proportionally to a given width or height, set the other dimension to zero,
+and set cropping mode to resize. e.g. `[400, 0]` for an image 400 wide.
 
 For further examples on how to use the thumbnail alias with your code, please
 see the [template tag documentation][].
