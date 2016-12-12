@@ -111,7 +111,7 @@
 -
     name: bolt_version
     type: string
-    value: '3.3.0 alpha 5'
+    value: '3.3.0 alpha 7'
     file: ''
 -
     name: bolt_name
@@ -126,7 +126,7 @@
 -
     name: bolt_long_version
     type: string
-    value: '3.3.0 alpha 5'
+    value: '3.3.0 alpha 7'
     file: ''
 -
     name: deprecated.php
@@ -134,10 +134,145 @@
     value: false
     file: ''
 -
+    name: environment
+    type: string
+    value: development
+    file: ''
+-
+    name: extensions
+    type: class
+    value: Bolt\Extension\Manager
+    file: src/Extension/Manager.php
+-
+    name: extensions.stats
+    type: class
+    value: Bolt\Composer\Satis\StatService
+    file: src/Composer/Satis/StatService.php
+-
+    name: extend.site
+    type: string
+    value: 'https://extensions.bolt.cm/'
+    file: ''
+-
+    name: extend.repo
+    type: string
+    value: 'https://extensions.bolt.cm/list.json'
+    file: ''
+-
+    name: extend.urls
+    type: array
+    value: ''
+    file: ''
+-
+    name: extend.online
+    type: bool
+    value: false
+    file: ''
+-
+    name: extend.enabled
+    type: bool
+    value: true
+    file: ''
+-
+    name: extend.writeable
+    type: bool
+    value: true
+    file: ''
+-
+    name: extend.manager
+    type: class
+    value: Bolt\Composer\PackageManager
+    file: src/Composer/PackageManager.php
+-
+    name: extend.manager.json
+    type: class
+    value: Bolt\Composer\JsonManager
+    file: src/Composer/JsonManager.php
+-
+    name: extend.listener
+    type: class
+    value: Bolt\Composer\EventListener\BufferIOListener
+    file: src/Composer/EventListener/BufferIOListener.php
+-
+    name: extend.info
+    type: class
+    value: Bolt\Composer\Satis\QueryService
+    file: src/Composer/Satis/QueryService.php
+-
+    name: 'extend.action -&gt; autoload'
+    type: class
+    value: Bolt\Composer\Action\DumpAutoload
+    file: src/Composer/Action/DumpAutoload.php
+-
+    name: 'extend.action -&gt; check'
+    type: class
+    value: Bolt\Composer\Action\CheckPackage
+    file: src/Composer/Action/CheckPackage.php
+-
+    name: 'extend.action -&gt; depends'
+    type: class
+    value: Bolt\Composer\Action\DependsPackage
+    file: src/Composer/Action/DependsPackage.php
+-
+    name: 'extend.action -&gt; install'
+    type: class
+    value: Bolt\Composer\Action\InstallPackage
+    file: src/Composer/Action/InstallPackage.php
+-
+    name: 'extend.action -&gt; prohibits'
+    type: class
+    value: Bolt\Composer\Action\ProhibitsPackage
+    file: src/Composer/Action/ProhibitsPackage.php
+-
+    name: 'extend.action -&gt; remove'
+    type: class
+    value: Bolt\Composer\Action\RemovePackage
+    file: src/Composer/Action/RemovePackage.php
+-
+    name: 'extend.action -&gt; require'
+    type: class
+    value: Bolt\Composer\Action\RequirePackage
+    file: src/Composer/Action/RequirePackage.php
+-
+    name: 'extend.action -&gt; search'
+    type: class
+    value: Bolt\Composer\Action\SearchPackage
+    file: src/Composer/Action/SearchPackage.php
+-
+    name: 'extend.action -&gt; show'
+    type: class
+    value: Bolt\Composer\Action\ShowPackage
+    file: src/Composer/Action/ShowPackage.php
+-
+    name: 'extend.action -&gt; update'
+    type: class
+    value: Bolt\Composer\Action\UpdatePackage
+    file: src/Composer/Action/UpdatePackage.php
+-
+    name: extend.action
+    type: container
+    value: '<em>(array, see children below)</em>'
+    file: ''
+-
+    name: extend.action.io
+    type: class
+    value: Composer\IO\BufferIO
+    file: vendor/composer/composer/src/Composer/IO/BufferIO.php
+-
+    name: extend.action.options
+    type: class
+    value: Bolt\Composer\Action\Options
+    file: src/Composer/Action/Options.php
+-
     name: pathmanager
     type: class
     value: Eloquent\Pathogen\FileSystem\Factory\PlatformFileSystemPathFactory
     file: vendor/bolt/pathogen/src/FileSystem/Factory/PlatformFileSystemPathFactory.php
+-
+    name: resources.check_files
+    type: closure
+    value: ''
+    file: ''
 -
     name: classloader
     type: 'null'
@@ -351,8 +486,8 @@
 -
     name: schema.comparator
     type: class
-    value: Bolt\Storage\Database\Schema\Comparison\MySql
-    file: src/Storage/Database/Schema/Comparison/MySql.php
+    value: Bolt\Storage\Database\Schema\Comparison\Sqlite
+    file: src/Storage/Database/Schema/Comparison/Sqlite.php
 -
     name: config
     type: class
@@ -373,11 +508,6 @@
     type: class
     value: Bolt\EventListener\ConfigListener
     file: src/EventListener/ConfigListener.php
--
-    name: config.pre_boot
-    type: bool
-    value: true
-    file: ''
 -
     name: logger.system
     type: class
@@ -458,21 +588,6 @@
     type: class
     value: Symfony\Bridge\Monolog\Logger
     file: vendor/symfony/monolog-bridge/Logger.php
--
-    name: environment
-    type: string
-    value: development
-    file: ''
--
-    name: editlink
-    type: string
-    value: ''
-    file: ''
--
-    name: edittitle
-    type: string
-    value: ''
-    file: ''
 -
     name: jsdata
     type: array
@@ -669,65 +784,155 @@
     value: Twig_Loader_Chain
     file: vendor/twig/twig/lib/Twig/Loader/Chain.php
 -
+    name: twig.runtime.bolt_admin
+    type: class
+    value: Bolt\Twig\Runtime\AdminRuntime
+    file: src/Twig/Runtime/AdminRuntime.php
+-
+    name: twig.runtime.bolt_html
+    type: class
+    value: Bolt\Twig\Runtime\HtmlRuntime
+    file: src/Twig/Runtime/HtmlRuntime.php
+-
+    name: twig.runtime.bolt_image
+    type: class
+    value: Bolt\Twig\Runtime\ImageRuntime
+    file: src/Twig/Runtime/ImageRuntime.php
+-
+    name: twig.runtime.bolt_record
+    type: class
+    value: Bolt\Twig\Runtime\RecordRuntime
+    file: src/Twig/Runtime/RecordRuntime.php
+-
+    name: twig.runtime.bolt_routing
+    type: class
+    value: Bolt\Twig\Runtime\RoutingRuntime
+    file: src/Twig/Runtime/RoutingRuntime.php
+-
+    name: twig.runtime.bolt_text
+    type: class
+    value: Bolt\Twig\Runtime\TextRuntime
+    file: src/Twig/Runtime/TextRuntime.php
+-
+    name: twig.runtime.bolt_user
+    type: class
+    value: Bolt\Twig\Runtime\UserRuntime
+    file: src/Twig/Runtime/UserRuntime.php
+-
+    name: twig.runtime.bolt_utils
+    type: class
+    value: Bolt\Twig\Runtime\UtilsRuntime
+    file: src/Twig/Runtime/UtilsRuntime.php
+-
+    name: twig.runtime.bolt_widget
+    type: class
+    value: Bolt\Twig\Runtime\WidgetRuntime
+    file: src/Twig/Runtime/WidgetRuntime.php
+-
+    name: twig.runtimes
+    type: array
+    value: ''
+    file: ''
+-
+    name: twig.runtime_loader
+    type: class
+    value: Bolt\Twig\RuntimeLoader
+    file: src/Twig/RuntimeLoader.php
+-
     name: twig.loader.bolt_filesystem
     type: class
     value: Bolt\Twig\FilesystemLoader
     file: src/Twig/FilesystemLoader.php
 -
-    name: 'twig.handlers -&gt; admin'
+    name: twig.extension.sandbox
     type: class
-    value: Bolt\Twig\Handler\AdminHandler
-    file: src/Twig/Handler/AdminHandler.php
+    value: Twig_Extension_Sandbox
+    file: vendor/twig/twig/lib/Twig/Extension/Sandbox.php
 -
-    name: 'twig.handlers -&gt; array'
+    name: twig.sandbox.policy
     type: class
-    value: Bolt\Twig\Handler\ArrayHandler
-    file: src/Twig/Handler/ArrayHandler.php
+    value: Bolt\Twig\SecurityPolicy
+    file: src/Twig/SecurityPolicy.php
 -
-    name: 'twig.handlers -&gt; html'
-    type: class
-    value: Bolt\Twig\Handler\HtmlHandler
-    file: src/Twig/Handler/HtmlHandler.php
--
-    name: 'twig.handlers -&gt; image'
-    type: class
-    value: Bolt\Twig\Handler\ImageHandler
-    file: src/Twig/Handler/ImageHandler.php
--
-    name: 'twig.handlers -&gt; record'
-    type: class
-    value: Bolt\Twig\Handler\RecordHandler
-    file: src/Twig/Handler/RecordHandler.php
--
-    name: 'twig.handlers -&gt; routing'
-    type: class
-    value: Bolt\Twig\Handler\RoutingHandler
-    file: src/Twig/Handler/RoutingHandler.php
--
-    name: 'twig.handlers -&gt; text'
-    type: class
-    value: Bolt\Twig\Handler\TextHandler
-    file: src/Twig/Handler/TextHandler.php
--
-    name: 'twig.handlers -&gt; user'
-    type: class
-    value: Bolt\Twig\Handler\UserHandler
-    file: src/Twig/Handler/UserHandler.php
--
-    name: 'twig.handlers -&gt; utils'
-    type: class
-    value: Bolt\Twig\Handler\UtilsHandler
-    file: src/Twig/Handler/UtilsHandler.php
--
-    name: 'twig.handlers -&gt; widget'
-    type: class
-    value: Bolt\Twig\Handler\WidgetHandler
-    file: src/Twig/Handler/WidgetHandler.php
--
-    name: twig.handlers
-    type: container
-    value: '<em>(array, see children below)</em>'
+    name: twig.sandbox.policy.tags
+    type: array
+    value: ''
     file: ''
+-
+    name: twig.sandbox.policy.functions
+    type: array
+    value: ''
+    file: ''
+-
+    name: twig.sandbox.policy.filters
+    type: array
+    value: ''
+    file: ''
+-
+    name: twig.sandbox.policy.methods
+    type: array
+    value: ''
+    file: ''
+-
+    name: twig.sandbox.policy.properties
+    type: array
+    value: ''
+    file: ''
+-
+    name: twig.extension.bolt
+    type: class
+    value: Bolt\Twig\Extension\BoltExtension
+    file: src/Twig/Extension/BoltExtension.php
+-
+    name: twig.extension.bolt_admin
+    type: class
+    value: Bolt\Twig\Extension\AdminExtension
+    file: src/Twig/Extension/AdminExtension.php
+-
+    name: twig.extension.bolt_array
+    type: class
+    value: Bolt\Twig\Extension\ArrayExtension
+    file: src/Twig/Extension/ArrayExtension.php
+-
+    name: twig.extension.bolt_html
+    type: class
+    value: Bolt\Twig\Extension\HtmlExtension
+    file: src/Twig/Extension/HtmlExtension.php
+-
+    name: twig.extension.bolt_image
+    type: class
+    value: Bolt\Twig\Extension\ImageExtension
+    file: src/Twig/Extension/ImageExtension.php
+-
+    name: twig.extension.bolt_record
+    type: class
+    value: Bolt\Twig\Extension\RecordExtension
+    file: src/Twig/Extension/RecordExtension.php
+-
+    name: twig.extension.bolt_routing
+    type: class
+    value: Bolt\Twig\Extension\RoutingExtension
+    file: src/Twig/Extension/RoutingExtension.php
+-
+    name: twig.extension.bolt_text
+    type: class
+    value: Bolt\Twig\Extension\TextExtension
+    file: src/Twig/Extension/TextExtension.php
+-
+    name: twig.extension.bolt_users
+    type: class
+    value: Bolt\Twig\Extension\UserExtension
+    file: src/Twig/Extension/UserExtension.php
+-
+    name: twig.extension.bolt_utils
+    type: class
+    value: Bolt\Twig\Extension\UtilsExtension
+    file: src/Twig/Extension/UtilsExtension.php
+-
+    name: twig.extension.bolt_widget
+    type: class
+    value: Bolt\Twig\Extension\WidgetExtension
+    file: src/Twig/Extension/WidgetExtension.php
 -
     name: twig.extension.asset
     type: class
@@ -739,15 +944,20 @@
     value: Symfony\Bridge\Twig\Extension\HttpFoundationExtension
     file: vendor/symfony/twig-bridge/Extension/HttpFoundationExtension.php
 -
-    name: safe_twig.bolt_extension
+    name: twig.extension.dump
     type: class
-    value: Bolt\Twig\TwigExtension
-    file: src/Twig/TwigExtension.php
+    value: Bolt\Twig\DumpExtension
+    file: src/Twig/DumpExtension.php
+-
+    name: twig.extension.string_loader
+    type: class
+    value: Twig_Extension_StringLoader
+    file: vendor/twig/twig/lib/Twig/Extension/StringLoader.php
 -
     name: safe_twig
     type: class
-    value: Twig_Environment
-    file: vendor/twig/twig/lib/Twig/Environment.php
+    value: Bolt\Twig\SafeEnvironment
+    file: src/Twig/SafeEnvironment.php
 -
     name: render
     type: class
@@ -1169,131 +1379,6 @@
     value: Bolt\Cache
     file: src/Cache.php
 -
-    name: extensions
-    type: class
-    value: Bolt\Extension\Manager
-    file: src/Extension/Manager.php
--
-    name: extensions.stats
-    type: class
-    value: Bolt\Composer\Satis\StatService
-    file: src/Composer/Satis/StatService.php
--
-    name: extend.site
-    type: string
-    value: 'https://extensions.bolt.cm/'
-    file: ''
--
-    name: extend.repo
-    type: string
-    value: 'https://extensions.bolt.cm/list.json'
-    file: ''
--
-    name: extend.urls
-    type: array
-    value: ''
-    file: ''
--
-    name: extend.online
-    type: bool
-    value: false
-    file: ''
--
-    name: extend.enabled
-    type: bool
-    value: true
-    file: ''
--
-    name: extend.writeable
-    type: bool
-    value: true
-    file: ''
--
-    name: extend.manager
-    type: class
-    value: Bolt\Composer\PackageManager
-    file: src/Composer/PackageManager.php
--
-    name: extend.manager.json
-    type: class
-    value: Bolt\Composer\JsonManager
-    file: src/Composer/JsonManager.php
--
-    name: extend.listener
-    type: class
-    value: Bolt\Composer\EventListener\BufferIOListener
-    file: src/Composer/EventListener/BufferIOListener.php
--
-    name: extend.info
-    type: class
-    value: Bolt\Composer\Satis\QueryService
-    file: src/Composer/Satis/QueryService.php
--
-    name: 'extend.action -&gt; autoload'
-    type: class
-    value: Bolt\Composer\Action\DumpAutoload
-    file: src/Composer/Action/DumpAutoload.php
--
-    name: 'extend.action -&gt; check'
-    type: class
-    value: Bolt\Composer\Action\CheckPackage
-    file: src/Composer/Action/CheckPackage.php
--
-    name: 'extend.action -&gt; depends'
-    type: class
-    value: Bolt\Composer\Action\DependsPackage
-    file: src/Composer/Action/DependsPackage.php
--
-    name: 'extend.action -&gt; install'
-    type: class
-    value: Bolt\Composer\Action\InstallPackage
-    file: src/Composer/Action/InstallPackage.php
--
-    name: 'extend.action -&gt; prohibits'
-    type: class
-    value: Bolt\Composer\Action\ProhibitsPackage
-    file: src/Composer/Action/ProhibitsPackage.php
--
-    name: 'extend.action -&gt; remove'
-    type: class
-    value: Bolt\Composer\Action\RemovePackage
-    file: src/Composer/Action/RemovePackage.php
--
-    name: 'extend.action -&gt; require'
-    type: class
-    value: Bolt\Composer\Action\RequirePackage
-    file: src/Composer/Action/RequirePackage.php
--
-    name: 'extend.action -&gt; search'
-    type: class
-    value: Bolt\Composer\Action\SearchPackage
-    file: src/Composer/Action/SearchPackage.php
--
-    name: 'extend.action -&gt; show'
-    type: class
-    value: Bolt\Composer\Action\ShowPackage
-    file: src/Composer/Action/ShowPackage.php
--
-    name: 'extend.action -&gt; update'
-    type: class
-    value: Bolt\Composer\Action\UpdatePackage
-    file: src/Composer/Action/UpdatePackage.php
--
-    name: extend.action
-    type: container
-    value: '<em>(array, see children below)</em>'
-    file: ''
--
-    name: extend.action.io
-    type: class
-    value: Composer\IO\BufferIO
-    file: vendor/composer/composer/src/Composer/IO/BufferIO.php
--
-    name: extend.action.options
-    type: class
-    value: Bolt\Composer\Action\Options
-    file: src/Composer/Action/Options.php
--
     name: stack
     type: class
     value: Bolt\Stack
@@ -1346,7 +1431,7 @@
 -
     name: upload.prefix
     type: string
-    value: 2016-11/
+    value: 2016-12/
     file: ''
 -
     name: upload.overwrite
@@ -1421,7 +1506,7 @@
 -
     name: thumbnails.only_aliases
     type: bool
-    value: true
+    value: false
     file: ''
 -
     name: thumbnails.aliases
@@ -1696,12 +1781,12 @@
 -
     name: asset.salt.factory
     type: string
-    value: HFqH/gDkcW
+    value: a7cf6e924c
     file: ''
 -
     name: asset.salt
     type: string
-    value: 6OnUTEjupo
+    value: 675c5973e1
     file: ''
 -
     name: asset.injector
@@ -1859,11 +1944,6 @@
     value: Bolt\Configuration\PathsProxy
     file: src/Configuration/PathsProxy.php
 -
-    name: stopwatch
-    type: class
-    value: Symfony\Component\Stopwatch\Stopwatch
-    file: vendor/symfony/stopwatch/Stopwatch.php
--
     name: dump
     type: closure
     value: ''
@@ -1979,6 +2059,11 @@
     value: Symfony\Component\HttpKernel\EventListener\ProfilerListener
     file: vendor/symfony/http-kernel/EventListener/ProfilerListener.php
 -
+    name: stopwatch
+    type: class
+    value: Symfony\Component\Stopwatch\Stopwatch
+    file: vendor/symfony/stopwatch/Stopwatch.php
+-
     name: code.file_link_format
     type: 'null'
     value: ''
@@ -1998,6 +2083,16 @@
     type: class
     value: Doctrine\DBAL\Logging\DebugStack
     file: vendor/doctrine/dbal/lib/Doctrine/DBAL/Logging/DebugStack.php
+-
+    name: editlink
+    type: 'null'
+    value: ''
+    file: ''
+-
+    name: edittitle
+    type: 'null'
+    value: ''
+    file: ''
 -
     name: twig.form.engine
     type: class
