@@ -20,13 +20,13 @@ Twig tags
 Use the `{{ asset() }}` Twig tag to create public link to the so-called assets
 in your theme, like JavaScript, CSS or other files. For example:
 
-```
+```twig
 <link rel="stylesheet" href="{{ asset('css/theme.css', 'theme') }}">
 ```
 
 If your theme is called 'foobar', this tag will create a working link to the
 file at `theme/foobar/css/theme.css`, taking into account the configuration of
-the web server. 
+the web server.
 
 The `asset` tag takes two parameters: the path, and the package, under which
 this path can be found. Bolt defines a few of these packages, that can be used
@@ -46,9 +46,9 @@ to create links to files in specific areas of Bolt. The defined packages are:
    to ensure it gets included in the theme. As with `bolt`, it's usually not
    necessary to use these yourself if you're developing a theme.
 
-Examples: 
+Examples:
 
-```
+```twig
 <script src="{{ asset('js/jquery.min.js', 'theme') }}"></script>
 # Include jquery.min.js from the js folder in your theme.
 
@@ -56,12 +56,24 @@ Examples:
 # Display the kitten.jpg image, that was uploaded to the `files/` folder.
 ```
 
-For a more in-depth description of the `asset` tag, see the 
+For a more in-depth description of the `asset` tag, see the
 [Symfony documentation on assets][symfonyasset].
 
 <p class="note"><strong>Note:</strong> This tag replaces the deprecated <code>
 {{ paths }}</code> template variable. As such, it's encouraged to use this tag
 instead.</p>
+
+### htmllang
+
+This Twig function will output the currently set locale in a suitablt format
+for the HTML lang attribute in your templates. For example, if you've set
+`locale: en_GB`, this is the result:
+
+```twig
+<html lang="{{ htmllang() }}">
+
+# <html lang="en-GB">
+```
 
 ### include
 
@@ -70,7 +82,7 @@ the template like any other template, so you can use any tags in your included
 template that you would use in the 'main' template. You can also use `include`
 inside the included templates.
 
-```
+```twig
 {{ include('_header.twig') }}
 ```
 
@@ -80,8 +92,6 @@ An alternative to using 'include', is to set up your templates using Template
 Inheritance. This is a method of defining a base template, and then expand it in
 more detail in the templates that extend this base template. See the section on
 [Template inheritance][inheritance] on the twig website.
-
-
 
 ### imageinfo
 
@@ -95,7 +105,7 @@ details:
 
 To see the available values for an image, use:
 
-```
+```twig
 {{ dump(imageinfo(record.image)) }}
 {# assuming 'record.image' is the image of the current record. #}
 ```
@@ -113,7 +123,7 @@ own calculations, using the 'aspectratio' value.
 For example, if you want to style an image, depending on its aspect ratio, you can use
 these values:
 
-```
+```twig
 {% if imageinfo(record.image).landscape %}
     <img src="{{ thumbnail(record.image, 400, 320) }}" class="landscape">
 {% elseif imageinfo(record.image).portrait %}
@@ -123,20 +133,38 @@ these values:
 {% endif %}
 ```
 
+### ismobileclient
+
+This Twig function allows you to do a basic test to check if the current client
+(browser) is a mobile device, like a mobile phone.
+
+```twig
+{% if ismobileclient() %}
+  You are on mobile, most likely.
+{% else %}
+  You are most likely not on a mobile device.
+{% endif %}
+```
+
+Note that this function is pretty rudimentary, so use it sparingly. Often, it's
+advisable to use media queries in CSS, for more fine-grained control over how
+to present information on a varying number of screen sizes.
+
 ### Magnific Popup
 
 Use this tag to insert an image in the HTML, which functions as an image popup.
 You can optionally provide the width, height and cropping parameters, like you
 can do with the `thumbnail`-tag.
 
-```
+```twig
 {{ record.photo|popup(100, 100, "r") }}
 or
 {{ popup("2016-08/foo.jpg", 100, 100) }}
 ```
+
 By default, Magnific will display the filename under the image in the popup. You can specify another value for this caption by using a fourth parameter (e.g alt or title tag).
 
-```
+```twig
 {{ popup("2016-08/foo.jpg", 100, 100, 'My title') }}
 or
 {{ popup("2016-08/foo.jpg", 100, 100, record.values.image.alt) }}
@@ -145,7 +173,7 @@ or
 Note that you should include the Magnific Popup `.js` and `.css` yourself, as
 well as set up the 'initialization' code:
 
-```
+```twig
 <script src="/app/view/js/jquery.magnific-popup.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/app/view/css/magnific-popup.css">
 
@@ -172,7 +200,7 @@ account the configuration of the web server. Doing this ensures the links will
 still work if the site gets installed in a subfolder.
 
 
-```
+```twig
 <a href="{{ path('homepage') }}">Home</a>
 ```
 
@@ -181,7 +209,7 @@ defined that's called 'homepage', and as such, Bolt can generate a link to that
 specific route. You can also pass in extra parameters, that are used to generate
 the link. For example:
 
-```
+```twig
 {{ path('record', {'slug': record.slug}) }}
 ```
 
@@ -192,13 +220,13 @@ Under the hood, this function creates links to paths defined in the Routing
 inside Bolt. This is the case both Bolt core functionality, but extensions can
 also add paths that can be used with this tag.
 
-The most commonly used paths are: 
+The most commonly used paths are:
 
- - `homepage`: Generate a link to the homepage of the site. 
+ - `homepage`: Generate a link to the homepage of the site.
  - `search`: Generate a link to the search results page of the site. Often used
    as the 'target' of a form that allows the user to perform a search. For
    example: `<form method="get" action="{{ path('search') }}">`
- - `record`: Generate a link to a specific record. See the example above. 
+ - `record`: Generate a link to a specific record. See the example above.
  - `contentlisting`: Used for links to the listing view of a contenttype. For
    example: `{{ path('contentlisting', {'contenttypeslug': 'pages'}) }}` will
    generate a link like `/pages`.
@@ -211,7 +239,7 @@ the Symfony documentation.
 Use this tag to insert an image in the HTML. You can optionally provide the
 width, height and cropping parameters, like you can do with the `thumbnail`-tag.
 
-```
+```twig
 {{ record.photo|showimage(800, 600) }}
 or
 {{ showimage("2013-03/foo.jpg", 800, 600) }}
@@ -223,7 +251,7 @@ or
 Use this tag to redirect from a page to another page or domain. Commonly used in
 an if/else clause, to redirect visitors based on some criteria.
 
-```
+```twig
 {% if record.image!="" %}
     <a href="{{ image(record.image) }}">
         <img src="{{ thumbnail(record.image, 400, 260) }}">
@@ -234,7 +262,7 @@ an if/else clause, to redirect visitors based on some criteria.
 {% endif %}
 ```
 
-```
+```twig
 {% setcontent records = "pages/latest/5" %}
 {% for record in records %}
 
@@ -254,9 +282,9 @@ an if/else clause, to redirect visitors based on some criteria.
 This tag is used to perform various queries on the database. It converts a
 human-readable query to actual records.
 
-Much, much more information about the `setcontent` tag, together with additional
-query arguments, pagination, sorting and other options you can find in the
-chapter about [Fetching content](content-fetching).
+Much, much more information about the `setcontent` tag, together with
+additional query arguments, pagination, sorting and other options you can find
+in the chapter about [Fetching content](content-fetching).
 
 These queries are currently possible:
 
@@ -270,7 +298,7 @@ These queries are currently possible:
   * `(animal,plant)/search/20` - search for animals and plants and
     return 20 of them (use where parameter 'filter' to specify searchstring)
 
-```
+```twig
 {% setcontent about = 'page/about' %}
 
 <h3>{{ about.title }}</h3>
@@ -281,15 +309,15 @@ These queries are currently possible:
 
 ### getuser and getuserid
 
-Sometimes youneed to fetch a specific record based on the correct user. In cases
-like these, You'll need to be able to get the data for this user, and the user's
-id. For these occasions, the functions `getuserid` and `getuser` come in handy.
-The function takes one argument: either a known id, or the username, that the
-user also uses to log on.
+Sometimes you need to fetch a specific record based on the correct user. In
+cases like these, You'll need to be able to get the data for this user, and the
+user's id. For these occasions, the functions `getuserid` and `getuser` come in
+handy. The function takes one argument: either a known id, or the username,
+that the user also uses to log on.
 
 Example 1: Getting a user
 
-```
+```twig
 {{ dump(getuser(1)) }}
 ```
 
@@ -298,14 +326,16 @@ Example 1: Getting a user
 
 Example 2: Using in `setcontent`
 
-```
+```twig
 {% setcontent pages = "pages" where { ownerid: getuserid('admin') } %}
 ```
 
 
 ### for
 
-```
+This tag is used to iterate over arrays or collections of an object, similar to `foreach` in PHP.
+
+```twig
 <h3>Recent pages</h3>
 {% setcontent pages = 'pages' limit 5 order '-datecreated' %}
 <ul>
@@ -321,7 +351,7 @@ See: [`for` in the Twig documentation][for].
 
 ### dump()
 
-```
+```twig
 {% set about = content('page', {'slug': 'about'}) %}
 
 {{ dump(about) }}
@@ -341,7 +371,7 @@ This Twig tag implements a `switch` statement, like the one present in
 'clean up' a list of if / elseif / else statements, in a more concise
 way. For example:
 
-```
+```twig
 {% set foo = 1 %}
 {% switch foo %}
   {% case 1 %}
@@ -363,7 +393,7 @@ Excerpt creates a short, text-only, excerpt of a record or a string. It's useful
 to get short blurbs of text for overview pages, listings, etcetera. If you pass
 it a string, it will simply strip out HTML and, reduce it to a given length:
 
-```
+```twig
 {% set text = "Bonum patria: miserum exilium. Ut optime, secundum" %}
 {{ text|excerpt(10) }}
 
@@ -375,7 +405,7 @@ representative of the Record. If it has a recognisable title, it will start with
 that, and it will use the other text-fields to complete it. In fact, it's the
 same function that's used in the Bolt backend, on the dashboard.
 
-```
+```twig
 {% setcontent page = "pages/1" %}
 {{ page|excerpt(200) }}
 
@@ -386,7 +416,7 @@ Duo Reges: constructio int…
 
 It is also possible to highlight a keyword in an excerpt, which can be used in search results.
 
-```
+```twig
 {% set keyword = 'ageremus' %}{# this is the keyword you want to highlight #}
 {% set include_title = false %}{# this will include the title in the results #}
 {% setcontent page = "pages/1" %}
@@ -399,9 +429,9 @@ inquit, vitae beatum et eundem supremum diem, scribebamus haec. Duo Reges: const
 ### localedatetime
 
 Outputs a localized, readable version of a timestamp, based on the `locale`
-setting in the `config.yml`-file. See the [Locales](../other/locales) page for more
-information on locales. If the locale you've set in `config.yml` does not work,
-you should verify that the locale is properly installed on your sysem.
+setting in the `config.yml`-file. See the [Locales](../other/locales) page for
+more information on locales. If the locale you've set in `config.yml` does not
+work, you should verify that the locale is properly installed on your sysem.
 
 In Bolt dates are stored with each record for the date the record was created,
 when it was last edited, and optionally when it was published. These dates are
@@ -411,7 +441,7 @@ comes to sorting or selecting a specific period. They look like:
 The localedatetime filter transforms the ugly timestamp to a readable, localized
 text. Examples:
 
-```
+```twig
 '{{ record.datepublish }}' is the same as
 '{{ record.datepublish|localedatetime("%A %B %e") }}'
 ```
@@ -425,7 +455,7 @@ Outputs:
 
 Some other examples:
 
-```
+```twig
 <ul>
     <li> Created: {{ record.datecreated|localedatetime("%c") }}</li>
     <li> Published: {{ record.datepublish|localedatetime("The %A in week %V of %Y") }}</li>
@@ -445,7 +475,7 @@ possible options, see the official [strftime()][strftime] page on php.net.
 
 ### date
 
-```
+```twig
 {{ content.datecreated|date("M d, ’y")}}
 ```
 
@@ -461,13 +491,13 @@ you want to display dates in other languages than English.</p>
 Checks if a given record corresponds to the page being shown in the browser.
 Useful for adding 'active' states to menus and such.
 
-```
+```twig
 {% if page|current %}class="current"{% endif %}
 ```
 
 or:
 
-```
+```twig
 {% if page|current %}
 	Yes, {{ page.title }} is the current page.
 {% else %}
@@ -482,7 +512,7 @@ The `round`, `floor` and `ceil` modifiers can be used to round numbers (or
 strings containing a numerical-like values) to the nearest integer, which
 basically means "whole number".
 
-```
+```twig
 {% set pi = 3.141592 %}
 
 Rounded, Pi is {{ pi|round }} {# "3" #}
@@ -503,7 +533,7 @@ other structures where you need a URL-safe representation of a string.
 
 In this example, we build links to all category listing pages:
 
-```
+```twig
 <ul>
 {% for category in app.config.get('taxonomy/categories/options') %}
     <li><a href="/category/{{ category|slug }}">{{ category }}</a></li>
@@ -533,7 +563,7 @@ browser knows it can wrap to the next line. For example:
 
 Use this modifier to return a "safe" version of the string. For example:
 
-```
+```twig
 {% set text = "Bonum patria: miserum exilium. Ut optime, secundum" %}
 {{ text|safestring(true) }}
 
@@ -548,7 +578,7 @@ You can specify two parameters: strict mode and extrachars.
   - Strict mode (boolean, default to false): spaces are converted to hyphens.
   - Extra chars (string, default to empty): A string containing extra non-alphabetical characters to keep in result.
 
-```
+```twig
 {# Default settings #}
 {% set text = "Bonum patria: miserum exilium. Ut optime, secundum" %}
 {{ text|safestring() }}
@@ -573,7 +603,7 @@ You can specify two parameters: strict mode and extrachars.
 Use this modifier to create a link to an automatically generated thumbnail of a
 size of your choosing. For example:
 
-```
+```twig
 <img src="{{ content.image|thumbnail(320, 240) }}">
 ```
 
@@ -603,7 +633,7 @@ different proportions than the original image. Valid options for cropping are:
 
 Use the cropping parameter like this:
 
-```
+```twig
 <img src="{{ content.image|thumbnail(100, 100, "r") }}">
 ```
 
@@ -611,7 +641,7 @@ If you omit the width and height altogether, the thumbnail will use the
 'default' size and cropping mode. Remember to add quotes around the cropping
 mode.
 
-```
+```twig
 <img src="{{ content.image|thumbnail }}">
 ```
 
@@ -626,7 +656,7 @@ thumbnails: [ 160, 120, c ]
 
 Use this modifier to create a link to an image of your choosing. For example:
 
-```
+```twig
 <img src="{{ content.photo|image }}">
 ```
 
@@ -639,18 +669,16 @@ You can specify three parameters: the width, height, and the mode of cropping.
 By doing so, the image will be resized, and it behave exactly like the
 [thumbnail filter](#filter-thumbnail).
 
-```
+```twig
 <img src="{{ content.photo|image(100, 100, "r") }}">
 ```
-
-
 
 ### raw
 
 If the content contains HTML-fields, they will be rendered with escaped
 characters by default. If you want to use the HTML as-is, add the raw modifier:
 
-```
+```twig
 {{ page.tite|raw }}
 ```
 
@@ -666,7 +694,7 @@ in the desired order. In some cases you might want to reorder them, by using the
 `order`-filter. The filter takes one or two parameters: the names of the fields
 you wish to order the results on:
 
-```
+```twig
 {% set relatedrecords = record.related() %}
 <p class="meta">Related content:
     <ul>
@@ -679,8 +707,8 @@ you wish to order the results on:
 
 or:
 
-```
-{# get the 10 latest entries by date, but sort them on the title field %}
+```twig
+{# get the 10 latest entries by date, but sort them on the title field #}
 {% setcontent entries = "entries/latest/10" %}
 <ul>
 {% for entry in entries|order('title', 'subtitle') %}
@@ -698,7 +726,7 @@ The slug is always lowercase, so this will normalize the ordering.
 
 Makes PHPs `preg_replace()` function available as twig filter. Example usage:
 
-```
+```twig
 {{ content.text|preg_replace('/[^a-z]+/', '_') }}
 ```
 
@@ -708,12 +736,12 @@ Available variables in Twig
 
 ### app
 
-```
+```twig
 {{ app.config.get('general/sitename') }}
 ```
 
 
-```
+```twig
 {{ dump(app.config.get('general') }}
 ```
 
@@ -729,7 +757,7 @@ Use this test to determine if a given variable is JSON.
 
 Examples:
 
-```
+```twig
 {% if var is json %}
     JSON: {{ var }}
 {% else %}
@@ -737,39 +765,11 @@ Examples:
 {% endif %}
 ```
 
-```
+```twig
 {% if var is json %}
     Decoded: {{ var|json_decode }}
 {% endif %}
 ```
-
-
-### defined (for extensions)
-
-Use this test to determine if a certain extension is available. You
-can use this in your themes, where it's not apparent whether or not the user
-will have a certain extension installed.
-
-Examples:
-
-```
-{% if FacebookLike is defined %}
-    {{ facebooklike() }}
-{% endif %}
-```
-
-You can use this, to output a friendly warning to users of the templates:
-
-```
-{% if BoltForms is defined %}
-    {{ boltforms('contact') }}
-{% else %}
-    <p>Warning: This theme suggests you install the 'Bolt Forms' extension.</p>
-{% endif %}
-```
-
-<p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must use the 
-*name* of the extension. Don't add quotes!</p>
 
 [twig]: http://twig.sensiolabs.org/doc/templates.html
 [inc]: http://twig.sensiolabs.org/doc/functions/include.html
