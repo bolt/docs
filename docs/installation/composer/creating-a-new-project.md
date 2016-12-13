@@ -29,7 +29,7 @@ To start an interactive install, navigate to the parent directory of your
 desired project (site), and run the following from a command line:
 
 ```
-composer create-project bolt/composer-install:^3.1 <MYPROJECT> --prefer-dist
+composer create-project bolt/composer-install:^3.4 <MYPROJECT> --prefer-dist
 ```
 
 **NOTE:** Change `<MYPROJECT>` to the name of your project before running the installer.
@@ -51,7 +51,7 @@ To simply use default directory locations, you just apply the `--no-interaction`
 parameter to the `composer create-project` command, e.g.
 
 ```
-composer create-project bolt/composer-install:^3.1 <MYPROJECT> --prefer-dist --no-interaction
+composer create-project bolt/composer-install:^3.4 <MYPROJECT> --prefer-dist --no-interaction
 ```
 
 **NOTE:** Change `<MYPROJECT>` to the name of your project before running the installer.
