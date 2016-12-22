@@ -61,14 +61,14 @@ templates, you can use the following:
 ```php
     public function registerServices(Application $app)
     {
-        $app['twig'] = $app->extend(
+        $app['twig'] = $app->share($app->extend(
             'twig',
             function ($twig) use ($app) {
                 $config = $this->getConfig();
                 $twig->addGlobal('extensionsetting_foo', $config['foo']);
                 return $twig;
             }
-        );
+        ));
     }
 ```
 
