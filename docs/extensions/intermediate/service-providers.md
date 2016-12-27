@@ -100,12 +100,10 @@ class KoalaCatcherExtension extends SimpleExtension
 {
     public function getServiceProviders()
     {
-        $parentProviders = parent::getServiceProviders();
-        $localProviders = [
-            new Provider\KoalaServiceProvider($this->getConfig()),
-        ];
-
-        return $parentProviders + $localProviders;
+        return [ 
+            $this,
+            new Proivder\KoalaServiceProvider($this-getConfig()),
+        ]
     }
 }
 ```
