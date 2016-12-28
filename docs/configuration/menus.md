@@ -63,6 +63,20 @@ this:
 ```
 {{ menu('foo', '_menu_foo.twig') }}
 ```
+You can specify more parameters then only the menu name and the template, like the ul class or if it contains submenus.  Include the menu in your template like this:
+
+```
+{{ menu(
+    identifier = 'foo',
+    template = '_menu_foo.twig',
+    params = {'withsubmenus': false, 'class': 'myclass'}
+) }} 
+```
+Or the shorthand version: 
+
+```
+{{ menu('foo', '_menu_foo.twig', {'withsubmenus': false, 'class': 'myclass'}) }} 
+```
 
 Doing this will render the menu `foo`, using the template `_menu_foo.twig`. The
 filename can be anything, but it's good practice to prefix it with `_menu`, so
