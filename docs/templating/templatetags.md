@@ -680,6 +680,13 @@ By doing so, the image will be resized, and it behave exactly like the
 <img src="{{ content.photo|image(100, 100, "r") }}">
 ```
 
+To scale an image proportionally to a given width or height, 
+set the other dimension to zero, and set cropping mode to resize.
+
+```twig
+<img src="{{ content.image|image(400, 0, "r") }}">
+```
+
 ### raw
 
 If the content contains HTML-fields, they will be rendered with escaped
