@@ -106,7 +106,7 @@
 -
     name: bolt_version
     type: string
-    value: '3.4.0 alpha 4'
+    value: '3.3.0 alpha 8'
     file: ''
 -
     name: cache
