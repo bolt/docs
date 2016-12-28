@@ -1069,37 +1069,37 @@
     value: /Users/bob/Sites/bolt-origin/vendor/symfony/web-profiler-bundle/Resources/views
     file: ''
 -
-    name: query
+    name: 'schema.base_tables -&gt; cron'
     type: class
-    value: Bolt\Storage\Query\Query
-    file: src/Storage/Query/Query.php
+    value: Bolt\Storage\Database\Schema\Table\Cron
+    file: src/Storage/Database/Schema/Table/Cron.php
 -
-    name: query.parser
+    name: 'schema.base_tables -&gt; field_value'
     type: class
-    value: Bolt\Storage\Query\ContentQueryParser
-    file: src/Storage/Query/ContentQueryParser.php
+    value: Bolt\Storage\Database\Schema\Table\FieldValue
+    file: src/Storage/Database/Schema/Table/FieldValue.php
 -
-    name: query.parser.handler
+    name: 'schema.base_tables -&gt; log_change'
     type: class
-    value: Bolt\Storage\Query\QueryParameterParser
-    file: src/Storage/Query/QueryParameterParser.php
+    value: Bolt\Storage\Database\Schema\Table\LogChange
+    file: src/Storage/Database/Schema/Table/LogChange.php
 -
     name: query.scope.frontend
     type: class
     value: Bolt\Storage\Query\FrontendQueryScope
     file: src/Storage/Query/FrontendQueryScope.php
 -
-    name: query.search
+    name: 'schema.base_tables -&gt; relations'
     type: class
-    value: Bolt\Storage\Query\SearchQuery
-    file: src/Storage/Query/SearchQuery.php
+    value: Bolt\Storage\Database\Schema\Table\Relations
+    file: src/Storage/Database/Schema/Table/Relations.php
 -
-    name: query.search_config
+    name: 'schema.base_tables -&gt; taxonomy'
     type: class
-    value: Bolt\Storage\Query\SearchConfig
-    file: src/Storage/Query/SearchConfig.php
+    value: Bolt\Storage\Database\Schema\Table\Taxonomy
+    file: src/Storage/Database/Schema/Table/Taxonomy.php
 -
-    name: query.search_weighter
+    name: 'schema.base_tables -&gt; users'
     type: class
     value: Bolt\Storage\Query\SearchWeighter
     file: src/Storage/Query/SearchWeighter.php
