@@ -212,7 +212,7 @@ class PageBuilder
                 return sprintf(
                     '<h%s id="%s">%s<a href="#%2$s" class="anchor">¶</a></h%1$s>',
                     $matches[1],
-                    $this->slugifier->slugify($matches[2]),
+                    $this->slugifier->slugify(strip_tags($matches[2])),
                     $matches[2]
                 );
             },
