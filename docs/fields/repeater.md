@@ -25,9 +25,9 @@ the definition of the sub fields.
                     type: html
 ```
 
-As you can see the field is configured with a type of `repeater` and then the sub-fields 
+As you can see the field is configured with a type of `repeater` and then the sub-fields
 are configured under the `fields` attribute. In general you can include any valid fields
-within a repeater, there are a few that are not supported `slug`, `templatefield` and 
+within a repeater, there are a few that are not supported `slug`, `templatefield` and
 `repeater` itself.
 
 ### Example usage in templates:
@@ -50,7 +50,7 @@ within the set then the template code will look like this:
 {% endfor %}
 ```
 
-In the example above using `{{ field }}` will just output the string value of 
+In the example above using `{{ field }}` will just output the string value of
 the sub-field but since these are sometimes more complex fields you can use the
 techniques described in the section below for individual fields to output the
 specific type of field in the layout you require.
@@ -82,10 +82,15 @@ If you prefer the dot-notation to access field values, you can also omit the `ge
 
 ### Images and thumbnails
 
-You can use the image- and thumbnail filters for images inside a repeater contenttype, but the notation is slightly different.
+You can use the image- and thumbnail filters for images inside a repeater
+contenttype, but the notation is slightly different. For example, if we have a
+contenttype with a `sections` repeater, acces them like this:
 
 ```twig
-        <img src="{{ sectie.get('repeatimage')|image(1200, 800, "r") }}" alt="{{ sectie.get('repeatimage').title }}">
+{% for section in record.sections %}
+    <img src="{{ section.get('repeatimage')|image(1200, 800, "r") }}"
+        alt="{{ section.get('repeatimage').title }}">
+{% endfor %}
 ```
 
 ### Options
