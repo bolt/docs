@@ -79,7 +79,15 @@ If you prefer the dot-notation to access field values, you can also omit the `ge
     <hr>
 {% endfor %}
 ```
- 
+
+### Images and thumbnails
+
+You can use the image- and thumbnail filters for images inside a repeater contenttype, but the notation is slightly different.
+
+```twig
+        <img src="{{ sectie.get('repeatimage')|image(1200, 800, "r") }}" alt="{{ sectie.get('repeatimage').title }}">
+```
+
 ### Options
 
 The field has a one option to change the functionality of the field.
