@@ -38,8 +38,8 @@ to this:
 ├── public/
 ├── vendor/
 ├── README.md
-├── composer.json
-└── composer.lock
+├── composer.json.dist
+└── composer.lock.dist
 ```
 
 These are the folders that contain all of the Bolt code, resources and other
