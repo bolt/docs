@@ -72,7 +72,7 @@ The end result looking something like this
         },
         "bolt": {
             "type": "composer",
-            "url": "https://extensions.bolt.cm/satis/"
+            "url": "https://market.bolt.cm/satis/"
         },
         "packagist": false
     },

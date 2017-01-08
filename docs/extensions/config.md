@@ -176,7 +176,7 @@ here: [php-fig.org/psr/psr-4/](http://www.php-fig.org/psr/psr-4/)
 ## Publishing Your Extension on the Marketplace
 
 Once you have the above file setup, make sure it is pushed up to your hosted
-repository then visit [extensions.bolt.cm](http://extensions.bolt.cm) to
+repository then visit [market.bolt.cm](http://market.bolt.cm) to
 register your extension or theme on the Bolt Marketplace.
 
 See [the testing and debugging instructions](/extensions/testing) for

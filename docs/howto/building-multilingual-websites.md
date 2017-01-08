@@ -177,7 +177,7 @@ nl-main:
 ```
 
 <p class="tip"><strong>Tip:</strong> Don't forget to check the
-<a href="http://extensions.bolt.cm/view/d49af7c7-7b34-4396-b436-2f63f4747a7d">Menu Editor</a>
+<a href="http://market.bolt.cm/view/d49af7c7-7b34-4396-b436-2f63f4747a7d">Menu Editor</a>
 extension.</p>
 
 Making Templates and Fetching Content
