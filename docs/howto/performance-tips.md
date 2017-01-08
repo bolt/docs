@@ -126,8 +126,8 @@ To further increase the correct indexing of your site, make sure you have a
 `sitemap.xml`, and that your HTML contains the required meta tags. Two
 extensions to help with this are:
 
- - [Bolt SEO extension](https://extensions.bolt.cm/view/3cda7d7e-09e9-11e5-9120-621e70d6e3eb)
- - [Sitemap](https://extensions.bolt.cm/view/e89b81c7-bbd3-4221-82b9-070ba6680c45)
+ - [Bolt SEO extension](https://market.bolt.cm/view/bobdenotter/seo)
+ - [Sitemap](https://market.bolt.cm/view/bolt/sitemap)
 
 If your site is accessible on more than one URL, or just with and without the
 'www.'-prefix, you should set the canonical manually, to prevent duplicate

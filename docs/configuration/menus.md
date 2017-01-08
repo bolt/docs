@@ -60,8 +60,27 @@ it will not be overwritten in a future update. However, it is good practice to
 explicitly state which template file should be used to render a menu. Like
 this:
 
-```
+```twig
 {{ menu('foo', '_menu_foo.twig') }}
+```
+
+You can specify other parameters besides the menu name and the template. For
+example, you can also set the the `ul` class or whether or not the output
+should contain submenus. You can control these using the so-called named
+arguments in Twig. For example:
+
+```twig
+{{ menu(
+    identifier = 'foo',
+    template = '_menu_foo.twig',
+    params = {'withsubmenus': false, 'class': 'myclass'}
+) }}
+```
+
+Which is equivalent to this shorthand version:
+
+```twig
+{{ menu('foo', '_menu_foo.twig', {'withsubmenus': false, 'class': 'myclass'}) }}
 ```
 
 Doing this will render the menu `foo`, using the template `_menu_foo.twig`. The
