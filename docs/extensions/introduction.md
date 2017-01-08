@@ -59,4 +59,4 @@ If you think you have found a security bug you should contact both the developer
 of the extension along with the Bolt core team.
 
 
-[ext]: https://extensions.bolt.cm
+[ext]: https://market.bolt.cm
