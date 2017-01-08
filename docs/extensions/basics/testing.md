@@ -74,7 +74,7 @@ The end result looking something like this
         },
         "bolt": {
             "type": "composer",
-            "url": "https://extensions.bolt.cm/satis/"
+            "url": "https://market.bolt.cm/satis/"
         },
         "packagist": false
     },
@@ -115,7 +115,7 @@ publicly readable online. If you have a [Github][gh] or [Bitbucket][bb] account
 then those are ideal places to push to.
 
 Once you have a public url for the Git repository then you can submit your
-extension to the Bolt Marketplace. To do so visit [extensions.bolt.cm][ext],
+extension to the Bolt Marketplace. To do so visit [market.bolt.cm][ext],
 sign up for an account if you need to and then submit your extension.
 
 If everything looks OK at this point you will be able to see your extension
@@ -164,9 +164,9 @@ this is the same version supported by Bolt and gives you access to most users.
 Once you have a successful test you will receive the green approved build badge
 on the extensions install window.
 
-[profile]: http://extensions.bolt.cm/profile
+[profile]: http://market.bolt.cm/profile
 [semver]: http://semver.org/
-[ext]: http://extensions.bolt.cm
+[ext]: http://market.bolt.cm
 [starter]: about#getting-started
 [gh]: https://github.com
 [bb]: https://bitbucket.com
