@@ -63,6 +63,20 @@ this:
 ```twig
 {{ menu('foo', '_menu_foo.twig') }}
 ```
+You can specify more parameters then only the menu name and the template, like the ul class or if it contains submenus.  Include the menu in your template like this:
+
+```
+{{ menu(
+    identifier = 'foo',
+    template = '_menu_foo.twig',
+    params = {'withsubmenus': false, 'class': 'myclass'}
+) }} 
+```
+Or the shorthand version: 
+
+```
+{{ menu('foo', '_menu_foo.twig', {'withsubmenus': false, 'class': 'myclass'}) }} 
+```
 
 You can specify other parameters besides the menu name and the template. For
 example, you can also set the the `ul` class or whether or not the output
