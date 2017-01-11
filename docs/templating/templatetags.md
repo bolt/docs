@@ -778,6 +778,41 @@ Examples:
 {% endif %}
 ```
 
+
+### defined (for extensions)
+
+Use this test to determine if a certain extension is available. You can use
+this in your themes, when it's not apparent whether or not the user will have
+a certain extension installed.
+
+Examples:
+
+```twig
+{% if app.extensions.get('Bolt/FacebookComments') is defined %}
+    {{ facebookcomments() }}
+{% endif %}
+```
+
+You can use also this to output a friendly warning to users of the templates:
+
+```twig
+{% if app.extensions.get('Bolt/BoltForms') is defined %}
+    {{ boltforms('contact') }}
+{% else %}
+    <p>Warning: This theme suggests you install the 'BoltForms' extension.</p>
+{% endif %}
+```
+
+Note: in the `{% if %}` tag you must use the `vendorname` and `extensionname`
+of the extension as a string, so be sure to use quotation marks. If you're not
+sure what the correct name is that you need to use, dump the installed
+extensions to find out:
+
+```twig
+{{ dump(app.extensions.all()) }}
+```
+
+
 [twig]: http://twig.sensiolabs.org/doc/templates.html
 [inc]: http://twig.sensiolabs.org/doc/functions/include.html
 [inheritance]: http://twig.sensiolabs.org/doc/templates.html#template-inheritance
