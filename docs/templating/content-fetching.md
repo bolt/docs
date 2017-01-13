@@ -262,7 +262,9 @@ practice to limit the maximum number of records, by adding a `limit` clause.
 Ordering results
 ----------------
 The results can be sorted by any of the fields of the ContentType, using the
-`orderby` clause. You can sort either ascending or descending.
+`orderby` clause. You can sort either ascending or descending. The order is
+determined by the inclusion (or omission) of the minus before the name of 
+the field: `title` vs. `-title`. 
 
 ```
 {# get 10 pages, sorted alphabetically on title #}
