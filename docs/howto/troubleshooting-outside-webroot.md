@@ -278,11 +278,6 @@ for example.
 [apache]: ../installation/webserver/apache
 [nginx]: ../installation/webserver/nginx
 [permissions]: ../installation/permissions
-[1]: #configure-apache-or-nginx
-[2]: #configure-bolt-to-use-the-web-host
-[3]: #create-a-symlink-to-the-code-public-code-folder
-[4]: #use-htaccess-to-change-the-web-root
-[5]: #use-code-htaccess-code-to-change-the-web-root
 [point]: #what-s-the-point-of-doing-this
 [sg]: https://www.siteground.com/kb/how_to_change_my_document_root_folder_using_an_htaccess_file/
 [flat-zip]: https://bolt.cm/distribution/bolt-latest-flat-structure.zip
