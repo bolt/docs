@@ -20,7 +20,8 @@ The root path /home/example/domains/example.org is not readable.
 ```
 
 You should _first_ fix the permissions, and only then start working on one of
-the possible solutions listed below. See the page for instructions on [setting up file permissions][permissions] for your setup.
+the possible solutions listed below. See the page for instructions on
+[setting up file permissions][permissions] for your setup.
 
 Option 1: Configure Apache or Nginx
 -----------------------------------
@@ -38,12 +39,14 @@ Option 2: Use the 'flat structure' distribution
 The packaged distribution comes in two varieties: The 'recommended' setup, with
 the bulk of the code files outside of the web root, and a so-called 'flat
 structure' distribution, without this requirement. If you are bumping into
-issues where you can't place files outside of the web root, you can grab the flat structure distribution from:
+issues where you can't place files outside of the web root, you can grab the
+flat structure distribution from:
 
  - [bolt-latest-flat-structure.tar.gz][flat-tgz] or
  - [bolt-latest-flat-structure.zip][flat-zip]
 
-This version of Bolt has the following structure, you can place entirely inside your web root.
+This version of Bolt has the following structure, you can place entirely inside
+your web root.
 
 This will result in a structure that looks like this.
 
@@ -64,15 +67,17 @@ This will result in a structure that looks like this.
         └── index.php
 ```
 
-Note: This version of Bolt is provided as a fallback for users who have no control over their webserver setup. If at all possible, we strongly recommend to use the 'regular' version, with all code outside of the web root.
+Note: This version of Bolt is provided as a fallback for users who have no
+control over their webserver setup. If at all possible, we strongly recommend
+to use the 'regular' version, with all code outside of the web root.
 
 Option 3: Create a symlink to the `public` folder
 -------------------------------------------------
 
-Often you'll have a folder structure like this, on your web host. As you can see,
-it doesn't have a `public` folder, but a `www` folder instead. Sometimes this is
-called `public_html`, `html`, `web` or `DEFAULT`. This example works the same,
-just substitute `www` for whatever your web root is called.
+Often you'll have a folder structure like this, on your web host. As you can
+see, it doesn't have a `public` folder, but a `www` folder instead. Sometimes
+this is called `public_html`, `html`, `web` or `DEFAULT`. This example works
+the same, just substitute `www` for whatever your web root is called.
 
 ```
 .
@@ -112,8 +117,8 @@ Option 4: Configure Bolt to use the server's configuration
 
 Often you'll have a folder structure like this, on your web host. As you can
 see, it doesn't have a `public` folder, but a `www` folder instead. Sometimes
-this is called `public_html`, `html`, `web` or `DEFAULT`. This example works the
-same, just substitute `www` for whatever your web root is called.
+this is called `public_html`, `html`, `web` or `DEFAULT`. This example works
+the same, just substitute `www` for whatever your web root is called.
 
 ```
 .
@@ -241,22 +246,22 @@ this, we _do_ believe this is a very good practice.
 
 ### Security
 
-The major benefit is security: It's widely accepted to be "best
-practice" to keep as many PHP files outside of the web root as possible. What
-we're doing by putting files outside the web root is basically making sure they
-are *not* accessible through a web browser. Simply put, everything that's not
-readily accessible from the outside world is that much harder to exploit. As you
-might know, Bolt uses Composer and a lot of external packages. While all of
-these packages are tested thoroughly by a lot of developers, there's always a
-chance that a security issue might slip through the cracks. If this happens, and
-the 'security issue' is not accessible at all, your website and your visitors
-will still be safe.
+The major benefit is security: It's widely accepted to be "best practice" to
+keep as many PHP files outside of the web root as possible. What we're doing by
+putting files outside the web root is basically making sure they are *not*
+accessible through a web browser. Simply put, everything that's not readily
+accessible from the outside world is that much harder to exploit. As you might
+know, Bolt uses Composer and a lot of external packages. While all of these
+packages are tested thoroughly by a lot of developers, there's always a chance
+that a security issue might slip through the cracks. If this happens, and the
+'security issue' is not accessible at all, your website and your visitors will
+still be safe.
 
 The same holds true for your configuration files: These files will contain
-Database credentials, privacy-sensitive information and perhaps key/secret pairs
-for some external API. While you can 'protect' these files with `.htaccess` or
-your Nginx configuration, it's still more secure to keep these files in a
-location where they aren't accessible at all.
+Database credentials, privacy-sensitive information and perhaps key/secret
+pairs for some external API. While you can 'protect' these files with
+`.htaccess` or your Nginx configuration, it's still more secure to keep these
+files in a location where they aren't accessible at all.
 
 ### Maintenance benefits
 
