@@ -5,20 +5,26 @@ Sometimes, especially on shared web hosts, it's not very simple to change the
 web server configuration to point to the `public` folder that comes with the
 archive install files that you can download as `.tgz` or `.zip` files.
 
-There are three ways to 'fix' this:
-
- - [Configure Apache or Nginx to use `public` as web root][1]
- - [Configure Bolt to use the existing web root][2]
- - [Create a symlink to the `public` folder][3]
- - [Use `.htaccess` to change the web root][4]
- - [Move files outside of the `public` folder][5]
-
 Finally, at the end of this page, there's a brief explanation of _why_ it is
 important to keep your files outside of the web root:
 [What's the point of doing this?][point]
 
-Configure Apache or Nginx
--------------------------
+Preface: Make sure permissions are correct
+------------------------------------------
+
+Before getting started, make sure that all file permissions are set correctly.
+If you get an error message like this:
+
+```
+The root path /home/example/domains/example.org is not readable.
+```
+
+You should _first_ fix the permissions, and only then start working on one of
+the possible solutions listed below. See the page for instructions on
+[setting up file permissions][permissions] for your setup.
+
+Option 1: Configure Apache or Nginx
+-----------------------------------
 
 If you have access to Apache or Nginx's configuration files, you can modify
 those to use the `public` folder as web root. For more information about this,
@@ -27,13 +33,92 @@ see the pages on configuring [Apache][apache] or [Nginx][nginx].
 Sometimes this is even possible from the web hosting Control Panel, like Plesk
 or DirectAdmin.
 
-Configure Bolt to use the web host
----------------------------------
+Option 2: Use the 'flat structure' distribution
+-----------------------------------------------
+
+The packaged distribution comes in two varieties: The 'recommended' setup, with
+the bulk of the code files outside of the web root, and a so-called 'flat
+structure' distribution, without this requirement. If you are bumping into
+issues where you can't place files outside of the web root, you can grab the
+flat structure distribution from:
+
+ - [bolt-latest-flat-structure.tar.gz][flat-tgz] or
+ - [bolt-latest-flat-structure.zip][flat-zip]
+
+This version of Bolt has the following structure, you can place entirely inside
+your web root.
+
+This will result in a structure that looks like this.
+
+```
+.
+└── example.org
+    └── public_html/
+        ├── app/
+        ├── extensions/
+        ├── files/
+        ├── theme/
+        ├── thumbs/
+        ├── vendor/
+        ├── .bolt.yml
+        ├── .gitignore
+        ├── .htaccess
+        ├── README.md
+        └── index.php
+```
+
+Note: This version of Bolt is provided as a fallback for users who have no
+control over their webserver setup. If at all possible, we strongly recommend
+to use the 'regular' version, with all code outside of the web root.
+
+Option 3: Create a symlink to the `public` folder
+-------------------------------------------------
 
 Often you'll have a folder structure like this, on your web host. As you can
 see, it doesn't have a `public` folder, but a `www` folder instead. Sometimes
-this is called `public_html`, `html`, `web` or `DEFAULT`. This example works the
-same, just substitute `www` for whatever your web root is called.
+this is called `public_html`, `html`, `web` or `DEFAULT`. This example works
+the same, just substitute `www` for whatever your web root is called.
+
+```
+.
+└── example.org/
+    ├── logs/
+    ├── stats/
+    └── www/
+```
+
+To get Bolt working, do the following:
+
+ - Upload the entire distribution file, into the same folder that the 'web root'
+   is in.
+ - remove the `www` folder.
+ - Create a symbolic link to the `public` folder: `ln -s public www`.
+
+The result in the folder will look like this:
+
+```
+.
+└── example.org
+    ├── .bolt.yml
+    ├── app/
+    ├── extensions/
+    ├── logs/
+    ├── public/
+    ├── README.md
+    ├── stats/
+    ├── vendor/
+    └── www -> public
+```
+
+After this, you should be good-to-go, and Bolt will work correctly.
+
+Option 4: Configure Bolt to use the server's configuration
+----------------------------------------------------------
+
+Often you'll have a folder structure like this, on your web host. As you can
+see, it doesn't have a `public` folder, but a `www` folder instead. Sometimes
+this is called `public_html`, `html`, `web` or `DEFAULT`. This example works
+the same, just substitute `www` for whatever your web root is called.
 
 ```
 .
@@ -78,51 +163,8 @@ The result in the folder will look like this:
 
 After this, you should be good-to-go, and Bolt will work correctly.
 
-
-Create a symlink to the `public` folder
----------------------------------------
-
-Often you'll have a folder structure like this, on your web host. As you can see,
-it doesn't have a `public` folder, but a `www` folder instead. Sometimes this is
-called `public_html`, `html`, `web` or `DEFAULT`. This example works the same,
-just substitute `www` for whatever your web root is called.
-
-```
-.
-└── example.org/
-    ├── logs/
-    ├── stats/
-    └── www/
-```
-
-To get Bolt working, do the following:
-
- - Upload the entire distribution file, into the same folder that the 'web root'
-   is in.
- - remove the `www` folder.
- - Create a symbolic link to the `public` folder: `ln -s public www`.
-
-The result in the folder will look like this:
-
-```
-.
-└── example.org
-    ├── .bolt.yml
-    ├── app/
-    ├── extensions/
-    ├── logs/
-    ├── public/
-    ├── README.md
-    ├── stats/
-    ├── vendor/
-    └── www -> public
-```
-
-After this, you should be good-to-go, and Bolt will work correctly.
-
-
-Use `.htaccess` to change the web root
-------------------------------------
+Option 5: Use `.htaccess` to change the web root
+------------------------------------------------
 
 As a last resort, you can modify the `.htaccess` file to 'proxy' the `public/`
 folder. This is described in a tip from [Siteground][sg].
@@ -145,7 +187,7 @@ RewriteRule (.*) /public/$1 [L]
 In the above lines you should replace `domain-name.com` with the hostname of
 your site.
 
-Move the files outside of the `public` folder
+Option 6: Move the files outside of the `public` folder
 ---------------------------------------------
 
 If you are hell-bent on flattening the file structure , you can do that as
@@ -204,22 +246,22 @@ this, we _do_ believe this is a very good practice.
 
 ### Security
 
-The major benefit is security: It's widely accepted to be "best
-practice" to keep as many PHP files outside of the web root as possible. What
-we're doing by putting files outside the web root is basically making sure they
-are *not* accessible through a web browser. Simply put, everything that's not
-readily accessible from the outside world is that much harder to exploit. As you
-might know, Bolt uses Composer and a lot of external packages. While all of
-these packages are tested thoroughly by a lot of developers, there's always a
-chance that a security issue might slip through the cracks. If this happens, and
-the 'security issue' is not accessible at all, your website and your visitors
-will still be safe.
+The major benefit is security: It's widely accepted to be "best practice" to
+keep as many PHP files outside of the web root as possible. What we're doing by
+putting files outside the web root is basically making sure they are *not*
+accessible through a web browser. Simply put, everything that's not readily
+accessible from the outside world is that much harder to exploit. As you might
+know, Bolt uses Composer and a lot of external packages. While all of these
+packages are tested thoroughly by a lot of developers, there's always a chance
+that a security issue might slip through the cracks. If this happens, and the
+'security issue' is not accessible at all, your website and your visitors will
+still be safe.
 
 The same holds true for your configuration files: These files will contain
-Database credentials, privacy-sensitive information and perhaps key/secret pairs
-for some external API. While you can 'protect' these files with `.htaccess` or
-your Nginx configuration, it's still more secure to keep these files in a
-location where they aren't accessible at all.
+Database credentials, privacy-sensitive information and perhaps key/secret
+pairs for some external API. While you can 'protect' these files with
+`.htaccess` or your Nginx configuration, it's still more secure to keep these
+files in a location where they aren't accessible at all.
 
 ### Maintenance benefits
 
@@ -235,10 +277,8 @@ for example.
 [sfdir]: http://symfony.com/doc/current/cookbook/configuration/override_dir_structure.html
 [apache]: ../installation/webserver/apache
 [nginx]: ../installation/webserver/nginx
-[1]: #configure-apache-or-nginx
-[2]: #configure-bolt-to-use-the-web-host
-[3]: #create-a-symlink-to-the-code-public-code-folder
-[4]: #use-htaccess-to-change-the-web-root
-[5]: #use-code-htaccess-code-to-change-the-web-root
+[permissions]: ../installation/permissions
 [point]: #what-s-the-point-of-doing-this
 [sg]: https://www.siteground.com/kb/how_to_change_my_document_root_folder_using_an_htaccess_file/
+[flat-zip]: https://bolt.cm/distribution/bolt-latest-flat-structure.zip
+[flat-tgz]: https://bolt.cm/distribution/bolt-latest-flat-structure.tar.gz
