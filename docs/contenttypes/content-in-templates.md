@@ -12,7 +12,7 @@ There are two ways that Bolt makes content accessible in templates:
 
   - Implicitly: In a template that's being used for a single page or a listing,
     you'll always have the matching content available without having to fetch
-    it via the `setcontent`-tag. See the section below on how to access the the
+    it via the `setcontent`-tag. See the section below on how to access the
     content.
   - Fetching other content: By using the `{% setcontent %}`-tag, you can
     retrieve records of any ContentType from the database, and make the data

@@ -21,12 +21,20 @@ Most FTP clients will allow you to do this quickly, using a 'include files' or
 Setting Permissions (Quick & Easy)
 ----------------------------------
 
-This approach is not recommended, but for some hosts, or to just get moving quickly,
-try these commands from inside your Bolt directory:
+This approach is not recommended, but for some hosts, or to just get moving
+quickly, run these commands from inside your Bolt directory:
 
 ```bash
 chmod -R 777 app/cache/ app/config/ app/database/ extensions/
 chmod -R 777 public/thumbs/ public/extensions/ public/files/ public/theme/
+```
+
+Make sure that the root folder is also readable by the webserver. On some
+setups (mainly shared hosting solutions) this is not always the case. To remedy
+this, run:
+
+```bash
+chmod a+r .
 ```
 
 Setting Permissions (Secure)
@@ -65,4 +73,12 @@ for dir in app/config/ extensions/ public/extensions/ public/files/ public/theme
     find $dir -type d -print0 | xargs -0 chmod u+rwx,g+rwxs,o+rx-w
     find $dir -type f -print0 | xargs -0 chmod u+rw-x,g+rw-x,o+r-wx > /dev/null 2>&1
 done
+```
+
+Make sure that the root folder is also readable by the webserver. On some
+setups (mainly shared hosting solutions) this is not always the case. To remedy
+this, run:
+
+```bash
+chmod a+r .
 ```
