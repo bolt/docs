@@ -6,7 +6,7 @@ Select field
 
 ### Choose from Preset values:
 
-A drop-down list to make a pre-defined selection from. This fields has many
+A drop-down list to make a pre-defined selection from. This field has many
 options and many possibilities but is less complicated than it might seem at
 first glance.
 
@@ -79,8 +79,8 @@ Finally you can pass filters to the query using the filter option. For a full
 reference of what can be passed to a where filter you can see the content
 fetching documentation.
 
-As well as filters on the ContentType values you can also pass in taxonomy
-conditions too, as in the example below.
+In adition to filters on the ContentType values, you can use taxonomy
+conditions, as in the following example:
 
 ```yaml
         somevalue:
@@ -125,7 +125,7 @@ Or if you want to print out the selected values in an `ul`:
 ```twig
 <ul>
     {% for values in record.somevalues %}
-        <li>{{ values }}
+        <li>{{ values }}</li>
     {% endfor %}
 </ul>
 ```
@@ -139,10 +139,13 @@ Or if you just want to print them out after one another separated by commas:
 
 ### Defining values as a hash
 
-The list with options can be defined as either a 'map' or a 'hash'. If you use
-a list (like above), the same values will be stored in the database as they are
-shown in the pull-down selector that the editor sees. If you want to store
-another value than is shown, you can use a so-called 'hash'. For example:
+The options in the list can be defined as either a 'map' or a 'hash'. If you use
+a list (like above), the options visible in the drop-down list will be the
+values stored in the database. If you want to store other values, you can use a
+so-called 'hash'.
+
+In the following example, 'yes', 'no' and 'undecided' will be stored in the
+database:
 
 ```yaml
         somevalue:
