@@ -74,35 +74,10 @@ The common options are:
 | `has_sortorder` | This option is used for grouping taxonomies only, and defines whether the group has its own sorting order. See below for an example of this. |
 | `options` | This option is used for grouping and categories taxonomies, and defines the possible options for the editor to chose. The values can either be an array or a hash. See below for an example. 
 
-Adding Taxonomies to ContentTypes
----------------------------------
-
-Once the Taxonomies are added, you need to add them to your ContentTypes in
-`contenttypes.yml`, so you can use them in your content. For example:
-
-```yaml
-entries:
-    name: Pages
-    singular_name: Page
-    fields:
-        …
-    taxonomy: chapters
-
-```
-
-If you'd like to use more than one Taxonomy for a ContentType, be sure to use
-an array:
-
-```yaml
-pages:
-    …
-    taxonomy: [ categories, tags ]
-```
-
 Setting options
 ---------------
 
-Both the grouping as well as the categories Taxonomies use a number of set options. You can set these possible options in your `taxonomy.yml`, after which the editor can select one or more of them when they are editing the content. Yaml allows us to specifiy these options in a few different ways, depening on your needs. 
+Both the grouping as well as the categories Taxonomies use a number of set options. You can set these possible options in your `taxonomy.yml`, after which the editor can select one or more of them when they are editing the content. Yaml allows us to specifiy these options in a few different ways, depending on your needs. 
 
 ### Simple sequence
 

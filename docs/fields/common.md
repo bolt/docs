@@ -84,7 +84,7 @@ In the case where you want to provide a large volume of informational text
 about the use and purpose of a field, the value of the `info` parameter can be
 used.
 
-The info paramter will place a button beside the field label that, when hovered
+The info parameter will place a button beside the field label that, when hovered
 over, will display a popup with the info text.
 
 For fields that have an info button by default (e.g. `image` field), the info
