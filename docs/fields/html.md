@@ -29,9 +29,9 @@ field.
 
 * `allowtwig` can be set to true or false to control if twig may be used in the
   field
-* `options` contains the options for the ckeditor wysiwyg editor. See below for
-  an example and [here](http://docs.ckeditor.com/#!/api/CKEDITOR.config) for
-  more info on possible options:
+* `options` contains the options for the <abbr title="What You See Is What You Get">WYSIWYG</abbr>
+  editor. See below for an example and the [CKEditor API][ckeditor] for more
+  information on possible options:
 
 ```yaml
         content:
@@ -44,3 +44,5 @@ field.
                     uiColor: '#BADA55'
                     autoGrow_minHeight: 300
 ```
+
+[ckeditor]: http://docs.ckeditor.com/#!/api/CKEDITOR.config
