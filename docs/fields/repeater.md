@@ -95,11 +95,11 @@ contenttype with a `sections` repeater, acces them like this:
 
 ### Options
 
-The field has a one option to change the functionality of the field.
+The field has one option:
 
-* `limit`: Define a limit to how many sets an editor is able to create. If you
-  omit this setting then an unlimited number of sets can be created. The
-  configuration for that looks like this:
+* `limit`: Limit how many sets an editor is able to create. If you omit this
+  setting, then an unlimited number of sets can be created. The configuration
+  for that option looks like this:
 
 ```yaml
         features:
