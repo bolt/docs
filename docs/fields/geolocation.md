@@ -26,7 +26,9 @@ To insert a simple map from Google with a marker at the given location, use:
 <img src="http://maps.googleapis.com/maps/api/staticmap?center={{ record.location.latitude }},{{ record.location.longitude }}&zoom=14&size=617x300&sensor=false&markers={{ record.location.latitude }},{{ record.location.longitude }}">
 ```
 
-More info about these static maps, can be found at [Static Maps API V2 Developer Guide][1].
-Of course, you can use the geolocations with any mapping service you like, since
-latitude and longitude is a common geographic coordinate system used by many
-services.
+More info about these static maps, can be found in the [Static Maps API V2
+Developer Guide][1]. Of course, you can use the geolocation with any mapping
+service you like, since latitude and longitude is a common geographic coordinate
+system used by many services.
+
+[1]: https://developers.google.com/maps/documentation/static-maps/
