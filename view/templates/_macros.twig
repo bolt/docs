@@ -43,8 +43,9 @@
     <li class="jqtree_common {{ page.subPages is not empty ? ' jqtree-folder' }}{{ not selected ? ' jqtree-closed' }}{{ current.url == page.url ? ' jqtree-selected'}}">
         <div class="jqtree-element">
             {% if page.subPages is not empty %}
-                <a href="{{ page.url }}" class="jqtree-toggler jqtree-closed jqtree-toggler-left">{{ selected ? '▼' : '►' }}</a>
                 <a href="{{ page.url }}"><span class="jqtree-title jqtree-title-folder">{{ page.title }}</span></a>
+                <a href="{{ page.url }}" class="jqtree-toggler jqtree-closed jqtree-toggler-left">{{ selected ? '-' : '+' }}</a>
+
             {% else %}
                 <a href="{{ page.url }}" class="jqtree-title">{{ page.title }}</a>
             {% endif %}
