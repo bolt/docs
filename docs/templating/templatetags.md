@@ -756,7 +756,7 @@ Available variables in Twig
 
 
 ```twig
-{{ dump(app.config.get('general') }}
+{{ dump(app.config.get('general')) }}
 ```
 
 For more info on `app`, see the chapter on [Bolt Internals](../internals/container-service-references).
