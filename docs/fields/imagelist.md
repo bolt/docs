@@ -27,7 +27,7 @@ images:
 
 ### Options:
 
-The field has a one option to change the functionality of the field:
+The field has one option to change the functionality of the field:
 
 * `extensions` Allows you to restrict users to only be able to upload files with
   certain file extensions.

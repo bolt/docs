@@ -57,22 +57,26 @@ $app['resources']->setUrl()
 File system paths available are:
 
 ```
+    # Most often used.. 
     "root" => "/path/to/bolt"
-    "rootpath" => "/path/to/bolt"
+    "web"  => "/path/to/bolt/public/"    
     "apppath" => "/path/to/bolt/app"
+    "extensionspath" => "/path/to/bolt/extensions"
+    "config" => "/path/to/bolt/app/config"
+    "cache" => "/path/to/bolt/app/cache"
+    "themebase" => "/path/to/bolt/theme"
+    "themepath" => "/path/to/bolt/theme/base-2016"
+    
+    # Other defined paths
+    "rootpath" => "/path/to/bolt"
     "extensionsconfig" => "/path/to/bolt/app/config/extensions"
     "extensionsconfigpath" => "/path/to/bolt/app/config/extensions"
-    "extensionspath" => "/path/to/bolt/extensions"
     "filespath" => "/path/to/bolt/files"
-    "web"  => "/path/to/bolt/"
-    "webpath" => "/path/to/bolt/"
-    "cache" => "/path/to/bolt/app/cache"
-    "cachepath" => "/path/to/bolt/appcache"
-    "config" => "/path/to/bolt/app/config"
+    "webpath" => "/path/to/bolt/public/"
+    "cachepath" => "/path/to/bolt/app/cache"
     "configpath" => "/path/to/bolt/app/config"
     "database" => "/path/to/bolt/app/database"
     "databasepath" => "/path/to/bolt/app/database"
-    "themebase" => "/path/to/bolt/theme"
     "themebasepath" => "/path/to/bolt/theme"
     "themepath" => "/path/to/bolt/theme/base-2016"
     "templatespath" => "/path/to/bolt/theme/base-2016"
