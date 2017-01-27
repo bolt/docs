@@ -57,7 +57,7 @@ web root. For more information about this, see the pages on configuring
 [Apache][apache] or [Nginx][nginx].
 
 If you bump into trouble setting this up, or you have no access to
-unchangeable in your web server's configuration, read the page
+change your web server's configuration, read the page
 [Troubleshooting 'outside of the webroot'][webroot].
 
 ### Permissions
