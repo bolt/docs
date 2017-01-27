@@ -563,8 +563,6 @@ mark {
         a.jqtree-toggler {
             margin-right: .5rem;
             color: $mediumblue;
-            display: none; //hide the arrows for les clutter
-
         }
     }
 
@@ -588,14 +586,23 @@ mark {
         font-weight: bold;
     }
 
+    // Don't show nested folders as bold, only top-level
+    ul.jqtree_common ul.jqtree_common .jqtree-title-folder {
+        font-weight: normal;
+    }
+
+    ul.jqtree_common ul.jqtree_common {
+        margin: 0.5rem 0.25rem 0 1.25rem;
+    }
+
     .jqtree-selected {
         background: lighten($lightgrey, 8%);
         position: relative;
-        margin-left: -1rem;
+        margin-left: -1.25rem;
         padding-left: 1rem;
 
         @media #{$large-up}{
-            margin-right: -1rem;
+            margin-right: -1.25rem;
             padding-right: 1rem;
 
             &:after {
