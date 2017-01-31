@@ -91,7 +91,7 @@
 -
     name: bolt_name
     type: string
-    value: alpha
+    value: beta
     file: ''
 -
     name: bolt_released
@@ -581,7 +581,7 @@
 -
     name: extend.online
     type: bool
-    value: true
+    value: false
     file: ''
 -
     name: extend.repo

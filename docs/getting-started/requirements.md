@@ -31,6 +31,7 @@ are default settings, and Bolt should work out-of-the-box.
     - xml
     - fileinfo
     - exif
+    - zip
 
 Note the following PHP modules are known to conflict with Bolt and it's 
 underlying Symfony components, and must be disabled:
