@@ -95,6 +95,27 @@ You can then fetch the selected record by using the following code:
 {% setcontent linkedpage = "pages" where { 'id': record.somevalue } returnsingle %}
 ```
 
+### Populating the values from multiple ContentTypes
+
+To output multiple ContentTypes in the select list, use:
+
+```yaml
+somevalue:
+    type: select
+    values: (events,news,pages)/title
+```
+
+As the field allows you to select multiple ContentTypes, upon saving it stores
+`contenttype/id` in the database. 
+
+You can then use this to fetch the selected record by using the following code, 
+where `somevalue` in this instance may equal something like `page/1`:
+
+```twig
+{% setcontent linkeditem = record.somevalue returnsingle %}
+```
+
+
 ## Additional options:
 
 ### Selecting multiple values
@@ -157,7 +178,7 @@ database:
 
 If you want to control the order that selected values are saved and displayed in
 then you can use the `sortable` option. This is especially useful when linking to
-other contenttypes since it can give an ordered relation. Usage:
+other ContentTypes since it can give an ordered relation. Usage:
 
 ```yaml
         pages:

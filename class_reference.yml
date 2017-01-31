@@ -39,11 +39,6 @@
     value: Bolt\Asset\Injector
     file: src/Asset/Injector.php
 -
-    name: asset.package.bolt
-    type: class
-    value: Bolt\Asset\UnprefixedPathPackage
-    file: src/Asset/UnprefixedPathPackage.php
--
     name: asset.package_factory
     type: closure
     value: ''
@@ -76,12 +71,12 @@
 -
     name: asset.salt
     type: string
-    value: 777d8a1289
+    value: 39cd94be14
     file: ''
 -
     name: asset.salt.factory
     type: string
-    value: 392679b495
+    value: 46bcd7cc71
     file: ''
 -
     name: asset.version_strategy
@@ -91,12 +86,12 @@
 -
     name: bolt_long_version
     type: string
-    value: '3.4.0 alpha 4'
+    value: '3.4.0 alpha 5'
     file: ''
 -
     name: bolt_name
     type: string
-    value: alpha
+    value: beta
     file: ''
 -
     name: bolt_released
@@ -106,7 +101,7 @@
 -
     name: bolt_version
     type: string
-    value: '3.3.0 alpha 8'
+    value: '3.4.0 alpha 5'
     file: ''
 -
     name: cache
@@ -424,6 +419,16 @@
     value: false
     file: ''
 -
+    name: debug.debug_handlers_listener
+    type: class
+    value: Symfony\Component\HttpKernel\EventListener\DebugHandlersListener
+    file: vendor/symfony/http-kernel/EventListener/DebugHandlersListener.php
+-
+    name: debug.file_link_formatter
+    type: 'null'
+    value: ''
+    file: ''
+-
     name: deprecated.php
     type: bool
     value: false
@@ -576,17 +581,17 @@
 -
     name: extend.online
     type: bool
-    value: true
+    value: false
     file: ''
 -
     name: extend.repo
     type: string
-    value: 'https://extensions.bolt.cm/list.json'
+    value: 'https://market.bolt.cm/list.json'
     file: ''
 -
     name: extend.site
     type: string
-    value: 'https://extensions.bolt.cm/'
+    value: 'https://market.bolt.cm/'
     file: ''
 -
     name: extend.urls
@@ -698,6 +703,11 @@
     type: array
     value: ''
     file: ''
+-
+    name: form.validator.existing_entity
+    type: class
+    value: Bolt\Form\Validator\Constraints\ExistingEntityValidator
+    file: src/Form/Validator/Constraints/ExistingEntityValidator.php
 -
     name: fragment.handler
     type: class
@@ -989,11 +999,6 @@
     value: ''
     file: ''
 -
-    name: omnisearch
-    type: class
-    value: Bolt\Omnisearch
-    file: src/Omnisearch.php
--
     name: pager
     type: class
     value: Bolt\Pager\PagerManager
@@ -1004,6 +1009,26 @@
     value: PasswordLib\Password\Factory
     file: vendor/passwordlib/passwordlib/lib/PasswordLib/Password/Factory.php
 -
+    name: path_resolver
+    type: class
+    value: Bolt\Configuration\PathResolver
+    file: src/Configuration/PathResolver.php
+-
+    name: path_resolver.paths
+    type: array
+    value: ''
+    file: ''
+-
+    name: path_resolver.root
+    type: string
+    value: /Users/bob/Sites/bolt-origin
+    file: ''
+-
+    name: path_resolver_factory
+    type: class
+    value: Bolt\Configuration\PathResolverFactory
+    file: src/Configuration/PathResolverFactory.php
+-
     name: pathmanager
     type: class
     value: Eloquent\Pathogen\FileSystem\Factory\PlatformFileSystemPathFactory
@@ -1011,8 +1036,8 @@
 -
     name: paths
     type: class
-    value: Bolt\Configuration\PathsProxy
-    file: src/Configuration/PathsProxy.php
+    value: Bolt\Configuration\LazyPathsProxy
+    file: src/Configuration/LazyPathsProxy.php
 -
     name: permissions
     type: class
@@ -1348,6 +1373,321 @@
     type: class
     value: Bolt\Storage\Database\Schema\Timer
     file: src/Storage/Database/Schema/Timer.php
+-
+    name: security
+    type: class
+    value: Symfony\Component\Security\Core\SecurityContext
+    file: vendor/symfony/security/Core/SecurityContext.php
+-
+    name: security.access_listener
+    type: class
+    value: Symfony\Component\Security\Http\Firewall\AccessListener
+    file: vendor/symfony/security/Http/Firewall/AccessListener.php
+-
+    name: security.access_manager
+    type: class
+    value: Symfony\Component\Security\Core\Authorization\AccessDecisionManager
+    file: vendor/symfony/security/Core/Authorization/AccessDecisionManager.php
+-
+    name: security.access_map
+    type: class
+    value: Symfony\Component\Security\Http\AccessMap
+    file: vendor/symfony/security/Http/AccessMap.php
+-
+    name: security.access_rules
+    type: array
+    value: ''
+    file: ''
+-
+    name: security.authentication.failure_handler._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication.failure_handler.default
+    type: class
+    value: Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler
+    file: vendor/symfony/security/Http/Authentication/DefaultAuthenticationFailureHandler.php
+-
+    name: security.authentication.logout_handler._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication.logout_handler.default
+    type: class
+    value: Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler
+    file: vendor/symfony/security/Http/Logout/DefaultLogoutSuccessHandler.php
+-
+    name: security.authentication.success_handler._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication.success_handler.default
+    type: class
+    value: Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler
+    file: vendor/symfony/security/Http/Authentication/DefaultAuthenticationSuccessHandler.php
+-
+    name: security.authentication_listener.anonymous._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_listener.default.anonymous
+    type: class
+    value: Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener
+    file: vendor/symfony/security/Http/Firewall/AnonymousAuthenticationListener.php
+-
+    name: security.authentication_listener.default.form
+    type: class
+    value: Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener
+    file: vendor/symfony/security/Http/Firewall/UsernamePasswordFormAuthenticationListener.php
+-
+    name: security.authentication_listener.default.logout
+    type: class
+    value: Symfony\Component\Security\Http\Firewall\LogoutListener
+    file: vendor/symfony/security/Http/Firewall/LogoutListener.php
+-
+    name: security.authentication_listener.factory.anonymous
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_listener.factory.form
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_listener.factory.http
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_listener.factory.logout
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_listener.factory.pre_auth
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_listener.factory.remember_me
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_listener.form._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_listener.http._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_listener.login_path.anonymous
+    type: class
+    value: Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener
+    file: vendor/symfony/security/Http/Firewall/AnonymousAuthenticationListener.php
+-
+    name: security.authentication_listener.logout._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_listener.switch_user._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_manager
+    type: class
+    value: Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager
+    file: vendor/symfony/security/Core/Authentication/AuthenticationProviderManager.php
+-
+    name: security.authentication_provider.anonymous._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_provider.dao._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.authentication_provider.default.anonymous
+    type: class
+    value: Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider
+    file: vendor/symfony/security/Core/Authentication/Provider/AnonymousAuthenticationProvider.php
+-
+    name: security.authentication_provider.default.dao
+    type: class
+    value: Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider
+    file: vendor/symfony/security/Core/Authentication/Provider/DaoAuthenticationProvider.php
+-
+    name: security.authentication_provider.login_path.anonymous
+    type: class
+    value: Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider
+    file: vendor/symfony/security/Core/Authentication/Provider/AnonymousAuthenticationProvider.php
+-
+    name: security.authentication_providers
+    type: array
+    value: ''
+    file: ''
+-
+    name: security.authorization_checker
+    type: class
+    value: Symfony\Component\Security\Core\Authorization\AuthorizationChecker
+    file: vendor/symfony/security/Core/Authorization/AuthorizationChecker.php
+-
+    name: security.channel_listener
+    type: class
+    value: Symfony\Component\Security\Http\Firewall\ChannelListener
+    file: vendor/symfony/security/Http/Firewall/ChannelListener.php
+-
+    name: security.context_listener._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.context_listener.default
+    type: class
+    value: Symfony\Component\Security\Http\Firewall\ContextListener
+    file: vendor/symfony/security/Http/Firewall/ContextListener.php
+-
+    name: security.context_listener.login_path
+    type: class
+    value: Symfony\Component\Security\Http\Firewall\ContextListener
+    file: vendor/symfony/security/Http/Firewall/ContextListener.php
+-
+    name: security.encoder.digest
+    type: class
+    value: Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder
+    file: vendor/symfony/security/Core/Encoder/MessageDigestPasswordEncoder.php
+-
+    name: security.encoder_factory
+    type: class
+    value: Symfony\Component\Security\Core\Encoder\EncoderFactory
+    file: vendor/symfony/security/Core/Encoder/EncoderFactory.php
+-
+    name: security.entry_point.default.form
+    type: class
+    value: Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint
+    file: vendor/symfony/security/Http/EntryPoint/FormAuthenticationEntryPoint.php
+-
+    name: security.entry_point.form._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.entry_point.http._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.entry_point.login_path.form
+    type: class
+    value: Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint
+    file: vendor/symfony/security/Http/EntryPoint/FormAuthenticationEntryPoint.php
+-
+    name: security.exception_listener._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.exception_listener.default
+    type: class
+    value: Symfony\Component\Security\Http\Firewall\ExceptionListener
+    file: vendor/symfony/security/Http/Firewall/ExceptionListener.php
+-
+    name: security.exception_listener.login_path
+    type: class
+    value: Symfony\Component\Security\Http\Firewall\ExceptionListener
+    file: vendor/symfony/security/Http/Firewall/ExceptionListener.php
+-
+    name: security.firewall
+    type: class
+    value: Symfony\Component\Security\Http\Firewall
+    file: vendor/symfony/security/Http/Firewall.php
+-
+    name: security.firewall_map
+    type: class
+    value: Symfony\Component\Security\Http\FirewallMap
+    file: vendor/symfony/security/Http/FirewallMap.php
+-
+    name: security.firewalls
+    type: array
+    value: ''
+    file: ''
+-
+    name: security.hide_user_not_found
+    type: bool
+    value: true
+    file: ''
+-
+    name: security.http_utils
+    type: class
+    value: Symfony\Component\Security\Http\HttpUtils
+    file: vendor/symfony/security/Http/HttpUtils.php
+-
+    name: security.last_error
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.role_hierarchy
+    type: array
+    value: ''
+    file: ''
+-
+    name: security.session_strategy
+    type: class
+    value: Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy
+    file: vendor/symfony/security/Http/Session/SessionAuthenticationStrategy.php
+-
+    name: security.token_storage
+    type: class
+    value: Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage
+    file: vendor/symfony/security/Core/Authentication/Token/Storage/TokenStorage.php
+-
+    name: security.trust_resolver
+    type: class
+    value: Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver
+    file: vendor/symfony/security/Core/Authentication/AuthenticationTrustResolver.php
+-
+    name: security.user_checker
+    type: class
+    value: Symfony\Component\Security\Core\User\UserChecker
+    file: vendor/symfony/security/Core/User/UserChecker.php
+-
+    name: security.user_provider.default
+    type: class
+    value: Symfony\Component\Security\Core\User\InMemoryUserProvider
+    file: vendor/symfony/security/Core/User/InMemoryUserProvider.php
+-
+    name: security.user_provider.inmemory._proto
+    type: closure
+    value: ''
+    file: ''
+-
+    name: security.user_provider.login_path
+    type: class
+    value: Symfony\Component\Security\Core\User\InMemoryUserProvider
+    file: vendor/symfony/security/Core/User/InMemoryUserProvider.php
+-
+    name: security.validator.user_password_validator
+    type: class
+    value: Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator
+    file: vendor/symfony/security/Core/Validator/Constraints/UserPasswordValidator.php
+-
+    name: security.voters
+    type: array
+    value: ''
+    file: ''
 -
     name: session
     type: class
@@ -1769,6 +2109,11 @@
     value: Twig_Environment
     file: vendor/twig/twig/lib/Twig/Environment.php
 -
+    name: twig.app_variable
+    type: class
+    value: Symfony\Bridge\Twig\AppVariable
+    file: vendor/symfony/twig-bridge/AppVariable.php
+-
     name: twig.extension.asset
     type: class
     value: Symfony\Bridge\Twig\Extension\AssetExtension
@@ -1831,8 +2176,8 @@
 -
     name: twig.extension.dump
     type: class
-    value: Bolt\Twig\DumpExtension
-    file: src/Twig/DumpExtension.php
+    value: Bolt\Twig\Extension\DumpExtension
+    file: src/Twig/Extension/DumpExtension.php
 -
     name: twig.extension.http_foundation
     type: class
@@ -1944,6 +2289,11 @@
     value: Bolt\Twig\Runtime\WidgetRuntime
     file: src/Twig/Runtime/WidgetRuntime.php
 -
+    name: twig.runtime.dump
+    type: class
+    value: Bolt\Twig\Runtime\DumpRuntime
+    file: src/Twig/Runtime/DumpRuntime.php
+-
     name: twig.runtime_loader
     type: class
     value: Bolt\Twig\RuntimeLoader
@@ -2011,7 +2361,7 @@
 -
     name: upload.prefix
     type: string
-    value: 2016-12/
+    value: 2017-01/
     file: ''
 -
     name: uri_signer
@@ -2038,6 +2388,11 @@
     type: class
     value: Bolt\Routing\UrlMatcher
     file: src/Routing/UrlMatcher.php
+-
+    name: user
+    type: 'null'
+    value: ''
+    file: ''
 -
     name: users
     type: class

@@ -249,12 +249,11 @@ content editor. Here's how our colourpicker template takes shape:
 <fieldset class="colourpicker">
     <div class="col-sm-12">
         <div>
-            <label class="control-label">{{field.label|default(key)}}</label>
+            <label class="control-label">{{ field.label|default(key|humanize) }}</label>
         </div>
         <select data-colourpicker {{ macro.attr(attr_opt) }}>
-            {% for key, value in field.values %}
-                {% set isSelected =  (key == context.content.get(key|capitalize)) %}
-                <option value="{{key}}"{% if isSelected %} selected="selected"{% endif %}>
+            {% for valuekey, value in field.values %}
+                <option value="{{ valuekey }}"{% if valuekey == context.content.get(key) %} selected="selected"{% endif %}>
                     {{value}}
                 </option>
             {% endfor %}
