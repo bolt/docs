@@ -71,12 +71,12 @@
 -
     name: asset.salt
     type: string
-    value: 777d8a1289
+    value: 39cd94be14
     file: ''
 -
     name: asset.salt.factory
     type: string
-    value: euWrSwgakF
+    value: J9gCUPz6Q8
     file: ''
 -
     name: asset.version_strategy
@@ -86,7 +86,7 @@
 -
     name: bolt_long_version
     type: string
-    value: 3.2.4
+    value: 3.2.6
     file: ''
 -
     name: bolt_name
@@ -101,7 +101,7 @@
 -
     name: bolt_version
     type: string
-    value: 3.2.4
+    value: 3.2.6
     file: ''
 -
     name: cache
@@ -551,17 +551,17 @@
 -
     name: extend.online
     type: bool
-    value: true
+    value: false
     file: ''
 -
     name: extend.repo
     type: string
-    value: 'https://extensions.bolt.cm/list.json'
+    value: 'https://market.bolt.cm/list.json'
     file: ''
 -
     name: extend.site
     type: string
-    value: 'https://extensions.bolt.cm/'
+    value: 'https://market.bolt.cm/'
     file: ''
 -
     name: extend.urls
@@ -970,9 +970,9 @@
     file: vendor/bolt/pathogen/src/FileSystem/Factory/PlatformFileSystemPathFactory.php
 -
     name: paths
-    type: array
-    value: ''
-    file: ''
+    type: class
+    value: Bolt\Configuration\PathsProxy
+    file: src/Configuration/PathsProxy.php
 -
     name: permissions
     type: class
@@ -1816,7 +1816,7 @@
 -
     name: upload.prefix
     type: string
-    value: 2016-12/
+    value: 2017-01/
     file: ''
 -
     name: uri_signer
