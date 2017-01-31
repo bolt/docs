@@ -9,4 +9,5 @@ pages:
     - install-git-clone
     - permissions
     - webserver
+    - third-party-install-options
 ---

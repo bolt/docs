@@ -581,7 +581,7 @@
 -
     name: extend.online
     type: bool
-    value: true
+    value: false
     file: ''
 -
     name: extend.repo
