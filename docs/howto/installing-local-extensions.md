@@ -92,12 +92,15 @@ Step 4
 
 Bolt might access your public assets (javascripts, stylesheets, images, etc.).
 For local extension, copy your assets manually to :
-`/{public_root}/extensions/local/{author_name}/{extension_name}/`
+`{public_root}/extensions/local/{author_name}/{extension_name}/`
+or just create symlink from 
+`{web_root}/extensions/local/{author_name}/{extension_name}/web` to `{public_root}/extensions/local/{author_name}/{extension_name}/`
 
 Where:
+ - `{web_root}` is the install location of your Bolt site
  - `{public_root}` is the public folder of your Bolt site
- - `{author_name}` is a lower-case, space-less name
- - `{extension_name}` is a lower-case, space-less name
+ - `{author_name}` space-less name
+ - `{extension_name}` space-less name
 
 Updating/Importing
 ------------------
