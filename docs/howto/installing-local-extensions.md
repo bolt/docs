@@ -97,6 +97,7 @@ For local extension, copy your assets manually to :
 or just create symlink 
 
 from: `{web_root}/extensions/local/{author_name}/{extension_name}/web`
+
 to: `{public_root}/extensions/local/{author_name}/{extension_name}/`
 
 Where:
