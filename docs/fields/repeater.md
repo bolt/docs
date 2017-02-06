@@ -7,7 +7,7 @@ Repeater field
 A special field type available as a field definition is the `repeater` field type which
 allows you to compose an array-like structure of sub-fields within a single field name.
 
-### Basic Configuration:
+## Basic Configuration:
 
 The configuration of a repeating field set comprises the main field set name, along with
 the definition of the sub fields.
@@ -30,7 +30,7 @@ are configured under the `fields` attribute. In general you can include any vali
 within a repeater, there are a few that are not supported `slug`, `templatefield` and
 `repeater` itself.
 
-### Example usage in templates:
+## Example usage in templates:
 
 When you want to use repeaters in your templates you will need to iterate over
 a set before you can access the individual fields.
@@ -80,7 +80,7 @@ If you prefer the dot-notation to access field values, you can also omit the `ge
 {% endfor %}
 ```
 
-### Images and thumbnails
+## Images and thumbnails
 
 You can use the image- and thumbnail filters for images inside a repeater
 contenttype, but the notation is slightly different. For example, if we have a
@@ -93,7 +93,7 @@ contenttype with a `sections` repeater, acces them like this:
 {% endfor %}
 ```
 
-### Options
+## Options
 
 The field has one option:
 

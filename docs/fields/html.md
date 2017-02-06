@@ -7,14 +7,14 @@ HTML field
 A WYSIWYG HTML field. You can supply extra options to it to customize the
 behaviour and appearance.
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         content:
             type: html
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 To print out the HTML field you just need to do in your templates:
 
@@ -22,7 +22,7 @@ To print out the HTML field you just need to do in your templates:
 {{ record.content }}
 ```
 
-### Options:
+## Options:
 
 The field has a few options to change the appearance and functionality of the
 field.
