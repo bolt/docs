@@ -23,7 +23,7 @@ in more detail below.
   - `index`: Add a database index for this field, only add if you know
     what this means.
 
-### Grouping fields in tabs
+## Grouping fields in tabs
 
 
 If you have a number of fields in your ContentType, it might be convenient to
@@ -60,7 +60,7 @@ pages:
         ..
 ```
 
-### Prefix and Postfix
+## Prefix and Postfix
 
 Sometimes it can be beneficial to add some extra text, labels or other markup
 to how a field is displayed in the Bolt backend, when editing a record. You can
@@ -78,7 +78,7 @@ after a field. For example:
 As you can see, using `postfix: "<hr>"` gives a simple and effective way of
 adding a divider in the edit screen.
 
-### Info
+## Info
 
 In the case where you want to provide a large volume of informational text
 about the use and purpose of a field, the value of the `info` parameter can be
@@ -90,7 +90,7 @@ over, will display a popup with the info text.
 For fields that have an info button by default (e.g. `image` field), the info
 description will override that field type default.
 
-### Default values
+## Default values
 
 When you want to give a record a default value, use `default:`. For most fields
 this will set the initial value of the field, when you're creating a new record
@@ -99,7 +99,7 @@ through [strtotime](http://php.net/manual/en/function.strtotime.php), meaning
 that you can use a fixed date as default, like "1900-01-01 12:00:00", but also
 relative dates like "first day of this month", "next Monday" or "yesterday".
 
-### Required and patterns
+## Required and patterns
 
 You can use the `required` option to make a field required. Combine it with the
 `pattern` option to make sure that a field contains an email-address, or that a
@@ -182,7 +182,7 @@ the pattern. For example, you could make an optional email-address like this:
 always include a postfix. Otherwise the editor might not know what's expected
 of them. </p>
 
-### Readonly fields
+## Readonly fields
 
 You can use the `readonly` option to lock the content in a field. For example
 if you have generated some entries with an import that users should not change.

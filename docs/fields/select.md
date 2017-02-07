@@ -4,13 +4,13 @@ title: Select field
 Select field
 ============
 
-### Choose from Preset values:
+## Choose from Preset values:
 
 A drop-down list to make a pre-defined selection from. This field has many
 options and many possibilities but is less complicated than it might seem at
 first glance.
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         somevalue:
@@ -18,13 +18,13 @@ first glance.
             values: [ none, foo, bar ]
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 ```twig
 {{ record.somevalue }}
 ```
 
-### Populating the values from a ContentType
+# Populating the values from a ContentType
 
 You can also get the values from the records of a particular ContentType.
 
@@ -97,7 +97,7 @@ You can then fetch the selected record by using the following code:
 
 ## Additional options:
 
-### Selecting multiple values
+## Selecting multiple values
 
 You can also allow the user to select multiple values by setting the options
 `multiple` to true like this:
@@ -137,7 +137,7 @@ Or if you just want to print them out after one another separated by commas:
 ```
 
 
-### Defining values as a hash
+## Defining values as a hash
 
 The options in the list can be defined as either a 'map' or a 'hash'. If you use
 a list (like above), the options visible in the drop-down list will be the

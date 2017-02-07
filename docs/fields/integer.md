@@ -6,20 +6,20 @@ Integer field
 
 Simple field for inputting whole numbers.
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         number:
             type: integer
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 ```twig
 {{ record.number }}
 ```
 
-### Options:
+## Options:
 
 The field has a few options to change the functionality of the field.
 
