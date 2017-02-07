@@ -89,18 +89,9 @@ rm app/nut
 ln -s vendor/bolt/bolt/app/nut
 ```
 
-Bolt 3 also expects a `.bolt.yml` file. Create this file in the project root:
-
-```yml
-paths:
-    cache: app/cache
-    config: app/config
-    database: app/database
-    web: web
-    themebase: web/theme
-    files: web/files
-    view: web/bolt-public/view
-```
+Bolt 3 supports customising certain filesystem path locations.
+[See the section on Customising Bootstrapping](../extensions/custom-bootstrapping.md)
+for more information.
 
 index.php has also changed, so update accordingly:
 
