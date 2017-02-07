@@ -6,14 +6,14 @@ Checkbox field
 
 Simple checkbox input.
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         showteaser:
             type: checkbox
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 ```twig
 {% if record.showteaser %}
@@ -21,7 +21,7 @@ Simple checkbox input.
 {% endif %}
 ```
 
-### Options:
+## Options:
 
 The field has one option to change the appearance of the field:
 

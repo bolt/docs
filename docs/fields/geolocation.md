@@ -11,14 +11,14 @@ see the values that are stored, use `{{ dump(page.geolocation) }}`.
 <p class="tip"><strong>Tip:</strong> This field requires a `google_api_key` key
  to be set in the main config.</p>
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         location:
             type: geolocation
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 To insert a simple map from Google with a marker at the given location, use:
 

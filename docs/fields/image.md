@@ -6,14 +6,14 @@ Image field
 
 Simple image upload/select field.
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         cover:
             type: image
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 ```twig
 {{ record.cover|showimage() }}
@@ -28,7 +28,7 @@ or
 ```
 See [Bolt Template tags](../templating/templatetags) for more info.
 
-### Options:
+## Options:
 
 The field has a few options to change the appearance and functionality of the
 field.
