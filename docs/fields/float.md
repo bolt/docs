@@ -6,20 +6,20 @@ Float field
 
 Simple field for inputting decimal numbers.
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         number:
             type: float
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 ```twig
 {{ record.number }}
 ```
 
-### Options:
+## Options:
 
 The field has a few options to change the functionality of the field.
 

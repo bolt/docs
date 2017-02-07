@@ -66,6 +66,8 @@ class KoalaCatcherExtension extends SimpleExtension
     /**
      * @param Application $app
      * @param Request     $request
+     *
+     * @return Response     
      */
     public function callbackKoalaCatching(Application $app, Request $request)
     {
@@ -75,6 +77,8 @@ class KoalaCatcherExtension extends SimpleExtension
     /**
      * @param Application $app
      * @param Request     $request
+     *
+     * @return Response     
      */
     public function callbackKoalaAdmin(Application $app, Request $request)
     {
@@ -158,6 +162,7 @@ use Silex\Application;
 use Silex\ControllerCollection;
 use Silex\ControllerProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * The controller for Drop Bear routes.
@@ -187,6 +192,8 @@ class DropBearController implements ControllerProviderInterface
     /**
      * @param Request $request
      * @param string  $type
+     *
+     * @return Response
      */
     public function callbackKoalaCatching(Request $request, $type)
     {
