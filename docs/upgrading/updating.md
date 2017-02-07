@@ -12,7 +12,13 @@ As with all web-based applications, it's good practice to keep your site up to
 date with the latest version. Bolt is built in such a way, that none of the
 files that are used for the configuration are included in the distribution
 files. In practice, this means that upgrading Bolt works almost the same way
-as installing a new copy of bolt. Skip to the right section below:
+as installing a new copy of bolt. 
+
+If you run into issues after installing, you may have to 
+[repeat setting the permissions](/installation/permissions#setting-permissions-quick-amp-easy)
+on some directories.
+
+Skip to the right section below:
 
 Updating on the command line
 ----------------------------
