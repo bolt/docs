@@ -6,20 +6,20 @@ Textarea field
 
 Simple text-input, for multi-line fields.
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         content:
             type: textarea
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 ```twig
 {{ record.content }}
 ```
 
-### Options:
+## Options:
 
 The field has a few options to change the functionality of the field.
 

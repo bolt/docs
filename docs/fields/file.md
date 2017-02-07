@@ -6,20 +6,20 @@ File field
 
 Simple file upload/select field.
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         attachment:
             type: file
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 ```twig
 {{ record.attachment }}
 ```
 
-### Options:
+## Options:
 
 The field has a few options to change the appearance and functionality of the
 field.

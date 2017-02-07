@@ -10,14 +10,14 @@ also show a preview beside the field.
 When using this field more information about the video is available. To see the
 values that are stored, use `{{ dump(page.video) }}`.
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         teaser:
             type: video
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 To insert the `<embed>`-code for the video, use:
 

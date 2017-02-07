@@ -6,20 +6,20 @@ Text field
 
 Simple text-input, for single-line fields.
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         name:
             type: text
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 ```twig
 {{ record.name }}
 ```
 
-### Options:
+## Options:
 
 The field has a few options to change the appearance and functionality of the
 field.
