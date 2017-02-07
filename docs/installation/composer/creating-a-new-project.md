@@ -91,45 +91,7 @@ $ cd example.com
 
 ### Configuration File
 
-In order for paths to be customised and still have the standard index.php (web)
-and nut (CLI) work, there needs to be a standard place these are defined.
-
-This is either `bolt.yml` (recommended) or `bolt.php` in the project root.
-YAML works for simple values and PHP supports any programmatic logic if
-required.
-
-An example `bolt.yml` would look like:
-
-```
-paths:
-    cache: app/cache
-    config: app/config
-    database: app/database
-    web: public
-    themebase: public/theme
-    files: public/files
-    view: public/bolt-public/view
-```
-
-If you are creating a `bolt.php` file instead, it should return the following
-array.
-
-```php
-    $config = [
-        'application' => null,
-        'resources'   => null,
-        'paths'       => [
-            'cache'     => 'app/cache',
-            'config'    => 'app/config',
-            'database'  => 'app/database',
-            'web'       => 'public',
-            'themebase' => 'public/theme',
-            'files'     => 'public/files',
-            'view'      => 'public/bolt-public/view',
-        ],
-    ];
-```
-This is a very advanced option, see Bolt's [bootstrap file][bs]
+This is a very advanced option, see [Customising Bootstrapping][bootstrapping]
 for more details.
 
 ### Composer JSON File
@@ -197,4 +159,4 @@ you require guidance on setting up permissions, see our
 
 After you've done this, skip to the section [Setting up Bolt](../../configuration/introduction).
 
-[bs]: https://github.com/bolt/bolt/blob/master/app/bootstrap.php
+[bootstrapping]: ../../extensions/custom-bootstrapping

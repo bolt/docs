@@ -68,18 +68,13 @@ via: `$ext = new MyBoltExtension\Extension();`
 Loading your Extension
 ------
 
-Bolt will load any extensions that are defined inside the `bolt.yml` file in the
+Bolt will load any extensions that are defined inside the `.bolt.yml` file in the
 root of your project. For example you can edit the file to look something like
 this:
 
 ```yaml
-#bolt.yml
+# .bolt.yml
 
-paths:
-    web: public
-    themebase: public/theme
-    files: public/files
-    view: public/bolt-public/view
 extensions:
     - MyextOne\LocalExtensionOne
     - MyextTwo\LocalExtensionTwo
@@ -92,7 +87,8 @@ setup using one of the methods defined above.
 If you use a php autoloader instead of the yaml style one above then you can add
 your extensions in PHP code. For each extension to load call the following:
 ```php
-// inside bolt.php
+</php
+// inside .bolt.php
 
 $app['extensions']->add(new MyextOne\LocalExtensionOne());
 $app['extensions']->add(new MyextTwo\LocalExtensionTwo());

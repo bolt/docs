@@ -13,48 +13,71 @@ There are two ways your Bolt application is used, via web requests and via the
 command line with `nut`. Because there are two entry points, bootstrapping is
 done in a common `bootstrap.php` file. 
 
-One of the important functions of the bootstrap file is to read a loader 
-configuration file in the root directory of your project. By customising this
-configuration file, you can modify things like paths, the application class to
-use, and other services used by the application. This file can be either 
-`.bolt.yml` or `.bolt.php`. 
-
-By default, Bolt uses `.bolt.yml` because who doesn't love YAML? But, for more
-complex, or dynamic configuration options, you can use a PHP file instead, 
-`.bolt.php`.
+For a more in-depth understanding of Bolt's bootstrapping, examine the PHP code
+in Bolt's own [bootstrap file][bs].
 
 The basics of configuring a Bolt application
 --------------------------------------------
 
-The minimal requirement of configuring Bolt's bootstrap is path configuration. 
+One of the important functions of the bootstrap file is to read a loader 
+configuration file in the root directory of your project. By customising this
+configuration, you can modify things like paths, the application class to
+use, and other services used by the application. This file can be either 
+`.bolt.yml` or `.bolt.php`. 
 
-Bolt needs to know these paths before configuration files like `config.yml` are
-read, in order to know where to find them.
+By default, if found, Bolt uses `.bolt.yml` (recommended) or `.bolt.php` in the
+project's root directory.
 
-A default Bolt install will have a `.bolt.yml` file that would look similar to:
+YAML works for simple values, and PHP supports programmatic logic if required.
+
+Customising file system paths
+-----------------------------
+
+In order for paths to be customised and still have the standard index.php (web)
+and nut (CLI) work, there needs to be a standard place these are defined.
+
+Customisation of these paths is done in the `paths` key of either your
+`.bolt.yml` or `.bolt.php` files.
+
+Below are full examples of all available paths customised.
+
+### Example 1a. YAML `.bolt.yml` file
 
 ```yaml
 paths:
+    cache: app/cache
+    config: app/config
+    database: app/database
+    extensions: extensions
+    extensions_config: %config%/extensions
     web: public
-    themebase: public/theme
-    files: public/files
-    view: public/bolt-public/view
+    files: %web%/files
+    themes: %web%/theme
+    bolt_assets: %web%/bolt-public/view
 ```
 
-The equivalent PHP file to the one above would look like:
+### Example 1b. PHP `.bolt.php` file
 
 ```php
 <?php
 
 return [
     'paths' => [
-        'web'       => 'public',
-        'themebase' => 'public/theme',
-        'files'     => 'public/files',
-        'view'      => 'public/bolt-public/view',
-    ]
+        'cache'             => 'app/cache',
+        'config'            => 'app/config',
+        'database'          => 'app/database',
+        'extensions'        => 'extensions',
+        'extensions_config' => '%config%/extensions',
+        'web'               => 'public',
+        'files'             => '%web%/files',
+        'themes'            => '%web%/theme',
+        'bolt_assets'       => '%web%/bolt-public/view',
+    ],
 ];
 ```
+
+
+
 
 Custom Application Class
 ------------------------
@@ -67,9 +90,6 @@ still apply any path customization afterwards as well.
 
 ```yaml
 application: My\Application
-paths:
-    web: public
-    #...
 ```
 
 In PHP, you can give the class name...
@@ -79,10 +99,6 @@ In PHP, you can give the class name...
 
 return [
     'application' => My\Application::class,
-    'paths' => [
-        'web' => 'public'
-        //...
-    ]
 ];
 ```
 
@@ -168,3 +184,4 @@ a larger application set.
 [StackPHP]: http://stackphp.com/
 [TwigServiceProvider]: http://silex.sensiolabs.org/doc/providers/twig.html#customization
 [extend]: https://github.com/silexphp/Pimple/tree/1.1#modifying-services-after-creation
+[bs]: https://github.com/bolt/bolt/blob/3.x/app/bootstrap.php

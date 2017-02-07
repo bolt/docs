@@ -6,20 +6,20 @@ Datetime field
 
 Datetime picker widget, to select a date and a time.
 
-### Basic Configuration:
+## Basic Configuration:
 
 ```yaml
         eventdate:
             type: datetime
 ```
 
-### Example usage in templates:
+## Example usage in templates:
 
 ```twig
 {{ record.eventdate }}
 ```
 
-### Options:
+## Options:
 
 The field has a few options to change the appearance and functionality of the
 field.
