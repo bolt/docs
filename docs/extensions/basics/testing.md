@@ -79,7 +79,7 @@ The end result looking something like this
         "packagist": false
     },
     "provide": {
-        "bolt/bolt": "3.0.0"
+        "bolt/bolt": "3.2.0"
     },
     "scripts": {
         "post-package-install": "Bolt\\Composer\\ExtensionInstaller::handle",

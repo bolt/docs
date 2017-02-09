@@ -651,6 +651,13 @@ You can set the size in your `config.yml`, like this:
 thumbnails: [ 160, 120, c ]
 ```
 
+To use a defined [thumbnail alias](../configuration/thumbnails#thumbnail-aliases), 
+you just need to pass in your alias name like so:
+
+```
+<img src="{{ content.image|thumbnail('cover') }}">
+```
+
 
 ### image
 

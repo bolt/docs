@@ -152,3 +152,18 @@ database:
             type: select
             values: { 'yes': "Yes", 'no': "No", 'undecided': "Well, it can go either way" }
 ```
+
+### Making the selected values sortable
+
+If you want to control the order that selected values are saved and displayed in
+then you can use the `sortable` option. This is especially useful when linking to
+other contenttypes since it can give an ordered relation. Usage:
+
+```yaml
+        pages:
+            type: select
+            values: pages/id,slug
+            multiple: true
+            autocomplete: true
+            sortable: true
+```
