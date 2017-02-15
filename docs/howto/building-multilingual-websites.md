@@ -54,7 +54,7 @@ See the use of `&pagefields` and `*pagefields` in the following example. Assume
 `en` is English, `nl` is Dutch, and `de` is German.
 
 ```yaml
-pages-en:
+pages_en:
     name: Pages
     singular_name: Page
     fields: &pagefields
@@ -71,13 +71,13 @@ pages-en:
             height: 300px
     template: page.twig
 
-pages-nl:
+pages_nl:
     name: Paginas
     singular_name: Pagina
     fields: *pagefields
     template: page.twig
 
-pages-de:
+pages_de:
     name: Seiten
     singular_name: Seite
     fields: *pagefields
@@ -90,19 +90,19 @@ _default_ ContentTypes if you desire:
 
 | postfix               | prefix                |
 | --------------------- | --------------------- |
-| `pages-en` or `pages` | `en-pages` or `pages` |
-| `pages-nl`            | `nl-pages`            |
-| `pages-de`            | `de-pages`            |
+| `pages_en` or `pages` | `en_pages` or `pages` |
+| `pages_nl`            | `nl_pages`            |
+| `pages_de`            | `de_pages`            |
 
 Depending on the website and/or your preferences, you can group the definitions
 in `contenttypes.yml` by language or by ContentType:
 
 | by language  | by ContentType |
 | ------------ | -------------- |
-| `en-pages`   | `pages-en`     |
-| `en-entries` | `pages-nl`     |
-| `nl-pages`   | `entries-en`   |
-| `nl-entries` | `entries-nl`   |
+| `en_pages`   | `pages_en`     |
+| `en_entries` | `pages_nl`     |
+| `nl_pages`   | `entries_en`   |
+| `nl_entries` | `entries_nl`   |
 
 See the following sections why it might be more useful to use `en-pages` and
 `nl-pages` instead of `pages` and `paginas`.
