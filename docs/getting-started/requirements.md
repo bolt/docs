@@ -21,6 +21,7 @@ are default settings, and Bolt should work out-of-the-box.
     - pdo
     - mysqlnd (to use MySQL as a database)
     - pgsql (to use PostgreSQL as a database)
+    - openssl
     - curl
     - gd
     - gmp
