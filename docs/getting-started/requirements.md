@@ -21,6 +21,7 @@ are default settings, and Bolt should work out-of-the-box.
     - pdo
     - mysqlnd (to use MySQL as a database)
     - pgsql (to use PostgreSQL as a database)
+    - openssl
     - curl
     - gd
     - gmp
@@ -33,11 +34,19 @@ are default settings, and Bolt should work out-of-the-box.
     - exif
     - zip
 
-Note the following PHP modules are known to conflict with Bolt and it's 
+Note: The following PHP modules are known to conflict with Bolt and it's 
 underlying Symfony components, and must be disabled:
 
   - Zend Guard Loader
   - ionCube
+
+<p class="note"><strong>Note:</strong> A Bolt server must be accessible by a
+host name, or fully qualified domain name (FQDN), otherwise authentication will
+not work. Using `localhost` as the host name should also work.
+</br></br>
+For developing sites, it is often useful to add a custom host name for the 
+development server to your local computer's hosts file.</p>
+
 
 Browser requirements
 --------------------
