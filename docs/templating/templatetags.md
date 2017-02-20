@@ -674,10 +674,10 @@ By doing so, the image will be resized, and it behave exactly like the
 ```
 
 To scale an image proportionally to a given width or height, 
-set the other dimension to zero, and set cropping mode to resize.
+set the other dimension to `null`, and set cropping mode to resize.
 
 ```twig
-<img src="{{ content.image|image(400, 0, "r") }}">
+<img src="{{ content.image|image(400, null, "r") }}">
 ```
 
 ### raw
