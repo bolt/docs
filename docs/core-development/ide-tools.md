@@ -21,7 +21,7 @@ This document currently covers the following IDEs:
 
 In particular, most developers will find the Silex plugin extremely useful, as
 it will allow services stored in the application container to be treated by the
-IDE in the same way that normal variablees are, and provide auto-completion, 
+IDE in the same way that normal variables are, and provide auto-completion, 
 hinting & code completion, to help avoid programmer mistakes.  
  
 e.g. Clicking on `$app['twig']` would resolve like a normal variable to 
