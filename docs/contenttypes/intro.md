@@ -16,7 +16,7 @@ different types of content are called **ContentTypes** in Bolt, and you can add
 as many different ContentTypes as you need.
 
 Each ContentType is made up of **Fields**, you can read more about **Fields**
-and what fields are available [here](../fields).
+and what fields are available in the [Fields Definition][field-types] section.
 
 All content on your website is part of one specific ContentType, which
 automatically defines which fields that piece of content has, which in turn
@@ -55,7 +55,7 @@ the following to the bottom or top of the file:
 ```yaml
 news:
     name: News
-    singular_name: Newsitem
+    singular_name: News Item
     fields:
         title:
             type: text
@@ -76,7 +76,7 @@ means that the indentation is important. Make sure you leave leading spaces
 intact.</p>
 
 This creates a new ContentType 'news'. Its name is 'News', and a single record
-is named 'Newsitem'. We've defined fields for 'title', 'slug', 'image' and
+is named 'News Item'. We've defined fields for 'title', 'slug', 'image' and
 'text'. The 'record_template' defines the default template to use, when displaying a
 single record in the browser.
 
@@ -226,9 +226,9 @@ The available options are:
 | `slug` (optional) | This determines the slug of the ContentType, and therefore the URLs that are generated for this ContentType. When omitted, the slug will be automatically generated. |
 | `singular_slug` (optional) | This determines the slug of a single record in this ContentType, and therefore the URLs that are generated for these records. When omitted, the slug will be automatically generated. |
 | `description` (optional) | A short description of the ContentType. This will be shown on the overview screen in the right aside column. |
-| `fields` | The fields that make up the content in this ContentType. See the [Fields Definition](#field-definitions) section below for details. |
-| `taxonomy` | An array listing the different taxonomies used by this ContentType. For example `[ categories, tags ]`. See the page on [Taxonomies](../contenttypes/taxonomies) for details. |
-| `relations` | An array listing the different relations available to this ContentType. See the page on [Relations](../contenttypes/relationships) for details. |
+| `fields` | The fields that make up the content in this ContentType. See the [Fields Definition][field-types] section for details. |
+| `taxonomy` | An array listing the different taxonomies used by this ContentType. For example `[ categories, tags ]`. See the page on [Taxonomies][ct-taxonomies] for details. |
+| `relations` | An array listing the different relations available to this ContentType. See the page on [Relations][ct-telations] for details. |
 | `record_template` | The default template to use, when displaying a single Record of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. This can be overridden on a per-record basis, if one of the fields is defined as type `templateselect`. |
 | `listing_template` | The default template to use, when displaying an overview of Records of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. |
 | `listing_records` | The amount of records to show on a single overview page in the frontend. If there are more records, the results will be paginated   |
@@ -239,11 +239,11 @@ The available options are:
 | `show_in_menu` (optional) | When set to `false` the ContentType will show in a submenu instead of as a top level menu. Can also be set to a word or sentence to group ContentTypes under different menus. |
 | `default_status` (optional) | Use this to set the default status for new records in this ContentType, i.e. `published`, `held`, `draft` or `timed`. |
 | `searchable` (optional) | A boolean value to determine whether this ContentType should show up in search results. |
-| `viewless` (optional) | When set to `true`, routes will not be set for the ContentType listing, or the records themselves. Useful for creating [Resource ContentTypes](../howto/resource-contenttype). |
+| `viewless` (optional) | When set to `true`, routes will not be set for the ContentType listing, or the records themselves. Useful for creating [Resource ContentTypes][howto-resource-ct]. |
 | `title_format` (optional) | Is used to determine the format of the title in the backend. For example if you have two fields for `firstname` and `lastname` you might put `[ firstname, lastname ]` here. |
-| `icon_many` (optional) | A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for this ContentType. For example: `fa:cubes` |
-| `icon_one` (optional) | A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`. |
-| `allow_numeric_slugs` (optional, advanced) | By default, Bolt prefixes slugs purely numeric with the ContentType slug (e.g. `entry-123` for an entry with title `123`), in order to distinguish slugs from IDs. If this option is set to `true`, numeric slugs remain unprefixed. Care has to be taken not to use [routes](../templating/templates-routes) of the form `/{contenttype}/{id}` for links in templates or for [fetching content](../templating/content-fetching)!
+| `icon_many` (optional) | A [Font Awesome][fa] icon to be used in the sidebar for this ContentType. For example: `fa:cubes` |
+| `icon_one` (optional) | A [Font Awesome][fa] icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`. |
+| `allow_numeric_slugs` (optional, advanced) | By default, Bolt prefixes slugs purely numeric with the ContentType slug (e.g. `entry-123` for an entry with title `123`), in order to distinguish slugs from IDs. If this option is set to `true`, numeric slugs remain unprefixed. Care has to be taken not to use [routes][template-routes] of the form `/{contenttype}/{id}` for links in templates or for [fetching content][fetching-content]!
 
 The structure of a Record
 -------------------------
@@ -283,7 +283,7 @@ name of your record or array. In most templates, `{{ dump(record) }}` will work
 as a generic fallback for whatever the name of your record is.
 
 For detailed information on how to access the various fields and values in your
-templates, see the [Template tags](../templating/templatetags) page.
+templates, see the [Template tags][templatetags] page.
 
 Advanced: YAML Repeated Nodes
 -----------------------------
@@ -377,3 +377,12 @@ pages:
             group: media
 (...)
 ```
+
+[fa]: http://fortawesome.github.io/Font-Awesome/
+[ct-relations]: ../contenttypes/relationships
+[ct-taxonomies]: ../contenttypes/taxonomies
+[fetching-content]: ../templating/content-fetching
+[field-types]: ../fields
+[howto-resource-ct]: ../howto/resource-contenttype
+[template-routes]: ../templating/templates-routes
+[templatetags]: ../templating/templatetags
