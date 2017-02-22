@@ -44,74 +44,12 @@ parameters, or incorrect parameter types, etc.
 For more information, the plugin source repository can be [found on GitHub][silex-idea-plugin]
 
 
-#### Editing the `~/.gitconfig`file
-
-Edit the `.gitconfig` file in your user home directory, and under the `[core]`
-section you can add the following:
-
-```
-[core]
-    excludesfile = ~/.gitignore_global
-```
-
-#### Editing the `~/.gitignore_global` file
-
-Edit the `.global` file in your user home directory, and add the following two
-files:
-
-```
-dump.php
-pimple.json
-```
-
-#### Installing Silex Pimple Dumper PHP package
-
-First thing you will need to do is install `sorien/silex-pimple-dumper` as a 
-**global** Composer package. 
-
-```bash
-composer global require sorien/silex-pimple-dumper:^1.0
-```
-
-For those not overly familiar with Composer, installing packages "globally"
-will add them to you Composer configuration directory, located in your user
-home directory.
-
-<p class="note"><strong>Note:</strong> Older versions of Composer on UNIX based
-systems (Linux & OS X) will use the directory `~/.composer`, whereas newer 
-versions will create that directory in `~/.config/composer`.</p>
-
-#### Setting up the JSON generator
-
-Create the file `dump.php` in your Bolt directory and add:
-
-```php
-<?php
-
-require_once getenv('HOME') . '/.composer/vendor/autoload.php';
-
-/** @var \Silex\Application $app */
-if (file_exists(__DIR__ . '/app/bootstrap.php')) {
-    $app = require_once __DIR__ . '/app/bootstrap.php';
-} elseif (file_exists(__DIR__ . '/vendor/bolt/bolt/app/bootstrap.php')) {
-    $app = require_once __DIR__ . '/vendor/bolt/bolt/app/bootstrap.php';
-} else {
-    echo "ABORTING: bootstrap.php not found\n";
-}
-$app['pimpledump.output_dir'] = __DIR__;
-
-$pdp = new Sorien\Provider\PimpleDumpProvider();
-$app->register($pdp);
-$app->boot();
-$pdp->dump($app);
-```
-
 ## Usage
 
 Simply run the `dump.php` file in the **root directory of your Bolt install**:
 
 ```bash
-php dump.php
+php ./app/nut pimple:dump
 ```
 
 This will generate a `pimple.json` file in the root directory, that once the
