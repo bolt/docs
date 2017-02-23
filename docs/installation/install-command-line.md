@@ -15,7 +15,13 @@ following commands:
 ```bash
 curl -O https://bolt.cm/distribution/bolt-latest.tar.gz
 tar -xzf bolt-latest.tar.gz --strip-components=1
-php app/nut setup:sync
+php app/nut init
+```
+
+If all goes well, you'll be greeted by the following:
+
+```bash
+Welcome to Bolt! - version %%VERSION%%.0.
 ```
 
 If this set of commands didn't work because your server doesn't have `curl`, use `wget`

@@ -9,7 +9,7 @@ If you already have a Composer project setup then run this command inside the
 root directory:
 
 ```
-composer require bolt/bolt ^3.1
+composer require bolt/bolt ^3.2
 ```
 
 If you use this method you will need to bootstrap Bolt yourself, depending on
