@@ -5,6 +5,7 @@ pages:
     - routing
     - templating
     - the-model
+    - bolt-storage-internals
     - bootstrapping
     - debug-bar
     - dump-twig-tag

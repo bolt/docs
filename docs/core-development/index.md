@@ -3,7 +3,8 @@ title: Bolt core development
 short_title: Core development
 pages:
     - howto
-level: advanced     
+    - ide-tools
+level: advanced
 ---
 References & documentation for core development
 ===============================================
