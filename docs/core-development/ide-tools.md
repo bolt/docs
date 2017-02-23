@@ -15,7 +15,7 @@ This document currently covers the following IDEs:
 
 ### Useful Plugins
 
-* Silex Plugin
+* Silex/Pimple Plugin
 * Symfony Plugin
 * Twig Support
 
@@ -29,8 +29,9 @@ e.g. Clicking on `$app['twig']` would resolve like a normal variable to
 will show you information about the `render()` function and highlight missing
 parameters, or incorrect parameter types, etc.
 
+#### Silex/Pimple Plugin
 
-#### Setting up Silex Plugin in PhpStorm or IntelliJ IDEA
+##### Set-up
 
 1. Install the plugin from JetBrains repositories:
    * Settings → Plugins → Browse repositories and search for "Silex"
@@ -44,7 +45,7 @@ parameters, or incorrect parameter types, etc.
 For more information, the plugin source repository can be [found on GitHub][silex-idea-plugin]
 
 
-#### Editing the `~/.gitconfig`file
+##### Editing the `~/.gitconfig`file
 
 Edit the `.gitconfig` file in your user home directory, and under the `[core]`
 section you can add the following:
@@ -54,7 +55,8 @@ section you can add the following:
     excludesfile = ~/.gitignore_global
 ```
 
-#### Editing the `~/.gitignore_global` file
+
+##### Editing the `~/.gitignore_global` file
 
 Edit the `.global` file in your user home directory, and add the following two
 files:
@@ -64,7 +66,8 @@ dump.php
 pimple.json
 ```
 
-#### Installing Silex Pimple Dumper PHP package
+
+##### Installing Silex Pimple Dumper PHP package
 
 First thing you will need to do is install `sorien/silex-pimple-dumper` as a 
 **global** Composer package. 
@@ -78,10 +81,11 @@ will add them to you Composer configuration directory, located in your user
 home directory.
 
 <p class="note"><strong>Note:</strong> Older versions of Composer on UNIX based
-systems (Linux & OS X) will use the directory `~/.composer`, whereas newer 
-versions will create that directory in `~/.config/composer`.</p>
+systems (Linux & OS X) will use the directory <code>~/.composer</code>, whereas newer 
+versions will create that directory in <code>~/.config/composer</code>.</p>
 
-#### Setting up the JSON generator
+
+##### Creating the JSON generator file
 
 Create the file `dump.php` in your Bolt directory and add:
 
@@ -106,7 +110,7 @@ $app->boot();
 $pdp->dump($app);
 ```
 
-## Usage
+##### Usage
 
 Simply run the `dump.php` file in the **root directory of your Bolt install**:
 
