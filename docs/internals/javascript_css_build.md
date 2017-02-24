@@ -51,8 +51,8 @@ styles added to that. It is built using sass. The main Bootstrap files are
 found at `app/src/node_modules/bootstrap-sass`. Our custom scss can be found at
 `app/src/sass/`
 
-This folder contains the *.scss files for the development of the back-end
-theme. The `*.scss` files will be compiled into normal stylesheets in the
+This folder contains the `.scss` files for the development of the back-end
+theme. The `.scss` files will be compiled into normal stylesheets in the
 `app/view/css/` folder.
 
 There is one main `.scss` file in the `sass/` directory: `app.scss`
