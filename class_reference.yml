@@ -1,9 +1,4 @@
 -
-    name: Bolt\Storage\Field\Type\TemplateFieldsType
-    type: closure
-    value: ''
-    file: ''
--
     name: access_control
     type: class
     value: Bolt\AccessControl\AccessChecker
@@ -71,12 +66,12 @@
 -
     name: asset.salt
     type: string
-    value: 39cd94be14
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: asset.salt.factory
     type: string
-    value: 46bcd7cc71
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: asset.version_strategy
@@ -84,24 +79,29 @@
     value: ''
     file: ''
 -
+    name: Bolt\Storage\Field\Type\TemplateFieldsType
+    type: closure
+    value: ''
+    file: ''
+-
     name: bolt_long_version
     type: string
-    value: '3.4.0 alpha 5'
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: bolt_name
     type: string
-    value: beta
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: bolt_released
     type: bool
-    value: false
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: bolt_version
     type: string
-    value: '3.4.0 alpha 5'
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: cache
@@ -116,8 +116,8 @@
 -
     name: canonical
     type: class
-    value: Bolt\Canonical
-    file: src/Canonical.php
+    value: Bolt\Routing\Canonical
+    file: src/Routing/Canonical.php
 -
     name: charset
     type: string
@@ -253,11 +253,6 @@
     type: array
     value: ''
     file: ''
--
-    name: controller.exception
-    type: class
-    value: Bolt\Controller\Exception
-    file: src/Controller/Exception.php
 -
     name: controller.frontend
     type: class
@@ -399,6 +394,11 @@
     value: Doctrine\DBAL\Configuration
     file: vendor/doctrine/dbal/lib/Doctrine/DBAL/Configuration.php
 -
+    name: dbs.default
+    type: string
+    value: default
+    file: ''
+-
     name: dbs.event_manager
     type: container
     value: '<em>(array, see children below)</em>'
@@ -409,6 +409,11 @@
     value: Doctrine\Common\EventManager
     file: vendor/doctrine/common/lib/Doctrine/Common/EventManager.php
 -
+    name: dbs.options
+    type: array
+    value: ''
+    file: ''
+-
     name: dbs.options.initializer
     type: closure
     value: ''
@@ -416,17 +421,62 @@
 -
     name: debug
     type: bool
-    value: false
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
-    name: debug.debug_handlers_listener
+    name: debug.class_loader.enabled
+    type: bool
+    value: '<em>(unique per-system value)</em>'
+    file: ''
+-
+    name: debug.early
+    type: bool
+    value: true
+    file: ''
+-
+    name: debug.error_handler
+    type: class
+    value: Symfony\Component\Debug\ErrorHandler
+    file: vendor/symfony/debug/ErrorHandler.php
+-
+    name: debug.error_handler.display_errors
+    type: bool
+    value: '<em>(unique per-system value)</em>'
+    file: ''
+-
+    name: debug.error_handler.enabled
+    type: bool
+    value: '<em>(unique per-system value)</em>'
+    file: ''
+-
+    name: debug.error_handler.reporting_level
+    type: int
+    value: '<em>(unique per-system value)</em>'
+    file: ''
+-
+    name: debug.exception_handler
+    type: class
+    value: Symfony\Component\Debug\ExceptionHandler
+    file: vendor/symfony/debug/ExceptionHandler.php
+-
+    name: debug.exception_handler.enabled
+    type: bool
+    value: '<em>(unique per-system value)</em>'
+    file: ''
+-
+    name: debug.from_config
+    type: bool
+    value: true
+    file: ''
+-
+    name: debug.handlers_listener
     type: class
     value: Symfony\Component\HttpKernel\EventListener\DebugHandlersListener
     file: vendor/symfony/http-kernel/EventListener/DebugHandlersListener.php
 -
-    name: debug.file_link_formatter
-    type: 'null'
-    value: ''
+    name: debug.initialized
+    type: bool
+    value: true
     file: ''
 -
     name: deprecated.php
@@ -436,8 +486,8 @@
 -
     name: dispatcher
     type: class
-    value: Symfony\Component\EventDispatcher\EventDispatcher
-    file: vendor/symfony/event-dispatcher/EventDispatcher.php
+    value: Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher
+    file: vendor/symfony/http-kernel/Debug/TraceableEventDispatcher.php
 -
     name: dispatcher_class
     type: string
@@ -481,7 +531,7 @@
 -
     name: environment
     type: string
-    value: production
+    value: development
     file: ''
 -
     name: exception_handler
@@ -581,7 +631,7 @@
 -
     name: extend.online
     type: bool
-    value: false
+    value: true
     file: ''
 -
     name: extend.repo
@@ -686,7 +736,7 @@
 -
     name: form.secret
     type: string
-    value: dbf521ca491bea4c2fd8320ef6afc3ab
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: form.type.extensions
@@ -751,7 +801,7 @@
 -
     name: guzzle.api_version
     type: int
-    value: 6
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: guzzle.base_url
@@ -781,7 +831,7 @@
 -
     name: http_cache.cache_dir
     type: string
-    value: /Users/bob/Sites/bolt-origin/app/cache/production/http
+    value: app/cache/development/http
     file: ''
 -
     name: http_cache.esi
@@ -803,6 +853,11 @@
     type: class
     value: Symfony\Component\HttpKernel\HttpCache\Store
     file: vendor/symfony/http-kernel/HttpCache/Store.php
+-
+    name: imagine.svg
+    type: class
+    value: Contao\ImagineSvg\Imagine
+    file: vendor/contao/imagine-svg/src/Imagine.php
 -
     name: integritychecker
     type: class
@@ -828,6 +883,11 @@
     type: class
     value: Bolt\EventListener\ExceptionListener
     file: src/EventListener/ExceptionListener.php
+-
+    name: listener.exception_json
+    type: class
+    value: Bolt\EventListener\ExceptionToJsonListener
+    file: src/EventListener/ExceptionToJsonListener.php
 -
     name: listener.flash_logger
     type: class
@@ -858,6 +918,11 @@
     type: class
     value: Bolt\EventListener\SnippetListener
     file: src/EventListener/SnippetListener.php
+-
+    name: listener.system_logger
+    type: class
+    value: Bolt\EventListener\SystemLoggerListener
+    file: src/EventListener/SystemLoggerListener.php
 -
     name: listener.zone_guesser
     type: class
@@ -966,7 +1031,7 @@
 -
     name: monolog.logfile
     type: string
-    value: /Users/bob/Sites/bolt-origin/app/cache/bolt-debug.log
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: monolog.logger.class
@@ -1021,7 +1086,7 @@
 -
     name: path_resolver.root
     type: string
-    value: /Users/bob/Sites/bolt-origin
+    value: ''
     file: ''
 -
     name: path_resolver_factory
@@ -1056,7 +1121,7 @@
 -
     name: profiler.cache_dir
     type: string
-    value: /Users/bob/Sites/bolt-origin/app/cache/profiler
+    value: app/cache/profiler
     file: ''
 -
     name: profiler.listener
@@ -1091,7 +1156,7 @@
 -
     name: profiler.templates_path
     type: string
-    value: /Users/bob/Sites/bolt-origin/vendor/symfony/web-profiler-bundle/Resources/views
+    value: vendor/symfony/web-profiler-bundle/Resources/views
     file: ''
 -
     name: query
@@ -1711,8 +1776,8 @@
 -
     name: session.generator
     type: class
-    value: Bolt\Session\Generator\RandomGenerator
-    file: src/Session/Generator/RandomGenerator.php
+    value: Bolt\Session\Generator\NativeGenerator
+    file: src/Session/Generator/NativeGenerator.php
 -
     name: session.generator.bytes_length
     type: int
@@ -2066,7 +2131,7 @@
 -
     name: token.authentication.name
     type: string
-    value: bolt_authtoken_853ae90f0351324bd73ea615e6487517
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: translator
@@ -2076,7 +2141,7 @@
 -
     name: translator.cache_dir
     type: string
-    value: /Users/bob/Sites/bolt-origin/app/cache/trans
+    value: app/cache/trans
     file: ''
 -
     name: translator.caching
@@ -2361,7 +2426,7 @@
 -
     name: upload.prefix
     type: string
-    value: 2017-01/
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: uri_signer
@@ -2371,7 +2436,7 @@
 -
     name: uri_signer.secret
     type: string
-    value: dbf521ca491bea4c2fd8320ef6afc3ab
+    value: '<em>(unique per-system value)</em>'
     file: ''
 -
     name: url_generator
