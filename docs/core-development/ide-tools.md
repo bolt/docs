@@ -15,7 +15,7 @@ This document currently covers the following IDEs:
 
 ### Useful Plugins
 
-* Silex Plugin
+* Silex/Pimple Plugin
 * Symfony Plugin
 * Twig Support
 
@@ -29,8 +29,9 @@ e.g. Clicking on `$app['twig']` would resolve like a normal variable to
 will show you information about the `render()` function and highlight missing
 parameters, or incorrect parameter types, etc.
 
+#### Silex/Pimple Plugin
 
-#### Setting up Silex Plugin in PhpStorm or IntelliJ IDEA
+##### Set-up
 
 1. Install the plugin from JetBrains repositories:
    * Settings → Plugins → Browse repositories and search for "Silex"
@@ -44,7 +45,7 @@ parameters, or incorrect parameter types, etc.
 For more information, the plugin source repository can be [found on GitHub][silex-idea-plugin]
 
 
-## Usage
+##### Usage
 
 Simply run the `dump.php` file in the **root directory of your Bolt install**:
 
