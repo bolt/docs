@@ -206,3 +206,12 @@ class DropBearController implements ControllerProviderInterface
 }
 ```
 
+The route will then then be accessed via `/dropbear/koala/{type}` for frontend
+controllers or `/{admin_path}/dropbear/koala/{type}` for backend controllers.
+
+Note that the `{admin_path}` value by default will be "_bolt_", unless you have
+changed the `path:` value in your [branding configuration][branding], in which
+case it will reflect that value.
+
+
+[branding]: /howto/performance-tips#configure-the-backend-path-and-other-branding
