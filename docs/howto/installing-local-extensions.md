@@ -36,7 +36,7 @@ installation:
 Option 1 - Extensions in your extensions/local folder
 -----------------------------------------------------
 
-If you place a valid Bolt extension inside the `extensions/local` directory
+If you place a valid Bolt extension inside the `{site_root}/extensions/local` directory
 then the class will be accessible to your Bolt app.
 
 For example, if the local folder does not exist, then create it and inside
