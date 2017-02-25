@@ -151,26 +151,7 @@ define('EXTENSION_AUTOLOAD',  realpath(dirname(__DIR__) . '/vendor/autoload.php'
 require_once EXTENSION_AUTOLOAD;
 ```
 
-Step 4: Modify your init.php file
----------------------------------
-
-Because we are executing the extension in a different context to normal, the
-extension loader will not be included in the normal way so we need to add a
-check to ignore the normal initialize if a Bolt app context is not provided.
-
-All you need to do is add the below if isset condition around the extension
-register line, for example:
-
-
-```
-namespace Bolt\Extensions\Bolt\Colourpicker;
-
-if (isset($app)) {
-    $app['extensions']->register(new Extension($app));
-}
-```
-
-Step 5: Write some tests that extends `BoltUnitTest`
+Step 4: Write some tests that extends `BoltUnitTest`
 ---------------------------------------------------
 
 Here's the simplest test you can write, we test that the extension gets
