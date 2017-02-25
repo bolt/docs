@@ -10,7 +10,7 @@ extensions site.
 
 There are a couple of caveats:
 
-- Must be located in `{web_root}/extensions/local/{author_name}/{extension_name}/`
+- Must be located in `{site_root}/extensions/local/{author_name}/{extension_name}/`
 - Updates are **not** available though the web UI
 
 **Note:** If your local extension requires libraries from Packagist, simply add
@@ -21,10 +21,10 @@ Step 1
 ------
 
 Create the directory for you extension in
-`{web_root}/extensions/local/{author_name}/{extension_name}/`
+`{site_root}/extensions/local/{author_name}/{extension_name}/`
 
 Where:
- - `{web_root}` is the install location of your Bolt site
+ - `{site_root}` is the install location of your Bolt site
  - `{author_name}` is a lower-case, space-less name
  - `{extension_name}` is a lower-case, space-less name
 
