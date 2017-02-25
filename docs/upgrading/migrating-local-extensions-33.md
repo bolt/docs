@@ -120,3 +120,7 @@ As you may have realised, the `composer.json` files are now no longer needed for
 writing a Bolt extension is as simple as creating a class in your Application that implements
  `Bolt\Extension\ExtensionInterface` and adding the Fully Qualified Class Name to your `.bolt.yml`
 file.
+
+Once you have a local extension loaded in your application, the interface within the Bolt extensions
+screen has also been adjusted to separate local extensions from those installed via the Market Place.
+These local extensions will now appear underneath the other installed extensions.
