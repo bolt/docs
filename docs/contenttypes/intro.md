@@ -226,6 +226,7 @@ The available options are:
 | `slug` (optional) | This determines the slug of the ContentType, and therefore the URLs that are generated for this ContentType. When omitted, the slug will be automatically generated. |
 | `singular_slug` (optional) | This determines the slug of a single record in this ContentType, and therefore the URLs that are generated for these records. When omitted, the slug will be automatically generated. |
 | `description` (optional) | A short description of the ContentType. This will be shown on the overview screen in the right aside column. |
+| `tablename` (optional) | The (base) name of the table, as used in the database. If omitted, the `slug` will be used for this. |
 | `fields` | The fields that make up the content in this ContentType. See the [Fields Definition][field-types] section for details. |
 | `taxonomy` | An array listing the different taxonomies used by this ContentType. For example `[ categories, tags ]`. See the page on [Taxonomies][ct-taxonomies] for details. |
 | `relations` | An array listing the different relations available to this ContentType. See the page on [Relations][ct-telations] for details. |
