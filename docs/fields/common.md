@@ -8,20 +8,18 @@ Common options for all fields
 All fields have few common options to further customize them. We explain them
 in more detail below.
 
-  - `label`: If omitted, the name of the field will be used as a label in
-    the edit-screen. Replace 'Foo' with the desired label of the field.
-  - `group`: Group the field under a certain tab when editing.
-  - `prefix`: Text/HTML to show before the field.
-  - `postfix`: Text/HTML to show after the field.
-  - `info`: Use for displaying extra information about the field in a info
-     popup besides the label.
-  - `default`: The default value for a field, if applicable.
-  - `required`: make this field required so that the record cannot be
-    saved without it being filled.
-  - `pattern`: Add a custom validation pattern to validate against when saving.
-  - `readonly`: Do not allow an editor to change the value of this field.
-  - `index`: Add a database index for this field, only add if you know
-    what this means.
+| Option     | Description |
+|------------|-------------|
+| `label`    | If omitted, the name of the field will be used as a label in the edit-screen. Replace 'Foo' with the desired label of the field. |
+| `group`    | Group the field under a certain tab when editing. |
+| `prefix`   | Text/HTML to show before the field. |
+| `postfix`  | Text/HTML to show after the field. |
+| `info`     | Use for displaying extra information about the field in a info popup besides the label. |
+| `default`  | The default value for a field, if applicable. |
+| `required` | make this field required so that the record cannot be saved without it being filled. |
+| `pattern`  | Add a custom validation pattern to validate against when saving. |
+| `readonly` | Do not allow an editor to change the value of this field. |
+| `index`    | Add a database index for this field, only add if you know what this means. |
 
 ## Grouping fields in tabs
 
@@ -131,19 +129,14 @@ available for `text` fields. Examples of patterns that can be used, can be
 found on the website [html5pattern.com](http://html5pattern.com/). Some common
 use-cases are:
 
-- `email`: the input must be a valid email address. The email address must be
-  _possible_ syntactically, but it's not required that it actually exists.
-- `url`: the input must be a valid url, starting with `http://` or `https://`.
-  The URL address must be _possible_ syntactically, but it's not required that
-  it actually exists.
-- `^.{1,50}$`: The input can contain any character, and should be between 1 and
-  50 characters in length.
-- `^[0-9_ -]*$`: The input can contain numbers, dashes, underscores and spaces.
-- `^[a-zA-Z0-9 ]{10,20}$`: The input can contain uppercase and lowercase
-  letters and numbers, and should be between 10 and 20 characters in length.
-- `^[1-9][0-9]{3}[\s]?[A-Za-z]{2}$`: The input should be a Dutch postal code:
-  four numbers with no leading '0', an optional space, and two letters. `1234
-  ab` or `2518HL` are valid inputs.
+| Pattern       | Description |
+|---------------|-------------|
+| `email`       | the input must be a valid email address. The email address must be _possible_ syntactically, but it's not required that it actually exists. |
+| `url`         | the input must be a valid url, starting with `http://` or `https://`. The URL address must be _possible_ syntactically, but it's not required that it actually exists. |
+| `^.{1,50}$`   | The input can contain any character, and should be between 1 and  50 characters in length. |
+| `^[0-9_ -]*$` | The input can contain numbers, dashes, underscores and spaces. |
+| `^[a-zA-Z0-9 ]{10,20}$` | The input can contain uppercase and lowercase letters and numbers, and should be between 10 and 20 characters in length. |
+| `^[1-9][0-9]{3}[\s]?[A-Za-z]{2}$` | The input should be a Dutch postal code: four numbers with no leading '0', an optional space, and two letters. `1234 ab` or `2518HL` are valid inputs. |
 
 For example, use this to make sure a title is no longer than 80 characters:
 
