@@ -295,7 +295,7 @@ purpose.
 In your `master.twig` template, set the current language for Labels:
 
 ```twig
-{{ setLanguage(language) }}
+{{ setlanguage(language) }}
 ```
 
 Now, instead of using text directly, you want to put them through the Labels
