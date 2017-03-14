@@ -223,8 +223,8 @@ Bolt tries to render it in the backend it will request a template at
 
 The `getStorageType()` method tells Bolt how this will need to be saved in the
 database. Bolt uses Doctrine DBAL and supports any of the built in types by
-default, so potential values for this may be `string`, `text`, `float`,
-`decimal` `integer`, `float` along with many more. In our case we just want to
+default, so potential values for this may be `string`, `text`, `decimal`, 
+`integer` and `float` along with many more. In our case we just want to
 store a plain string in the database, so this is what we return.
 
 Then the `getStorageOptions()` method provides an array of options passed to the
