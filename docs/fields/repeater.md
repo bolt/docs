@@ -95,16 +95,20 @@ contenttype with a `sections` repeater, acces them like this:
 
 ## Options
 
-The field has one option:
+The field has two specific options:
 
 * `limit`: Limit how many sets an editor is able to create. If you omit this
   setting, then an unlimited number of sets can be created. The configuration
   for that option looks like this:
+* `initial`: How many empty sets are created initially. This defaults to 1
+  but when a sub-field is marked as required you may want to set it to `0` to
+  ensure that a user must manually add a set first.  
 
 ```yaml
         features:
             type: repeater
             limit: 3
+            initial: 0
             fields:
                 repeattitle:
                     type: text

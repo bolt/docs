@@ -14,7 +14,7 @@ object of data. For example a user in Bolt is represented via the
 will normally return a `Bolt\Entity\Content` object.
 
 Normally an entity will map each property to an object attribute and if you are
-creating your own entity classes then it's a good idea to proved getter and
+creating your own entity classes then it's a good idea to provide getter and
 setter methods to allow interaction with the properties.
 
 Another option is to extend Bolt's base Entity class which adds dynamic getters
