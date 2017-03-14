@@ -55,13 +55,19 @@ the intended one:
 
 By default, the menu is rendered using the template
 `/app/theme_defaults/_sub_menu.twig`. You can 'override' the default by copying
-this file to your own theme folder. Bolt will pick your own version, and then
+this file to the root of your own theme folder. Bolt will pick your own version, and then
 it will not be overwritten in a future update. However, it is good practice to
 explicitly state which template file should be used to render a menu. Like
 this:
 
 ```twig
-{{ menu('foo', '_menu_foo.twig') }}
+{{ menu('foo', 'partials/_sub_menu.twig') }}
+```
+
+or 
+
+```twig
+{{ menu('foo', '/partials/_menu_foo.twig') }}
 ```
 
 You can specify other parameters besides the menu name and the template. For
@@ -72,7 +78,7 @@ arguments in Twig. For example:
 ```twig
 {{ menu(
     identifier = 'foo',
-    template = '_menu_foo.twig',
+    template = 'partials/_menu_foo.twig',
     params = {'withsubmenus': false, 'class': 'myclass'}
 ) }}
 ```
@@ -80,7 +86,7 @@ arguments in Twig. For example:
 Which is equivalent to this shorthand version:
 
 ```twig
-{{ menu('foo', '_menu_foo.twig', {'withsubmenus': false, 'class': 'myclass'}) }}
+{{ menu('foo', 'partials/_menu_foo.twig', {'withsubmenus': false, 'class': 'myclass'}) }}
 ```
 
 Doing this will render the menu `foo`, using the template `_menu_foo.twig`. The
@@ -118,11 +124,11 @@ Usually, menus are used in 'headers', 'footers' or 'aside' includes, but you
 can use them anywhere. For now, just insert this code, somewhere:
 
 ```
-{{ menu('test', '_menu_test.twig') }}
+{{ menu('test', 'partials/_menu_test.twig') }}
 ```
 
-This inserts the menu, using the template `_menu_test.twig` template. The file
-probably is'nt present yet, so create it in your own `theme/`-folder.
+This inserts the menu, using the template `partials/_menu_test.twig` template. The file
+probably isn't present yet, so create it in your own `theme/`-folder.
 
 ```
 <ul>
