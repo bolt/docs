@@ -105,7 +105,7 @@ Listening for Events
 
 Extensions that extend `SimpleExtension` can implement a function called
 `subscribe()` that allows the extension to tell Bolt what events it is
-listening out for, and when then occur what function should be called.
+listening out for, and when they occur what function should be called.
 
 This is most applicable for when you want to use distinct classes to act on events.
 

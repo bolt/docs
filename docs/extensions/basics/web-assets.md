@@ -171,7 +171,7 @@ In the above example:
   * `setPriority(99)` tells the injector to insert this `<script src="path/web/dropbear.js"></script>`
     *after* any other `<script>` tags in that location with a priority lower than 99
   * `setAttributes(['defer', 'async'])` adds `defer` and `async` to the
-    `<script>` tage
+    `<script>` tag
   * `setZone(Zone::BACKEND)` tells the injector to insert the `<script src="path/web/dropbear.js"></script>`
     on back-end pages, instead of the default of front-end
 
