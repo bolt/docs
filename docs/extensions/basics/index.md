@@ -9,5 +9,6 @@ pages:
     - twig
     - web-assets
     - testing
+    - translations
 level: intermediate
 ---
