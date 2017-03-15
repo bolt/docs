@@ -158,8 +158,9 @@ clicking on this if all is well you should see a screen like the one below:
 If everything installs ok you should see all green status bars on the screen and
 the green star badge next to your extension. For complete testing you can launch
 a test on various versions of PHP to make sure your extensions works well on
-older versions. Wherever possible we recommend testing against PHP 5.3 since
-this is the same version supported by Bolt and gives you access to most users.
+older versions. Wherever possible we recommend testing against PHP 5.5 since
+this is the same minimum version supported by Bolt and gives you access to most
+users.
 
 Once you have a successful test you will receive the green approved build badge
 on the extensions install window.
