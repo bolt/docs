@@ -4,6 +4,7 @@ short_title: Internals
 pages:
     - routing
     - templating
+    - filesystem
     - the-model
     - bolt-storage-internals
     - bootstrapping
