@@ -7,8 +7,8 @@ Bolt's Filesystem
 
 Bolt uses a visualised filesystem layer, built using [Flysystem][flysystem].
 
-Each filesystem is registered with the Filesystem Manager on what is referred
-to as a "mount point", including:
+Each filesystem is registered with the Filesystem Manager on what are referred
+to as a "mount point". These mount points include:
 
   * `cache` — User's cache mount point
   * `config` — User's config mount point
@@ -17,6 +17,18 @@ to as a "mount point", including:
   * `files` — User's files mount point
   * `themes` — User's extension mount point
   * `web` — User's web root mount point
+
+Requesting a named, valid, mount point from the Filesystem Manager will return
+a filesystem.
+
+Inside each filesystem are a group of files and directories, that can be 
+created, read, updated, and deleted, via the mount point's filesystem object.
+
+So the interaction with files & directories generally follows the code path
+
+Filesystem Manager service -> `\Bolt\Filesystem\FilesystemInterface` mount 
+point object -> `\Bolt\Filesystem\Handler\FileInterface` or 
+`\Bolt\Filesystem\Handler\DirectoryInterface` object 
 
 
 ## Filesystem Manager
@@ -87,6 +99,9 @@ section.
 
 ### Files
 
+Each file in the filesystem is an instance of an `\Bolt\Filesystem\Handler\FileInterface`
+object.
+
 #### Getting a file object
 
 ```php
@@ -117,6 +132,9 @@ Where:
 
 
 ### Directories
+
+Each directory in the filesystem is an instance of `\Bolt\Filesystem\Handler\DirectoryInterface`
+object.
 
 #### Get a directory object
 
