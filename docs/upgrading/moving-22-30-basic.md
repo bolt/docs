@@ -1,8 +1,8 @@
 ---
 title: "Starting fresh (basic)"
 ---
-Setting up a fresh Bolt 3.0, moving content
-===========================================
+Setting up a fresh Bolt install, moving content
+===============================================
 
 This page describes the process of setting up a fresh Bolt %%VERSION%% install,
 and moving over all of your existing configuration, data, themes and uploaded
