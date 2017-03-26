@@ -33,7 +33,7 @@ Composer:
 
 ```bash
 $ cd /var/www/
-$ composer create-project --no-install bolt/bolt:^3.0 bolt-private
+$ composer create-project --no-install bolt/bolt:^%%VERSION%% bolt-private
 $ cd bolt-private
 $ composer install --no-dev --optimize-autoloader
 ```
