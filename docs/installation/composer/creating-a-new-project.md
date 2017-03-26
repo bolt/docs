@@ -74,7 +74,6 @@ env BOLT_DIR_MODE=0755 BOLT_WEB_DIR=my_public_dir BOLT_THEME_DIR=my_theme_dir \
     BOLT_FILES_DIR=my_files_dir BOLT_CONFIG_DIR=my_config_dir \
     BOLT_DATABASE_DIR=my_database_dir BOLT_CACHE_DIR=my_cache_dir \
     composer create-project bolt/composer-install:^%%VERSION%% <MYPROJECT> \
-    composer create-project bolt/composer-install:^%%VERSION%% <MYPROJECT> \
     --prefer-dist --no-interaction
 ```
 
