@@ -1,36 +1,110 @@
 ---
-title: Bolt template tags
+title: Bolt template functionality
 ---
-Bolt Template tags
-==================
+Bolt Template functionality
+===========================
 
 As mentioned before, a template in Bolt can use all of the standard Twig tags,
-with a few additions that are specific to working with Bolt. If you're not
-familiar with Twig yet, you should read "[Twig for Template Designers][twig]",
-on the official Twig website.
+function, filters, tests & operators, with a few additions that are specific to
+working with Bolt. If you're not familiar with Twig yet, you should read 
+"[Twig for Template Designers][twig]", on the official Twig website.
 
-Below you'll find the tags we've added specifically for Bolt, grouped by type:
-functions, filters, and available variables.
+Below you will find Bolt specific, and common Twig [tags](#twig-tags),
+[functions](#twig-functions), [filters](#twig-filters).
 
 Twig tags
 ---------
 
+### setcontent
+
+The `setcontent` tag is used to perform various queries on the database. It converts a
+human-readable query to actual records.
+
+Much, much more information about the `setcontent` tag, together with
+additional query arguments, pagination, sorting and other options you can find
+in the chapter about [Fetching content](content-fetching).
+
+These queries are currently possible:
+
+  * `entry/12` - get entry with id 12
+  * `page/about` - get page with slug about
+  * `event/latest/5` - get latest 5 events
+  * `news/first/5` - get first 5 newsitems
+  * `quote/random/5` - get 5 random quotes
+  * `animal/search/5` - search for animals and return 5 of them (use
+    where parameter 'filter' to specify searchstring)
+  * `(animal,plant)/search/20` - search for animals and plants and
+    return 20 of them (use where parameter 'filter' to specify searchstring)
+
+```twig
+{% setcontent about = 'page/about' %}
+
+<h3>{{ about.title }}</h3>
+{{ about.introduction|raw }}
+
+<a href="{{ about.link }}">link</a>
+```
+
+### switch
+
+The `switch` tag implements a `switch` statement, like the one present in 
+[PHP][switch] and many other programming languages. It allows you to
+'clean up' a list of if / elseif / else statements, in a more concise
+way. For example:
+
+```twig
+{% set foo = 1 %}
+{% switch foo %}
+  {% case 1 %}
+    Foo was equal to the number one.
+  {% case 2 %}
+    Foo was two.
+  {% default %}
+    This is the default fallback.
+{% endswitch %}
+```
+
+### for
+
+This tag is used to iterate over arrays or collections of an object, similar to
+`foreach` in PHP.
+
+```twig
+<h3>Recent pages</h3>
+{% setcontent pages = 'pages' limit 5 order '-datecreated' %}
+<ul>
+  {% for page in pages %}
+    <li><a href="{{ page.link }}">{{ page.title }}</a></li>
+  {% else %}
+    <p>No recent pages.</p>
+  {% endfor %}
+</ul>
+```
+
+See: [`for` in the Twig documentation][for].
+
+
+Twig functions
+--------------
+
 ### asset
 
-Use the `{{ asset() }}` Twig tag to create public link to the so-called assets
-in your theme, like JavaScript, CSS or other files. For example:
+Use the `{{ asset() }}` Twig function to create public link to the so-called 
+assets in your theme, like JavaScript, CSS or other files. For example:
 
 ```twig
 <link rel="stylesheet" href="{{ asset('css/theme.css', 'theme') }}">
 ```
 
-If your theme is called 'foobar', this tag will create a working link to the
-file at `theme/foobar/css/theme.css`, taking into account the configuration of
-the web server.
+If your theme is called 'foobar', this function will create a working link to
+the file at `theme/foobar/css/theme.css`, taking into account the configuration
+of the web server.
 
-The `asset` tag takes two parameters: the path, and the package, under which
-this path can be found. Bolt defines a few of these packages, that can be used
-to create links to files in specific areas of Bolt. The defined packages are:
+The `asset` function takes two parameters: the path, and the package, under 
+which this path can be found. Bolt defines a few of these packages, that can be
+used to resolve links to files in specific areas of Bolt. 
+
+The defined packages are:
 
  - `theme`: The path to the currently selected theme folder, as defined in your
    `config.yml`. Use this in your theme to transparently create links to your
@@ -56,16 +130,16 @@ Examples:
 # Display the kitten.jpg image, that was uploaded to the `files/` folder.
 ```
 
-For a more in-depth description of the `asset` tag, see the
+For a more in-depth description of the `asset` function, see the
 [Symfony documentation on assets][symfonyasset].
 
-<p class="note"><strong>Note:</strong> This tag replaces the deprecated <code>
-{{ paths }}</code> template variable. As such, it's encouraged to use this tag
-instead.</p>
+<p class="note"><strong>Note:</strong> This function replaces the deprecated <code>
+{{ paths }}</code> template variable. As such, it's encouraged to use this
+function instead.</p>
 
 ### htmllang
 
-This Twig function will output the currently set locale in a suitablt format
+This Twig function will output the currently set locale in a suitable format
 for the HTML lang attribute in your templates. For example, if you've set
 `locale: en_GB`, this is the result:
 
@@ -78,9 +152,11 @@ for the HTML lang attribute in your templates. For example, if you've set
 ### include
 
 Use this to include another Twig template in the current template. Twig parses
-the template like any other template, so you can use any tags in your included
-template that you would use in the 'main' template. You can also use `include`
-inside the included templates.
+the template like any other template, so included templates have access to the
+variables of the active template, e.g. those that you would use in the 'main'
+template. 
+
+You can also use `include` inside the included templates.
 
 ```twig
 {{ include('_header.twig') }}
@@ -97,8 +173,8 @@ more detail in the templates that extend this base template. See the section on
 
 Sometimes it can be useful to have more information about a specific image in
 your templates. You might want to know which type it is, what the dimensions
-are, and what the aspect ratio is. In these cases, the `imageinfo` tag can be
-used. It returns an array of data about the image. See the screenshot for
+are, and what the aspect ratio is. In these cases, the `imageinfo` function can
+be used. It returns an array of data about the image. See the screenshot for
 details:
 
 <a href="/files/imageinfo.png" class="popup"><img src="/files/imageinfo.png" width="600"></a>
@@ -150,11 +226,13 @@ Note that this function is pretty rudimentary, so use it sparingly. Often, it's
 advisable to use media queries in CSS, for more fine-grained control over how
 to present information on a varying number of screen sizes.
 
-### Magnific Popup
+### Magnific Popup (popup)
 
-Use this tag to insert an image in the HTML, which functions as an image popup.
-You can optionally provide the width, height and cropping parameters, like you
-can do with the `thumbnail`-tag.
+To insert an image in the HTML, which functions as an image popup use either
+the `popup` function or filter. 
+
+You can optionally provide the width, height and cropping parameters, like you 
+can do with the `thumbnail` filter.
 
 ```twig
 {{ record.photo|popup(100, 100, "r") }}
@@ -162,7 +240,9 @@ or
 {{ popup("2016-08/foo.jpg", 100, 100) }}
 ```
 
-By default, Magnific will display the filename under the image in the popup. You can specify another value for this caption by using a fourth parameter (e.g alt or title tag).
+By default, Magnific will display the filename under the image in the popup.
+You can specify another value for this caption by using a fourth parameter 
+(e.g alt or title tag).
 
 ```twig
 {{ popup("2016-08/foo.jpg", 100, 100, 'My title') }}
@@ -193,11 +273,11 @@ For more information about Magnific Popup, see the
 
 ### path
 
-Use this tag to create a link to a controller to another page that's generated
-by Bolt. Instead of creating hardcoded links to `/` or `/pages`, it's advised to
-use the `{{ path() }}` tag to create a working link to the page, taking into
-account the configuration of the web server. Doing this ensures the links will
-still work if the site gets installed in a subfolder.
+Use this function to create a link to a controller to another page that's 
+generated by Bolt. Instead of creating hardcoded links to `/` or `/pages`, 
+it's advised to use the `{{ path() }}` function to create a working link to the
+page, taking into account the configuration of the web server. Doing this
+ensures the links will still work if the site gets installed in a subfolder.
 
 
 ```twig
@@ -218,7 +298,7 @@ example is comparable to `{{ record.link() }}`.
 
 Under the hood, this function creates links to paths defined in the Routing
 inside Bolt. This is the case both Bolt core functionality, but extensions can
-also add paths that can be used with this tag.
+also add paths that can be used with this function.
 
 The most commonly used paths are:
 
@@ -231,25 +311,14 @@ The most commonly used paths are:
    example: `{{ path('contentlisting', {'contenttypeslug': 'pages'}) }}` will
    generate a link like `/pages`.
 
-For more in-depth information about this tag, see [Linking to pages][page] in
-the Symfony documentation.
-
-### showimage
-
-Use this tag to insert an image in the HTML. You can optionally provide the
-width, height and cropping parameters, like you can do with the `thumbnail`-tag.
-
-```twig
-{{ record.photo|showimage(800, 600) }}
-or
-{{ showimage("2013-03/foo.jpg", 800, 600) }}
-```
+For more in-depth information about this function, see [Linking to pages][page]
+in the Symfony documentation.
 
 
 ### redirect
 
-Use this tag to redirect from a page to another page or domain. Commonly used in
-an if/else clause, to redirect visitors based on some criteria.
+Use this function to redirect from a page to another page or domain. Commonly
+used in an if/else clause, to redirect visitors based on some criteria.
 
 ```twig
 {% if record.image!="" %}
@@ -276,37 +345,6 @@ an if/else clause, to redirect visitors based on some criteria.
 {% endfor %}
 ```
 
-
-### setcontent
-
-This tag is used to perform various queries on the database. It converts a
-human-readable query to actual records.
-
-Much, much more information about the `setcontent` tag, together with
-additional query arguments, pagination, sorting and other options you can find
-in the chapter about [Fetching content](content-fetching).
-
-These queries are currently possible:
-
-  * `entry/12` - get entry with id 12
-  * `page/about` - get page with slug about
-  * `event/latest/5` - get latest 5 events
-  * `news/first/5` - get first 5 newsitems
-  * `quote/random/5` - get 5 random quotes
-  * `animal/search/5` - search for animals and return 5 of them (use
-    where parameter 'filter' to specify searchstring)
-  * `(animal,plant)/search/20` - search for animals and plants and
-    return 20 of them (use where parameter 'filter' to specify searchstring)
-
-```twig
-{% setcontent about = 'page/about' %}
-
-<h3>{{ about.title }}</h3>
-{{ about.introduction|raw }}
-
-<a href="{{ about.link }}">link</a>
-```
-
 ### getuser and getuserid
 
 Sometimes you need to fetch a specific record based on the correct user. In
@@ -330,25 +368,6 @@ Example 2: Using in `setcontent`
 {% setcontent pages = "pages" where { ownerid: getuserid('admin') } %}
 ```
 
-
-### for
-
-This tag is used to iterate over arrays or collections of an object, similar to `foreach` in PHP.
-
-```twig
-<h3>Recent pages</h3>
-{% setcontent pages = 'pages' limit 5 order '-datecreated' %}
-<ul>
-  {% for page in pages %}
-    <li><a href="{{ page.link }}">{{ page.title }}</a></li>
-  {% else %}
-    <p>No recent pages.</p>
-  {% endfor %}
-</ul>
-```
-
-See: [`for` in the Twig documentation][for].
-
 ### dump()
 
 ```twig
@@ -364,25 +383,6 @@ For more info on debugging your Bolt site, see the chapter on
 true</code> in your <code>config.yml</code> file. Otherwise the
 <code>dump()</code> will output nothing at all.</p>
 
-### switch
-
-This Twig tag implements a `switch` statement, like the one present in
-[PHP][switch] and many other programming languages. It allows you to
-'clean up' a list of if / elseif / else statements, in a more concise
-way. For example:
-
-```twig
-{% set foo = 1 %}
-{% switch foo %}
-  {% case 1 %}
-    Foo was equal to the number one.
-  {% case 2 %}
-    Foo was two.
-  {% default %}
-    This is the default fallback.
-{% endswitch %}
-```
-
 Twig Filters
 ------------
 
@@ -390,7 +390,7 @@ Twig Filters
 ### excerpt
 
 Excerpt creates a short, text-only, excerpt of a record or a string. It's useful
-to get short blurbs of text for overview pages, listings, etcetera. If you pass
+to get short blurbs of text for overview pages, listings, et cetera. If you pass
 it a string, it will simply strip out HTML and, reduce it to a given length:
 
 ```twig
@@ -431,7 +431,7 @@ inquit, vitae beatum et eundem supremum diem, scribebamus haec. Duo Reges: const
 Outputs a localized, readable version of a timestamp, based on the `locale`
 setting in the `config.yml`-file. See the [Locales](../other/locales) page for
 more information on locales. If the locale you've set in `config.yml` does not
-work, you should verify that the locale is properly installed on your sysem.
+work, you should verify that the locale is properly installed on your system.
 
 In Bolt dates are stored with each record for the date the record was created,
 when it was last edited, and optionally when it was published. These dates are
@@ -481,7 +481,7 @@ possible options, see the official [strftime()][strftime] page on php.net.
 
 See the various options for 'date' on the [PHP website][date].
 
-<p class="note"><strong>Note:</strong> This tag does <em>not</em> display a
+<p class="note"><strong>Note:</strong> This filter does <em>not</em> display a
 localized version of the date. Use the <code>{{ localedatetime }}</code>-filter if
 you want to display dates in other languages than English.</p>
 
@@ -596,6 +596,18 @@ You can specify two parameters: strict mode and extrachars.
 {{ text|safestring(true, ".") }}
 
 => my-beautiful-image.jpg
+```
+
+### showimage
+
+Use this filter to insert an image in the HTML. You can optionally provide the
+width, height and cropping parameters, like you can do with the `thumbnail`
+filter.
+
+```twig
+{{ record.photo|showimage(800, 600) }}
+or
+{{ showimage("2013-03/foo.jpg", 800, 600) }}
 ```
 
 ### thumbnail
