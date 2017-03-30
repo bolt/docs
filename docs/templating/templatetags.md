@@ -90,29 +90,32 @@ Twig functions
 ### asset
 
 Use the `{{ asset() }}` Twig function to create public link to the so-called 
-assets in your theme, like JavaScript, CSS or other files. For example:
+assets in your theme, like JavaScript, CSS or other files. 
+
+The `asset` function definition is:
 
 ```twig
-<link rel="stylesheet" href="{{ asset('css/theme.css', 'theme') }}">
+    {{ asset(path, packageName) }}
 ```
 
-If your theme is called 'foobar', this function will create a working link to
-the file at `theme/foobar/css/theme.css`, taking into account the configuration
-of the web server.
+The `asset` function takes two parameters: 
+  - `path` — The path, relative to the base of location of a packge, of a file,
+             where these paths can be found. 
+  - `packageName` — This parameter needs to provide a package name containing.
 
-The `asset` function takes two parameters: the path, and the package, under 
-which this path can be found. Bolt defines a few of these packages, that can be
-used to resolve links to files in specific areas of Bolt. 
+Packages are analogous to locations of "groups of file assets". Bolt defines a
+few of these packages, that can be used to create links to files in specific
+areas of Bolt.
 
-The defined packages are:
+Defined package names are:
 
  - `theme`: The path to the currently selected theme folder, as defined in your
    `config.yml`. Use this in your theme to transparently create links to your
    `.js` and `.css` files. Doing this ensures the links will still work, if your
-   theme gets renamed, or if the site gets installed in a subfolder.
+   theme gets renamed, or if the site gets installed in a sub-folder.
  - `files`: The path to the `files/` folder where images and other files are
    uploaded by the Editors to be used in the content of the website.
- - `bolt`: Used to link to Bolt's core asset files. Use of this packagename is
+ - `bolt`: Used to link to Bolt's core asset files. Use of this package name is
    discouraged in your own theme, because there is no guarantee that these files
    that are shipped with Bolt will remain unchanged after an update of Bolt.
  - `extensions`: The path to the publicly accessible assets of extensions. For
@@ -123,18 +126,31 @@ The defined packages are:
 Examples:
 
 ```twig
-<script src="{{ asset('js/jquery.min.js', 'theme') }}"></script>
-# Include jquery.min.js from the js folder in your theme.
+{# Include theme.css from the 'css' folder in your theme. #}
+<link rel="stylesheet" href="{{ asset('css/theme.css', 'theme') }}">
 
+{# Include jquery.min.js from the 'js' folder in your theme. #}
+<script src="{{ asset('js/jquery.min.js', 'theme') }}"></script>
+
+{# Display the kitten.jpg image, that was uploaded to the `files/` folder. #}
 <img src="{{ asset('kitten.jpg', 'files') }}"></script>
-# Display the kitten.jpg image, that was uploaded to the `files/` folder.
+```
+
+This would produce, on an default install, the following output:
+
+```twig
+<link rel="stylesheet" href="/theme/base-2016/css/theme.css">
+
+<script src="/theme/base-2016/js/jquery.min.js"></script>
+
+<img src="/files/kitten.jpg">
 ```
 
 For a more in-depth description of the `asset` function, see the
 [Symfony documentation on assets][symfonyasset].
 
 <p class="note"><strong>Note:</strong> This function replaces the deprecated <code>
-{{ paths }}</code> template variable. As such, it's encouraged to use this
+{{ paths }}</code> template variable. As such, it's encouraged to use this 
 function instead.</p>
 
 ### htmllang
