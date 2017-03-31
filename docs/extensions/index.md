@@ -7,6 +7,7 @@ pages:
     - basics
     - intermediate
     - advanced
+    - filesystem
     - storage
     - custom-bootstrapping
 ---

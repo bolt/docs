@@ -7,4 +7,5 @@ pages:
     - permissions
     - menus
     - thumbnails
+    - routing
 ---
