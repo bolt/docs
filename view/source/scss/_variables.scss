@@ -10,6 +10,7 @@ $headercolor-parent    : #666;
 
 // inherited from bolt site
 $mediumblue     : $boltnewgreyblue ; // Was helderder: #3478a7;
+$treeblue       : #3478a7;
 $darkblue       : $boltnewbackendblue; // Was iets donkerder kleur #152833;
 $red            : #F6350C; //was #FF4934;
 $lessred        : desaturate(lighten($red, 20), 40);

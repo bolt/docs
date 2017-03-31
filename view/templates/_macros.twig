@@ -40,21 +40,19 @@
     {% from _self import menu %}
 
     {% set selected = current.url starts with page.url %}
-    <li class="jqtree_common {{ page.subPages is not empty ? ' jqtree-folder' }}{{ not selected ? ' jqtree-closed' }}{{ current.url == page.url ? ' jqtree-selected'}}">
-        <div class="jqtree-element">
+    <li class="{{ not selected ? 'closed' }}{{ current.url == page.url ? ' selected'}}">
             {% if page.subPages is not empty %}
-                <a href="{{ page.url }}"><span class="jqtree-title jqtree-title-folder">{{ page.title }}</span></a>
-                <a href="{{ page.url }}" class="jqtree-toggler jqtree-closed jqtree-toggler-left">{{ selected ? '-' : '+' }}</a>
+                <a href="{{ page.url }}"><span class="title">{{ page.title }}</span></a>
+                <a href="{{ page.url }}" class="toggler">{{ selected ? '-' : '+' }}</a>
 
             {% else %}
-                <a href="{{ page.url }}" class="jqtree-title">{{ page.title }}</a>
+                <a href="{{ page.url }}" class="title">{{ page.title }}</a>
             {% endif %}
             {% if current.url == page.url %}
                 {{ include('_sub_quicklinks.twig') }}
             {% endif %}
-        </div>
         {% if page.subPages %}
-        <ul class="jqtree_common">
+        <ul>
             {% for sub in page.subPages %}
                 {{ menu(sub, current) }}
             {% endfor %}
