@@ -17,14 +17,15 @@ a class file and import the <tt>\Bolt\Extension\TwigTrait</tt>. </p>
 Rendering Twig Templates
 ------------------------
 
-Bolt provides a helper function for rendering Twig templates called `renderTemplate()`.
+Bolt provides a helper function for rendering Twig templates called `renderTemplate()`, 
+which returns the rendered output. 
 
 ```php
 $context = [
     'name' => 'Kenny Koala',
     'home' => 'Gum Tree Lane',
 ];
-$this->renderTemplate('template.twig', $context);
+$output = $this->renderTemplate('template.twig', $context);
 ```
 
 When using this function, Bolt will automatically add the extension's `templates/`

@@ -116,7 +116,7 @@ recent published entries.
 
 ```
 $repo = $app['storage']->getRepository('entries');
-$entries = $repo->findBy(['status' => 'published'], ['datepublish'=>'DESC'], 10);
+$entries = $repo->findBy(['status' => 'published'], ['datepublish', 'DESC'], 10);
 ```
 
 ---
@@ -130,6 +130,7 @@ want to guarantee a single result, for example:
 ```
 $repo = $app['storage']->getRepository('users');
 $user = $repo->findOneBy(['username' => $postedUser, 'password'=> $passHash]);
+$newestUser = $repo->findOneBy([], ['id', 'DESC']);
 ```
 
 
