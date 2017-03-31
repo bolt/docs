@@ -1,8 +1,8 @@
 ---
 title: Templating
-redirect: templating/templates-routes
+redirect: templating/templates-selection
 pages:
-    - templates-routes
+    - templates-selection
     - building-templates
     - record-and-records
     - content-fetching
