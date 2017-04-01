@@ -17,11 +17,17 @@
             {% if class.type == 'class' and class.file|slice(0, 4) == 'src/' %}
                 {% set filename = class.value|replace({'\\': '/'}) %}
                 {% set link = '<a href="/api/release/' ~ version ~ '/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
+            {% elseif class.type == 'class' and class.file|slice(0, 15) == 'vendor/symfony/' %}
+                {% set filename = class.value|replace({'\\': '/'}) %}
+                {% set link = '<a href="http://api.symfony.com/2.8/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
+            {% elseif class.type == 'class' and class.file|slice(0, 13) == 'vendor/silex/' %}
+                {% set filename = class.value|replace({'\\': '/'}) %}
+                {% set link = '<a href="http://silex.sensiolabs.org/api/1.3/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
             {% else %}
                 {% set link = class.file %}
             {% endif %}
 
-          [ '{{ class.name|raw }}', '{{ class.type|raw }}', '{{ class.value|e("js") }}', '{{ link|raw }}' ],
+          [ '{{ class.name|raw }}', '{{ class.type|raw }}', '{{ class.value|e("js") }}<br>{{ link|raw }}' ],
         {%- endfor %}
                 ];
         </script>
@@ -32,8 +38,8 @@
 
 {% block extrafooter %}
     <!-- data tables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" type="text/css" media="all" />
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" type="text/css" media="all" />
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script>
     jQuery(document).ready(function($) {
         $('#example').DataTable( {
@@ -41,8 +47,7 @@
             columns: [
                 { title: "Service / Name" },
                 { title: "Type" },
-                { title: "Value" },
-                { title: "Filename" }
+                { title: "Value / Filename" }
             ],
             lengthMenu: [[-1], ["All"]],
             paging: false
