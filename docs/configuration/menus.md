@@ -27,6 +27,7 @@ main:
         path: entry/2
       - label: Sub 2
         class: menu-item-class
+        path: entry/3
 ```
 
 In this case `main` is the name of the menu. The options are:
