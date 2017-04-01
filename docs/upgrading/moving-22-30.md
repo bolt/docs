@@ -17,8 +17,9 @@ You will definitely make the process smoother by taking the following precaution
  3. If possible have your current install under git source control and test any
     changes on a new branch which can then easily be reverted.
  4. If you come across any undocumented issues, let us know by raising an issue
-    on Github
- 5. Check that the extensions you need have [versions available for Bolt %%VERSION%%][1]
+    on GitHub
+ 5. Check that the extensions you need have versions available for Bolt %%VERSION%%
+    [on the Market Place][market]
 
 There are basically two methods to update an existing installation. Pick the one that most closely resembles your current installation:
 
@@ -32,6 +33,6 @@ There are basically two methods to update an existing installation. Pick the one
 
 We recommend the first option, because it allows you to get a fresh install up and running, without hassle or leaving behind too many old files.
 
-[1]: http://extensions.bolt.cm/bolt3-ready
+[market]: https://market.bolt.cm
 [basic]: moving-22-30-basic
 [advanced]: moving-22-30-advanced
