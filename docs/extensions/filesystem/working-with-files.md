@@ -111,11 +111,16 @@ Where:
 Delete a file.
 
 ```php
-    $filesystem->deleteDir($dirname);
+    $filesystem->delete($path);
 ```
 
 Where:
 
 | Variable | Type | Description 
 | -------- | ---- | -----------
-| `$dirname`| `string` | The target file
+| `$path` | `string` | The target file
+
+<p class="note"><strong>Note:</strong> The <code>delete()</code> method will 
+throw a `\Bolt\Filesystem\Exception\FileNotFoundException` if you attempt to 
+delete a non-existing file, use <code>exists()</code> to check its existance,
+or <code>try</code>/<code>catch</code> if preferred.</p>
