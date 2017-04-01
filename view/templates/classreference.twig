@@ -17,11 +17,14 @@
             {% if class.type == 'class' and class.file|slice(0, 4) == 'src/' %}
                 {% set filename = class.value|replace({'\\': '/'}) %}
                 {% set link = '<a href="/api/release/' ~ version ~ '/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
+            {% elseif class.type == 'class' and class.file|slice(0, 15) == 'vendor/symfony/' %}
+                {% set filename = class.value|replace({'\\': '/'}) %}
+                {% set link = '<a href="http://api.symfony.com/2.8/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
             {% else %}
                 {% set link = class.file %}
             {% endif %}
 
-          [ '{{ class.name|raw }}', '{{ class.type|raw }}', '{{ class.value|e("js") }}', '{{ link|raw }}' ],
+          [ '{{ class.name|raw }}', '{{ class.type|raw }}', '{{ class.value|e("js") }}<br>{{ link|raw }}' ],
         {%- endfor %}
                 ];
         </script>
@@ -41,8 +44,7 @@
             columns: [
                 { title: "Service / Name" },
                 { title: "Type" },
-                { title: "Value" },
-                { title: "Filename" }
+                { title: "Value / Filename" }
             ],
             lengthMenu: [[-1], ["All"]],
             paging: false
