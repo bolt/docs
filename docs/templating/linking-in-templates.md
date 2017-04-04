@@ -7,9 +7,9 @@ Linking in Templates
 There are three functions in Twig you can use to link to other pages, or to
 include assets like CSS and Javascript resources in your HTML. They are:
 
- - url
- - path
- - asset
+ - To generate a relative or absolute path, use `{{ path() }}`
+ - To generate a scheme-relative or absolute url, use `{{ url() }}`
+ - To link to assets, like CSS / JS files, use `{{ asset() }}`
 
 ## asset
 
@@ -78,8 +78,7 @@ For a more in-depth description of the `asset` function, see the
 {{ paths }}</code> template variable. As such, it's encouraged to use this
 function instead.</p>
 
-
-### path
+## path
 
 Use the `path` Twig function to create valid URI strings to paths configured on
 your site.
@@ -91,6 +90,7 @@ The `path` function definition is:
 ```
 
 The `path` function takes three parameters:
+
   - `name` — Name of a registered path route
   - `parameters` — A named array of parameters that can be either route function
                  parameters, or query parameters to be appended to the
@@ -120,9 +120,9 @@ For example, to produce a link relative to the base of your site:
         'section': query_section
     })
 }}">
-    Link to a relative path of the ContentType "{{ link_content_type }}", with the
-    slug of "{{ link_slug }}", and the query parameter `section` with the value of
-    {{ query_section }}
+    Link to a relative path of the ContentType "{{ link_content_type }}", with
+    the slug of "{{ link_slug }}", and the query parameter `section` with the
+    value of {{ query_section }}
 </a>
 ```
 
@@ -130,9 +130,8 @@ This would produce, on an default install, the following output:
 
 ```html
 <a href="/pages/about?section=koala">
-    Link to a relative path of the ContentType "pages", with the
-    slug of "about", and the query parameter `section` with the value of
-    koala
+    Link to a relative path of the ContentType "pages", with the slug of
+    "about", and the query parameter `section` with the value of koala
 </a>
 ```
 
@@ -187,7 +186,7 @@ in the Symfony documentation.
 
 
 
-### url
+## url
 
 The `url` function definition is:
 
@@ -261,3 +260,6 @@ following output:
    koala
 </a>
 ```
+
+[symfonyasset]: http://symfony.com/doc/current/templating.html#templating-assets
+[page]: http://symfony.com/doc/current/templating.html#linking-to-pages

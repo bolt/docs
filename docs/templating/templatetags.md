@@ -365,8 +365,8 @@ when it was last edited, and optionally when it was published. These dates are
 stored in a way that makes it easier for the database to work with them when it
 comes to sorting or selecting a specific period. They look like:
 `2013-02-18 09:41:10`, which isn't suitable to output on the website itself.
-The localedatetime filter transforms the ugly timestamp to a readable, localized
-text. Examples:
+The localedatetime filter transforms the ugly timestamp to a readable,
+localized text. Examples:
 
 ```twig
 '{{ record.datepublish }}' is the same as
@@ -375,9 +375,9 @@ text. Examples:
 
 Outputs:
 
-  - '2012-12-05 06:51:16' is the same as 'mánudagur desember 5', if your locale is set to
+ - '2012-12-05 06:51:16' is the same as 'mánudagur desember 5', if your locale is set to
     `is_IS`,  or
-  - '2012-12-05 06:51:16' is the same as 'Monday December 5', if it's set to `en_GB`. Note
+ - '2012-12-05 06:51:16' is the same as 'Monday December 5', if it's set to `en_GB`. Note
     that it correctly uses capitals according to the chosen language's conventions.
 
 Some other examples:
@@ -392,9 +392,9 @@ Some other examples:
 
 Outputs:
 
-  - Created: Fri 9 Nov 10:55:19 2012
-  - Published: The Sunday in week 07 of 2013
-  - Last changed: February 17, 2013 01:09:30 pm
+ - Created: Fri 9 Nov 10:55:19 2012
+ - Published: The Sunday in week 07 of 2013
+ - Last changed: February 17, 2013 01:09:30 pm
 
 The `localedatetime`-filter uses the PHP `strftime()` function internally. For all
 possible options, see the official [strftime()][strftime] page on php.net.
@@ -727,5 +727,3 @@ Examples:
 [date]: http://php.net/manual/en/function.date.php
 [for]: http://twig.sensiolabs.org/doc/tags/for.html
 [switch]: http://php.net/manual/en/control-structures.switch.php
-[symfonyasset]: http://symfony.com/doc/current/templating.html#templating-assets
-[page]: http://symfony.com/doc/current/templating.html#linking-to-pages
