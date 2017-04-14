@@ -36,9 +36,9 @@ field.
 * `extensions` Allows you to restrict users to only be able to upload files with
   certain file extensions.
 * `attrib` Can be set to either of the following:
-  * `alt` Show a field for an alt text.
-  * `title` Show a field for an title text.
-  * `[title, alt]` Show both fields.
+  * `alt` Show a text field for the `alt` parameter 
+  * `title` Show a text field for the `title` parameter
+  * `[title, alt]` Show both fields
 
 ```yaml
         cover:
