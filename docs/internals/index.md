@@ -7,9 +7,6 @@ pages:
     - the-model
     - bolt-storage-internals
     - bootstrapping
-    - debug-bar
-    - dump-twig-tag
-    - backtrace-twig-tag
     - container-service-references
     - task-scheduler
     - javascript_css_build

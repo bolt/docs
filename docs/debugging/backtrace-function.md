@@ -1,9 +1,9 @@
 ---
-title: backtrace() Twig tag
+title: backtrace() Twig function
 level: advanced
 ---
-backtrace() Twig tag
-====================
+backtrace() Twig function
+=========================
 
 Using this function you can get a backtrace throught the code to the current
 point in the execution. Useful for when you're debugging something, and you're

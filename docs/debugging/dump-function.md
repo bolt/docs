@@ -1,9 +1,9 @@
 ---
-title: dump() Twig tag
+title: dump() Twig function
 level: intermediate
 ---
-dump() Twig tag
-===============
+dump() Twig function
+====================
 
 If you're coding and you want to get a quick look at whatever variable or object
 you're trying to manipulate, you can dump its contents to the browser. In
