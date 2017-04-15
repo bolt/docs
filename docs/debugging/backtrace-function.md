@@ -1,18 +1,23 @@
 ---
-title: backtrace() Twig tag
+title: Backtracing
 level: advanced
 ---
-backtrace() Twig tag
-====================
+Backtrace functionality
+=======================
 
-Using this function you can get a backtrace throught the code to the current
+Using this function you can get a backtrace through the code to the current
 point in the execution. Useful for when you're debugging something, and you're
-not quite sure how you got here to begin with. In your templates, use the
-following:
+not quite sure how you got here to begin with. 
+
+### Twig
+
+In your templates, use the following:
 
 ```
     {{ backtrace() }}
 ```
+
+### PHP
 
 In your code you can also use backtrace, like this:
 
