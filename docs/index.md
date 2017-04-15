@@ -13,6 +13,7 @@ pages:
     - publishing-marketplace
     - howto
     - internals
+    - debugging
     - manual
     - other
     - core-development

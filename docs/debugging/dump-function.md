@@ -1,27 +1,32 @@
 ---
-title: dump() Twig tag
+title: Dumping
 level: intermediate
 ---
-dump() Twig tag
-===============
+Dumping functionality
+=====================
 
 If you're coding and you want to get a quick look at whatever variable or object
-you're trying to manipulate, you can dump its contents to the browser. In
-templates, use the following:
-
-```
-    {{ dump(variable) }}
-```
+you're trying to manipulate, you can dump its contents to the browser. 
 
 <p class="note"><strong>Note:</strong> Don't forget to set <code>debug:
 true</code> in your <code>config.yml</code> file. Otherwise the
 <code>dump()</code> will output nothing at all.</p>
+
+### Twig
+
+In templates, use the following:
+
+```
+    {{ dump(variable) }}
+```
 
 
 The `variable` can be a normal variable, a Record or multiple records of
 Content, or other stuff.
 
 <a href="/files/content-example3.png" class="popup"><img src="/files/content-example3.png" style="width: 400px"></a><br>
+
+### PHP
 
 In your code you can also dump variables and objects, like this:
 
