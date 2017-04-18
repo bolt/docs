@@ -1,13 +1,9 @@
 ---
-title: Extending Twig
-level: intermediate
+title: Twig Runtimes
+level: advanced
 ---
-Extension Building: Twig
-========================
-
-<p class="note"><strong>Note:</strong> for more basic information on
-extending Bolt's Twig functionality, see the <a href="basic/twig">
-"basic" Twig documentation</a></p>.
+Extension Building: Twig Runtimes
+=================================
 
 Creating Twig extensions in a dedicated class
 ---------------------------------------------
@@ -17,6 +13,10 @@ often a good idea to move the functions you extend Twig with to a dedicated
 class.
 
 With Bolt, you can easily write your custom Twig extension in a separate class.
+
+<p class="note"><strong>Note:</strong> For more basic information on extending
+Bolt's Twig functionality, <a href="../basics/twig"> 
+See the "basic" Twig documentation</a></p>
 
 The extension loader functions `registerTwigFunctions()` and `registerTwigFilters()`
 return an associative (key/value) array, where the value is an indexed array. The

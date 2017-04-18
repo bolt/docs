@@ -1,6 +1,6 @@
 ---
 title: Extending Twig
-level: intermediate
+level: basic
 ---
 Extension Building: Twig
 ========================
@@ -193,5 +193,5 @@ Advanced
 --------
 
 <p class="note"><strong>Note:</strong> for more advanced information on
-extending Bolt's Twig functionality, see the <a href="intermediate/twig">
+extending Bolt's Twig functionality, see the <a href="../intermediate/twig-runtimes">
 "intermediate" Twig documentation</a></p>.
