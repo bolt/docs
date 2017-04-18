@@ -5,11 +5,26 @@ level: intermediate
 Extension Building: Twig
 ========================
 
-Write custom Twig extension in a dedicated class
-------------------------------------------------
+<p class="note"><strong>Note:</strong> for more basic information on
+extending Bolt's Twig functionality, see the <a href="basic/twig">
+"basic" Twig documentation</a></p>.
 
-You can easely write your custom Twig extension in a separate class.
-To extend Twig, we use Pimple to extends twig service after definition: http://pimple.sensiolabs.org/#modifying-services-after-definition
+Creating Twig extensions in a dedicated class
+---------------------------------------------
+
+To keep your extensions's functionality and code appropriately modular, it is
+often a good idea to move the functions you extend Twig with to a dedicated
+class.
+
+With Bolt, you can easily write your custom Twig extension in a separate class.
+
+The extension loader functions `registerTwigFunctions()` and `registerTwigFilters()`
+return an associative (key/value) array, where the value is an indexed array. The
+first value of the indexed array can be a callback, rather than the name of a
+function in the extension loader itself.
+
+
+### Extension loader example
 
 ```php
 namespace Bolt\Extension\DropBear\KoalaCatcher;
@@ -23,22 +38,52 @@ use Bolt\Extension\SimpleExtension;
  */
 class KoalaCatcherExtension extends SimpleExtension
 {
-
     /**
      * {@inheritdoc}
      */
     protected function registerServices(Application $app)
     {
-        // Extends Twig environnement
-        $app->extend('twig', function ($twig, $app) {
-            $twig->addExtension(new KoalaTwigExtension($app));
-            return $twig;
+        // Create a runtime for the Twig extension class
+        $app[''twig.runtime.koala_catcher'] = $app->share(
+            function ($app) {
+                return new KoalaTwigExtension();
         });
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function registerTwigFunctions()
+    {
+        $app = $this->getContainer();
+        $koalaTwig = $app['twig.runtime.koala_catcher';
+
+        return [
+            // Note that the value is an array, and the first value of that
+            // array is a callable
+            'generate_lipsum' => [[$koalaTwig, 'generateLipsum']]]
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function registerTwigFilters()
+    {
+        $app = $this->getContainer();
+        $koalaTwig = $app['twig.runtime.koala_catcher';
+
+        return [
+            'hello', [[$koalaTwig, 'strHello']]),
+        ];
+    }
+
 }
 ```
 
-Create yout class file in the directory : Twig\KoalaTwigExtension.php
+### Runtime class example
+
+Create your class file in the directory `src/Twig/KoalaTwigExtension.php`
 
 ```php
 namespace Bolt\Extension\DropBear\KoalaCatcher\Twig;
@@ -47,67 +92,15 @@ use Silex\Application;
 
 class KoalaTwigExtension extends \Twig_Extension
 {
-    /** @var Application */
-    private $app;
-
-    /** @var \Twig_Environment */
-    private $twig = null;
-
-    /**
-     *
-     */
-    public function __construct(Application $app)
-    {
-        $this->app = $app;
+    public function generateLipsum($params1, $params2, ...) {
+        // your logic here
     }
 
-    /**
-     *
-     */
-    public function initRuntime(\Twig_Environment $environment)
-    {
-        $this->twig = $environment;
+    public function strHello($params1) {
+        // your logic here
     }
-
-    /**
-     * Return the name of the extension
-     */
-    public function getName()
-    {
-        return 'koala.extension.twig';
-    }
-    
-     /**
-     * Create new functions
-     */
-    public function getFunctions()
-    {
-        return array(
-            new Twig_SimpleFunction('lipsum', 'generate_lipsum'),
-        );
-    }
-    
-     /**
-     * Create new filters
-     */
-    public function getFilters()
-    {
-        return array(
-            new Twig_SimpleFilter('hello', 'str_hello'),
-        );
-    }
-    
-    public function generate_lipsum($params1, $params2, ...) {
-        // your logical here
-    }
-    
-    
-    public function str_hello($params1) {
-        // your logical here
-    }
-
 }
 ```
-For more information about extending Twig, official doc is here: https://twig.sensiolabs.org/doc/1.x/advanced.html
 
-
+For more information about extending Twig, see the
+[official docmentation](https://twig.sensiolabs.org/doc/1.x/advanced.html)

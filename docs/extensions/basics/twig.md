@@ -188,3 +188,10 @@ that are available in all templates, see the section
 <a href="../intermediate/service-providers#extending-the-global-twig-environment">
 Extending the 'Global Twig' environment</a> for instructions on
 how to do this. </p>
+
+Advanced
+--------
+
+<p class="note"><strong>Note:</strong> for more advanced information on
+extending Bolt's Twig functionality, see the <a href="intermediate/twig">
+"intermediate" Twig documentation</a></p>.
