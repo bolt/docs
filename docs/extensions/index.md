@@ -9,4 +9,5 @@ pages:
     - advanced
     - storage
     - custom-bootstrapping
+    - bundled
 ---
