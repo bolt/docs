@@ -102,7 +102,7 @@ class KoalaCatcherExtension extends SimpleExtension
     {
         return [ 
             $this,
-            new Provider\KoalaServiceProvider($this-getConfig()),
+            new Provider\KoalaServiceProvider($this->getConfig()),
         ]
     }
 }
