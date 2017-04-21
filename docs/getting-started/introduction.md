@@ -27,10 +27,19 @@ ContentTypes<br>
 <small>ContentTypes, records, fields, taxonomies, relationships, etc</small>
 </a>
 
-<a href="../templating/templates-routes" class="button large expand docsintro">
-Templating / Theming<br>
-<small>Writing templates, Twig, fetching content, paging, search</small>
-</a>
+<div class="docsintro" style="margin-bottom: 18px; min-height: 91px;">
+    <a href="../templating/templates-selection" class="button large docsintro"
+    style="width: 37.5%; float: left; margin-right: 18px;">
+    Templating / Theming<br>
+    <small>Writing templates, Twig, fetching content, paging, search</small>
+    </a>
+
+    <a href="../configuration/routing" class="button large docsintro"
+    style="width: 37.5%; float: left;">
+    Routing<br>
+    <small>Configuring routes, to create custom links / URLs</small>
+    </a>
+</div>
 
 <div class="docsintro">
     <!-- <a href="#" onclick="alert('Coming soon!');" class="button medium docsintro">
