@@ -45,6 +45,16 @@ flat structure distribution from:
  - [bolt-latest-flat-structure.tar.gz][flat-tgz] or
  - [bolt-latest-flat-structure.zip][flat-zip]
 
+You can install this version by manually extracting the distribution files, or
+by running the following on the command line, in the folder where you wish to
+install Bolt:
+
+```bash
+curl -O https://bolt.cm/distribution/bolt-latest-flat-structure.tar.gz
+tar -xzf bolt-latest-flat-structure.tar.gz --strip-components=1
+php app/nut setup:sync
+```
+
 This version of Bolt has the following structure, you can place entirely inside
 your web root.
 

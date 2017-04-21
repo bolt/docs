@@ -6,8 +6,7 @@ Quick-install, using the command-line
 
 If you have command-line access, you can easily install Bolt by executing a few
 commands. First, create the directory where you want to install Bolt, if it
-doesn't already exist. We recommend installing Bolt outside the web root, you
-can read more on this [here][outside-why].
+doesn't already exist.
 
 Enter the directory where you want to place the files, and execute the
 following commands:
@@ -24,10 +23,15 @@ If all goes well, you'll be greeted by the following:
 Welcome to Bolt! - version %%VERSION%%.0.
 ```
 
-If this set of commands didn't work because your server doesn't have `curl`, use `wget`
-instead.
+If this set of commands didn't work because your server doesn't have `curl`,
+use `wget` instead.
 
 That's all!
+
+Note: We recommend installing Bolt outside the web root, following commonly
+accepted best practices setup for web applications. You can read more on this
+[here][outside-why]. If this is not possible on your server environment, you
+can use the so-called "[Flat distribution][flat]", as an alternative.
 
 Next Steps
 ----------
@@ -58,9 +62,11 @@ To do this, configure your webserver to use the `public/` folder as the
 web root. For more information about this, see the pages on configuring
 [Apache][apache] or [Nginx][nginx].
 
-If you bump into trouble setting this up, or you have no access to
-change your web server's configuration, read the page
-[Troubleshooting 'outside of the webroot'][webroot].
+If you bump into trouble setting this up, or you have no access to change your
+web server's configuration, read the page
+[Troubleshooting 'outside of the webroot'][webroot]. If this is not possible on
+your server environment, you can use the so-called "[Flat distribution][flat]",
+as an alternative.
 
 ### Permissions
 
@@ -86,3 +92,4 @@ to the section [Setting up Bolt](../configuration/introduction).
 [nginx]: ../installation/webserver/nginx
 [webroot]: ../howto/troubleshooting-outside-webroot
 [outside-why]: ../howto/troubleshooting-outside-webroot#what-s-the-point-of-doing-this
+[flat]: ../howto/troubleshooting-outside-webroot#option-2-use-the-flat-structure-distribution

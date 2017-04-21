@@ -9,10 +9,12 @@ command-line or your FTP-client to install it. There are different methods to
 install Bolt, but we recommend **The "easy way"**, as the fastest way to get an
 installation of Bolt up and running.
 
-Altogether, there are several installation options that suit any preferred workflow:
+  - **The "easy way"**: [Using the command-line](install-command-line),
+    to quickly set up a 'Composer based' Bolt installation, making use of the
+    official distribution files.
 
-  - **The "easy way"**: Using the distribution files, to quickly set up a
-    'Composer based' Bolt installation, [using the server command-line](install-command-line).
+Additionally, there are several installation options that suit any preferred workflow:
+
   - **The traditional way**: Uploading the files manually, [using (S)FTP](install-sftp).
   - **The composer way**: Using `composer create-project` or by creating your
     own `composer.json` file. [for developers](composer/install-composer).
