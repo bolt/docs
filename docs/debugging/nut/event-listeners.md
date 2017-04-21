@@ -32,37 +32,82 @@ Debugging event listeners is usually for the following reasons:
 ## Usage
 
 ```bash
-    php .app/nut debug:events [options]
+    php .app/nut debug:events [options] [--] [<event>]
 ```
+
+Running `debug:events`, without providing an event name, will output details on
+all events.
+
+
+## Arguments
+
+| Option | Description |
+|--------|-------------|
+| event  | An event name
+
 
 ## Options
 
 | Option | Description |
 |--------|-------------|
-| --sort-listener | Sort events in order of callable name.
+| --sort-listener | Sort events in order of callable name
+| --names         | Summary list of the event names listened to
 
 
 ## Example
 
-An edited-down example of the output:
+### Query Single Event
 
+To check what is listening to the `kernel.response` event:
 
 ```bash
-$ php ./app/nut debug:events
+$ php ./app/nut debug:events kernel.response
 
-+-----------------------+----------------------------------------------------------------------------------+----------+
-| Event Name            | Listener                                                                         | Priority |
-+-----------------------+----------------------------------------------------------------------------------+----------+
-| kernel.request        | Silex\EventListener\LocaleListener::onKernelRequest()                            |       16 |
-| kernel.finish_request | Silex\EventListener\LocaleListener::onKernelFinishRequest()                      |        0 |
-| kernel.exception      | Silex\ExceptionHandler::onSilexError()                                           |     -255 |
-| kernel.response       | Silex\EventListener\LogListener::onKernelResponse()                              |        0 |
-| kernel.controller     | Silex\EventListener\ConverterListener::onKernelController()                      |        0 |
-| kernel.view           | Silex\EventListener\StringToResponseListener::onKernelView()                     |      -10 |
-| preSave               | Bolt\EventListener\StorageEventListener::onUserEntityPreSave()                   |      512 |
-| postHydrate           | Bolt\EventListener\StorageEventListener::onPostHydrate()                         |        0 |
-| controller.mount      | Bolt\Provider\ControllerServiceProvider::onMountBackend()                        |        0 |
-| controller.mount      | Bolt\Provider\ControllerServiceProvider::onMountFrontend()                       |      -50 |
-| kernel.terminate      | Symfony\Component\HttpKernel\EventListener\ProfilerListener::onKernelTerminate() |    -1024 |
-+-----------------------+----------------------------------------------------------------------------------+----------+
+Registered Listeners for "kernel.response" Event
+================================================
+
++-------+----------------------------------------------------------------------------------+----------+
+| Order | Callable                                                                         | Priority |
++-------+----------------------------------------------------------------------------------+----------+
+|    #1 | Bolt\EventListener\FlashLoggerListener::onEvent()                                |     1000 |
+|    #2 | Silex\EventListener\MiddlewareListener::onKernelResponse()                       |      128 |
+|    #3 | Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse()  |        0 |
+|    #4 | Silex\Application {closure}                                                      |        0 |
+|    #5 | Silex\EventListener\LogListener::onKernelResponse()                              |        0 |
+|    #6 | Symfony\Component\HttpKernel\EventListener\SurrogateListener::onKernelResponse() |        0 |
+|    #7 | Bolt\EventListener\GeneralListener::onResponse()                                 |        0 |
+|    #8 | Bolt\EventListener\SnippetListener::onResponse()                                 |        0 |
+|    #9 | Bolt\EventListener\RedirectListener::onResponse()                                |        0 |
+|   #10 | Symfony\Component\HttpKernel\EventListener\ProfilerListener::onKernelResponse()  |     -100 |
+|   #11 | Bolt\Session\SessionListener::onResponse()                                       |     -128 |
+|   #12 | Bolt\EventListener\FlashLoggerListener::onEvent()                                |     1000 |
++-------+----------------------------------------------------------------------------------+----------+
+```
+
+### Sort by Callable
+
+To see the `kernel.response` events, sorted by the callable: 
+
+```bash
+$ php ./app/nut debug:events kernel.response --sort-listener
+
+Registered Listeners for "kernel.response" Event
+================================================
+
++-------+----------------------------------------------------------------------------------+----------+
+| Order | Callable                                                                         | Priority |
++-------+----------------------------------------------------------------------------------+----------+
+|    #1 | Bolt\EventListener\FlashLoggerListener::onEvent()                                |     1000 |
+|   #12 | Bolt\EventListener\FlashLoggerListener::onEvent()                                |     1000 |
+|    #7 | Bolt\EventListener\GeneralListener::onResponse()                                 |        0 |
+|    #9 | Bolt\EventListener\RedirectListener::onResponse()                                |        0 |
+|    #8 | Bolt\EventListener\SnippetListener::onResponse()                                 |        0 |
+|   #11 | Bolt\Session\SessionListener::onResponse()                                       |     -128 |
+|    #4 | Silex\Application {closure}                                                      |        0 |
+|    #5 | Silex\EventListener\LogListener::onKernelResponse()                              |        0 |
+|    #2 | Silex\EventListener\MiddlewareListener::onKernelResponse()                       |      128 |
+|   #10 | Symfony\Component\HttpKernel\EventListener\ProfilerListener::onKernelResponse()  |     -100 |
+|    #3 | Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse()  |        0 |
+|    #6 | Symfony\Component\HttpKernel\EventListener\SurrogateListener::onKernelResponse() |        0 |
++-------+----------------------------------------------------------------------------------+----------+
 ```
