@@ -10,4 +10,5 @@ pages:
     - filesystem
     - storage
     - custom-bootstrapping
+    - bundled
 ---

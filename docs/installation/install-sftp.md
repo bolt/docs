@@ -6,7 +6,7 @@ The traditional way, using (S)FTP
 
 Download the [latest version of Bolt](https://bolt.cm/distribution/bolt-latest.zip).
 
-Extract the .zip file, and upload to your webhost using the (S)FTP client of
+Extract the `.zip` file, and upload to your webhost using the (S)FTP client of
 your choice.
 
 <p class="note"><strong>Note:</strong> Don't forget to upload the
@@ -22,6 +22,11 @@ set up to 'hide' hidden files, that start with a `.`-character.
 
 You can usually still find it, when browsing local files using your FTP
 client.
+
+Note: We recommend installing Bolt outside the web root, following commonly
+accepted best practices setup for web applications. You can read more on this
+[here][outside-why]. If this is not possible on your server environment, you
+can use the so-called "[Flat distribution][flat]", as an alternative.
 
 Next Steps
 ----------
@@ -49,9 +54,11 @@ To do this, configure your webserver to use the `public/` folder as the
 web root. For more information about this, see the pages on configuring
 [Apache][apache] or [Nginx][nginx].
 
-If you bump into trouble setting this up, or you have no access to
-change your web server's configuration, read the page
-[Troubleshooting 'outside of the webroot'][webroot].
+If you bump into trouble setting this up, or you have no access to change your
+web server's configuration, read the page
+[Troubleshooting 'outside of the webroot'][webroot]. If this is not possible on
+your server environment, you can use the so-called "[Flat distribution][flat]",
+as an alternative.
 
 ### Permissions
 
@@ -73,3 +80,5 @@ After you've done this, skip to the section [Setting up Bolt](../configuration/i
 [apache]: ../installation/webserver/apache
 [nginx]: ../installation/webserver/nginx
 [webroot]: ../howto/troubleshooting-outside-webroot
+[outside-why]: ../howto/troubleshooting-outside-webroot#what-s-the-point-of-doing-this
+[flat]: ../howto/troubleshooting-outside-webroot#option-2-use-the-flat-structure-distribution
