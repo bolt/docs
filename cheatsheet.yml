@@ -149,7 +149,7 @@ relations:
         You can use relationships between records by adding a relation to a ContentType. Relationships are always bidirectional.
     table:
         - [ "Example" ]
-        - [ "`relations:`<br>&nbsp;&nbsp;&nbsp;&nbsp;`pages:`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`multiple: false`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`label: Select a page`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`order: -id`"]  
+        - [ "`relations:`<br>&nbsp;&nbsp;&nbsp;&nbsp;`pages:`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`multiple: false`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`label: Select a page`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`order: -id`"]
     postfix: |
         Accessing `record.relation` will give you nothing but the ContentTypes and id’s: `{{ print(record.relation) }}`. To get the actual related records, use `{% set relatedrecords = record.related() %}`.
     links: { "Relationships in the docs": "contenttypes/relationships"}
