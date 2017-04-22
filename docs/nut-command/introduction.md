@@ -1,5 +1,5 @@
 ---
-title: Nut (command line utility)
+title: Introduction
 ---
 The command line utility Nut
 ============================
