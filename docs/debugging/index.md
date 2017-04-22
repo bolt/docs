@@ -3,6 +3,7 @@ title: Debugging Bolt
 short_title: Debugging
 pages:
     - debug-bar
+    - nut-commands
     - dump-function
     - backtrace-function
 ---
