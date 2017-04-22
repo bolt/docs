@@ -36,6 +36,7 @@ Available commands:
   extensions                Lists all installed extensions
   help                      Displays help for a command
   info                      Display phpinfo().
+  init                      Greet the user (and perform initial setup tasks).
   list                      Lists commands
  cache
   cache:clear               Clear the cache
