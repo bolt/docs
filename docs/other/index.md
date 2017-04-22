@@ -6,7 +6,6 @@ pages:
     - contributing
     - code-quality
     - locales
-    - nut
     - maintenance-mode
     - credits
     - license
