@@ -12,6 +12,7 @@ pages:
     - extensions
     - publishing-marketplace
     - howto
+    - nut-command
     - internals
     - debugging
     - manual
