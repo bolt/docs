@@ -13,6 +13,7 @@ pages:
     - server
     - setup
     - user
+    - debug
 redirect: nut-command/introduction
 ---
 Nut (command line utility)
