@@ -1,6 +1,6 @@
 ---
-title: Nut Commands
-short_title: Nut
+title: Debugging Tools
+short_title: Debugging
 pages:
     - debug-events
     - debug-router
