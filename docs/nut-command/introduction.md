@@ -4,24 +4,64 @@ title: Introduction
 The command line utility Nut
 ============================
 
-Bolt comes with a small command line utility, named `nut`, that can be found in
-the `app/`-folder. If you are familiar with working on the commandline, you can
-some tasks like 'clearing the cache' or 'updating the database' without having
-to use the webinterface of Bolt. This utility is completely optional, so if you
-don't have access to the command line on your server, you're not missing out on
-any essential functionality. It's merely a convenient tool for those that do
-prefer the command line.
+Bolt provides a powerful command line tool, based on the Symfony
+[Console component][console].
 
-Right now, there are a few basic commands, but we're going to add more and more
-over time.
+<p class="note"><strong>Note:</strong> The <code>nut</code> command is merely
+a convenient tool for those that do prefer the command line. Its use is not
+required for normal use.</p>
 
-When running `php app/nut` without any parameters, you'll see the help screen:
+Nut is usualy located at `{site root}/app/nut`, and can be executed using your
+PHP binary, for example to execute the `cache:clear` Nut command:
+
+```bash
+$ php ./app/nut cache:clear
+
+Cache cleared!
+```
+
+If you are familiar with working on the command line, you can perform tasks
+like 'clearing the cache' or 'updating the database' without having to use
+Bolt's web interface.
+
+
+### Basics
+
+#### The command
+
+Typing out a Nut command is best done following this pattern:
+
+```bash
+$ php ./app/nut command [options] [arguments]
+```
+
+#### Options and Arguments
+
+Values passed to either can be required, a single value, or several values
+separated by a space character.
+
+Options are the parameters that are suffixed with `--`, e.g. `--help`. Unlike
+argument, options can also not contain a user supplied value.
+
+Some example of how an `example:command` command line would be built to be
+executed by Nut:
+
+```bash
+$ php ./app/nut example:command --option-without-value
+$ php ./app/nut example:command SingleArgumentValue
+$ php ./app/nut example:command --option-without-value SingleArgumentValue
+$ php ./app/nut example:command --send-report true
+$ php ./app/nut example:command --pets cats dogs --option-without-value
+$ php ./app/nut example:command --pets cats dogs FirstArgumentValue SecondArgumentValue
+```
+
+
+##### Default options
+
+Nut commands all have the following set of options that you can add to your
+command line:
 
 ```yaml
-Usage:
-  command [options] [arguments]
-
-Options:
   -h, --help            Display this help message
   -q, --quiet           Do not output any message
   -V, --version         Display this application version
@@ -29,8 +69,37 @@ Options:
       --no-ansi         Disable ANSI output
   -n, --no-interaction  Do not ask any interactive question
   -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+```
 
-Available commands:
+The `--help` option will give contextual help text, and is the most useful for
+learning, or refreshing you memory on, command use.
+
+For example, to see Nut's base help:
+
+```bash
+$ php ./app/nut --help
+```
+
+Alternatively, to get the help text for the `cache:clear` Nut command:
+
+```bash
+$ php ./app/nut cache:clear --help
+```
+
+
+### Available commands
+
+To see a list of available commands for a given Bolt installation, simply run
+Nut without any parameters:
+
+```bash
+$ php app/nut
+```
+
+
+#### Current List
+
+```yaml
   _completion               BASH completion hook.
   cron                      Cron virtual daemon
   extensions                Lists all installed extensions
@@ -76,5 +145,12 @@ Available commands:
   user:reset-password       Reset a user password.
 ```
 
-Run any of these commands, to perform their actions, like `php app/nut cache:clear`.
 
+### Adding your own Nut command
+
+Bolt enables you to extend Nut, and add your own command, via a Bolt extension,
+see the [Nut Console Commands][nut-extension] section of the extension
+documentation for more information.
+
+[console]: http://symfony.com/doc/2.8/components/console.html
+[nut-extension]: ../extensions/intermediate/nut-commands

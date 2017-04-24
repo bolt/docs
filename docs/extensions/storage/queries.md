@@ -24,14 +24,17 @@ $page = $app['query']->getContent('pages', ['id' => 1]);
 // Get about page and only return ONE
 $page = $app['query']->getContent('pages/about', ['returnsingle' => true]);
 
+// Get page with id 2
+$pages = $app['query']->getContent('pages/2');
+
 // Search pages
 $pages = $app['query']->getContent('pages/search', ['filter' => 'term']);
 
-// Display the latest pages
+// Get the latest pages
 $pages = $app['query']->getContent('pages/latest');
 
-// Get two pages
-$pages = $app['query']->getContent('pages/2');
+// Get the latest five pages
+$pages = $app['query']->getContent('pages/latest/5');
 
 // Pagination is not yet implemented
 ```
@@ -41,7 +44,7 @@ $pages = $app['query']->getContent('pages/2');
 // Get relationships
 $page = $app['query']->getContent('pages/1');
 
-foreach ($results->relation['entries'] as $item) {
+foreach ($page->relation['entries'] as $item) {
     // Access relationship in here ... Item will be EntityProxy, but can be accessed like a Content object
     // OR ... $item->toArray(); will return all fields
 }
