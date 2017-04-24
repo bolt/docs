@@ -1,12 +1,12 @@
 ---
-title: Nut Commands
-short_title: Nut
+title: Debugging Tools
+short_title: Debugging
 pages:
-    - twig-operations
-    - route-matcher
-    - router
-    - event-listeners
-    - service-providers
+    - debug-events
+    - debug-router
+    - debug-service-providers
+    - debug-twig
+    - router-match
 ---
 Nut Debugging Commands
 ======================
