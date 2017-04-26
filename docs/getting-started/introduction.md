@@ -4,23 +4,29 @@ title: Introduction
 Introduction
 ============
 
-This is the Bolt Documentation. There are a lot of docs for Bolt, so it is split
-up in a few sections. If you're getting started with Bolt or looking for
-installation instructions, start with the first part. The second part of the
-docs is about working _in_ Bolt. Setting up ContentTypes, taxonomies, etc. The
-third part is a reference for all things related to building your templates and
-themes for Bolt. If you're just beginning with Bolt, don't forget to check out
-our excellent Bolt Theming Tutorial as well.
+This is the Bolt Documentation. There are a lot of docs for Bolt, so it is
+split up in a few parts. If you're new to Bolt, you'll find a few of the most
+used pages linked below. The menu on the left lists all the sections in a
+tree-like structure. If you're looking for something specific, use the search
+option in the top left of the screen.
 
 <a href="about" class="button large expand docsintro">
 Getting Started<br>
 <small>About Bolt, System Requirements, Installation and Upgrading.</small>
 </a>
 
-<a href="../cheatsheet" class="button large expand docsintro">
-The Bolt cheatsheet<br>
-<small>A great little reference for all things Bolt</small>
-</a>
+
+<div class="docsintro" style="margin-bottom: 0; min-height: 91px;">
+    <a href="../installation" class="button large docsintro" style="width: 37.5%; float: left; margin-right: 18px;">
+    Installation<br>
+    <small>Dive in, various methods to install Bolt quickly</small>
+    </a>
+
+    <a href="../cheatsheet" class="button large docsintro" style="width: 37.5%; float: left;">
+    The Bolt cheatsheet<br>
+    <small>A great little reference for all things Bolt</small>
+    </a>
+</div>
 
 <a href="../contenttypes" class="button large expand docsintro">
 ContentTypes<br>
@@ -56,7 +62,7 @@ ContentTypes<br>
     </a>
     <a href="../howto" class="button medium docsintro">
     Other information<br>
-    <small>HOWTO's, Nut, and credits</small>
+    <small>HOWTO's on various topics</small>
     </a>
 </div>
 
