@@ -65,7 +65,7 @@ class Controllers implements ControllerProviderInterface
         try {
             $page = $version->getPage($page);
         } catch (\Exception $e) {
-            throw new NotFoundHttpException('Page does not exist.', $e);
+            throw new NotFoundHttpException("Page '$page' does not exist.", $e);
         }
         if ($redirect = $page['redirect']) {
             return new RedirectResponse("/$version/$redirect");
