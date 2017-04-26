@@ -8,9 +8,11 @@ Activation
 Once your Bundle can be autoloaded, then one more step is needed to enable Bolt
 to load them.
 
-To active a Bundle, you need to add an `extensions` key to either your
+To activate a Bundle, you need to add an `extensions` key to either your
 `.bolt.yml` or `.bolt.php` file in the root of your project, with the values
-being the Bundles you want Bolt to load.
+being the Bundles you want Bolt to load. If you don't have one of these files
+already then starting by creating an empty `.bolt.yml` is the easiest way to
+get started.
 
 
 Updating `.bolt.yml` or `.bolt.php`
