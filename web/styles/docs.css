@@ -1104,10 +1104,12 @@ body {
   margin: 0;
   padding: 0;
   background: #fefefe;
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-weight: normal;
   line-height: 1.5;
-  color: #0a0a0a; }
+  color: #0a0a0a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 img {
   display: inline-block;
@@ -1893,7 +1895,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   color: inherit;
@@ -1945,11 +1947,11 @@ h6 {
 
 @media print, screen and (min-width: 30em) {
   h1 {
-    font-size: 2.75rem; }
+    font-size: 3rem; }
   h2 {
-    font-size: 1.6875rem; }
+    font-size: 2.5rem; }
   h3 {
-    font-size: 1.375rem; }
+    font-size: 1.9375rem; }
   h4 {
     font-size: 1.5625rem; }
   h5 {
@@ -3507,6 +3509,7 @@ header {
       clear: both; }
     @media print, screen and (min-width: 30em) {
       .main-nav ul li {
+        width: 50%;
         float: left; } }
     .main-nav ul a {
       display: inline-block;
