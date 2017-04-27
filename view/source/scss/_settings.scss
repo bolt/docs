@@ -63,8 +63,8 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
-$body-antialiased: true;
+$body-font-family: $sans-serif;
+$body-antialiased: false;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: normal;
@@ -121,9 +121,9 @@ $header-styles: (
     'h6': ('font-size': 16),
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
+    'h1': ('font-size': 44),
+    'h2': ('font-size': 27),
+    'h3': ('font-size': 22),
     'h4': ('font-size': 25),
     'h5': ('font-size': 20),
     'h6': ('font-size': 16),

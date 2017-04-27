@@ -462,7 +462,6 @@ header {
   li {
     // MEDIUM  //
     @include breakpoint(medium) {
-        width: 50%;
         float: left;
     }
        }
