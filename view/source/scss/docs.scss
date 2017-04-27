@@ -86,7 +86,7 @@ section, container {
 header, footer {
     @extend .row;
     background-position: fixed;
-    @media #{$large-up} {
+    @include breakpoint(large up) {
         max-width: 100%;
         }
     .inner {
@@ -94,7 +94,7 @@ header, footer {
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        @media #{$large-up} {
+        @include breakpoint(large up) {
             position: relative;
         }
     }
@@ -160,7 +160,7 @@ h3 {
 nav.main-nav {
     ul {
         // LARGE //
-        @media #{$large-up} {
+        @include breakpoint(large up) {
             list-style: none;
             > li {
                 display: block;
@@ -177,7 +177,7 @@ nav.main-nav {
     padding-top: 2em;
     padding-bottom: 0;
     // LARGE //
-    @media #{$large-up} {
+    @include breakpoint(large up) {
         display: none;
     }
     ul {
@@ -210,7 +210,7 @@ a.toplink {
     margin: 1em auto 0 auto;
     width: 100px;
     // LARGE //
-    @media #{$large-up} {
+    @include breakpoint(large up) {
         display: none;
     }
 }
@@ -235,7 +235,7 @@ a.toplink {
         display: inline-block;
     }
 
-    @media #{$large-up} {
+    @include breakpoint(large up) {
         text-align: right;
     }
 
@@ -246,14 +246,14 @@ a.toplink {
 span.desktop {
     display: none;
     // MEDIUM //
-    @media #{$medium-up} {
+    @include breakpoint(medium up) {
         display: inline;
     }
 }
 
 span.mobile {
     // MEDIUM //
-    @media #{$medium-up} {
+    @include breakpoint(large up) {
         display: none;
     }
 }
@@ -266,7 +266,7 @@ header {
     background-size: cover;
 
     // MEDIUM //
-    @media #{$large-up} {
+    @include breakpoint(medium up) {
 
         //vertical mediaquery: only show when enough vertical height
         @media (min-height: 800px) {
@@ -284,7 +284,7 @@ header {
         width: 150px;
 
         // MEDIUM //
-        @media #{$large-up} {
+        @include breakpoint(large up) {
 
             //vertical mediaquery: only show when enough vertical height
             @media (min-height: 800px) {
@@ -304,7 +304,7 @@ header {
         text-shadow: 2px 2px 3px #000;
 
         // MEDIUM //
-        @media #{$medium-up} {
+        @include breakpoint(medium up) {
             font-size: 2em;
         }
     }
@@ -312,13 +312,13 @@ header {
      width: 100%;
      font-size: 1rem;
      padding: .5rem;
-       // MEDIUM //
-       @media #{$medium-up} {
-         position: absolute;
-         width: 16rem;
-         right: 6rem;
-         top: 4rem;
-     }
+         // MEDIUM //
+         @include breakpoint(large up) {
+            position: absolute;
+            width: 16rem;
+            right: 6rem;
+            top: 4rem;
+        }
      &:before {
          content: "";
          background: #f09;
@@ -331,7 +331,7 @@ header {
  .body-home & {
     height: 300px;
         // MEDIUM //
-        @media #{$medium-up} {
+        @include breakpoint(medium up) {
             height: 450px;
         }
         h2 {
@@ -361,7 +361,7 @@ header {
     color:#fff;
     padding-left: 1em;
     // MEDIUM //
-    @media #{$large-up} {
+    @include breakpoint(large up) {
         bottom: auto;
         top: 0;
         width: 16rem;
@@ -388,7 +388,7 @@ header {
         li.fork {
             display: none;
             // MEDIUM //
-            @media #{$medium-up} {
+            @include breakpoint(medium up) {
                 display: inline-block;
             }
         }
@@ -412,7 +412,7 @@ header {
         background: $darkblue;
     }
     // MEDIUM //
-    @media #{$large-up} {
+    @include breakpoint(large up) {
         display: none;
     }
     span {
@@ -435,8 +435,8 @@ header {
     width: 100%;
     padding-bottom: 1em;
     transition:display 0s linear 0.5s,opacity 0.5s linear;
-     // LARGE  //
-     @media #{$large-up} {
+    // LARGE  //
+    @include breakpoint(large up) {
         display: block;
         background: rgba($black,0.4);
         margin: -44px auto 0;
@@ -449,8 +449,8 @@ header {
  ul{
     list-style: none;
     margin-bottom: 0;
-         // LARGE  //
-         @media #{$large-up} {
+        // LARGE  //
+        @include breakpoint(large up) {
             margin: 0 auto;
         width: 880px; //fixen: geen absolute waarde, maar liever een relatieve!
     }
@@ -460,11 +460,11 @@ header {
       clear: both;
   }
   li {
-             // MEDIUM  //
-             @media #{$medium-only} {
-               width: 50%;
-               float: left;
-           }
+    // MEDIUM  //
+    @include breakpoint(medium) {
+        width: 50%;
+        float: left;
+    }
        }
        a {
         display: inline-block;
@@ -472,7 +472,7 @@ header {
         color: $white;
             border-bottom: 2px solid transparent; //to prevent skipping when hovered
             // LARGE  //
-            @media #{$large-up} {
+            @include breakpoint(large up) {
                 font-size: 1.125rem;
             }
         }
@@ -503,16 +503,16 @@ section{   // was .maininfo, .secinfo
     padding: 0 0 2em 0;
 
     // MEDIUM  //
-    @media #{$medium-up} {
+    @include breakpoint(medium up) {
         padding: 0em 1em;
     }
 
     // LARGE  //
-    @media #{$large-up} {
+    @include breakpoint(large up) {
         padding: 3em 2em;
     }
     // XLARGE  //
-    @media #{$xlarge-up} {
+    @include breakpoint(xlarge up) {
         padding: 3.5em 3.5em;
     }
 }
@@ -545,7 +545,7 @@ mark {
     font-family: $sans-serif;
     font-size: 1rem;
 
-    @media #{$large-up} {
+    @include breakpoint(large up) {
         order: 1;
         max-width: 300px; // Magic number : looks nice
     }
@@ -772,7 +772,7 @@ div.gallery-popup img {
 
     order: 2;
 
-    @media #{$large-up} {
+    @include breakpoint(large up) {
         padding: 3em 3.5em 1em;
     }
 
@@ -786,16 +786,6 @@ div.gallery-popup img {
 
     p, ul, ol {
         max-width: 650px; // magic number: good linewidth to keep it readable
-    }
-
-    li {
-
-        //line-height: 1.5;
-
-        @media #{$large-up} {
-            //line-height: 1.7;
-        }
-
     }
 
     a {
@@ -826,7 +816,7 @@ div.gallery-popup img {
         text-align: center;
 
         // LARGE  //
-        @media #{$large-up}{
+        @include breakpoint(large up) {
             text-align: left;
         }
     }
@@ -947,20 +937,20 @@ div.gallery-popup img {
 
 .main {
     a.button{
-         @include button;
-         font-size: 0.8125rem;
-         max-width: 200px;
-         display: block;
-         margin: 10px auto;
-         text-decoration: none;
-         // MEDIUM  //
-         @media #{$medium-up}{
-              max-width: 200px;
-         }
-         &:before {
+        @include button;
+        font-size: 0.8125rem;
+        max-width: 200px;
+        display: block;
+        margin: 10px auto;
+        text-decoration: none;
+        // MEDIUM  //
+        @include breakpoint(medium up) {
+            max-width: 200px;
+        }
+        &:before {
             content:"\00bb";
             margin-right: 5px;
-         }
+        }
     }
 }
 
@@ -999,10 +989,10 @@ select {
     }
 }
 
-@media #{$small-up}      { body::before { content: "$widthS"; background: rgba( 165,  42,  42, 0.8 ); } }
-@media #{$medium-up}    { body::before { content: "$widthM" ; background: rgba( 255,   0,   0, 0.8 ); } }
-@media #{$large-up}     {  body::before { content: "$widthL" ; background: rgba(   0, 153, 153, 0.8 ); } }
-@media #{$xlarge-up}    {  body::before { content: "$widthXL" ; background: rgba( 159, 238,   0, 0.8 ); } }
-@media #{$xxlarge-up}   {  body::before { content: "$widthXXL"; background: rgba(   0, 204,   0, 0.8 ); } }
+@include breakpoint(small up) {   { body::before { content: "$widthS"; background: rgba( 165,  42,  42, 0.8 ); } }
+@include breakpoint(medium up) {  { body::before { content: "$widthM" ; background: rgba( 255,   0,   0, 0.8 ); } }
+@include breakpoint(large up) {   {  body::before { content: "$widthL" ; background: rgba(   0, 153, 153, 0.8 ); } }
+@include breakpoint(xlarge up) {   {  body::before { content: "$widthXL" ; background: rgba( 159, 238,   0, 0.8 ); } }
+@include breakpoint(xxlarge up) {  {  body::before { content: "$widthXXL"; background: rgba(   0, 204,   0, 0.8 ); } }
 //*/
 
