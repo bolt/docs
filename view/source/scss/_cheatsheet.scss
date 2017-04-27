@@ -81,12 +81,12 @@
         background-color: transparent;
         border: 0;
 
-        @media #{$medium-only} {
+        @include breakpoint(medium only) {
             font-size: 13px;
             color: #000;
         }
 
-        @media #{$large-up} {
+        @include breakpoint(medium only) {
             color: #222;
             font-size: 12px;
         }
@@ -183,7 +183,7 @@
 
 
 
-@media #{$small-only} {
+@include breakpoint(small only) {
 
     .columns {
         padding-left: 0;
