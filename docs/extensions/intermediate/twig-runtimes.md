@@ -44,7 +44,7 @@ class KoalaCatcherExtension extends SimpleExtension
     protected function registerServices(Application $app)
     {
         // Create a runtime for the Twig extension class
-        $app[''twig.runtime.koala_catcher'] = $app->share(
+        $app['twig.runtime.koala_catcher'] = $app->share(
             function ($app) {
                 return new KoalaTwigExtension();
         });
@@ -56,7 +56,7 @@ class KoalaCatcherExtension extends SimpleExtension
     protected function registerTwigFunctions()
     {
         $app = $this->getContainer();
-        $koalaTwig = $app['twig.runtime.koala_catcher';
+        $koalaTwig = $app['twig.runtime.koala_catcher'];
 
         return [
             // Note that the value is an array, and the first value of that
