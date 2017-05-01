@@ -9,7 +9,6 @@ pages:
     - boilerplate-for-multilingual-websites
     - resetting-a-password
     - using-php-built-in-web-server
-    - performance-tips
     - troubleshooting-outside-webroot
     - making-sure-htaccess-works
     - multi-site-setup
