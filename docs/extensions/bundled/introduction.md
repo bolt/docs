@@ -6,13 +6,13 @@ Introduction
 ============
 
 Bundled extensions, or "Bundles", should be thought of as _components_ that are
-_specific_ to **your site project(s)**. As such, developed, managed, and
-deployed using the same tools and methodologies you would deploy your Bolt site
-would normally.
+_specific_ to **your site project(s)**. As such they are developed, managed, and
+deployed using the same tools and methodologies you would normally use to deploy 
+your Bolt site.
 
 Writing a Bundle has a lot in common with writing a regular extension, such as
-you'd find, and install, from the [Market Place][market]. In that, as simple as
-creating a class in your Application that implements
+you'd find, and install, from the [Market Place][market] – it's often as 
+simple as creating a class in your Application that implements
 `Bolt\Extension\ExtensionInterface`.
 
 However, it is very important to note that, Bundles **do not**:
@@ -23,8 +23,8 @@ However, it is very important to note that, Bundles **do not**:
 <p class="note"><strong>Note:</strong> Bundles are, by design, intended
 as a collection of <strong>site-specific</strong>, functionality
 enhancing PHP code. File types such as Twig templates, CSS, and
-JavaScript, are better suited being located inside your site's theme
-directory.</p>
+JavaScript, are normally better suited being located inside your site's 
+theme directory.</p>
 
 
 ### Getting Started
@@ -41,7 +41,7 @@ highlight below:
 
 #### Bundle namespace
 
-Bundles need to defined inside their own base namespace. This namespace
+Bundles need to be defined inside their own base namespace. This namespace
 is important to decide on first, as it will influence the target
 directory location of your Bundle, and is needed for your _autoloading_,
 and _activation_ configuration

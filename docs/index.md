@@ -15,6 +15,7 @@ pages:
     - nut-command
     - internals
     - debugging
+    - performance
     - manual
     - other
     - core-development
