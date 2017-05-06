@@ -43,7 +43,6 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('../../web/js'));
 });
 
-
 gulp.task('copyjavascript', function() {
    gulp.src(javascriptFiles)
    .pipe($.uglify())
