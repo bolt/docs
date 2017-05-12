@@ -154,6 +154,11 @@
     value: Bolt\Configuration\Validation\Validator
     file: src/Configuration/Validation/Validator.php
 -
+    name: controller.async.embed
+    type: class
+    value: Bolt\Controller\Async\Embed
+    file: src/Controller/Async/Embed.php
+-
     name: controller.async.filesystem_manager
     type: class
     value: Bolt\Controller\Async\FilesystemManager
@@ -526,6 +531,26 @@
 -
     name: edittitle
     type: 'null'
+    value: ''
+    file: ''
+-
+    name: embed
+    type: class
+    value: Bolt\Embed\Resolver
+    file: src/Embed/Resolver.php
+-
+    name: embed.dispatcher
+    type: class
+    value: Bolt\Embed\GuzzleDispatcher
+    file: src/Embed/GuzzleDispatcher.php
+-
+    name: embed.factory
+    type: closure
+    value: ''
+    file: ''
+-
+    name: embed.factory.config
+    type: array
     value: ''
     file: ''
 -
