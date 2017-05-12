@@ -154,6 +154,16 @@
     value: Bolt\Configuration\Validation\Validator
     file: src/Configuration/Validation/Validator.php
 -
+    name: config.validator.apache_enabled
+    type: bool
+    value: true
+    file: ''
+-
+    name: controller.async.embed
+    type: class
+    value: Bolt\Controller\Async\Embed
+    file: src/Controller/Async/Embed.php
+-
     name: controller.async.filesystem_manager
     type: class
     value: Bolt\Controller\Async\FilesystemManager
@@ -484,6 +494,11 @@
     value: false
     file: ''
 -
+    name: disable_xss_protection_routes
+    type: array
+    value: ''
+    file: ''
+-
     name: dispatcher
     type: class
     value: Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher
@@ -529,15 +544,70 @@
     value: ''
     file: ''
 -
+    name: embed
+    type: class
+    value: Bolt\Embed\Resolver
+    file: src/Embed/Resolver.php
+-
+    name: embed.dispatcher
+    type: class
+    value: Bolt\Embed\GuzzleDispatcher
+    file: src/Embed/GuzzleDispatcher.php
+-
+    name: embed.factory
+    type: closure
+    value: ''
+    file: ''
+-
+    name: embed.factory.config
+    type: array
+    value: ''
+    file: ''
+-
     name: environment
     type: string
     value: development
+    file: ''
+-
+    name: error_handler
+    type: class
+    value: Symfony\Component\Debug\ErrorHandler
+    file: vendor/symfony/debug/ErrorHandler.php
+-
+    name: error_handler.enabled
+    type: bool
+    value: true
+    file: ''
+-
+    name: error_handler.log_at
+    type: int
+    value: 8181
+    file: ''
+-
+    name: error_handler.logger
+    type: class
+    value: Symfony\Bridge\Monolog\Logger
+    file: vendor/symfony/monolog-bridge/Logger.php
+-
+    name: error_handler.throw_at
+    type: int
+    value: 8181
     file: ''
 -
     name: exception_handler
     type: class
     value: Silex\ExceptionHandler
     file: vendor/silex/silex/src/Silex/ExceptionHandler.php
+-
+    name: exception_handler.early
+    type: class
+    value: Symfony\Component\Debug\ExceptionHandler
+    file: vendor/symfony/debug/ExceptionHandler.php
+-
+    name: exception_handler.enabled
+    type: bool
+    value: true
+    file: ''
 -
     name: extend.action
     type: container
@@ -693,6 +763,11 @@
     type: array
     value: ''
     file: ''
+-
+    name: filesystem.plugin.authorized
+    type: class
+    value: Bolt\Filesystem\Plugin\Authorized
+    file: src/Filesystem/Plugin/Authorized.php
 -
     name: filesystem.plugin.url
     type: class
@@ -879,6 +954,11 @@
     value: Bolt\EventListener\AccessControlListener
     file: src/EventListener/AccessControlListener.php
 -
+    name: listener.disable_xss_protection
+    type: class
+    value: Bolt\EventListener\DisableXssProtectionListener
+    file: src/EventListener/DisableXssProtectionListener.php
+-
     name: listener.exception
     type: class
     value: Bolt\EventListener\ExceptionListener
@@ -923,6 +1003,11 @@
     type: class
     value: Bolt\EventListener\SystemLoggerListener
     file: src/EventListener/SystemLoggerListener.php
+-
+    name: listener.template_view
+    type: class
+    value: Bolt\EventListener\TemplateViewListener
+    file: src/EventListener/TemplateViewListener.php
 -
     name: listener.zone_guesser
     type: class
@@ -1051,8 +1136,18 @@
 -
     name: nut
     type: class
-    value: Bolt\Nut\NutApplication
-    file: src/Nut/NutApplication.php
+    value: Symfony\Component\Console\Application
+    file: vendor/symfony/console/Application.php
+-
+    name: nut.command.twig_debug
+    type: class
+    value: Symfony\Bridge\Twig\Command\DebugCommand
+    file: vendor/symfony/twig-bridge/Command/DebugCommand.php
+-
+    name: nut.command.twig_lint
+    type: class
+    value: Symfony\Bridge\Twig\Command\LintCommand
+    file: vendor/symfony/twig-bridge/Command/LintCommand.php
 -
     name: nut.commands
     type: array
@@ -1111,8 +1206,28 @@
 -
     name: prefill
     type: class
-    value: Bolt\Storage\Prefill
-    file: src/Storage/Prefill.php
+    value: Bolt\Storage\Database\Prefill\ApiClient
+    file: src/Storage/Database/Prefill/ApiClient.php
+-
+    name: prefill.api_url
+    type: string
+    value: 'http://loripsum.net/api/'
+    file: ''
+-
+    name: prefill.builder
+    type: class
+    value: Bolt\Storage\Database\Prefill\Builder
+    file: src/Storage/Database/Prefill/Builder.php
+-
+    name: prefill.default_field_values
+    type: class
+    value: Bolt\Collection\Bag
+    file: vendor/bolt/collection/src/Bag.php
+-
+    name: prefill.generator_factory
+    type: closure
+    value: ''
+    file: ''
 -
     name: profiler
     type: class
@@ -1244,9 +1359,9 @@
     value: Bolt\Configuration\Standard
     file: src/Configuration/Standard.php
 -
-    name: resources.check_files
-    type: closure
-    value: ''
+    name: resources.bootstrap
+    type: bool
+    value: false
     file: ''
 -
     name: route_class
@@ -1784,6 +1899,11 @@
     value: 32
     file: ''
 -
+    name: session.handler
+    type: class
+    value: Bolt\Session\Handler\FilesystemHandler
+    file: src/Session/Handler/FilesystemHandler.php
+-
     name: session.handler_factory
     type: closure
     value: ''
@@ -1795,6 +1915,11 @@
     file: ''
 -
     name: session.handler_factory.backing_memcached
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.backing_predis
     type: closure
     value: ''
     file: ''
@@ -1820,6 +1945,11 @@
     file: ''
 -
     name: session.handler_factory.memcached
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.predis
     type: closure
     value: ''
     file: ''
