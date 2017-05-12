@@ -154,6 +154,11 @@
     value: Bolt\Configuration\Validation\Validator
     file: src/Configuration/Validation/Validator.php
 -
+    name: config.validator.apache_enabled
+    type: bool
+    value: true
+    file: ''
+-
     name: controller.async.embed
     type: class
     value: Bolt\Controller\Async\Embed
@@ -489,6 +494,11 @@
     value: false
     file: ''
 -
+    name: disable_xss_protection_routes
+    type: array
+    value: ''
+    file: ''
+-
     name: dispatcher
     type: class
     value: Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher
@@ -559,10 +569,45 @@
     value: development
     file: ''
 -
+    name: error_handler
+    type: class
+    value: Symfony\Component\Debug\ErrorHandler
+    file: vendor/symfony/debug/ErrorHandler.php
+-
+    name: error_handler.enabled
+    type: bool
+    value: true
+    file: ''
+-
+    name: error_handler.log_at
+    type: int
+    value: 8181
+    file: ''
+-
+    name: error_handler.logger
+    type: class
+    value: Symfony\Bridge\Monolog\Logger
+    file: vendor/symfony/monolog-bridge/Logger.php
+-
+    name: error_handler.throw_at
+    type: int
+    value: 8181
+    file: ''
+-
     name: exception_handler
     type: class
     value: Silex\ExceptionHandler
     file: vendor/silex/silex/src/Silex/ExceptionHandler.php
+-
+    name: exception_handler.early
+    type: class
+    value: Symfony\Component\Debug\ExceptionHandler
+    file: vendor/symfony/debug/ExceptionHandler.php
+-
+    name: exception_handler.enabled
+    type: bool
+    value: true
+    file: ''
 -
     name: extend.action
     type: container
@@ -719,17 +764,17 @@
     value: ''
     file: ''
 -
+    name: filesystem.plugin.authorized
+    type: class
+    value: Bolt\Filesystem\Plugin\Authorized
+    file: src/Filesystem/Plugin/Authorized.php
+-
     name: filesystem.plugin.url
     type: class
     value: Bolt\Filesystem\Plugin\AssetUrl
     file: src/Filesystem/Plugin/AssetUrl.php
 -
     name: filesystem.theme
-    type: class
-    value: Bolt\Filesystem\Filesystem
-    file: vendor/bolt/filesystem/src/Filesystem.php
--
-    name: filesystem.themes
     type: class
     value: Bolt\Filesystem\Filesystem
     file: vendor/bolt/filesystem/src/Filesystem.php
@@ -899,6 +944,11 @@
     value: Bolt\EventListener\AccessControlListener
     file: src/EventListener/AccessControlListener.php
 -
+    name: listener.disable_xss_protection
+    type: class
+    value: Bolt\EventListener\DisableXssProtectionListener
+    file: src/EventListener/DisableXssProtectionListener.php
+-
     name: listener.exception
     type: class
     value: Bolt\EventListener\ExceptionListener
@@ -943,6 +993,11 @@
     type: class
     value: Bolt\EventListener\SystemLoggerListener
     file: src/EventListener/SystemLoggerListener.php
+-
+    name: listener.template_view
+    type: class
+    value: Bolt\EventListener\TemplateViewListener
+    file: src/EventListener/TemplateViewListener.php
 -
     name: listener.zone_guesser
     type: class
@@ -1071,8 +1126,18 @@
 -
     name: nut
     type: class
-    value: Bolt\Nut\NutApplication
-    file: src/Nut/NutApplication.php
+    value: Symfony\Component\Console\Application
+    file: vendor/symfony/console/Application.php
+-
+    name: nut.command.twig_debug
+    type: class
+    value: Symfony\Bridge\Twig\Command\DebugCommand
+    file: vendor/symfony/twig-bridge/Command/DebugCommand.php
+-
+    name: nut.command.twig_lint
+    type: class
+    value: Symfony\Bridge\Twig\Command\LintCommand
+    file: vendor/symfony/twig-bridge/Command/LintCommand.php
 -
     name: nut.commands
     type: array
@@ -1264,9 +1329,9 @@
     value: Bolt\Configuration\Standard
     file: src/Configuration/Standard.php
 -
-    name: resources.check_files
-    type: closure
-    value: ''
+    name: resources.bootstrap
+    type: bool
+    value: false
     file: ''
 -
     name: route_class
@@ -1804,6 +1869,11 @@
     value: 32
     file: ''
 -
+    name: session.handler
+    type: class
+    value: Bolt\Session\Handler\FilesystemHandler
+    file: src/Session/Handler/FilesystemHandler.php
+-
     name: session.handler_factory
     type: closure
     value: ''
@@ -1815,6 +1885,11 @@
     file: ''
 -
     name: session.handler_factory.backing_memcached
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.backing_predis
     type: closure
     value: ''
     file: ''
@@ -1840,6 +1915,11 @@
     file: ''
 -
     name: session.handler_factory.memcached
+    type: closure
+    value: ''
+    file: ''
+-
+    name: session.handler_factory.predis
     type: closure
     value: ''
     file: ''
