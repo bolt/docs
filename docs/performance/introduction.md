@@ -175,8 +175,8 @@ thumbnails:
     default_image: [ 1000, 750 ]
     quality: 80
     cropping: crop
-    notfound_image: view/img/default_notfound.png
-    error_image: view/img/default_error.png
+    notfound_image: bolt_assets://img/default_notfound.png
+    error_image: bolt_assets://img/default_error.png
     save_files: true
     allow_upscale: false
     exif_orientation: true
