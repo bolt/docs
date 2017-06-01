@@ -16,7 +16,7 @@ Sections:
 
 ### Configuring Bolt
 
-When debugging in Bolt, often you'll need to adjust settings in your 
+When debugging in Bolt, often you'll need to adjust settings in your
 `app/config/config.yml` file.
 
 #### Enabling debugging
@@ -30,13 +30,13 @@ debug: true
 set, some internal data can be visible during debugging. You should therefore
 use caution with enabling debugging in a production environment.</p>
 
-#### Setting debug error level 
+#### Setting debug error level
 
 It is also advised to set the debug error level to show all errors:
 
 ```yaml
 debug_error_level: -1
-``` 
+```
 
 #### Enabling debug logging
 
@@ -57,10 +57,10 @@ token, the debug bar, and dumping functions will not appear.
 
 Setting `debug_show_loggedoff` will enable the debug bar, and dump output
 always.
- 
+
 ```yaml
 debug_show_loggedoff: true
-``` 
+```
 
 <p class="warning"><strong>Warning:</strong> This should only be enabled in
 non-production environments.</p>
@@ -90,7 +90,7 @@ The [debug bar][debug-bar] provides comprehensive information on:
 
   * Performance breakdown of the request/response cycle
   * Request & response object data
-  * Exceptions & related trace data 
+  * Exceptions & related trace data
   * Event dispatcher listeners that were, and were not, called
   * Database queries that were performed for the page load
 
@@ -108,6 +108,19 @@ or [Eclipse][xdebug-eclipse] will make debugging PHP code so much simpler.
 Also of worthy note, PhpStorm has the [Silex Pimple plugin][pimple-plugin]
 available, that makes getting PHPDoc information, code completion, and method
 parameter checking all work for keys on `$app`.
+
+##### Xdebug & Composer
+
+If you are debugging Composer script use from the command line, be aware of two
+things:
+ - Composer disables xdebug by default at runtime
+ - Running Composer from `composer.phar` will not work with xdebug
+
+To work around this run Composer from the vendor directory like so:
+
+```
+COMPOSER_ALLOW_XDEBUG=true vendor/bin/composer run-script {script name}
+```
 
 
 [debug-bar]: debugging/debug-bar
