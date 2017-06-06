@@ -11,6 +11,9 @@ include assets like CSS and Javascript resources in your HTML. They are:
  - To generate a scheme-relative or absolute url, use `{{ url() }}`
  - To link to assets, like CSS / JS files, use `{{ asset() }}`
 
+Finally, the last section of this page will give some tips on how to handle
+'links' or 'urls' provided by editors in the content.
+
 ## asset
 
 Use the `{{ asset() }}` Twig function to create public link to the so-called
@@ -260,6 +263,43 @@ following output:
    koala
 </a>
 ```
+
+## Working with "raw links"
+
+As you've seen in the examples above, these mostly deal with paths and urls
+programmatically. Often you will find that a client or editor wants to have a
+field in content where they can "just put in a link". Of course you can create
+a regular field with `type: text` to handle this, and insert these in the
+templates, but you'll get quirky results if the editor isn't very strict in how
+they use the field. So, using `<a href='{{ record.contentlink }}'>Link</a>`
+isn't the best way to handle this.
+
+You can do this in a better way, like is done in the default Blocks ContentType:
+
+```yaml
+blocks:
+    name: Blocks
+    singular_name: Block
+    fields:
+        …
+        contentlink:
+            type: text
+            label: Link
+            placeholder: 'contenttype/slug or http://example.org/'
+            postfix: "Use this to add a link for this Block. This could either be an 'internal' link like <tt>page/about</tt>, if you use a contenttype/slug combination. Otherwise use a proper URL, like `http://example.org`."
+```
+
+Then, in your templates you can insert the correct link, depending on what the editor provided:
+
+```twig
+{% if record.contentlink %}
+    <a href="{{ relative_path(record.contentlink|e) }}">Read more</a>
+{% endif %}
+```
+
+This way, the website will show a correct relative or absolute link, if the
+editor provided something like `page/about` or `https://bolt.cm`.
+
 
 [symfonyasset]: http://symfony.com/doc/current/templating.html#templating-assets
 [page]: http://symfony.com/doc/current/templating.html#linking-to-pages
