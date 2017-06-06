@@ -110,6 +110,19 @@ Also of worthy note, PhpStorm has the [Silex Pimple plugin][pimple-plugin]
 available, that makes getting PHPDoc information, code completion, and method
 parameter checking all work for keys on `$app`.
 
+##### Xdebug & Composer
+
+If you are debugging Composer script use from the command line, be aware of two
+things:
+ - Composer disables xdebug by default at runtime
+ - Running Composer from `composer.phar` will not work with xdebug
+
+To work around this run Composer from the vendor directory like so:
+
+```
+COMPOSER_ALLOW_XDEBUG=true vendor/bin/composer run-script {script name}
+```
+
 
 [debug-bar]: debugging/debug-bar
 [dump-twig]: debugging/dump-function#twig

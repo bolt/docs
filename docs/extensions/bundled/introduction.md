@@ -113,9 +113,9 @@ their own <code>composer.json</code> file.</p>
 Bundled extensions are completely self-managed in terms of configuration,
 automatic set-up of CSS & JavaScript assets in public locations, etc.
 
-[file-location]: bundled/file-location
-[autoloading]: bundled/autoloading
-[activation]: bundled/activation
+[file-location]: ../bundled/file-location
+[autoloading]: ../bundled/autoloading
+[activation]: ../bundled/activation
 [extensions-basics]: ../basics/basics
 [extensions-intermediate]: ../basics/intermediate
 [extensions-advanced]: ../basics/advanced

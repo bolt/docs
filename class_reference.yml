@@ -779,11 +779,6 @@
     value: Bolt\Filesystem\Filesystem
     file: vendor/bolt/filesystem/src/Filesystem.php
 -
-    name: filesystem.themes
-    type: class
-    value: Bolt\Filesystem\Filesystem
-    file: vendor/bolt/filesystem/src/Filesystem.php
--
     name: form.csrf_provider
     type: class
     value: Symfony\Component\Security\Csrf\CsrfTokenManager
