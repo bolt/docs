@@ -41,7 +41,7 @@ filesystem, the file system manager provides the method
 ```
 
 You can now access your mounted filesystem via the `$filesystem` object, see
-the [Filesystems](#Filesystems) section below for details on what can be done
+the [Filesystems](filesystems) section below for details on what can be done
 with it.
 
 ### Checking if a filesystem's mount exists

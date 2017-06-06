@@ -144,9 +144,9 @@ editor provides, the snippet below will output a fully working HTML link.
 
 ```
 {% setcontent block = "block/about-us" %}
-{% if link(block.contentlink) %}
+{% if block.contentlink %}
     <p>
-        {{ link(block.contentlink, "Read more") }}
+        <a href="{{ relative_url(block.contentlink|e) }}Read more</a>
     </p>
 {% endif %}
 
