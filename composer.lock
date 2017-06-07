@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0bc163c568ef2c21f6a4a71aed1c463",
+    "content-hash": "3a17dc9d1d501dff905885ed65fe5722",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -1578,20 +1578,21 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.34.2",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "55e4beb721a044db9e31ae0470024fc205b6a008"
+                "reference": "fe3e3f3359b23b36f65cb600cd516142c07a2e7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/55e4beb721a044db9e31ae0470024fc205b6a008",
-                "reference": "55e4beb721a044db9e31ae0470024fc205b6a008",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/fe3e3f3359b23b36f65cb600cd516142c07a2e7d",
+                "reference": "fe3e3f3359b23b36f65cb600cd516142c07a2e7d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^7.0",
+                "symfony/polyfill-mbstring": "~1.0"
             },
             "require-dev": {
                 "psr/container": "^1.0",
@@ -1601,7 +1602,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.34-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
@@ -1639,7 +1640,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-06-06T03:56:50+00:00"
+            "time": "2017-06-06T03:58:14+00:00"
         },
         {
             "name": "webmozart/assert",
