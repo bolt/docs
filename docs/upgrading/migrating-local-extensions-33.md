@@ -66,7 +66,7 @@ For further information see the section of the Bundles documentation on
 [configuring autoloading][autoloading].
 
 <p class="note"><strong>Note:</strong> You must always remember to run
-<code>composer dump-autoloader</code> in your site's root directory after
+<code>composer dump-autoload</code> in your site's root directory after
 making any changes to the <code>"autoload"</code> section of your site's
 <code>composer.json</code>.</p>
 
