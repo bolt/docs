@@ -25,7 +25,6 @@ are default settings, and Bolt should work out-of-the-box.
     - curl
     - gd
     - json
-    - mbstring
     - opcache (optional)
     - posix
     - xml
