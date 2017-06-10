@@ -24,8 +24,10 @@ are default settings, and Bolt should work out-of-the-box.
     - openssl
     - curl
     - gd
+    - intl (optional but recommended)
     - json
-    - opcache (optional)
+    - mbstring (optional but recommended)
+    - opcache (optional but recommended)
     - posix
     - xml
     - fileinfo
