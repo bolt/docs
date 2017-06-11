@@ -95,7 +95,7 @@ protected function registerAssets()
     $asset = new Stylesheet();
     $asset->setFileName('koala.css')
         ->setLate(true)
-        ->setPriority(99)
+        ->setPriority(5)
         ->setZone(Zone::BACKEND)
     ;
 
@@ -110,8 +110,8 @@ In the above example:
   * `setFileName()` sets the file name
   * `setLate(true)` tells the asset injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
     at the end of the HTML `<body>`
-  * `setPriority(99)` tells the injector to insert this `<link rel="stylesheet" href="path/web/koala.css">`
-    *after* any other stylesheet tags in that location with a priority lower than 99
+  * `setPriority(5)` tells the injector when to insert the stylesheet. Lower
+     priorities are inserted first.
   * `setZone(Zone::BACKEND)` tells the injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
     on back-end pages, instead of the default of front-end
 
@@ -152,7 +152,7 @@ protected function registerAssets()
     $asset = new JavaScript();
     $asset->setFileName('dropbear.js')
         ->setLate(true)
-        ->setPriority(99)
+        ->setPriority(5)
         ->setAttributes(['defer', 'async'])
         ->setZone(Zone::BACKEND)
     ;
@@ -168,8 +168,8 @@ In the above example:
   * `setFileName()` sets the file name
   * `setLate(true)` tells the asset injector to insert the `<script src="path/web/dropbear.js"></script>`
      at the end of the HTML `<body>`
-  * `setPriority(99)` tells the injector to insert this `<script src="path/web/dropbear.js"></script>`
-    *after* any other `<script>` tags in that location with a priority lower than 99
+  * `setPriority(5)` tells the injector when to insert the script. Lower
+     priorities are inserted first.
   * `setAttributes(['defer', 'async'])` adds `defer` and `async` to the
     `<script>` tag
   * `setZone(Zone::BACKEND)` tells the injector to insert the `<script src="path/web/dropbear.js"></script>`
@@ -202,7 +202,7 @@ protected function registerAssets()
     $asset = new Snippet();
     $asset->setCallback([$this, 'callbackSnippet'])
         ->setLocation(Target::AFTER_META)
-        ->setPriority(99)
+        ->setPriority(5)
     ;
 
     return [
@@ -222,8 +222,8 @@ In the above example:
     `callbackSnippet()` function during render to get the content of the snippet
   * `setLocation(Target::AFTER_META)` tells the asset injector to insert the
     snippet after other `<meta>`
-  * `setPriority(99)` tells the injector to insert this snippet's code *after*
-    any other tags in that location with a priority lower than 99
+  * `setPriority(5)` tells the injector when to insert the snippet. Lower
+     priorities are inserted first.
 
 **NOTE:** To use the `Target` and `Zone` class parameters, you should add the
 following `use` statements to your extension class file:
@@ -264,6 +264,7 @@ protected function registerAssets()
         ->setCallback([$this, 'callbackWidget'])
         ->setCallbackArguments(['arg1' => 'Kenny', 'arg2' => 'Koala'])
         ->setDefer(true)
+        ->setPriority(5)
     ;
 
     return [
@@ -279,11 +280,17 @@ public function callbackWidget($arg1, $arg2)
 ```
 
 In the above example:
-  * `setType(Zone::FRONTEND)` tells the asset injector to only act on the frontend
-  * `setLocation(Target::AFTER_META)` tells the asset injector to insert the snippet after other `<meta>`
-  * `setCallback([$this, 'callbackWidget'])` calls the extension's `callbackWidget()` function during render to get the content of the widget
+  * `setType(Zone::FRONTEND)` tells the asset injector to only act on the
+     frontend
+  * `setLocation(Target::AFTER_META)` tells the asset injector to insert
+     the snippet after other `<meta>`
+  * `setCallback([$this, 'callbackWidget'])` calls the extension's `callbackWidget()`
+     function during render to get the content of the widget
   * `setCallbackArguments(['arg1' => 'Kenny', 'arg2' => 'Koala'])`
-  * `setDefer(true)` defers rendering of the widget to a separate request, so it doesn't block the initial rendering of the page
+  * `setDefer(true)` defers rendering of the widget to a separate request,
+     so it doesn't block the initial rendering of the page
+  * `setPriority(5)` tells the injector when to insert the widget. Lower
+     priorities are inserted first.
 
 **NOTE:** To use the `Target` and `Zone` class parameters, you should add the
 following `use` statements to your extension class file:
