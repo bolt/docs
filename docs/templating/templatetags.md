@@ -1,5 +1,5 @@
 ---
-title: Bolt template functionality
+title: Twig tags, functions and filters
 ---
 Bolt Template functionality
 ===========================
@@ -92,7 +92,7 @@ Twig functions
 Use the `{{ asset() }}` Twig function to create public link to the so-called
 assets in your theme, like JavaScript, CSS or other files.
 
-For more information, see [Linking in templates][linkintpl].
+For more information, see [Linking in templates][linkintpl-asset].
 
 ### htmllang
 
@@ -233,14 +233,21 @@ For more information about Magnific Popup, see the
 Use the `path` Twig function to create valid URI strings to paths configured on
 your site.
 
-For more information, see [Linking in templates][linkintpl].
+For more information, see [Linking in templates][linkintpl-current].
+
+### canonical
+
+Use the `canonical` Twig function to create a valid URI to the current page, to
+use in as an external link.
+
+For more information, see [Linking in templates][linkintpl-pathurl].
 
 ### url
 
 Use the `path` Twig function to create valid URL strings to paths configured on
 your site.
 
-For more information, see [Linking in templates][linkintpl].
+For more information, see [Linking in templates][linkintpl-pathurl].
 
 ### redirect
 
@@ -310,9 +317,8 @@ For more info on debugging your Bolt site, see the chapter on
 true</code> in your <code>config.yml</code> file. Otherwise the
 <code>dump()</code> will output nothing at all.</p>
 
-Twig Filters
+Twig filters
 ------------
-
 
 ### excerpt
 
@@ -717,7 +723,9 @@ Examples:
 {% endif %}
 ```
 
-[linkintpl]: linking-in-templates
+[linkintpl-asset]: linking-in-templates#using-asset-to-link-to-assets-or-files
+[linkintpl-pathurl]: linking-in-templates#using-path-and-url-to-link-to-named-routes
+[linkintpl-current]: linking-in-templates#linking-to-the-current-page
 [twig]: http://twig.sensiolabs.org/doc/templates.html
 [inc]: http://twig.sensiolabs.org/doc/functions/include.html
 [inheritance]: http://twig.sensiolabs.org/doc/templates.html#template-inheritance
