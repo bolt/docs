@@ -39,8 +39,10 @@
     {# current \Bolt\Docs\Page #}
     {% from _self import menu %}
 
-    {% set selected = current.url starts with page.url %}
-    <li class="{{ not selected ? 'closed' }}{{ current.url == page.url ? ' selected'}}">
+    {% if (page.listed is not defined or page.listed) %}
+
+        {% set selected = current.url starts with page.url %}
+        <li class="{{ not selected ? 'closed' }}{{ current.url == page.url ? ' selected'}}">
             {% if page.subPages is not empty %}
                 <a href="{{ page.url }}"><span class="title">{{ page.title }}</span></a>
                 <a href="{{ page.url }}" class="toggler">{{ selected ? '-' : '+' }}</a>
@@ -51,14 +53,16 @@
             {% if current.url == page.url %}
                 {{ include('_sub_quicklinks.twig') }}
             {% endif %}
-        {% if page.subPages %}
-        <ul>
-            {% for sub in page.subPages %}
-                {{ menu(sub, current) }}
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </li>
+            {% if page.subPages %}
+            <ul>
+                {% for sub in page.subPages %}
+                    {{ menu(sub, current) }}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+
+    {% endif %}
 {% endmacro %}
 
 {% macro sitemap(page) %}
