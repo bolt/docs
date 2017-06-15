@@ -1,6 +1,7 @@
 ---
 title: Building Multilingual Websites with Bolt
 level: intermediate
+listed: false
 ---
 Boilerplate for Multilingual Websites
 =====================================
