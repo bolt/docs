@@ -29,7 +29,7 @@ To clarify, the value you put in the yml file is exactly what you would use to
 instantiate the class, so in code the above is equivalent to
 `new \BundleBaseNamespace\MyBundleExtension()`
 
-An example using `.bolt.php`
+`.bolt.php` allows for two different methods of loading, via strings:
 
 ```php
 <?php
@@ -40,3 +40,14 @@ return [
 ];
 ```
 
+or via class instances:
+```php
+<?php
+
+use BundleBaseNamespace\MyBundleExtension;
+
+return [
+    'extensions' => [
+        new MyBundleExtension()
+    ]
+];```
