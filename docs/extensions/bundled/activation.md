@@ -33,12 +33,9 @@ An example using `.bolt.php`
 
 ```php
 <?php
-
-use BundleBaseNamespace\MyBundleExtension;
-
 return [
     'extensions' => [
-        new MyBundleExtension()
+        'BundleBaseNamespace\MyBundleExtension'
     ]
 ];
 ```
