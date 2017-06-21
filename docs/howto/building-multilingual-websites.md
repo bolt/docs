@@ -1,6 +1,7 @@
 ---
 title: Building Multilingual Websites with Bolt
 level: intermediate
+listed: false
 ---
 Building Multilingual Websites with Bolt
 ========================================
