@@ -1,6 +1,7 @@
 ---
 title: Running Multiple Bolt sites from one source directory
 level: intermediate
+listed: false
 ---
 Running Multiple Bolt sites from one source directory
 =====================================================
