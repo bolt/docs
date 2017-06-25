@@ -5,7 +5,7 @@
     "keywords": ["Bolt", "Docs", "Documentation", "CMS", "Silex", "PHP", "Symfony"],
     "license": "MIT",
     "require": {
-        "cocur/slugify" : "^1.4",
+        "cocur/slugify" : "^2.5",
         "erusev/parsedown-extra": "^0.7",
         "monolog/monolog": "^1.21",
         "silex/silex": "^2.0",
