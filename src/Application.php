@@ -6,6 +6,7 @@ use Silex;
 use Symfony\Component\Config\ConfigCacheFactory;
 use Symfony\Component\Yaml;
 use Webmozart\PathUtil\Path;
+use Cocur\Slugify\Bridge\Silex2 as Slugify;
 
 class Application extends Silex\Application
 {
@@ -35,7 +36,7 @@ class Application extends Silex\Application
         $this->register(new Silex\Provider\VarDumperServiceProvider());
         $this->register(new Silex\Provider\AssetServiceProvider());
         $this->register(new Provider\ConsoleServiceProvider());
-        $this->register(new Provider\SlugifyServiceProvider());
+        $this->register(new Slugify\SlugifyServiceProvider());
         $this->register(new Provider\MarkdownServiceProvider());
         $this->register(new Provider\DocumentationServiceProvider(), [
             'documentation.versions_dir'           => __DIR__ . '/../var/versions',
