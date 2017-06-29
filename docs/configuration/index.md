@@ -8,4 +8,5 @@ pages:
     - menus
     - thumbnails
     - routing
+    - advanced
 ---

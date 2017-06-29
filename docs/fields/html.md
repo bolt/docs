@@ -38,6 +38,8 @@ field.
             type: html
             options:
                 ckeditor:
+                    entities: true # this enables special characters to be stored as their HTML entity
+                    entities_latin: true # this enables Latin characters to be stored as their HTML entity - eg when true, £ is stored as &pound;
                     height: 400
                     autoGrow_maxHeight: 400
                     autoGrow_onStartup: false
