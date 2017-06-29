@@ -29,11 +29,15 @@ images:
 
 The field has one option to change the functionality of the field:
 
-* `extensions` Allows you to restrict users to only be able to upload files with
-  certain file extensions.
+* `extensions` Allows you to restrict users to only be able to upload files
+  with certain file extensions
+* `upload` Allows you to upload files for this field into a specified directory
+  so they remain grouped. This directory will be created in `{%web%}/files/`
 
 ```yaml
         gallery:
             type: imagelist
             extensions: [ gif, jpg, png ]
+            upload: portfolio
 ```
+
