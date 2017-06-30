@@ -33,5 +33,5 @@ field.
         attachment:
             type: file
             extensions: [ png, pdf ]
-        upload: portfolio
+            upload: portfolio
 ```
