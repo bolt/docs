@@ -39,12 +39,15 @@ field.
   * `alt` Show a text field for the `alt` parameter 
   * `title` Show a text field for the `title` parameter
   * `[title, alt]` Show both fields
+* `upload` Allows you to upload files for this field into a specified directory
+  so they remain grouped. This directory will be created in `{%web%}/files/`
 
 ```yaml
         cover:
             type: image
             attrib: [title, alt]
             extensions: [ gif, jpg, png ]
+            upload: portfolio
 ```
 
 You can call these in your templates by using `{{ record.values.image.title }}`
