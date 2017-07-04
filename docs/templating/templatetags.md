@@ -183,7 +183,7 @@ Note that this function is pretty rudimentary, so use it sparingly. Often, it's
 advisable to use media queries in CSS, for more fine-grained control over how
 to present information on a varying number of screen sizes.
 
-### Magnific Popup (popup)
+### popup (Magnific Popup)
 
 To insert an image in the HTML, which functions as an image popup use either
 the `popup` function or filter.
