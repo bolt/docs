@@ -1,8 +1,8 @@
 ---
-title: Twig tags, functions and filters
+title: Twig tags, functions & filters
 ---
-Bolt Template functionality
-===========================
+Twig tags, functions & filters
+==============================
 
 As mentioned before, a template in Bolt can use all of the standard Twig tags,
 function, filters, tests & operators, with a few additions that are specific to
@@ -10,7 +10,7 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 "[Twig for Template Designers][twig]", on the official Twig website.
 
 Below you will find Bolt specific, and common Twig [tags](#twig-tags),
-[functions](#twig-functions), [filters](#twig-filters).
+[functions](#twig-functions), and [filters](#twig-filters).
 
 Twig tags
 ---------
@@ -32,7 +32,7 @@ These queries are currently possible:
   * `news/first/5` - get first 5 newsitems
   * `quote/random/5` - get 5 random quotes
   * `animal/search/5` - search for animals and return 5 of them (use
-    where parameter 'filter' to specify searchstring)
+    where parameter 'filter' to specify search string)
   * `(animal,plant)/search/20` - search for animals and plants and
     return 20 of them (use where parameter 'filter' to specify searchstring)
 
@@ -49,7 +49,7 @@ These queries are currently possible:
 
 The `switch` tag implements a `switch` statement, like the one present in
 [PHP][switch] and many other programming languages. It allows you to
-'clean up' a list of if / elseif / else statements, in a more concise
+'clean up' a list of `if` / `elseif` / `else` statements, in a more concise
 way. For example:
 
 ```twig
@@ -279,7 +279,7 @@ used in an if/else clause, to redirect visitors based on some criteria.
 {% endfor %}
 ```
 
-### getuser and getuserid
+### getuser & getuserid
 
 Sometimes you need to fetch a specific record based on the correct user. In
 cases like these, You'll need to be able to get the data for this user, and the
@@ -432,9 +432,9 @@ or:
 
 ```twig
 {% if page|current %}
-	Yes, {{ page.title }} is the current page.
+    Yes, {{ page.title }} is the current page.
 {% else %}
-	No, you're viewing another page than {{ page.title}}
+    No, you're viewing another page than {{ page.title}}
 {% endif %}
 ```
 
