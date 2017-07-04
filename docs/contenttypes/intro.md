@@ -284,7 +284,7 @@ name of your record or array. In most templates, `{{ dump(record) }}` will work
 as a generic fallback for whatever the name of your record is.
 
 For detailed information on how to access the various fields and values in your
-templates, see the [Template tags][templatetags] page.
+templates, see the [Twig tags, filters & functions][bolt-twig] page.
 
 Advanced: YAML Repeated Nodes
 -----------------------------
@@ -386,4 +386,4 @@ pages:
 [field-types]: ../fields
 [howto-resource-ct]: ../howto/resource-contenttype
 [template-routes]: ../templating/templates-routes
-[templatetags]: ../templating/templatetags
+[bolt-twig]: ../templating/twig-functionality
