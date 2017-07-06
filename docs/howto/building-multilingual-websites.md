@@ -372,7 +372,7 @@ Set the correct locale and call the function `initLocale` to apply a new locale.
 {{ app.initLocale() }}
 ```
 
-When outputting dates, use the [localedatetime filter](../templating/templatetags#localedatetime). Note
+When outputting dates, use the [localedatetime filter](../templating/twig-functionality#localedatetime). Note
 that this is only useful if the date structure is identical for every language,
 which is not always the case. You'll want to use a simple `if` statement for
 each exception.

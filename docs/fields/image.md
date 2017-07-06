@@ -26,7 +26,7 @@ or
 ```twig
 {{ record.cover|popup() }}
 ```
-See [Bolt Template tags](../templating/templatetags) for more info.
+See [Bolt Template tags](../templating/twig-functionality) for more info.
 
 ## Options:
 
@@ -36,7 +36,7 @@ field.
 * `extensions` Allows you to restrict users to only be able to upload files with
   certain file extensions.
 * `attrib` Can be set to either of the following:
-  * `alt` Show a text field for the `alt` parameter 
+  * `alt` Show a text field for the `alt` parameter
   * `title` Show a text field for the `title` parameter
   * `[title, alt]` Show both fields
 * `upload` Allows you to upload files for this field into a specified directory
