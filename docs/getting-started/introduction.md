@@ -28,7 +28,7 @@ ContentTypes<br>
 </a>
 
 <div class="docsintro" style="margin-bottom: 18px; min-height: 91px;">
-    <a href="../templating/templates-selection" class="button large docsintro"
+    <a href="../templating/template-selection" class="button large docsintro"
     style="width: 37.5%; float: left; margin-right: 18px;">
     Templating / Theming<br>
     <small>Writing templates, Twig, fetching content, paging, search</small>
