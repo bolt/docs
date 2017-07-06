@@ -263,8 +263,8 @@ Ordering results
 ----------------
 The results can be sorted by any of the fields of the ContentType, using the
 `orderby` clause. You can sort either ascending or descending. The order is
-determined by the inclusion (or omission) of the minus before the name of 
-the field: `title` vs. `-title`. 
+determined by the inclusion (or omission) of the minus before the name of
+the field: `title` vs. `-title`.
 
 ```
 {# get 10 pages, sorted alphabetically on title #}
@@ -278,7 +278,7 @@ Note that the records are fetched from the database, according to the `orderby`
 parameter. If you use `orderby 'title'`, you will get records with titles
 starting with 'a'.
 
-You can also get results randomised by using content queries. Please see the [setcontent](templatetags#setcontent) documentation for examples.
+You can also get results randomised by using content queries. Please see the [setcontent](twig-functionality#setcontent) documentation for examples.
 
 
 One record or multiple records?
