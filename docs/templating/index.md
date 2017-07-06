@@ -1,15 +1,15 @@
 ---
 title: Templating
-redirect: templating/templates-selection
+redirect: templating/template-selection
 pages:
-    - templates-selection
+    - template-selection
     - building-templates
+    - template-inheritance
     - record-and-records
     - content-fetching
     - linking-in-templates
-    - fields-tag
     - content-paging
     - content-search
     - widgets
-    - templatetags
+    - twig-functionality
 ---
