@@ -11,14 +11,51 @@ with the web root.
 ## Usage
 
 ```bash
-    php ./app/nut setup:sync
+    php ./app/nut setup:sync [options]
 ```
 
 
-## Example
+## Options
+
+| Option | Description |
+|--------|-------------|
+| -t, --themes | Copy example themes from bolt/themes into the site theme base-directory
+
+
+
+## Examples
 
 ```bash
-$ php ./app/nut setup:sync
-Directory synchronisation succeeded​.
+$ ./app/nut setup:sync
+
+Synchronising Bolt asset directories with the web root
+======================================================
+
+ [OK] Directory synchronisation succeeded.
+```
+
+
+```bash
+$ ./app/nut setup:sync --themes
+
+ Continuing will copy/update the example themes into your installation, overwriting older copies. Is this OK? (yes/no) [yes]:
+ >
+
+Installing theme: base-2016
+===========================
+
+ [OK]
+
+
+Installing theme: skeleton
+==========================
+
+ [OK]
+
+
+Synchronising Bolt asset directories with the web root
+======================================================
+
+ [OK] Directory synchronisation succeeded.
 ```
 
