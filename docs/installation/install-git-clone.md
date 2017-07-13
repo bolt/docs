@@ -115,6 +115,20 @@ added in minor version, or be removed/replaced in major versions.</p>
 Next Steps
 ----------
 
+### Example Themes
+
+When a `composer install` or `composer update` is run, **without** a
+`composer.lock` present in the site root, Bolt will install the example themes
+from `bolt/themes`.
+
+<p class="note"><strong>Note:</strong> These themes are required to run both
+unit & acceptance tests.</p>
+
+Should you require updated copies of these themes, they can be resynchronised
+with the copies in the vendor directory via the Nut [`setup:sync`][nut-setup-sync]
+command.
+
+
 ### Web server configuration
 
 After extracting the tar file, you'll end up with a structure, containing the
@@ -147,3 +161,4 @@ After you've done this, skip to the section [Setting up Bolt](../configuration/i
 [composer]: https://getcomposer.org/download/
 [core-dev]: ../core-development
 [webroot]: ../howto/troubleshooting-outside-webroot
+[nut-setup-sync]: ../nut-command/setup/setup-sync
