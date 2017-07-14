@@ -67,7 +67,7 @@ class KoalaCatcherExtension extends SimpleExtension
      * @param Application $app
      * @param Request     $request
      *
-     * @return Response     
+     * @return Response
      */
     public function callbackKoalaCatching(Application $app, Request $request)
     {
@@ -78,7 +78,7 @@ class KoalaCatcherExtension extends SimpleExtension
      * @param Application $app
      * @param Request     $request
      *
-     * @return Response     
+     * @return Response
      */
     public function callbackKoalaAdmin(Application $app, Request $request)
     {
@@ -158,6 +158,7 @@ then look something like:
 ```php
 namespace Bolt\Extension\DropBear\KoalaCatcher\Controller;
 
+use Bolt\Controller\Base;
 use Silex\Application;
 use Silex\ControllerCollection;
 use Silex\ControllerProviderInterface;
@@ -169,24 +170,16 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * @author Kenny Koala <kenny@dropbear.com.au>
  */
-class DropBearController implements ControllerProviderInterface
+class DropBearController extends Base
 {
-    /** @var Application */
-    protected $app;
-
     /**
      * {@inheritdoc}
      */
-    public function connect(Application $app)
+    public function addRoutes(ControllerCollection $c)
     {
-        $this->app = $app;
+        $c->match('/koala/{type}', [$this, 'callbackKoalaCatching']);
 
-        /** @var ControllerCollection $ctr */
-        $ctr = $app['controllers_factory'];
-
-        $ctr->match('/koala/{type}', [$this, 'callbackKoalaCatching']);
-
-        return $ctr;
+        return $c;
     }
 
     /**
