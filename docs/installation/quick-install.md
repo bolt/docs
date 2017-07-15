@@ -23,6 +23,10 @@ tar -xzf bolt-latest.tar.gz --strip-components=1
 php app/nut init
 ```
 
+View this short screencast, to see it in action:
+
+<script type="text/javascript" src="https://asciinema.org/a/129086.js" id="asciicast-129086" async></script>
+
 If this set of commands didn't work because your server doesn't have `curl`,
 use `wget` instead.
 
