@@ -15,7 +15,12 @@
             <optgroup label=''>
             <optgroup label='Switch to version:'>
                 {% for v in numeric|reverse %}
-                    <option value="{{ path('page', {version: v}) }}" class="version-{{ v }}">{{ v }}
+                    {% if (v ~ '/' ~ page.path) in filelist %}
+                        {% set path = path('page', {'version': v, 'page': page.path|replace({'.md': ''}) }) %}
+                    {% else %}
+                        {% set path = path('page', {'version': v }) %}
+                    {% endif %}
+                    <option value="{{ path }}" class="version-{{ v }}">{{ v }}
                         {% if v == default_version %}(current stable){% endif %}
                         {% if v > default_version %}(future release){% endif %}
                     </option>

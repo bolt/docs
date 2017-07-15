@@ -3,6 +3,15 @@
 
 {% import '_macros.twig' as macro %}
 
+{% block canonical %}
+{% if (version != default_version) and (default_version ~ '/' ~ page.path) in filelist %}
+    {% set canonical = path('page', {'version': default_version, 'page': page.path|replace({'.md': ''}) }) %}
+{% else %}
+    {% set canonical = path('page', {'version': version, 'page': page.path|replace({'.md': ''}) }) %}
+{% endif -%}
+    <link rel="canonical" href="{{ canonical }}" />
+{% endblock canonical %}
+
 {% block content %}
 
     <div class="small-12 medium-12 large-9 columns content">
@@ -12,9 +21,14 @@
         {% include '_versionselect.twig' %}
 
         {% if version != default_version %}
+            {% if (default_version ~ '/' ~ page.path) in filelist %}
+                {% set path = path('page', {'version': default_version, 'page': page.path|replace({'.md': ''}) }) %}
+            {% else %}
+                {% set path = path('page', {'version': default_version }) %}
+            {% endif %}
             <p class="note" style="margin-top: 1em;">
                 <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt
-                {{ version }}</strong>. Looking for the <a href="{{ path('page') }}">documentation
+                {{ version }}</strong>. Looking for the <a href="{{ path }}">documentation
                 for Bolt {{ default_version }}</a> instead?
             </p>
         {% endif %}

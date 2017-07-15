@@ -103,10 +103,11 @@ class Controllers implements ControllerProviderInterface
     public function cheatsheet(Version $version)
     {
         $twigVars = [
-            'title'      => 'Bolt Cheatsheet',
-            'menu'       => $version->getMenu(),
-            'version'    => $version->getVersion(),
-            'cheatsheet' => $version->getCheatSheet(),
+            'title'           => 'Bolt Cheatsheet',
+            'menu'            => $version->getMenu(),
+            'version'         => $version->getVersion(),
+            'cheatsheet'      => $version->getCheatSheet(),
+            'default_version' => $this->app['documentation']->getDefault(),
         ];
 
         return $this->render('cheatsheet.twig', $twigVars);
@@ -154,6 +155,7 @@ class Controllers implements ControllerProviderInterface
             'version'         => $version,
             'versions'        => $this->app['documentation']->getVersions(),
             'default_version' => $this->app['documentation']->getDefault(),
+            'filelist'        => $this->app['documentation']->getFileStructure(),
         ];
 
         return $this->render($page['template'] ?: 'index.twig', $twigVars);
