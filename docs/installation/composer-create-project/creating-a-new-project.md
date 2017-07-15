@@ -5,20 +5,19 @@ level: advanced
 Creating a new Composer installation
 ====================================
 
-If you are starting a new project from scratch then we've made this very
-simple, and flexible.
+If you are starting a new project from scratch, then we've made this very
+simple, and flexible. Bolt's Composer based installs can be performed using
+either `composer create-project` (recommended), or building your own
+`composer.json` and path configuration file for more advanced control.
 
-Bolt's Composer based installs can be performed using either
-`composer create-project` (recommended), or building your own `composer.json`
-and path configuration file for more advanced control.
-
-Composer `create-project` installs can be run interactively (installer will
-prompt for configuration options), or automatically (installer will use default
-configuration options, or alternatively options taken from environment variables).
+Composer `create-project` installs can be run interactively or fully automatic.
+In the first case, the installer will prompt for configuration options. With
+the automatic mode, the installer will not prompt for choices, but rather use
+default configuration options or options taken from environment variables.
 
 An example of the process is shown here:
 
-<iframe width="640" height="480" src="https://www.youtube.com/embed/AhNfk2C_RJo?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<script type="text/javascript" src="https://asciinema.org/a/129088.js" id="asciicast-129088" async></script>
 
 Create Project
 --------------
@@ -32,7 +31,8 @@ desired project (site), and run the following from a command line:
 composer create-project bolt/composer-install:^%%VERSION%% <MYPROJECT> --prefer-dist
 ```
 
-**NOTE:** Change `<MYPROJECT>` to the name of your project before running the installer.
+**NOTE:** Change `<MYPROJECT>` to the name of your project before running the
+installer.
 
 The install process will ask you some questions about your required install
 strategy, you can install Bolt inside a single directory, or you can install the
@@ -58,8 +58,9 @@ composer create-project bolt/composer-install:^%%VERSION%% <MYPROJECT> --prefer-
 
 ### Customised Options
 
-If you want an automated install with customised configuration options, you can set any, or all,
-of the following variables and the installer will use them:
+If you want an automated install with customised configuration options, you can
+set any, or all, of the following variables and the installer will use them:
+
   * `BOLT_DIR_MODE` — An octal UNIX permission value, e.g. `0775`, `0755`, `0750` (*default*: `0775`)
   * `BOLT_WEB_DIR` — Root web directory name (*default*:  `public`)
   * `BOLT_THEME_DIR` — Theme directory name (*default*: `theme`)
@@ -125,7 +126,7 @@ minimum:
 ### Required Folders
 
 Run the following commands to create the required folders. If you defined a
-different folder structure in `bolt.yml` or `bolt.php`, you have to adjust the
+different folder structure in `.bolt.yml` or `.bolt.php`, you have to adjust the
 commands to fit your own folder structure.
 
 ```
@@ -151,8 +152,15 @@ composer run-script post-install-cmd
 
 ### Permissions
 
-Generally most server should be fine with the default permissions. However, if
-you require guidance on setting up permissions, see our
+Bolt needs to be able to write data to a number of folders. For example the
+`cache/` folder, and the `files/` folder where uploaded images and other files
+will be saved.
+
+Generally, servers should be fine with the default permissions.
+If your server needs to have the permissions set manually, you'll immediately
+notice when opening your new install in a browser window, because you will
+greeted by an error, and the message that you should fix this. If this happens,
+and you require guidance on setting up permissions, see our
 [File System Permissions](../permissions) page.
 
 ### Finishing Set-up

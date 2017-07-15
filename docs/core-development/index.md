@@ -4,6 +4,7 @@ short_title: Core development
 pages:
     - howto
     - ide-tools
+    - install-git-clone
 level: advanced
 ---
 References & documentation for core development
@@ -22,3 +23,9 @@ Class reference<br>
 <small>All of Bolts classes, in one diagram</small>
 </a>
 </div>
+
+If you plan on working on the Bolt core code, we recommend forking and cloning
+the `bolt/bolt` repository from Github. See [Install via "git clone"][clone]
+for details.
+
+[clone]: core-development/install-git-clone
