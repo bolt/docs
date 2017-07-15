@@ -1,7 +1,7 @@
 ---
-title: Composer installation
+title: Composer 'create project'
 short_title: Composer
-redirect: installation/composer/install-composer
+redirect: installation/composer-create-project/install-composer
 pages:
     - install-composer
     - creating-a-new-project

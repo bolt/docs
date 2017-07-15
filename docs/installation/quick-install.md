@@ -1,11 +1,17 @@
 ---
-title: Using the command-line
+title: Quick install
 ---
-Quick-install, using the command-line
-=====================================
+Quick install: Composer-based distribution
+==========================================
 
 If you have command-line access, you can easily install Bolt by executing a few
-commands. First, create the directory where you want to install Bolt, if it
+commands. The "Quick install" is a Composer-based distribution package that
+allows you to rapidly set up a Bolt installation, making use of the command
+line and the official distribution files. After initial setup it can be updated
+using this same method, or by simply running `composer update` in the project
+folder.
+
+First, create the directory where you want to install Bolt, if it
 doesn't already exist.
 
 Enter the directory where you want to place the files, and execute the
@@ -14,8 +20,12 @@ following commands:
 ```bash
 curl -O https://bolt.cm/distribution/bolt-latest.tar.gz
 tar -xzf bolt-latest.tar.gz --strip-components=1
-php app/nut setup:sync
+php app/nut init
 ```
+
+View this short screencast, to see it in action:
+
+<script type="text/javascript" src="https://asciinema.org/a/129086.js" id="asciicast-129086" async></script>
 
 If this set of commands didn't work because your server doesn't have `curl`,
 use `wget` instead.
@@ -54,13 +64,20 @@ that you can rename it to `www/` or whatever your web server requires.
 
 To do this, configure your webserver to use the `public/` folder as the
 web root. For more information about this, see the pages on configuring
-[Apache][apache] or [Nginx][nginx].
+[Apache][apache] or [Nginx][nginx], or simply use the bundled configuration for PHP's built-in server:
+
+```
+php app/nut server:start
+```
 
 If you bump into trouble setting this up, or you have no access to change your
 web server's configuration, read the page
 [Troubleshooting 'outside of the webroot'][webroot]. If this is not possible on
 your server environment, you can use the so-called "[Flat distribution][flat]",
 as an alternative.
+
+If you wish to manually alter the directory structure, so it fits your needs
+better, see the section on [configuring Bolt's structure using `.bolt.yml`][bolt-yml].
 
 ### Permissions
 
@@ -87,3 +104,4 @@ to the section [Setting up Bolt](../configuration/introduction).
 [webroot]: ../howto/troubleshooting-outside-webroot
 [outside-why]: ../howto/troubleshooting-outside-webroot#what-s-the-point-of-doing-this
 [flat]: ../howto/troubleshooting-outside-webroot#option-2-use-the-flat-structure-distribution
+[bolt-yml]: ../extensions/custom-bootstrapping#the-basics-of-configuring-a-bolt-application
