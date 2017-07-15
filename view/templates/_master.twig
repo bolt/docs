@@ -19,12 +19,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     <link rel="stylesheet" href="{{ asset('styles/docs.css') }}" type="text/css" media="all" />
 
-{% if (version != default_version) and (default_version ~ '/' ~ page.path) in filelist %}
-    {% set canonical = path('page', {'version': default_version, 'page': page.path|replace({'.md': ''}) }) %}
-{% else %}
-    {% set canonical = path('page', {'version': version, 'page': page.path|replace({'.md': ''}) }) %}
-{% endif -%}
-    <link rel="canonical" href="{{ canonical }}" />
+{% block canonical %}
+{% endblock canonical %}
 
 {% block extrahead %}
 {% endblock extrahead %}
