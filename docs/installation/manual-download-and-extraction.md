@@ -1,13 +1,24 @@
 ---
-title: The traditional way, using (S)FTP
+title: Manual download and extraction
 ---
-The traditional way, using (S)FTP
-=================================
+Manual download and extraction
+==============================
 
-Download the [latest version of Bolt](https://bolt.cm/distribution/bolt-latest.zip).
+Download the latest version of Bolt as the regular or flattened distribution:
 
-Extract the `.zip` file, and upload to your webhost using the (S)FTP client of
-your choice.
+ - Recommended: [https://bolt.cm/distribution/bolt-latest.zip][latest]
+ - Flat structure: [https://bolt.cm/distribution/bolt-latest-flat-structure.zip][latest-flat]
+
+Extract the `.zip` file, and you can start developing locally, or upload the
+files to your webhost using the (S)FTP client of your choice.
+
+Tip: While it _is_ possible to upload the files to your webhost immediately,
+and configure Bolt as-you-go, it is **strongly** recommended to develop your site
+locally first. It's much quicker, you'll have a better overview of all that's
+happening, and you can work on the project before it's accessible to the
+public. You can use either the [built-in server][built-in-server], or set up a
+development server using a free tool like [Xampp][xampp].
+
 
 <p class="note"><strong>Note:</strong> Don't forget to upload the
 <code>.htaccess</code> file, if you're using Apache! Bolt won't work without it.
@@ -20,7 +31,7 @@ file. Upload it to your server, and then rename it to <code>.htaccess</code>.
 If you're on OSX and you don't see the file, it might be that your system is
 set up to 'hide' hidden files, that start with a `.`-character.
 
-You can usually still find it, when browsing local files using your FTP
+You can usually still find it, when browsing local files using your (S)FTP
 client.
 
 Note: We recommend installing Bolt outside the web root, following commonly
@@ -28,12 +39,17 @@ accepted best practices setup for web applications. You can read more on this
 [here][outside-why]. If this is not possible on your server environment, you
 can use the so-called "[Flat distribution][flat]", as an alternative.
 
+If you wish to manually alter the directory structure, so it fits your needs
+better, see the section on [configuring Bolt's structure using `.bolt.yml`][bolt-yml].
+
+
 Next Steps
 ----------
 
 ### Web server configuration
 
-After extracting the Tar or Zip file, you'll end up with a structure, similar to this:
+After extracting the Tar or Zip file, you'll end up with a structure, similar
+to this:
 
 ```bash
 .
@@ -82,3 +98,8 @@ After you've done this, skip to the section [Setting up Bolt](../configuration/i
 [webroot]: ../howto/troubleshooting-outside-webroot
 [outside-why]: ../howto/troubleshooting-outside-webroot#what-s-the-point-of-doing-this
 [flat]: ../howto/troubleshooting-outside-webroot#option-2-use-the-flat-structure-distribution
+[latest]: https://bolt.cm/distribution/bolt-latest.zip
+[latest-flat]: https://bolt.cm/distribution/bolt-latest-flat-structure.zip
+[built-in-server]: ../howto/using-php-built-in-web-server
+[xampp]: https://www.apachefriends.org/index.html
+[bolt-yml]: ../extensions/custom-bootstrapping#the-basics-of-configuring-a-bolt-application
