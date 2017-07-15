@@ -154,6 +154,7 @@ class Controllers implements ControllerProviderInterface
             'version'         => $version,
             'versions'        => $this->app['documentation']->getVersions(),
             'default_version' => $this->app['documentation']->getDefault(),
+            'filelist'        => $this->app['documentation']->getFileStructure(),
         ];
 
         return $this->render($page['template'] ?: 'index.twig', $twigVars);

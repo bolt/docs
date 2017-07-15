@@ -12,9 +12,14 @@
         {% include '_versionselect.twig' %}
 
         {% if version != default_version %}
+            {% if (default_version ~ '/' ~ page.path) in filelist %}
+                {% set path = path('page', {'version': default_version, 'page': page.path|replace({'.md': ''}) }) %}
+            {% else %}
+                {% set path = path('page', {'version': default_version }) %}
+            {% endif %}
             <p class="note" style="margin-top: 1em;">
                 <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt
-                {{ version }}</strong>. Looking for the <a href="{{ path('page') }}">documentation
+                {{ version }}</strong>. Looking for the <a href="{{ path }}">documentation
                 for Bolt {{ default_version }}</a> instead?
             </p>
         {% endif %}

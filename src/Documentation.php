@@ -18,7 +18,8 @@ class Documentation
     private $default;
     /** @var Version[] */
     private $versions = [];
-
+    /** @var array */
+    private $filestructure = [];
     /**
      * Constructor.
      *
@@ -44,6 +45,12 @@ class Documentation
         foreach ($dirs as $dir) {
             /** @var SplFileInfo $dir */
             $this->addVersion($dir->getBasename(), $dir->getRealPath());
+        }
+
+        $files = (new Finder())->files()->in($this->versionDir)->sortByName();
+
+        foreach ($files as $file) {
+            $this->filestructure[] = str_replace('/docs/', '/', $file->getRelativePathname());
         }
     }
 
@@ -85,4 +92,13 @@ class Documentation
     {
         return $this->versions;
     }
+
+    /**
+     * @return array
+     */
+    public function getFileStructure()
+    {
+        return $this->filestructure;
+    }
+
 }
