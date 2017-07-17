@@ -18,12 +18,12 @@ A web asset can be:
     a page
 
 All asset files should be in your extension's `web/` directory, or a
-subdirectory of `web/`.
+sub directory of `web/`.
 
 <p class="note"><strong>Note:</strong> Local extensions (often used for testing)
 will not have their assets auto-copied to the web folder, see the <a href="../../howto/installing-local-extensions#step-4">how-to on the subject</a>
  for more info.</p>
- 
+
 <p class="note"><strong>Note:</strong> `setPriority` is subject to change in the next major release of Bolt.</p>
 
 Registering Assets
@@ -71,7 +71,7 @@ class KoalaCatcherExtension extends SimpleExtension
 Cascading Style Sheet (CSS) Files
 ---------------------------------
 
-Sytlesheet asset objects for registration can be created using a
+Style sheet asset objects for registration can be created using a
 `Bolt\Asset\File\Stylesheet` class.
 
 There are two ways to create these objects.
@@ -88,14 +88,14 @@ protected function registerAssets()
 }
 ```
 
-Sytlesheet classes have fluent setters for properties. So alternatively you can
+Style sheet classes have fluent setters for properties. So alternatively you can
 create a blank object, and set the required properties. e.g.
 
 ```php
 protected function registerAssets()
 {
-    $asset = new Stylesheet();
-    $asset->setFileName('koala.css')
+    $asset = Stylesheet::create()
+        ->setFileName('koala.css')
         ->setLate(true)
         ->setPriority(5)
         ->setZone(Zone::BACKEND)
@@ -109,11 +109,12 @@ protected function registerAssets()
 
 In the above example:
 
+  * `create()` is a static factory method that returns a `Stylesheet` object
   * `setFileName()` sets the file name
   * `setLate(true)` tells the asset injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
     at the end of the HTML `<body>`
   * `setPriority(5)` tells the injector when to insert the stylesheet. Lower
-     priorities are inserted first.
+     priorities are inserted first
   * `setZone(Zone::BACKEND)` tells the injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
     on back-end pages, instead of the default of front-end
 
@@ -151,8 +152,8 @@ create a blank object, and set the required properties. e.g.
 ```php
 protected function registerAssets()
 {
-    $asset = new JavaScript();
-    $asset->setFileName('dropbear.js')
+    $asset = JavaScript::create()
+        >setFileName('dropbear.js')
         ->setLate(true)
         ->setPriority(5)
         ->setAttributes(['defer', 'async'])
@@ -167,11 +168,12 @@ protected function registerAssets()
 
 In the above example:
 
+  * `create()` is a static factory method that returns a `JavaScript` object
   * `setFileName()` sets the file name
   * `setLate(true)` tells the asset injector to insert the `<script src="path/web/dropbear.js"></script>`
      at the end of the HTML `<body>`
   * `setPriority(5)` tells the injector when to insert the script. Lower
-     priorities are inserted first.
+     priorities are inserted first
   * `setAttributes(['defer', 'async'])` adds `defer` and `async` to the
     `<script>` tag
   * `setZone(Zone::BACKEND)` tells the injector to insert the `<script src="path/web/dropbear.js"></script>`
@@ -201,8 +203,8 @@ Snippet classes have fluent setters for properties. e.g.
 ```php
 protected function registerAssets()
 {
-    $asset = new Snippet();
-    $asset->setCallback([$this, 'callbackSnippet'])
+    $asset = Snippet::create()
+        ->setCallback([$this, 'callbackSnippet'])
         ->setLocation(Target::AFTER_META)
         ->setPriority(5)
     ;
@@ -220,12 +222,13 @@ public function callbackSnippet()
 
 In the above example:
 
+  * `create()` is a static factory method that returns a `JavaScript` object
   * `setCallback([$this, 'callbackSnippet'])` calls the extension's
     `callbackSnippet()` function during render to get the content of the snippet
   * `setLocation(Target::AFTER_META)` tells the asset injector to insert the
     snippet after other `<meta>`
   * `setPriority(5)` tells the injector when to insert the snippet. Lower
-     priorities are inserted first.
+     priorities are inserted first
 
 **NOTE:** To use the `Target` and `Zone` class parameters, you should add the
 following `use` statements to your extension class file:
@@ -260,8 +263,8 @@ Widget classes have fluent setters for properties. e.g.
 ```php
 protected function registerAssets()
 {
-    $asset = new Widget();
-    $asset->setType(Zone::FRONTEND)
+    $asset = Widget::create()
+        ->setType(Zone::FRONTEND)
         ->setLocation(Target::WIDGET_FRONT_FOOTER)
         ->setCallback([$this, 'callbackWidget'])
         ->setCallbackArguments(['arg1' => 'Kenny', 'arg2' => 'Koala'])
@@ -282,6 +285,8 @@ public function callbackWidget($arg1, $arg2)
 ```
 
 In the above example:
+
+  * `create()` is a static factory method that returns a `Widget` object
   * `setType(Zone::FRONTEND)` tells the asset injector to only act on the
      frontend
   * `setLocation(Target::AFTER_META)` tells the asset injector to insert
@@ -292,7 +297,7 @@ In the above example:
   * `setDefer(true)` defers rendering of the widget to a separate request,
      so it doesn't block the initial rendering of the page
   * `setPriority(5)` tells the injector when to insert the widget. Lower
-     priorities are inserted first.
+     priorities are inserted first
 
 **NOTE:** To use the `Target` and `Zone` class parameters, you should add the
 following `use` statements to your extension class file:
