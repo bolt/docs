@@ -18,12 +18,12 @@ A web asset can be:
     a page
 
 All asset files should be in your extension's `web/` directory, or a
-subdirectory of `web/`.
+sub directory of `web/`.
 
 <p class="note"><strong>Note:</strong> Local extensions (often used for testing)
 will not have their assets auto-copied to the web folder, see the <a href="../../howto/installing-local-extensions#step-4">how-to on the subject</a>
  for more info.</p>
- 
+
 <p class="note"><strong>Note:</strong> `setPriority` is subject to change in the next major release of Bolt.</p>
 
 Registering Assets
@@ -71,7 +71,7 @@ class KoalaCatcherExtension extends SimpleExtension
 Cascading Style Sheet (CSS) Files
 ---------------------------------
 
-Sytlesheet asset objects for registration can be created using a
+Style sheet asset objects for registration can be created using a
 `Bolt\Asset\File\Stylesheet` class.
 
 There are two ways to create these objects.
@@ -88,7 +88,7 @@ protected function registerAssets()
 }
 ```
 
-Sytlesheet classes have fluent setters for properties. So alternatively you can
+Style sheet classes have fluent setters for properties. So alternatively you can
 create a blank object, and set the required properties. e.g.
 
 ```php
@@ -113,7 +113,7 @@ In the above example:
   * `setLate(true)` tells the asset injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
     at the end of the HTML `<body>`
   * `setPriority(5)` tells the injector when to insert the stylesheet. Lower
-     priorities are inserted first.
+     priorities are inserted first
   * `setZone(Zone::BACKEND)` tells the injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
     on back-end pages, instead of the default of front-end
 
@@ -171,7 +171,7 @@ In the above example:
   * `setLate(true)` tells the asset injector to insert the `<script src="path/web/dropbear.js"></script>`
      at the end of the HTML `<body>`
   * `setPriority(5)` tells the injector when to insert the script. Lower
-     priorities are inserted first.
+     priorities are inserted first
   * `setAttributes(['defer', 'async'])` adds `defer` and `async` to the
     `<script>` tag
   * `setZone(Zone::BACKEND)` tells the injector to insert the `<script src="path/web/dropbear.js"></script>`
@@ -225,7 +225,7 @@ In the above example:
   * `setLocation(Target::AFTER_META)` tells the asset injector to insert the
     snippet after other `<meta>`
   * `setPriority(5)` tells the injector when to insert the snippet. Lower
-     priorities are inserted first.
+     priorities are inserted first
 
 **NOTE:** To use the `Target` and `Zone` class parameters, you should add the
 following `use` statements to your extension class file:
@@ -292,7 +292,7 @@ In the above example:
   * `setDefer(true)` defers rendering of the widget to a separate request,
      so it doesn't block the initial rendering of the page
   * `setPriority(5)` tells the injector when to insert the widget. Lower
-     priorities are inserted first.
+     priorities are inserted first
 
 **NOTE:** To use the `Target` and `Zone` class parameters, you should add the
 following `use` statements to your extension class file:
