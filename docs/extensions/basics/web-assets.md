@@ -94,8 +94,8 @@ create a blank object, and set the required properties. e.g.
 ```php
 protected function registerAssets()
 {
-    $asset = new Stylesheet();
-    $asset->setFileName('koala.css')
+    $asset = Stylesheet::create()
+        ->setFileName('koala.css')
         ->setLate(true)
         ->setPriority(5)
         ->setZone(Zone::BACKEND)
@@ -109,6 +109,7 @@ protected function registerAssets()
 
 In the above example:
 
+  * `create()` is a static factory method that returns a `Stylesheet` object
   * `setFileName()` sets the file name
   * `setLate(true)` tells the asset injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
     at the end of the HTML `<body>`
@@ -151,8 +152,8 @@ create a blank object, and set the required properties. e.g.
 ```php
 protected function registerAssets()
 {
-    $asset = new JavaScript();
-    $asset->setFileName('dropbear.js')
+    $asset = JavaScript::create()
+        >setFileName('dropbear.js')
         ->setLate(true)
         ->setPriority(5)
         ->setAttributes(['defer', 'async'])
@@ -167,6 +168,7 @@ protected function registerAssets()
 
 In the above example:
 
+  * `create()` is a static factory method that returns a `JavaScript` object
   * `setFileName()` sets the file name
   * `setLate(true)` tells the asset injector to insert the `<script src="path/web/dropbear.js"></script>`
      at the end of the HTML `<body>`
@@ -201,8 +203,8 @@ Snippet classes have fluent setters for properties. e.g.
 ```php
 protected function registerAssets()
 {
-    $asset = new Snippet();
-    $asset->setCallback([$this, 'callbackSnippet'])
+    $asset = Snippet::create()
+        ->setCallback([$this, 'callbackSnippet'])
         ->setLocation(Target::AFTER_META)
         ->setPriority(5)
     ;
@@ -220,6 +222,7 @@ public function callbackSnippet()
 
 In the above example:
 
+  * `create()` is a static factory method that returns a `JavaScript` object
   * `setCallback([$this, 'callbackSnippet'])` calls the extension's
     `callbackSnippet()` function during render to get the content of the snippet
   * `setLocation(Target::AFTER_META)` tells the asset injector to insert the
@@ -260,8 +263,8 @@ Widget classes have fluent setters for properties. e.g.
 ```php
 protected function registerAssets()
 {
-    $asset = new Widget();
-    $asset->setType(Zone::FRONTEND)
+    $asset = Widget::create()
+        ->setType(Zone::FRONTEND)
         ->setLocation(Target::WIDGET_FRONT_FOOTER)
         ->setCallback([$this, 'callbackWidget'])
         ->setCallbackArguments(['arg1' => 'Kenny', 'arg2' => 'Koala'])
@@ -282,6 +285,8 @@ public function callbackWidget($arg1, $arg2)
 ```
 
 In the above example:
+
+  * `create()` is a static factory method that returns a `Widget` object
   * `setType(Zone::FRONTEND)` tells the asset injector to only act on the
      frontend
   * `setLocation(Target::AFTER_META)` tells the asset injector to insert
