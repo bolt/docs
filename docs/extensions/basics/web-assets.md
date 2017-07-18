@@ -113,7 +113,7 @@ In the above example:
   * `setFileName()` sets the file name
   * `setLate(true)` tells the asset injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
     at the end of the HTML `<body>`
-  * `setPriority(5)` tells the injector when to insert the stylesheet. Lower
+  * `setPriority(5)` tells the injector when to insert the stylesheet. Higher
      priorities are inserted first
   * `setZone(Zone::BACKEND)` tells the injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
     on back-end pages, instead of the default of front-end
@@ -172,7 +172,7 @@ In the above example:
   * `setFileName()` sets the file name
   * `setLate(true)` tells the asset injector to insert the `<script src="path/web/dropbear.js"></script>`
      at the end of the HTML `<body>`
-  * `setPriority(5)` tells the injector when to insert the script. Lower
+  * `setPriority(5)` tells the injector when to insert the script. Higher
      priorities are inserted first
   * `setAttributes(['defer', 'async'])` adds `defer` and `async` to the
     `<script>` tag
@@ -227,7 +227,7 @@ In the above example:
     `callbackSnippet()` function during render to get the content of the snippet
   * `setLocation(Target::AFTER_META)` tells the asset injector to insert the
     snippet after other `<meta>`
-  * `setPriority(5)` tells the injector when to insert the snippet. Lower
+  * `setPriority(5)` tells the injector when to insert the snippet. Higher
      priorities are inserted first
 
 **NOTE:** To use the `Target` and `Zone` class parameters, you should add the
@@ -296,7 +296,7 @@ In the above example:
   * `setCallbackArguments(['arg1' => 'Kenny', 'arg2' => 'Koala'])`
   * `setDefer(true)` defers rendering of the widget to a separate request,
      so it doesn't block the initial rendering of the page
-  * `setPriority(5)` tells the injector when to insert the widget. Lower
+  * `setPriority(5)` tells the injector when to insert the widget. Higher
      priorities are inserted first
 
 **NOTE:** To use the `Target` and `Zone` class parameters, you should add the
