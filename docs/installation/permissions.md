@@ -4,7 +4,8 @@ title: File system permissions
 Bolt File System Permissions
 ============================
 
-If you are running a *flat structure* install please refer to [Bolt File System Permissions (flat structure)](permissions-flat-strucure.md)
+If you are running a *flat structure* install please refer to
+[Bolt File System Permissions (flat structure)][flat].
 
 On most servers the web server runs in a different group than your user
 account, so to give Bolt write access to these files you have to use the
@@ -19,6 +20,7 @@ Most FTP clients will allow you to do this quickly, using a 'include files' or
 'apply to enclosed' option.
 
 <a href="/files/ftp-chmod.png" class="popup"><img src="/files/ftp-chmod.png" width="590"></a><br>
+
 
 Setting Permissions (Quick & Easy)
 ----------------------------------
@@ -38,6 +40,7 @@ this, run:
 ```bash
 chmod a+r .
 ```
+
 
 Setting Permissions (Secure)
 ----------------------------
@@ -84,3 +87,5 @@ this, run:
 ```bash
 chmod a+r .
 ```
+
+[flat]: permissions-flat-structure
