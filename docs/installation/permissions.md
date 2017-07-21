@@ -4,7 +4,8 @@ title: File system permissions
 Bolt File System Permissions
 ============================
 
-If you are running a *flat structure* install please refer to [Bolt File System Permissions (flat structure)](permissions-flat-strucure.md)
+If you are running a *flat structure* install please refer to
+[Bolt File System Permissions (flat structure)][flat].
 
 On most servers the web server runs in a different group than your user
 account, so to give Bolt write access to these files you have to use the
@@ -20,6 +21,7 @@ Most FTP clients will allow you to do this quickly, using a 'include files' or
 
 <a href="/files/ftp-chmod.png" class="popup"><img src="/files/ftp-chmod.png" width="590"></a><br>
 
+
 Setting Permissions (Quick & Easy)
 ----------------------------------
 
@@ -31,13 +33,14 @@ chmod -R 777 app/cache/ app/config/ app/database/ extensions/
 chmod -R 777 public/thumbs/ public/extensions/ public/files/ public/theme/
 ```
 
-Make sure that the root folder is also readable by the webserver. On some
+Make sure that the root folder is also readable by the web server. On some
 setups (mainly shared hosting solutions) this is not always the case. To remedy
 this, run:
 
 ```bash
 chmod a+r .
 ```
+
 
 Setting Permissions (Secure)
 ----------------------------
@@ -77,10 +80,12 @@ for dir in app/config/ extensions/ public/extensions/ public/files/ public/theme
 done
 ```
 
-Make sure that the root folder is also readable by the webserver. On some
+Make sure that the root folder is also readable by the web server. On some
 setups (mainly shared hosting solutions) this is not always the case. To remedy
 this, run:
 
 ```bash
 chmod a+r .
 ```
+
+[flat]: permissions-flat-structure
