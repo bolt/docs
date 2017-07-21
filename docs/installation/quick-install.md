@@ -68,9 +68,10 @@ files. Most of them are placed outside of the so-called web root. Only the
 installation this folder is named  `public/` but as you read on, you will see
 that you can rename it to `www/` or whatever your web server requires.
 
-To do this, configure your webserver to use the `public/` folder as the
+To do this, configure your web server to use the `public/` folder as the
 web root. For more information about this, see the pages on configuring
-[Apache][apache] or [Nginx][nginx], or simply use the bundled configuration for PHP's built-in server:
+[Apache][apache] or [Nginx][nginx], or simply use the bundled configuration
+for PHP's built-in server:
 
 ```
 php app/nut server:start
@@ -102,7 +103,7 @@ and you require guidance on setting up permissions, see our
 ### Finishing Set-up
 
 After extracting the files, checking the folder structure and setting up the
-vhost on your webserver, your Bolt installation should be good to go. Skip
+vhost on your web server, your Bolt installation should be good to go. Skip
 to the section [Setting up Bolt](../configuration/introduction).
 
 [apache]: ../installation/webserver/apache

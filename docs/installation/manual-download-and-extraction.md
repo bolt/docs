@@ -66,7 +66,7 @@ These are the folders that contain all of the Bolt code, resources and other
 files. Most of them are placed outside of the so-called web root. Only the
 folder `public/` needs to be accessible in the browser.
 
-To do this, configure your webserver to use the `public/` folder as the
+To do this, configure your web server to use the `public/` folder as the
 web root. For more information about this, see the pages on configuring
 [Apache][apache] or [Nginx][nginx].
 

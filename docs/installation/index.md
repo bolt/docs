@@ -7,5 +7,6 @@ pages:
     - composer-create-project
     - manual-download-and-extraction
     - permissions
+    - permissions-flat-structure
     - webserver
 ---
