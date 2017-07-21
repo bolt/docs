@@ -5,7 +5,7 @@ Requirements
 ===============
 
 The system requirements for Bolt are modest, and it should run on any fairly
-modern webserver:
+modern web server:
 
   - PHP 5.5.9 or higher
   - Access to SQLite (which comes bundled with PHP), _or_ MySQL _or_
@@ -34,7 +34,7 @@ are default settings, and Bolt should work out-of-the-box.
     - exif
     - zip
 
-Note: The following PHP modules are known to conflict with Bolt and it's 
+Note: The following PHP modules are known to conflict with Bolt and it's
 underlying Symfony components, and must be disabled:
 
   - Zend Guard Loader
@@ -44,7 +44,7 @@ underlying Symfony components, and must be disabled:
 host name, or fully qualified domain name (FQDN), otherwise authentication will
 not work. Using `localhost` as the host name should also work.
 </br></br>
-For developing sites, it is often useful to add a custom host name for the 
+For developing sites, it is often useful to add a custom host name for the
 development server to your local computer's hosts file.</p>
 
 

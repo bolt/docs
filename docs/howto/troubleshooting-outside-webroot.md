@@ -1,3 +1,6 @@
+---
+title: Troubleshooting 'Outside of the web root'
+---
 Troubleshooting 'Outside of the web root'
 ========================================
 

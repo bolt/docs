@@ -3,11 +3,11 @@ Making sure .htaccess and mod_rewrite are working as they should
 
 Bolt makes extensive use of a common feature called 'url rewriting'. This
 basically means that you can request a pretty url like `/page/about-this-website`
-in your browser, and behind the scenes your webserver will just 'translate' this
+in your browser, and behind the scenes your web server will just 'translate' this
 to run the `index.php` with the correct parameters, so that Bolt can produce the
 correct page for you.
 
-This doesn't work out-of-the-box on all webservers, but it _is_ a hard
+This doesn't work out-of-the-box on all web servers, but it _is_ a hard
 requirement for using Bolt. If you're reading this page, you are likely in the
 process of setting up Bolt and after requesting the first page, you got redirected
 to the page `/bolt/userfirst`, where you saw the following error message:
@@ -190,6 +190,6 @@ hard to configure, you should consider using [XAMPP](https://www.apachefriends.o
 
 If you're fed up with Apache's shenanigans, you might consider ditching it in
 favor of [Nginx](http://nginx.org/en/download.html). Nginx is a high-performance
-webserver, that's actually easier to configure than Apache.
+web server, that's actually easier to configure than Apache.
 
 [tester]: https://raw.githubusercontent.com/bolt/htaccess_tester/master/htaccess_tester.php
