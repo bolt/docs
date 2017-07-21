@@ -86,6 +86,11 @@ Alternatively, to get the help text for the `cache:clear` Nut command:
 $ php ./app/nut cache:clear --help
 ```
 
+<p class="note"><strong>Note:</strong> If for any reason Nut generates an
+exception when running, you can re-run the command with the <code>-vvv</code>
+option to generate a backtrace to assist in finding the root cause of the
+problem.</p>
+
 
 ### Available commands
 
