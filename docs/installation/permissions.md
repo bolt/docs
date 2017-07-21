@@ -29,7 +29,7 @@ chmod -R 777 app/cache/ app/config/ app/database/ extensions/
 chmod -R 777 public/thumbs/ public/extensions/ public/files/ public/theme/
 ```
 
-Make sure that the root folder is also readable by the webserver. On some
+Make sure that the root folder is also readable by the web server. On some
 setups (mainly shared hosting solutions) this is not always the case. To remedy
 this, run:
 
@@ -75,7 +75,7 @@ for dir in app/config/ extensions/ public/extensions/ public/files/ public/theme
 done
 ```
 
-Make sure that the root folder is also readable by the webserver. On some
+Make sure that the root folder is also readable by the web server. On some
 setups (mainly shared hosting solutions) this is not always the case. To remedy
 this, run:
 
