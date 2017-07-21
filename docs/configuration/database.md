@@ -11,10 +11,10 @@ Each has its benefits and drawbacks.
     a file in the `app/database` directory. Since it's a regular file, it's
     easy to make backups of your database if you use SQLite. The main benefit
     of SQLite is that it requires no configuration, and as such, it works 'out
-    of the box' on practically any webserver. This is why it's Bolt's default
+    of the box' on practically any web server. This is why it's Bolt's default
     choice.
   - **MySQL** - is perhaps the most well-known database engine, which is
-    supported on the majority of webservers. If your server supports it, we
+    supported on the majority of web servers. If your server supports it, we
     advise you to use MySQL instead of SQLite. Mainly because it's very well-
     known, and there are good third-party tools for maintenance, backup and
     migration.

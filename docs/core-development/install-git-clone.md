@@ -1,7 +1,6 @@
 ---
 title: Clone the Git repository
 level: advanced
-
 ---
 Cloning directly from Git
 =========================
@@ -119,9 +118,11 @@ Next Steps
 
 After extracting the tar file, you'll end up with a structure, containing the
 bolt files. These are the folders that contain all of the Bolt code, resources
-and other files. Unlike the other methods of installation, all of them are placed in the top level of the so-called web root. The created `bolt/` folder where you've made the git checkout needs to be accessible in the browser.
+and other files. Unlike the other methods of installation, all of them are
+placed in the top level of the so-called web root. The created `bolt/` folder
+where you've made the git checkout needs to be accessible in the browser.
 
-To do this, configure your webserver to use the `bolt/` folder as the
+To do this, configure your web server to use the `bolt/` folder as the
 web root. For more information about this, see the pages on configuring
 [Apache][apache] or [Nginx][nginx].
 
@@ -139,7 +140,7 @@ Permissions](permissions) page.
 
 ### Finishing Set-up
 
-After you've done this, skip to the section [Setting up Bolt](../configuration/introduction).
+After you've done this, skip to the section [Setting up Bolt][config].
 
 [apache]: ../installation/webserver/apache
 [nginx]: ../installation/webserver/nginx
@@ -147,3 +148,4 @@ After you've done this, skip to the section [Setting up Bolt](../configuration/i
 [composer]: https://getcomposer.org/download/
 [core-dev]: ../core-development
 [webroot]: ../howto/troubleshooting-outside-webroot
+[config]: ../configuration/introduction
