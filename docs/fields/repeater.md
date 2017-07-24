@@ -27,8 +27,14 @@ the definition of the sub fields.
 
 As you can see the field is configured with a type of `repeater` and then the sub-fields
 are configured under the `fields` attribute. In general you can include any valid fields
-within a repeater, there are a few that are not supported `slug`, `templatefield` and
-`repeater` itself.
+within a repeater, there are a few that are not supported.
+
+<p class="note"><strong>Note:</strong> Repeaters are useable with most of the
+available field types, except for a few where it would get too complex, or where
+it simply does not make sense to have more than one of. In short, do
+<strong>not</strong> use <code>type: slug</code>, <code>type: repeater</code> or
+<code>type: templateselect</code> as fields in your repeater. These fields will
+not work as expected. </p>
 
 ## Example usage in templates:
 
