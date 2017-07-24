@@ -19,7 +19,7 @@ The information here is provided as a useful **starting point only**.
 Installing Automatically Converted CA Certificates from mozilla.org
 -------------------------------------------------------------------
 
-1. Download [`cacert.pem`](http://curl.haxx.se/ca/cacert.pem)
+1. Download [`cacert.pem`](https://curl.haxx.se/ca/cacert.pem)
 2. Move the `cacert.pem` file to the affected computer, e.g.
   * /etc/pki/tls/cacert.pem
   * C:\php\extras\ssl\cacert.pem
