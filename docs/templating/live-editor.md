@@ -14,7 +14,7 @@ will look something like this:
 
 <p class="note"><strong>Note:</strong> This feature is marked "Experimental":
 This means that it will basically work, but complex use-cases are not supported.
-Live Editing does not work with Templatefields or Repeaters, for example.</p>
+Live Editing does not work with TemplateFields or Repeaters, for example.</p>
 
 In any record that has a corresponding page (which means `viewless: false` - the
 default for the ContentType), you can make any *HTML*, *text* or *textarea*

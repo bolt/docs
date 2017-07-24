@@ -5,7 +5,7 @@ title: Template Specific Fields
 Template Specific Fields
 ------------------------
 
-The Template Specific Fields (or "Templatefields" for short) are a feature that
+The Template Specific Fields (or "TemplateFields" for short) are a feature that
 helps solve a common challenge you might encounter when developing a site: It's
 very difficult to create a *one size fits all* solution for all pages. Many may
 look quite different to one another. This is why you'd create different
@@ -19,7 +19,7 @@ which really won't suffice. You could create a new ContentType, or use
 [Resource Contenttypes](../howto/resource-contenttype), but this isn't really an
 elegant solution.
 
-To get started with templatefields, you need to add a template select field to
+To get started with TemplateFields, you need to add a template select field to
 your ContentType definition:
 
 ```yml
@@ -53,13 +53,16 @@ refresh for these changes to take effect. If this is already the template for a
 record, this will happen automatically.
 
 <a href="/files/templatefields-notification.png" class="popup">
-<img src="/files/templatefields-notification.png" alt="Templatefields Notification" width="500" />
+<img src="/files/templatefields-notification.png" alt="TemplateFields Notification" width="500" />
 </a>
 
-<p class="note"><strong>Note:</strong> Templatefields are useable with a select number of field types. Do <strong>not</strong> use <code>type: date</code>, <code>type: datetime</code>, <code>type: repeater</code> or <code>type: templateselect</code> as Template specific fields. These fields will not work as expected.
+<p class="note"><strong>Note:</strong> TemplateFields are usable with a select
+number of field types. Do <strong>not</strong> use <code>type: date</code>,
+<code>type: datetime</code>, <code>type: repeater</code> or <code>type: templateselect</code>
+as template specific fields. These fields will not work as expected.
 </p>
 
-To change the name shown for each template in the templateselect field you can
+To change the name shown for each template in the `templateselect` field you can
 define the names and their associated ContentTypes in the theme's `theme.yml`.
 
 ```yml
@@ -77,7 +80,7 @@ templateselect:
 
 Then you will be able to go to the `Template` section of the record editing and change
 the content to your heart's desire. Once saved, accessing this data is very simple.
-Just go through the `templatefields`property of the record.
+Just go through the `templatefields` property of the record.
 
 ```twig
 {{ record.templatefields.section_1 }}
@@ -90,6 +93,6 @@ stored, you <em>will</em> lose that data if the templatefields of the new templa
 from those of the current one. Bolt will do its best to warn you when this will happen.
 <br />
 <a href="/files/templatefields-warning.png" class="popup">
-<img src="/files/templatefields-warning.png" alt="Templatefields Warning" width="500" />
+<img src="/files/templatefields-warning.png" alt="TemplateFields Warning" width="500" />
 </a></p>
 
