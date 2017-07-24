@@ -19,6 +19,7 @@ An example of the process is shown here:
 
 <script type="text/javascript" src="https://asciinema.org/a/129088.js" id="asciicast-129088" async></script>
 
+
 Create Project
 --------------
 
@@ -39,11 +40,13 @@ strategy, you can install Bolt inside a single directory, or you can install the
 public assets inside a public directory and keep the application code outside
 the web root.
 
+
 ### Automated Install
 
 To start an automated install, navigate to the parent directory of your desired
 project (site), and run either of the following commands depending on what
 options you desire.
+
 
 ### Default Options
 
@@ -55,6 +58,7 @@ composer create-project bolt/composer-install:^%%VERSION%% <MYPROJECT> --prefer-
 ```
 
 **NOTE:** Change `<MYPROJECT>` to the name of your project before running the installer.
+
 
 ### Customised Options
 
@@ -80,6 +84,7 @@ env BOLT_DIR_MODE=0755 BOLT_WEB_DIR=my_public_dir BOLT_THEME_DIR=my_theme_dir \
 
 **NOTE:** Change `<MYPROJECT>` to the name of your project before running the installer.
 
+
 ### Initialise a Project
 
 For complete flexibility over the installation of your Bolt site, you can create
@@ -90,10 +95,12 @@ $ mkdir example.com
 $ cd example.com
 ```
 
+
 ### Configuration File
 
 This is a very advanced option, see [Customising Bootstrapping][bootstrapping]
 for more details.
+
 
 ### Composer JSON File
 
@@ -123,6 +130,7 @@ minimum:
 }
 ```
 
+
 ### Required Folders
 
 Run the following commands to create the required folders. If you defined a
@@ -150,6 +158,7 @@ composer run-script post-create-project-cmd
 composer run-script post-install-cmd
 ```
 
+
 ### Permissions
 
 Bolt needs to be able to write data to a number of folders. For example the
@@ -165,6 +174,34 @@ and you require guidance on setting up permissions, see our
 
 ### Finishing Set-up
 
-After you've done this, skip to the section [Setting up Bolt](../../configuration/introduction).
+After you've done this, skip to the section [Setting up Bolt][config].
+
+
+Deploying to Different PHP Versions
+-----------------------------------
+
+If you are developing on versions of PHP such as PHP 7, but deploying to hosts
+running PHP 5, you can run into problems with libraries that use PHP
+functionality not available in earlier releases.
+
+A common example are the Doctrine libraries, as the project doesn't follow
+strict semantic versioning for PHP release versions.
+
+If you need to prepare a Composer based install for a specific PHP version, add
+the following to the site's root `composer.json` file:
+
+```json
+    "config": {
+        "platform": {
+            "php": "5.5"
+        }
+    }
+```
+
+This lets you fake platform packages (i.e. PHP and PHP extensions) allowing you
+to emulate your production environment, or define your target platform in the
+Composer project configuration.
 
 [bootstrapping]: ../../extensions/custom-bootstrapping
+[config]: ../../configuration/introduction
+
