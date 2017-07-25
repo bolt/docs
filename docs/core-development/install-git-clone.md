@@ -50,10 +50,10 @@ The overview of the branch layout is:
 
 | Branch        | Description |
 | ------------- | ----------- |
-| `release/X.Y` | Stable (default) branch, e.g. `release/%%VERSION%%`
-| `release/X.Z` | Beta release branch, usually one minor number higher than stable
-| `3.x`         | v3 feature branch
-| `master`      | Next major version development branch
+| `X.Y`    | Stable (default) branch, e.g. `%%VERSION%%`
+| `X.Z`    | Beta release branch, usually one minor number higher than stable
+| `3.x`    | v3 feature branch
+| `master` | Next major version development branch
 
 
 ### Stable Branch
