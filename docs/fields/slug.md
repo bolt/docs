@@ -45,3 +45,8 @@ The field has one option to change the functionality of the field:
    this set to the textfield that you use as the title, (often called `title`),
    but you can also use it with multiple fields like for example
    `[title, subtitle]`.
+
+<p class="note"> <strong>Note:</strong> Usually this field shows up in the
+editor with a label like <code>Permalink:</code>. If the ContentType is
+"viewless", there is no real permalink to the Record, so it will instead be
+labelled <code>Unique Alias:</code> to reflect this.</p>
