@@ -10,7 +10,7 @@ This HOWTO is aimed at people doing development, or debugging, of Bolt.
 They are not recommended as installation guides **especially for production
 environments**.
 
-**WARNING:** Always make backups! 
+**WARNING:** Always make backups!
 
 
 Assumptions
@@ -38,7 +38,7 @@ git remote rename origin upstream
 ```
 
 You can now get changes for Bolt's main repository by simply pulling the branch
-your are tracking. 
+your are tracking.
 
 
 Following (tracking) a new branch
@@ -48,14 +48,14 @@ Tracking a (pre-)release branch is done by *minor* and *patch* numbers.
 
 ```
 git fetch upstream
-git checkout -b release/X.Y upstream/release/X.Y
+git checkout -b X.Y upstream/X.Y
 ```
 Firstly, this does a "fetch" of Bolt's main repository, meaning it retrieves
-the changes to git's database and updates its internal knowledge of 
-*upstream's* branches, without applying them to your local branches. 
+the changes to git's database and updates its internal knowledge of
+*upstream's* branches, without applying them to your local branches.
 
-The second command will then create the branch `release/X.Y` as-at the current
-git `HEAD` commit on `upstream`'s `release/X.Y`branch.
+The second command will then create the branch `X.Y` as-at the current
+git `HEAD` commit on `upstream`'s `X.Y`branch.
 
 
 What branch am I on?
@@ -71,10 +71,10 @@ prefixed with a `*`.
   feature/world-peace
   hotfix/issue-1555
   master
-  release/2.2
-  release/3.0
-* release/3.1
-  release/3.2
+  2.2
+  3.0
+* 3.1
+  3.2
 ```
 
 
@@ -109,7 +109,7 @@ Change status of current branch
 To determine if your **currently checked out** git branch has uncommitted
 changes, `git status` is your friend.
 
-Always keep this command in regular use. 
+Always keep this command in regular use.
 
 If nothing has change the output will be similar to:
 
@@ -125,8 +125,8 @@ Switching branches
 ------------------
 
 ```
-git checkout release/X.Y
-``` 
+git checkout X.Y
+```
 
 
 Updating a tracked branch
@@ -134,14 +134,14 @@ Updating a tracked branch
 
 ```
 git pull
-``` 
+```
 
 Updating a un-tracked branch from Bolt
 --------------------------------------
 
 ```
-git pull upstream release/X.Y
-``` 
+git pull upstream X.Y
+```
 
 Updating master branch from Bolt's master
 -----------------------------------------
@@ -149,14 +149,14 @@ Updating master branch from Bolt's master
 ```
 git checkout master
 git pull upstream master
-``` 
+```
 
 
 Showing the changes to the current branch
 -----------------------------------------
 
 These assume that you created the current branch from the starting point
-of `release/X.Y` branch.  
+of `X.Y` branch.
 
 Not that changes that have been pulled into the local branch your are comparing
 will also show.
@@ -167,7 +167,7 @@ will also show.
 To see an abbreviated list, or one commit per-line:
 
 ```
-git log --oneline release/X.Y..HEAD
+git log --oneline X.Y..HEAD
 ```
 
 Omitting the `--oneline` provides more verbose change logs.
@@ -176,7 +176,7 @@ Omitting the `--oneline` provides more verbose change logs.
 ### File(s) that change
 
 ```
-git diff --stat release/X.Y..HEAD
+git diff --stat X.Y..HEAD
 ```
 
 Will give some output similar to:
@@ -188,4 +188,4 @@ Will give some output similar to:
 
 ```
 
-Removing the `--stat` will show the summary of differences to lines. 
+Removing the `--stat` will show the summary of differences to lines.
