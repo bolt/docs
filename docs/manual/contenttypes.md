@@ -22,7 +22,7 @@ contain different fields for you to enter content in. By default these are:
   template.
 * **Entries** - A ContentType meant for newsstories and other content that is
   not strictly a page. Has mostly the same fields as Pages, but can also be
-  connected to a page via a relation, a concept we will thouch on later.
+  connected to a page via a relation, a concept we will touch on later.
 * **Showcases** - An example ContentType meant to show all the different fields
   that bolt can use in a ContentType. You probably do not want to use this on a
   real site, but it can be very useful to see the possiblities that Bolt gives
