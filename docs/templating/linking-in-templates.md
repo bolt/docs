@@ -146,7 +146,7 @@ In practice, you will most often use `path` to create links, and only use `url`
 in those cases where you specifically want to create a link with the scheme and
 domain name. For example, use `url` when you need the link to insert in an
 email, or to link to the page from an external source, like social media. In
-other cases you should use stick with `path` for simplicity.
+other cases you should just stick with `path` for simplicity.
 
 You can also pass in extra parameters with these functions, that are used to
 generate the link. For example, to produce a link relative to the base of your
