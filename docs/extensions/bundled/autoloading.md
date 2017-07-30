@@ -29,7 +29,6 @@ You need to make one entry for each of your bundled extensions in your root
 ```json
     "autoload" : {
         "psr-4" : {
-            "bolt/bolt": "^%%VERSION%%",
             "BundleBaseNamespace\\": "src/BundleBaseNamespace",
             "Acme\\OtherBundleBaseNamespace\\": "extensions/acme/frozbot/OtherBundleBaseNamespace"
         }
