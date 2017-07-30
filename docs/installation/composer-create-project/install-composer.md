@@ -6,7 +6,7 @@ Installing Bolt with Composer
 =============================
 
 Since Bolt 3.0 production installs are based around Composer installation
-methodology, by default. Evien f you install from a distribution archive file,
+methodology, by default. Even if you install from a distribution archive file,
 you are basically getting a pre-prepared Composer install.
 
 Getting Composer
