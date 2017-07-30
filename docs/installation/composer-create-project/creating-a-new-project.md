@@ -202,6 +202,10 @@ This lets you fake platform packages (i.e. PHP and PHP extensions) allowing you
 to emulate your production environment, or define your target platform in the
 Composer project configuration.
 
+After making these changes, run `composer update` to get the correct versions of
+packages. Be sure to omit the `--ignore-version-reqs` flag, because using that
+will override these settings.
+
 [bootstrapping]: ../../extensions/custom-bootstrapping
 [config]: ../../configuration/introduction
 
