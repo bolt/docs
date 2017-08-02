@@ -55,7 +55,6 @@ namespace.
 ```json
     "autoload" : {
         "psr-4" : {
-            "bolt/bolt": "^%%VERSION%%",
             "Bolt\\Extension\\Myname\\MyExtensionNamespace\\": "extensions/local/myname/myextension"
         }
     }

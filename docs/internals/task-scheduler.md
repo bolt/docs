@@ -64,13 +64,32 @@ Bolt's task scheduler can be interfaced in extensions by setting a listener. To
 create a listener you need to something similar in your extension:
 
 ```
+use Bolt\Extension\SimpleExtension;
+use Bolt\Events\CronEvent;
 use Bolt\Events\CronEvents;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class Extension extends \Bolt\BaseExtension
+class Extension extends SimpleExtension
 {
-    public function initialize()
+    /**
+     * {@inheritdoc}
+     */
+    protected function subscribe(EventDispatcherInterface $dispatcher)
     {
-        $this->app['dispatcher']->addListener(CronEvents::CRON_INTERVAL, array($this, 'myJobCallbackMethod'));
+        $dispatcher->addListener(CronEvents::CRON_INTERVAL, [$this, 'myJobCallbackMethod']);
+    }
+
+    /**
+     * Callback method for the custom cron job.
+     *
+     * @param CronEvent $event
+     */
+    public function myJobCallbackMethod(CronEvent $event)
+    {
+        // Add you logic here …
+
+        // Return a message to the console
+        $event->output->writeln("<comment>    Something happened!</comment>");
     }
 }
 ```
