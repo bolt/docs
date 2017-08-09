@@ -847,14 +847,14 @@ div.gallery-popup img {
     }
 
     a.button.medium.docsintro {
-        max-width: 270px;
-        margin-right: 18px;
+        flex: 0 1 calc(33% - 1em);
+        margin-bottom: 1em;
+
         font-size: 19px;
         font-weight: bold;
         color: $darkblue;
 
         background-color: #DDD;
-        display: inline-block;
 
         small {
             font-size: 13px;
@@ -875,9 +875,9 @@ div.gallery-popup img {
     }
 
     div.docsintro {
-        clear: both;
-        display: block;
-        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     table tbody th,
