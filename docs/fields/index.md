@@ -1,5 +1,5 @@
 ---
-title: Field types
+title: Field Types
 pages:
     - common
     - text
