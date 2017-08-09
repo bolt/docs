@@ -57,7 +57,7 @@ If you do _not_ see an 'Internal Server Error', your Apache setup ignores the
 `.htaccess` file, and you need to fix that. If you are not sure if the file
 exists and is readable, download our test script:
 
- - Download the script here: [htaccess_tester.php on Github][tester]
+ - Download the script here: [htaccess_tester.php on GitHub][tester]
  - Rename it to `htaccess_tester.php`, if needed.
  - Place it in the folder where you've put Bolt.
  - Open it in the browser with the URL. (so, make sure you're not accessing it
@@ -77,7 +77,7 @@ Test if `mod_rewrite` is working
 
 To test if `mod_rewrite` is working correctly, do the following:
 
- - Download the script here: [htaccess_tester.php on Github][tester]
+ - Download the script here: [htaccess_tester.php on GitHub][tester]
  - Rename it to `htaccess_tester.php`, if needed.
  - Place it in the folder where you've put Bolt.
  - Create a `.htaccess` file with the contents as below.

@@ -1,4 +1,8 @@
-IDE Tools for developing Bolt
+---
+title: IDE Tools for Developing Bolt
+level: advanced
+---
+IDE Tools for Developing Bolt
 =============================
 
 Currently the core team members use a combination of PhpStorm/IntelliJ, vim,
