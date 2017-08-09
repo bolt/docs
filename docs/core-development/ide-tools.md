@@ -1,8 +1,12 @@
-IDE Tools for developing Bolt
+---
+title: IDE Tools for Developing Bolt
+level: advanced
+---
+IDE Tools for Developing Bolt
 =============================
 
 Currently the core team members use a combination of PhpStorm/IntelliJ, vim,
-Atom, Sublime, Netbeans, and Visual Studio Code. There is probably even an 
+Atom, Sublime, Netbeans, and Visual Studio Code. There is probably even an
 emacs die-hard out there.
 
 In no way should any of these this be seen as a requirement to develop on
@@ -10,6 +14,7 @@ Bolt's core code, but some tools will make your life easier.
 
 This document currently covers the following IDEs:
   * PhpStorm & IntelliJ IDEA
+
 
 ## PhpStorm & IntelliJ IDEA
 
@@ -21,13 +26,14 @@ This document currently covers the following IDEs:
 
 In particular, most developers will find the Silex plugin extremely useful, as
 it will allow services stored in the application container to be treated by the
-IDE in the same way that normal variables are, and provide auto-completion, 
-hinting & code completion, to help avoid programmer mistakes.  
- 
-e.g. Clicking on `$app['twig']` would resolve like a normal variable to 
-`\Twig_Environment`, and show appropriate data. Whereas `$app['twig']->render()`  
+IDE in the same way that normal variables are, and provide auto-completion,
+hinting & code completion, to help avoid programmer mistakes.
+
+e.g. Clicking on `$app['twig']` would resolve like a normal variable to
+`\Twig_Environment`, and show appropriate data. Whereas `$app['twig']->render()`
 will show you information about the `render()` function and highlight missing
 parameters, or incorrect parameter types, etc.
+
 
 #### Silex/Pimple Plugin
 
@@ -69,8 +75,8 @@ pimple.json
 
 ##### Installing Silex Pimple Dumper PHP package
 
-First thing you will need to do is install `sorien/silex-pimple-dumper` as a 
-**global** Composer package. 
+First thing you will need to do is install `sorien/silex-pimple-dumper` as a
+**global** Composer package.
 
 ```bash
 composer global require sorien/silex-pimple-dumper:^1.0
@@ -81,8 +87,8 @@ will add them to you Composer configuration directory, located in your user
 home directory.
 
 <p class="note"><strong>Note:</strong> Older versions of Composer on UNIX based
-systems (Linux & OS X) will use the directory <code>~/.composer</code>, whereas newer 
-versions will create that directory in <code>~/.config/composer</code>.</p>
+systems (Linux & OS X) will use the directory <code>~/.composer</code>, whereas
+newer versions will create that directory in <code>~/.config/composer</code>.</p>
 
 
 ##### Creating the JSON generator file
@@ -110,6 +116,7 @@ $app->boot();
 $pdp->dump($app);
 ```
 
+
 ##### Usage
 
 Simply run the `dump.php` file in the **root directory of your Bolt install**:
@@ -123,7 +130,7 @@ extensions is enabled in PhpStorm or IntelliJ IDEA will provide that extension
 with the information to make your work with Dependency Injection (DI) objects
 far more pleasurable.
 
---- 
+---
 
 [silex-pimple-dumper]: https://github.com/Sorien/silex-pimple-dumper
 [silex-idea-plugin]: https://github.com/Sorien/silex-idea-plugin
