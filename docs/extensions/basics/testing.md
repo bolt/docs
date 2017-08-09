@@ -111,7 +111,7 @@ If it does then you are ready to move to the Bolt Extensions marketplace.
 
 Assuming your local Git repository test was successful we can now start the
 publishing process. Firstly you'll need to publish your Git repository so it's
-publicly readable online. If you have a [Github][gh] or [Bitbucket][bb] account
+publicly readable online. If you have a [GitHub][gh] or [Bitbucket][bb] account
 then those are ideal places to push to.
 
 Once you have a public url for the Git repository then you can submit your
