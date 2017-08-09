@@ -21,7 +21,7 @@ Contributing docs or code
 -------------------------
 
 Basically this comes down to forking, branching and issuing pull requests. For
-some background information your can read this [help/manual][fork] of Github.
+some background information your can read this [help/manual][fork] of GitHub.
 
 Fixing particular issues
 ------------------------
@@ -30,16 +30,16 @@ When you're going to work on a particular issue, be sure to make a separate bran
 as this allows for better separation between the issues you're working on. This also helps
 us analyzing pull requests and we simply cannot accept pull requests with a lot of fixes
 running across each other. We try to work in the following way (which is pretty common on
-Github projects):
+GitHub projects):
 
 - Branch the repo you're basing the fix on. (This is often the master branch). A commonly
   used name for branches looks like `"issue-<issue number>-<issue title>"`. This can then
   easily be identified.
 - Fix the issue and commit the files to your created branch. If needed, you can
   [refer][refer] (see the supported synonyms or use `#<issue number>` to just
-  refer to issues) to Github issue numbers in your commit message.
-- Push the branch to your own Github account.
-- Go to your Github account, switch to the branch you pushed and look for the
+  refer to issues) to GitHub issue numbers in your commit message.
+- Push the branch to your own GitHub account.
+- Go to your GitHub account, switch to the branch you pushed and look for the
   pull request button.
 - Double-check if the changed files are correct.
 - Fill in a descriptive title and a description. In this field you can also
@@ -76,10 +76,10 @@ Step by step guide to forking, branching and pushing
 ----------------------------------------------------
 
 If you're not yet proficient with forking, branching and pushing your fix,
-here's a step- by-step guide: This example assumes that you have a Github
+here's a step- by-step guide: This example assumes that you have a GitHub
 account and uses the **bolt code repository**. The commands also hold for the
 other repositories. The only thing which should be changed is the repository
-url. The steps cover this [help/manual][fork] of Github. Lines starting with `#`
+url. The steps cover this [help/manual][fork] of GitHub. Lines starting with `#`
 are comments, lines with `$` are commands which you need to execute in your
 terminal.
 
@@ -118,12 +118,12 @@ terminal.
 
   The changes have now been applied and you've got the latest version of bolt.
 
-- Step 4: You can now push this version to your own Github account like so:
+- Step 4: You can now push this version to your own GitHub account like so:
 
   `$ git push origin master`
 
   Where 'master' stands for your local branch (it is called the 'master' branch)
-  and origin is the repository you've cloned from, which is your own Github
+  and origin is the repository you've cloned from, which is your own GitHub
   repo.
 
 - Step 5: Branching. When you're ready to take on an issue, you should create a
@@ -138,9 +138,9 @@ terminal.
   will be commited to this branch only.
 
 - Step 6: When you're done fixing, you can push your branch to a **new** branch
-  in your Github repository by pushing your branch 'issue-123-create-login-form'
+  in your GitHub repository by pushing your branch 'issue-123-create-login-form'
   to a new branch 'issue-123-login-form' to the destination 'origin' (your
-  Github repo):
+  GitHub repo):
 
   `$ git push origin issue-123-create-login-form:issue-123-create-login-form`
 

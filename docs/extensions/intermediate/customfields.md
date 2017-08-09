@@ -294,7 +294,7 @@ The Source Code
 ---------------
 
 It's a good idea to look at the final source code for this extension to help you get started making a similar one.
-There is a repository on [Github here][picker].
+There is a repository on [GitHub here][picker].
 
 [psr4]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md
 [simple]: https://github.com/tkrotoff/jquery-simplecolorpicker

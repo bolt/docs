@@ -1,6 +1,6 @@
 ---
-title: Howtos on various subjects
-short_title: Howtos
+title: HOWTOs on various subjects
+short_title: HOWTOs
 pages:
     - installing-local-extensions
     - resource-contenttype
@@ -11,11 +11,11 @@ pages:
     - making-sure-htaccess-works
     - curl-ca-certificates
     - sortingorder-in-contenttypes
-    - building-multilingual-websites # currently not listed
-    - boilerplate-for-multilingual-websites # currently not listed
-    - multi-site-setup # currently not listed
+#    - building-multilingual-websites # currently not listed
+#    - boilerplate-for-multilingual-websites # currently not listed
+#    - multi-site-setup # currently not listed
 ---
-Howtos and Recipes
+HOWTOs and Recipes
 ===================
 
 This section contains a number of "How To" pages and short guides to a number
