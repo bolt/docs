@@ -11,9 +11,9 @@ pages:
     - making-sure-htaccess-works
     - curl-ca-certificates
     - sortingorder-in-contenttypes
-    - building-multilingual-websites # currently not listed
-    - boilerplate-for-multilingual-websites # currently not listed
-    - multi-site-setup # currently not listed
+#    - building-multilingual-websites # currently not listed
+#    - boilerplate-for-multilingual-websites # currently not listed
+#    - multi-site-setup # currently not listed
 ---
 HOWTOs and Recipes
 ===================
