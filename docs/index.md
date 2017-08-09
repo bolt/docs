@@ -13,10 +13,10 @@ pages:
     - publishing-marketplace
     - howto
     - nut-command
-    - internals
     - debugging
     - performance
     - manual
     - other
+    - internals
     - core-development
 ---

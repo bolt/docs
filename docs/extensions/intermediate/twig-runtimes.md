@@ -15,7 +15,7 @@ class.
 With Bolt, you can easily write your custom Twig extension in a separate class.
 
 <p class="note"><strong>Note:</strong> For more basic information on extending
-Bolt's Twig functionality, <a href="../basics/twig"> 
+Bolt's Twig functionality, <a href="../basics/twig">
 See the "basic" Twig documentation</a></p>
 
 The extension loader functions `registerTwigFunctions()` and `registerTwigFilters()`
@@ -29,6 +29,7 @@ function in the extension loader itself.
 ```php
 namespace Bolt\Extension\DropBear\KoalaCatcher;
 
+use Bolt\Extension\DropBear\KoalaCatcher\Twig;
 use Bolt\Extension\SimpleExtension;
 
 /**
@@ -43,11 +44,27 @@ class KoalaCatcherExtension extends SimpleExtension
      */
     protected function registerServices(Application $app)
     {
-        // Create a runtime for the Twig extension class
-        $app['twig.runtime.koala_catcher'] = $app->share(
-            function ($app) {
-                return new KoalaTwigExtension();
+        $app['koala.gumtree'] = $app->share(function ($app) {
+            // An "expensive" service that we only want to load at runtime when needed!
+            return new Gumtree();
         });
+
+        // Create a runtime for the Twig extension class
+        $app['twig.runtime.koala_catcher'] = $app->share(function ($app) {
+            // Our runtime uses the $app['koala.gumtree'] service, so we
+            // want to "lazy load" it as needed.
+            return new Twig\KoalaTwigRuntime($app['koala.gumtree']);
+        });
+
+        $app['twig.runtimes'] = $app->extend(
+            'twig.runtimes',
+            function (array $runtimes) {
+                // You must append your array to the passed in $runtimes array and return it
+                return $runtimes + [
+                    Twig\KoalaTwigRuntime::class => 'twig.runtime.koala_catcher',
+                ];
+            }
+        );
     }
 
     /**
@@ -55,13 +72,10 @@ class KoalaCatcherExtension extends SimpleExtension
      */
     protected function registerTwigFunctions()
     {
-        $app = $this->getContainer();
-        $koalaTwig = $app['twig.runtime.koala_catcher'];
+        $koalaTwigRuntimeCallable = [Twig\KoalaTwigRuntime::class, 'generateLipsum'];
 
         return [
-            // Note that the value is an array, and the first value of that
-            // array is a callable
-            'generate_lipsum' => [[$koalaTwig, 'generateLipsum']]]
+            'generate_lipsum' => [$koalaTwigRuntimeCallable]
         ];
     }
 
@@ -70,34 +84,56 @@ class KoalaCatcherExtension extends SimpleExtension
      */
     protected function registerTwigFilters()
     {
-        $app = $this->getContainer();
-        $koalaTwig = $app['twig.runtime.koala_catcher';
+        $koalaTwigRuntimeCallable = [Twig\KoalaTwigRuntime::class, 'strHello'];
 
         return [
-            'hello', [[$koalaTwig, 'strHello']]),
+            'hello' => [$koalaTwigRuntimeCallable],
         ];
     }
-
 }
 ```
 
 ### Runtime class example
 
-Create your class file in the directory `src/Twig/KoalaTwigExtension.php`
+Create your class file as `src/Twig/KoalaTwigRuntime.php`
 
 ```php
 namespace Bolt\Extension\DropBear\KoalaCatcher\Twig;
 
+use Bolt\Extension\DropBear\KoalaCatcher\Gumtree;
 use Silex\Application;
 
-class KoalaTwigExtension extends \Twig_Extension
+/**
+ * Twig runtime class that will only be invoked when one of its functions or
+ * filters are used.
+ *
+ * @author Kenny Koala <kenny@dropbear.com.au>
+ */
+class KoalaTwigRuntime
 {
-    public function generateLipsum($params1, $params2, ...) {
-        // your logic here
+    /** @var Gumtree */
+    private $gumtree;
+
+    /**
+     * Constructor.
+     *
+     * @param Gumtree $gumtree
+     */
+    public function __construct(Gumtree $gumtree)
+    {
+        $this->gumtree = $gumtree;
     }
 
-    public function strHello($params1) {
+    public function generateLipsum($type, $quantity)
+    {
         // your logic here
+        return $this->gumtree->pickLeaves($type, $quantity);
+    }
+
+    public function strHello($name)
+    {
+        // your logic here
+        return $this->gumtree->greet($name);
     }
 }
 ```
