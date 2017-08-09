@@ -25,13 +25,13 @@ these docs, be sure to get in touch, using one of the following ways:
   - The official documentation has a lot of information. Have you tried
     searching? The search box is in the upper right corner. If you're missing
     something in the docs, or if you've spotted an error: Please let us know on
-    our [Github tracker for documentation](https://github.com/bolt/bolt-
+    our [GitHub tracker for documentation](https://github.com/bolt/bolt-
     docs/issues).
 
   - We're active on Twitter. Follow us, or say hello at
     [@BoltCM](https://twitter.com/boltcm).
 
-  - For (potential) bugs and feature requests, open an issue on our [Github
+  - For (potential) bugs and feature requests, open an issue on our [GitHub
     Issue Tracker](http://github.com/bolt/bolt/issues). Pull-requests are
     always welcome, as well.
 

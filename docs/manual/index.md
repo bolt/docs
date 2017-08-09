@@ -1,5 +1,5 @@
 ---
-title: End user Manual
+title: End User Manual
 short_title: User Manual
 pages:
     - first-user
@@ -16,7 +16,7 @@ pages:
     - fieldtypes
 ---
 
-Welcome to the Bolt user manual
+Welcome to the Bolt User Manual
 ===============================
 
 Bolt is a tool for Content Management, which strives to be as simple and
@@ -39,4 +39,4 @@ Basically, there are three groups of users we've created Bolt for:
    also easy to manage and maintain, but is flexible and versatile. Readers
    from this group probably want to skip directly to the [documentation][]
 
-[documentation]: https://docs.bolt.cm/ 
+[documentation]: https://docs.bolt.cm/

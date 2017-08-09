@@ -1,9 +1,9 @@
 ---
-title: Clone the Git repository
+title: Clone the Git Repository
 level: advanced
 ---
-Cloning directly from Git
-=========================
+Clone the Git Repository
+========================
 
 <p class="warning"><strong>Warning:</strong> This method should only be used
 for doing work directly on the internal Bolt code base, and is not supported as
