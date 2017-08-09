@@ -1,60 +1,55 @@
-var gulp = require('gulp');
-var $    = require('gulp-load-plugins')();
-var argv = require('yargs').argv;
+var gulp     = require('gulp'),
+    $        = require('gulp-load-plugins')(),
+    gulpIf   = require('gulp-if'),
+    cleanCSS = require('gulp-clean-css'),
+    isDev    = false // Set to true to include source maps in the built JS & CSS files
+;
 
-// Check for --production flag
-var isProduction = !!(argv.production);
-
-// Define base paths for Sass and Javascript.
-var sassPaths = [
-    'scss/',
-    'bower_components/foundation-sites/scss',
-    // 'bower_components/motion-ui/src',
-    // 'bower_components/slicknav/scss',
-    // 'bower_components/highlightjs/styles'
-];
-
-var javascriptFiles = [
-    'bower_components/jquery/dist/jquery.js'
-];
-
+// Define base paths & options for JavaScript & SASS.
+var jsFiles = [
+        'bower_components/jquery/dist/jquery.js'
+    ],
+    sassPaths = [
+        'scss/',
+        'bower_components/foundation-sites/scss'
+    ],
+    sassOptions = {
+        includePaths: sassPaths,
+        outputStyle: gulpIf(isDev, 'nested', 'compressed')
+    },
+    prefixerOptions = {
+        browsers: ['last 2 versions', 'ie >= 9']
+    }
+;
 
 // Set up 'sass' task.
 gulp.task('sass', function() {
-  return gulp.src('scss/docs.scss')
-    .pipe($.sass({
-      includePaths: sassPaths,
-      outputStyle: 'nested' // 'compressed' or 'nested'
-    })
-      .on('error', $.sass.logError))
-    .pipe($.autoprefixer({
-      browsers: ['last 2 versions', 'ie >= 9']
-    }))
-    .pipe($.if(isProduction, $.minifyCss()))
-    .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('../../web/styles'));
+    return gulp.src('scss/docs.scss')
+        .pipe(gulpIf(isDev, $.sourcemaps.init()))
+        .pipe($.sass(sassOptions).on('error', $.sass.logError))
+        .pipe($.autoprefixer(prefixerOptions))
+        .pipe(cleanCSS())
+        .pipe(gulpIf(isDev, $.sourcemaps.write()))
+        .pipe(gulp.dest('../../web/styles'))
+        ;
 });
 
 // Set up 'compress' task.
 gulp.task('compress', function() {
-  return gulp.src('js/*.js')
-    .pipe($.concat('docs.js'))
-    .pipe($.if(isProduction, $.uglify()))
-    .pipe(gulp.dest('../../web/js'));
+    return gulp.src('js/*.js')
+        .pipe(gulpIf(isDev, $.sourcemaps.init()))
+        .pipe($.concat('docs.js'))
+        .pipe($.uglify())
+        .pipe(gulpIf(isDev, $.sourcemaps.write()))
+        .pipe(gulp.dest('../../web/js'))
+        ;
 });
 
-gulp.task('copyjavascript', function() {
-   gulp.src(javascriptFiles)
-   .pipe($.uglify())
-   .pipe(gulp.dest('../../web/js'));
-});
-
-// Build the "dist" folder by running all of the above tasks
-gulp.task('build', ['sass', 'copyjavascript', 'compress']);
-
+// Build
+gulp.task('build', ['sass', 'compress']);
 
 // Set up 'default' task, with watches.
-gulp.task('default', ['sass', 'copyjavascript', 'compress'], function() {
-  gulp.watch(['scss/**/*.scss'], ['sass']);
-  gulp.watch(['js/**/*.js'], ['compress']);
+gulp.task('default', ['sass', 'compress'], function() {
+    gulp.watch(['scss/**/*.scss'], ['sass']);
+    gulp.watch(['js/**/*.js'], ['compress']);
 });
