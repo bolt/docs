@@ -10,7 +10,7 @@ Routing
 Whenever your browser gets a page on a Bolt website, it uses an URL like
 `/entries` or `/page/lorem-ipsum`. Bolt knows how to handle URLs like these, and
 displays the information the browser requested. Bolt does this by mapping the
-URL to a so-called Route. 
+URL to a so-called Route.
 
 This Route is the controller that (when called) fetches the content from the
 database, selects the template to use, renders the HTML page according to that
@@ -44,10 +44,12 @@ new Bolt system.
 
 ```
 oldpages:
-  path:           /{slug}.html
-  defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
-  requirements:
-    slug:       '[a-z0-9-_]+'
+    path: /{slug}.html
+    defaults:
+        _controller: controller.frontend:record
+        contenttypeslug: page
+    requirements:
+        slug: [a-z0-9-_]+
 ```
 
 ### Host requirement
@@ -58,9 +60,12 @@ specific ContentType and slug set up.
 
 ```
 example:
-  path:     /
-  defaults: { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page', 'slug': 'example' }
-  host:     'example.mydomain.org'
+    path: /example
+    defaults:
+        _controller: controller.frontend:record
+        contenttypeslug: page
+        slug: example
+    host: www.mydomain.org
 ```
 
 ### ContentType overrides
@@ -74,20 +79,24 @@ ContentType **page**.
 
 ```
 pagebinding:
-  path:           /{slug}
-  defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
-  contenttype:    pages
+    path: /{slug}
+    defaults:
+        _controller: controller.frontend:record
+        contenttypeslug: page
+    contenttype: pages
 ```
 
 An alternative is to also add the creation date:
 
 ```
 pagebinding:
-  path:           /{datecreated}/{slug}
-  defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
-  requirements:
-    datecreated:    '\d{4}-\d{2}-\d{2}'
-  contenttype:    pages
+    path: /{slug}
+    defaults:
+        _controller: controller.frontend:record
+        contenttypeslug: page
+    requirements:
+      datecreated:    '\d{4}-\d{2}-\d{2}'
+    contenttype: pages
 ```
 
 ### Single record override
@@ -99,23 +108,28 @@ for it to work correctly.
 
 ```
 aboutbinding:
-  path:           /about
-  defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page', 'slug': 'about' }
-  recordslug:     page/about
+    path: /about
+    defaults:
+        _controller: controller.frontend:record
+        contenttypeslug: page
+        slug: about
+    recordslug: page/about
 ```
 
 ### Filesystem based page generation
 
 There is a way to configure the router to generate statically stored content.
-For the `Bolt\Controllers\Frontend::template` default controller can be assigned
+For the `Bolt\Controller\Frontend::template` default controller can be assigned
 a parameter `template` that may points out a template that should be stored as a
 regular file under currently selected theme in the filesystem. Using file
 extension `.twig` is optional.
 
 ```
 templatebinding:
-  	path: /mytemplate
-  	defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: 'mytemplate' }
+    path: /static-page
+    defaults:
+        _controller: controller.frontend:template
+        template: static-page
 ```
 
 ### YAML description of a routing entry
@@ -124,16 +138,16 @@ The complete format of a single route in YAML is as follows:
 
 ```
 bindname:
-  path:       /{parameter..}/
-  defaults:
-    _controller:    'controller'
-    _before:        'before'            # optional
-    _after:         'after'             # optional
-  requirements:
-    parameter..:    required-regexp
-  host:             hostname            # optional
-  contenttype:      ContentType         # optional
-  recordslug:       record slug         # optional
+    path:       /{parameter..}/
+    defaults:
+      _controller:    'controller'
+      _before:        'before'            # optional
+      _after:         'after'             # optional
+    requirements:
+      parameter:      required-regexp
+    host:             hostname            # optional
+    contenttype:      ContentType name    # optional
+    recordslug:       A record slug       # optional
 ```
 
 Explanation of each argument:
@@ -155,8 +169,10 @@ Path
 ----
 
 You are free to specify your own parameters, however when you are adding routes
-for ContentTypes or recordslugs you are limited to which parameters you can add.
-At least when you don't want to code your own Content-object. The following
+for ContentTypes or record slugs you are limited to which parameters you can
+add.
+
+At least when you don't want to code your own Content object. The following
 fields from a ContentType can be used as a parameter:
 
   - **contenttypeslug**
