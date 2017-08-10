@@ -6,20 +6,31 @@ Routing
 =======
 
 Every request to a page on a Bolt website is routed to a Silex controller,
-regardless of whether the request is for a page in the 'backend', 'frontend' or
-'asynchronous'.
+regardless of whether the request is for a page in the back-end, front-end or
+asynchronous.
 
-There are four files that contain the controller collections, located in
-`src/Controllers/`: `Backend.php`, `Frontend.php`, `Async.php` and
-`Routing.php`.
+A controller is just a PHP method that returns a response to a request, and are
+grouped into collections in PHP classes. Bolt has three groups of controller
+collection classes, located in the `Bolt\Controller` namespace.
 
-As such, they are all in the `\Bolt\Controllers` namespace. They are 'set up'
-in `src/Application.php`.
+| Class | Description |
+| ----- | ----------- |
+| `Bolt\Controller\Frontend`                | Routes serving end-user requests
+| `Bolt\Controller\Backend\Authentication`  | Login, logout & password reset handling
+| `Bolt\Controller\Backend\Database`        | Database checks & updates
+| `Bolt\Controller\Backend\Extend`          | Extension management
+| `Bolt\Controller\Backend\FileManager`     | File management & editing
+| `Bolt\Controller\Backend\General`         | General administration routes such as the dashboard
+| `Bolt\Controller\Backend\Log`             | System & change log management
+| `Bolt\Controller\Backend\Records`         | Content record editing
+| `Bolt\Controller\Backend\Upload`          | File upload handling
+| `Bolt\Controller\Backend\Users`           | User managment
+| `Bolt\Controller\Async\Embed`             | oEmed request handline
+| `Bolt\Controller\Async\FilesystemManager` | File CRUD requests
+| `Bolt\Controller\Async\General`           | General administration routes
+| `Bolt\Controller\Async\Records`           | Content record CRUD requests
+| `Bolt\Controller\Async\Stack`             | The "Stack"
+| `Bolt\Controller\Async\Widget`            | Extension Widget callback handling
 
-* `Backend` routes are all pretty straightforward.
-* `Async.php` routes are used for 'ajaxy' requests, like the
-'latest activity' widget on the dashboard.
-* `Routing` is the actual Controller that parses the routes found in `routing.yml`
-* `Frontend` contains the methods for all standard routes as defined in `routes.yml`.
-
-You can modify the `routing.yml` to suit your own needs. Examples are included.
+You can modify some of the routing to suit your own needs in
+`app/config/routing.yml`.
