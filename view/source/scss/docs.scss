@@ -830,7 +830,6 @@ div.gallery-popup img {
         max-width: 100%;
         font-size: 19px;
         font-weight: bold;
-        margin: 0;
         display: block;
         background-color: $mediumblue;
         color: $white;
@@ -847,7 +846,7 @@ div.gallery-popup img {
     }
 
     a.button.medium.docsintro {
-        flex: 0 1 calc(33% - 1em);
+        flex: 0 1 calc(33% - 0.5em);
         margin-bottom: 1em;
 
         font-size: 19px;
@@ -864,7 +863,18 @@ div.gallery-popup img {
         &:hover {
             background-color: #999;
         }
+    }
 
+    a.button.large.expand.docsintro {
+        flex-basis: 100%;
+    }
+
+    a.button.large.docsintro {
+        flex-basis: calc(50% - 0.5em);
+    }
+
+    .content a.button.docsintro {
+        margin-bottom: 1em;
     }
 
     a.button.docsintro.layer {
