@@ -14,32 +14,32 @@ This section aims to provide helpful information for people contributing to the
 development of Bolt.
 
 <div class="docsintro">
-    <a href="https://docs.bolt.cm/api/bolt/%%VERSION%%/" class="button medium docsintro">
+    <a href="https://docs.bolt.cm/api/bolt/bolt/%%VERSION%%/" class="button medium docsintro">
         Bolt Core API docs (draft)<br>
         <small>(auto-generated)</small>
     </a>
 
-    <a href="https://docs.bolt.cm/api/collection/master/" class="button medium docsintro">
+    <a href="https://docs.bolt.cm/api/bolt/collection/master/" class="button medium docsintro">
         Collection API docs<br>
         <small>(auto-generated)</small>
     </a>
 
-    <a href="https://docs.bolt.cm/api/common/master/" class="button medium docsintro">
+    <a href="https://docs.bolt.cm/api/bolt/common/master/" class="button medium docsintro">
         Common API docs<br>
         <small>(auto-generated)</small>
     </a>
 
-    <a href="https://docs.bolt.cm/api/filesystem/master/" class="button medium docsintro">
+    <a href="https://docs.bolt.cm/api/bolt/filesystem/master/" class="button medium docsintro">
         Filesystem API docs<br>
         <small>(auto-generated)</small>
     </a>
 
-    <a href="https://docs.bolt.cm/api/session/master/" class="button medium docsintro">
+    <a href="https://docs.bolt.cm/api/bolt/session/master/" class="button medium docsintro">
         Session API docs<br>
         <small>(auto-generated)</small>
     </a>
 
-    <a href="https://docs.bolt.cm/api/thumbs/master/" class="button medium docsintro">
+    <a href="https://docs.bolt.cm/api/bolt/thumbs/master/" class="button medium docsintro">
         Thumbs API docs<br>
         <small>(auto-generated)</small>
     </a>
