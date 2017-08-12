@@ -73,6 +73,16 @@ database:
   port: 3306
 ```
 
+The default prefix for the database tables is `bolt_`. You can change this with the `prefix` option like so:
+```yaml
+database:
+  driver: mysql
+  username: bolt
+  password: password
+  databasename: bolt
+  prefix: yourapp_
+```
+
 Other settings in the `config.yml` file can be changed later on, directly from
 the Bolt backend.
 
