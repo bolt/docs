@@ -38,20 +38,20 @@ as database systems. Set the database, username and password:
 
 ```yaml
 database:
-  driver: mysql
-  username: bolt
-  password: password
-  databasename: bolt
+    driver: mysql
+    username: bolt
+    password: password
+    databasename: bolt
 ```
 
 or:
 
 ```yaml
 database:
-  driver: postgres
-  username: bolt
-  password: password
-  databasename: bolt
+    driver: postgres
+    username: bolt
+    password: password
+    databasename: bolt
 ```
 
 Support for PostgreSQL is experimental, so use with caution.
@@ -65,22 +65,22 @@ this:
 
 ```yaml
 database:
-  driver: mysql
-  username: bolt
-  password: password
-  databasename: bolt
-  host: database.example.org
-  port: 3306
+    driver: mysql
+    username: bolt
+    password: password
+    databasename: bolt
+    host: database.example.org
+    port: 3306
 ```
 
 The default prefix for the database tables is `bolt_`. You can change this with the `prefix` option like so:
 ```yaml
 database:
-  driver: mysql
-  username: bolt
-  password: password
-  databasename: bolt
-  prefix: yourapp_
+    driver: mysql
+    username: bolt
+    password: password
+    databasename: bolt
+    prefix: yourapp
 ```
 
 Other settings in the `config.yml` file can be changed later on, directly from
