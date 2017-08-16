@@ -48,14 +48,14 @@ add each Bundle's entry to the  to the `"psr-4"` sub-section of the
 
 For example, if you currently have a local extension, `myname/myextension`,
 located at `extensions/local/myname/myextension`, with your loader class inside
-a `src` directory, and `Bolt\Extension\Myname\MyExtensionNamespace` as the
+a `src` directory, and `Bolt\Extension\MyName\MyNamespace` as the
 namespace.
 
 
 ```json
     "autoload" : {
         "psr-4" : {
-            "Bolt\\Extension\\Myname\\MyExtensionNamespace\\": "extensions/local/myname/myextension"
+            "Bolt\\Extension\\MyName\\MyNamespace\\": "extensions/local/myname/myextension/src"
         }
     }
 ```
