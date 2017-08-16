@@ -9,6 +9,7 @@ This page contains a few tips and pointers to optimize and tune your Bolt
 website when putting it 'live'. When developing Bolt, you usually have different
 settings than you would use in a production environment.
 
+
 Use `config_local.yml`
 ----------------------
 
@@ -19,9 +20,9 @@ you can use a `config_local.yml`, that you can place right next to the 'regular'
 `config.yml`. Any setting you make in this file, will _overrule_ a setting made
 in `config.yml`.
 
-If you use a versioning tool like Git, you can put the `config.yml` file into
-the repository, but you shouldn't commit `config_local.yml`. This way you can
-bring most of the configuration under versioning control, but your database
+If you use a version control tool like Git, you can put the `config.yml` file
+into the repository, but you shouldn't commit `config_local.yml`. This way you
+can bring most of the configuration under version control, but your database
 credential isn't included.
 
 You can edit this file through the Bolt backend as well, just like the regular
@@ -29,12 +30,13 @@ config. To get there, use the button on the edit screen for `config.yml`:
 
 <a href="/files/howto_config_local.png" class="popup"><img src="/files/howto_config_local.png" width="571"></a><br>
 
+
 Disable debug
 -------------
 
 Disable the debug toolbar, that gets appended to every page request. This
 toolbar shows a _lot_ of useful information, but once a website is put into
-production, you should turn this funtionality off:
+production, you should turn this functionality off:
 
 ```yaml
 debug: false
@@ -57,6 +59,7 @@ debug_error_level: 0
 debuglog:
     enabled: false
 ```
+
 
 Check mail settings
 -------------------
@@ -82,6 +85,7 @@ same name as will show up in the url. By default Bolt caches the results of each
 there _is_ a certain overhead in this. If files are saved to `thumbs/`, any
 request to a thumbnail that's cached completely bypasses the PHP layer entirely,
 which uses significantly less resources on the server.
+
 
 Configure the backend path and other branding
 ---------------------------------------------
@@ -116,6 +120,7 @@ This is what it will look like in the Bolt backend:
 
 <a href="/files/howto-branding.png" class="popup"><img src="/files/howto-branding.png" width="433"></a><br>
 
+
 Make sure Google can find the site
 ----------------------------------
 
@@ -137,12 +142,15 @@ content in Google:
 canonical: www.example.org
 ```
 
+
 SQLite only: Running analyze on your database
 ---------------------------------------------
 
 If you are using SQLite you can run the `analyze;` command on your database to
-make expensive queries quicker. For more information on this please see the [issue](https://github.com/bolt/bolt/issues/5603)
-on github or the details in the [SQLite docs](https://www.sqlite.org/lang_analyze.html).
+make expensive queries quicker. For more information on this please see the
+[issue](https://github.com/bolt/bolt/issues/5603) on GitHub or the details in
+the [SQLite docs](https://www.sqlite.org/lang_analyze.html).
+
 
 Putting it all together
 -----------------------
@@ -213,6 +221,3 @@ mailoptions:
     auth_mode: null
 
 ```
-
-
-
