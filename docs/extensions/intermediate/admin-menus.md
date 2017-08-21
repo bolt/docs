@@ -39,7 +39,7 @@ In the above example:
   * `koala-menu` parameter in the constructor is used internally and should
     just be a brief name, and only needs to be unique for submenus of Extend.
   * `koala` parameter in the constructor will set the route for the menu to be
-    `bolt/extend/koala` (where branding path is still set to `bolt/`
+    `bolt/extensions/koala` (where branding path is still set to `bolt/`
   * `setLabel('Koala Catcher')` sets the displayed menu label in the left side
     bar to "Koala Catcher"
   * `setIcon('fa:leaf')` set the icon for the menu to any of the
@@ -49,7 +49,7 @@ In the above example:
 
 
 <p class="note"> <strong>Note:</strong> Menu entries are mounted on
-<tt>extend/</tt>, because they show up under the 'Extras' menu option. When
+<tt>extensions/</tt>, because they show up under the 'Extras' menu option. When
 adding an <a href='controllers-routes'>accompanying route</a> for a new menu
 item, make sure to catch it correctly. For the above example, it should match
-<tt>/extend/koala</tt>. </p>
+<tt>/extensions/koala</tt>. </p>
