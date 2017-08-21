@@ -14,10 +14,8 @@ Each has its benefits and drawbacks.
     of the box' on practically any web server. This is why it's Bolt's default
     choice.
   - **MySQL** - is perhaps the most well-known database engine, which is
-    supported on the majority of web servers. If your server supports it, we
-    advise you to use MySQL instead of SQLite. Mainly because it's very well-
-    known, and there are good third-party tools for maintenance, backup and
-    migration.
+    supported on the majority of web servers. MySQL is very well-known, and there
+    are good third-party tools for maintenance, backup and migration.
   - **PostgreSQL** - is a very well-designed database engine, but not as widely
     available as MySQL.
 
