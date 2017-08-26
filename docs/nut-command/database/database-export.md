@@ -26,7 +26,7 @@ file.
 
 | Option | Description |
 |--------|-------------|
-| -c, --contenttypes=CONTENTTYPES | One or more contenttypes to export records for. (multiple values allowed)
+| -c, --contenttypes=CONTENTTYPES | One or more ContentTypes to export records for. (multiple values allowed)
 | -f, --file=FILE | A YAML or JSON file to use for export data. Must end with .yml, .yaml or .json
 
 
