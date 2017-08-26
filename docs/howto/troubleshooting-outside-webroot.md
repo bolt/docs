@@ -81,7 +81,7 @@ This will result in a structure that looks like this.
 ```
 
 Note: This version of Bolt is provided as a fallback for users who have no
-control over their webserver setup. If at all possible, we strongly recommend
+control over their web server setup. If at all possible, we strongly recommend
 to use the 'regular' version, with all code outside of the web root.
 
 Option 3: Create a symlink to the `public` folder

@@ -2,7 +2,7 @@ Bolt Documentation Site & Content
 =================================
 
 This repository is for both the site, and content, of [Bolt][bolt], and should
-be considered a counterpart of the [Bolt repository][repo]. 
+be considered a counterpart of the [Bolt repository][repo].
 
 The documentation uses the [Markdown][markdown] format. There is no need to
 build anything to generate HTML. We parse the markdown with PHP.
@@ -55,12 +55,12 @@ Alternatively, if you have `grep` and `sed` installed, this will set up all of
 the version worktrees for you
 
 ```
-for VERSION in $(git branch --remotes --list | grep -E "origin\/release\/[2-9]" | sed 's/origin\/release\///g'); do 
+for VERSION in $(git branch --remotes --list | grep -E "origin\/release\/[2-9]" | sed 's/origin\/release\///g'); do
     git worktree add -b release/$VERSION var/versions/$VERSION
 done
 ```
 
-### Configure Default Version 
+### Configure Default Version
 
 For your local environment you can add a configuration file, located at
 `app/config.yml` to facilitate local development. It should contain the
@@ -85,7 +85,7 @@ Finally if you wish to use the built-in PHP web server, it can be run from the
 php -S 0.0.0.0:8000 -t web web/index.php
 ```
 
-Alternatively, configure your preferred webserver to point at the `web/`
+Alternatively, configure your preferred web server to point at the `web/`
 folder. To see the documentation site go to `example.localhost/3.1/`, from
 where you'll get redirected to the front page of the documentation.
 
