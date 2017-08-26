@@ -70,11 +70,11 @@ your development environment, with the following format:
 
 ```
 staging:
-    protocol: […]
+    protocol: FTP-or-SFTP
     options:
-        host: […]
-        root: […]
-        username: […]
+        host: hostname.example.org
+        root: root/folder/name
+        username: your-username
         …
 ```
 
