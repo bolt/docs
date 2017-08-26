@@ -74,7 +74,7 @@ web root. For more information about this, see the pages on configuring
 for PHP's built-in server:
 
 ```
-php app/nut server:start
+php app/nut server:run
 ```
 
 If you bump into trouble setting this up, or you have no access to change your
