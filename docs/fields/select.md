@@ -156,7 +156,7 @@ database:
 
 If you want to control the order that selected values are saved and displayed in
 then you can use the `sortable` option. This is especially useful when linking to
-other contenttypes since it can give an ordered relation. Usage:
+other ContentTypes since it can give an ordered relation. Usage:
 
 ```yaml
         pages:
