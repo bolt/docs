@@ -14,11 +14,12 @@ functionality for simple extensions that do a limited amount. For more complex
 extensions and functionality, you may find it useful to move your Twig logic to
 a class file and import the <tt>\Bolt\Extension\TwigTrait</tt>. </p>
 
+
 Rendering Twig Templates
 ------------------------
 
-Bolt provides a helper function for rendering Twig templates called `renderTemplate()`, 
-which returns the rendered output. 
+Bolt provides a helper function for rendering Twig templates called `renderTemplate()`,
+which returns the rendered output.
 
 ```php
 $context = [
@@ -51,7 +52,8 @@ The array value can either be a string or an array:
   * First value should be either a valid callback, or the name of a function
     in the extension's class loader file.
   * Second value should be an array of Twig function options. See the
-    [Twig documentation](http://twig.sensiolabs.org/doc/advanced.html) for more information.
+    [Twig documentation](http://twig.sensiolabs.org/doc/advanced.html) for more
+    information
 
 
 Registering Twig Filters
@@ -70,8 +72,10 @@ The array value can either be a string, or an array:
 * Arrays are indexed values.
   * First value should be either a valid callback, or the name of a function
     in the extension's class loader file.
-  * Second value should be an array of Twig function options. See the 
-    [Twig documentation](http://twig.sensiolabs.org/doc/advanced.html) for more information.
+  * Second value should be an array of Twig function options. See the
+    [Twig documentation](http://twig.sensiolabs.org/doc/advanced.html) for more
+    information
+
 
 Registering Twig Paths
 ----------------------
@@ -84,8 +88,10 @@ However, this can be customised with the `registerTwigPaths()` function by
 returning an array of paths relative to the extension itself.
 
 Additionally, each path can specify an array of options:
-* `position` — Either `append` or `prepend`, depending on the desired search order for that path.
-* `namespace` — A Twig namespace for the path.
+* `position` — Either `append` or `prepend`, depending on the desired search
+  order for that path
+* `namespace` — A Twig namespace for the path. See the [Twig Loader API documentation][namespace]
+  for more information
 
 Example Extension
 -----------------
@@ -132,7 +138,8 @@ class KoalaCatcherExtension extends SimpleExtension
     {
         return [
             'templates/normal',
-            'templates/special' => ['position' => 'prepend', 'namespace' => 'DropBear']
+            'templates/other'   => ['namespace' => 'Koala']
+            'templates/special' => ['namespace' => 'DropBear', 'position' => 'prepend']
         ];
     }
 
@@ -184,10 +191,11 @@ class KoalaCatcherExtension extends SimpleExtension
 
 <p class="note"><strong>Note:</strong> Using these methods you can not add
 variables to Twig's global scope. If you have need of global Twig variables,
-that are available in all templates, see the section 
+that are available in all templates, see the section
 <a href="../intermediate/service-providers#extending-the-global-twig-environment">
 Extending the 'Global Twig' environment</a> for instructions on
 how to do this. </p>
+
 
 Advanced
 --------
@@ -195,3 +203,26 @@ Advanced
 <p class="note"><strong>Note:</strong> for more advanced information on
 extending Bolt's Twig functionality, see the <a href="../intermediate/twig-runtimes">
 "intermediate" Twig documentation</a></p>.
+
+
+Twig namespaces
+---------------
+
+Namespaced paths are a powerful feature of Twig that allow things like applying
+specific context to paths, or having templates with the same file names but in
+different locations.
+
+To leverage this power in Bolt, after registering your paths with specified
+namespaces in the `registerTwigPaths` method, you then reference templates in
+Twig with the namespace prefixed with an `@`, for example:
+
+```
+{# The parent template #}
+{% extends '@Koala/template.twig' %}
+
+{# Now include a template of the same name from a different namespace #}
+{% include '@DropBear/template.twig' %}
+```
+
+
+[namespace]: https://twig.symfony.com/doc/1.x/api.html#loaders

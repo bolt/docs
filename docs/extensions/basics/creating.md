@@ -87,7 +87,10 @@ section of your local Bolt site's `extensions/composer.json` file, e.g.
         },
         "myextension-git-repo": {
             "type": "path",
-            "url": "/home/user/development/myextension/"
+            "url": "/home/user/development/myextension/",
+            "options": {
+                "symlink": false
+            }
         }
     },
 ```
