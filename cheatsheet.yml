@@ -500,42 +500,6 @@ debug:
     links: { "{{ dump() }} in the documentation": "internals/dump-twig-tag" }
 
 
-apppath:
-    title: "The `paths` variable"
-    shorttitle: "{{ paths }}"
-    prefix: "To see the current paths use `{{ dump(paths) }}` in a template. Use a specific path like this: `{{ paths.theme }}`."
-    table:
-        - ["Key", "Value"]
-        - ["`app`", "`/app/`"]
-        - ["`async`", "`/async/`"]
-        - ["`bolt`", "`/admin/`"]
-        - ["`upload`", "`/upload/`"]
-        - ["`files`", "`/files/`"]
-        - ["`extensions`", "`/extensions/`"]
-        - ["`root`", "`/`"]
-        - ["`currenturl`", "`http://example.com/`&shy;`entry/lorum-ipsum`"]
-        - ["`current`", "`/entry/lorum-ipsum`"]
-        - ["`hostname`", "`example.com`"]
-        - ["`hosturl`", "`http://example.com`"]
-        - ["`canonical`", "`example.com`"]
-        - ["`canonicalurl`", "`http://example.com/`&shy;`entry/lorum-ipsum`"]
-        - ["`protocol`", "`http`"]
-        - ["`rooturl`", "`http://example.com/`"]
-        - ["`theme`", "`/theme/base-2016/`"]
-        - ["`apppath`", "`/[path]/app`"]
-        - ["`cachepath`", "`/[path]/app/cache`"]
-        - ["`configpath`", "`/[path]/app/config`"]
-        - ["`databasepath`", "`/[path]/app/database`"]
-        - ["`extensionsconfigpath`", "`/[path]/app/config/extensions`"]
-        - ["`extensionspath`", "`/[path]/extensions`"]
-        - ["`filespath`", "`/[path]/files`"]
-        - ["`rootpath`", "`/[path]/bolt`"]
-        - ["`themebasepath`", "`/[path]/theme`"]
-        - ["`themepath`", "`/[path]/theme/base-2016`"]
-        - ["`webpath`", "`/[path]/bolt`"]
-    links: { "app['resources'] in the docs": "internals/container-service-references#app-resources" }
-
-
 apprequest:
     title: "The `app.request` variable."
     shorttitle: "{{ app.request }}"

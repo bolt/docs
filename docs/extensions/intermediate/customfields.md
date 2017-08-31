@@ -104,7 +104,6 @@ use Bolt\Extension\SimpleExtension;
 
 class ColourPickerExtension extends SimpleExtension
 {
-
     public function registerFields()
     {
         return [
@@ -127,7 +126,6 @@ class ColourPickerExtension extends SimpleExtension
             new JavaScript('start.js')
         ];
     }
-
 }
 
 ```
@@ -200,7 +198,6 @@ use Bolt\Field\FieldInterface;
 
 class ColourPickField implements FieldInterface
 {
-
     public function getName()
     {
         return 'colourpicker';
@@ -220,9 +217,7 @@ class ColourPickField implements FieldInterface
     {
         return ['default' => ''];
     }
-
 }
-
 
 ```
 
@@ -231,7 +226,11 @@ The Template File
 -----------------
 
 Finally we need a template file that specifies how our field looks in the
-content editor. Here's how our colourpicker template takes shape:
+content editor. Note that this template's name will be the name returned by the
+`getTemplate()` method in our field class shown above, in this example the file
+is named `_colourpicker.twig`.
+
+Here's how our `_colourpicker.twig` template takes shape:
 
 ```
 
@@ -266,7 +265,7 @@ As you can see the field under the js is a select dropdown of colour options.
 When you define your own field, all of the options specified in
 `contenttypes.yml` are available within the `field` object. Some of the
 potential values are accessed in the options block. In the case of our
-colourpicker field, we will look for a list of `values` and use the key / value
+`colourpicker` field, we will look for a list of `values` and use the key/value
 to build the option list.
 
 The Final Completed Extension
