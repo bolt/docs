@@ -20,6 +20,7 @@ in more detail below.
 | `pattern`  | Add a custom validation pattern to validate against when saving. |
 | `readonly` | Do not allow an editor to change the value of this field. |
 | `index`    | Add a database index for this field, only add if you know what this means. |
+| `class`    | Add a CSS selector to the field element. |
 
 ## Grouping fields in tabs
 
