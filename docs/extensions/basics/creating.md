@@ -74,20 +74,21 @@ information about the configuration.
 ### Installing the new extension
 
 In order to make the extension installable via Composer, you will first need to
-define the location of the extension's git repostitory in the `"repositories"`
-section of your local Bolt site's `extensions/composer.json` file, e.g.
+define the location of the extension's git repository at the top of the
+`"repositories"` section of your local Bolt site's `extensions/composer.json`
+file, e.g.
 
 
 ```json
     "repositories": {
+        "myextension-git-repo": {
+            "type": "path",
+            "url": "/home/user/development/myextension/"
+        }
         "packagist": false,
         "bolt": {
             "type": "composer",
             "url": "https://market.bolt.cm/satis/"
-        },
-        "myextension-git-repo": {
-            "type": "path",
-            "url": "/home/user/development/myextension/"
         }
     },
 ```
@@ -96,6 +97,10 @@ Note that the most important part above is the value give to the `"url":` key,
 this value is the path to your extension's local git repository, and can be
 either the full path (recommended) or a path relative to the location of the
 `extensions/` directory.
+
+<p class="note"><strong>Note:</strong> Placing teh <code>"myextension-git-repo"</code>
+section at the top will give it priority over a matching package name on the
+Bolt Marketplace.</p>
 
 Next you will need to update the `"minimum-stability"` value in your local Bolt
 site's `extensions/composer.json` file, e.g.
