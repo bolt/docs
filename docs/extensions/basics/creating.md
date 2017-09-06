@@ -98,7 +98,7 @@ this value is the path to your extension's local git repository, and can be
 either the full path (recommended) or a path relative to the location of the
 `extensions/` directory.
 
-<p class="note"><strong>Note:</strong> Placing teh <code>"myextension-git-repo"</code>
+<p class="note"><strong>Note:</strong> Placing the <code>"myextension-git-repo"</code>
 section at the top will give it priority over a matching package name on the
 Bolt Marketplace.</p>
 
