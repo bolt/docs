@@ -84,7 +84,7 @@ file, e.g.
         "myextension-git-repo": {
             "type": "path",
             "url": "/home/user/development/myextension/"
-        }
+        },
         "packagist": false,
         "bolt": {
             "type": "composer",
