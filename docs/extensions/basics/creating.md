@@ -83,7 +83,10 @@ file, e.g.
     "repositories": {
         "myextension-git-repo": {
             "type": "path",
-            "url": "/home/user/development/myextension/"
+            "url": "/home/user/development/myextension/",
+            "options": {
+                "symlink": false
+            }
         },
         "packagist": false,
         "bolt": {
