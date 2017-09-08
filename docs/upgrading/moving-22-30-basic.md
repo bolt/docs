@@ -90,5 +90,5 @@ That concludes these steps. You should now have a fully working Bolt
 %%VERSION%% website.
 
 [cli]: ../installation/install-command-line
-[routing]: ../templating/templates-routes#routing
+[routing]: ../configuration/routing
 [advanced]: moving-22-30-advanced
