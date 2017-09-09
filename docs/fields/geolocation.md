@@ -31,4 +31,4 @@ Developer Guide][1]. Of course, you can use the geolocation with any mapping
 service you like, since latitude and longitude is a common geographic coordinate
 system used by many services.
 
-[1]: https://developers.google.com/maps/documentation/static-maps/
+[1]: https://developers.google.com/maps/documentation/static-maps/intro
