@@ -56,7 +56,7 @@ be found in the `assets/sass/` folder.
 
 This folder contains the `.scss` files for the development of the back-end
 theme. The `.scss` files will be compiled into normal stylesheets in the
-`app/view/css/` folder.
+`public/bolt/css/` folder.
 
 There is one main `.scss` file in the `sass/` directory: `app.scss`
 
@@ -111,7 +111,7 @@ Our JavaScript source files can be found in `assets/js`. Some of the
 files are included in our git repository, others are pulled in using either NPM
 or our Grunt build process.
 
-The final JavaScript files are built int `app/view/js/`.
+The final JavaScript files are built int `public/bolt/js/`.
 
 
 Available Grunt tasks

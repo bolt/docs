@@ -211,8 +211,8 @@ Note that you should include the Magnific Popup `.js` and `.css` yourself, as
 well as set up the 'initialization' code:
 
 ```twig
-<script src="/app/view/js/jquery.magnific-popup.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/app/view/css/magnific-popup.css">
+<script src="/public/bolt/js/jquery.magnific-popup.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/public/bolt/css/magnific-popup.css">
 
 {# set up lightbox script here, or do this in your own .js file somewhere #}
 <script type="text/javascript">
