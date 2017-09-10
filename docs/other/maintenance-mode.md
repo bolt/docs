@@ -23,9 +23,10 @@ maintenance_template: maintenance_default.twig
 
 The first value turns the maintenance mode on or off. The second option sets
 the template to use. By default, the template `maintenance_default.twig` is
-chosen, which can be found in `app/theme_defaults/`. If you wish to change this
-file, you should set it to another filename, and place that file in your own
-theme- folder. Otherwise it might be overwritten during an update of Bolt.
+chosen, which can be found in `vendor/bolt/bolt/templates/defaults/`. If you
+wish to change this file, you should set it to another filename, and place that
+file in your own theme- folder. Otherwise it might be overwritten during an
+update of Bolt.
 
 <p class="tip"><strong>Note:</strong> If you're testing this feature, be aware
 that you will <em>not</em> see the maintenance screen if you are logged in. Use
