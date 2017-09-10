@@ -153,11 +153,9 @@ If you'd like to show only one specific Taxonomy, for example 'tags', use
 something like this:
 
 ```twig
-{% if record.taxonomy.tags is defined %}
-    {% for tag in record.taxonomy.tags %}
-        {{ tag }}{% if not loop.last %}, {% endif %}
-    {% endfor %}
-{% endif %}
+{% for tag in record|taxonomy.tags|default %}
+    {{ tag }}{% if not loop.last %}, {% endif %}
+{% endfor %}
 ```
 
 If you're using a listing, and would like to access the taxonomy name, simply
@@ -174,15 +172,13 @@ After updating your content with Taxonomies, you can edit your templates to
 show the Taxonomies and to link to automatically generated listing pages:
 
 ```twig
-{% if record.taxonomy is defined %}
-    {% for type, values in record.taxonomy %}
-        <em>{{ type }}:</em>
-        {% for link, value in values %}
-                <a href="{{ link }}">{{ value }}</a>{% if not loop.last %}, {% endif %}
-        {% endfor %}
-        {% if not loop.last %} - {% endif %}
+{% for type, values in record|taxonomy %}
+    <em>{{ type }}:</em>
+    {% for link, value in values %}
+            <a href="{{ link }}">{{ value }}</a>{% if not loop.last %}, {% endif %}
     {% endfor %}
-{% endif %}
+    {% if not loop.last %} - {% endif %}
+{% endfor %}
 ```
 
 For a slightly more sophisticated example, see the default taxonomy links
