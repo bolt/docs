@@ -61,23 +61,23 @@ categories:
     options: [ news, events, movies, music, books, life, love, fun ]
 ```
 
-The common options are: 
+The common options are:
 
 | Option name | Description |
 |-------------|-------------|
 | `slug`, `singular_slug` | The plural and singular names of the taxonomies, that are used internally. Use alphanumeric lowercase slugs only. |
 | `name`, `singular_name` | The plural and singular "pretty names" that are used for the taxonomy. You can use both uppercase and lowercase, as well as numbers and spaces in these. |
 | `behaves_like` | Each taxonomy has a required value for `behaves_like` value, that defines the type of the taxonomy. Allowed values are `tags`, `categories` and `grouping`. |
-| `allow_spaces` | This option is used for tags taxonomies only, and defines  whether or not the tag taxonomy will allow spaces in the tags. Allowed values are `true` and `false`. For example, if set to `true`, an input of "star wars" will add a single tag called "star wars". If set to `false`, this same input will add two separate tags called "star" and "wars". | 
+| `allow_spaces` | This option is used for tags taxonomies only, and defines  whether or not the tag taxonomy will allow spaces in the tags. Allowed values are `true` and `false`. For example, if set to `true`, an input of "star wars" will add a single tag called "star wars". If set to `false`, this same input will add two separate tags called "star" and "wars". |
 | `listing_template` | By default, a taxonomy's listing page will use the `listing.twig` template. However, by specifying a `listing_template`, you can set a different template for each taxonomy. Bolt will automatically create listing pages for all taxonomies using the slug. For example `/category/movies` will display all records that have the "movies" category. |
 | `multiple` | This option is used for category taxonomies only, and defines whether or not the editor can select multiple categories. |
 | `has_sortorder` | This option is used for grouping taxonomies only, and defines whether the group has its own sorting order. See below for an example of this. |
-| `options` | This option is used for grouping and categories taxonomies, and defines the possible options for the editor to chose. The values can either be an array or a hash. See below for an example. 
+| `options` | This option is used for grouping and categories taxonomies, and defines the possible options for the editor to chose. The values can either be an array or a hash. See below for an example.
 
 Setting options
 ---------------
 
-Both the grouping as well as the categories Taxonomies use a number of set options. You can set these possible options in your `taxonomy.yml`, after which the editor can select one or more of them when they are editing the content. Yaml allows us to specifiy these options in a few different ways, depending on your needs. 
+Both the grouping as well as the categories Taxonomies use a number of set options. You can set these possible options in your `taxonomy.yml`, after which the editor can select one or more of them when they are editing the content. Yaml allows us to specifiy these options in a few different ways, depending on your needs.
 
 ### Simple sequence
 
@@ -85,11 +85,12 @@ Both the grouping as well as the categories Taxonomies use a number of set optio
 categories:
     …
     options: [ news, events, movies ]
-```    
+```
 
 ### Mapping
 
-If you like more control over the display names for the taxonomies, you can specify the options using a mapping in your Yaml: 
+If you like more control over the display names for the taxonomies, you can
+specify the options using a mapping in your Yaml:
 
 ```
 categories:
@@ -98,20 +99,27 @@ categories:
         news: Latest News
         events: Current Events
         movies: Cool Movies
-```   
+```
 
 Sorting order
 -------------
 
-Bolt ContentTypes can have their own sorting order. Usually this is defined as something like `sort: title` in the ContentType to sort alphabetically by title. Sometimes it might make more sense to use a grouping Taxonomy, and sort within those groups. To do this, you can add `has_sortorder`, which allows the editor to not only select a group to classify a record, but it also allows them to set a sorting order by which the records inside that specific group are sorted. 
+Bolt ContentTypes can have their own sorting order. Usually this is defined as
+something like `sort: title` in the ContentType to sort alphabetically by
+title. Sometimes it might make more sense to use a grouping Taxonomy, and sort
+within those groups. To do this, you can add `has_sortorder`, which allows the
+editor to not only select a group to classify a record, but it also allows them
+to set a sorting order by which the records inside that specific group are
+sorted.
 
 <a href="/files/taxonomy_sortorder2.png" class="popup"><img src="/files/taxonomy_sortorder2.png" width="500"></a>
 
-In Bolt's backend listing for the content-type, the content will be organised by the selected group, and it will be sorted by the sorting order: 
+In Bolt's backend listing for the content-type, the content will be organised
+by the selected group, and it will be sorted by the sorting order:
 
 <a href="/files/taxonomy_sortorder1.png" class="popup"><img src="/files/taxonomy_sortorder1.png" width="500"></a>
 
-Note that the sorting is done inside the group only. 
+Note that the sorting is done inside the group only.
 
 Adding Taxonomies to ContentTypes
 ---------------------------------
@@ -152,15 +160,18 @@ something like this:
 {% endif %}
 ```
 
-If you're using a listing, and would like to access the taxonomy name, simply use `{{ slug }}`.
+If you're using a listing, and would like to access the taxonomy name, simply
+use `{{ slug }}`.
 
 Displaying all used taxonomies
 ------------------------------
 
-If you'd like to just display the used Taxonomies in your templates, you can either write some twig code to output all of them in sequence, but for a quick fix, you can use a snippet like the following: 
+If you'd like to just display the used Taxonomies in your templates, you can
+either write some Twig code to output all of them in sequence, but for a quick
+fix, you can use a snippet like the following:
 
-After updating your content with Taxonomies, you can edit your templates to show
-the Taxonomies and to link to automatically generated listing pages:
+After updating your content with Taxonomies, you can edit your templates to
+show the Taxonomies and to link to automatically generated listing pages:
 
 ```twig
 {% if record.taxonomy is defined %}
@@ -174,10 +185,12 @@ the Taxonomies and to link to automatically generated listing pages:
 {% endif %}
 ```
 
-For a slightly more sophisticated example, inspect the file 
-`theme_defaults/_sub_taxonomylinks.twig`, or even use it directly in your own
+For a slightly more sophisticated example, see the default taxonomy links
+template [`_sub_taxonomylinks.twig`][tax], or even use it directly in your own
 theme:
 
-```twig 
+```twig
 {% include '_sub_taxonomylinks.twig' with {record: record} %}
 ```
+
+[tax]: https://github.com/bolt/bolt/blob/%%VERSION%%/app/theme_defaults/_sub_taxonomylinks.twig
