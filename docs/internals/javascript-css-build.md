@@ -5,7 +5,7 @@ level: advanced
 Developing and Compiling the Bolt JS and CSS assets
 ===================================================
 
-Bolt's backend has a lot of Javascript and CSS, in order to make it look good,
+Bolt's backend has a lot of JavaScript and CSS, in order to make it look good,
 and work smoothly for the editors that use this environment. Meanwhile, it can
 be daunting to developers who need to either debug something in the Bolt
 backend, or who wish to use the available code to extend the backend in their
@@ -14,41 +14,44 @@ extensions.
 This page will give some insights into how it is structured, and how you can
 compile the assets in order to work with them.
 
-For starters, Bolt's backend build process builds both the Javascript as well
+For starters, Bolt's backend build process builds both the JavaScript as well
 as the CSS. Both of these consist of external packages we leverage, as well as
 our own code.
+
 
 Quickstart
 ----------
 
-To get started, you'll need to have NPM, Node and Grunt on your system. The build process works best using Node 5.* and recent versions of Grunt. The following is known to work:
+To get started, you'll need to have [Node.js][node] and [Yarn][yarn] on your
+system. The build process works best using Node 6+ and Yarn 1.0+.
 
- - `npm -v`: 3.10.7
- - `node -v`: v5.12.0
- - `grunt -v`: grunt-cli: The grunt command line interface (v1.2.0)
-
-To get the required node modules, and pull in other dependencies, run:
+To get the required modules, and pull in other dependencies, change into the
+`app/src/` directory and run:
 
 ```
-npm install
-grunt updateLib
-grunt prepareCkeditor
-grunt updateBolt
+yarn install --strict-semver
 ```
 
-After this, start the Grunt watch process, to update the files while you're
-working on them.
+You can then build or rebuild assets files by running:
 
 ```
-grunt
+yarn run grunt build
 ```
 
-CSS - Bootstrap and custom scss
+Alternatively, you can start the Grunt "watch" task that will update the built
+asset files while you're working on them by running:
+
+```
+yarn run grunt watch
+```
+
+
+CSS - Bootstrap and custom SCSS
 -------------------------------
 
 The CSS is based on [Bootstrap 3.3.7][bs], with our own theming and custom
 styles added to that. It is built using sass. The main Bootstrap files are
-found at `app/src/node_modules/bootstrap-sass`. Our custom scss can be found at
+found at `app/src/node_modules/bootstrap-sass`. Our custom SCSS can be found at
 `app/src/sass/`
 
 This folder contains the `.scss` files for the development of the back-end
@@ -57,12 +60,14 @@ theme. The `.scss` files will be compiled into normal stylesheets in the
 
 There is one main `.scss` file in the `sass/` directory: `app.scss`
 
+
 ### Folders
 
 Within the `modules/` folder you'll find all sass partials that should be
 included in the main app `.scss` files. In `_base.scss` we set all variables,
 mixins, extends and other sass statements that do not generate any styles in
 the final built file.
+
 
 ### Media Query Handling
 
@@ -86,7 +91,7 @@ For instance:
 }
 ```
 
-`$medium-screens` is coupled to a certain 'em' based width for the viewport
+`$medium-screens` is coupled to a certain 'em' based width for the viewport.
 
 As we develop 'mobile first' the base styles are not in a Media Query, so we set
 the following: (assuming our base em size of `1em` is `16px`)
@@ -99,17 +104,20 @@ the following: (assuming our base em size of `1em` is `16px`)
 See `_base.scss` for the current values.
 
 
-Javascript - Bootstrap, jQuery, CKeditor and more
+JavaScript - Bootstrap, jQuery, CKEditor and more
 -------------------------------------------------
 
-Our Javascript source files can be found in `app/src/js`. Some of the files are included in our git repository, others are pulled in using either NPM or our grunt build process.
+Our JavaScript source files can be found in `app/src/js`. Some of the files are
+included in our git repository, others are pulled in using either NPM or our
+Grunt build process.
 
-The final Javascript files are built int `app/view/js/`.
+The final JavaScript files are built int `app/view/js/`.
 
-Available grunt tasks
+
+Available Grunt tasks
 ---------------------
 
-- **`grunt`**<br> Starts the watch task that monitors the Javascript and Sass source files and
+- **`grunt`**<br> Starts the watch task that monitors the JavaScript and Sass source files and
   automatically rebuilds `bolt.js`, `bolt.css` and `liveeditor.css` when changes are detected.
 
 - **`grunt updateBolt`**<br> Manually starts a rebuild of `bolt.js`, `bolt.css` and
@@ -128,7 +136,7 @@ Available grunt tasks
     * Run `grunt prepareCkeditor` to get files prepared.
     * Run `grunt updateLib` to get everything in place.
 
-- **`grunt docJs`**<br> Generates documentation of Bolt's own Javascript modules in the folder
+- **`grunt docJs`**<br> Generates documentation of Bolt's own JavaScript modules in the folder
   `docs/js`.
 
 - **`grunt docPhp`**<br> Generates documentation of Bolt source files in the folder `docs/php`.
@@ -139,11 +147,12 @@ Available grunt tasks
 - **`grunt lintBoot`**<br> Downloads Bolt backend pages defined in `grunt-local/pages.js` and
   checks them for Bootstrap errors and problems.
 
+
 Local options
 -------------
 
-Add JS options files to the folder `app/src/grunt-local/`, in which you can put the options you
-want to overwrite. The content of these files look like:
+Add JS options files to the folder `app/src/grunt-local/`, in which you can put
+the options you want to overwrite. The content of these files look like:
 
 ```javascript
     module.exports = {
@@ -155,8 +164,9 @@ These files will automatically be ignored by git.
 
 ### Sourcemaps
 
-If it doesn't yet exist, create the file `app/src/grunt-local/sourcemap.js`. A sample file to
-enable generation of sourcemaps looks like this:
+If it doesn't yet exist, create the file `app/src/grunt-local/sourcemap.js`.
+
+A sample file to enable generation of sourcemaps looks like this:
 
 ```javascript
     module.exports = {
@@ -165,10 +175,14 @@ enable generation of sourcemaps looks like this:
     };
 ```
 
+
 ### Pages
 
-For the linting tasks you have to define a list of pages to download to the `tmp/pages` folder. If it doesn't yet exist, create the file `app/src/grunt-local/pages.js`. A sample file to
-enable this task looks like this:
+For the linting tasks you have to define a list of pages to download to the
+`tmp/pages` folder. If it doesn't yet exist, create the file `app/src/grunt-local/pages.js`.
+
+A sample file to enable this task looks like this:
+
 ```javascript
     module.exports = {
         baseurl: "http://bolt.localhost/bolt/",
@@ -176,7 +190,8 @@ enable this task looks like this:
     };
 ```
 
-The key of the `requests` part is the filename and the value defines the page to download.
+The key of the `requests` part is the filename and the value defines the page
+to download.
 
 - If no extension is given on the request key `.html` is automatically appended.
 - If the value is a string it is handled as a GET request with that value a relative url.
@@ -185,6 +200,7 @@ The key of the `requests` part is the filename and the value defines the page to
 - If the key is `@login` it is handled as not saved login request.
   The value has to be `{u: "<username>", p: "<password>"}` then.
 - If the key is `@logout` it is handled as not saved logout request. The value has to be `{}` then.
+
 
 #### Example: Key handling
 
@@ -200,6 +216,8 @@ Three requests save the same page to file `login.html`.
         }
     };
 ```
+
+
 #### Example: POST request
 
 Issue a manual login (same as `@login`, only page is saved as `dashboard.html`):
@@ -220,6 +238,8 @@ Issue a manual login (same as `@login`, only page is saved as `dashboard.html`):
         }
     };
 ```
+
+
 #### Example: "Full" interface check
 
 ```javascript
@@ -287,10 +307,13 @@ Issue a manual login (same as `@login`, only page is saved as `dashboard.html`):
         }
     };
 ```
+
+
 ### Bootlint
 
 If it doesn't yet exist, create the file `app/src/grunt-local/bootlint.js`. You can override
 Bootlint options, e.g.:
+
 ```javascript
     module.exports = {
         relaxerror: ["W012"],
@@ -299,6 +322,7 @@ Bootlint options, e.g.:
         stoponwarning: false
     };
 ```
+
 
 ### Htmllint
 
@@ -314,4 +338,6 @@ Htmllint options, e.g.:
     };
 ```
 
+[node]: https://nodejs.org/en/download/package-manager/
+[yarn]: https://yarnpkg.com/en/docs/install
 [bs]: https://github.com/twbs/bootstrap/releases/tag/v3.3.7
