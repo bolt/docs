@@ -9,7 +9,7 @@ pages:
     - bootstrapping
     - container-service-references
     - task-scheduler
-    - javascript_css_build
+    - javascript-css-build
 ---
 Bolt Internals
 ==============
