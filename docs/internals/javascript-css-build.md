@@ -26,7 +26,7 @@ To get started, you'll need to have [Node.js][node] and [Yarn][yarn] on your
 system. The build process works best using Node 6+ and Yarn 1.0+.
 
 To get the required modules, and pull in other dependencies, change into the
-`app/src/` directory and run:
+`assets/` directory and run:
 
 ```
 yarn install --strict-semver
@@ -51,8 +51,8 @@ CSS - Bootstrap and custom SCSS
 
 The CSS is based on [Bootstrap 3.3.7][bs], with our own theming and custom
 styles added to that. It is built using sass. The main Bootstrap files are
-found at `app/src/node_modules/bootstrap-sass`. Our custom SCSS can be found at
-`app/src/sass/`
+found at `assets/node_modules/bootstrap-sass`. Our custom SCSS can
+be found in the `assets/sass/` folder.
 
 This folder contains the `.scss` files for the development of the back-end
 theme. The `.scss` files will be compiled into normal stylesheets in the
@@ -107,9 +107,9 @@ See `_base.scss` for the current values.
 JavaScript - Bootstrap, jQuery, CKEditor and more
 -------------------------------------------------
 
-Our JavaScript source files can be found in `app/src/js`. Some of the files are
-included in our git repository, others are pulled in using either NPM or our
-Grunt build process.
+Our JavaScript source files can be found in `assets/js`. Some of the
+files are included in our git repository, others are pulled in using either NPM
+or our Grunt build process.
 
 The final JavaScript files are built int `app/view/js/`.
 
@@ -151,8 +151,9 @@ Available Grunt tasks
 Local options
 -------------
 
-Add JS options files to the folder `app/src/grunt-local/`, in which you can put
-the options you want to overwrite. The content of these files look like:
+Add JS options files to the folder `assets/grunt-local/`, in which
+you can put the options you want to overwrite. The content of these files look
+like:
 
 ```javascript
     module.exports = {
@@ -164,7 +165,7 @@ These files will automatically be ignored by git.
 
 ### Sourcemaps
 
-If it doesn't yet exist, create the file `app/src/grunt-local/sourcemap.js`.
+If it doesn't yet exist, create the file `assets/grunt-local/sourcemap.js`.
 
 A sample file to enable generation of sourcemaps looks like this:
 
@@ -179,7 +180,7 @@ A sample file to enable generation of sourcemaps looks like this:
 ### Pages
 
 For the linting tasks you have to define a list of pages to download to the
-`tmp/pages` folder. If it doesn't yet exist, create the file `app/src/grunt-local/pages.js`.
+`tmp/pages` folder. If it doesn't yet exist, create the file `assets/grunt-local/pages.js`.
 
 A sample file to enable this task looks like this:
 
@@ -311,8 +312,9 @@ Issue a manual login (same as `@login`, only page is saved as `dashboard.html`):
 
 ### Bootlint
 
-If it doesn't yet exist, create the file `app/src/grunt-local/bootlint.js`. You can override
-Bootlint options, e.g.:
+If it doesn't yet exist, create the file `assets/grunt-local/bootlint.js`.
+
+You can override Bootlint options, e.g.:
 
 ```javascript
     module.exports = {
@@ -326,8 +328,9 @@ Bootlint options, e.g.:
 
 ### Htmllint
 
-If it doesn't yet exist, create the file `app/src/grunt-local/htmllint.js`. You can override
-Htmllint options, e.g.:
+If it doesn't yet exist, create the file `assets/grunt-local/htmllint.js`.
+
+You can override Htmllint options, e.g.:
 
 ```javascript
     module.exports = {
