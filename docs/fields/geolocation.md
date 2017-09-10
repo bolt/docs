@@ -8,8 +8,9 @@ A set of fields for easy selection of a geographic location. You can use the
 given address, the latitude, longitude, and the reverse geocoded address. To
 see the values that are stored, use `{{ dump(page.geolocation) }}`.
 
-<p class="tip"><strong>Tip:</strong> This field requires a `google_api_key` key
- to be set in the main config.</p>
+<p class="tip"><strong>Note:</strong> This field requires a `google_api_key`
+key to be set in the main config as well as activating the "Google Maps JavaScript API"
+for your project on the <a href="https://console.cloud.google.com/apis">Google Cloud Platform Console</a></p>
 
 ## Basic Configuration:
 
@@ -31,4 +32,4 @@ Developer Guide][1]. Of course, you can use the geolocation with any mapping
 service you like, since latitude and longitude is a common geographic coordinate
 system used by many services.
 
-[1]: https://developers.google.com/maps/documentation/static-maps/
+[1]: https://developers.google.com/maps/documentation/static-maps/intro
