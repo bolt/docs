@@ -118,6 +118,10 @@ In the above example:
   * `setZone(Zone::BACKEND)` tells the injector to insert the `<link rel="stylesheet" href="path/web/koala.css">`
     on back-end pages, instead of the default of front-end
 
+<p class="note"><strong>Note:</strong> The <code>Stylesheet::create()</code>
+method is only avaiable in Bolt 3.3+, to support older versions of Bolt use
+<code>(new Stylesheet())</code>.</p>
+
 **NOTE:** To use the `Zone` class parameter, you should add the following `use`
 statement to your extension class file:
 
@@ -179,6 +183,10 @@ In the above example:
   * `setZone(Zone::BACKEND)` tells the injector to insert the `<script src="path/web/dropbear.js"></script>`
     on back-end pages, instead of the default of front-end
 
+<p class="note"><strong>Note:</strong> The <code>JavaScript::create()</code>
+method is only avaiable in Bolt 3.3+, to support older versions of Bolt use
+<code>(new JavaScript())</code>.</p>
+
 **NOTE:** To use the `Zone` class parameter, you should add the following `use`
 statement to your extension class file:
 
@@ -229,6 +237,10 @@ In the above example:
     snippet after other `<meta>`
   * `setPriority(5)` tells the injector when to insert the snippet. Higher
      priorities are inserted first
+
+<p class="note"><strong>Note:</strong> The <code>Snippet::create()</code>
+method is only avaiable in Bolt 3.3+, to support older versions of Bolt use
+<code>(new Snippet())</code>.</p>
 
 **NOTE:** To use the `Target` and `Zone` class parameters, you should add the
 following `use` statements to your extension class file:
@@ -298,6 +310,10 @@ In the above example:
      so it doesn't block the initial rendering of the page
   * `setPriority(5)` tells the injector when to insert the widget. Higher
      priorities are inserted first
+
+<p class="note"><strong>Note:</strong> The <code>Widget::create()</code>
+method is only avaiable in Bolt 3.3+, to support older versions of Bolt use
+<code>(new Widget())</code>.</p>
 
 **NOTE:** To use the `Target` and `Zone` class parameters, you should add the
 following `use` statements to your extension class file:
