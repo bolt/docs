@@ -244,7 +244,7 @@ The available options are:
 | `title_format` (optional) | Is used to determine the format of the title in the backend. For example if you have two fields for `firstname` and `lastname` you might put `[ firstname, lastname ]` here. |
 | `icon_many` (optional) | A [Font Awesome][fa] icon to be used in the sidebar for this ContentType. For example: `fa:cubes` |
 | `icon_one` (optional) | A [Font Awesome][fa] icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`. |
-| `allow_numeric_slugs` (optional, advanced) | By default, Bolt prefixes slugs purely numeric with the ContentType slug (e.g. `entry-123` for an entry with title `123`), in order to distinguish slugs from IDs. If this option is set to `true`, numeric slugs remain unprefixed. Care has to be taken not to use [routes][template-routes] of the form `/{contenttype}/{id}` for links in templates or for [fetching content][fetching-content]!
+| `allow_numeric_slugs` (optional, advanced) | By default, Bolt prefixes slugs purely numeric with the ContentType slug (e.g. `entry-123` for an entry with title `123`), in order to distinguish slugs from IDs. If this option is set to `true`, numeric slugs remain unprefixed. Care has to be taken not to use [routes][routing] of the form `/{contenttype}/{id}` for links in templates or for [fetching content][fetching-content]!
 
 The structure of a Record
 -------------------------
@@ -385,5 +385,5 @@ pages:
 [fetching-content]: ../templating/content-fetching
 [field-types]: ../fields
 [howto-resource-ct]: ../howto/resource-contenttype
-[template-routes]: ../templating/templates-routes
+[routing]: ../configuration/routing
 [bolt-twig]: ../templating/twig-functionality
