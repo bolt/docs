@@ -55,7 +55,7 @@ the intended one:
 ```
 
 By default, the menu is rendered using the template
-`/app/theme_defaults/_sub_menu.twig`. You can 'override' the default by copying
+`vendor/bolt/bolt/templates/defaults/_sub_menu.twig`. You can 'override' the default by copying
 this file to the root of your own theme folder. Bolt will pick your own version, and then
 it will not be overwritten in a future update. However, it is good practice to
 explicitly state which template file should be used to render a menu. Like
@@ -65,7 +65,7 @@ this:
 {{ menu('foo', 'partials/_sub_menu.twig') }}
 ```
 
-or 
+or
 
 ```twig
 {{ menu('foo', '/partials/_menu_foo.twig') }}
@@ -255,7 +255,7 @@ Some of the more commonly used 'tricks' are:
     `class` attribute, but only it the item has a `class` defined in the
     `.yml`-file.
 
-See the default `/app/theme_defaults/_sub_menu.twig` file for an in-depth
+See the default `vendor/bolt/bolt/templates/defaults/_sub_menu.twig` file for an in-depth
 example of all of the things you can do with menus. Remember that you should
 always copy this file to your own theme folder, or create your own from
 scratch. If you modify the default file, it will most likely get overwritten
