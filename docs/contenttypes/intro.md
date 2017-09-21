@@ -241,6 +241,7 @@ The available options are:
 | `default_status` (optional) | Use this to set the default status for new records in this ContentType, i.e. `published`, `held`, `draft` or `timed`. |
 | `searchable` (optional) | A boolean value to determine whether this ContentType should show up in search results. |
 | `viewless` (optional) | When set to `true`, routes will not be set for the ContentType listing, or the records themselves. Useful for creating [Resource ContentTypes][howto-resource-ct]. |
+| `singleton` (optional) | When set to `true`, the Bolt UI will adapt to give a fluent experience for ContentTypes with one post. Like a complex homepage or general settings. [Singletons][howto-singletons]. |
 | `title_format` (optional) | Is used to determine the format of the title in the backend. For example if you have two fields for `firstname` and `lastname` you might put `[ firstname, lastname ]` here. |
 | `icon_many` (optional) | A [Font Awesome][fa] icon to be used in the sidebar for this ContentType. For example: `fa:cubes` |
 | `icon_one` (optional) | A [Font Awesome][fa] icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`. |
@@ -385,5 +386,6 @@ pages:
 [fetching-content]: ../templating/content-fetching
 [field-types]: ../fields
 [howto-resource-ct]: ../howto/resource-contenttype
+[howto-singletons]: ../howto/singleton-contenttype
 [routing]: ../configuration/routing
 [bolt-twig]: ../templating/twig-functionality
