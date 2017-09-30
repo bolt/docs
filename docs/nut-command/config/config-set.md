@@ -45,7 +45,7 @@ New value for debug: true was successful. File updated.
 ```
 
 
-### Setting a ContentType fiel type
+### Setting a ContentType field type
 
 ```bash
 $ ./app/nut config:set pages/fields/body/type text --file contenttypes.yml
