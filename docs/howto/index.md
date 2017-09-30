@@ -3,6 +3,7 @@ title: HOWTOs on various subjects
 short_title: HOWTOs
 pages:
     - resource-contenttype
+    - singleton-contenttype
     - simple-menu
     - resetting-a-password
     - using-php-built-in-web-server
