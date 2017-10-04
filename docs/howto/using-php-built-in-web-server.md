@@ -21,7 +21,7 @@ If you wish to specify a host name or different TCP port, simply add these after
 php ./app/nut server:run example.com --port=8080
 ```
 
-<p class="note"><strong>Note:</strong>Using the method above is preferred over 
-using <tt>php -s</tt> directly. The latter might seem to work at first glance, 
-but the paths of assets will be wrong, and you will not be able to edit files 
+<p class="note"><strong>Note:</strong> Using the method above is preferred over
+using <tt>php -s</tt> directly. The latter might seem to work at first glance,
+but the paths of assets will be wrong, and you will not be able to edit files
 through the Bolt backend.</p>
