@@ -143,6 +143,15 @@ To see the available values for an image, use:
 {# assuming 'record.image' is the image of the current record. #}
 ```
 
+For images in `imagelist` field types use:
+
+```twig
+{% for image in record.imagelist %}
+    {{ dump(imageinfo(image.filename)) }}
+{% endfor %}
+```
+
+
 The aspect ratio is the proportional relationship between the width and the
 height of the image. In general, this is used to determine whether an image is
 'landscape' or 'portrait'. Note that an image is considered to be landscape if
