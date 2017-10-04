@@ -5,11 +5,19 @@ level: intermediate
 setup:deploy
 ============
 
-Nut's `setup:deploy` is a simple tool to deploy a build of the current site 
+<p class="note"><strong>Note:</strong> The command is provided by a separate
+package called <code>bolt/simple-deploy</code> that is installed by default
+with archive distributions, but needs to manually be included with Composer
+project installs.</p>
+
+Nut's `setup:deploy` is a simple tool to deploy a build of the current site
 from a local workstation to a (S)FTP enabled destination host.
 
 To use this tool, on your development machine **only** you can create a file
 named `.deploy.yml`.
+
+<p class="note"><strong>Note:</strong> This command will not appear in the list
+of available commands if the <code>.deploy.yml</code> file is not present.</p>
 
 Each key in the `.deploy.yml` represents a deployment target that can be
 uploaded to the remote destination via either FTP or SFTP (secure FTP).
@@ -17,8 +25,10 @@ uploaded to the remote destination via either FTP or SFTP (secure FTP).
 Every deployment configuration you add to `.deploy.yml` must set the `protocol`
 to either `ftp` or `sftp`, and an `options` array.
 
-**NOTE:** If your host provides SFTP, it is the preferred upload method as it
-is both faster and more secure than FTP alone, and supports more functionality.
+<p class="note"><strong>Note:</strong> If your host provides SFTP, it is the
+preferred upload method as it is both faster and more secure than FTP alone,
+and supports more functionality.</p>
+
 
 ## Usage
 
