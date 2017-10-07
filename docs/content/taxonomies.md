@@ -105,7 +105,7 @@ Setting options
 Both the grouping as well as the categories Taxonomies use a number of set
 options. You can set these possible options in your `taxonomy.yml`, after which
 the editor can select one or more of them when they are editing the content.
-Yaml allows us to specifiy these options in a few different ways, depening on
+Yaml allows us to specify these options in a few different ways, deepening on
 your needs.
 
 ### Simple sequence
