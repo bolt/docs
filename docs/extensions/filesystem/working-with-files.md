@@ -12,7 +12,7 @@ object.
 
 ```php
     /** @var bool $exists */
-    $exists = $filesystem->exists($path);
+    $exists = $filesystem->has($path);
 ```
 
 | Variable | Type | Description 
@@ -122,5 +122,5 @@ Where:
 
 <p class="note"><strong>Note:</strong> The <code>delete()</code> method will 
 throw a `\Bolt\Filesystem\Exception\FileNotFoundException` if you attempt to 
-delete a non-existing file, use <code>exists()</code> to check its existance,
+delete a non-existing file, use <code>$filesystem->has($path)</code> to check its existance,
 or <code>try</code>/<code>catch</code> if preferred.</p>
