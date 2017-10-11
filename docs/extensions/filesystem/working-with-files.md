@@ -11,8 +11,14 @@ object.
 #### Checking if a file exists
 
 ```php
-    /** @var bool $exists */
-    $exists = $filesystem->exists($path);
+    /** @var \Bolt\Filesystem\FilesystemInterface $filesystem */
+    $filesystem = $this->app['filesystem']->getFilesystem('files');
+    /** @var \Bolt\Filesystem\Handler\File $file */
+    $file = $filesystem->getFile($path);
+    if ($file->exists()) {
+        // it exists, lets delete it
+        $file->delete();
+    }
 ```
 
 | Variable | Type | Description 
