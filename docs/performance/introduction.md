@@ -54,7 +54,8 @@ crashes, or the server has some malfunction), no sensitive information will be
 shown to the visitors of the site.
 
 ```yaml
-debug_error_level: 0
+debug_error_level: 8181   # error level when debug enabled
+production_error_level: 0 # error level when debug disabled
 
 debuglog:
     enabled: false
@@ -204,7 +205,8 @@ branding:
 
 # Debug settings
 debug: false
-debug_error_level: 0
+debug_error_level: 8181   # error level when debug enabled
+production_error_level: 0 # error level when debug disabled
 
 debuglog:
     enabled: false
