@@ -1,6 +1,6 @@
 ---
 title: Autoloading
-level: advanced
+level: intermediate
 ---
 Autoloading
 ===========
@@ -21,7 +21,7 @@ $ cp composer.lock.dist composer.lock
 ```
 
 
-### Updating `composer.json` autoload
+### Updating `composer.json` PSR-4 autoloading
 
 You need to make one entry for each of your bundled extensions in your root
 `composer.json` file, e.g.:
@@ -29,13 +29,12 @@ You need to make one entry for each of your bundled extensions in your root
 ```json
     "autoload" : {
         "psr-4" : {
-            "BundleBaseNamespace\\": "src/BundleBaseNamespace",
-            "Acme\\OtherBundleBaseNamespace\\": "extensions/acme/frozbot/OtherBundleBaseNamespace"
+            "Bundle\\Site\\": "src/"
         }
     }
 ```
 
-The setup here is identical to how you would setup your own application. You
+The setup here is identical to how you would set up your own application. You
 may well decide to move extensions to be part of your main Application
 namespace, and location:
 
@@ -45,7 +44,7 @@ namespace, and location:
 After updating the `autoload` section of your `composer.json` file, you will
 need to update the project's autoloader.
 
-First thing you will need, if you don't have it already, is a recent version of
+First thing you will need if you don't have it already, is a recent version of
 Composer. To get this, see the [Composer Download][composer] page for
 instructions.
 
