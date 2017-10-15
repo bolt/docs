@@ -4,13 +4,14 @@ title: Repeater field
 Repeater field
 ==============
 
-A special field type available as a field definition is the `repeater` field type which
-allows you to compose an array-like structure of sub-fields within a single field name.
+A special field type available as a field definition is the `repeater` field
+type which allows you to compose an array-like structure of sub-fields within a
+single field name.
 
 ## Basic Configuration:
 
-The configuration of a repeating field set comprises the main field set name, along with
-the definition of the sub fields.
+The configuration of a repeating field set comprises the main field set name,
+along with the definition of the sub fields.
 
 ```yaml
         features:
@@ -27,8 +28,14 @@ the definition of the sub fields.
 
 As you can see the field is configured with a type of `repeater` and then the sub-fields
 are configured under the `fields` attribute. In general you can include any valid fields
-within a repeater, there are a few that are not supported `slug`, `templatefield` and
-`repeater` itself.
+within a repeater, there are a few that are not supported.
+
+<p class="note"><strong>Note:</strong> Repeaters are useable with most of the
+available field types, except for a few where it would get too complex, or where
+it simply does not make sense to have more than one of. In short, do
+<strong>not</strong> use <code>type: slug</code>, <code>type: repeater</code> or
+<code>type: templateselect</code> as fields in your repeater. These fields will
+not work as expected. </p>
 
 ## Example usage in templates:
 
@@ -62,17 +69,6 @@ but knowing that our repeat set comprises the individual sub-fields
 
 ```twig
 {% for company in record.companies %}
-    <h2>{{ company.get('companyname') }}</h2>
-    <h4>Tel: {{ company.get('telephone') }}</h4>
-    <h4>Email: <a href="mailto:{{ company.get('email') }}">{{ company.get('email') }}</a></h4>
-    <hr>
-{% endfor %}
-```
-
-If you prefer the dot-notation to access field values, you can also omit the `get()` function.
-
-```twig
-{% for company in record.companies %}
     <h2>{{ company.companyname }}</h2>
     <h4>Tel: {{ company.telephone }}</h4>
     <h4>Email: <a href="mailto:{{ company.email }}">{{ company.email }}</a></h4>
@@ -88,8 +84,8 @@ contenttype with a `sections` repeater, acces them like this:
 
 ```twig
 {% for section in record.sections %}
-    <img src="{{ section.get('repeatimage')|image(1200, 800, "r") }}"
-        alt="{{ section.get('repeatimage').title }}">
+    <img src="{{ section.repeatimage|image(1200, 800, "r") }}"
+        alt="{{ section.repeatimage.title }}">
 {% endfor %}
 ```
 
@@ -102,7 +98,7 @@ The field has two specific options:
   for that option looks like this:
 * `initial`: How many empty sets are created initially. This defaults to 1
   but when a sub-field is marked as required you may want to set it to `0` to
-  ensure that a user must manually add a set first.  
+  ensure that a user must manually add a set first.
 
 ```yaml
         features:
