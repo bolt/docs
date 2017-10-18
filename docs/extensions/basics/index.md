@@ -6,8 +6,6 @@ pages:
     - basics
     - creating
     - configuration
-    - twig
-    - web-assets
     - testing
 level: intermediate
 ---
