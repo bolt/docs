@@ -5,19 +5,9 @@ level: intermediate
 Working with directories
 ========================
 
-Each directory in the filesystem is an instance of an 
+Each directory in the filesystem is an instance of an
 `\Bolt\Filesystem\Handler\DirectoryInterface` object.
 
-#### Checking if a directory exists
-
-```php
-    /** @var bool $exists */
-    $exists = $filesystem->exists($path);
-```
-
-| Variable | Type | Description 
-| -------- | ---- | -----------
-| `$path`  | `string` | The path to the directory
 
 #### Get a directory object
 
@@ -26,9 +16,22 @@ Each directory in the filesystem is an instance of an
     $dirObj = $filesystem->getDir($path);
 ```
 
-| Variable | Type | Description 
+| Variable | Type | Description
 | -------- | ---- | -----------
 | `$path`  | `string` | The path to the directory
+
+
+#### Checking if a directory exists
+
+```php
+    /** @var bool $exists */
+    $exists = $dirObj->exists($path);
+```
+
+| Variable | Type | Description
+| -------- | ---- | -----------
+| `$path`  | `string` | The path to the directory
+
 
 #### Copy Directories
 
@@ -40,7 +43,7 @@ Copies a directory and its contents to another.
 
 Where:
 
-| Variable | Type | Description 
+| Variable | Type | Description
 | -------- | ---- | -----------
 | `$originDir` | `string`      | The origin directory
 | `$targetDir` | `string`      | The target directory
@@ -63,7 +66,7 @@ target if they are not in source.</p>
 
 Where:
 
-| Variable | Type | Description 
+| Variable | Type | Description
 | -------- | ---- | -----------
 | `$originDir` | `string` | The origin directory
 | `$targetDir` | `string` | The target directory
@@ -71,14 +74,14 @@ Where:
 
 Key/value pairs that make up `$config`
 
-| Name | Type | Description 
+| Name | Type | Description
 | ---- | ---- | -----------
 | `delete`   | `bool`/`null` | Whether to delete files that are not in the source
 | `override` | `bool`/`null` | Whether to override an existing file
 | | | true = always override the target
 | | | false = never override the target
 | | | null = only override the target if the source is newer
-                    
+
 
 #### Create Directories
 
@@ -90,10 +93,11 @@ Create a directory.
 
 Where:
 
-| Variable | Type | Description 
+| Variable | Type | Description
 | -------- | ---- | -----------
 | `$dirname`| `string` | The target directory
 | `$config` | `array`  | Optional configuration array
+
 
 #### Delete Directories
 
@@ -105,6 +109,6 @@ Delete a directory.
 
 Where:
 
-| Variable | Type | Description 
+| Variable | Type | Description
 | -------- | ---- | -----------
 | `$dirname`| `string` | The target directory
