@@ -33,9 +33,8 @@ how they behave. There are three main types of Taxonomy:
     viewed as a part of the other records with the same grouping. As such, a
     record can have only one 'grouping' at most.
 
-The default `taxonomy.yml` has good examples of all three types. If
-`name` and `singular_name` are omitted, they are generated automatically by
-Bolt.
+The default `taxonomy.yml` has good examples of all three types. If `name` and
+`singular_name` are omitted, they are generated automatically by Bolt.
 
 ```yaml
 tags:
@@ -77,7 +76,11 @@ The common options are:
 Setting options
 ---------------
 
-Both the grouping as well as the categories Taxonomies use a number of set options. You can set these possible options in your `taxonomy.yml`, after which the editor can select one or more of them when they are editing the content. Yaml allows us to specifiy these options in a few different ways, depending on your needs.
+Both the grouping as well as the categories Taxonomies use a number of set
+options. You can set these possible options in your `taxonomy.yml`, after
+which the editor can select one or more of them when they are editing the
+content. Yaml allows us to specifiy these options in a few different ways,
+depending on your needs.
 
 ### Simple sequence
 

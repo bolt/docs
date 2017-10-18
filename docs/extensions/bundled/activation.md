@@ -1,6 +1,6 @@
 ---
 title: Activation
-level: advanced
+level: intermediate
 ---
 Activation
 ==========
