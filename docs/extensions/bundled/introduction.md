@@ -1,122 +1,81 @@
 ---
 title: Introduction
-level: advanced
+level: intermediate
 ---
 Introduction
 ============
 
+## What is a Bundle
+
 Bundled extensions, or "Bundles", should be thought of as _components_ that are
-_specific_ to **your site project(s)**. As such they are developed, managed, and
-deployed using the same tools and methodologies you would normally use to deploy 
-your Bolt site.
+_specific_ to **your site project**.
 
-Writing a Bundle has a lot in common with writing a regular extension, such as
-you'd find, and install, from the [Market Place][market] – it's often as 
-simple as creating a class in your Application that implements
-`Bolt\Extension\ExtensionInterface`.
+Simply a Bundle is:
 
-However, it is very important to note that, Bundles **do not**:
-  * Manage updating of web included web assets with public directories
+ - A PHP loader class located in the site `src/` directory* that implements
+   `Bolt\Extension\ExtensionInterface` and adds your required functionality to
+   the application container
+ - A PSR-4 autoload entry, e.g. `"Bundle\\": "src/"`
+ - An `extensions:` value in your `.bolt.yml` file, e.g.
+   `- Bundle\Site\CustomisationExtension`
+
+Every Bundle you implement for your site will have these properties.
+
+Bundles are developed, managed, and deployed using the same tools and
+methodologies you would normally use to deploy your Bolt site.
+
+Bundles have a lot in common with regular extensions, such as you'd install
+from the [Marketplace][market].
+
+<p class="note"><strong>Note:</strong> Bundle PHP class files can live anywhere
+on your project's filesystem. However for simplicity, and ease of understanding
+documented examples, it is recommended that they are placed in either the
+project's <code>src/</code> directory or a subdirectory thereof.</p>
+
+
+## What a Bundle is not
+
+Bundles are, by design, intended as PHP code that provides a collection of
+**site-specific** functionality.
+
+It is very important to note that, Bundles **do not**:
+
+  * Manage updating of included web assets with public directories
   * Require a `composer.json` file
   * Auto-configure autoloading
 
-<p class="note"><strong>Note:</strong> Bundles are, by design, intended
-as a collection of <strong>site-specific</strong>, functionality
-enhancing PHP code. File types such as Twig templates, CSS, and
-JavaScript, are normally better suited being located inside your site's 
+<p class="note"><strong>Note:</strong> File types such as Twig templates, CSS,
+and JavaScript, are normally better suited being located inside your site's
 theme directory.</p>
 
 
-### Getting Started
+## When & why to use a Bundle
 
-The initial design & build of a Bundle has the following aspects that we
-highlight below:
-  * [Bundle files location & layout](#bundle-files-location-amp-layout)
-  * [Bundle loader class design](#bundle-loader-class-design)
-  * [Bundle namespace](#bundle-namespace)
-  * [Building the Bundle](#building-the-bundle)
-  * [Autoloading configuration](#autoloading-configuration)
-  * [Activation configuration](#activation-configuration)
+Bundles are intended for:
 
+ - Functionality that is specific to a site
+ - Code that is intended to be committed to your project's version control
 
-#### Bundle namespace
+Bundles are **not** intended for:
 
-Bundles need to be defined inside their own base namespace. This namespace
-is important to decide on first, as it will influence the target
-directory location of your Bundle, and is needed for your _autoloading_,
-and _activation_ configuration
-
-<p class="note"><strong>Note:</strong> The last name in the namespace
-path internally serves as the "author" name.</p>
+ - Publishing on the Bolt Marketplace
+ - Running extensions from the Bolt Marketplace
 
 
-#### Bundle files location & layout
-
-Bundles should be thought of as part of your site project's code, and as such
-their location relative to your site's root directory is flexible.
-
-The choice of location should be considered carefully, and according to both
-your project and Bundle's design requirements.
-
-For further reading, see the [Bundle file location][file-location] section.
-
-
-#### Bundle loader class design
-
-Your first architectural decision is the type of _extension loader_ class you
-are going to use to define and load your Bundle.
-
-You can chose to write your class, in order of difficulty, as:
-  * Simplicity — Just extend `\Bolt\Extension\SimpleExtension` and your class
-    loader will have immediate access to a "quick build" loader class
-  * Lightweight — Extend `\Bolt\Extension\AbstractExtension` for an
-    implementation of the `ExtensionInterface`
-  * Full control — Build your own complete implementation of
-    `\Bolt\Extension\ExtensionInterface`
-
-<p class="note"><strong>Note:</strong> The Bundle's loader class name,
-minus any "Extension" suffix, internally serves as the Bundle name.</p>
-
-
-#### Building the Bundle
-
-With a few minor exceptions, the [Basics][extensions-basics],
-[Intermediate][extensions-intermediate], and
-[Advanced][extensions-advanced] sections on writing extensions are a
-good reference point.
-
-
-#### Autoloading configuration
-
-[Autoloading section][autoloading]
-
-
-#### Activation configuration
-
-Once you have a bundled extension loaded in your application, the interface
-within the Bolt extensions screen has also been adjusted to separate bundled
-extensions from those installed via the Market Place.
-
-Your bundled extensions will now appear underneath the other installed
-extensions.
-
-[Activation section][activation]
-
-
-Difference to Market Place Extensions
--------------------------------------
-
-<p class="note"><strong>Note:</strong> One big difference between bundled and
-normal extensions, is that bundled extensions <strong>do not</strong> require
-their own <code>composer.json</code> file.</p>
+## Difference to Marketplace Extensions
 
 Bundled extensions are completely self-managed in terms of configuration,
 automatic set-up of CSS & JavaScript assets in public locations, etc.
 
-[file-location]: ../bundled/file-location
-[autoloading]: ../bundled/autoloading
-[activation]: ../bundled/activation
-[extensions-basics]: ../basics/basics
-[extensions-intermediate]: ../basics/intermediate
-[extensions-advanced]: ../basics/advanced
+One big difference between Bundles and normal extensions is that Bundles
+**do not** require their own `composer.json` file.
+
+
+## Getting Started
+
+For an overview of a basic site based Bundle recipe see the [Bundle Quick Start][qs]
+guide, or for the complete guide, see the [Building Bundles][building] page.
+
+[qs]: quick-start
+[building]: building-bundles
 [market]: https://market.bolt.cm/
