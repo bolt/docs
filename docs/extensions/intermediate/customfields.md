@@ -101,6 +101,7 @@ namespace Bolt\Extensions\Bolt\ColourPicker;
 use Bolt\Asset\File\JavaScript;
 use Bolt\Asset\File\Stylesheet;
 use Bolt\Extension\SimpleExtension;
+use Bolt\Extensions\Bolt\ColourPicker\Field\ColourPickField;
 
 class ColourPickerExtension extends SimpleExtension
 {
@@ -142,7 +143,7 @@ loads from the `web` directory.
 
 Next we need to add our own custom field onto the built in field manager. To do
 this we need to create a function called `registerFields()` that will return an
-array of one or more classes that implement `FieldInterface`.
+array of one or more classes that implement `Bolt\Storage\Field\Type\FieldTypeInterface`.
 
 This block does just that:
 
@@ -181,7 +182,8 @@ The Field Class
 
 You can see in the provider class above we added a new instance of
 ColourPickField to the Bolt field manager. Any new field needs to implement the
-`Bolt\Field\FieldInterface` which has a few fairly simple requirements.
+`Bolt\Storage\Field\Type\FieldTypeInterface` which has a few fairly simple
+requirements.
 
 We firstly need to tell Bolt what name the field will use (this is how it will
 be set in `contenttypes.yml`) and also what template will be used to render the
@@ -191,12 +193,12 @@ Here's the final code for our new field:
 
 ```
 <?php
-
+// File is in src/Field/ColourPickField.php
 namespace Bolt\Extensions\Bolt\ColourPicker\Field;
 
-use Bolt\Field\FieldInterface;
+use Bolt\Storage\Field\Type\FieldTypeBase;
 
-class ColourPickField implements FieldInterface
+class ColourPickField extends FieldTypeBase
 {
     public function getName()
     {
@@ -205,7 +207,7 @@ class ColourPickField implements FieldInterface
 
     public function getTemplate()
     {
-        return '_colourpicker.twig';
+        return '@bolt/_colourpicker.twig';
     }
 
     public function getStorageType()
