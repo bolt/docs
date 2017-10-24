@@ -5,7 +5,7 @@ level: advanced
 Extension Building: Admin Menus
 ===============================
 
-Bolt allows extensions to insert submenus under the `Extras` menu in the admin
+Bolt allows extensions to insert items below the `Extensions` menu in the admin
 UI.
 
 Bolt provides a helper function that will allow additional `MenuEntry` objects
