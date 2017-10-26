@@ -58,7 +58,7 @@ Examples:
 <script src="{{ asset('js/jquery.min.js', 'theme') }}"></script>
 
 {# Display the kitten.jpg image, that was uploaded to the `files/` folder. #}
-<img src="{{ asset('kitten.jpg', 'files') }}"></script>
+<img src="{{ asset('kitten.jpg', 'files') }}" />
 ```
 
 This would produce, on an default install, the following output:

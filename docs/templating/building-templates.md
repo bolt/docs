@@ -153,7 +153,7 @@ The current default theme contains the following files and folders:
 | `listing.twig` | Displaying listings, like 'latest pages', but also taxonomy overview pages |
 | `record.twig` | A 'generic record' page, used if the ContentType has no template specified |
 | `search.twig` | Displaying search results. |
-| `partials/_master.twig` | Base layout template, that other templates [`extend`](inheritance) to inherit the properties of |
+| `partials/_master.twig` | Base layout template, that other templates [`extend`](template-inheritance) to inherit the properties of |
 | `partials/_aside.twig` | Helper template that gets included as the sidebar |
 | `partials/_header.twig` | Helper template that for the header. |
 | `partials/_footer.twig` | Helper template that for the footer. |
