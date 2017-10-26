@@ -5,7 +5,7 @@ level: advanced
 Extension Building: Admin Menus
 ===============================
 
-Bolt allows extensions to insert submenus under the `Extras` menu in the admin
+Bolt allows extensions to insert items below the `Extensions` menu in the admin
 UI.
 
 Bolt provides a helper function that will allow additional `MenuEntry` objects
@@ -49,7 +49,7 @@ In the above example:
 
 
 <p class="note"> <strong>Note:</strong> Menu entries are mounted on
-<tt>extend/</tt>, because they show up under the 'Extras' menu option. When
+<tt>extensions/</tt>, because they fall under Extensions, logically. When
 adding an <a href='controllers-routes'>accompanying route</a> for a new menu
 item, make sure to catch it correctly. For the above example, it should match
-<tt>/extend/koala</tt>. </p>
+<tt>/extensions/koala</tt>. </p>
