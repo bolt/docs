@@ -749,7 +749,7 @@ Examples:
 
 ```twig
 {% if app.extensions.get('Bolt/FacebookComments') is defined %}
-    {{ include(template_from_string("{{ facebookcomments() }}") }}
+    {{ include(template_from_string("{{ facebookcomments() }}")) }}
 {% endif %}
 ```
 
@@ -757,7 +757,7 @@ You can also use this to output a friendly warning to users of the template:
 
 ```twig
 {% if app.extensions.get('Bolt/BoltForms') is defined %}
-    {{ include(template_from_string("boltforms('contact')") }}
+    {{ include(template_from_string("{{ boltforms('contact') }}")) }}
 {% else %}
     <p>Warning: This theme suggests you install the 'BoltForms' extension.</p>
 {% endif %}

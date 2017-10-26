@@ -41,7 +41,7 @@ drop down, select _"Rebuild Autoloader"_.
 Bundles, unlike old-style local extensions, autoloading configuration is not
 handled _auto-magically_ by the Extensions Manager.
 
-As a result, you will need to add each Bundle's directory to `composer.json`
+As a result, you will need to add each Bundle's source directory to `composer.json`
 in site's root directory. You need to open your root `composer.json` file and
 add each Bundle's entry to the  to the `"psr-4"` sub-section of the
 `"autoload"` section.
@@ -55,7 +55,7 @@ namespace.
 ```json
     "autoload" : {
         "psr-4" : {
-            "Bolt\\Extension\\Myname\\MyExtensionNamespace\\": "extensions/local/myname/myextension"
+            "Bolt\\Extension\\Myname\\MyExtensionNamespace\\": "extensions/local/myname/myextension/src/"
         }
     }
 ```

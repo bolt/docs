@@ -250,6 +250,15 @@ The available options are:
 <p class="note"><strong>Note:</strong> A ContentType slug or name may not start
 with a double underscore. Those names are reserved for internal use.</p>
 
+### Automatic titles versus `title_format`
+
+As you might have noticed in the screenshots above or in the Bolt backend
+itself, Records in listing overviews and in the "Recently edited" panel are
+always shown with a linked title. Even if the ContentType does not actually
+have a field named `title`, Bolt will make a reasonable assumption as to what
+the "Title" should be. By using `title_format` you can override this, if Bolt
+doesn't provide correct titles for a ContentType.
+
 The structure of a Record
 -------------------------
 
