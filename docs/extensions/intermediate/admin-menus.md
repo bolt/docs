@@ -49,7 +49,7 @@ In the above example:
 
 
 <p class="note"> <strong>Note:</strong> Menu entries are mounted on
-<tt>extend/</tt>, because they show up under the 'Extras' menu option. When
+<tt>extensions/</tt>, because they fall under Extensions, logically. When
 adding an <a href='controllers-routes'>accompanying route</a> for a new menu
 item, make sure to catch it correctly. For the above example, it should match
-<tt>/extend/koala</tt>. </p>
+<tt>/extensions/koala</tt>. </p>
