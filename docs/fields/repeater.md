@@ -33,9 +33,9 @@ within a repeater, there are a few that are not supported.
 <p class="note"><strong>Note:</strong> Repeaters are useable with most of the
 available field types, except for a few where it would get too complex, or where
 it simply does not make sense to have more than one of. In short, do
-<strong>not</strong> use <code>type: slug</code>, <code>type: repeater</code> or
-<code>type: templateselect</code> as fields in your repeater. These fields will
-not work as expected. </p>
+<strong>not</strong> use <code>type: slug</code>, <code>type: block</code>,
+<code>type: repeater</code> or <code>type: templateselect</code> as fields in
+your repeater. These fields will not work as expected. </p>
 
 ## Example usage in templates:
 

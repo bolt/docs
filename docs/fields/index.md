@@ -4,24 +4,25 @@ pages:
     - common
     - text
     - slug
-    - textarea
     - html
-    - markdown
     - image
-    - imagelist
+    - file
+    - video
     - select
+    - markdown
+    - textarea
+    - repeater
+    - templateselect
+    - block
     - integer
     - float
+    - hidden
     - checkbox
     - date
     - datetime
-    - file
+    - imagelist
     - filelist
     - geolocation
-    - video
-    - templateselect
-    - repeater
-    - hidden
 ---
 
 Introduction to Bolt Field Types
