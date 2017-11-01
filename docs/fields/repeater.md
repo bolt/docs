@@ -51,13 +51,14 @@ within the set then the template code will look like this:
 ```twig
 {% for feature in record.features %}
     {% for field in feature %}
-        {{ field }}
+        {{ field.fieldtype }}:
+        {{ dump(field.value) }}
     {% endfor %}
 {% endfor %}
 ```
 
-In the example above using `{{ field }}` will just output the string value of
-the sub-field but since these are sometimes more complex fields you can use the
+In the example above using `{{ dump(field.value) }}` will just output the value
+of the sub-field. Since these are sometimes more complex fields you can use the
 techniques described in the section below for individual fields to output the
 specific type of field in the layout you require.
 
