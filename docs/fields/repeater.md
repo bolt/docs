@@ -51,15 +51,19 @@ within the set then the template code will look like this:
 ```twig
 {% for feature in record.features %}
     {% for field in feature %}
+        {{ field.fieldtype }}:
         {{ field }}
     {% endfor %}
 {% endfor %}
 ```
 
-In the example above using `{{ field }}` will just output the string value of
-the sub-field but since these are sometimes more complex fields you can use the
-techniques described in the section below for individual fields to output the
-specific type of field in the layout you require.
+In the example above using `{{ field }}` will just output the value of the 
+sub-field, if it is a text field such as like `text`, `html`, `textarea` or 
+`markdown`. Since these are sometimes more complex fields you can use 
+`{{ field|showimage }}` for images or `{{ dump(field.value) }}` to dump the 
+value regardless of type. In practice, you'll often want to use the techniques 
+described in the section below for individual fields to output the specific type 
+of field in the layout you require. 
 
 If you know the names of the fields you want to render then you can fetch a
 field from the collection by name. For instance using the same example as above
