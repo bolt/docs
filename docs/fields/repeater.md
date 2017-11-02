@@ -33,9 +33,9 @@ within a repeater, there are a few that are not supported.
 <p class="note"><strong>Note:</strong> Repeaters are useable with most of the
 available field types, except for a few where it would get too complex, or where
 it simply does not make sense to have more than one of. In short, do
-<strong>not</strong> use <code>type: slug</code>, <code>type: repeater</code> or
-<code>type: templateselect</code> as fields in your repeater. These fields will
-not work as expected. </p>
+<strong>not</strong> use <code>type: slug</code>, <code>type: block</code>,
+<code>type: repeater</code> or <code>type: templateselect</code> as fields in
+your repeater. These fields will not work as expected. </p>
 
 ## Example usage in templates:
 
@@ -52,15 +52,19 @@ within the set then the template code will look like this:
 ```twig
 {% for feature in record.features %}
     {% for field in feature %}
+        {{ field.fieldtype }}:
         {{ field }}
     {% endfor %}
 {% endfor %}
 ```
 
-In the example above using `{{ field }}` will just output the string value of
-the sub-field but since these are sometimes more complex fields you can use the
-techniques described in the section below for individual fields to output the
-specific type of field in the layout you require.
+In the example above using `{{ field }}` will just output the value of the 
+sub-field, if it is a text field such as like `text`, `html`, `textarea` or 
+`markdown`. Since these are sometimes more complex fields you can use 
+`{{ field|showimage }}` for images or `{{ dump(field.value) }}` to dump the 
+value regardless of type. In practice, you'll often want to use the techniques 
+described in the section below for individual fields to output the specific type 
+of field in the layout you require. 
 
 If you know the names of the fields you want to render then you can fetch a
 field from the collection by name. For instance using the same example as above
