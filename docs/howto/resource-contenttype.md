@@ -82,6 +82,12 @@ content of the 404 page, but a themed template to display it.
 We use the `default_status: published` parameter to automatically set new
 resource records to `published` for ease of use.
 
+Possible options are:
+`default_status: published` (Published)
+`default_status: held` (Not published)
+`default_status: draft` (Draft)
+`default_status: timed` (Timed publish: Not reccommended. Use in combination with the Publication date field )
+
 ### Visibility
 
 There are three visibility setting that we apply to keep these records hidden
