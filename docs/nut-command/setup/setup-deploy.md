@@ -7,34 +7,31 @@ setup:deploy
 
 <p class="note"><strong>Note:</strong> The command is provided by a separate
 package called <code>bolt/simple-deploy</code> that is installed by default
-with archive distributions, but needs to manually be included with Composer
-project installs.</p>
+with archive distributions. If you've installed Bolt using a different method,
+it needs to manually be included with Composer project installs using
+<code>composer require bolt/simple-deploy:^1.0</code>.</p>
 
 Nut's `setup:deploy` is a simple tool to deploy a build of the current site
 from a local workstation to a (S)FTP enabled destination host.
 
-To use this tool, on your development machine **only** you can create a file
+To use this tool on your development machine **only** you can create a file
 named `.deploy.yml`.
-
-<p class="note"><strong>Note:</strong> This command will not appear in the list
-of available commands if the <code>.deploy.yml</code> file is not present.</p>
 
 Each key in the `.deploy.yml` represents a deployment target that can be
 uploaded to the remote destination via either FTP or SFTP (secure FTP).
 
 Every deployment configuration you add to `.deploy.yml` must set the `protocol`
-to either `ftp` or `sftp`, and an `options` array.
-
-<p class="note"><strong>Note:</strong> If your host provides SFTP, it is the
-preferred upload method as it is both faster and more secure than FTP alone,
-and supports more functionality.</p>
-
+to either `ftp` or `sftp`, and an `options` array. It is strongly recommended to
+use SFTP, if your host supports it.
 
 ## Usage
 
 ```bash
     php app/nut setup:deploy [options] <target>
 ```
+
+<p class="note"><strong>Note:</strong> This command will not appear in the list
+of available commands if the <code>.deploy.yml</code> file is not present.</p>
 
 
 ## Arguments
@@ -50,13 +47,7 @@ and supports more functionality.</p>
 |---------|-------------|
 | --check | Only check the connection settings for a given deployment
 | --edit  | Interactively create or edit a deployment configuration
-
-
-### Example: Editing or creating a connection
-
-```
-    php app/nut setup:deploy --edit production
-```
+| --force | Update files & permissions even if unchanged
 
 
 ### Example: Checking a connection
@@ -65,6 +56,9 @@ and supports more functionality.</p>
     php app/nut setup:deploy --check production
 ```
 
+Using this command will allow you to verify the connection and destination
+connections are configured correctly, before running teh actual deployment. This
+will help prevent the accidental removal of files on the destination environment.
 
 ### Example: Running a deployment
 
@@ -72,15 +66,22 @@ and supports more functionality.</p>
     php app/nut setup:deploy production
 ```
 
+This will run the actual deployment: Uploading and/or updating the files on the
+destination environment.
+
+View this short screencast, to see it in action:
+
+<script type="text/javascript" src="https://asciinema.org/a/146516.js" id="asciicast-146516" async></script>
+
 
 ## Configuration File
 
-Configuration is done in a `.deploy.yml` file in the site's root directory on
+Configuration is done in the `.deploy.yml` file in the site's root directory on
 your development environment, with the following format:
 
 ```
 staging:
-    protocol: FTP-or-SFTP
+    protocol: ftp-or-sftp
     options:
         host: hostname.example.org
         root: root/folder/name
@@ -88,10 +89,15 @@ staging:
         …
 ```
 
+The `protocol` should be set as lowercase `ftp` or `sftp`.
+
+<p class="note"><strong>Note:</strong> If your host provides SFTP, it is the
+preferred upload method. It is both faster and more secure than FTP alone, and
+supports more functionality.</p>
 
 ## SFTP Options
 
-If you've set FTP as the protocol, the following options are available.
+If you've set `sftp` as the protocol, the following options are available.
 
 ### Options
 
@@ -109,7 +115,6 @@ If you've set FTP as the protocol, the following options are available.
 
 **NOTE:** Either a `password` or `privateKey` **must** be set.
 
-
 ### Example: Password Login
 
 ```
@@ -121,7 +126,6 @@ production:
         password: 'your password goes here'
         root: /var/www/sites/example.com
 ```
-
 
 ### Example: Key-Based Login
 
@@ -135,10 +139,9 @@ production:
         root: /var/www/sites/example.com
 ```
 
-
 ## FTP Options
 
-If you've set FTP as the protocol, the following options are available.
+If you've set `ftp` as the protocol, the following options are available.
 
 ### Options
 
@@ -156,7 +159,6 @@ If you've set FTP as the protocol, the following options are available.
 | passive      | (optional) Force FTP to use "passive" mode
 | ignorePassiveAddress | (optional) Ignore the IP address returned when setting up a passive connection. Useful if a server is behind a NAT device. Requires PHP >= 5.6.18
 
-
 ### Example
 
 ```
@@ -171,7 +173,6 @@ staging:
 
 **NOTE:** In the above example, the root directory is a subdirectory of the
 remote user's home directory called `my-site/`, e.g. `/home/deploy/my-site/`.
-
 
 ## Setting Permissions
 
@@ -191,7 +192,6 @@ them like:
 
 Of course more secure values are also possible and recommended.
 
-
 ## Editing
 
 A very simple editor is also available by adding the `--edit` option to the
@@ -201,9 +201,14 @@ command.
 php app/nut setup:deploy --edit <target>
 ```
 
-
 ### Example: Editing the configuration for the "production" target
 
 ```
 php app/nut setup:deploy --edit production
 ```
+
+This will allow you to interactively review and modify the settings in your
+`.deploy.yml` file.
+
+<a href="/files/nut-deploy.png" class="popup"><img src="/files/nut-deploy.png" width="590"></a>
+
