@@ -21,6 +21,7 @@ pages:
     - imagelist
     - filelist
     - geolocation
+    - templateselect
 ---
 
 Introduction to Bolt Field Types
