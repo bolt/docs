@@ -91,7 +91,6 @@ is not needed on.
 <code>config.yml</code> and only enable <code>debug</code> in <code>config_local.yml</code>
 on development servers.</p>
 
-
 ### Dynamic values for config settings
 
 Occasionally you may want to set the value of a config setting dynamically at the
@@ -118,6 +117,33 @@ may not be necessarily available in your Twig templates directly. For more infor
 regarding this, please refer to the [Bolt Internals](../internals/container-service-references#app-config)
 documentation. In this particular example, use `{{ config.get('general/mycustomversion') }}`
 to access the above variable in your template.
+
+### Environment variables in config files
+
+You can use environment variables in your configuration files, such as
+`config.yml` and `theme.yml`.
+
+```
+database:
+    host: %APP_DB_HOST%
+    driver: mysql
+    databasename: %APP_DB_DATABASE%
+    username: %APP_DB_USERNAME%
+    password: %APP_DB_PASSWORD%
+```
+
+This is very convenient if you want to inject configuration into a staging or
+production server, rather than having it in the configuration files that might
+be stored in your versioning system.
+
+The values will be swapped out at runtime for the value returned by `getenv()`,
+like for example `getenv('APP_DB_HOST')` for `%APP_DB_HOST%`.
+
+<p class="warning"><strong>Warning:</strong> If you are using Nginx with
+PHP-FPM, you will need to change the <code>clear_env</code> variable value to
+<code>no</code> in the PHP configuration. Generally this configuration is in
+<code>/etc/php5/fpm/pool.d/www.conf</code> commented as <code>;clear_env = no</code>,
+just uncomment this line and restart php-fpm</p>
 
 ### Regarding Chrome and backend authentication
 
