@@ -133,7 +133,7 @@ to access the above variable in your template.
 ### Environment variables in config files
 
 You can use environment variables in your configuration files, such as
-`config.yml` and `theme.yml`.
+`config.yml`.
 
 How this works is described in detail in the section "Reading environment
 variables" on the page [Accessing & Reading Configuration][config-env].
