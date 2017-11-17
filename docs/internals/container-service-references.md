@@ -17,31 +17,14 @@ interrogating the state of the application container.
 The `config` service provides access to all the configuration settings from the
 various `.yml` files in `app/config`.
 
-Configuration data is broken down into the sections show in the table below.
-
-| Section        | YAML file |
-| ---------------| --------- |
-| `general`      | `config.yml`
-| `contenttypes` | `contenttypes.yml`
-| `menu`         | `menu.yml`
-| `permissions`  | `permissions.yml`
-| `routing`      | `routing.yml`
-| `taxonomy`     | `taxonomy.yml`
-| `theme`        | `theme.yml` (in the active theme directory)
-
-You can get any setting through this service. For example, to get the value for
-`homepage_template` set in `config.yml`:
+For example, to get the value for `homepage_template` set in `config.yml`:
 
 ```php
     $app['config']->get('general/homepage_template');
 ```
 
-These variables are also accessible in your templates:
-
-```twig
-    {% set tmpl = config.get('general/homepage_template') %}
-```
-
+Much more detailed information on this topic can be found in
+[Accessing & Reading Configuration][configuration].
 
 ## $app['filesystem']
 
@@ -176,6 +159,7 @@ the Bolt documentation, as well as on the Twig website:
   - [Templates in Bolt](../templating/templates-routes)
 
 
+[configuration]: ../configuration/reading
 [dbal]: http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html
 [doctrine-cache]: http://docs.doctrine-project.org/projects/doctrine-common/en/latest/reference/caching.html
 [psr3]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md
