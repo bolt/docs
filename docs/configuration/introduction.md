@@ -58,18 +58,30 @@ Configuration Files
 
 When the basic installation is finished, these are the files where you edit the
 Bolt configuration to build your website according to your specifications.
-All files use the same .yml syntax, and can also be edited via the Bolt backend.
+All files use the same YAML syntax, and can also be edited via the Bolt backend.
 
-  - `app/config/config.yml`  The file where all general configuration of your website is defined.
-  - `app/config/contenttypes.yml` The definitions of your contenttypes, e.g. pages, blog items etc.
-  - `app/config/menu.yml` The file that contains the menu(s) for your website.
-  - `app/config/taxonomy.yml` Categories, chapters, tags etc. are defined here.
-  - `app/config/routing.yml` The file where you can define custom urls for you website.
-  - `app/config/permissions.yml` Here you can specify groups, users, etc. For most websites, the default permissions settings will be just fine.
-  - `app/config/extensions/` If you install extensions, their config files will be located in this directory.
-  - `public/theme/` Make a new directory here where you can put your own templates.
+| YAML file                     | Description |
+| ----------------------------- | ----------- |
+| `app/config/config.yml`       | The file where all general configuration of your website is defined.
+| `app/config/contenttypes.yml` | The definitions of your contenttypes, e.g. pages, blog items etc.
+| `app/config/menu.yml`         | The file that contains the menu(s) for your website.
+| `app/config/taxonomy.yml`     | Categories, chapters, tags etc. are defined here.
+| `app/config/routing.yml`      | The file where you can define custom urls for your website.
+| `app/config/permissions.yml`  | Here you can specify groups, users, etc. For most websites, the default permissions settings will be just fine.
 
-### Different configs per environment
+There are two other locations where configuration files can be found:
+
+| Folder                   | Description |
+| ------------------------ | ----------- |
+| `app/config/extensions/` | If you install extensions, their config files will be located in this directory.
+| `public/theme/`          | In the folder for the active theme, there can optionally be a `theme.yml`.
+
+To access the values in these files in your templates or PHP code, you'll need
+to access them. This is described in detail in the sections "Accessing
+Configuration in PHP" and "Accessing Configuration in Twig" on the page
+[Accessing & Reading Configuration][config-accessing].
+
+### Different configurations per environment
 
 When you have multiple environments for the same site, like development,
 staging, or production, you'll want parts of the config to be the same, and
@@ -123,27 +135,8 @@ to access the above variable in your template.
 You can use environment variables in your configuration files, such as
 `config.yml` and `theme.yml`.
 
-```
-database:
-    host: %APP_DB_HOST%
-    driver: mysql
-    databasename: %APP_DB_DATABASE%
-    username: %APP_DB_USERNAME%
-    password: %APP_DB_PASSWORD%
-```
-
-This is very convenient if you want to inject configuration into a staging or
-production server, rather than having it in the configuration files that might
-be stored in your versioning system.
-
-The values will be swapped out at runtime for the value returned by `getenv()`,
-like for example `getenv('APP_DB_HOST')` for `%APP_DB_HOST%`.
-
-<p class="warning"><strong>Warning:</strong> If you are using Nginx with
-PHP-FPM, you will need to change the <code>clear_env</code> variable value to
-<code>no</code> in the PHP configuration. Generally this configuration is in
-<code>/etc/php5/fpm/pool.d/www.conf</code> commented as <code>;clear_env = no</code>,
-just uncomment this line and restart php-fpm</p>
+How this works is described in detail in the section "Reading environment
+variables" on the page [Accessing & Reading Configuration][config-env].
 
 ### Regarding Chrome and backend authentication
 
@@ -158,3 +151,6 @@ To work around the issue, use virtual hosts, e.g. `dev.somesite.com` to access
 your Bolt installation.
 
 Currently, Firefox and other browsers work correctly in this circumstance.
+
+[config-accessing]: reading#accessing-configuration-in-php
+[config-env]: reading#reading-environment-variables

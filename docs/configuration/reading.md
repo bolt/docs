@@ -24,18 +24,22 @@ read from.
 
 These prefixes are:
 
- - general
- - taxonomy
- - contenttypes
- - menu
- - routing
- - permissions
- - extensions
+| Section        | YAML file |
+| ---------------| --------- |
+| `general`      | `config.yml` and `config_local.yml`
+| `contenttypes` | `contenttypes.yml`
+| `menu`         | `menu.yml`
+| `permissions`  | `permissions.yml`
+| `routing`      | `routing.yml`
+| `taxonomy`     | `taxonomy.yml`
+| `theme`        | `theme.yml` (in the active theme directory)
 
-General refers to the main configuration found in `config.yml` so for example
-to fetch the `locale` setting we can use: `$app['config']->get('general/locale');`
+"General" refers to the main configuration found in `config.yml` and
+`config_local.yml`. For example to fetch the `locale` setting from the main
+configuration, we can use: `$app['config']->get('general/locale');`
 
-To traverse into an array we can use: `$app['config']->get('general/database/driver');`
+To traverse into an array we just need to specify it in the method call:
+`$app['config']->get('general/database/driver');`
 
 Accessing Configuration in Twig
 -------------------------------
@@ -48,6 +52,13 @@ To print the relevant value:
 
 ```twig
 {{ config.get('general/locale') }}
+```
+
+The `theme.yml` can also be accessed directly, so it looks cleaner in the
+template code:
+
+```twig
+{{ theme.foo }} // Outputs the `foo:` setting
 ```
 
 Dynamic runtime values
@@ -69,8 +80,18 @@ Within the config files you can specify such values using the following syntax:
         databasename: %APP_DATABASE%
 ```
 
-When the Bolt application boots up the values are read from the system
-environment if they exist.
+This is very convenient if you want to inject configuration into a staging or
+production server, rather than having it in the configuration files that might
+be stored in your versioning system.
+
+The values will be swapped out at runtime for the value returned by `getenv()`,
+like for example `getenv('APP_DB_HOST')` for `%APP_DB_HOST%`, if it is set.
+
+<p class="note"><strong>Note:</strong> If you are using Nginx with PHP-FPM, you
+will need to change the <code>clear_env</code> variable value to
+<code>no</code> in the PHP configuration. Generally this configuration is in
+<code>/etc/php5/fpm/pool.d/www.conf</code> commented as <code>;clear_env =
+no</code>, just uncomment this line and restart php-fpm</p>
 
 ### Providing variables with a service
 
