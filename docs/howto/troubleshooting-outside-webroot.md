@@ -55,7 +55,7 @@ install Bolt:
 ```bash
 curl -O https://bolt.cm/distribution/bolt-latest-flat-structure.tar.gz
 tar -xzf bolt-latest-flat-structure.tar.gz --strip-components=1
-php app/nut setup:sync
+php app/nut init
 ```
 
 This version of Bolt has the following structure, you can place entirely inside
@@ -80,9 +80,17 @@ This will result in a structure that looks like this.
         └── index.php
 ```
 
-Note: This version of Bolt is provided as a fallback for users who have no
-control over their web server setup. If at all possible, we strongly recommend
-to use the 'regular' version, with all code outside of the web root.
+<p class="note"><strong>Note:</strong> If you extract the <code>.zip</code>
+manually, in order to upload via (S)FTP, make sure you've completed the last
+step of the installation: Renaming the dist files, so Bolt can use them. See
+the section on renaming files on the page <a
+href="../installation/manual-download-and-extraction">Manual download and
+extraction</a>.</p>
+
+<p class="note"><strong>Note:</strong> This version of Bolt is provided as a
+fallback for users who have no control over their web server setup. If at all
+possible, we strongly recommend to use the 'regular' version, with all code
+outside of the web root.</p>
 
 Option 3: Create a symlink to the `public` folder
 -------------------------------------------------

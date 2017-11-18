@@ -12,6 +12,20 @@ Download the latest version of Bolt as the regular or flattened distribution:
 Extract the `.zip` file, and you can start developing locally, or upload the
 files to your webhost using the (S)FTP client of your choice.
 
+If you extract the file yourself, you'll also need to manually complete a step
+of the installation that's normally done automatically by the installation
+process: Rename some files so bolt can use them.
+
+| Original name                              | Rename to       |            |
+| ------------------------------------------ | --------------- | ---------- |
+| `.bolt.yml.dist`                           | `.bolt.yml`     |
+| `composer.json.dist`                       | `composer.json` | (optional)
+| `composer.lock.dist`                       | `composer.lock` | (optional)
+| `src/Site/CustomisationExtension.php.dist` | `src/Site/CustomisationExtension.php`
+
+If you don't rename these files, Bolt will not be able to correctly detect the
+"root" of the site, and will show an error page instead.
+
 Tip: While it _is_ possible to upload the files to your webhost immediately,
 and configure Bolt as-you-go, it is **strongly** recommended to develop your site
 locally first. It's much quicker, you'll have a better overview of all that's
@@ -19,10 +33,9 @@ happening, and you can work on the project before it's accessible to the
 public. You can use either the [built-in server][built-in-server], or set up a
 development server using a free tool like [Xampp][xampp].
 
-
 <p class="note"><strong>Note:</strong> Don't forget to upload the
-<code>.htaccess</code> file, if you're using Apache! Bolt won't work without it.
-</p>
+<code>.htaccess</code> and <code>.bolt.yml</code> files, if you're using
+Apache! Bolt won't work without it. </p>
 
 If you can't find the file on your file system, download this
 [<code>default.htaccess</code>](https://bolt.cm/distribution/default.htaccess)
@@ -41,7 +54,6 @@ can use the so-called "[Flat distribution][flat]", as an alternative.
 
 If you wish to manually alter the directory structure, so it fits your needs
 better, see the section on [configuring Bolt's structure using `.bolt.yml`][bolt-yml].
-
 
 Next Steps
 ----------
