@@ -621,7 +621,7 @@ in the root of your domain, a subdomain or a folder.
 
 You can specify three parameters: the width, height, and the mode of cropping.
 By doing so, the image will be resized, and it behave exactly like the
-[thumbnail filter](#filter-thumbnail).
+[thumbnail filter](#thumbnail).
 
 ```twig
 <img src="{{ content.photo|image(100, 100, "r") }}">
