@@ -138,8 +138,8 @@ class KoalaCatcherExtension extends SimpleExtension
     {
         return [
             'templates/normal',
-            'templates/other'   => ['namespace' => 'Koala']
-            'templates/special' => ['namespace' => 'DropBear', 'position' => 'prepend']
+            'templates/other'   => ['namespace' => 'Koala'],
+            'templates/special' => ['namespace' => 'DropBear', 'position' => 'prepend'],
         ];
     }
 
