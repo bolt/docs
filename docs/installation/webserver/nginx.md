@@ -60,7 +60,6 @@ server {
 `access_log`, `error_log` and `root` parameters to match the domain name and
 path locations relevant to your system.
 
-
 ### Common
 
 Common, or "global", configuration settings are stored in a directory under
@@ -244,6 +243,8 @@ Note:
 
 The helpful [NGINX Location Match][match-tool] tool is very useful for testing
 location match blocks, and gives visual graphs to explain NGINX's logic.
+
+If you receive an error like **413 Request Entity Too Large** you need to add `client_max_body_size 20M;` within `example.com.conf`, this will allow for other instances to have different limits.
 
 ---
 
