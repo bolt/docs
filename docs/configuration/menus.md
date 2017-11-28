@@ -237,7 +237,7 @@ The output in HTML might look like this now:
 Dynamic menu
 ==============
 
-You can use taxonomies combined with the menu to create dynamic menus. Let's say you want to have a few static pages to be listed as submenus under "Pages" on your menu. Start with creating a new taxonomy in `taxonomy.yml` to control what pages are to be listed under "Pages". 
+You can use other menu.yml parameters to make a more dynamic menu. In this example we will use taxonomies combined with the menu to create taxonomy-based submenus. Let's say you want to have a few static pages to be listed as submenus under "Pages" on your menu. Start with creating a new taxonomy in `taxonomy.yml` to control what pages are to be listed under "Pages". 
 ```
 menu:
     name: Menu
