@@ -234,6 +234,81 @@ The output in HTML might look like this now:
 </ul>
 ```
 
+Dynamic menu
+==============
+
+You can use taxonomies combined with the menu to create dynamic menus. Let's say you want to have a few static pages to be listed as submenus under "Pages" on your menu. Start with creating a new taxonomy in `taxonomy.yml` to control what pages are to be listed under "Pages". 
+```
+menu:
+    name: Menu
+    singular_name: Menu item
+    behaves_like: categories
+    multiple: false
+    options: [ about, pages, more ]
+```
+Then, in your `menu.yml` change your "Pages" to the following.
+```
+- label: Pages
+      path: pages
+      list:
+          contenttype: pages
+          taxonomytype: menu
+          taxonomy: pages
+```
+Now all that's left is to modify your submenu template (`_sub_menu.twig`) so that it adds the pages with the "pages" taxonomy.
+```
+{% macro display_menu_item(item, loop, extraclass, withsubmenus) %}
+    {% from _self import display_menu_item %}
+    {% spaceless %}
+    <li class="index-{{ loop.index -}}
+        {{ item.path|default('') == 'homepage' ? ' menu-text' -}}
+        {{ loop.first ? ' first' -}}
+        {{ loop.last ? ' last' -}}
+        {{ (item.submenu|default(false) and withsubmenus) ? ' is-dropdown-submenu-parent' -}}
+        {{ item|current ? ' active' }}">
+
+        <a href="{{ item.link }}" title='{{ item.title|default('')|escape }}' class='{{ item.class|default('') }}'>
+            {{- item.label|default('-') -}}
+        </a>
+
+        {% set list = [] %}
+
+        {% if item.submenu is defined and withsubmenus %}
+            <ul class="menu submenu vertical" data-submenu>
+                {% for submenu in item.submenu %}
+                    {{ display_menu_item(submenu, loop) }}
+                {% endfor %}
+                {% if item.list|default(false) %}
+                    {% setcontent listedcontent = item.list.contenttype where {(item.list.taxonomytype) : (item.list.taxonomy)} %}
+                    {% for listitem in listedcontent %}
+                        {% set list = list|merge([{title: listitem.gettitle(), link: listitem.link, label: listitem.gettitle()}]) %}
+                    {% endfor %}
+                    <ul class="menu submenu vertical" data-submenu>
+                        {% for submenu in list %}
+                            {{ display_menu_item(submenu, loop) }}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </ul>
+        {% elseif item.list|default(false) %}
+            {% setcontent listedcontent = item.list.contenttype where {(item.list.taxonomytype) : (item.list.taxonomy)} %}
+            {% for listitem in listedcontent %}
+                {% set list = list|merge([{title: listitem.gettitle(), link: listitem.link, label: listitem.gettitle()}]) %}
+            {% endfor %}
+            {% if list is not empty %}
+            <ul class="menu submenu vertical" data-submenu>
+                {% for submenu in list %}
+                    {{ display_menu_item(submenu, loop) }}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endif %}
+
+    </li>
+    {% endspaceless %}
+{% endmacro %}
+```
+
 That's basically all there's to it. Since the menus use standard Twig tags, we
 can enhance the lists with extra features, to automatically give special
 classes to the first or last item, or highlight the 'current' page.
