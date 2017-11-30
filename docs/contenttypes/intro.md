@@ -30,6 +30,15 @@ Records, you're using an **Array of Records**. For instance, if you create a
 page that has 'the five latest events', you'll be using an Array of 5 'event'
 Records of ContentType 'events'.
 
+As of 3.4 you also have the option to create a **Singleton** ContentType,
+which is a ContentType that only contains one record. This is useful when 
+you want to have some general settings for your website. For example,
+a place where you want to store your social media links, basic contact info
+such as a phone number, etc, that you can then use globally in your templates.
+
+To make your ContentTypes tidier you can group them together in the sidebar menu.
+See `show_in_menu` option below.
+
 Before we'll dive into the details, we'll give you a quick example of a simple
 ContentType, how it's stored, and how you can access it in templates to display
 on your site.
