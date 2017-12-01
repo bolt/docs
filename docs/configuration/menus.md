@@ -252,8 +252,8 @@ Then, in your `menu.yml` change your "Pages" to the following.
       path: pages
       list:
           contenttype: pages
-          taxonomytype: menu
-          taxonomy: pages
+          where: 
+              menu: pages
 ```
 Now all that's left is to modify your submenu template (`_sub_menu.twig`) so that it adds the pages with the "pages" taxonomy.
 ```
@@ -279,9 +279,9 @@ Now all that's left is to modify your submenu template (`_sub_menu.twig`) so tha
                     {{ display_menu_item(submenu, loop) }}
                 {% endfor %}
                 {% if item.list|default(false) %}
-                    {% setcontent listedcontent = item.list.contenttype where {(item.list.taxonomytype) : (item.list.taxonomy)} %}
+                    {% setcontent listedcontent = item.list.contenttype where item.list.where %}
                     {% for listitem in listedcontent %}
-                        {% set list = list|merge([{title: listitem.gettitle(), link: listitem.link, label: listitem.gettitle()}]) %}
+                        {% set list = list|merge([{title: listitem.title, link: listitem.link, label: listitem.title}]) %}
                     {% endfor %}
                     <ul class="menu submenu vertical" data-submenu>
                         {% for submenu in list %}
@@ -291,9 +291,9 @@ Now all that's left is to modify your submenu template (`_sub_menu.twig`) so tha
                 {% endif %}
             </ul>
         {% elseif item.list|default(false) %}
-            {% setcontent listedcontent = item.list.contenttype where {(item.list.taxonomytype) : (item.list.taxonomy)} %}
+            {% setcontent listedcontent = item.list.contenttype where item.list.where %}
             {% for listitem in listedcontent %}
-                {% set list = list|merge([{title: listitem.gettitle(), link: listitem.link, label: listitem.gettitle()}]) %}
+                {% set list = list|merge([{title: listitem.title, link: listitem.link, label: listitem.title}]) %}
             {% endfor %}
             {% if list is not empty %}
             <ul class="menu submenu vertical" data-submenu>
