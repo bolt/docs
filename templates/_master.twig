@@ -51,8 +51,8 @@
 
     <nav class="main-nav expanded">
         <ul>
-            {% set route = global.request.attributes.get('_route') %}
-            {% set route_params = global.request.attributes.get('_route_params') %}
+            {% set route = app.request.attributes.get('_route') %}
+            {% set route_params = app.request.attributes.get('_route_params') %}
             <li>
                 <a href="https://bolt.cm/">Home [bolt.cm]</a>
             </li>
