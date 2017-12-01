@@ -1,20 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Bolt\Docs\Twig;
 
-use Parsedown;
+use ParsedownExtra;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
-class MarkdownExtension extends \Twig_Extension
+/**
+ * Twig Markdown extension.
+ *
+ * @author Carson Full <carsonfull@gmail.com>
+ * @author Gawain Lynch <gawain.lynch@gmail.com>
+ */
+class MarkdownExtension extends AbstractExtension
 {
-    /** @var Parsedown */
+    /** @var ParsedownExtra */
     protected $markdown;
 
     /**
      * Constructor.
      *
-     * @param Parsedown $markdown
+     * @param ParsedownExtra $markdown
      */
-    public function __construct(Parsedown $markdown)
+    public function __construct(ParsedownExtra $markdown)
     {
         $this->markdown = $markdown;
     }
@@ -22,23 +32,20 @@ class MarkdownExtension extends \Twig_Extension
     /**
      * {@inheritdoc}
      */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
-            new \Twig_SimpleFilter('markdown', [$this, 'markdown'], ['is_safe' => ['html']]),
+            new TwigFilter('markdown', [$this, 'markdown'], ['is_safe' => ['html']]),
         ];
     }
 
-    public function markdown($str)
+    /**
+     * @param null|string $str
+     *
+     * @return array
+     */
+    public function markdown(?string $str): string
     {
         return $this->markdown->text($str);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return 'markdown';
     }
 }

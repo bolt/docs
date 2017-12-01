@@ -1,11 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Bolt\Docs;
 
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\Yaml;
 
+/**
+ * Documentation class.
+ *
+ * @author Carson Full <carsonfull@gmail.com>
+ * @author Gawain Lynch <gawain.lynch@gmail.com>
+ */
 class Documentation
 {
     /** @var Yaml\Parser */
@@ -19,7 +27,8 @@ class Documentation
     /** @var Version[] */
     private $versions = [];
     /** @var array */
-    private $filestructure = [];
+    private $fileStructure = [];
+
     /**
      * Constructor.
      *
@@ -38,31 +47,35 @@ class Documentation
         $this->load();
     }
 
-    public function load()
+    public function load(): void
     {
+        /** @var Finder $dirs */
         $dirs = (new Finder())->directories()->in($this->versionDir)->sortByName()->depth(0);
 
         foreach ($dirs as $dir) {
             /** @var SplFileInfo $dir */
             $this->addVersion($dir->getBasename(), $dir->getRealPath());
         }
-
+        /** @var Finder $files */
         $files = (new Finder())->files()->in($this->versionDir)->sortByName();
 
+        /** @var SplFileInfo $file */
         foreach ($files as $file) {
-            $this->filestructure[] = str_replace('/docs/', '/', $file->getRelativePathname());
+            $this->fileStructure[] = \str_replace('/docs/', '/', $file->getRelativePathname());
         }
     }
 
     /**
+     * @throws \InvalidArgumentException
+     *
      * @return Version
      */
-    public function getDefault()
+    public function getDefault(): Version
     {
         return $this->getVersion($this->default);
     }
 
-    public function addVersion($name, $baseDir)
+    public function addVersion($name, $baseDir): void
     {
         $this->versions[$name] = new Version($name, $baseDir, $this->pageBuilder, $this->yamlParser);
     }
@@ -70,17 +83,20 @@ class Documentation
     /**
      * @param string $version
      *
+     * @throws \InvalidArgumentException
+     *
      * @return Version
      */
-    public function getVersion($version)
+    public function getVersion(string $version): Version
     {
         if (!isset($this->versions[$version])) {
             throw new \InvalidArgumentException("Version: \"$version\" does not exist.");
         }
+
         return $this->versions[$version];
     }
 
-    public function hasVersion($version)
+    public function hasVersion(string $version): bool
     {
         return isset($this->versions[$version]);
     }
@@ -88,7 +104,7 @@ class Documentation
     /**
      * @return Version[]
      */
-    public function getVersions()
+    public function getVersions(): array
     {
         return $this->versions;
     }
@@ -96,9 +112,8 @@ class Documentation
     /**
      * @return array
      */
-    public function getFileStructure()
+    public function getFileStructure(): array
     {
-        return $this->filestructure;
+        return $this->fileStructure;
     }
-
 }

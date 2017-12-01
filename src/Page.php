@@ -1,7 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Bolt\Docs;
 
+/**
+ * Page class.
+ *
+ * @author Carson Full <carsonfull@gmail.com>
+ * @author Gawain Lynch <gawain.lynch@gmail.com>
+ */
 class Page implements \ArrayAccess
 {
     /** @var Page|null */
@@ -35,15 +43,17 @@ class Page implements \ArrayAccess
     /**
      * @param string $path
      *
+     * @throws \InvalidArgumentException
+     *
      * @return Page
      */
-    public function getPage($path)
+    public function getPage(string $path): self
     {
         if ($path === '') {
             return $this;
         }
 
-        $parts = explode('/', $path, 2);
+        $parts = \explode('/', $path, 2);
         if (!isset($this->subPages[$parts[0]])) {
             throw new \InvalidArgumentException('Page not found.');
         }
@@ -59,13 +69,13 @@ class Page implements \ArrayAccess
     /**
      * @return array
      */
-    public function getMenu()
+    public function getMenu(): array
     {
         $url = $this->getUrl();
         $menu = [
-            'label' => $this->getTitle(),
-            'id'    => $url, // needed for saving state
-            'url'   => $url,
+            'label'    => $this->getTitle(),
+            'id'       => $url, // needed for saving state
+            'url'      => $url,
             'children' => [],
         ];
 
@@ -79,9 +89,9 @@ class Page implements \ArrayAccess
     /**
      * @return string
      */
-    public function getUrl()
+    public function getUrl(): string
     {
-        $parent = $this->parent ? rtrim($this->parent->getUrl(), '/') : '';
+        $parent = $this->parent ? \rtrim($this->parent->getUrl(), '/') : '';
 
         return $parent . '/' . $this->name;
     }
@@ -89,7 +99,7 @@ class Page implements \ArrayAccess
     /**
      * @return Page|null
      */
-    public function getParent()
+    public function getParent(): ?self
     {
         return $this->parent;
     }
@@ -97,7 +107,7 @@ class Page implements \ArrayAccess
     /**
      * @return Page
      */
-    public function getRoot()
+    public function getRoot(): self
     {
         if ($this->parent === null) {
             return $this;
@@ -109,7 +119,7 @@ class Page implements \ArrayAccess
     /**
      * @return Page|null
      */
-    public function getNext()
+    public function getNext(): ?self
     {
         if ($this->next === false) {
             $this->next = $this->prepareNext();
@@ -121,7 +131,7 @@ class Page implements \ArrayAccess
     /**
      * @return Page|null
      */
-    public function getPrevious()
+    public function getPrevious(): ?self
     {
         if ($this->previous === false) {
             $this->previous = $this->preparePrevious();
@@ -133,7 +143,7 @@ class Page implements \ArrayAccess
     /**
      * @return string
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         return $this->version;
     }
@@ -141,7 +151,7 @@ class Page implements \ArrayAccess
     /**
      * @param string $version
      */
-    public function setVersion($version)
+    public function setVersion(string $version): void
     {
         $this->version = $version;
     }
@@ -151,7 +161,7 @@ class Page implements \ArrayAccess
      *
      * @return string
      */
-    public function getPath()
+    public function getPath(): ?string
     {
         return $this->path;
     }
@@ -159,7 +169,7 @@ class Page implements \ArrayAccess
     /**
      * @param string $path
      */
-    public function setPath($path)
+    public function setPath(string $path): void
     {
         $this->path = $path;
     }
@@ -167,7 +177,7 @@ class Page implements \ArrayAccess
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -175,7 +185,7 @@ class Page implements \ArrayAccess
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
@@ -183,7 +193,7 @@ class Page implements \ArrayAccess
     /**
      * @return string
      */
-    public function getContent()
+    public function getContent(): string
     {
         return $this->content;
     }
@@ -191,7 +201,7 @@ class Page implements \ArrayAccess
     /**
      * @param string $content
      */
-    public function setContent($content)
+    public function setContent(string $content): void
     {
         $this->content = $content;
     }
@@ -199,7 +209,7 @@ class Page implements \ArrayAccess
     /**
      * @return array
      */
-    public function getVariables()
+    public function getVariables(): array
     {
         return $this->variables;
     }
@@ -207,7 +217,7 @@ class Page implements \ArrayAccess
     /**
      * @param array $variables
      */
-    public function setVariables($variables)
+    public function setVariables($variables): void
     {
         $this->variables = $variables;
     }
@@ -215,7 +225,7 @@ class Page implements \ArrayAccess
     /**
      * @return Page[]
      */
-    public function getSubPages()
+    public function getSubPages(): array
     {
         return $this->subPages;
     }
@@ -223,9 +233,9 @@ class Page implements \ArrayAccess
     /**
      * @param Page $page
      */
-    public function addSubPage(Page $page)
+    public function addSubPage(self $page): void
     {
-        $previous = end($this->subPages);
+        $previous = \end($this->subPages);
         if ($previous !== false) {
             $previous->nextSibling = $page;
             $page->previousSibling = $previous;
@@ -240,7 +250,7 @@ class Page implements \ArrayAccess
      *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this['title'];
     }
@@ -248,7 +258,7 @@ class Page implements \ArrayAccess
     /**
      * @param string $title
      */
-    public function setTitle($title)
+    public function setTitle($title): void
     {
         $this->variables['title'] = $title;
     }
@@ -258,15 +268,15 @@ class Page implements \ArrayAccess
      *
      * @return string
      */
-    public function getShortTitle()
+    public function getShortTitle(): ?string
     {
-        return $this['short_title'] ? $this['short_title'] : $this['title'];
+        return $this['short_title'] ?: $this['title'];
     }
 
     /**
      * @param string $short_title
      */
-    public function setShortTitle($short_title)
+    public function setShortTitle($short_title): void
     {
         $this->variables['short_title'] = $short_title;
     }
@@ -276,7 +286,7 @@ class Page implements \ArrayAccess
      *
      * @return array
      */
-    public function getSubMenu()
+    public function getSubMenu(): array
     {
         return $this->subMenu;
     }
@@ -284,7 +294,7 @@ class Page implements \ArrayAccess
     /**
      * @param array $subMenu
      */
-    public function setSubMenu($subMenu)
+    public function setSubMenu($subMenu): void
     {
         $this->subMenu = $subMenu;
     }
@@ -292,7 +302,7 @@ class Page implements \ArrayAccess
     /**
      * {@inheritdoc}
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->variables[$offset]);
     }
@@ -302,13 +312,13 @@ class Page implements \ArrayAccess
      */
     public function offsetGet($offset)
     {
-        return isset($this->variables[$offset]) ? $this->variables[$offset] : null;
+        return $this->variables[$offset] ?? null;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->variables[$offset] = $value;
     }
@@ -316,7 +326,7 @@ class Page implements \ArrayAccess
     /**
      * {@inheritdoc}
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->variables[$offset]);
     }
@@ -324,10 +334,10 @@ class Page implements \ArrayAccess
     /**
      * @return Page|null
      */
-    private function prepareNext()
+    private function prepareNext(): ?self
     {
         if ($this->subPages) {
-            return reset($this->subPages);
+            return \reset($this->subPages);
         }
 
         $target = $this;
@@ -343,11 +353,11 @@ class Page implements \ArrayAccess
     /**
      * @return Page|null
      */
-    private function preparePrevious()
+    private function preparePrevious(): ?self
     {
         if ($this->parent !== null &&
             $this->parent->subPages &&
-            $this === reset($this->parent->subPages) &&
+            $this === \reset($this->parent->subPages) &&
             !$this->parent['redirect']
         ) {
             return $this->parent;
@@ -363,7 +373,7 @@ class Page implements \ArrayAccess
 
         if ($target !== null) {
             while ($target->subPages) {
-                $target = end($target->subPages);
+                $target = \end($target->subPages);
             }
         }
 
