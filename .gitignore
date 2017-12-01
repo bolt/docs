@@ -1,9 +1,10 @@
-vendor/
-composer.phar
-/var/cache/*
+/node_modules/
+/public/bundles/
+/var/
+/vendor/
 /web/api/*
-.idea/
-.DS_*
-node_modules
-bower_components
 config.yml
+.php_cs
+.php_cs.cache
+.env
+.web-server-pid
