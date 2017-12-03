@@ -259,6 +259,17 @@ have a field named `title`, Bolt will make a reasonable assumption as to what
 the "Title" should be. By using `title_format` you can override this, if Bolt
 doesn't provide correct titles for a ContentType.
 
+### Singleton ContentTypes
+
+You can set the option to create a **Singleton** ContentType, which basically
+is a ContentType that only contains exactly one record. For example, you can
+create a Singleton where you can store the site's social media links and basic
+contact info, that you can then use globally in your templates. Another common
+usecase is for a logical place to put the "Homepage" content.
+
+More details and examples can be found in
+[Making a Singleton ContentType][howto-singletons].
+
 The structure of a Record
 -------------------------
 
