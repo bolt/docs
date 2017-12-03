@@ -43,7 +43,7 @@ In this case `main` is the name of the menu. The options are:
 
 To insert a menu in your templates, use
 
-```
+```twig
 {{ menu() }}
 ```
 
@@ -65,7 +65,7 @@ this:
 {{ menu('foo', 'partials/_sub_menu.twig') }}
 ```
 
-or 
+or
 
 ```twig
 {{ menu('foo', '/partials/_menu_foo.twig') }}
@@ -124,14 +124,14 @@ external websites. To get started, edit the template where you want this menu.
 Usually, menus are used in 'headers', 'footers' or 'aside' includes, but you
 can use them anywhere. For now, just insert this code, somewhere:
 
-```
+```twig
 {{ menu('test', 'partials/_menu_test.twig') }}
 ```
 
 This inserts the menu, using the template `partials/_menu_test.twig` template. The file
 probably isn't present yet, so create it in your own `theme/`-folder.
 
-```
+```twig
 <ul>
 {% for item in menu %}
     <li>
@@ -145,7 +145,7 @@ Refresh a page that uses the template that you've added the `{{ menu() }}`-tag
 to in your browser, and you should see a very simple menu, with the following
 HTML-markup:
 
-```
+```twig
 <ul>
     <li>
         <a href="https://bolt.cm">Bolt</a>
@@ -182,13 +182,12 @@ test:
     link: http://silex.sensiolabs.org
 ```
 
-
 Now, the menu template needs to be extended, so that the submenu is output as
 well. We'll do this by adding another `{% for %}`-loop. We'll wrap this loop in
 an `{% if %}`-tag to prevent Bolt from outputting empty lists in the HTML. For
 example:
 
-```
+```twig
 <ul>
 {% for item in menu %}
     <li class="{{ item.class }}">
@@ -209,7 +208,7 @@ example:
 
 The output in HTML might look like this now:
 
-```
+```twig
 <ul>
     <li class="">
         <a href="https://bolt.cm">Bolt</a>
@@ -234,11 +233,18 @@ The output in HTML might look like this now:
 </ul>
 ```
 
-Dynamic menu
-==============
+Dynamic menus
+-------------
 
-You can use other menu.yml parameters to make a more dynamic menu. In this example we will use taxonomies combined with the menu to create taxonomy-based submenus. Let's say you want to have a few static pages to be listed as submenus under "Pages" on your menu. Start with creating a new taxonomy in `taxonomy.yml` to control what pages are to be listed under "Pages". 
-```
+You can use other `menu.yml` parameters to make a more dynamic menu. In this
+example we will use taxonomies combined with the menu to create taxonomy-based
+submenus. Let's say you want to have a few static pages to be listed as
+submenus under "Pages" in your menu.
+
+Start with creating a new taxonomy in `taxonomy.yml` to control what pages are
+to be listed under "Pages":
+
+```yaml
 menu:
     name: Menu
     singular_name: Menu item
@@ -246,17 +252,21 @@ menu:
     multiple: false
     options: [ about, pages, more ]
 ```
+
 Then, in your `menu.yml` change your "Pages" to the following.
-```
+
+```yaml
 - label: Pages
       path: pages
       list:
           contenttype: pages
-          where: 
+          where:
               menu: pages
 ```
+
 Now all that's left is to modify your submenu template (`_sub_menu.twig`) so that it adds the pages with the "pages" taxonomy.
-```
+
+```twig
 {% macro display_menu_item(item, loop, extraclass, withsubmenus) %}
     {% from _self import display_menu_item %}
     {% spaceless %}
@@ -308,6 +318,9 @@ Now all that's left is to modify your submenu template (`_sub_menu.twig`) so tha
     {% endspaceless %}
 {% endmacro %}
 ```
+
+Further customizations
+----------------------
 
 That's basically all there's to it. Since the menus use standard Twig tags, we
 can enhance the lists with extra features, to automatically give special
