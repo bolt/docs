@@ -17,13 +17,13 @@ Updating Documentation
 ----------------------
 
 The repository uses branches to group documentation relevant to each version in
-the format of `release/<version>`.
+the format of `<major.minor>`, e.g. `3.0`.
 
 Changes should be PR-ed against the *lowest* relevant version and will then be
 merged down into higher version branches as required.
 
 e.g. if you're fixing a typo that exists in the same Markdown file in both
-version 3.0 as well as in 3.1, you would checkout `release/3.0` and submit your
+version 3.0 as well as in 3.1, you would checkout `3.0` and submit your
 PR against that branch.
 
 Local site set-up
@@ -51,15 +51,16 @@ An example that sets up work trees for version 3.0 of the documentation
 branches:
 
 ```
-git worktree add -b release/3.0 var/versions/3.0
+git worktree add -b 3.0 var/versions/3.0
 ```
 
 Alternatively, if you have `grep` and `sed` installed, this will set up all of
 the version worktrees for you
 
 ```
-for VERSION in $(git branch --remotes --list | grep -E "origin\/release\/[2-9]" | sed 's/origin\/release\///g'); do 
-    git worktree add -b release/$VERSION var/versions/$VERSION
+for VERSION in $(git branch --remotes --list | grep -E "^  origin\/[2-9]" | sed 's/origin\///g'); do 
+    git branch $VERSION origin/$VERSION
+    git worktree add var/versions/$VERSION $VERSION
 done
 ```
 
@@ -87,7 +88,8 @@ Finally if you wish to use the built-in PHP web server, it can be run from the
 php -S 0.0.0.0:8000 -t web web/index.php
 ```
 
-Alternatively, configure your preferred webserver to point at the `web/` folder. To see the documentation site go to `example.localhost/3.1/`, from where you'll get redirected to the front page of the documentation.
+Alternatively, configure your preferred webserver to point at the `web/` folder. To see the documentation site go to `example.localhost/3.1/`, 
+from where you'll get redirected to the front page of the documentation.
 
 [bolt]: http://docs.bolt.cm/
 [markdown]: http://daringfireball.net/projects/markdown/
