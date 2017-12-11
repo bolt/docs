@@ -1,0 +1,33 @@
+class_reference:
+    path: /{version}/class-reference
+    defaults:
+        _controller: 'Bolt\Docs\Controller\Site:getClassReference'
+    requirements:
+        version: '(\d+\.(\d+|x)|master)'
+cheatsheet:
+    path: /{version}/cheatsheet
+    defaults:
+        _controller: 'Bolt\Docs\Controller\Site:getCheatsheet'
+    requirements:
+        version: '(\d+\.(\d+|x)|master)'
+
+page:
+    path: /{version}/{page}
+    defaults:
+        _controller: 'Bolt\Docs\Controller\Site:getPage'
+        version: ''
+        page: ''
+    requirements:
+        version: '(\d+\.(\d+|x)|master)'
+        page: '.*'
+
+sitemap:
+    path: /sitemap/{version}.xml
+    defaults:
+        _controller: 'Bolt\Docs\Controller\Site:getSitemap'
+    requirements:
+        version: '(\d+\.(\d+|x)|master)'
+sitemap_list:
+    path: /sitemap.xml
+    defaults:
+        _controller: 'Bolt\Docs\Controller\Site:getSitemapList'

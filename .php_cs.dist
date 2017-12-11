@@ -1,0 +1,17 @@
+<?php
+
+return Bolt\CsFixer\Config::create()
+    ->addRules(
+        Bolt\CsFixer\Rules::create()
+            ->risky()
+            ->php71()
+    )
+    ->addRules([
+        'declare_strict_types'       => true,
+        'php_unit_strict'            => false,
+        '@PHPUnit60Migration:risky'  => true,
+        'ordered_class_elements'     => true,
+        'native_function_invocation' => true,
+    ])
+    ->in('src')
+;

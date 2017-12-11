@@ -1,0 +1,30 @@
+parameters:
+    default-version: '%env(DEFAULT_VERSION)%'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Bolt\Docs\Controller\Site:
+        tags: ['controller.service_arguments']
+        arguments:
+            $debug: '%kernel.debug%'
+
+    Bolt\Docs\ArgumentResolver\VersionValueResolver:
+        tags:
+            - { name: controller.argument_value_resolver, priority: 150 }
+    Bolt\Docs\Documentation:
+        $versionDir: '%kernel.project_dir%/var/versions'
+        $default: '%default-version%'
+    Bolt\Docs\PageBuilder:
+        $configCacheFactory: '@config_cache_factory'
+        $cacheDir: '%kernel.project_dir%/var/cache/pages'
+    Bolt\Docs\Twig\MarkdownExtension: ~
+
+    Cocur\Slugify\SlugifyInterface:
+        class: Cocur\Slugify\Slugify
+    ParsedownExtra:
+        class: ParsedownExtra
+    Symfony\Component\Yaml\Parser: ~

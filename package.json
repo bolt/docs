@@ -1,0 +1,30 @@
+{
+  "name": "bolt-docs",
+  "version": "3.0.0",
+  "description": "Bolt documentation",
+  "repository": "https://github.com/bolt/docs.git",
+  "bugs": {
+    "url": "https://github.com/bolt/docs/issues"
+  },
+  "author": "Bolt Project",
+  "contributors": [
+    "Bob den Otter <bob@bolt.cm>",
+    "Gawain Lynch <gawain.lynch@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.17.0",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}

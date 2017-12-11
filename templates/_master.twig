@@ -25,7 +25,7 @@
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,600italic' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    <link rel="stylesheet" href="{{ asset('styles/docs.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('build/css/docs.css') }}" type="text/css" media="all" />
 
 {% block canonical %}
 {% endblock canonical %}
@@ -51,8 +51,8 @@
 
     <nav class="main-nav expanded">
         <ul>
-            {% set route = global.request.attributes.get('_route') %}
-            {% set route_params = global.request.attributes.get('_route_params') %}
+            {% set route = app.request.attributes.get('_route') %}
+            {% set route_params = app.request.attributes.get('_route_params') %}
             <li>
                 <a href="https://bolt.cm/">Home [bolt.cm]</a>
             </li>

@@ -1,9 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Bolt\Docs;
 
 use Symfony\Component\Yaml;
 
+/**
+ * Version class.
+ *
+ * @author Carson Full <carsonfull@gmail.com>
+ * @author Gawain Lynch <gawain.lynch@gmail.com>
+ */
 class Version
 {
     /** @var string */
@@ -25,37 +33,30 @@ class Version
     /**
      * Constructor.
      *
-     * @param string           $version
-     * @param string           $basePath
-     * @param PageBuilder      $builder
-     * @param Yaml\Parser      $yamlParser
+     * @param string      $version
+     * @param string      $basePath
+     * @param PageBuilder $builder
+     * @param Yaml\Parser $yamlParser
      */
-    public function __construct(
-        $version,
-        $basePath,
-        PageBuilder $builder,
-        Yaml\Parser $yamlParser
-    ) {
+    public function __construct(string $version, string $basePath, PageBuilder $builder, Yaml\Parser $yamlParser)
+    {
         $this->version = $version;
         $this->basePath = $basePath;
         $this->builder = $builder;
         $this->yamlParser = $yamlParser;
     }
 
-    /**
-     * @return string
-     */
-    public function getVersion()
+    public function __toString(): string
     {
-        return $this->version;
+        return $this->getVersion();
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public function __toString()
+    public function getVersion(): string
     {
-        return $this->getVersion();
+        return $this->version;
     }
 
     /**
@@ -63,9 +64,11 @@ class Version
      *
      * @param string $page
      *
+     * @throws \InvalidArgumentException
+     *
      * @return Page
      */
-    public function getPage($page)
+    public function getPage(string $page): Page
     {
         return $this->getRootPage()->getPage($page);
     }
@@ -75,34 +78,26 @@ class Version
      *
      * @return array
      */
-    public function getMenu()
+    public function getMenu(): array
     {
         return $this->getRootPage()->getMenu()['children'];
-    }
-
-    private function getRootPage()
-    {
-        if (!$this->rootPage) {
-            $this->rootPage = $this->builder->build($this->basePath . '/docs', $this->version);
-            $this->rootPage->setName($this->version);
-        }
-
-        return $this->rootPage;
     }
 
     /**
      * Get the class reference from the correct YAML file.
      *
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
+     *
      * @return array
      */
-    public function getClassReference()
+    public function getClassReference(): array
     {
         if ($this->classReference === null) {
             $file = $this->basePath . '/class_reference.yml';
 
             $contents = null;
-            if (file_exists($file)) {
-                $contents = $this->yamlParser->parse(file_get_contents($file));
+            if (\file_exists($file)) {
+                $contents = $this->yamlParser->parse(\file_get_contents($file));
             }
 
             $this->classReference = $contents ?: [];
@@ -114,21 +109,33 @@ class Version
     /**
      * Get the cheatsheet reference from the correct YAML file.
      *
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
+     *
      * @return array
      */
-    public function getCheatSheet()
+    public function getCheatSheet(): array
     {
         if ($this->cheatSheet === null) {
             $file = $this->basePath . '/cheatsheet.yml';
 
             $contents = null;
-            if (file_exists($file)) {
-                $contents = $this->yamlParser->parse(file_get_contents($file));
+            if (\file_exists($file)) {
+                $contents = $this->yamlParser->parse(\file_get_contents($file));
             }
 
             $this->cheatSheet = $contents ?: [];
         }
 
         return $this->cheatSheet;
+    }
+
+    private function getRootPage(): Page
+    {
+        if (!$this->rootPage) {
+            $this->rootPage = $this->builder->build($this->basePath . '/docs', $this->version);
+            $this->rootPage->setName($this->version);
+        }
+
+        return $this->rootPage;
     }
 }

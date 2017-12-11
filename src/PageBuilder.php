@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Bolt\Docs;
 
+use Bolt\Common\Serialization;
 use Cocur\Slugify\SlugifyInterface;
 use ParsedownExtra;
 use Symfony\Component\Config\ConfigCacheFactoryInterface;
@@ -44,7 +47,7 @@ class PageBuilder
         ParsedownExtra $markdown,
         Yaml\Parser $yamlParser,
         ConfigCacheFactoryInterface $configCacheFactory,
-        $cacheDir
+        string $cacheDir
     ) {
         $this->slugifier = $slugifier;
         $this->markdown = $markdown;
@@ -57,61 +60,73 @@ class PageBuilder
      * @param string $root
      * @param string $version
      *
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
+     * @throws \Bolt\Common\Exception\ParseException
+     * @throws \Bolt\Common\Exception\DumpException
+     *
      * @return Page
      */
-    public function build($root, $version)
+    public function build($root, $version): Page
     {
-        $this->root = rtrim($root, '/') . '/';
+        $this->root = \rtrim($root, '/') . '/';
         $this->version = $version;
+
         return $this->loadCacheCollection('');
     }
 
     /**
      * @param string $dir
      *
+     * @throws \Bolt\Common\Exception\DumpException
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
+     * @throws \Bolt\Common\Exception\ParseException
+     *
      * @return Page
      */
-    protected function loadCacheCollection($dir)
+    protected function loadCacheCollection($dir): Page
     {
         $page = null;
         $cache = $this->configCacheFactory->cache(
             $this->getCacheFile($dir),
-            function (ConfigCacheInterface $cache) use ($dir, &$page) {
+            function (ConfigCacheInterface $cache) use ($dir, &$page): void {
                 $page = $this->loadCollection($dir);
-                $str = serialize($page);
+                $str = Serialization::dump($page);
                 $cache->write($str, [new DirectoryResource($this->root . $dir)]);
             }
         );
 
         if (!$page) {
-            $page = unserialize(file_get_contents($cache->getPath()));
+            $page = Serialization::parse(\file_get_contents($cache->getPath()));
         }
 
         return $page;
     }
 
-    protected function loadCollection($dir)
+    protected function loadCollection($dir): Page
     {
         try {
             $page = $this->loadCachePage($dir . '/index.md');
         } catch (FileNotFoundException $e) {
             $page = new Page();
             $page->setTitle($dir);
-            $page['pages'] = array_map(function($file) {
-                $ext = pathinfo($file, PATHINFO_EXTENSION);
+            $page['pages'] = \array_map(function ($file) {
+                $ext = \pathinfo($file, PATHINFO_EXTENSION);
                 if ($ext !== '') {
                     $ext = '.' . $ext;
                 }
-                return substr($file, 0, strlen($file) - strlen($ext));
-            }, array_diff(scandir($this->root . $dir, SCANDIR_SORT_NONE), ['.', '..']));
+
+                return \substr($file, 0, \strlen($file) - \strlen($ext));
+            }, \array_diff(\scandir($this->root . $dir, SCANDIR_SORT_NONE), ['.', '..']));
         }
-        $page->setName(basename($dir));
+        $page->setName(\basename($dir));
 
         foreach ((array) $page['pages'] as $subPageName) {
             $subPath = (empty($dir) ? $dir : $dir . '/') . $subPageName;
-            if (is_dir($this->root . $subPath)) {
+            if (\is_dir($this->root . $subPath)) {
                 $subPage = $this->loadCacheCollection($subPath);
-            } elseif (is_file($this->root . $subPath . '.md')) {
+            } elseif (\is_file($this->root . $subPath . '.md')) {
                 $subPage = $this->loadCachePage($subPath . '.md');
                 $subPage->setName($subPageName);
             } else {
@@ -127,30 +142,35 @@ class PageBuilder
     /**
      * @param string $file
      *
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
+     * @throws \Bolt\Common\Exception\ParseException
+     * @throws \Bolt\Common\Exception\DumpException
+     *
      * @return Page
      */
-    protected function loadCachePage($file)
+    protected function loadCachePage($file): Page
     {
         $page = null;
         $cache = $this->configCacheFactory->cache(
             $this->getCacheFile($file),
-            function (ConfigCacheInterface $cache) use ($file, &$page) {
+            function (ConfigCacheInterface $cache) use ($file, &$page): void {
                 $page = $this->loadPage($file);
-                $str = serialize($page);
+                $str = Serialization::dump($page);
                 $cache->write($str, [new FileResource($this->root . $file)]);
             }
         );
 
         if (!$page) {
-            $page = unserialize(file_get_contents($cache->getPath()));
+            $page = Serialization::parse(\file_get_contents($cache->getPath()));
         }
 
         return $page;
     }
 
-    protected function loadPage($file)
+    protected function loadPage($file): Page
     {
-        if (!is_readable($this->root . $file)) {
+        if (!\is_readable($this->root . $file)) {
             throw new FileNotFoundException($file);
         }
 
@@ -159,9 +179,9 @@ class PageBuilder
         $page->setVersion($this->version);
         $page->setPath($file);
 
-        $document = file_get_contents($this->root . $file);
-        if (strpos($document, '---') === 0) {
-            $parts = explode("---\n", $document, 3);
+        $document = \file_get_contents($this->root . $file);
+        if (\strpos($document, '---') === 0) {
+            $parts = \explode("---\n", $document, 3);
             $source = $parts[2];
             $page->setVariables($this->yamlParser->parse($parts[1]));
         } else {
@@ -171,7 +191,7 @@ class PageBuilder
         $content = $this->markdown->text($source);
 
         if (!$page->getTitle()) {
-            if (preg_match('#<h1>(.*)</h1>#i', $content, $mainTitle)) {
+            if (\preg_match('#<h1>(.*)</h1>#i', $content, $mainTitle)) {
                 $page->setTitle($mainTitle[1]);
             } else {
                 $page->setTitle(Path::getFilenameWithoutExtension($file));
@@ -180,12 +200,12 @@ class PageBuilder
 
         // We don't need the top-level H1 from the content, because we
         // output it in the template where we need it.
-        $content = preg_replace('#<h1>(.*)</h1>#i', '', $content);
+        $content = \preg_replace('#<h1>(.*)</h1>#i', '', $content);
 
         $submenu = [];
-        preg_match_all('#<h2>(.*)</h2>#i', $content, $matches);
+        \preg_match_all('#<h2>(.*)</h2>#i', $content, $matches);
         foreach ($matches[1] as $key => $title) {
-            $title = strip_tags($title);
+            $title = \strip_tags($title);
             $submenu[$this->slugifier->slugify($title)] = $title;
         }
         $page->setSubMenu($submenu);
@@ -198,21 +218,21 @@ class PageBuilder
     }
 
     /**
-     * Add anchors markup for <h2> and <h3> and <h4>
+     * Add anchors markup for <h2> and <h3> and <h4>.
      *
      * @param string $source
      *
      * @return string
      */
-    protected function markupAnchors($source)
+    protected function markupAnchors(string $source): string
     {
-        return preg_replace_callback(
+        return \preg_replace_callback(
             '#<h([234])>(.*)</h([234])>#i',
             function ($matches) {
-                return sprintf(
+                return \sprintf(
                     '<h%s id="%s">%s<a href="#%2$s" class="anchor">¶</a></h%1$s>',
                     $matches[1],
-                    $this->slugifier->slugify(strip_tags($matches[2])),
+                    $this->slugifier->slugify(\strip_tags($matches[2])),
                     $matches[2]
                 );
             },
@@ -220,9 +240,10 @@ class PageBuilder
         );
     }
 
-    protected function getCacheFile($file)
+    protected function getCacheFile(string $file): string
     {
-        $hash = hash('sha256', $this->root . $file);
+        $hash = \hash('sha256', $this->root . $file);
+
         return $this->cacheDir . '/' . $hash[0] . $hash[1] . '/' . $hash . '.php';
     }
 }
