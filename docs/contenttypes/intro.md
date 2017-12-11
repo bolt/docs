@@ -270,6 +270,34 @@ usecase is for a logical place to put the "Homepage" content.
 More details and examples can be found in
 [Making a Singleton ContentType][howto-singletons].
 
+### Grouping ContentTypes in the sidebar
+
+If you have a larger number of ContentTypes, the siebar in Bolt's backend might
+look too cluttered. To make your the sidebar tidier, you can group several
+ContentTypes together in the sidebar menu, using the `show_in_menu` option.
+
+For example:
+
+```yaml
+entries:
+    name: Entries
+    …
+    show_in_menu: false
+
+showcases:
+    name: Showcases
+    …
+    show_in_menu: false
+```
+
+The result of this example, is shown in the following screenshot:
+
+<a href="/files/contenttype_show_in_menu.png" class="popup"><img src="/files/contenttype_show_in_menu.png" width="642"></a>
+
+<p class="note">Tip: If you provide a name, like <code>show_in_menu:
+Foo</code>, then that name will be used, instead of the generic "Other content"
+label.</p>
+
 The structure of a Record
 -------------------------
 
