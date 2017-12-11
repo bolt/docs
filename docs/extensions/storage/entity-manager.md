@@ -34,7 +34,6 @@ relevant repository class.
 
 ### getRepository($entity)
 
-```
 ```php
 namespace Bolt\Extension\DropBear\KoalaCatcher;
 
@@ -71,7 +70,7 @@ is more likely to be an entity specific repository such as `UserRepository`,
 
 ### setRepository($entity, $repositoryClass)
 
-```
+```php
     $repo = $app['storage']->setRepository('Bolt\Storage\Entity\Users', 'Myapp\Storage\UserRepository');
 ```
 
@@ -85,7 +84,7 @@ the new Repository class rather than what was set previously.
 
 ### createQueryBuilder()
 
-```
+```php
     $qb = $app['storage']->createQueryBuilder();
 ```
 
@@ -98,7 +97,7 @@ be pre-selected to a specific table.
 
 ### find($entity, $id)
 
-```
+```php
     $user = $app['storage']->find('Bolt\Storage\Entity\Users', 1);
 ```
 
@@ -108,7 +107,7 @@ instance.
 
 ### save($entity)
 
-```
+```php
     $result = $app['storage']->save($entity);
 ```
 
@@ -117,7 +116,7 @@ class.
 
 ### delete($entity)
 
-```
+```php
     $result = $app['storage']->delete($entity);
 ```
 
