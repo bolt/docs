@@ -13,6 +13,7 @@ They are:
  - To generate a relative or absolute path, use `{{ path() }}`
  - To generate a scheme-relative or absolute url, use `{{ url() }}`
  - To generate sensible links from user-provided input, use `{{ relative_path() }}`
+ - To generate absolute links from relative links, use `{{ absolute_url() }}`
 
 The following sections of this page will detail the different functions, and how
 to use them effectively.
