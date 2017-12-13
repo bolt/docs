@@ -254,16 +254,16 @@ editor provided something like `page/about` or `https://bolt.cm`.
 Often a link like `/foo/bar` is preferred over an absolute one which includes
 the scheme and the domain name. This is because it can prevent cross-domain
 quirks and other inconsistencies. Sometimes, however, you need absolute links.
-For example, when generating a feed, an email or content that's consumed by a
+For example when generating a feed, an email or content that's consumed by a
 remote API.
 
 For these cases, the `absolute_url` function is very useful. It takes a
-relative url, and transforms it, into an absolute one. You can use it on links
+relative url, and transforms it into an absolute one. You can use it on links
 to content and file assets alike. For example:
 
 ```twig
 {# Example use with a link to content #}
-<img src="{{ absolute_url( record.link() ) }}" />
+<a href="{{ absolute_url( record.link() ) }}" />
 
 {# Example use with `asset` #}
 <img src="{{ absolute_url( asset('kitten.jpg', 'files') ) }}" />
