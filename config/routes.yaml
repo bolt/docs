@@ -31,3 +31,12 @@ sitemap_list:
     path: /sitemap.xml
     defaults:
         _controller: 'Bolt\Docs\Controller\Site:getSitemapList'
+
+# Responsible for handling the redirect of canonical routes to the current version
+canonical_redirect:
+    path: /{page}
+    controller: 'Bolt\Docs\Controller\Site:getPage'
+    requirements:
+        page: '.*'
+    defaults:
+        permanent: true
