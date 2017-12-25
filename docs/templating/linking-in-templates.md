@@ -13,6 +13,7 @@ They are:
  - To generate a relative or absolute path, use `{{ path() }}`
  - To generate a scheme-relative or absolute url, use `{{ url() }}`
  - To generate sensible links from user-provided input, use `{{ relative_path() }}`
+ - To generate absolute links from relative links, use `{{ absolute_url() }}`
 
 The following sections of this page will detail the different functions, and how
 to use them effectively.
@@ -248,5 +249,30 @@ editor provided:
 This way, the website will show a correct relative or absolute link, if the
 editor provided something like `page/about` or `https://bolt.cm`.
 
+## Generate absolute links using `{{ absolute_url() }}`
+
+Often a link like `/foo/bar` is preferred over an absolute one which includes
+the scheme and the domain name. This is because it can prevent cross-domain
+quirks and other inconsistencies. Sometimes, however, you need absolute links.
+For example when generating a feed, an email or content that's consumed by a
+remote API.
+
+For these cases, the `absolute_url` function is very useful. It takes a
+relative url, and transforms it into an absolute one. You can use it on links
+to content and file assets alike. For example:
+
+```twig
+{# Example use with a link to content #}
+<a href="{{ absolute_url( record.link() ) }}" />
+
+{# Example use with `asset` #}
+<img src="{{ absolute_url( asset('kitten.jpg', 'files') ) }}" />
+```
+
+For more in-depth information about this function, see 
+[absolute_url][absolute_url] in the Symfony documentation.
+
+
 [symfonyasset]: http://symfony.com/doc/current/templating.html#templating-assets
 [page]: http://symfony.com/doc/current/templating.html#linking-to-pages
+[absolute_url]: https://symfony.com/doc/current/reference/twig_reference.html#absolute-url
