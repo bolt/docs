@@ -248,7 +248,8 @@ The available options are:
 | `allow_numeric_slugs` (optional, advanced) | By default, Bolt prefixes slugs purely numeric with the ContentType slug (e.g. `entry-123` for an entry with title `123`), in order to distinguish slugs from IDs. If this option is set to `true`, numeric slugs remain unprefixed. Care has to be taken not to use [routes][routing] of the form `/{contenttype}/{id}` for links in templates or for [fetching content][fetching-content]!
 
 <p class="note"><strong>Note:</strong> A ContentType slug or name may not start
-with a double underscore. Those names are reserved for internal use.</p>
+with a double underscore. A field key may not contain a double underscore.
+Those names are reserved for internal use.</p>
 
 ### Automatic titles versus `title_format`
 
