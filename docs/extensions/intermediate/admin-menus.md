@@ -53,3 +53,46 @@ In the above example:
 adding an <a href='controllers-routes'>accompanying route</a> for a new menu
 item, make sure to catch it correctly. For the above example, it should match
 <tt>/extensions/koala</tt>. </p>
+
+Adding submenus
+---------------
+
+Similarly as described above, you can add submenu items to a menu, by "adding"
+them to a previously defined menu item. Below is a full example of how to add a
+menu with two submenu items:
+
+```php
+    protected function registerMenuEntries()
+    {
+        $menu = MenuEntry::create('koala-menu', 'koala')
+            ->setLabel('Koala Catcher')
+            ->setIcon('fa:leaf')
+            ->setPermission('settings')
+        ;
+
+        $submenuItemOne = MenuEntry::create('koala-submenu-one', 'koala-tree')
+            ->setLabel('Koala One')
+            ->setIcon('fa:tree')
+        ;
+
+        $submenuItemTwo = MenuEntry::create('koala-submenu-two', 'koala-food')
+            ->setLabel('Koala Two')
+            ->setIcon('fa:tree')
+        ;
+
+        $menu->add($submenuItemOne);
+        $menu->add($submenuItemTwo);
+
+        return [
+            $menu,
+        ];
+    }
+```
+
+The result will look like this:
+
+<img src="/files/extensions-menu.png" width="517">
+
+<p class="note"> <strong>Note:</strong> For the sake of brevity, we omitted
+<tt>->setRoute()</tt> and <tt>->setPermission()</tt> in the above example. In
+your own code, you should add these.</p>
