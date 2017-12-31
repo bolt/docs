@@ -22,10 +22,11 @@ class object.
 ```php
     protected function registerMenuEntries()
     {
-        $menu = new MenuEntry('koala-menu', 'koala');
-        $menu->setLabel('Koala Catcher')
+        $menu = MenuEntry::create('koala-menu', 'koala')
+            ->setLabel('Koala Catcher')
             ->setIcon('fa:leaf')
             ->setPermission('settings')
+            ->setRoute('KoalaExtension')
         ;
 
         return [
@@ -46,7 +47,10 @@ In the above example:
     [Font Awesome icons](https://fortawesome.github.io/Font-Awesome/cheatsheet/)
   * `setPermission('settings')` sets the required permission, as defined in the
     `app/config/permissions.yml` file
-
+  * `setroute('KoalaExtension')` sets the route to "KoalaExtension", which is
+    used for generating paths and URLs, like in `{{ path() }}`. Strictly
+    speaking this is optional, but we strongly recommend it, to prevent problems
+    with the routing in non-trivial applications.
 
 <p class="note"> <strong>Note:</strong> Menu entries are mounted on
 <tt>extensions/</tt>, because they fall under Extensions, logically. When
