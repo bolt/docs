@@ -555,23 +555,23 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.6.2",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19"
+                "reference": "9b355654ea99460397b89c132b5c1087b6bf4473"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19",
-                "reference": "7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/9b355654ea99460397b89c132b5c1087b6bf4473",
+                "reference": "9b355654ea99460397b89c132b5c1087b6bf4473",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
             },
             "bin": [
                 "bin/jsonlint"
@@ -600,7 +600,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2017-11-30T15:34:22+00:00"
+            "time": "2018-01-03T12:13:57+00:00"
         },
         {
             "name": "symfony/asset",
@@ -1202,16 +1202,16 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v1.0.49",
+            "version": "v1.0.57",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "c3980f5ac79fbe8ba6b0d747baf7e57925f04ae2"
+                "reference": "73423de7560c492f159aeb3eb9687b470bc87aec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/c3980f5ac79fbe8ba6b0d747baf7e57925f04ae2",
-                "reference": "c3980f5ac79fbe8ba6b0d747baf7e57925f04ae2",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/73423de7560c492f159aeb3eb9687b470bc87aec",
+                "reference": "73423de7560c492f159aeb3eb9687b470bc87aec",
                 "shasum": ""
             },
             "require": {
@@ -1244,7 +1244,7 @@
                     "email": "fabien.potencier@gmail.com"
                 }
             ],
-            "time": "2017-12-11T15:40:16+00:00"
+            "time": "2018-01-03T11:28:30+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -2268,25 +2268,31 @@
         },
         {
             "name": "symfony/webpack-encore-pack",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/webpack-encore-pack.git",
-                "reference": "9062e3c18ac428e5e122ec06a95f14051a65225c"
+                "reference": "f9f4e91659e5f55de370d6aebe77e64bce35e4d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/webpack-encore-pack/zipball/9062e3c18ac428e5e122ec06a95f14051a65225c",
-                "reference": "9062e3c18ac428e5e122ec06a95f14051a65225c",
+                "url": "https://api.github.com/repos/symfony/webpack-encore-pack/zipball/f9f4e91659e5f55de370d6aebe77e64bce35e4d3",
+                "reference": "f9f4e91659e5f55de370d6aebe77e64bce35e4d3",
                 "shasum": ""
             },
             "type": "symfony-pack",
+            "extra": {
+                "thanks": {
+                    "name": "symfony/webpack-encore",
+                    "url": "https://github.com/symfony/webpack-encore"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "A pack for Symfony Encore",
-            "time": "2017-12-12T01:49:18+00:00"
+            "time": "2017-12-21T02:20:09+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -2516,12 +2522,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/codingstyle.git",
-                "reference": "a2f39026990f4cda3a96b65f06c451061ef7884e"
+                "reference": "18656476dac7f45a445719aa156c08f0bc283e2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/codingstyle/zipball/a2f39026990f4cda3a96b65f06c451061ef7884e",
-                "reference": "a2f39026990f4cda3a96b65f06c451061ef7884e",
+                "url": "https://api.github.com/repos/bolt/codingstyle/zipball/18656476dac7f45a445719aa156c08f0bc283e2b",
+                "reference": "18656476dac7f45a445719aa156c08f0bc283e2b",
                 "shasum": ""
             },
             "require": {
@@ -2533,7 +2539,7 @@
                 "squizlabs/php_codesniffer": "<3.0"
             },
             "require-dev": {
-                "escapestudios/symfony2-coding-standard": "^3.0@dev",
+                "escapestudios/symfony2-coding-standard": "^3.0",
                 "friendsofphp/php-cs-fixer": "^2.6",
                 "phpunit/phpunit": "^4.8",
                 "squizlabs/php_codesniffer": "^3.0"
@@ -2565,7 +2571,7 @@
                 }
             ],
             "description": "Coding style for Bolt projects",
-            "time": "2017-10-12T20:46:03+00:00"
+            "time": "2017-12-23T14:58:36+00:00"
         },
         {
             "name": "composer/semver",
@@ -2978,16 +2984,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.2.0",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "ba816f2e1bacc16278792c78b67c730dfff064a6"
+                "reference": "d7c00c3000ac0ce79c96fcbfef86b49a71158cd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/ba816f2e1bacc16278792c78b67c730dfff064a6",
-                "reference": "ba816f2e1bacc16278792c78b67c730dfff064a6",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/d7c00c3000ac0ce79c96fcbfef86b49a71158cd1",
+                "reference": "d7c00c3000ac0ce79c96fcbfef86b49a71158cd1",
                 "shasum": ""
             },
             "require": {
@@ -3025,7 +3031,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-12-12T21:36:10+00:00"
+            "time": "2017-12-19T21:44:46+00:00"
         },
         {
             "name": "symfony/options-resolver",
