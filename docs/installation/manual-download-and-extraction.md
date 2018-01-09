@@ -14,17 +14,17 @@ files to your webhost using the (S)FTP client of your choice.
 
 If you extract the file yourself, you'll also need to manually complete a step
 of the installation that's normally done automatically by the installation
-process: Rename some files so bolt can use them.
+process: Rename the following four files, so Bolt can use them.
 
-| Original name                              | Rename to       |            |
-| ------------------------------------------ | --------------- | ---------- |
-| `.bolt.yml.dist`                           | `.bolt.yml`     |
-| `composer.json.dist`                       | `composer.json` | (optional)
-| `composer.lock.dist`                       | `composer.lock` | (optional)
+| Original name                              | Rename to
+| ------------------------------------------ | ---------------
+| `.bolt.yml.dist`                           | `.bolt.yml`
+| `composer.json.dist`                       | `composer.json`
+| `composer.lock.dist`                       | `composer.lock`
 | `src/Site/CustomisationExtension.php.dist` | `src/Site/CustomisationExtension.php`
 
-If you don't rename these files, Bolt will not be able to correctly detect the
-"root" of the site, and will show an error page instead.
+If you do not rename these files, Bolt will **not** be able to correctly detect
+the "root" of the site, and will show an error page instead.
 
 Tip: While it _is_ possible to upload the files to your webhost immediately,
 and configure Bolt as-you-go, it is **strongly** recommended to develop your site
@@ -47,10 +47,12 @@ set up to 'hide' hidden files, that start with a `.`-character.
 You can usually still find it, when browsing local files using your (S)FTP
 client.
 
-Note: We recommend installing Bolt outside the web root, following commonly
-accepted best practices setup for web applications. You can read more on this
-[here][outside-why]. If this is not possible on your server environment, you
-can use the so-called "[Flat distribution][flat]", as an alternative.
+<p class="note"><strong>Note:</strong> We recommend installing Bolt outside the
+web root, following commonly accepted best practices setup for web applications.
+You can read more on this <a href="../howto/troubleshooting-outside-webroot#what-s-the-point-of-doing-this">
+here</a>. If this is not possible on your server environment, you can use the
+so-called "<a href="../howto/troubleshooting-outside-webroot#option-2-use-the-flat-structure-distribution">
+Flat distribution</a>", as an alternative.</p>
 
 If you wish to manually alter the directory structure, so it fits your needs
 better, see the section on [configuring Bolt's structure using `.bolt.yml`][bolt-yml].
@@ -60,18 +62,20 @@ Next Steps
 
 ### Web server configuration
 
-After extracting the Tar or Zip file, you'll end up with a structure, similar
-to this:
+After extracting the Tar or Zip file and renaming the required files, you'll
+end up with a structure similar to this:
 
 ```bash
 .
 ├── app/
 ├── extensions/
 ├── public/
+├── src/
 ├── vendor/
 ├── README.md
 ├── composer.json
-└── composer.lock
+├── composer.lock
+└── index.php
 ```
 
 These are the folders that contain all of the Bolt code, resources and other
@@ -108,7 +112,6 @@ After you've done this, skip to the section [Setting up Bolt](../configuration/i
 [apache]: ../installation/webserver/apache
 [nginx]: ../installation/webserver/nginx
 [webroot]: ../howto/troubleshooting-outside-webroot
-[outside-why]: ../howto/troubleshooting-outside-webroot#what-s-the-point-of-doing-this
 [flat]: ../howto/troubleshooting-outside-webroot#option-2-use-the-flat-structure-distribution
 [latest]: https://bolt.cm/distribution/bolt-latest.zip
 [latest-flat]: https://bolt.cm/distribution/bolt-latest-flat-structure.zip
