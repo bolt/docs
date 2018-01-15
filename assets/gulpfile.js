@@ -1,55 +1,95 @@
-var gulp     = require('gulp'),
-    $        = require('gulp-load-plugins')(),
-    gulpIf   = require('gulp-if'),
-    cleanCSS = require('gulp-clean-css'),
-    isDev    = false // Set to true to include source maps in the built JS & CSS files
-;
+//=== Plugins
 
-// Define base paths & options for JavaScript & SASS.
-var jsFiles = [
-        'bower_components/jquery/dist/jquery.js'
-    ],
-    sassPaths = [
-        'scss/',
-        'bower_components/foundation-sites/scss'
-    ],
-    sassOptions = {
-        includePaths: sassPaths,
-        outputStyle: gulpIf(isDev, 'nested', 'compressed')
-    },
-    prefixerOptions = {
-        browsers: ['last 2 versions', 'ie >= 9']
-    }
-;
+const   gulp            = require('gulp'),
+        browserSync     = require('browser-sync').create(),
+        sass            = require('gulp-sass'),
+        webpack         = require('webpack-stream'),
+        environments    = require('gulp-environments'),
+        postcss         = require('gulp-postcss'),
+        autoprefixer    = require('autoprefixer'),
+        cssnano         = require('cssnano'),
+        sourcemaps      = require('gulp-sourcemaps'),
+        uglify          = require('gulp-uglify');
+        concat          = require('gulp-concat');
 
-// Set up 'sass' task.
+//=== Environments
+
+const   development     = environments.development,
+        production      = environments.production,
+        currentEnv      = environments.current().$name
+
+
+//=== Compile Javascript
+
+gulp.task('scripts', function () {
+    return gulp.src(['js/vendor/*.js', 'js/docs.js'])
+        .pipe(concat('bundle.js'))
+        .pipe(production(uglify()))
+        .pipe(gulp.dest('../public/build/js'));
+});
+
+ //=== Compile SASS
+
 gulp.task('sass', function() {
-    return gulp.src('scss/docs.scss')
-        .pipe(gulpIf(isDev, $.sourcemaps.init()))
-        .pipe($.sass(sassOptions).on('error', $.sass.logError))
-        .pipe($.autoprefixer(prefixerOptions))
-        .pipe(cleanCSS())
-        .pipe(gulpIf(isDev, $.sourcemaps.write()))
-        .pipe(gulp.dest('../../web/styles'))
-        ;
+
+    // PostCSS Plugins
+    const   processors = [
+                autoprefixer({browsers: ['last 1 version']})
+            ];
+
+    // SASS Compiler Routine
+    return gulp.src(['scss/main.scss'])
+
+        // Init Source Map In Development
+        .pipe(development(sourcemaps.init()))
+
+        // Compile SASS
+        .pipe(sass().on('error', sass.logError))
+
+        // Write Source Map In Development
+        .pipe(development(sourcemaps.write()))
+
+        // Run PostCSS
+        .pipe(postcss(processors))
+
+        // Minify CSS in Production
+        .pipe(production(postcss([cssnano()])))
+
+        // Pipe to Build Folder
+        .pipe(gulp.dest('../public/build/css'))
+
+        // Stream to BrowserSync in Development
+        .pipe(development(browserSync.stream()))
+
 });
 
-// Set up 'compress' task.
-gulp.task('compress', function() {
-    return gulp.src('js/*.js')
-        .pipe(gulpIf(isDev, $.sourcemaps.init()))
-        .pipe($.concat('docs.js'))
-        .pipe($.uglify())
-        .pipe(gulpIf(isDev, $.sourcemaps.write()))
-        .pipe(gulp.dest('../../web/js'))
-        ;
+//=== Move Assets
+
+// gulp.task('assets', function() {
+//     return gulp.src('assets/**')
+//         .pipe(gulp.dest('../public/build/assets'))
+// })
+
+//=== Setup Server
+
+gulp.task('server', ['sass'], function() {
+
+    // Run LiveReload Server in Development
+    if(currentEnv == 'development'){
+        // browserSync.init({
+        //     server: "./build"
+        // });
+
+        // Watch Directories for changes
+        // gulp.watch(['assets/**'], ['assets']);
+        gulp.watch(['js/**'], ['scripts']);
+        gulp.watch(['scss/**'], ['sass']);
+        // gulp.watch("build/*.html").on('change', browserSync.reload);
+    }
+
 });
 
-// Build
-gulp.task('build', ['sass', 'compress']);
+//=== Gulp Default Task
 
-// Set up 'default' task, with watches.
-gulp.task('default', ['sass', 'compress'], function() {
-    gulp.watch(['scss/**/*.scss'], ['sass']);
-    gulp.watch(['js/**/*.js'], ['compress']);
-});
+// gulp.task('default', ['js', 'assets', 'server']);
+gulp.task('default', ['scripts', 'server']);

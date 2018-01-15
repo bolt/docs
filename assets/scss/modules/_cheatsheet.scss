@@ -1,0 +1,191 @@
+
+.tagsholder {
+    @include mb(4);
+}
+.tag {
+    @include mb(1);
+    a {
+        color: $base;
+    }
+}
+
+.panels {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 320px;
+    -moz-column-width: 320px;
+    column-width: 320px;
+    padding: 0;
+}
+
+.panels .panel {
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    overflow: hidden;
+    h2 {
+        font-size: 14px;
+        font-weight: bold;
+        color: $white;
+        margin-bottom: 0;
+        position: relative;
+       
+        code {
+            color: $white;
+            padding: 1px 4px;
+            background-color: rgba(0, 0, 0, 0.15);
+            font-size: 100%;
+            font-weight: bold;
+        }
+
+        .anchor,
+        .anchor:hover {
+            color: $white;
+            position: absolute;
+            right: 10px;
+        }
+    }
+
+    .panel-block {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        color: $base;
+    }
+
+    p {
+        font-size: 14px; // 13.5px;
+        line-height: 1.4;
+    }
+
+    code {
+        padding: 0;
+        background-color: transparent;
+
+        @include tablet-only {
+            font-size: 13px;
+            color: #000;
+        }
+
+        @include tablet-only {
+            color: #222;
+            font-size: 12px;
+        }
+    }
+
+    mark {
+        background-color: transparent;
+        color: #C22;
+        font-size: 125%;
+        line-height: 50%;
+    }
+
+    .tip {
+        padding: 3px;
+        background-color: $cermaic;
+
+        p::before {
+            content: "TIP: ";
+            font-weight: bold;
+        }
+    }
+
+    th {
+        text-transform: uppercase;
+        font-size: 80%;
+        padding: 2px 5px;
+    }
+
+    td {
+        padding: 5px;
+        border: 0;
+        &:first-child {
+            white-space: nowrap;
+        }
+        + td {
+            white-space: pre-line;    
+        }
+        p {
+            font-size: $table-row-font-size;
+        }
+    }
+
+    tr {
+        &.even,
+        &.alt,
+        &:nth-of-type(even) {
+            td {
+                background: $table-even-row-bg;
+                border: 0;
+            }
+        }
+    }
+}
+
+.readmore {
+    color: $dark;
+    font-weight: bold;
+}
+
+@include mobile {
+
+    table.stack,
+    table.linear {
+        td {
+            display: block;
+        }
+
+        th {
+            display: block;
+            width: 50%;
+            float: left;
+        }
+    }
+
+    .panels {
+        @include px(1);
+        .panel {
+            h2 {
+                font-size: 17px;
+            }    
+            td {
+                p {
+                    font-size: $table-row-font-size + 1;
+                }
+            }
+        }
+    }
+}
+
+.contain-to-grid + .panels > .small-6:first-child  > .panel:not(.tip) > p {
+    margin: 5px;
+}
+
+
+
+//@media print {
+//
+//    .tip {
+//        display: none;
+//    }
+//
+//    table,
+//    .panel {
+//        position: relative !important;
+//        display: inline-block !important;
+//        width: 33% !important;
+//        height: 100%;
+//    }
+//
+//    table {
+//        margin-bottom: 5em;
+//    }
+//
+//    td {
+//        word-wrap: break-word;
+//
+//    }
+//
+//
+//}

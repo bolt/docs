@@ -1,0 +1,50 @@
+
+.note,
+.notification,
+.tips,
+.warning {
+    @extend .notification;
+    @include mt(4);
+    code {
+        background-color: rgba(0, 0, 0, 0.15);
+        color: currentColor;
+    }
+}
+
+.note,
+.notification {
+    background-color: $yellow !important;
+    color: $yellow-invert;
+    &::before {
+        display: none;
+        font-family: "Font Awesome 5 Solid";
+        content: "\f0e7";
+    }
+    .svg-inline--fa {        
+        display: block;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: -16px;
+        left: -16px;
+        padding: 6px;
+        text-align: center;
+        border-radius: 50%;        
+        background-color: darken($yellow,17.5%);
+    }
+}
+
+.warning,
+.is-warning:not(.button){
+    background-color: $warning !important;
+    color: $warning-invert;
+    .svg-inline--fa {        
+        background-color: darken($warning,17.5%);
+    }
+}
+
+.tips {
+    .svg-inline--fa {        
+        background-color: darken($white-ter,15%);
+    }
+}

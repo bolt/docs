@@ -21,26 +21,26 @@ Documentation: https://community.algolia.com/docsearch/documentation/
 
 /* Main category headers */
 .algolia-docsearch-suggestion--category-header {
-    background-color: $mediumblue;
+    background-color: $brand;
 }
 
 /* Highlighted search terms */
 .algolia-docsearch-suggestion--highlight {
-    color: $mediumblue;
+    color: $brand;
 }
 
 /* Highligted search terms in the main category headers */
 .algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--highlight  {
-    background-color: $darkblue;
+    background-color: $brand-dark;
 }
 
 /* Currently selected suggestion */
 .aa-cursor .algolia-docsearch-suggestion--content {
-    color: $mediumblue;
+    color: $brand;
 }
 
 .algolia-docsearch-suggestion {
-    color: $mediumgrey;
+    color: $grey; // $mediumgrey;
 }
 
 .aa-cursor .algolia-docsearch-suggestion {

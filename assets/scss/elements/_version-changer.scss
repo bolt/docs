@@ -1,0 +1,20 @@
+
+.version-changer {
+    display: flex;
+    justify-content: flex-end;
+    @include mb(4);
+    @include mobile {
+        flex-direction: column;
+        select {
+            width: 100%;
+        } 
+        .button {
+            margin-top: .25em;
+        }    
+    }
+    @include tablet {
+        .button {
+            margin-left: .25em;
+        }
+    }
+}

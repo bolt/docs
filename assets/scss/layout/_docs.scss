@@ -1,0 +1,95 @@
+//((===  Docs Layout  ===))//
+
+$sidebar-width: 325px; //250px;
+$header-height: 60px;
+
+.docs {
+    min-height: calc(100vh - #{$header-height} );
+    width: 100vw;
+    &.columns.is-gapless {
+        margin-top: $header-height;
+        margin-bottom: 0;
+    }
+    &__sidebar{
+        background: $primary;
+        background: linear-gradient(to left, $primary 0%, darken($primary, 10%) 100%);
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        @include desktop {
+            width: $sidebar-width;
+            order: -1;
+        }
+        &--search{
+            .control .icon {
+                color: $secondary;
+            }
+            @include touch {
+                @include p(3);
+            }
+            @include desktop {
+                @include mt(4);
+                @include px(3);
+            }
+        }
+        &--menu{
+            $menu-item-color: $white !important;
+            .menu {
+                @include p(3);  
+            }
+            .sub {
+                padding-left: 0.75em;
+                border-left: 1px solid $white;
+                margin: 0 0.75em;        
+            }
+        }
+    }
+    &__main {
+        @include desktop {
+            width: calc(100vw - #{$sidebar-width});
+        }
+        &.cheatsheet,
+        &.class-reference {
+            width: 100%;
+        }
+        &--body{
+            @include p(3);
+            @include tablet{
+                @include p(4);
+            }
+            .cheatsheet &,
+            .class-reference & {
+                @include mobile {
+                    @include p(3);
+                }
+            }
+            .content {
+                max-width: 640px;
+                .cheatsheet &,
+                .class-reference & {
+                    max-width: 1214px;
+                }
+            }
+            @include desktop {
+                margin-top: 24px;
+                pre {
+                    width: calc(100vw - (#{$sidebar-width} + 66px));
+                }
+            }
+        }
+    }
+}
+
+.class-reference {
+    .notification {
+        max-width: 640px;
+    }
+}
+
+#sidebar:before {
+    @include touch {
+        content: "";
+        display: block;
+        padding-top: $header-height;
+    }            
+}

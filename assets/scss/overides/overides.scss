@@ -1,0 +1,96 @@
+//((===  Bootstrap Overides  ===))//
+
+
+//=== Initial Variables
+
+@import "../../node_modules/bulma/sass/utilities/initial-variables";
+@import "../../node_modules/bulma/sass/utilities/functions";
+
+//=== Custom Colours
+
+$base: #2C3E50;
+$brand: #80A2BE;
+$brand-invert: findColorInvert($brand);
+$secondary: #FF784A;
+$brand-dark: #49698A;
+$cermaic: #F4F7F7;
+$blue: $brand;
+$speed: 120ms;
+
+//=== Custom Fonts
+
+$family-primary: "Source Sans Pro", sans-serif;
+
+$family-monospace: Menlo, Consolas, 'Liberation Mono', 'Source Code Pro', monospace;
+
+//=== Colour Overides
+
+$primary:           $brand;
+$primary-invert:    $brand-invert;
+$info:              $brand-dark;
+$warning:           $secondary;
+$warning-invert:    $white;
+$white-ter:         $cermaic;
+$black:             $base;
+$dark:              $base;
+$text:              $base;
+
+$grey-darker:  $brand-dark;
+$grey-dark:    lighten($grey-darker, 3%);
+$grey:         lighten($grey-darker, 6%);
+$grey-light:   lighten($grey-darker, 9%);
+$grey-lighter: lighten($grey-darker, 12%);
+
+
+//=== Set initial font Size
+
+$body-size: 16.5px;
+
+//=== Sidebar Menu Overides
+
+$menu-item-color: $white;
+$menu-label-color: $white-ter;
+$menu-list-border-left: 1px solid $white-ter;
+$menu-item-active-color: $base;
+$menu-item-active-background-color: $white-ter;
+
+//=== Breadcrumb Overides
+
+$breadcrumb-item-separator-color: $white;
+$breadcrumb-item-color: $white-ter;
+$breadcrumb-item-active-color: $white;
+
+//=== Form Overides
+
+$input-border-color: darken($white-ter, 10%);
+$input-hover-border-color: $primary;
+$input-color: lighten($base, 20%);
+
+//== Inline code blocks
+
+$code: $secondary;
+$code-background: $white-ter;
+
+//=== Tags
+// $tag-background-color: $brand;
+// $tag-color: $white;
+
+//=== Panel
+$panel-item-border: 1px solid $primary;
+$panel-heading-background-color: $primary;
+
+//=== Import Derived Variables
+
+@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
+
+//== For the cheatsheet:
+$table-bg: $white;
+//$table-border-color: $white;
+$table-border-size: 0px;
+//$table-even-row-bg: lighten(desaturate($bolt-orange, 20), 35);
+//$table-odd-row-bg: #F2F2F2;
+$table-even-row-bg: $white-ter; // #F4F3EA;
+$table-odd-row-bg: $white;
+$table-row-padding: 2px;
+$table-row-font-size: 13px;
+$table-line-height: 1.4;

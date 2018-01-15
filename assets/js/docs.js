@@ -3,8 +3,6 @@ var q = "";
 
 jQuery(function($) {
 
-    hljs.initHighlightingOnLoad();
-
     // hiding the mobile navigation
     $('.main-nav').removeClass('expanded');
 
@@ -12,6 +10,14 @@ jQuery(function($) {
     $('.menu-toggle').click(function() {
         $('.main-nav').toggleClass('expanded');
         $(this).toggleClass('active');
+    });
+
+    $('.button-bars').click(function () {
+        $('.docs__sidebar--menu').slideToggle();
+    });
+
+    $('.button-search').click(function () {
+        $('.docs__sidebar--search').slideToggle();
     });
 
     $('main .content a.popup').magnificPopup({
@@ -26,29 +32,29 @@ jQuery(function($) {
       }
     });
 
-    $(window).scroll(function () {
-        $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
-    });
+    // $(window).scroll(function () {
+    //     $('header').css('backgroundPosition', '0px ' + (posTop() / 2) + 'px');
+    // });
 
-    // Jumpmenu for the versions
+    // Jumpmenu for the versions.
     $("#version-changer-submit").hide();
     $("#version-changer select").change(function() {
         console.log('jo');
         window.location = $("#version-changer select option:selected").val();
     })
 
-    //Zero Clipboard stuff..
-    $('pre code').each(function(index) {
-        // Get the text to be copied to the clipboard
-        var text = $(this).text();
+    // Zero Clipboard stuff.
+    // $('pre code').each(function(index) {
+    //     // Get the text to be copied to the clipboard
+    //     var text = $(this).text();
 
-        // Create the copy button
-        var copyBtn = $('<span class="copy-btn">[ Copy Code ]</span>')
-            .attr('data-clipboard-text', text) // set the text to be copied
-            .insertBefore(this); // insert copy button before <pre>
-    });
+    //     // Create the copy button
+    //     var copyBtn = $('<span class="copy-btn">[ Copy Code ]</span>')
+    //         .attr('data-clipboard-text', text) // set the text to be copied
+    //         .insertBefore(this); // insert copy button before <pre>
+    // });
 
-    initClipBoard();
+    // initClipBoard();
 
     // Remove 'version changer' from the hash.
     if (window.location.hash == '#version-changer') {
@@ -65,17 +71,17 @@ jQuery(function($) {
 
 });
 
-function initClipBoard() {
+// function initClipBoard() {
 
-    var clipboard = new Clipboard('.copy-btn');
+//     var clipboard = new Clipboard('.copy-btn');
 
-    clipboard.on('success', function(e) {
-        $(e.trigger).text('[ Copied ]');
-        window.setTimeout(function(){ $(e.trigger).text('[ Copy code ]'); }, 2000);
-        e.clearSelection();
-    });
+//     clipboard.on('success', function(e) {
+//         $(e.trigger).text('[ Copied ]');
+//         window.setTimeout(function(){ $(e.trigger).text('[ Copy code ]'); }, 2000);
+//         e.clearSelection();
+//     });
 
-}
+// }
 
 function formatForUrl(str) {
     return str.replace(/_/g, '-')
@@ -88,6 +94,88 @@ function formatForUrl(str) {
         .toLowerCase();
 };
 
-function posTop() {
-    return typeof window.pageYOffset != 'undefined' ? window.pageYOffset: document.documentElement.scrollTop? document.documentElement.scrollTop: document.body.scrollTop? document.body.scrollTop:0;
-}
+// function posTop() {
+//     return typeof window.pageYOffset != 'undefined' ? window.pageYOffset: document.documentElement.scrollTop? document.documentElement.scrollTop: document.body.scrollTop? document.body.scrollTop:0;
+// }
+
+(function () {
+    if (typeof self === 'undefined' || !self.Prism || !self.document) {
+        return;
+    }
+
+    if (!Prism.plugins.toolbar) {
+        console.warn('Copy to Clipboard plugin loaded before Toolbar plugin.');
+
+        return;
+    }
+
+    var Clipboard = window.Clipboard || undefined;
+
+    if (Clipboard && /(native code)/.test(Clipboard.toString())) {
+        Clipboard = undefined;
+    }
+
+    if (!Clipboard && typeof require === 'function') {
+        Clipboard = require('clipboard');
+    }
+
+    var callbacks = [];
+
+    if (!Clipboard) {
+        var script = document.createElement('script');
+        var head = document.querySelector('head');
+
+        script.onload = function () {
+            Clipboard = window.Clipboard;
+
+            if (Clipboard) {
+                while (callbacks.length) {
+                    callbacks.pop()();
+                }
+            }
+        };
+
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js';
+        head.appendChild(script);
+    }
+
+    Prism.plugins.toolbar.registerButton('copy-to-clipboard', function (env) {
+        var linkCopy = document.createElement('a');
+        linkCopy.className = 'copy-code';
+        linkCopy.setAttribute('aria-label', 'Copy Code');
+        linkCopy.innerHTML = '<i class="icon-copy"></i>';
+
+        if (!Clipboard) {
+            callbacks.push(registerClipboard);
+        } else {
+            registerClipboard();
+        }
+
+        return linkCopy;
+
+        function registerClipboard() {
+            var clip = new Clipboard(linkCopy, {
+                'text': function () {
+                    return env.code;
+                }
+            });
+
+            clip.on('success', function () {
+                linkCopy.setAttribute('aria-label', 'Copied!');
+
+                resetText();
+            });
+            clip.on('error', function () {
+                linkCopy.textContent = 'Press Ctrl+C to copy';
+
+                resetText();
+            });
+        }
+
+        function resetText() {
+            setTimeout(function () {
+                linkCopy.setAttribute('aria-label', 'Copy Code');
+            }, 5000);
+        }
+    });
+})();

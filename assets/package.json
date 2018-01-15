@@ -1,0 +1,30 @@
+{
+  "name": "bcms-docs",
+  "version": "1.0.0",
+  "description": "BoltCMS Documentation",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp --env development",
+    "prod": "gulp --env production"
+  },
+  "author": "Jack Marsh",
+  "license": "MIT",
+  "dependencies": {
+    "bulma": "^0.6.1",
+    "sass-spacing": "^2.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "browser-sync": "^2.18.13",
+    "cssnano": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-environments": "^0.1.2",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "webpack": "^3.8.1",
+    "webpack-stream": "^4.0.0"
+  }
+}

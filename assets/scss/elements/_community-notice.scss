@@ -1,0 +1,17 @@
+
+.community-notice {
+    @include mt(4);
+    .github {
+        display: flex;
+        color: $base;
+    }
+    .icon {
+        color: #000;
+        @include mr(3);
+    }
+    hr {
+        background-color: $white-ter;
+        height: 2px;
+        @include mt(3);
+    }
+}

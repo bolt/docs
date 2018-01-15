@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <!--[if IE 7]><html xml:lang="en" lang="en" class="ie ie7"><![endif]-->
 <!--[if IE 8]><html xml:lang="en" lang="en" class="ie ie8"><![endif]-->
@@ -22,10 +22,10 @@
     <meta name="msapplication-config" content="{{ asset('images/browserconfig.xml') }}">
     <meta name="theme-color" content="#ffffff">
 
-    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,600italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400italic,600,600italic' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    <link rel="stylesheet" href="{{ asset('build/css/docs.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+    <link rel="stylesheet" href="{{ asset('build/css/main.css') }}" type="text/css" media="all" />
 
 {% block canonical %}
 {% endblock canonical %}
@@ -39,55 +39,103 @@
 
 <body class="body-docs">
 
-    <header style="background-image: url(/files/header_57.jpg);">
-        <div class="inner">
-
-            <h1 id="logo"><img src="{{ asset('images/bolt.png') }}" width='200' alt="BoltCM" /></h1>
-            <h2 class="payoff">Sophisticated, Lightweight and Simple</h2>
-
-            <a class="menu-toggle"><span></span></a>
-        </div>
+    <header>
+        <nav class="navbar is-light is-fixed-top" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="brand--text is-size-3" href="/">
+                    BOLT<span class="has-text-weight-light">CMS</span>
+                </a>
+                <div class="brand--payoff is-hidden">Sophisticated, Lightweight and Simple</div>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    {% set route = app.request.attributes.get('_route') %}
+                    {% set route_params = app.request.attributes.get('_route_params') %}
+                    <a href="https://bolt.cm/" class="navbar-item">Home [bolt.cm]</a>
+                    <a href="{{ path('page', {version: version})}}" class="navbar-item">Documentation</a>
+                    <a href="{{ path('page', {version: version, page: 'manual'}) }}" class="navbar-item">Manual</a>
+                    <a href="{{ path('cheatsheet', {version: version}) }}" class="navbar-item">Cheatsheet</a>
+                </div>
+            </div>
+            <button class="button button-bars is-primary is-hidden-desktop">
+                <span class="icon">
+                <i class="fa fa-bars"></i>
+                </span>
+            </button>
+        </nav>
     </header>
 
-    <nav class="main-nav expanded">
-        <ul>
-            {% set route = app.request.attributes.get('_route') %}
-            {% set route_params = app.request.attributes.get('_route_params') %}
-            <li>
-                <a href="https://bolt.cm/">Home [bolt.cm]</a>
-            </li>
-            <li class="{{ route == 'page' and not (route_params.page starts with 'manual') ? 'active' }}">
-                <a href="{{ path('page', {version: version})}}">Documentation</a>
-            </li>
-            <li class="{{ route == 'page' and route_params.page starts with 'manual' ? 'active' }}">
-                <a href="{{ path('page', {version: version, page: 'manual'}) }}">Manual</a>
-            </li>
-            <li class="{{ route == 'cheatsheet' ? 'active' }}">
-                <a href="{{ path('cheatsheet', {version: version}) }}">Cheatsheet</a>
-            </li>
-
-        </ul>
-    </nav>
-
-    <div class="clearfix"></div>
-
-    <main class="row">
-
+    <div class="docs columns is-gapless is-desktop">
 {% block content %}
     (content goes here)
 {% endblock content %}
+    </div>
 
-    </main>
+    <footer class="columns is-gapless">
+        <div class="footer-top columns">
+            <div class="column is-one-third">
+                <h2 class="title is-4">Links</h2>
+                <ul class="links">
+                    {% set route = app.request.attributes.get('_route') %}
+                    {% set route_params = app.request.attributes.get('_route_params') %}
+                    <li><a href="https://bolt.cm/">Home</a></li>
+                    <li><a href="https://bolt.cm/features">Features</a></li>
+                    <li><a href="{{ path('page', {version: version})}}">Documentation</a></li>
+                    <li><a href="https://bolt.cm/news">News</a></li>
+                    <li><a href="https://bolt.cm/news">Showcase</a></li>
+                    <li><a href="https://bolt.cm/community">Community</a></li>
+                    <li><a href="https://market.bolt.cm/">Marketplace</a></li>
+                    <li><a href="https://bolt.cm/pages/download">Download</a></li>
+                </ul>
+            </div>
+            <div class="column is-one-third">
+                <h2 class="title is-4">Connect</h2>
+                <ul class="connect">
+                    <li>
+                        <span class="icon is-large">
+                            <i class="fab fa-lg fa-twitter"></i>
+                        </span>
+                        <a href="https://twitter.com/boltcm">Twitter</a>
+                    </li>
+                    <li>
+                        <span class="icon is-large">
+                            <i class="fab fa-lg fa-github-alt"></i>
+                        </span>
+                        <a href="https://github.com/bolt/bolt">Github</a>
+                    </li>
+                    <li>
+                        <span class="icon is-large">
+                            <i class="fab fa-lg fa-slack-hash"></i>
+                        </span>
+                        <a href="https://slack.bolt.cm/">Slack</a>
+                    </li>
+                    <li>
+                        <span class="icon is-large">
+                           <i class="fas fa-lg fa-comments"></i>
+                        </span>
+                        <a href="https://discuss.bolt.cm/">Forums</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="column is-one-third logo">
+                <img src="{{ asset('images/bolt.png') }}" width='170' alt="BoltCM" />
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; Copyright 2017 Bolt CMS</div>
+    </footer>
+
     <script>var prefix = "";</script>
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/docs.js') }}" type="text/javascript"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-    <script type="text/javascript"> docsearch({
+    <script src="{{ asset('build/js/jquery.js') }}"></script>
+    <script src="{{ asset('build/js/bundle.js') }}" type="text/javascript"></script>
+    {# <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script> #}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript">
+    docsearch({
         apiKey: '1b46aac18cdcead6090088f1994f7ea8',
         indexName: 'bolt',
         inputSelector: '#algolia-search',
         algoliaOptions: { 'facetFilters': [ "version:{{ version }}"] }
-        });
+    });
     </script>
 
 {% block extrafooter %}
