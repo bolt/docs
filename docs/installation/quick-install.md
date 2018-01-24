@@ -56,10 +56,12 @@ to this:
 ├── app/
 ├── extensions/
 ├── public/
+├── src/
 ├── vendor/
 ├── README.md
-├── composer.json.dist
-└── composer.lock.dist
+├── composer.json
+├── composer.lock
+└── index.php
 ```
 
 These are the folders that contain all of the Bolt code, resources and other

@@ -68,8 +68,10 @@ This will result in a structure that looks like this.
 └── example.org
     └── public_html/
         ├── app/
+        ├── bolt-public/
         ├── extensions/
         ├── files/
+        ├── src/
         ├── theme/
         ├── thumbs/
         ├── vendor/
@@ -77,6 +79,8 @@ This will result in a structure that looks like this.
         ├── .gitignore
         ├── .htaccess
         ├── README.md
+        ├── composer.json
+        ├── composer.lock
         └── index.php
 ```
 
