@@ -39,6 +39,20 @@ set to 03:00 am.
 cron_hour: 3
 ```
 
+**Important Information for Timed Record Publishing**
+
+If you are using the cron to publish timed records (which is highly recommended) then 
+you need to set a flag in your config.yml or config_local.yml.
+
+Add this block:
+
+```yml
+performance:
+    timed_records:
+        use_cron: true
+```
+
+
 Command Line
 ------------
 
