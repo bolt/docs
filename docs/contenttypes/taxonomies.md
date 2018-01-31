@@ -72,6 +72,9 @@ The common options are:
 | `multiple` | This option is used for category taxonomies only, and defines whether or not the editor can select multiple categories. |
 | `has_sortorder` | This option is used for grouping taxonomies only, and defines whether the group has its own sorting order. See below for an example of this. |
 | `options` | This option is used for grouping and categories taxonomies, and defines the possible options for the editor to chose. The values can either be an array or a hash. See below for an example.
+| `prefix` | Text/HTML to show before the field. |
+| `postfix` | Text/HTML to show after the field. |
+
 
 Setting options
 ---------------
