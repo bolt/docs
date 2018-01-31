@@ -48,7 +48,6 @@ Direct link: [latest.msi](https://yarnpkg.com/latest.msi).
 ### Install required components:
 
 ```
-    cd app/src/
     yarn install --strict-semver
 ```
 

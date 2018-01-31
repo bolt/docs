@@ -38,13 +38,15 @@
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
-    "algoliasearch": "^3.24.9",
+    "baguettebox.js": "^1.10.0",
     "bulma": "^0.6.1",
     "clipboard": "^1.7.1",
+    "docsearch.js": "^2.5.2",
     "js-cookie": "^2.2.0",
     "magnific-popup": "^1.1.0",
     "prismjs": "^1.10.0",
     "sass-spacing": "^2.0.0",
+    "smoothscroll": "^0.4.0",
     "zepto": "^1.2.0"
   }
 }

@@ -13,13 +13,13 @@
 {% endblock canonical %}
 
 {% block content %}
-  
+
     <main class="docs__main">
         <div class="docs__main--body">
             {% include '_versionselect.twig' %}
             <section id="content" class="content">
 
-                <a href="#sidebar" class="button is-info is-hidden-desktop" id="jumpbutton">Jump to docs navigation</a>        
+                <a href="#sidebar" class="button is-info is-hidden-desktop" id="jumpbutton">Jump to docs navigation</a>
 
                 {{ include('_sub_title.twig') }}
 
@@ -77,7 +77,7 @@
                     <a href="https://github.com/bolt/docs/blob/{{ version }}/docs/{{ page.path }}" target="_blank" class="github">
                         <span class="icon">
                             <i class="fab fa-2x fa-github"></i>
-                        </span>                
+                        </span>
                         Edit this page on GitHub
                     </a>
                     <hr>
@@ -112,9 +112,9 @@
         </div> #}
 
         <div class="docs__sidebar--search">
-            <label for="algolia-search"> Search the documentation:</label>
+            <label for="algolia-search">Search the documentation:</label>
             <div class="control has-icons-right">
-                <input type="text" placeholder="Search ..." id="algolia-search" class="input" />
+                <input type="text" placeholder="Search ..." id="algolia-search" data-version="{{ version }}" class="input" />
                 <span class="icon is-small is-right">
                     <i class="fa fa-search"></i>
                 </span>
@@ -138,6 +138,6 @@
 
             </nav>
         </div>
-    </aside>    
+    </aside>
 
 {% endblock content %}

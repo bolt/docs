@@ -1,0 +1,12 @@
+code[class*="language-"], pre[class*="language-"] {
+    line-height: 175%;
+}
+
+// Override/reset some Bulma cruft
+.tag:not(body) {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    display: inherit;
+    font-size: inherit
+}
