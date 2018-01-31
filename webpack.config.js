@@ -1,26 +1,37 @@
-var Encore = require('@symfony/webpack-encore');
+let Encore = require('@symfony/webpack-encore');
 
 Encore
-    // the project directory where compiled assets will be stored
-    .setOutputPath('public/build/')
-    // the public path used by the web server to access the previous directory
-    .setPublicPath('/build')
+    .setOutputPath('public/assets/')
+    .setPublicPath('/assets')
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
-    // uncomment to create hashed filenames (e.g. app.abc123.css)
-    // .enableVersioning(Encore.isProduction())
+    .enableVersioning(Encore.isProduction())
 
-    // uncomment to define the assets of the project
-    .addEntry('js/docs', './assets/js/docs.js')
-    .addStyleEntry('css/docs', './assets/scss/docs.scss')
+    .addEntry('app', './assets/js/app.js')
 
-    // uncomment if you use Sass/SCSS files
-    .enableSassLoader(function(options) {
-        // https://github.com/sass/node-sass#options
-        options.includePaths = ['assets/bower_components/foundation-sites/scss/']
+    // Babel
+    .configureBabel(function(babelConfig) {
+        babelConfig.plugins.push('syntax-object-rest-spread');
+        babelConfig.plugins.push('transform-object-rest-spread');
     })
 
-    .autoProvidejQuery()
+    // Loaders
+    .addLoader({
+        test: /\.(js)$/,
+        exclude: /node_modules\/(?!(bootstrap)\/).*/,
+        loader: 'babel-loader',
+        query: {
+            presets: ['env']
+        }
+    })
+    .enableSassLoader()
 ;
 
-module.exports = Encore.getWebpackConfig();
+const config = Encore.getWebpackConfig();
+
+config.watchOptions = {
+    poll: true,
+    ignored: /node_modules/
+};
+
+module.exports = config;
