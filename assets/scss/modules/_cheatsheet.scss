@@ -2,12 +2,6 @@
 .tagsholder {
     @include mb(4);
 }
-.tag {
-    @include mb(1);
-    a {
-        color: $base;
-    }
-}
 
 .panels {
     -webkit-column-count: 3;

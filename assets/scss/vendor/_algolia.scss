@@ -4,60 +4,10 @@ input#algolia-search {
     margin-bottom: 0;
 }
 
-/*
-Algolia Search Results Styles
-Documentation: https://community.algolia.com/docsearch/documentation/
-*/
-
-/* little hack to get 100% for the input field width */
 .algolia-autocomplete {
     display: inline !important;
+    width: 100%;
+    .ds-dropdown-menu {
+        margin: 25px 0 0 0;
+    }    
 }
-
-/* Bottom border of each suggestion */
-.algolia-docsearch-suggestion {
-    border-bottom-color: #ddd;
-}
-
-/* Main category headers */
-.algolia-docsearch-suggestion--category-header {
-    background-color: $brand;
-}
-
-/* Highlighted search terms */
-.algolia-docsearch-suggestion--highlight {
-    color: $brand;
-}
-
-/* Highligted search terms in the main category headers */
-.algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--highlight  {
-    background-color: $brand-dark;
-}
-
-/* Currently selected suggestion */
-.aa-cursor .algolia-docsearch-suggestion--content {
-    color: $brand;
-}
-
-.algolia-docsearch-suggestion {
-    color: $grey; // $mediumgrey;
-}
-
-.aa-cursor .algolia-docsearch-suggestion {
-    background: lighten(#ddd, 8);
-}
-
-.aa-dropdown-menu {
-    margin: -1px 0 0 0;
-    border-color: #888;
-    border-radius: 0;
-}
-
-.algolia-docsearch-suggestion__secondary {
-    border-top: 1px solid #ccc;
-}
-
-.algolia-docsearch-suggestion--subcategory-column {
-    border-right: 1px solid #ccc;
-}
-
