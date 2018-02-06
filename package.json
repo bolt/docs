@@ -20,21 +20,21 @@
     "build": "encore production"
   },
   "devDependencies": {
-    "@babel/cli": "7.0.0-beta.39",
-    "@babel/core": "7.0.0-beta.39",
-    "@babel/preset-env": "7.0.0-beta.39",
-    "@symfony/webpack-encore": "^0.17.1",
-    "autoprefixer": "^7.2.5",
+    "@babel/cli": "7.0.0-beta.40",
+    "@babel/core": "7.0.0-beta.40",
+    "@babel/preset-env": "7.0.0-beta.40",
+    "@symfony/webpack-encore": "^0.19.0",
+    "autoprefixer": "^8.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
-    "eslint": "^4.16.0",
+    "eslint": "^4.17.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-react": "^7.6.1",
     "node-sass": "^4.7.2",
-    "postcss-loader": "^2.0.9",
+    "postcss-loader": "^2.1.0",
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
@@ -44,9 +44,8 @@
     "docsearch.js": "^2.5.2",
     "js-cookie": "^2.2.0",
     "magnific-popup": "^1.1.0",
-    "prismjs": "^1.10.0",
+    "prismjs": "^1.11.0",
     "sass-spacing": "^2.0.0",
-    "smoothscroll": "^0.4.0",
-    "zepto": "^1.2.0"
+    "smoothscroll": "^0.4.0"
   }
 }
