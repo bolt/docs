@@ -261,7 +261,7 @@ Widget classes have fluent setters for properties. e.g.
 protected function registerAssets()
 {
     $asset = new Widget();
-    $asset->setType(Zone::FRONTEND)
+    $asset->setZone(Zone::FRONTEND)
         ->setLocation(Target::WIDGET_FRONT_FOOTER)
         ->setCallback([$this, 'callbackWidget'])
         ->setCallbackArguments(['arg1' => 'Kenny', 'arg2' => 'Koala'])
@@ -282,7 +282,7 @@ public function callbackWidget($arg1, $arg2)
 ```
 
 In the above example:
-  * `setType(Zone::FRONTEND)` tells the asset injector to only act on the
+  * `setZone(Zone::FRONTEND)` tells the asset injector to only act on the
      frontend
   * `setLocation(Target::AFTER_META)` tells the asset injector to insert
      the snippet after other `<meta>`
