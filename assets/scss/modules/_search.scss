@@ -2,6 +2,10 @@
 
 $search-height: 55px;
 
+.docs__sidebar--search label {
+    color: $menu-item-color;
+}
+
 .search{
    width: 100%;
    height: $search-height;
