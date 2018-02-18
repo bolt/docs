@@ -44,11 +44,10 @@
         {% set selected = current.url starts with page.url %}
         <li class="{{ not selected ? 'closed' }}{{ current.url == page.url ? ' selected'}}">
             {% if page.subPages is not empty %}
-                <a href="{{ page.url }}"><span class="title">{{ page.title }}</span></a>
-                <a href="{{ page.url }}" class="toggler">{{ selected ? '-' : '+' }}</a>
+                <a href="{{ page.url }}" class="{{ current.url == page.url ? 'is-active'}}"><span>{{ page.title }}</span></a>
 
             {% else %}
-                <a href="{{ page.url }}" class="title">{{ page.title }}</a>
+                <a href="{{ page.url }}" class="{{ current.url == page.url ? 'is-active'}}">{{ page.title }}</a>
             {% endif %}
             {% if current.url == page.url %}
                 {{ include('_sub_quicklinks.twig') }}

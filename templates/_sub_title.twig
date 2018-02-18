@@ -1,4 +1,4 @@
-<h1>
+<h1 class="title has-text-dark">
     {% set parenttitle = [] %}
     {% if page.parent.parent is not null and page.parent.parent.shorttitle not in [ "Documentation", page.title ] %}
         {% set parenttitle = [ page.parent.parent.shorttitle ] %}
@@ -9,7 +9,7 @@
     {% endif %}
 
     {% if parenttitle is not empty %}
-    <span>{{ parenttitle|join(' » ') }} » </span>
+    <span class="has-text-weight-light">{{ parenttitle|join(' / ') }} / </span>
     {% endif %}
     {{ page.title }}
 </h1>

@@ -1,0 +1,68 @@
+
+.docsintro {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include desktop {
+        width: calc(100vw - (325px + 66px));
+    }
+}
+
+a.button.docsintro {
+    max-width: 100%;
+    font-size: $size-5; // 19px;
+    font-weight: bold;
+    display: block;
+    background-color: $white-ter;
+    border-color: $brand;
+    border-width: 0 0 4px 0;
+    color: $base;
+    text-decoration: none;
+    height: auto;
+    white-space: inherit;
+    padding: .85em 1em;
+    border-radius: 0;
+    line-height: 1;
+    small {
+        font-size: 14px;
+        font-weight: normal;
+    }
+    &:hover {
+        background-color: darken($white-ter, 2.5%);
+    }
+}
+
+a.button.medium.docsintro {
+    flex: 0 1 calc(33% - 0.5em);
+    margin-bottom: 1em;
+    font-size: 19px;
+    font-weight: bold;
+    color: $base;
+    background-color: $white-ter;
+    small {
+        font-size: 13px;
+        font-weight: normal;
+    }
+    &:hover {
+        background-color: darken($white-ter, 2.5%);
+    }
+}
+
+a.button.large.expand.docsintro {
+    flex-basis: 100%;
+}
+
+a.button.large.docsintro {
+    flex-basis: calc(50% - 0.5em);
+}
+
+.content a.button.docsintro {
+    margin-bottom: 1em;
+}
+
+a.button.docsintro.layer {
+    &:before {
+        content:"";
+        margin-right: 0px;
+    }
+}

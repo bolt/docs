@@ -2,37 +2,41 @@
 
 {% block content %}
 
-    <div class="small-12 medium-12 large-12 columns content">
+<main class="docs__main class-reference">
+    <div class="docs__main--body">
+        <section id="content" class="content">
 
-        <h1>{{ title }}</h1>
+            <h1 class="title has-text-dark">{{ title }}</h1>
 
-        <p class='tip'>Note: This page does <em>not</em> define our public API. It's here, exclusively as a reference. So, please do not use this as a source to build on, because things <em>will</em> change.</p>
+            <p class='notification'>Note: This page does <em>not</em> define our public API. It's here, exclusively as a reference. So, please do not use this as a source to build on, because things <em>will</em> change.</p>
 
-        <table id="example" class="display" width="100%"></table>
+            <table id="example" class="display" width="100%"></table>
 
-        <script>
+            <script>
 
-        var dataSet = [
-        {% for class in classes if class.type in ['class', 'closure', 'container'] -%}
-            {% if class.type == 'class' and class.file|slice(0, 4) == 'src/' %}
-                {% set filename = class.value|replace({'\\': '/'}) %}
-                {% set link = '<a href="/api/' ~ version ~ '/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
-            {% elseif class.type == 'class' and class.file|slice(0, 15) == 'vendor/symfony/' %}
-                {% set filename = class.value|replace({'\\': '/'}) %}
-                {% set link = '<a href="http://api.symfony.com/2.8/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
-            {% elseif class.type == 'class' and class.file|slice(0, 13) == 'vendor/silex/' %}
-                {% set filename = class.value|replace({'\\': '/'}) %}
-                {% set link = '<a href="http://silex.sensiolabs.org/api/1.3/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
-            {% else %}
-                {% set link = class.file %}
-            {% endif %}
+            var dataSet = [
+            {% for class in classes if class.type in ['class', 'closure', 'container'] -%}
+                {% if class.type == 'class' and class.file|slice(0, 4) == 'src/' %}
+                    {% set filename = class.value|replace({'\\': '/'}) %}
+                    {% set link = '<a href="/api/' ~ version ~ '/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
+                {% elseif class.type == 'class' and class.file|slice(0, 15) == 'vendor/symfony/' %}
+                    {% set filename = class.value|replace({'\\': '/'}) %}
+                    {% set link = '<a href="http://api.symfony.com/2.8/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
+                {% elseif class.type == 'class' and class.file|slice(0, 13) == 'vendor/silex/' %}
+                    {% set filename = class.value|replace({'\\': '/'}) %}
+                    {% set link = '<a href="http://silex.sensiolabs.org/api/1.3/' ~ filename ~ '.html">' ~ class.file ~ '</a>' %}
+                {% else %}
+                    {% set link = class.file %}
+                {% endif %}
 
-          [ '{{ class.name|raw }}', '{{ class.type|raw }}', '{{ class.value|e("js") }}<br>{{ link|raw }}' ],
-        {%- endfor %}
-                ];
-        </script>
+            [ '{{ class.name|raw }}', '{{ class.type|raw }}', '{{ class.value|e("js") }}<br>{{ link|raw }}' ],
+            {%- endfor %}
+                    ];
+            </script>
 
+        </section>
     </div>
+</main>
 
 {% endblock content %}
 

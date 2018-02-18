@@ -1,0 +1,56 @@
+
+footer {
+    background: $primary;
+    background: linear-gradient(to bottom, $base 0%, lighten($base, 10%) 100%);
+    &.columns.is-gapless:not(:last-child) {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    .title {
+        font-weight: 300;
+        color: $white;
+        border-bottom: 1px solid $white;
+        margin-bottom: 1rem !important;
+        padding-bottom: .5rem;
+    }
+    .links {
+        li + li {
+            @include mt(1);
+        }
+    }
+    .connect {
+        li {
+            display: flex;
+            align-items: center;
+            + li {
+                @include mt(2);
+            }
+        }
+    }
+    a {
+        color: $white;
+    }
+    .icon {
+        background-color: $white;
+        border-radius: 50%;
+        @include mr(3);
+    }
+}
+
+.footer-top {
+    &.columns{
+        max-width: 1024px;
+        width: 100%;
+        margin: 0 auto;
+        @include py(4);
+    }
+}
+.footer-bottom {
+    background-color: $base;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    font-weight: 300;
+}

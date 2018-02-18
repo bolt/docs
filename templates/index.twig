@@ -14,97 +14,130 @@
 
 {% block content %}
 
-    <div class="small-12 medium-12 large-9 columns content">
+    <main class="docs__main">
+        <div class="docs__main--body">
+            {% include '_versionselect.twig' %}
+            <section id="content" class="content">
 
-        <a href="#sidebar" class="button hide-for-large" id="jumpbutton">Jump to docs navigation</a>
+                <a href="#sidebar" class="button is-info is-hidden-desktop" id="jumpbutton">Jump to docs navigation</a>
 
-        {% include '_versionselect.twig' %}
+                {{ include('_sub_title.twig') }}
 
-        {% if version != default_version %}
-            {% if (default_version ~ '/' ~ page.path) in filelist %}
-                {% set path = path('page', {'version': default_version, 'page': page.path|replace({'.md': ''}) }) %}
-            {% else %}
-                {% set path = path('page', {'version': default_version }) %}
-            {% endif %}
-            <p class="note" style="margin-top: 1em;">
-                <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt
-                {{ version }}</strong>. Looking for the <a href="{{ path }}">documentation
-                for Bolt {{ default_version }}</a> instead?
-            </p>
-        {% endif %}
-
-        {% if page.listed is defined and not page.listed %}
-            <p class="warning" style="margin-top: 1em;">
-                <strong>Note:</strong> Welcome, <i>Time Traveller</i> or <i>Internet Archeologist</i>.
-                The information you find below is outdated, and might not entirely work on recent
-                versions of Bolt. Use with care, and at your own discretion.
-            </p>
-        {% endif %}
-
-
-        {{ include('_sub_title.twig') }}
-
-        {{ include('_sub_quicklinks.twig') }}
-
-        {{ page.content|replace({'%%VERSION%%': version})|raw }}
-
-        {{ include('_sub_submenu.twig') }}
-
-        <div class="row" style="max-width: 680px;">
-            <div class="large-6 columns">
-                {% if page.previous.title|default() %}
-                    {% set path = '/' ~ version ~ '/' ~ page.previous.path|replace({'.md': '', '/index': ''}) %}
-                    <a class="button" href="{{ path }}">
-                        &laquo; Previous: <span>{{ page.previous.title }}</span>
-                    </a>
+                {% if version != default_version %}
+                    {% if (default_version ~ '/' ~ page.path) in filelist %}
+                        {% set path = path('page', {'version': default_version, 'page': page.path|replace({'.md': ''}) }) %}
+                    {% else %}
+                        {% set path = path('page', {'version': default_version }) %}
+                    {% endif %}
+                    <p class="notification" style="margin-top: 1em;">
+                        <strong>Note:</strong> You are currently reading the documentation for <strong>Bolt
+                        {{ version }}</strong>. Looking for the <a href="{{ path }}">documentation
+                        for Bolt {{ default_version }}</a> instead?
+                    </p>
                 {% endif %}
+
+                {% if page.listed is defined and not page.listed %}
+                    <p class="notification is-warning" style="margin-top: 1em;">
+                        <strong>Note:</strong> Welcome, <i>Time Traveller</i> or <i>Internet Archeologist</i>.
+                        The information you find below is outdated, and might not entirely work on recent
+                        versions of Bolt. Use with care, and at your own discretion.
+                    </p>
+                {% endif %}
+
+                {{ include('_sub_quicklinks.twig') }}
+
+                {{ page.content|replace({'%%VERSION%%': version})|raw }}
+
+                {{ include('_sub_submenu.twig') }}
+
+                <div class="columns is-mobile" role="navigation" aria-label="pagination">
+                    <div class="is-6 column">
+                        {% if page.previous.title|default() %}
+                            {% set path = '/' ~ version ~ '/' ~ page.previous.path|replace({'.md': '', '/index': ''}) %}
+                            <a class="button is-info" href="{{ path }}">
+                                <span class="icon"><i class="fas fa-angle-double-left"></i></span>
+                                <span class="is-hidden-tablet">Previous</span>
+                                <span class="is-hidden-mobile">{{ page.previous.title }}</span>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="is-6 column has-text-right">
+                        {% if page.next.title|default() %}
+                            {% set path = '/' ~ version ~ '/' ~ page.next.path|replace({'.md': '', '/index': ''}) %}
+                            <a class="button middle is-info" href="{{ path }}">
+                                <span class="is-hidden-tablet">Next</span>
+                                <span class="is-hidden-mobile">{{ page.next.title }}</span>
+                                <span class="icon"><i class="fas fa-angle-double-right"></i></span>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="community-notice is-desktop">
+                    <a href="https://github.com/bolt/docs/blob/{{ version }}/docs/{{ page.path }}" target="_blank" class="github">
+                        <span class="icon">
+                            <i class="fab fa-2x fa-github"></i>
+                        </span>
+                        Edit this page on GitHub
+                    </a>
+                    <hr>
+                    Couldn't find what you were looking for? We are happy to help you in the
+                    <a href="https://discuss.bolt.cm/" target="_blank">forum</a>, on
+                    <a href="http://slack.bolt.cm/" target="_blank">Slack</a> or on
+                    <a href="http://bolt.cm/irc" target="_blank">IRC</a>.<br>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <aside id="sidebar" class="docs__sidebar">
+        {# <div class="docs__sidebar--brand">
+            <div class="brand">
+                <a class="brand--text is-size-3" href="https://bolt.cm/">
+                    BOLT<span class="has-text-weight-light">CMS</span>
+                </a>
+                <div class="brand--payoff is-hidden">Sophisticated, Lightweight and Simple</div>
             </div>
-            <div class="large-6 columns text-right">
-                {% if page.next.title|default() %}
-                    {% set path = '/' ~ version ~ '/' ~ page.next.path|replace({'.md': '', '/index': ''}) %}
-                    <a class="button middle" href="{{ path }}">
-                        Next: <span>{{ page.next.title }}</span> &raquo;
-                    </a>
-                {% endif %}
+            <button class="button button-bars is-primary is-hidden-desktop">
+                <span class="icon">
+                <i class="fa fa-bars"></i>
+                </span>
+            </button>
+            <button class="button button-search is-primary is-hidden-desktop">
+                <span class="icon">
+                <i class="fa fa-search"></i>
+                </span>
+            </button>
+        </div> #}
+
+        <div class="docs__sidebar--search">
+            <label for="algolia-search">Search the documentation:</label>
+            <div class="control has-icons-right">
+                <input type="text" placeholder="Search ..." id="algolia-search" data-version="{{ version }}" class="input" />
+                <span class="icon is-small is-right">
+                    <i class="fa fa-search"></i>
+                </span>
             </div>
         </div>
 
-        <div class="community-notice show-for-large">
-            <hr>
-            Couldn't find what you were looking for? We are happy to help you in the
-            <a href="https://discuss.bolt.cm/" target="_blank">forum</a>, on
-            <a href="http://slack.bolt.cm/" target="_blank">Slack</a> or on
-            <a href="http://bolt.cm/irc" target="_blank">IRC</a>.<br>
-            Spotted a typo, or have something to add?
-            <a href="https://github.com/bolt/docs/blob/{{ version }}/docs/{{ page.path }}" target="_blank">Edit this page on GitHub</a>.
-        </div>
+        <div class="docs__sidebar--menu">
+            <nav id="sidebar-nav" class="menu" role="navigation">
 
-
-    </div>
-
-    <div class="small-12 medium-12 large-3 large-pull-9 end columns sidebar" id="sidebar">
-        <nav id="sidebar-nav">
-
-            <div class='search'>
-                <label for="algolia-search"> Search the documentation:</label>
-                <input type="text" placeholder="Search ..." id="algolia-search"/>
-            </div>
-
-            <div id="tree1">
-                <ul class="hide">
+                <ul class="menu-list is-hidden">
                     {% for v in versions %}
                         <a href="{{ path('page', {version: v}) }}">{{ v }}</a>
                     {% endfor %}
                 </ul>
 
-                <ul>
+                <ul class="menu-list">
                     {% for sub in page.root.subPages %}
                         {{ macro.menu(sub, page) }}
                     {% endfor %}
                 </ul>
-            </div>
 
-        </nav>
-    </div>
+            </nav>
+        </div>
+    </aside>
 
 {% endblock content %}

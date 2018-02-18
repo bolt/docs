@@ -13,13 +13,16 @@
 
 {% block content %}
 
-    <div class="small-12 medium-12 large-12 columns content">
+<main class="docs__main cheatsheet">
+    <div class="docs__main--body">
+        <section id="content" class="content">
+    {# <div class="small-12 medium-12 large-12 columns content"> #}
 
-        <h1>{{ title }}</h1>
+        <h1 class="title has-text-dark">{{ title }}</h1>
 
-        <div class="row labelholder">
+        <div class="tagsholder">
         {% for block in cheatsheet if block.title|default(false) %}
-            <span class="secondary radius label">
+            <span class="tag">
                 <a href="#{{ block.title|slugify }}">{{ block.shorttitle|default(block.title) }}</a>
             </span>
         {% endfor %}
@@ -27,17 +30,18 @@
 
         <div class="panels">
 
-            {% for block in cheatsheet|default([]) %}
-                <div class="panel">
+        {% for block in cheatsheet|default([]) %}
+            <div class="panel">
 
-                    {% if block.title|default(false) %}
-                            {% set title = block.title|markdown|replace({'<p>': '', '</p>': ''}) %}
-                            <h2 id="{{ block.title|slugify }}">
-                                {{ loop.index -1 }}. {{ title|raw }}
-                                <a href="#{{ block.title|slugify }}" class="anchor">&para;</a>
-                            </h2>
-                    {% endif %}
+                {% if block.title|default(false) %}
+                    {% set title = block.title|markdown|replace({'<p>': '', '</p>': ''}) %}
+                    <h2 id="{{ block.title|slugify }}" class="panel-heading">
+                        {{ loop.index -1 }}. {{ title|raw }}
+                        <a href="#{{ block.title|slugify }}" class="anchor">&para;</a>
+                    </h2>
+                {% endif %}
 
+                <div class="panel-block">
                     {# prefix #}
                     {% if block.prefix|default(false) %}{{ block.prefix|markdown }}{% endif %}
 
@@ -66,21 +70,26 @@
                             {% endfor %}
                         </p>
                     {% endif %}
+                </div>
 
             </div>
 
-            {% if block.add_separator|default(false) %}
-            </div>
-                <hr>
-            <div class="panels">
-            {% endif %}
+        {% if block.add_separator|default(false) %}
+        </div>
+        <hr>
+        <div class="panels">
+        {% endif %}
 
-            {% endfor %}
+        {% endfor %}
 
         </div>
+        
+        <a class="login" href="{{ asset('files/doge.jpg') }}">wow</a>
+        </section>
 
         {# dump(cheatsheet) #}
 
-        <a href="{{ asset('files/doge.jpg') }}">wow</a>
+    </div>
+</main>
 
 {% endblock %}

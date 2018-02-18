@@ -1,0 +1,54 @@
+
+$sidebar-width: 325px; //250px;
+$header-height: 60px;
+
+.navbar {
+    box-shadow: 0px 1px 4px 0px transparentize($black, 0.25);
+}
+.navbar-brand {
+    height: $header-height;
+    background: $primary;
+    background: linear-gradient(to right, $primary 0%, darken($primary, 10%) 100%);
+    @include tablet {
+        background: linear-gradient(to left, $primary 0%, darken($primary, 10%) 100%);
+    }
+    position: relative;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include desktop {
+        width: $sidebar-width;
+    }
+}
+.navbar-item {
+    font-size: $size-5;
+}
+.button-bars {
+    position: absolute;    
+    top: 11px;
+    right: 1rem;
+}
+.button.is-primary.navbar-burger {
+    &:hover {
+        background-color: $brand-dark;
+    }
+}
+#sidebar-nav {
+    .closed ul {
+        display: none;
+    }
+
+    ul ul .selected {
+        li {
+            margin-top: 4px;
+            margin-bottom: 4px;
+            font-size: 90%;
+        }
+        span {
+            display: none;
+        }
+        .quick-links {
+           margin: 0;
+        }
+    }
+}

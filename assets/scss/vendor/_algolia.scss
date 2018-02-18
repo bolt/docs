@@ -1,0 +1,13 @@
+input#algolia-search {
+    color: black;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.algolia-autocomplete {
+    display: inline !important;
+    width: 100%;
+    .ds-dropdown-menu {
+        margin: 25px 0 0 0;
+    }    
+}

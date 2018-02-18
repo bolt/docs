@@ -1,0 +1,15 @@
+
+.tag {
+    @include mb(1);
+    a {
+        color: $base;
+    }
+    // Fix tags in prism.
+    &:not(body) {
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        display: inherit;
+        font-size: inherit
+    }
+}

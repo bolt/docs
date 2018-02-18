@@ -1,0 +1,31 @@
+//((===  Typography  ===))//
+
+.lead {
+    font-size: $size-4;
+    color: $grey-dark;
+    font-weight: $weight-light;
+}
+
+.title {
+    .anchor {
+       i {
+            font-size: $size-3;
+       }
+    }
+}
+
+.button {
+    text-decoration: none;
+}
+
+main a {
+    text-decoration: underline;
+    text-decoration-skip: ink;
+}
+                
+.quick-links {
+    margin: 0 0 2em;
+    ul {
+        margin-top: 0;
+    }
+}

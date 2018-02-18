@@ -1,0 +1,43 @@
+//((===  Prism  ===))//
+
+$color-code:				$black;
+$color-code-background:		$white-ter;
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: $color-code;
+	text-shadow: none;
+	font-size: 14px;
+	line-height: 1.6;
+	font-family: $family-monospace;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: $color-code-background;
+	background: linear-gradient(to top, $color-code-background 0%, lighten($color-code-background, 5%) 100%);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}

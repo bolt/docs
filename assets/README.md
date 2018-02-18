@@ -48,39 +48,36 @@ Direct link: [latest.msi](https://yarnpkg.com/latest.msi).
 ### Install required components:
 
 ```
-    cd app/src/
     yarn install --strict-semver
 ```
 
 
 ### Rebuild CSS & JavaScript:
 
-Only build assets:
+Development build of the assets:
 
 ```
-    yarn run gulp build
+    yarn dev
 ```
 
-Build and leave watch running:
+Development build & watch for changes:
 
 ```
-    yarn run gulp
+    yarn watch
 ```
 
+Build assets for deployment:
 
-**NOTE:** Removing the `build` argument will leave Gulp watching for changes
-and rebuild as required.
+```
+    yarn build
+```
+
 
 ### Updating dependencies to their latest versions:
 
-Use `npm-check-updates` to check for packages that have major updates, not
-caught by the regular update that respects SemVer.
 
-If you don't foresee problems, run `npm-check-updates -u`.
-
-Next, upgrade yarn:
+Run Yarn in interactive mode and select the libraries to upgrade:
 
 ```
-    yarn upgrade --strict-semver
-    yarn install --strict-semver
+    yarn upgrade-interactive --latest
 ```
