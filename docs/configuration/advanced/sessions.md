@@ -36,20 +36,6 @@ session:
     key: value
 ```
 
-Here's how an example configuration might look like:
-
-```yaml
-session:
-    save_handler: redis
-    connection:
-        host: redis.example.com
-        persistent: true
-        prefix: myprefix.
-        
-    cookie_lifetime: 1209600
-    cookie_httponly: true
-```
-
 Setting via dependency injection is done by calling `$app->share($app->extend())`
 on the `'session.options'` container value, i.e.:
 
@@ -217,6 +203,16 @@ If the native `\Redis` library is available, it will be used as the handler for
 Redis, if not available, it will instead check for the PHP implementation of
 the native library, `\Predis\Client` and use that.
 
+Example configuration:
+
+```yaml
+session:
+    save_handler: redis
+    connection:
+        host: redis.example.com
+        persistent: true
+        prefix: myprefix.
+```
 
 ### Using the Memcached handler
 
@@ -230,6 +226,18 @@ When using Memcached as the handler, the following options are also under the
 | `weight`     |           0 | (optional) The weight of the server relative to the total weight of all the servers in the pool. This controls the probability of the server being selected for operations.
 | `expiretime` |       86400 | (optional) Life time in seconds of stored keys        |
 | `prefix`     |      `sf2s` | (optional) Prefix string used on all keys             |
+
+Example configuration:
+
+```yaml
+session:
+    save_handler: memcached
+    connection:
+        host: memcached.example.com
+        weight: 0
+        expiretime: 86400
+        prefix: myprefix.
+```
 
 
 Saved session file path
