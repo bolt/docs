@@ -29,11 +29,25 @@ Changing session settings for a Bolt site can be done either by editing the
 site's `config.yml` file, or via dependency injection.
 
 in your `config.yml`, settings are done adding the required parameter key and
-value, to the `sessions` key, i.e.:
+value, to the `session` key, i.e.:
 
 ```yaml
-sessions:
+session:
     key: value
+```
+
+Here's how an example configuration might look like:
+
+```yaml
+session:
+    save_handler: redis
+    connection:
+        host: redis.example.com
+        persistent: true
+        prefix: myprefix.
+        
+    cookie_lifetime: 1209600
+    cookie_httponly: true
 ```
 
 Setting via dependency injection is done by calling `$app->share($app->extend())`
@@ -187,7 +201,7 @@ shown below.</p>
 ### Using the Redis handler
 
 When using Redis as the handler, the following options are also under the
-`connections` subkey, of the session options:
+`connection` subkey, of the session options:
 
 | Key          | Default     |                                                   |
 | ------------ | ----------- | ------------------------------------------------- |
@@ -207,7 +221,7 @@ the native library, `\Predis\Client` and use that.
 ### Using the Memcached handler
 
 When using Memcached as the handler, the following options are also under the
-`connections` subkey, of the session options:
+`connection` subkey, of the session options:
 
 | Key          | Default     |                                                       |
 | ------------ | ----------- | ----------------------------------------------------- |
