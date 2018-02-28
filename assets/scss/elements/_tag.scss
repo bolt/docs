@@ -5,11 +5,19 @@
         color: $base;
     }
     // Fix tags in prism.
-    &:not(body) {
+    &:not(.code-toolbar) {
         margin: 0;
         padding: 0;
         background-color: transparent;
         display: inherit;
         font-size: inherit
+    }
+    // Fix tags in cheatsheet.
+    .cheatsheet & {
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+        background-color: $tag-background-color;
+        display: inline-flex;
+        font-size: $size-small;
     }
 }
