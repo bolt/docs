@@ -262,6 +262,7 @@ Then, in your `menu.yml` change your "Pages" to the following.
           contenttype: pages
           where:
               menu: pages
+              limit: 5
 ```
 
 Now all that's left is to modify your submenu template (`_sub_menu.twig`) so that it adds the pages with the "pages" taxonomy.
