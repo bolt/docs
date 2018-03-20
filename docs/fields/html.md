@@ -29,6 +29,7 @@ field.
 
 * `allowtwig` can be set to true or false to control if twig may be used in the
   field
+* `searchable` Set to `false` to prevent this field from being checked for search results.
 * `options` contains the options for the <abbr title="What You See Is What You Get">WYSIWYG</abbr>
   editor. See below for an example and the [CKEditor API][ckeditor] for more
   information on possible options:
