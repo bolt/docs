@@ -32,7 +32,9 @@ Global search
 The global search is configured inside the config.yml and the routing.yml. In
 config you define which template will show the results and in the routing you
 could change to default URL. By default this global search will search through
-all ContentTypes unless 'searchable' is set to _false_.
+all ContentTypes unless `searchable` (or `viewless`) is set to _false_. You
+can prevent fields from being searched through, by setting `searchable` to
+`false` for that field.
 
 You can initiate the search by visiting the URL `/search?q=SEARCH`.
 
