@@ -27,3 +27,4 @@ The field has a few options to change the functionality of the field.
 * `max` The maximum accepted value.
 * `step` How much to "step" the value up and down when using the browser
   controls.
+* `placeholder` Placeholder text inside the input control.
