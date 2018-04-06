@@ -26,6 +26,7 @@ The field has a few options to change the functionality of the field.
 * `allowtwig` can be set to true or false to control if twig may be used in the
   field
 * `pattern` Use this to validate the field against a certain pattern.
+* `placeholder` Placeholder text inside the input control.
 
 ## Input Sanitisation
 
@@ -37,3 +38,4 @@ this field type.
 On the other hand, if you do want the extra failsafe of having the input
 filtered before it gets saved in the database, use a `type: text`, `type: html`
 or `type: markdown` field instead.
+

@@ -254,9 +254,9 @@ class AwsServiceProvider implements ServiceProviderInterface
         $app['filesystem.cache_factory'] = $app->protect(
             function ($adapter, $name, $expire = null) {
                 // Note: Predis is use here as an example
-                $cache = new DoctrineCache(new PredisCache(new Predis\Client()));
+                $cache = new DoctrineCache(new PredisCache(new Predis\Client()), $name, $expire);
 
-                return new Cached($adapter, $cache, $name, $expire);
+                return new Cached($adapter, $cache);
             }
         );
 
