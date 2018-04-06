@@ -32,3 +32,4 @@ field.
 * `variant` set to `inline` to show the label next to the field instead of
   above it.
 * `pattern` Use this to validate the field against a certain pattern.
+* `placeholder` Placeholder text inside the input control.
