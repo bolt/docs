@@ -18,7 +18,7 @@ follows.
 
 ### Selection of a template for an single record page:
 
-  - If an overview page like `/page/foo-bar` is requested, and the ContentType
+  - If a single page like `/page/foo-bar` is requested, and the ContentType
     has a `templateselect` field, and a template is selected for this record,
     that template will be used
   - Otherwise, if the ContentType definition has a value for `record_template`,
