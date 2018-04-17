@@ -132,7 +132,7 @@ contenttype with a `sections` repeater, acces them like this:
 
 The field has one specific option:
 
-* `collapsible`: Whether the separate sets of this Repeater are collapsible in
+* `collapsible`: Whether the separate sets of this Block are collapsible in
   the backend. This allows the editor to get a better overview, if there are
   multiple sets. The default is `true`, you can set it to `false` to disable
   this feature.
