@@ -3,6 +3,7 @@ const Clipboard = require('clipboard');
 const Prism = require('prismjs');
 require('prismjs/plugins/toolbar/prism-toolbar.js');
 require('prismjs/components/prism-javascript.js');
+require('prismjs/components/prism-markup-templating.js');
 require('prismjs/components/prism-bash.js');
 require('prismjs/components/prism-css.js');
 require('prismjs/components/prism-json.js');
