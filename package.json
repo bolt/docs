@@ -23,7 +23,7 @@
     "@babel/cli": "7.0.0-beta.44",
     "@babel/core": "7.0.0-beta.44",
     "@babel/preset-env": "7.0.0-beta.44",
-    "@symfony/webpack-encore": "^0.20.0",
+    "@symfony/webpack-encore": "^0.20.1",
     "autoprefixer": "^8.3.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
@@ -39,11 +39,10 @@
   },
   "dependencies": {
     "baguettebox.js": "^1.10.0",
-    "bulma": "^0.7.0",
+    "bulma": "^0.7.1",
     "clipboard": "^2.0.0",
     "docsearch.js": "^2.5.2",
     "js-cookie": "^2.2.0",
-    "magnific-popup": "^1.1.0",
     "prismjs": "^1.14.0",
     "sass-spacing": "^2.0.0",
     "smoothscroll": "^0.4.0"

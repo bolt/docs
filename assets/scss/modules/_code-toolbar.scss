@@ -5,8 +5,13 @@
     box-shadow: $box-shadow;
     border-radius: $radius;
     position: relative;
+
+    @include desktop {
+        width: calc(100vw - #{$sidebar-width + 66px } );
+    }
+
     .content & {
-        padding-top: calc(1.25em + 40px);
+        padding-top: 2em;
     }
     .toolbar {
         @include px(3);
