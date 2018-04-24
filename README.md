@@ -1,26 +1,30 @@
 Bolt Documentation Site & Content
 =================================
 
-This repository is for both the site, and content, of [Bolt][bolt], and should
-be considered a counterpart of the [Bolt repository][repo].
+This repository is for both the site, and content, of
+[Bolt][bolt], and should be considered a counterpart of the
+[Bolt repository][repo].
 
-The documentation uses the [Markdown][markdown] format. There is no need to
-build anything to generate HTML. We parse the markdown with PHP.
+The documentation uses the
+[Markdown][markdown] format.
 
-Since this repository is set up to use git's worktree feature, it is advised
-with to use git version 2.5 or later.
+There is no need to build anything to generate HTML. We parse the markdown with
+PHP.
+
+Since this repository is set up to use git's worktree feature, it is advised to
+use git version 2.5 or later.
 
 Updating Documentation
 ----------------------
 
 The repository uses branches to group documentation relevant to each version in
-the format of `release/<version>`.
+the format of `<major.minor>`, e.g. `3.0`.
 
 Changes should be PR-ed against the *lowest* relevant version and will then be
 merged down into higher version branches as required.
 
 e.g. if you're fixing a typo that exists in the same Markdown file in both
-version 3.0 as well as in 3.1, you would checkout `release/3.0` and submit your
+version 3.0 as well as in 3.1, you would checkout `3.0` and submit your
 PR against that branch.
 
 Local site set-up
@@ -48,46 +52,59 @@ An example that sets up work trees for version 3.0 of the documentation
 branches:
 
 ```
-git worktree add -b release/3.0 var/versions/3.0
+git worktree add -b 3.0 var/versions/3.0
 ```
 
 Alternatively, if you have `grep` and `sed` installed, this will set up all of
 the version worktrees for you
 
 ```
-for VERSION in $(git branch --remotes --list | grep -E "origin\/release\/[2-9]" | sed 's/origin\/release\///g'); do
-    git worktree add -b release/$VERSION var/versions/$VERSION
+for VERSION in $(git branch --remotes --list | grep -E "^  origin\/[2-9]" | sed 's/origin\///g'); do
+    git branch $VERSION origin/$VERSION
+    git worktree add var/versions/$VERSION $VERSION
 done
 ```
 
 ### Configure Default Version
 
-For your local environment you can add a configuration file, located at
-`app/config.yml` to facilitate local development. It should contain the
-following:
-
-```yml
-debug: true
-
-default-version: '3.0'
+For your local environment you can edit the `.env` file, located in the project
+root. It should contain the following:
 
 ```
-
-Note: If you want to set it to `3.0` for example, be sure to include the
-quotes. Otherwise the YML parser will interpret it as `3`.
+DEFAULT_VERSION=3.5
+APP_ENV=dev
+```
 
 ### Web Server Set-up
 
 Finally if you wish to use the built-in PHP web server, it can be run from the
-`bolt-docs/` folder, pointing to `web/` as the document root.
+`bolt-docs/` folder, pointing to `public/` as the document root.
 
 ```
-php -S 0.0.0.0:8000 -t web web/index.php
+php -S 127.0.0.1:8000 -t public public/index.php
 ```
 
-Alternatively, configure your preferred web server to point at the `web/`
-folder. To see the documentation site go to `example.localhost/3.1/`, from
-where you'll get redirected to the front page of the documentation.
+You can also use the Symfony web server bundle. You will need to start by
+preparing the project:
+
+```
+git stash
+composer require server --dev
+git reset --hard HEAD
+rm config/routes/annotations.yaml -f
+git stash pop
+```
+
+Then starting the web server:
+```
+bin/console server:start
+```
+
+Alternatively, configure your preferred web server to point at the `public/`
+folder.
+
+To see the documentation site go to `example.localhost/3.5/`, from where you'll
+get redirected to the front page of the documentation.
 
 [bolt]: http://docs.bolt.cm/
 [markdown]: http://daringfireball.net/projects/markdown/
