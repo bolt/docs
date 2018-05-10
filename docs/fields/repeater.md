@@ -58,13 +58,13 @@ within the set then the template code will look like this:
 {% endfor %}
 ```
 
-In the example above using `{{ field }}` will just output the value of the 
-sub-field, if it is a text field such as like `text`, `html`, `textarea` or 
-`markdown`. Since these are sometimes more complex fields you can use 
-`{{ field|showimage }}` for images or `{{ dump(field.value) }}` to dump the 
-value regardless of type. In practice, you'll often want to use the techniques 
-described in the section below for individual fields to output the specific type 
-of field in the layout you require. 
+In the example above using `{{ field }}` will just output the value of the
+sub-field, if it is a text field such as like `text`, `html`, `textarea` or
+`markdown`. Since these are sometimes more complex fields you can use
+`{{ field|showimage }}` for images or `{{ dump(field.value) }}` to dump the
+value regardless of type. In practice, you'll often want to use the techniques
+described in the section below for individual fields to output the specific type
+of field in the layout you require.
 
 If you know the names of the fields you want to render then you can fetch a
 field from the collection by name. For instance using the same example as above
@@ -95,7 +95,7 @@ contenttype with a `sections` repeater, acces them like this:
 
 ## Options
 
-The field has two specific options:
+The field has three specific options:
 
 * `limit`: Limit how many sets an editor is able to create. If you omit this
   setting, then an unlimited number of sets can be created. The configuration
@@ -103,12 +103,17 @@ The field has two specific options:
 * `initial`: How many empty sets are created initially. This defaults to 1
   but when a sub-field is marked as required you may want to set it to `0` to
   ensure that a user must manually add a set first.
+* `collapsible`: Whether the separate sets of this Repeater are collapsible in
+  the backend. This allows the editor to get a better overview, if there are
+  multiple sets. The default is `true`, you can set it to `false` to disable
+  this feature.
 
 ```yaml
         features:
             type: repeater
             limit: 3
             initial: 0
+            collapsible: false
             fields:
                 repeattitle:
                     type: text
