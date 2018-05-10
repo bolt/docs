@@ -54,8 +54,22 @@ parsing the `.htaccess` file, and it encounters the error we've put in there! So
 far, so good!
 
 If you do _not_ see an 'Internal Server Error', your Apache setup ignores the
-`.htaccess` file, and you need to fix that. If you are not sure if the file
-exists and is readable, download our test script:
+`.htaccess` file, and you need to fix that. Generally, Apache ignores the
+`.htaccess` file because of the following Apache configuration `AllowOverride none`.
+Check your virtual host configuration and add/amend to `AllowOverride All`.
+
+Example:
+
+```apache
+    <Directory /var/www/site/example.com/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+```
+
+If you are not sure if the `.htaccess` file exists and is readable, download
+our test script:
 
  - Download the script here: [htaccess_tester.php on GitHub][tester]
  - Rename it to `htaccess_tester.php`, if needed.
