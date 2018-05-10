@@ -52,8 +52,6 @@ database:
     databasename: bolt
 ```
 
-Support for PostgreSQL is experimental, so use with caution.
-
 <p class="note"><strong>Note:</strong> The config file is in the YAML format,
   which means that the indentation is important. Make sure you leave leading
   spaces intact.</p>

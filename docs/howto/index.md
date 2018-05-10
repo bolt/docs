@@ -11,6 +11,7 @@ pages:
     - making-sure-htaccess-works
     - curl-ca-certificates
     - sortingorder-in-contenttypes
+    - setting-up-sites-to-be-extendable
 ---
 HOWTOs and Recipes
 ===================

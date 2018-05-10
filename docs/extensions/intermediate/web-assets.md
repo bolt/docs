@@ -157,7 +157,7 @@ create a blank object, and set the required properties. e.g.
 protected function registerAssets()
 {
     $asset = JavaScript::create()
-        >setFileName('dropbear.js')
+        ->setFileName('dropbear.js')
         ->setLate(true)
         ->setPriority(5)
         ->setAttributes(['defer', 'async'])
