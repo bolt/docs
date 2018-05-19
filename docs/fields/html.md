@@ -45,6 +45,7 @@ field.
                     autoGrow_onStartup: false
                     uiColor: '#BADA55'
                     autoGrow_minHeight: 300
+                    removeButtons : "Bold,Link,Unlink,NumberedList,BulletedList,Italic,Format,Indent,Outdent,RemoveFormat,Maximize" # This would remove all the default bolt buttons from the button bar.
 ```
 
 [ckeditor]: http://docs.ckeditor.com/#!/api/CKEDITOR.config
