@@ -57,7 +57,7 @@ of available commands if the <code>.deploy.yml</code> file is not present.</p>
 ```
 
 Using this command will allow you to verify the connection and destination
-connections are configured correctly, before running teh actual deployment. This
+connections are configured correctly, before running the actual deployment. This
 will help prevent the accidental removal of files on the destination environment.
 
 ### Example: Running a deployment
