@@ -231,3 +231,15 @@ isallowed("contenttype:foobar:create or contenttype:foobar:edit:1 or contenttype
 # for item #23, check if any permission is granted that would allow viewing:
 isallowed("frontend or view or edit", "items", 23)
 ```
+
+
+Debugging Permissions
+---------------------
+
+If enabled, permission auditing logs to the system log details of which
+permissions are granted or denied during a request. It is not suitable for
+normal production use.
+
+```yaml
+debug_permission_audit_mode: true
+```
