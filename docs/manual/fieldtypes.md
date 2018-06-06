@@ -38,6 +38,21 @@ A WYSIWYG field that allows greater freedom to edit styling and presentation of
 text. Often used for the body of a page or article. Features of the WYSIWYG can
 be turned on or off in the Main configuration.
 
+Date Fields
+-----------
+
+### Date
+
+<a href="/files/fieldtypes/date.png" class="popup"><img src="/files/fieldtypes/date.png"></a><br>
+
+A field for a single date that includes *no* time value.
+
+### Datetime
+
+<a href="/files/fieldtypes/datetime.png" class="popup"><img src="/files/fieldtypes/datetime.png"></a><br>
+
+A field for a single date and time.
+
 Media fields
 ------------
 
