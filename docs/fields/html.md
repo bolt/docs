@@ -45,6 +45,8 @@ field.
                     autoGrow_onStartup: false
                     uiColor: '#BADA55'
                     autoGrow_minHeight: 300
+                    # The following would remove all the default bolt buttons from the button bar. No whitespace in the value allowed.
+                    removeButtons : "Bold,Link,Unlink,NumberedList,BulletedList,Italic,Format,Indent,Outdent,RemoveFormat,Maximize" 
 ```
 
 [ckeditor]: http://docs.ckeditor.com/#!/api/CKEDITOR.config
