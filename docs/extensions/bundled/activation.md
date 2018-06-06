@@ -50,4 +50,5 @@ return [
     'extensions' => [
         new MyBundleExtension()
     ]
-];```
+];
+```

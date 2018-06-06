@@ -102,6 +102,19 @@ through [strtotime](http://php.net/manual/en/function.strtotime.php), meaning
 that you can use a fixed date as default, like "1900-01-01 12:00:00", but also
 relative dates like "first day of this month", "next Monday" or "yesterday".
 
+For select fields, you can use one of the values that you define. For example:
+
+```yaml
+    colors:
+        type: select
+        values: [ red, green, blue ]
+        default: green
+```
+
+If your select field is using a list of records from another ContentType as its
+values, and you want to define a default, you will need to use the ID of the 
+record that you want to set as the default.
+
 ## Required and patterns
 
 You can use the `required` option to make a field required. Combine it with the

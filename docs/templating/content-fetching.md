@@ -95,6 +95,11 @@ equal':
 
 {# get all books with amountsold over 1,000 #}
 {% setcontent mybooks = 'books' where { amountsold: '>1000' } %}
+
+{# get all blog entries except current record, negating a variable in the 'where' clause #}
+{% set pageid = record.id %}
+{% set whereid = '!' ~ pageid %}
+{% setcontent blog_entries = 'blog' where { id: whereid } %}
 ```
 
 <p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code>
