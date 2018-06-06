@@ -153,6 +153,14 @@ make expensive queries quicker. For more information on this please see the
 the [SQLite docs](https://www.sqlite.org/lang_analyze.html).
 
 
+Optimize the autoloader
+----------------------
+
+On complicated sites or slow servers, optimizing the autoloader can more than
+halve the time needed for a request. Run `composer install -o` in the bolt
+directory to optimize your autoloader.
+
+
 Putting it all together
 -----------------------
 
