@@ -100,4 +100,4 @@ When developing a site with this feature turned on, there are two things to note
  - Images that are already generated might still be served from cache. Flush the
    cache, if you're seeing stale images.
 
-[template tag documentation]: https://docs.bolt.cm/templating/templatetags#thumbnail
+[template tag documentation]: https://docs.bolt.cm/templating/twig-functionality#thumbnail
