@@ -283,7 +283,8 @@ Note that the records are fetched from the database, according to the `orderby`
 parameter. If you use `orderby 'title'`, you will get records with titles
 starting with 'a'.
 
-You can also get results randomised by using content queries. Please see the [setcontent](twig-functionality#setcontent) documentation for examples.
+You can also get results randomised by using content queries. Please see the
+[setcontent](twig-functionality#setcontent) documentation for examples.
 
 
 One record or multiple records?
@@ -313,9 +314,13 @@ following is the case:
 If you use `limit 1`, you will get an array with 1 record. Unless, of course,
 one of the above criteria was met.
 
+
 Using the `printquery` option
 -----------------------------
-If you're working on selecting some content, but aren't quite getting the desired results, you can add `printquery` to the `{% setcontent %}`- tag. Doing this will output the SQL query Bolt creates and executes. For example:
+
+If you're working on selecting some content, but aren't quite getting the
+desired results, you can add `printquery` to the `{% setcontent %}`- tag. Doing
+this will output the SQL query Bolt creates and executes. For example:
 
 ```
 {% setcontent entries = 'entries/latest/5' printquery %}
