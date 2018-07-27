@@ -100,6 +100,7 @@ namespace Bolt\Extensions\Bolt\ColourPicker;
 
 use Bolt\Asset\File\JavaScript;
 use Bolt\Asset\File\Stylesheet;
+use Bolt\Controller\Zone;
 use Bolt\Extension\SimpleExtension;
 use Bolt\Extensions\Bolt\ColourPicker\Field\ColourPickField;
 
@@ -122,9 +123,9 @@ class ColourPickerExtension extends SimpleExtension
     protected function registerAssets()
     {
         return [
-            new Stylesheet('colourpicker.css'),
-            new JavaScript('colourpicker.js'),
-            new JavaScript('start.js')
+            (new Stylesheet('css/colourpicker.css'))->setZone(Zone::BACKEND),
+            (new JavaScript('js/colourpicker.js'))->setZone(Zone::BACKEND),
+            (new JavaScript('js/start.js'))->setZone(Zone::BACKEND),
         ];
     }
 }
