@@ -110,6 +110,7 @@ fielddefinitions:
         - [ "`textarea`", "Simple multi-line textarea input, for longer texts without HTML markup. "]
         - [ "`select`", "A drop-down list to make a pre-defined selection from.  "]
         - [ "`video`", "A set of fields for embedding videos from websites like Youtube and Vimeo. "]
+        - [ "`embed`", "A generic embed field for different sources like YouTube, Vimeo, Twitter, SoundCloud and those compatible with the OEmbed standard. "]
         - [ "`geolocation`", "A set of fields for easy selection of a geolocation (latitude/longitude). Requires `google_api_key` to be set in `config.yml`."]
         - [ "`date`", "Datepicker widget, to set/select a date. "]
         - [ "`datetime`", "Similar to the `date` field, but adds an additional field for time. "]
