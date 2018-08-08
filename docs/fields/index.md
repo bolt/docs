@@ -8,6 +8,7 @@ pages:
     - image
     - file
     - video
+    - embed
     - select
     - markdown
     - textarea
