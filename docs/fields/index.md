@@ -13,7 +13,6 @@ pages:
     - markdown
     - textarea
     - repeater
-    - templateselect
     - block
     - integer
     - float
