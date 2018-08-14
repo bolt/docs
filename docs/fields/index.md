@@ -8,11 +8,11 @@ pages:
     - image
     - file
     - video
+    - embed
     - select
     - markdown
     - textarea
     - repeater
-    - templateselect
     - block
     - integer
     - float

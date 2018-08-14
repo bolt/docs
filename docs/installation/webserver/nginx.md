@@ -208,6 +208,27 @@ use one of these files per-pool.
 will attempt to initiate a download of the `index.php` file instead of
 executing it.
 
+### Subfolders
+
+To install Bolt within a subfolder, a location describing this must be added.
+
+```nginx
+    location ^~ /subfolder/(.*)$ {
+        try_files $uri $uri/ /subfolder/index.php?$query_string;
+    }
+```
+Two previously added locations must be amended.
+
+```nginx
+    location ^~ /subfolder/bolt/(.*)$ {
+        try_files $uri $uri/ /subfolder/index.php?$query_string;
+    }
+
+    # Backend async routes
+    location ^~ /subfolder/async/(.*)$ {
+        try_files $uri $uri/ /subfolder/index.php?$query_string;
+    }
+```
 
 ## NGINX Location Matching
 
