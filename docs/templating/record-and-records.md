@@ -79,7 +79,8 @@ for more details.
 
 If you're iterating over an array of `record.values`, it's sometimes useful to
 know what type of field you're dealing with. This is where the `fieldtype()`
-function comes in handy:
+function comes in handy, it reads the fieldtype from the `contenttypes.yml`
+configuration file:
 
 ```
 {% for key,value in record.values %}
@@ -88,7 +89,9 @@ function comes in handy:
 
       <div class='imageholder-wide'><img src="{{ record.image|thumbnail(800, 600) }}"></div>
 
-  {% elseif record.fieldtype(key) not in ['templateselect'] and value != "" %}
+  {% elseif record.fieldtype(key) not in ['templateselect'] 
+            and key != "templatefields"
+            and value != "" %}
 
       {{ value }}
 
