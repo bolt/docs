@@ -1,9 +1,30 @@
 {
+    "bolt/codingstyle": {
+        "version": "2.x-dev"
+    },
     "bolt/common": {
         "version": "v1.1.0"
     },
     "cocur/slugify": {
         "version": "v2.5"
+    },
+    "composer/semver": {
+        "version": "1.4.2"
+    },
+    "composer/xdebug-handler": {
+        "version": "1.2.0"
+    },
+    "doctrine/annotations": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "cb4152ebcadbe620ea2261da1a1c5a9b8cea7672"
+        }
+    },
+    "doctrine/lexer": {
+        "version": "v1.0.1"
     },
     "erusev/parsedown": {
         "version": "1.6.4"
@@ -11,11 +32,26 @@
     "erusev/parsedown-extra": {
         "version": "0.7.1"
     },
+    "escapestudios/symfony2-coding-standard": {
+        "version": "3.4.1"
+    },
     "fig/link-util": {
         "version": "1.0.0"
     },
+    "friendsofphp/php-cs-fixer": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.2",
+            "ref": "81dee417d2cc60cd1c9d6208dff2ec22a1103e93"
+        }
+    },
     "paragonie/random_compat": {
         "version": "v2.0.11"
+    },
+    "php-cs-fixer/diff": {
+        "version": "v1.3.0"
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -98,6 +134,9 @@
     "symfony/lts": {
         "version": "4-dev"
     },
+    "symfony/options-resolver": {
+        "version": "v4.1.3"
+    },
     "symfony/polyfill-mbstring": {
         "version": "v1.6.0"
     },
@@ -110,6 +149,9 @@
     "symfony/polyfill-php72": {
         "version": "v1.6.0"
     },
+    "symfony/process": {
+        "version": "v4.1.3"
+    },
     "symfony/routing": {
         "version": "3.3",
         "recipe": {
@@ -118,6 +160,9 @@
             "version": "3.3",
             "ref": "a249484db698d1a847a30291c8f732414ac47e25"
         }
+    },
+    "symfony/stopwatch": {
+        "version": "v4.1.3"
     },
     "symfony/twig-bridge": {
         "version": "v4.0.1"
