@@ -37,6 +37,13 @@ it simply does not make sense to have more than one of. In short, do
 <code>type: repeater</code> or <code>type: templateselect</code> as fields in
 your repeater. These fields will not work as expected. </p>
 
+You can drag-and-sort repeaters, but don't forget to save your record after sorting its 
+repeaters.
+
+If your repeater has one or more sub-fields with `type: text`, the first one will be 
+used as the header of each individual repeater set. This is particularly useful when you 
+need to sort your repeater sets and collapse them all prior to sorting them.
+
 ## Example usage in templates:
 
 When you want to use repeaters in your templates you will need to iterate over
