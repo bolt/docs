@@ -66,6 +66,13 @@ it simply does not make sense to have more than one of. In short, do
 <code>type: repeater</code> or <code>type: templateselect</code> as fields in
 your block. These fields will not work as expected. </p>
 
+You can drag-and-sort blocks, but don't forget to save your record after sorting them.
+
+If your block has one or more sub-fields with `type: text`, the first one will be 
+used as the header of each individual block set. This is particularly useful when you 
+need to sort your block sets and collapse them all prior to sorting them. If there
+is no `type: text` field defined, the header falls back to the block's label.
+
 ## Example usage in templates:
 
 When you want to use blocks in your templates you will need to iterate over
@@ -136,3 +143,5 @@ The field has one specific option:
   the backend. This allows the editor to get a better overview, if there are
   multiple sets. The default is `true`, you can set it to `false` to disable
   this feature.
+* `icon`: Allows you to add a FontAwesome icon to the header of a block set 
+  to identify it more easily. Example: `icon: "fa:bolt"`.
