@@ -171,6 +171,18 @@ helper templates by default, when providing you with a list to select your templ
 <code>include</code> tag to insert the header, footer and such, but you're free to use
 <a href="template-inheritance">Template Inheritance</a> if you prefer.</p>
 
+By default, Bolt creates links to single pages based on the ContentTypes, and
+it uses a template based on its name.
+
+For instance, if your site has a ContentType `foos`, a single record in that
+ContentType will be available under <a>domain.com/foo/slug-of-record</a>, where
+`slug-of-record` is the "slugified" version of the title. Bolt will try to use
+`foo.twig` as the template to render the page.
+
+You can change this by either defining another template in `contenttypes.yml`,
+or using a 'template select' field in the ContentType. More information about
+this can be found in the section on working with [ContentTypes](../contenttypes/intro).
+
 Using your themes `theme.yml` you can provide overrides for certain settings
 of the main `config.yml`. These are useful when building themes and you want to
 provide your own templates.
