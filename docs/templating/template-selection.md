@@ -20,14 +20,16 @@ follows.
 
   - If a single page like `/page/foo-bar` is requested, and the ContentType
     has a `templateselect` field, and a template is selected for this record,
-    that template will be used
+    that template will be used.
   - Otherwise, if the ContentType definition has a value for `record_template`,
-    that template will be used
+    that template will be used.
   - Otherwise, Bolt will check if a template with a suited name exists. For
     example, if the ContentType's `singular_name` is 'Entry', Bolt will check
-    for an `entry.twig` template. If it exists, that template will be used
+    for an `entry.twig` template. If it exists, that template will be used.
+  - Otherwise, if `record_template` is set in `theme.yml`, that template will
+    be used.
   - Otherwise, if `record_template` is set in `config.yml`, that template will
-    be used
+    be used.
   - If no other rule matches, Bolt will use a template named `record.twig`
 
 ### Selection of a template for an overview page:
@@ -37,6 +39,8 @@ follows.
   - Otherwise, Bolt will check if a template with a suited name exists. For
     example, if the ContentType's name is 'Entries', Bolt will check for an
     `entries.twig` template. If it exists, that template will be used.
+  - Otherwise, if `listing_template` is set in `theme.yml`, that template will
+    be used.
   - Otherwise, if `listing_template` is set in `config.yml`, that template will
     be used.
   - If no other rule matches, Bolt will use a template named `listing.twig`.
