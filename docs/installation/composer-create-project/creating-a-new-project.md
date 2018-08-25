@@ -29,7 +29,7 @@ To start an interactive install, navigate to the parent directory of your
 desired project (site), and run the following from a command line:
 
 ```
-composer create-project bolt/composer-install:^%%VERSION%% <MYPROJECT> --prefer-dist
+composer create-project bolt/composer-install:%%VERSION%%.x <MYPROJECT> --prefer-dist
 ```
 
 **NOTE:** Change `<MYPROJECT>` to the name of your project before running the

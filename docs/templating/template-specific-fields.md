@@ -57,8 +57,8 @@ record, this will happen automatically.
 </a>
 
 <p class="note"><strong>Note:</strong> TemplateFields are usable with a select
-number of field types. Do <strong>not</strong> use <code>type: date</code>,
-<code>type: datetime</code>, <code>type: repeater</code> or <code>type: templateselect</code>
+number of field types. Do <strong>not</strong> use <code>type: date</code>, <code>type: datetime</code>, 
+<code>type: repeater</code>, <code>type: block</code> or <code>type: templateselect</code>
 as template specific fields. These fields will not work as expected.
 </p>
 

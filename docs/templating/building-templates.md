@@ -155,8 +155,8 @@ The current default theme contains the following files and folders:
 | `search.twig` | Displaying search results. |
 | `partials/_master.twig` | Base layout template, that other templates [`extend`](template-inheritance) to inherit the properties of |
 | `partials/_aside.twig` | Helper template that gets included as the sidebar |
-| `partials/_header.twig` | Helper template that for the header. |
-| `partials/_footer.twig` | Helper template that for the footer. |
+| `partials/_header.twig` | Helper template that gets included as the header. |
+| `partials/_footer.twig` | Helper template that gets included as the footer. |
 | `partials/_recordfooter.twig` | Footer specifically for ContentType records |
 | `theme.yml` | A file with configuration related to the theme and how it works with bolt. Can also contain configuration for template specific fields and values for the theme to use in its templates. |
 | `js/` | Compiled JavaScript files |
@@ -165,8 +165,7 @@ The current default theme contains the following files and folders:
 The file names of the 'helper' templates all start with an underscore. This is
 just a convention, to make it easier to recognize which template does what. If
 one of your ContentTypes have a 'template select' field, Bolt will skip these
-helper templates by default.
-
+helper templates by default, when providing you with a list to select your template.
 
 <p class="tip"> <strong>Tip:</strong> the default template set uses the
 <code>include</code> tag to insert the header, footer and such, but you're free to use
@@ -184,10 +183,9 @@ You can change this by either defining another template in `contenttypes.yml`,
 or using a 'template select' field in the ContentType. More information about
 this can be found in the section on working with [ContentTypes](../contenttypes/intro).
 
-Using your themes `theme.yml` you can also provide fallbacks for certain settings
+Using your themes `theme.yml` you can provide overrides for certain settings
 of the main `config.yml`. These are useful when building themes and you want to
-provide your own templates. Keep in mind that these are overridden by the main
-`config.yml` if the same key exists there.
+provide your own templates.
 
 These are (provided with examples):
 
@@ -195,15 +193,13 @@ These are (provided with examples):
 homepage_template: index.twig
 record_template: record.twig
 listing_template: listing.twig
-listing_template: listing.twig
 search_results_template: listing.twig
 maintenance_template: maintenance.twig
 ```
 
-`listing_template` is used for both ContentType listing and taxonomy listing
-unless one of the is defined in the main `config.yml`.
+`listing_template` is used for both ContentType listings and taxonomy listings.
 
-By using the `template_directory` setting in your themes theme.yml you can
+By using the `template_directory` setting in your themes `theme.yml` you can
 choose the location of the templates within your theme structure.
 
 For example to place all your templates in a directory called `twig` you would
