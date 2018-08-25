@@ -54,7 +54,7 @@ To simply use default directory locations, you just apply the `--no-interaction`
 parameter to the `composer create-project` command, e.g.
 
 ```
-composer create-project bolt/composer-install:^%%VERSION%% <MYPROJECT> --prefer-dist --no-interaction
+composer create-project bolt/composer-install:%%VERSION%%.x <MYPROJECT> --prefer-dist --no-interaction
 ```
 
 **NOTE:** Change `<MYPROJECT>` to the name of your project before running the installer.
