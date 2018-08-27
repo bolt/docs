@@ -44,7 +44,7 @@ In the above example:
   * `setLabel('Koala Catcher')` sets the displayed menu label in the left side
     bar to "Koala Catcher"
   * `setIcon('fa:leaf')` set the icon for the menu to any of the
-    [Font Awesome icons](https://fortawesome.github.io/Font-Awesome/cheatsheet/)
+    [Font Awesome icons](https://fontawesome.com/v4.7.0/icons/)
   * `setPermission('settings')` sets the required permission, as defined in the
     `app/config/permissions.yml` file
   * `setroute('KoalaExtension')` sets the route to "KoalaExtension", which is
