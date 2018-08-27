@@ -90,8 +90,8 @@ contenttypes:
         - [ "`default_status`", "(optional) The default status for new records in this ContentType, i.e. `published`, `held`, `draft` or `timed`." ]
         - [ "`searchable`", "(optional) A boolean value to determine whether this ContentType should show up in search results. " ]
         - [ "`viewless`", "(optional) A boolean value to determine whether this ContentType should have routing or not. " ]
-        - [ "`icon_many`", "(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for this ContentType. For example: `fa:cubes`" ]
-        - [ "`icon_one`", "(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`." ]
+        - [ "`icon_many`", "(optional) A [Font Awesome](https://fontawesome.com/v4.7.0/icons/) icon to be used in the sidebar for this ContentType. For example: `fa:cubes`" ]
+        - [ "`icon_one`", "(optional) A [Font Awesome](https://fontawesome.com/v4.7.0/icons/) icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`." ]
     links: { "Defining ContentTypes in the docs": "contenttypes/intro#defining-contenttypes" }
 
 fielddefinitions:

@@ -243,7 +243,7 @@ The available options are:
 | `viewless` (optional) | When set to `true`, routes will not be set for the ContentType listing, or the records themselves. Useful for creating [Resource ContentTypes][howto-resource-ct]. |
 | `singleton` (optional) | When set to `true`, the Bolt UI will adapt to give a fluent experience for ContentTypes with one post. Like a complex homepage or general settings. [Singletons][howto-singletons]. |
 | `title_format` (optional) | Is used to determine the format of the title in the backend. For example if you have two fields for `firstname` and `lastname` you might put `[ firstname, lastname ]` here. |
-| `icon_many` (optional) | A [Font Awesome][fa] icon to be used in the sidebar for this ContentType. For example: `fa:cubes` |
+| `icon_many` (optional) | A [Font Awesome][fa] icon to be used in the sidebar for this ContentType. For example: `fa:cubes`. See the full list of available icons at [Font Awesome website](https://fontawesome.com/v4.7.0/icons/). |
 | `icon_one` (optional) | A [Font Awesome][fa] icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`. |
 | `allow_numeric_slugs` (optional, advanced) | By default, Bolt prefixes slugs purely numeric with the ContentType slug (e.g. `entry-123` for an entry with title `123`), in order to distinguish slugs from IDs. If this option is set to `true`, numeric slugs remain unprefixed. Care has to be taken not to use [routes][routing] of the form `/{contenttype}/{id}` for links in templates or for [fetching content][fetching-content]!
 
