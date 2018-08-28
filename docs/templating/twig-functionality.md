@@ -735,12 +735,12 @@ Examples:
 [linkintpl-asset]: linking-in-templates#using-asset-to-link-to-assets-or-files
 [linkintpl-pathurl]: linking-in-templates#using-path-and-url-to-link-to-named-routes
 [linkintpl-current]: linking-in-templates#linking-to-the-current-page
-[twig]: http://twig.sensiolabs.org/doc/templates.html
-[inc]: http://twig.sensiolabs.org/doc/functions/include.html
-[inheritance]: http://twig.sensiolabs.org/doc/templates.html#template-inheritance
-[number]: http://twig.sensiolabs.org/doc/filters/number_format.html
+[twig]: https://twig.symfony.com/doc/1.x/templates.html
+[inc]: https://twig.symfony.com/doc/1.x/functions/include.html
+[inheritance]: https://twig.symfony.com/doc/1.x/templates.html#template-inheritance
+[number]: https://twig.symfony.com/doc/1.x/filters/number_format.html
 [popup]: http://dimsemenov.com/plugins/magnific-popup/
 [strftime]: http://php.net/manual/en/function.strftime.php
 [date]: http://php.net/manual/en/function.date.php
-[for]: http://twig.sensiolabs.org/doc/tags/for.html
+[for]: https://twig.symfony.com/doc/1.x/tags/for.html
 [switch]: http://php.net/manual/en/control-structures.switch.php
