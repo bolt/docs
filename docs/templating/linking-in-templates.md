@@ -273,6 +273,6 @@ For more in-depth information about this function, see
 [absolute_url][absolute_url] in the Symfony documentation.
 
 
-[symfonyasset]: http://symfony.com/doc/current/templating.html#templating-assets
-[page]: http://symfony.com/doc/current/templating.html#linking-to-pages
+[symfonyasset]: https://symfony.com/doc/current/templating.html#templating-assets
+[page]: https://symfony.com/doc/current/templating.html#linking-to-pages
 [absolute_url]: https://symfony.com/doc/current/reference/twig_reference.html#absolute-url
