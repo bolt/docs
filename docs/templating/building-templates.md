@@ -297,15 +297,15 @@ What happens in this example is the following:
 
 
 
-[twig]: http://twig.sensiolabs.org/documentation
-[twig-designers]: http://twig.sensiolabs.org/doc/templates.html
-[control-structure]: https://twig.sensiolabs.org/doc/1.x/templates.html#control-structure
-[twig-tags]: https://twig.sensiolabs.org/doc/1.x/tags/index.html
-[twig-filters]: https://twig.sensiolabs.org/doc/1.x/filters/index.html
-[twig-functions]: https://twig.sensiolabs.org/doc/1.x/functions/index.html
-[twig-tests]: https://twig.sensiolabs.org/doc/1.x/tests/index.html
-[tag-for]: https://twig.sensiolabs.org/doc/1.x/tags/for.html
-[tag-if]: https://twig.sensiolabs.org/doc/1.x/tags/if.html
-[tag-set]: https://twig.sensiolabs.org/doc/1.x/tags/set.html
-[tag-include]: https://twig.sensiolabs.org/doc/1.x/tags/include.html
-[tag-block]: https://twig.sensiolabs.org/doc/1.x/tags/extends.html#how-do-blocks-work
+[twig]: https://twig.symfony.com/doc/1.x/
+[twig-designers]: https://twig.symfony.com/doc/1.x/templates.html
+[control-structure]: https://twig.symfony.com/doc/1.x/templates.html#control-structure
+[twig-tags]: https://twig.symfony.com/doc/1.x/tags/index.html
+[twig-filters]: https://twig.symfony.com/doc/1.x/filters/index.html
+[twig-functions]: https://twig.symfony.com/doc/1.x/functions/index.html
+[twig-tests]: https://twig.symfony.com/doc/1.x/tests/index.html
+[tag-for]: https://twig.symfony.com/doc/1.x/tags/for.html
+[tag-if]: https://twig.symfony.com/doc/1.x/tags/if.html
+[tag-set]: https://twig.symfony.com/doc/1.x/tags/set.html
+[tag-include]: https://twig.symfony.com/doc/1.x/tags/include.html
+[tag-block]: https://twig.symfony.com/doc/1.x/tags/extends.html#how-do-blocks-work
