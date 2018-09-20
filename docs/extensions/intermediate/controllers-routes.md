@@ -198,6 +198,15 @@ class DropBearController extends Base
     }
 }
 ```
+Whilst Bolt will auto-load the extension and controller into the `Bundle\\` namespace as per the autoload settings within the root composer.json configuration. You are still required to make initialise the extension via `.bolt.yml` with configuration similiar to the following;
+
+```yml
+extensions:
+    # The default bundled extension
+    - Bundle\Site\CustomisationExtension
+    # Our new extension
+    - Bolt\Extension\DropBear\KoalaCatcher\KoalaCatcherExtension
+```
 
 The route will then then be accessed via `/dropbear/koala/{type}` for frontend
 controllers or `/{admin_path}/dropbear/koala/{type}` for backend controllers.
