@@ -134,6 +134,7 @@ fieldoptions:
         - [ "`group: Foo`", "Separate this and all subsequent fields (until another group declaration) into a tab with the name 'Foo'. Replace 'Foo' with the desired label of the tab." ]
         - [ "`prefix: ..`", "HTML to add before the field. " ]
         - [ "`postfix: ..`", "HTML to add after the field. " ]
+        - [ "`separator: true`", "Add `<hr>` divider after the field. " ]        
         - [ "`default: ..`", "The default value for a field, if applicable. See below for an example." ]
         - [ "`required: true`", "Use this to make a field required. Only works on `text`, `textarea`, `html`, `date`, `datetime`, `float` and `integer` fields." ]
         - [ "`readonly: true`", "Use this to make a field read-only. Only works on `float`, `integer` and `text` fields." ]
