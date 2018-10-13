@@ -78,6 +78,9 @@ after a field. For example:
 As you can see, using `postfix: "<hr>"` gives a simple and effective way of
 adding a divider in the edit screen.
 
+Also you can set field option `separator : true` and `<hr>` will be put after 
+the field.
+
 Because the prefix & postfix values are parsed as markdown, you can insert
 basic markup like links, e.g. `[Bolt](https://bolt.cm)`, or font style, e.g.
 `*strong* _underline_`.
