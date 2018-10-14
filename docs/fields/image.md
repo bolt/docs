@@ -16,17 +16,19 @@ Simple image upload/select field.
 ## Example usage in templates:
 
 ```twig
-{{ record.cover|showimage() }}
+{{ record.values.cover|showimage() }}
 ```
 or
 ```twig
-{{ record.cover|thumbnail() }}
+{{ record.values.cover|thumbnail() }}
 ```
 or
 ```twig
-{{ record.cover|popup() }}
+{{ record.values.cover|popup() }}
 ```
 See [Bolt Template tags](../templating/twig-functionality) for more info.
+
+__Note:__ Using `record.values.cover` will display the `alt` attribute on the `img` tag, while simply using `record.cover` will not.
 
 ## Options:
 
