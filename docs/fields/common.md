@@ -8,19 +8,20 @@ Common options for all fields
 All fields have few common options to further customize them. We explain them
 in more detail below.
 
-| Option     | Description |
-|------------|-------------|
-| `label`    | If omitted, the name of the field will be used as a label in the edit-screen. Replace 'Foo' with the desired label of the field. |
-| `group`    | Group the field under a certain tab when editing. |
-| `prefix`   | Text/HTML to show before the field. |
-| `postfix`  | Text/HTML to show after the field. |
-| `info`     | Use for displaying extra information about the field in a info popup besides the label. |
-| `default`  | The default value for a field, if applicable. |
-| `required` | make this field required so that the record cannot be saved without it being filled. |
-| `pattern`  | Add a custom validation pattern to validate against when saving. |
-| `readonly` | Do not allow an editor to change the value of this field. |
-| `index`    | Add a database index for this field, only add if you know what this means. |
-| `class`    | Add a CSS selector to the field element. |
+| Option      | Description |
+|-------------|-------------|
+| `label`     | If omitted, the name of the field will be used as a label in the edit-screen. Replace 'Foo' with the desired label of the field. |
+| `group`     | Group the field under a certain tab when editing. |
+| `prefix`    | Text/HTML to show before the field. |
+| `postfix`   | Text/HTML to show after the field. |
+| `separator` | Insert `<hr>` after the field. |
+| `info`      | Use for displaying extra information about the field in a info popup besides the label. |
+| `default`   | The default value for a field, if applicable. |
+| `required`  | make this field required so that the record cannot be saved without it being filled. |
+| `pattern`   | Add a custom validation pattern to validate against when saving. |
+| `readonly`  | Do not allow an editor to change the value of this field. |
+| `index`     | Add a database index for this field, only add if you know what this means. |
+| `class`     | Add a CSS selector to the field element. |
 
 ## Grouping fields in tabs
 
@@ -76,6 +77,9 @@ after a field. For example:
 
 As you can see, using `postfix: "<hr>"` gives a simple and effective way of
 adding a divider in the edit screen.
+
+You can set the field option `separator : true` to make Bolt insert an `<hr>`-tag 
+after the field.
 
 Because the prefix & postfix values are parsed as markdown, you can insert
 basic markup like links, e.g. `[Bolt](https://bolt.cm)`, or font style, e.g.
