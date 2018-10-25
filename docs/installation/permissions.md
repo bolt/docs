@@ -62,7 +62,7 @@ done
 ```
 
 For back-end administration using the UI, we strongly advise making the
-following directories, and the files contained within, writeable by the web
+following directories, and the files contained within, writable by the web
 server user:
 
   * `app/config/`
