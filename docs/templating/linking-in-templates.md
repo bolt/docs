@@ -70,7 +70,32 @@ This would produce, on an default install, the following output:
 <script src="/theme/base-2016/js/jquery.min.js"></script>
 
 <img src="/files/kitten.jpg">
+```  
+
+## Using `asset` and a JSON Manifest  
+
+Many build tools use a cache busting technique of outputting a hashed file (eg: `styles.abc12b89asdd.css`) along with a manifest referencing that file.  
+
+To use this technique - like with [Symfony's Webpack Encore](https://symfony.com/doc/current/frontend.html#frontend-webpack-encore) - you'll need to add a configuration block with the appropriate keys to either your `config.yml` or your (preferred) `config_local.yml` like the following:  
+
+```yaml  
+# using the asset package
+assets:
+   theme:
+        json_manifest_path: "/dist/manifest.json"
+        # the json_manifest is relative to your current theme.
+```  
+In your template you can now use your hashed assets by referencing the non-hashed file as follows:  
+
+```twig 
+<link rel="stylesheet" href="{{ asset('dist/css/styles.css', 'theme') }}">
+```  
+This will produce on a default install:  
+
+```html
+<link rel="stylesheet" href="/theme/base-2018/dist/css/styles.bbad62558ef19da7e0ca.css"> 
 ```
+  
 
 For a more in-depth description of the `asset` function, see the
 [Symfony documentation on assets][symfonyasset].
