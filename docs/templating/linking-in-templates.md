@@ -74,7 +74,16 @@ This would produce, on an default install, the following output:
 
 ## Using `asset` and a JSON Manifest  
 
-Many build tools use a cache busting technique of outputting a hashed file (eg: `styles.abc12b89asdd.css`) along with a manifest referencing that file.  
+Many build tools use a cache busting technique of outputting a hashed file (eg: `styles.abc12b89asdd.css`) along with a manifest referencing that file.    
+
+This is an example manifest file:  
+
+```json
+{
+  "build/styles.css": "/dist/styles.abc12b89asdd.css",
+  "build/app.js": "/dist/app.2fec6da74d584bcd9fd2.js"
+}
+```
 
 To use this technique - like with [Symfony's Webpack Encore](https://symfony.com/doc/current/frontend.html#frontend-webpack-encore) - you'll need to add a configuration block with the appropriate keys to either your `config.yml` or your (preferred) `config_local.yml` like the following:  
 
@@ -84,7 +93,10 @@ assets:
    theme:
         json_manifest_path: "/dist/manifest.json"
         # the json_manifest is relative to your current theme.
-```  
+```   
+The ``theme`` key is a mount point you want to access your assets from. In this instance we are using the "theme" mount point/package name defined above in "package names". 
+
+
 In your template you can now use your hashed assets by referencing the non-hashed file as follows:  
 
 ```twig 
