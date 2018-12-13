@@ -5,9 +5,6 @@ level: intermediate
 File Location & Layout
 ======================
 
-Bundles should be thought of as part of your site project's code, and as such
-their location relative to your site's root directory is flexible.
-
 The choice of location should be considered carefully, and according to both
 your project and Bundle's design requirements.
 
