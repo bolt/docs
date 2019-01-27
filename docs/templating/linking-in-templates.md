@@ -72,6 +72,38 @@ This would produce, on an default install, the following output:
 <img src="/files/kitten.jpg">
 ```
 
+You can also use this function to enable asset versioning (with Webpack, Symfony Encore, Laravel Mix, etc.). To do so add the following configuration to your `config.yml`:
+
+```yaml
+assets:
+    web:
+        json_manifest_path: build/manifest.json 
+        # This file is at %webroot%/build/manifest.json
+```
+
+Then in your twig templates:
+
+```twig
+<link rel="stylesheet" href="{{ asset('assets/app.css', 'web') }}" />
+<script src="{{ asset('assets/app.js', 'web') }}"></script>
+```
+
+For example, if your `manifest.json` file contains the following:
+
+```json
+{
+  "build/app.css": "/build/app.8fd8daccd3a40a57bad06ae2d8f4c28d.css",
+  "build/app.js": "/build/app.2fec6da74d584bcd9fd2.js"
+}
+```
+
+the setup above would output:
+
+```html
+<link rel="stylesheet" href="/build/app.8fd8daccd3a40a57bad06ae2d8f4c28d.css" />
+<script src="/build/app.2fec6da74d584bcd9fd2.js"></script>
+```
+
 For a more in-depth description of the `asset` function, see the
 [Symfony documentation on assets][symfonyasset].
 
