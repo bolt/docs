@@ -84,8 +84,8 @@ assets:
 Then in your twig templates:
 
 ```twig
-<link rel="stylesheet" href="{{ asset('assets/app.css', 'web') }}" />
-<script src="{{ asset('assets/app.js', 'web') }}"></script>
+<link rel="stylesheet" href="{{ asset('build/app.css', 'web') }}" />
+<script src="{{ asset('build/app.js', 'web') }}"></script>
 ```
 
 For example, if your `manifest.json` file contains the following:
