@@ -35,17 +35,18 @@ field.
 
 * `extensions` Allows you to restrict users to only be able to upload files with
   certain file extensions.
-* `attrib` Can be set to a custom attribute, such as alt-texts, captions or data-attributes. For example:
+* `attrib` Can be set to a custom attribute, such as alt-texts, titles, captions or data-attributes. For example:
   * `alt` Show a text field for the `alt` parameter
-  * `caption` Show a text field for the `caption` parameter
-  * `[alt, caption]` Add more then one attribute
+  * `title` Show a text field for the `title` parameter
+  * `caption` Show a custom field for a `caption` this image uses in your template
+  * `[alt, title, caption]` Add more then one attribute
 * `upload` Allows you to upload files for this field into a specified directory
   so they remain grouped. This directory will be created in `{%web%}/files/`
 
 ```yaml
         cover:
             type: image
-            attrib: [alt, caption]
+            attrib: [alt, title, caption]
             extensions: [ gif, jpg, png ]
             upload: portfolio
 ```
