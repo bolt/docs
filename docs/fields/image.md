@@ -38,8 +38,8 @@ field.
 * `attrib` Can be set to a custom attribute, such as alt-texts, titles, captions or data-attributes. For example:
   * `alt` Show a text field for the `alt` parameter
   * `title` Show a text field for the `title` parameter
-  * `caption` Show a custom field for a `caption` this image uses in your template
-  * `[alt, title, caption]` Add more then one attribute
+  * `caption` Show a custom field for a `caption` that image will use in your template
+  * `[alt, title, caption]` Add more than one attribute
 * `upload` Allows you to upload files for this field into a specified directory
   so they remain grouped. This directory will be created in `{%web%}/files/`
 
