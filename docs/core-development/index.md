@@ -14,7 +14,7 @@ This section aims to provide helpful information for people contributing to the
 development of Bolt.
 
 <div class="docsintro">
-    <a href="https://docs.bolt.cm/api/bolt/bolt/%%VERSION%%/" class="button medium docsintro">
+    <a href="https://docs.bolt.cm/api/bolt/bolt/3.x/" class="button medium docsintro">
         Bolt Core API docs (draft)<br>
         <small>(auto-generated)</small>
     </a>
