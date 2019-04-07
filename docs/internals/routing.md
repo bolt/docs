@@ -25,7 +25,7 @@ collection classes, located in the `Bolt\Controller` namespace.
 | `Bolt\Controller\Backend\Records`         | Content record editing
 | `Bolt\Controller\Backend\Upload`          | File upload handling
 | `Bolt\Controller\Backend\Users`           | User managment
-| `Bolt\Controller\Async\Embed`             | oEmed request handline
+| `Bolt\Controller\Async\Embed`             | oEmbed request handline
 | `Bolt\Controller\Async\FilesystemManager` | File CRUD requests
 | `Bolt\Controller\Async\General`           | General administration routes
 | `Bolt\Controller\Async\Records`           | Content record CRUD requests
