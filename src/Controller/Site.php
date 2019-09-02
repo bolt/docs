@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Yaml\Exception\ParseException;
 
 /**
  * Site controller.
@@ -24,14 +25,12 @@ class Site extends AbstractController
 {
     /** @var Documentation */
     private $documentation;
+
     /** @var bool */
     private $debug;
 
     /**
      * Constructor.
-     *
-     * @param Documentation $documentation
-     * @param bool          $debug
      */
     public function __construct(Documentation $documentation, bool $debug)
     {
@@ -42,26 +41,21 @@ class Site extends AbstractController
     /**
      * Controller for pages.
      *
-     * @param Version $version
-     * @param string  $page
-     *
      * @throws Exception
-     *
-     * @return Response
      */
     public function getPage(Version $version, string $page): Response
     {
         try {
             $page = $version->getPage($page);
-        } catch (Exception $e) {
+        } catch (\Throwable $e) {
             return $this->error(
-                new NotFoundHttpException("Page '$page' does not exist.", $e),
+                new NotFoundHttpException("Page '${page}' does not exist.", $e),
                 $this->get('request_stack')->getCurrentRequest(),
                 Response::HTTP_NOT_FOUND
             );
         }
-        if ($redirect = $page['redirect']) {
-            return new RedirectResponse("/$version/$redirect");
+        if ($page['redirect']) {
+            return new RedirectResponse("/${version}/${page['redirect']}");
         }
 
         return $this->renderPage($version, $page);
@@ -70,17 +64,13 @@ class Site extends AbstractController
     /**
      * Controller for the class reference page.
      *
-     * @param Version $version
-     *
-     * @throws \Symfony\Component\Yaml\Exception\ParseException
-     *
-     * @return Response
+     * @throws ParseException
      */
     public function getClassReference(Version $version): Response
     {
         return $this->render('classreference.twig', [
-            'title'   => 'Bolt Class Reference',
-            'menu'    => $version->getMenu(),
+            'title' => 'Bolt Class Reference',
+            'menu' => $version->getMenu(),
             'version' => $version->getVersion(),
             'classes' => $version->getClassReference(),
         ]);
@@ -89,19 +79,15 @@ class Site extends AbstractController
     /**
      * Controller for the cheatsheet reference page.
      *
-     * @param Version $version
-     *
-     * @throws \Symfony\Component\Yaml\Exception\ParseException
-     *
-     * @return Response
+     * @throws ParseException
      */
     public function getCheatsheet(Version $version): Response
     {
         return $this->render('cheatsheet.twig', [
-            'title'           => 'Bolt Cheatsheet',
-            'menu'            => $version->getMenu(),
-            'version'         => $version->getVersion(),
-            'cheatsheet'      => $version->getCheatSheet(),
+            'title' => 'Bolt Cheatsheet',
+            'menu' => $version->getMenu(),
+            'version' => $version->getVersion(),
+            'cheatsheet' => $version->getCheatSheet(),
             'default_version' => $this->documentation->getDefault(),
         ]);
     }
@@ -109,11 +95,7 @@ class Site extends AbstractController
     /**
      * Controller for sitemap (single).
      *
-     * @param Version $version
-     *
      * @throws \InvalidArgumentException
-     *
-     * @return Response
      */
     public function getSitemap(Version $version): Response
     {
@@ -128,8 +110,6 @@ class Site extends AbstractController
      * Controller for sitemap-sitemap (multiple).
      *
      * @throws \InvalidArgumentException
-     *
-     * @return Response
      */
     public function getSitemapList(): Response
     {
@@ -142,16 +122,8 @@ class Site extends AbstractController
 
     /**
      * Controller for error pages.
-     *
-     * @param Exception $e
-     * @param Request   $request
-     * @param int       $code
-     *
-     * @throws Exception
-     *
-     * @return Response|null
      */
-    protected function error(Exception $e, Request $request, $code): ? Response
+    protected function error(\Throwable $e, Request $request, $code): ?Response
     {
         $requestUri = \explode('/', $request->getRequestUri());
 
@@ -162,7 +134,7 @@ class Site extends AbstractController
 
         // If the request didn't start with something that looks like a version,
         // redirect to the current version, only with the version prefixed.
-        if (!$this->documentation->hasVersion($requestUri[1])) {
+        if (! $this->documentation->hasVersion($requestUri[1])) {
             return new RedirectResponse('/' . $this->documentation->getDefault() . $request->getRequestUri());
         }
 
@@ -190,20 +162,17 @@ HTML
     }
 
     /**
-     * @param Version $version
-     * @param Page    $page
-     *
      * @return Response
      */
-    protected function renderPage(Version $version, Page $page): ? Response
+    protected function renderPage(Version $version, Page $page): ?Response
     {
         return $this->render($page['template'] ?: 'index.twig', [
-            'page'            => $page,
-            'title'           => $page->getTitle(),
-            'version'         => $version,
-            'versions'        => $this->documentation->getVersions(),
+            'page' => $page,
+            'title' => $page->getTitle(),
+            'version' => $version,
+            'versions' => $this->documentation->getVersions(),
             'default_version' => $this->documentation->getDefault(),
-            'filelist'        => $this->documentation->getFileStructure(),
+            'filelist' => $this->documentation->getFileStructure(),
         ]);
     }
 }

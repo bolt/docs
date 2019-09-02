@@ -21,8 +21,6 @@ class MarkdownExtension extends AbstractExtension
 
     /**
      * Constructor.
-     *
-     * @param ParsedownExtra $markdown
      */
     public function __construct(ParsedownExtra $markdown)
     {
@@ -35,15 +33,12 @@ class MarkdownExtension extends AbstractExtension
     public function getFilters(): array
     {
         return [
-            new TwigFilter('markdown', [$this, 'markdown'], ['is_safe' => ['html']]),
+            new TwigFilter('markdown', [$this, 'markdown'], [
+                'is_safe' => ['html'],
+            ]),
         ];
     }
 
-    /**
-     * @param null|string $str
-     *
-     * @return array
-     */
     public function markdown(?string $str): string
     {
         return $this->markdown->text($str);

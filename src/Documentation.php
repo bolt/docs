@@ -6,7 +6,7 @@ namespace Bolt\Docs;
 
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
-use Symfony\Component\Yaml;
+use Symfony\Component\Yaml\Parser;
 
 /**
  * Documentation class.
@@ -16,28 +16,28 @@ use Symfony\Component\Yaml;
  */
 class Documentation
 {
-    /** @var Yaml\Parser */
+    /** @var Parser */
     private $yamlParser;
+
     /** @var PageBuilder */
     private $pageBuilder;
+
     /** @var string */
     private $versionDir;
+
     /** @var string */
     private $default;
+
     /** @var Version[] */
     private $versions = [];
+
     /** @var array */
     private $fileStructure = [];
 
     /**
      * Constructor.
-     *
-     * @param Yaml\Parser $yamlParser
-     * @param PageBuilder $pageBuilder
-     * @param string      $versionDir
-     * @param string      $default
      */
-    public function __construct(Yaml\Parser $yamlParser, PageBuilder $pageBuilder, $versionDir, $default)
+    public function __construct(Parser $yamlParser, PageBuilder $pageBuilder, string $versionDir, string $default)
     {
         $this->yamlParser = $yamlParser;
         $this->pageBuilder = $pageBuilder;
@@ -67,8 +67,6 @@ class Documentation
 
     /**
      * @throws \InvalidArgumentException
-     *
-     * @return Version
      */
     public function getDefault(): Version
     {
@@ -81,16 +79,12 @@ class Documentation
     }
 
     /**
-     * @param string $version
-     *
      * @throws \InvalidArgumentException
-     *
-     * @return Version
      */
     public function getVersion(string $version): Version
     {
-        if (!isset($this->versions[$version])) {
-            throw new \InvalidArgumentException("Version: \"$version\" does not exist.");
+        if (! isset($this->versions[$version])) {
+            throw new \InvalidArgumentException("Version: \"${version}\" does not exist.");
         }
 
         return $this->versions[$version];
@@ -109,9 +103,6 @@ class Documentation
         return $this->versions;
     }
 
-    /**
-     * @return array
-     */
     public function getFileStructure(): array
     {
         return $this->fileStructure;

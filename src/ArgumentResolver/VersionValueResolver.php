@@ -23,8 +23,6 @@ final class VersionValueResolver implements ArgumentValueResolverInterface
 
     /**
      * Constructor.
-     *
-     * @param Documentation $documentation
      */
     public function __construct(Documentation $documentation)
     {

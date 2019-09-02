@@ -12,40 +12,39 @@ use Symfony\Component\Config\ConfigCacheInterface;
 use Symfony\Component\Config\Resource\DirectoryResource;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
-use Symfony\Component\Yaml;
+use Symfony\Component\Yaml\Parser;
 use Webmozart\PathUtil\Path;
 
 class PageBuilder
 {
     /** @var SlugifyInterface */
     protected $slugifier;
+
     /** @var ParsedownExtra */
     protected $markdown;
-    /** @var Yaml\Parser */
+
+    /** @var Parser */
     protected $yamlParser;
+
     /** @var ConfigCacheFactoryInterface */
     protected $configCacheFactory;
+
     /** @var string */
     protected $cacheDir;
 
     /** @var string */
     protected $root;
+
     /** @var string */
     protected $version;
 
     /**
      * Constructor.
-     *
-     * @param SlugifyInterface            $slugifier
-     * @param ParsedownExtra              $markdown
-     * @param Yaml\Parser                 $yamlParser
-     * @param ConfigCacheFactoryInterface $configCacheFactory
-     * @param string                      $cacheDir
      */
     public function __construct(
         SlugifyInterface $slugifier,
         ParsedownExtra $markdown,
-        Yaml\Parser $yamlParser,
+        Parser $yamlParser,
         ConfigCacheFactoryInterface $configCacheFactory,
         string $cacheDir
     ) {
@@ -64,8 +63,6 @@ class PageBuilder
      * @throws \InvalidArgumentException
      * @throws \Bolt\Common\Exception\ParseException
      * @throws \Bolt\Common\Exception\DumpException
-     *
-     * @return Page
      */
     public function build($root, $version): Page
     {
@@ -82,8 +79,6 @@ class PageBuilder
      * @throws \RuntimeException
      * @throws \InvalidArgumentException
      * @throws \Bolt\Common\Exception\ParseException
-     *
-     * @return Page
      */
     protected function loadCacheCollection($dir): Page
     {
@@ -97,7 +92,7 @@ class PageBuilder
             }
         );
 
-        if (!$page) {
+        if (! $page) {
             $page = Serialization::parse(\file_get_contents($cache->getPath()));
         }
 
@@ -117,7 +112,7 @@ class PageBuilder
                     $ext = '.' . $ext;
                 }
 
-                return \substr($file, 0, \strlen($file) - \strlen($ext));
+                return \mb_substr($file, 0, \mb_strlen($file) - \mb_strlen($ext));
             }, \array_diff(\scandir($this->root . $dir, SCANDIR_SORT_NONE), ['.', '..']));
         }
         $page->setName(\basename($dir));
@@ -146,8 +141,6 @@ class PageBuilder
      * @throws \InvalidArgumentException
      * @throws \Bolt\Common\Exception\ParseException
      * @throws \Bolt\Common\Exception\DumpException
-     *
-     * @return Page
      */
     protected function loadCachePage($file): Page
     {
@@ -161,7 +154,7 @@ class PageBuilder
             }
         );
 
-        if (!$page) {
+        if (! $page) {
             $page = Serialization::parse(\file_get_contents($cache->getPath()));
         }
 
@@ -170,7 +163,7 @@ class PageBuilder
 
     protected function loadPage($file): Page
     {
-        if (!\is_readable($this->root . $file)) {
+        if (! \is_readable($this->root . $file)) {
             throw new FileNotFoundException($file);
         }
 
@@ -180,7 +173,7 @@ class PageBuilder
         $page->setPath($file);
 
         $document = \file_get_contents($this->root . $file);
-        if (\strpos($document, '---') === 0) {
+        if (\mb_strpos($document, '---') === 0) {
             $parts = \explode("---\n", $document, 3);
             $source = $parts[2];
             $page->setVariables($this->yamlParser->parse($parts[1]));
@@ -190,7 +183,7 @@ class PageBuilder
 
         $content = $this->markdown->text($source);
 
-        if (!$page->getTitle()) {
+        if (! $page->getTitle()) {
             if (\preg_match('#<h1>(.*)</h1>#i', $content, $mainTitle)) {
                 $page->setTitle($mainTitle[1]);
             } else {
@@ -204,7 +197,7 @@ class PageBuilder
 
         $submenu = [];
         \preg_match_all('#<h2>(.*)</h2>#i', $content, $matches);
-        foreach ($matches[1] as $key => $title) {
+        foreach ($matches[1] as $title) {
             $title = \strip_tags($title);
             $submenu[$this->slugifier->slugify($title)] = $title;
         }
@@ -219,10 +212,6 @@ class PageBuilder
 
     /**
      * Add anchors markup for <h2> and <h3> and <h4>.
-     *
-     * @param string $source
-     *
-     * @return string
      */
     protected function markupAnchors(string $source): string
     {
