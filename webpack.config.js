@@ -21,8 +21,8 @@ Encore
         exclude: /node_modules\/(?!(bootstrap)\/).*/,
         loader: 'babel-loader',
         query: {
-            presets: ['env']
-        }
+            presets: ['env'],
+        },
     })
     .enableSassLoader()
 ;
