@@ -10,27 +10,23 @@
         "cocur/slugify": "^3.0",
         "doctrine/annotations": "^1.6",
         "erusev/parsedown-extra": "~0.7",
-        "symfony/asset": "^4.0",
         "symfony/config": "^4.0",
         "symfony/console": "^4.0",
         "symfony/dotenv": "^4.0",
         "symfony/finder": "^4.0",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.0",
-        "symfony/lts": "^4@dev",
         "symfony/twig-bundle": "^4.0",
         "symfony/var-dumper": "^4.0",
         "symfony/web-link": "^4.0",
         "symfony/web-profiler-bundle": "^4.0",
-        "symfony/webpack-encore-pack": "^1.0",
+        "symfony/webpack-encore-bundle": "^1.6",
         "symfony/yaml": "^4.0",
         "twig/twig": "^2.4",
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
-        "bolt/codingstyle": "^2.0@dev",
-        "escapestudios/symfony2-coding-standard": "^3.0",
-        "friendsofphp/php-cs-fixer": "^2.4"
+        "symplify/easy-coding-standard": "^6.0"
     },
     "autoload": {
         "psr-4": {

@@ -17,32 +17,38 @@ class Page implements \ArrayAccess
 
     /** @var Page|null */
     private $nextSibling;
+
     /** @var Page|null */
     private $previousSibling;
+
     /** @var Page|null */
     private $next = false;
+
     /** @var Page|null */
     private $previous = false;
 
     /** @var string */
     private $version;
+
     /** @var string The file path relative to the version's "docs" folder. */
     private $path;
+
     /** @var string */
     private $name;
 
     /** @var string */
     private $content;
+
     /** @var array */
     private $variables = [];
+
     /** @var Page[] */
     private $subPages = [];
+
     /** @var array */
     private $subMenu = [];
 
     /**
-     * @param string $path
-     *
      * @throws \InvalidArgumentException
      *
      * @return Page
@@ -53,29 +59,34 @@ class Page implements \ArrayAccess
             return $this;
         }
 
+        if (! isset($this->nextSibling)) {
+            $this->nextSibling = null;
+        }
+
+        if (! isset($this->previousSibling)) {
+            $this->previousSibling = null;
+        }
+
         $parts = \explode('/', $path, 2);
-        if (!isset($this->subPages[$parts[0]])) {
+        if (! isset($this->subPages[$parts[0]])) {
             throw new \InvalidArgumentException('Page not found.');
         }
         $subPage = $this->subPages[$parts[0]];
 
-        if (!isset($parts[1])) {
+        if (! isset($parts[1])) {
             return $subPage;
         }
 
         return $subPage->getPage($parts[1]);
     }
 
-    /**
-     * @return array
-     */
     public function getMenu(): array
     {
         $url = $this->getUrl();
         $menu = [
-            'label'    => $this->getTitle(),
-            'id'       => $url, // needed for saving state
-            'url'      => $url,
+            'label' => $this->getTitle(),
+            'id' => $url, // needed for saving state
+            'url' => $url,
             'children' => [],
         ];
 
@@ -86,9 +97,6 @@ class Page implements \ArrayAccess
         return $menu;
     }
 
-    /**
-     * @return string
-     */
     public function getUrl(): string
     {
         $parent = $this->parent ? \rtrim($this->parent->getUrl(), '/') : '';
@@ -140,17 +148,11 @@ class Page implements \ArrayAccess
         return $this->previous;
     }
 
-    /**
-     * @return string
-     */
     public function getVersion(): string
     {
         return $this->version;
     }
 
-    /**
-     * @param string $version
-     */
     public function setVersion(string $version): void
     {
         $this->version = $version;
@@ -166,17 +168,11 @@ class Page implements \ArrayAccess
         return $this->path;
     }
 
-    /**
-     * @param string $path
-     */
     public function setPath(string $path): void
     {
         $this->path = $path;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
@@ -190,25 +186,16 @@ class Page implements \ArrayAccess
         $this->name = $name;
     }
 
-    /**
-     * @return string
-     */
     public function getContent(): string
     {
         return $this->content;
     }
 
-    /**
-     * @param string $content
-     */
     public function setContent(string $content): void
     {
         $this->content = $content;
     }
 
-    /**
-     * @return array
-     */
     public function getVariables(): array
     {
         return $this->variables;
@@ -283,8 +270,6 @@ class Page implements \ArrayAccess
 
     /**
      * Get a 'submenu', parsed from the <h2> headings in a page.
-     *
-     * @return array
      */
     public function getSubMenu(): array
     {
@@ -345,7 +330,8 @@ class Page implements \ArrayAccess
             if ($target->nextSibling !== null) {
                 return $target->nextSibling;
             }
-        } while (($target = $target->parent) !== null);
+            $target = $target->parent;
+        } while ($target !== null);
 
         return null;
     }
@@ -358,7 +344,7 @@ class Page implements \ArrayAccess
         if ($this->parent !== null &&
             $this->parent->subPages &&
             $this === \reset($this->parent->subPages) &&
-            !$this->parent['redirect']
+            ! $this->parent['redirect']
         ) {
             return $this->parent;
         }
@@ -369,7 +355,8 @@ class Page implements \ArrayAccess
                 $target = $target->previousSibling;
                 break;
             }
-        } while (($target = $target->parent) !== null);
+            $target = $target->parent;
+        } while ($target !== null);
 
         if ($target !== null) {
             while ($target->subPages) {

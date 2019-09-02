@@ -5,7 +5,7 @@ Encore
     .setPublicPath('/assets')
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
-    .enableVersioning(Encore.isProduction())
+    .enableVersioning(false)
 
     .addEntry('app', './assets/js/app.js')
 
@@ -21,8 +21,8 @@ Encore
         exclude: /node_modules\/(?!(bootstrap)\/).*/,
         loader: 'babel-loader',
         query: {
-            presets: ['env']
-        }
+            presets: ['env'],
+        },
     })
     .enableSassLoader()
 ;
@@ -31,7 +31,7 @@ const config = Encore.getWebpackConfig();
 
 config.watchOptions = {
     poll: true,
-    ignored: /node_modules/
+    ignored: /node_modules/,
 };
 
 module.exports = config;

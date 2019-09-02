@@ -32,11 +32,6 @@ class Version
 
     /**
      * Constructor.
-     *
-     * @param string      $version
-     * @param string      $basePath
-     * @param PageBuilder $builder
-     * @param Yaml\Parser $yamlParser
      */
     public function __construct(string $version, string $basePath, PageBuilder $builder, Yaml\Parser $yamlParser)
     {
@@ -51,9 +46,6 @@ class Version
         return $this->getVersion();
     }
 
-    /**
-     * @return string
-     */
     public function getVersion(): string
     {
         return $this->version;
@@ -62,11 +54,7 @@ class Version
     /**
      * Get a page.
      *
-     * @param string $page
-     *
      * @throws \InvalidArgumentException
-     *
-     * @return Page
      */
     public function getPage(string $page): Page
     {
@@ -75,8 +63,6 @@ class Version
 
     /**
      * Get the menu.
-     *
-     * @return array
      */
     public function getMenu(): array
     {
@@ -87,8 +73,6 @@ class Version
      * Get the class reference from the correct YAML file.
      *
      * @throws \Symfony\Component\Yaml\Exception\ParseException
-     *
-     * @return array
      */
     public function getClassReference(): array
     {
@@ -110,8 +94,6 @@ class Version
      * Get the cheatsheet reference from the correct YAML file.
      *
      * @throws \Symfony\Component\Yaml\Exception\ParseException
-     *
-     * @return array
      */
     public function getCheatSheet(): array
     {
@@ -131,7 +113,7 @@ class Version
 
     private function getRootPage(): Page
     {
-        if (!$this->rootPage) {
+        if (! $this->rootPage) {
             $this->rootPage = $this->builder->build($this->basePath . '/docs', $this->version);
             $this->rootPage->setName($this->version);
         }

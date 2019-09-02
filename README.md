@@ -1,12 +1,10 @@
 Bolt Documentation Site & Content
 =================================
 
-This repository is for both the site, and content, of
-[Bolt][bolt], and should be considered a counterpart of the
-[Bolt repository][repo].
+This repository is for both the site, and content, of [Bolt][bolt], and should 
+be considered a counterpart of the [Bolt Core repository][repo].
 
-The documentation uses the
-[Markdown][markdown] format.
+The documentation uses the [Markdown][markdown] format.
 
 There is no need to build anything to generate HTML. We parse the markdown with
 PHP.
@@ -23,9 +21,9 @@ the format of `<major.minor>`, e.g. `3.0`.
 Changes should be PR-ed against the *lowest* relevant version and will then be
 merged down into higher version branches as required.
 
-e.g. if you're fixing a typo that exists in the same Markdown file in both
-version 3.0 as well as in 3.1, you would checkout `3.0` and submit your
-PR against that branch.
+e.g. if you're fixing a typo that exists in the same Markdown file in both 
+version 3.0 as well as in 3.1, you would checkout `3.0` and submit your PR 
+against that branch.
 
 Local site set-up
 -----------------
@@ -35,7 +33,6 @@ To run the site locally you need to complete the following steps:
   * Create the repository with `git clone`
   * Create worktrees for required versions
   * Run `composer update` to install required vendor libraries
-
 
 ### Site Set-up
 
@@ -71,7 +68,7 @@ For your local environment you can edit the `.env` file, located in the project
 root. It should contain the following:
 
 ```
-DEFAULT_VERSION=3.5
+DEFAULT_VERSION=4.0
 APP_ENV=dev
 ```
 
@@ -106,6 +103,20 @@ folder.
 To see the documentation site go to `example.localhost/3.5/`, from where you'll
 get redirected to the front page of the documentation.
 
+### Building front-end assets
+
+First, install the `npm` dependencies: 
+
+```bash
+npm install
+```
+
+Then, build the assets: 
+
+```bash
+npm run build 
+```
+
 [bolt]: http://docs.bolt.cm/
 [markdown]: http://daringfireball.net/projects/markdown/
-[repo]: https://github.com/bolt/bolt
+[repo]: https://github.com/bolt/core
