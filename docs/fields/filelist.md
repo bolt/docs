@@ -21,6 +21,12 @@ field for each file.
     <a href="/files/{{ file.filename }}">{{ file.title }}</a>
 {% endfor %}
 ```
+or
+```twig
+{% for file in record.attachments %}
+    <a href="{{ asset({{ file.filename }}, 'files') }}">{{ file.title }}</a>
+{% endfor %}
+```
 
 ## Options:
 
