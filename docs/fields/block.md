@@ -145,3 +145,5 @@ The field has one specific option:
   this feature.
 * `icon`: Allows you to add a FontAwesome icon to the header of a block set 
   to identify it more easily. Example: `icon: "fa:bolt"`.
+* `group`: Adds a separator with a label in the 'Add New...' dropdown. Example:
+  `group: Media`.
