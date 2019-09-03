@@ -13,7 +13,7 @@ a.button.docsintro {
     font-size: $size-5; // 19px;
     font-weight: bold;
     display: block;
-    background-color: $white-ter;
+    background-color: $ceramic;
     border-color: $brand;
     border-width: 0 0 4px 0;
     color: $base;
@@ -28,7 +28,7 @@ a.button.docsintro {
         font-weight: normal;
     }
     &:hover {
-        background-color: darken($white-ter, 2.5%);
+        background-color: darken($ceramic, 2.5%);
     }
 }
 
@@ -38,13 +38,13 @@ a.button.medium.docsintro {
     font-size: 19px;
     font-weight: bold;
     color: $base;
-    background-color: $white-ter;
+    background-color: $ceramic;
     small {
         font-size: 13px;
         font-weight: normal;
     }
     &:hover {
-        background-color: darken($white-ter, 2.5%);
+        background-color: darken($ceramic, 2.5%);
     }
 }
 

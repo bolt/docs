@@ -1,5 +1,15 @@
 //((===  Typography  ===))//
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: $family-header;
+}
+
+.content h1 {
+  @include desktop {
+    margin-top: 1rem !important;
+  }
+}
+
 .lead {
     font-size: $size-4;
     color: $grey-dark;

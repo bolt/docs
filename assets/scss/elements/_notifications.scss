@@ -13,14 +13,14 @@
 
 .note,
 .notification {
-    background-color: $yellow !important;
+    background-color: mix(#ffdd57, #fff3cd, 50%) !important;
     color: $yellow-invert;
     &::before {
         display: none;
         font-family: "Font Awesome 5 Solid";
         content: "\f0e7";
     }
-    .svg-inline--fa {        
+    .svg-inline--fa {
         display: block;
         width: 32px;
         height: 32px;
@@ -29,7 +29,7 @@
         left: -16px;
         padding: 6px;
         text-align: center;
-        border-radius: 50%;        
+        border-radius: 50%;
         background-color: darken($yellow,17.5%);
     }
 }
@@ -38,13 +38,13 @@
 .is-warning:not(.button){
     background-color: $warning !important;
     color: $warning-invert;
-    .svg-inline--fa {        
+    .svg-inline--fa {
         background-color: darken($warning,17.5%);
     }
 }
 
 .tips {
-    .svg-inline--fa {        
-        background-color: darken($white-ter,15%);
+    .svg-inline--fa {
+        background-color: darken($ceramic,15%);
     }
 }

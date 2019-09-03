@@ -12,7 +12,7 @@ $header-height: 60px;
     }
     &__sidebar{
         background: $primary;
-        background: linear-gradient(to left, $primary 0%, darken($primary, 10%) 100%);
+        background: linear-gradient(to left, $brand-light 0%, $brand 100%);
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
@@ -56,6 +56,7 @@ $header-height: 60px;
             @include p(3);
             @include tablet{
                 @include p(4);
+                padding-left: 4rem !important;
             }
             .cheatsheet &,
             .class-reference & {
@@ -73,7 +74,7 @@ $header-height: 60px;
             @include desktop {
                 margin-top: 24px;
                 pre {
-                    width: calc(100vw - (#{$sidebar-width} + 66px));
+                    width: calc(100vw - (#{$sidebar-width} + 99px));
                 }
             }
         }
