@@ -168,7 +168,7 @@ paths:
     web: www
     themebase: www/theme
     files: www/files
-    view: www/bolt-public
+    view: www/bolt-public/view
 ```
 
 The result in the folder will look like this:
@@ -251,7 +251,7 @@ paths:
     web: .
     themebase: theme
     files: files
-    view: bolt-public
+    view: bolt-public/view
 ```
 
 Finally, edit `index.php`, so the bootstrapping can load successfully. Find the

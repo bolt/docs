@@ -4,6 +4,7 @@ title: Manual download and extraction
 Manual download and extraction
 ==============================
 
+<!--
 Download the latest version of Bolt as the regular or flattened distribution:
 
  - Recommended: [https://bolt.cm/distribution/bolt-latest.zip][latest]
@@ -108,6 +109,8 @@ and you require guidance on setting up permissions, see our
 ### Finishing Set-up
 
 After you've done this, skip to the section [Setting up Bolt](../configuration/introduction).
+
+-->
 
 [apache]: ../installation/webserver/apache
 [nginx]: ../installation/webserver/nginx

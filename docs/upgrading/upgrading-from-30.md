@@ -1,7 +1,7 @@
 ---
-title: Updating Bolt
+title: Upgrading from Bolt 3.0
 ---
-Updating Bolt
+Upgrading from Bolt 3.0
 =========================
 
 <p class="note"><strong>Note:</strong> This page is for updating an existing

@@ -4,10 +4,10 @@ redirect: configuration/introduction
 pages:
     - introduction
     - database
-    - permissions
+    # - permissions
     - menus
-    - thumbnails
+    # - thumbnails
     - routing
-    - advanced
+    # - advanced
     - reading
 ---
