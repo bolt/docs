@@ -38,7 +38,10 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "7.1.99"
+        }
     },
     "scripts": {
         "auto-scripts": {
