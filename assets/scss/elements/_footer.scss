@@ -34,6 +34,11 @@ footer {
         background-color: $white;
         border-radius: 50%;
         @include mr(3);
+
+        &.is-large {
+            height: 2.3rem;
+            width: 2.3rem;
+        }
     }
 }
 

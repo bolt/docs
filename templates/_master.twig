@@ -50,10 +50,20 @@
                 <div class="navbar-start">
                     {% set route = app.request.attributes.get('_route') %}
                     {% set route_params = app.request.attributes.get('_route_params') %}
-                    <a href="https://bolt.cm/" class="navbar-item">Home [bolt.cm]</a>
-                    <a href="{{ path('page', {version: version})}}" class="navbar-item">Documentation</a>
-                    <a href="{{ path('page', {version: version, page: 'manual'}) }}" class="navbar-item">Manual</a>
-                    <a href="{{ path('cheatsheet', {version: version}) }}" class="navbar-item">Cheatsheet</a>
+                    {% if version.version < 4.0 %}
+                        <a href="https://bolt.cm/" class="navbar-item">Home [bolt.cm]</a>
+                        <a href="{{ path('page', {version: version})}}" class="navbar-item">Documentation</a>
+                        <a href="{{ path('page', {version: version, page: 'manual'}) }}" class="navbar-item">Manual</a>
+                        <a href="https://github.com/bolt/core" class="navbar-item">Source on Github</a>
+                        <a href="{{ path('cheatsheet', {version: version}) }}" class="navbar-item">Cheatsheet</a>
+                    {% else %}
+                        <a href="https://bolt.cm/" class="navbar-item">Home [boltcms.io]</a>
+                        <a href="{{ path('page', {version: version})}}" class="navbar-item">Documentation</a>
+                        <a href="{{ path('page', {version: version, page: 'manual'}) }}" class="navbar-item">Manual</a>
+                        <a href="https://github.com/bolt/core" class="navbar-item">Source on Github</a>
+{#                        <a href="{{ path('cheatsheet', {version: version}) }}" class="navbar-item">Cheatsheet</a>#}
+                        <a href="https://slack.bolt.cm/" class="navbar-item">Slack</a>
+                    {% endif %}
                 </div>
             </div>
             <button class="button button-bars is-primary is-hidden-desktop navbar-burger" data-target="navbar-menu">
@@ -77,14 +87,21 @@
                 <ul class="links">
                     {% set route = app.request.attributes.get('_route') %}
                     {% set route_params = app.request.attributes.get('_route_params') %}
-                    <li><a href="https://bolt.cm/">Home</a></li>
-                    <li><a href="https://bolt.cm/features">Features</a></li>
-                    <li><a href="{{ path('page', {version: version})}}">Documentation</a></li>
-                    <li><a href="https://bolt.cm/news">News</a></li>
-                    <li><a href="https://bolt.cm/news">Showcase</a></li>
-                    <li><a href="https://bolt.cm/community">Community</a></li>
-                    <li><a href="https://market.bolt.cm/">Marketplace</a></li>
-                    <li><a href="https://bolt.cm/pages/download">Download</a></li>
+
+                    {% if version.version < 4.0 %}
+                        <li><a href="https://bolt.cm/">Home</a></li>
+                        <li><a href="https://bolt.cm/features">Features</a></li>
+                        <li><a href="{{ path('page', {version: version})}}">Documentation</a></li>
+                        <li><a href="https://bolt.cm/news">News</a></li>
+                        <li><a href="https://bolt.cm/community">Community</a></li>
+                        <li><a href="https://market.bolt.cm/">Marketplace</a></li>
+                        <li><a href="https://bolt.cm/pages/download">Download</a></li>
+                    {% else %}
+                        <li><a href="https://boltcms.io/">Home</a></li>
+                        <li><a href="{{ path('page', {version: version })}}">Documentation</a></li>
+                        <li><a href="https://bolt.cm/community">Community</a></li>
+                        <li><a href="{{ path('page', {version: version, page: 'installation/installation'})}}">Download / Installation</a></li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="column is-one-third">
@@ -94,13 +111,13 @@
                         <span class="icon is-large">
                             <i class="fab fa-lg fa-twitter"></i>
                         </span>
-                        <a href="https://twitter.com/boltcm">Twitter</a>
+                        <a href="https://twitter.com/boltcms">Twitter</a>
                     </li>
                     <li>
                         <span class="icon is-large">
                             <i class="fab fa-lg fa-github-alt"></i>
                         </span>
-                        <a href="https://github.com/bolt/bolt">Github</a>
+                        <a href="https://github.com/bolt">Github</a>
                     </li>
                     <li>
                         <span class="icon is-large">
@@ -117,10 +134,14 @@
                 </ul>
             </div>
             <div class="column is-one-third logo">
+                {% if version.version < 4.0 %}
                 <img src="{{ asset('images/bolt.png') }}" width='170' alt="BoltCM" />
+                {% else %}
+                <img src="{{ asset('images/bolt_4.png') }}" width='220' alt="Bolt cms logo" />
+                {% endif %}
             </div>
         </div>
-        <div class="footer-bottom">&copy; Copyright 2018 Bolt CMS</div>
+        <div class="footer-bottom">&copy; Copyright {{ "now"|date('Y') }} Bolt CMS</div>
     </footer>
 
     <script src="{{ asset('assets/app.js') }}"></script>

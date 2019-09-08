@@ -125,7 +125,8 @@ class PageBuilder
                 $subPage = $this->loadCachePage($subPath . '.md');
                 $subPage->setName($subPageName);
             } else {
-                throw new FileNotFoundException(null, 0, null, $this->root . $subPath);
+                dump("Page not found: " . $subPath);
+//                throw new FileNotFoundException(null, 0, null, $this->root . $subPath);
             }
 
             $page->addSubPage($subPage);
