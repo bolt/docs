@@ -2,15 +2,15 @@
 .version-changer {
     display: flex;
     justify-content: flex-end;
-    @include mb(4);
+    margin-bottom: 1rem;
     @include mobile {
         flex-direction: column;
         select {
             width: 100%;
-        } 
+        }
         .button {
             margin-top: .25em;
-        }    
+        }
     }
     @include tablet {
         .button {

@@ -3,24 +3,24 @@
 
 //=== Initial Variables
 
-@import "../../node_modules/bulma/sass/utilities/initial-variables";
-@import "../../node_modules/bulma/sass/utilities/functions";
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
 
 //=== Custom Colours
 
 $base: #2C3E50;
-$brand: #80A2BE;
+$brand: #4C6E91;
+$brand-light: lighten($brand, 10);
 $brand-invert: findColorInvert($brand);
-$secondary: #FF784A;
-$brand-dark: #49698A;
-$cermaic: #F4F7F7;
-$blue: $brand;
+$brand-dark: darken($brand, 1);
+$secondary: #1863af;
+$ceramic: #F0F3F3;
 $speed: 120ms;
 
 //=== Custom Fonts
 
-$family-primary: "Source Sans Pro", sans-serif;
-
+$family-header: "Source Sans Pro", sans-serif;
+$body-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $family-monospace: Menlo, Consolas, 'Liberation Mono', 'Source Code Pro', monospace;
 
 //=== Colour Overides
@@ -30,7 +30,6 @@ $primary-invert:    $brand-invert;
 $info:              $brand-dark;
 $warning:           $secondary;
 $warning-invert:    $white;
-$white-ter:         $cermaic;
 $black:             $base;
 $dark:              $base;
 $text:              $base;
@@ -49,10 +48,10 @@ $body-size: 16.5px;
 //=== Sidebar Menu Overides
 
 $menu-item-color: $white;
-$menu-label-color: $white-ter;
-$menu-list-border-left: 1px solid $white-ter;
+$menu-label-color: $ceramic;
+$menu-list-border-left: 1px solid $ceramic;
 $menu-item-active-color: $base;
-$menu-item-active-background-color: $white-ter;
+$menu-item-active-background-color: $ceramic;
 
 //=== Mobile Menu
 $navbar-height: 2.25rem;
@@ -60,19 +59,19 @@ $navbar-height: 2.25rem;
 //=== Breadcrumb Overides
 
 $breadcrumb-item-separator-color: $white;
-$breadcrumb-item-color: $white-ter;
+$breadcrumb-item-color: $ceramic;
 $breadcrumb-item-active-color: $white;
 
 //=== Form Overides
 
-$input-border-color: darken($white-ter, 10%);
+$input-border-color: darken($ceramic, 10%);
 $input-hover-border-color: $primary;
 $input-color: lighten($base, 20%);
 
 //== Inline code blocks
 
-$code: $secondary;
-$code-background: $white-ter;
+$code: #666;
+$code-background: $ceramic;
 
 //=== Tags
 // $tag-background-color: $brand;
@@ -92,7 +91,7 @@ $table-bg: $white;
 $table-border-size: 0px;
 //$table-even-row-bg: lighten(desaturate($bolt-orange, 20), 35);
 //$table-odd-row-bg: #F2F2F2;
-$table-even-row-bg: $white-ter; // #F4F3EA;
+$table-even-row-bg: $ceramic; // #F4F3EA;
 $table-odd-row-bg: $white;
 $table-row-padding: 2px;
 $table-row-font-size: 13px;

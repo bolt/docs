@@ -46,7 +46,7 @@ class Site extends AbstractController
     public function getPage(Version $version, string $page): Response
     {
         try {
-            $page = $version->getPage($page);
+            $pageObj = $version->getPage($page);
         } catch (\Throwable $e) {
             return $this->error(
                 new NotFoundHttpException("Page '${page}' does not exist.", $e),
@@ -54,11 +54,12 @@ class Site extends AbstractController
                 Response::HTTP_NOT_FOUND
             );
         }
-        if ($page['redirect']) {
-            return new RedirectResponse("/${version}/${page['redirect']}");
+
+        if ($pageObj['redirect']) {
+            return new RedirectResponse("/${version}/${pageObj['redirect']}");
         }
 
-        return $this->renderPage($version, $page);
+        return $this->renderPage($version, $pageObj);
     }
 
     /**

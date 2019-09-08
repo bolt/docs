@@ -15,4 +15,5 @@
 .anchor {
     margin-left: 1rem;
     text-decoration: none;
+    color: lighten(desaturate($brand, 20%), 20%);
 }
