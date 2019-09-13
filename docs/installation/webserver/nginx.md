@@ -2,8 +2,6 @@
 title: NGINX Configuration
 level: intermediate
 ---
-NGINX: Configuring the virtual host
-===================================
 
 NGINX is a high-performance web server that is capable of serving thousands of
 request while using fewer resources than other servers like Apache.

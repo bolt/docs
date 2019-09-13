@@ -4,9 +4,6 @@ title: File system permissions
 Bolt File System Permissions
 ============================
 
-If you are running a *flat structure* install please refer to
-[Bolt File System Permissions (flat structure)][flat].
-
 On most servers the web server runs in a different group than your user
 account, so to give Bolt write access to these files you have to use the
 `chmod` command.
@@ -29,8 +26,7 @@ This approach is not recommended, but for some hosts, or to just get moving
 quickly, run these commands from inside your Bolt directory:
 
 ```bash
-chmod -R 777 app/cache/ app/config/ app/database/ extensions/
-chmod -R 777 public/thumbs/ public/extensions/ public/files/ public/theme/
+chmod -R 777 config/ public/files/ public/theme/ var/
 ```
 
 Make sure that the root folder is also readable by the web server. On some
@@ -48,33 +44,16 @@ Setting Permissions (Secure)
 Bolt **must have** write permissions to the following directories and their
 files:
 
-  * `app/cache/`
-  * `app/database/`
-  * `public/thumbs/`
+  * `config/`
+  * `public/files/`
+  * `public/theme/`
+  * `var/cache/`
+  * `var/database/`
 
 You can achieve this by running:
 
 ```bash
-for dir in app/cache/ app/database/ public/thumbs/ ; do
-    find $dir -type d -print0 | xargs -0 chmod u+rwx,g+rwxs,o+rx-w
-    find $dir -type f -print0 | xargs -0 chmod u+rw-x,g+rw-x,o+r-wx > /dev/null 2>&1
-done
-```
-
-For back-end administration using the UI, we strongly advise making the
-following directories, and the files contained within, writable by the web
-server user:
-
-  * `app/config/`
-  * `extensions/`
-  * `public/extensions/`
-  * `public/files/`
-  * `public/theme/`
-
-You can achieve this by **also** running:
-
-```bash
-for dir in app/config/ extensions/ public/extensions/ public/files/ public/theme/ ; do
+for dir in config/ public/files/ public/theme/ var/cache/ var/database/ ; do
     find $dir -type d -print0 | xargs -0 chmod u+rwx,g+rwxs,o+rx-w
     find $dir -type f -print0 | xargs -0 chmod u+rw-x,g+rw-x,o+r-wx > /dev/null 2>&1
 done
@@ -87,5 +66,3 @@ this, run:
 ```bash
 chmod a+r .
 ```
-
-[flat]: permissions-flat-structure

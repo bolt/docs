@@ -3,7 +3,7 @@ title: Installation
 redirect: installation/installation
 pages:
     - installation
-    - quick-install
+    - install-composer
     - composer-create-project
     - manual-download-and-extraction
     - permissions

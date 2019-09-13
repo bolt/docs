@@ -11,7 +11,7 @@ navigate between the screenshots using the cursor keys.
 
 <div class="gallery-popup">
 
-Screenshot 1: Editing a Record with Relationships.
+<!-- Screenshot 1: Editing a Record with Relationships.
 <a href="/files/screenshots/screenshot-1.png" class="gallery-popup" title="Screenshot 1: Editing a Record with Relationships.">
 <img src="/files/screenshots/screenshot-1.png" width="660"></a><br>
 
@@ -121,6 +121,6 @@ Screenshot iPhone 4: The menu on mobile.
 
 Screenshot iPhone 5: Editing a page on mobile.
 <a href="/files/screenshots/iphone-5.png" class="gallery-popup" title="Screenshot iPhone 5: Editing a page on mobile.">
-<img src="/files/screenshots/iphone-5.png" width="320"></a><br>
+<img src="/files/screenshots/iphone-5.png" width="320"></a><br> -->
 
 </div>

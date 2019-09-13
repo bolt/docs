@@ -4,33 +4,61 @@ title: Installation
 Installing Bolt
 ===============
 
-This page explains the various ways of installing Bolt. You can either use the
-command-line or your FTP-client to install it. There are different methods to
-install Bolt, but we recommend the **Composer-based distribution** as the
-fastest way to get an installation of Bolt up and running.
+With the release of Bolt 4 stable, there will be a number of ways to install
+the application. For now, we recommend the **composer create-project** as the
+fastest way to get an installation of Bolt up and running. If you don't have
+composer yet, see [here][get-composer].
 
-<a href="quick-install" class="button large expand docsintro">
-Quick install: A Composer-based distribution package <br> <small>Quickly set up
-a Bolt installation, making use of the command line and the official
-distribution files</small> </a>
+Set up a new Bolt 4 project, using the following command, replacing `myprojectname`
+with your desired project's name.
 
-Additionally, there are several installation options that suit any preferred workflow:
+```bash
+composer create-project bolt/project myprojectname
+```
 
-  - **[Using 'composer create-project'][create-project]**: Use our
-    `composer create-project` installation method from the command for the
-    greatest flexibility over folder structure in your project.
-  - **[Creating your own Bootstrap][custom-bootstrap]**: You can bootstrap the
-    Bolt application in custom code, in order to integrate it fully into an
-    existing project.
-  - **[Manual download and extraction][sftp]**: Downloading the distribution
-    file as a `.zip` or `.tgz` file. Use this to manually extract and upload
-    using a traditional method like (S)FTP.
 
-Use one of the four methods described above to get the Bolt source files, and
-set them up on your web server. After you've done this, skip to the section for
-[Setting up Bolt][configuration].
 
-[sftp]: manual-download-and-extraction
-[create-project]: composer-create-project/install-composer
-[custom-bootstrap]: ../extensions/custom-bootstrapping
-[configuration]: ../configuration/introduction
+Navigate into the newly created folder, and configure the database in `.env`:
+
+```dotenv
+# SQLite
+DATABASE_URL=sqlite:///%kernel.project_dir%/var/data/bolt.sqlite
+
+# MySQL
+DATABASE_URL=mysql://root:"root%1"@127.0.0.1:3306/four
+```
+
+Set up the database, create the first user and add fixtures (dummy content):
+
+```bash
+bin/console bolt:setup
+```
+
+Run Bolt using the built-in webserver, Symfony CLI, Docker or your own
+preferred webserver:
+
+```bash
+bin/console server:start
+```
+
+or…
+
+```bash
+symfony server:start -d
+symfony open:local
+```
+
+or…
+
+```bash
+make docker-install
+```
+
+Finally, open the new installation in a browser. If you've used one of the
+commands above, you'll find the frontpage at http://127.0.0.1:8000/
+
+The Bolt admin panel can be found at http://127.0.0.1:8000/bolt
+
+Log in using the credentials you created when setting up the first user.
+
+[get-composer]: ./composer-create-project/install-composer

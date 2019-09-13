@@ -1,8 +1,7 @@
 ---
 title: Apache Configuration
 ---
-Apache: Tweaking the .htaccess file
-===================================
+
 
 Bolt requires the use of a `.htaccess` file to make sure requests like `page
 /about-this- website` get routed to `index.php`, so it can be handled by Bolt.
