@@ -20,6 +20,9 @@
             "ref": "cb4152ebcadbe620ea2261da1a1c5a9b8cea7672"
         }
     },
+    "doctrine/cache": {
+        "version": "v1.8.0"
+    },
     "doctrine/lexer": {
         "version": "v1.0.1"
     },
