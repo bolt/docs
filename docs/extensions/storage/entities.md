@@ -22,7 +22,7 @@ and setters but at the expense of adding a dependency (albeit a very small one).
 
 Some examples of interaction with entity objects can be found below.
 
-```
+```php
 $repo = $app['storage']->getRepository('users');
 $user = $repo->find(1);
 
@@ -37,6 +37,6 @@ $user->getDisplayname(); // 'Example User'
 Once you have finished interacting with your entity object you can pass it back
 to the Repository to handle persistence of updates.
 
-```
+```php
 $repo->save($user);
 ```
