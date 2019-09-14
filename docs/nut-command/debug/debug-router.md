@@ -24,7 +24,7 @@ Debugging your routing configuration is usually for the following reasons:
 ## Usage
 
 ```bash
-    php .app/nut debug:router [options] [--] [<name>]
+    php .bin/console debug:router [options] [--] [<name>]
 ```
 
 
@@ -45,7 +45,7 @@ An edited-down example of the output:
 
 
 ```bash
-$ php ./app/nut debug:router 
+$ php ./bin/console debug:router
 +----------------+-----------+--------+------+------------------------------------------+
 | Route Name     | Method(s) | Scheme | Host | Path                                     |
 +----------------+-----------+--------+------+------------------------------------------+
@@ -68,7 +68,7 @@ $ php ./app/nut debug:router
 ### Single Route Name
 
 ```bash
-$ php ./app/nut debug:router editcontent
+$ php ./bin/console debug:router editcontent
 +--------------+---------------------------------------------------------+
 | Property     | Value                                                   |
 +--------------+---------------------------------------------------------+

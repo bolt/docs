@@ -67,14 +67,14 @@ After updating, you should clear the cache, and make sure the database is up to
 date.
 
 ```
-php app/nut cache:clear
+php bin/console cache:clear
 ```
 
 Check and update the database, with these commands:
 
 ```
-php app/nut database:check
-php app/nut database:update
+php bin/console database:check
+php bin/console database:update
 ```
 -->
 

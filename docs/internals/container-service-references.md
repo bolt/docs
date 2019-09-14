@@ -15,7 +15,7 @@ interrogating the state of the application container.
 ## $app['config']
 
 The `config` service provides access to all the configuration settings from the
-various `.yml` files in `app/config`.
+various `.yml` files in `config/bolt`.
 
 For example, to get the value for `homepage_template` set in `config.yml`:
 

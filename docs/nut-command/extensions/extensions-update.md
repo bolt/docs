@@ -10,7 +10,7 @@ Nut's `extensions:update` command updates installed extension(s).
 ## Usage
 
 ```bash
-    php ./app/nut extensions:update [<name>]
+    php ./bin/console extensions:update [<name>]
 ```
 
 
@@ -27,7 +27,7 @@ Nut's `extensions:update` command updates installed extension(s).
 
 
 ```bash
-$ php ./app/nut extensions:update bolt/boltforms
+$ php ./bin/console extensions:update bolt/boltforms
 
 Starting update of bolt/boltforms:… [DONE]
 Loading composer repositories with package information

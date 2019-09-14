@@ -113,7 +113,7 @@ site's `extensions/composer.json` file, e.g.
 ```
 
 <p class="note"><strong>Note:</strong> This setting should also be changed in
-your <code>app/config/config.yml</code> file as it will be overwritten the next
+your <code>config/bolt/config.yml</code> file as it will be overwritten the next
 time you load the Extensions page in the Bolt back-end.</p>
 
 This will allow you to install the current development version of your new

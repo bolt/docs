@@ -24,7 +24,7 @@ Debugging your routing configuration is usually for the following reasons:
 ## Usage
 
 ```bash
-    php .app/nut router:match [options] [--] <path_info>
+    php .bin/console router:match [options] [--] <path_info>
 ```
 
 ## Arguments
@@ -40,20 +40,20 @@ Debugging your routing configuration is usually for the following reasons:
 ### Invalid URI
 
 ```bash
-$ php ./app/nut router:match /koala/dropbear
+$ php ./bin/console router:match /koala/dropbear
 
  Route "contentlink" almost matches but requirement for "contenttypeslug" does not match (pages|page|entries|entry|showcases|showcase|blocks|block)
  Route "taxonomylink" almost matches but requirement for "taxonomytype" does not match (tags|tag|groups|group|categories|category)
 
-                                                                                                                        
- [ERROR] None of the routes match the path "/koala/dropbear"                                                            
-                                                           
+
+ [ERROR] None of the routes match the path "/koala/dropbear"
+
 ```
 
 ### Homepage URI
 
 ```bash
-$ ./app/nut router:match /
+$ ./bin/console router:match /
 
  [OK] Route "homepage" matches
 
@@ -79,8 +79,8 @@ $ ./app/nut router:match /
 ### ContentType Record URI
 
 ```bash
-$ php ./app/nut router:match /pages/koalas
-                                                                                                                        
+$ php ./bin/console router:match /pages/koalas
+
  [OK] Route "contentlink" matches
 
 +--------------+---------------------------------------------------------------------------+
@@ -106,7 +106,7 @@ $ php ./app/nut router:match /pages/koalas
 ### Content Editing URI
 
 ```bash
-$ php ./app/nut router:match /bolt/editcontent/pages/42
+$ php ./bin/console router:match /bolt/editcontent/pages/42
 
  [OK] Route "editcontent" matches
 

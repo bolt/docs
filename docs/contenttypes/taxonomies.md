@@ -195,4 +195,4 @@ theme:
 {% include '_sub_taxonomylinks.twig' with {record: record} %}
 ```
 
-[tax]: https://github.com/bolt/bolt/blob/%%VERSION%%/app/theme_defaults/_sub_taxonomylinks.twig
+[tax]: https://github.com/bolt/bolt/blob/%%VERSION%%/bolt/templates/helpers/_sub_taxonomylinks.twig

@@ -88,22 +88,22 @@ and adjust where needed.
               <!-- Locations can be relative to TEST_ROOT directory, the Bolt directory, or an absolute path -->
               <array>
                   <element key="config">
-                      <string>vendor/bolt/bolt/app/config/config.yml.dist</string>
+                      <string>vendor/bolt/bolt/config/bolt/config.yml.dist</string>
                   </element>
                   <element key="contenttypes">
-                      <string>vendor/bolt/bolt/app/config/contenttypes.yml.dist</string>
+                      <string>vendor/bolt/bolt/config/bolt/contenttypes.yml.dist</string>
                   </element>
                   <element key="menu">
-                      <string>vendor/bolt/bolt/app/config/menu.yml.dist</string>
+                      <string>vendor/bolt/bolt/config/bolt/menu.yml.dist</string>
                   </element>
                   <element key="permissions">
-                      <string>vendor/bolt/bolt/app/config/permissions.yml.dist</string>
+                      <string>vendor/bolt/bolt/config/bolt/permissions.yml.dist</string>
                   </element>
                   <element key="routing">
-                      <string>vendor/bolt/bolt/app/config/routing.yml.dist</string>
+                      <string>vendor/bolt/bolt/config/bolt/routing.yml.dist</string>
                   </element>
                   <element key="taxonomy">
-                      <string>vendor/bolt/bolt/app/config/taxonomy.yml.dist</string>
+                      <string>vendor/bolt/bolt/config/bolt/taxonomy.yml.dist</string>
                   </element>
               </array>
               <!-- Theme directory. Can be relative to TEST_ROOT directory, the Bolt directory, or an absolute path -->
@@ -121,7 +121,7 @@ and adjust where needed.
               </array>
               <!-- Reset the cache and test temporary directories -->
               <boolean>true</boolean>
-              <!-- Create timer output in app/cache/phpunit-test-timer.txt -->
+              <!-- Create timer output in var/cache/phpunit-test-timer.txt -->
               <boolean>true</boolean>
            </arguments>
         </listener>

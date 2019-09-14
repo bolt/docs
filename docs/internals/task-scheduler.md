@@ -24,7 +24,7 @@ The format should look something like:
 
 ```
 # min hour day month weekday command
-0   */1    *    *    *       /var/www/my_site/app/nut cron
+0   */1    *    *    *       /var/www/my_site/bin/console cron
 ```
 
 Where you change `/var/www/my_site` to be the correct path to your Bolt
@@ -41,7 +41,7 @@ cron_hour: 3
 
 **Important Information for Timed Record Publishing**
 
-If you are using the cron to publish timed records (which is highly recommended) then 
+If you are using the cron to publish timed records (which is highly recommended) then
 you need to set a flag in your config.yml or config_local.yml.
 
 Add this block:
@@ -60,7 +60,7 @@ The task schedulers job intervals can be run on demand using `nut` from the
 command line, e.g. To run the hourly tasks:
 
 ```
-./app/nut cron --run=cron.Hourly
+./bin/console cron --run=cron.Hourly
 ```
 
 The parameter passed to `--run` can be any of the following:

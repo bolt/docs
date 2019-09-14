@@ -10,7 +10,7 @@ A basic Bolt extension requires the following elements:
   * A `composer.json` file to store the extension metadata
   * A  PHP file to operate as the loading/entry point
   * An optionaly `config.yml.dist` file that will be copied into the
-    installation's `app/config/extensions/` directory
+    installation's `config/bolt/extensions/` directory
   * A `readme.md` Markdown file to explain to the users of the extension how to
     configure and use it.
 

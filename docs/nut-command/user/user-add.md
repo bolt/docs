@@ -10,7 +10,7 @@ Nut's `user:add` command adds a new Bolt user account.
 ## Usage
 
 ```bash
-    php ./app/nut user:add <username> <displayname> <email> <password> <role>
+    php ./bin/console user:add <username> <displayname> <email> <password> <role>
 ```
 
 
@@ -28,7 +28,7 @@ Nut's `user:add` command adds a new Bolt user account.
 ## Example
 
 ```bash
-]$ php ./app/nut user:add kenny "Kenny Koala" kenny@koala.com.au GumLe@ves editor
+]$ php ./bin/console user:add kenny "Kenny Koala" kenny@koala.com.au GumLe@ves editor
 Successfully created user: kenny
 ```
 

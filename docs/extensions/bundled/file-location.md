@@ -31,7 +31,7 @@ two levels for the location of the loader class is possible, but not supported.
 
 ## Configuration files
 
-Bundle configuration files are always located in the `app/config/extensions/`
+Bundle configuration files are always located in the `config/bolt/extensions/`
 directory, and are named after the lower case derived names of the Bundle
 loader class and base namespace.
 

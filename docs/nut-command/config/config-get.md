@@ -16,7 +16,7 @@ configuration files, by default `config.yml`.
 ## Usage
 
 ```bash
-    php ./app/nut config:get [options] [--] <key>
+    php ./bin/console config:get [options] [--] <key>
 ```
 
 
@@ -39,7 +39,7 @@ configuration files, by default `config.yml`.
 ### Query current theme
 
 ```bash
-$ php ./app/nut config:get theme
+$ php ./bin/console config:get theme
 theme: base-2016
 ```
 
@@ -47,7 +47,7 @@ theme: base-2016
 ### Querying the "quality" value of "thumbnails"
 
 ```bash
-$ php ./app/nut config:get thumbnails/quality
+$ php ./bin/console config:get thumbnails/quality
 thumbnails/quality: 80
 ```
 
@@ -55,7 +55,7 @@ thumbnails/quality: 80
 ### Query a ContentType's field type
 
 ```bash
-$ php ./app/nut config:get pages/fields/body/type --file contenttypes.yml
+$ php ./bin/console config:get pages/fields/body/type --file contenttypes.yml
 pages/fields/body/type: html
 ```
 

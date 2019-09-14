@@ -86,7 +86,7 @@ styles to your CSS to make it look right. These are the default rules:
 ```
 
 If you'd like to define your own pager from scratch, just copy
-`/app/theme_defaults/_sub_pager.twig` to your own theme folder, and rename it
+`/bolt/templates/helpers/_sub_pager.twig` to your own theme folder, and rename it
 to something like `_sub_mypager.twig`. Then, pass the name as an extra
 parameter to the `pager` tag:
 

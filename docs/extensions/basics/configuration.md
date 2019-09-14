@@ -12,7 +12,7 @@ same is true for extensions.
 
 Should you wish to provide a configuration file for your extension users, you
 need to create the template as `config/config.yml.dist`. Upon installation,
-that file will be copied to Bolt's `app/config/extensions/` directory and be
+that file will be copied to Bolt's `config/bolt/extensions/` directory and be
 renamed to the lower-case version of `extension_name.vendor_name.yml`
 
 Configuration Files

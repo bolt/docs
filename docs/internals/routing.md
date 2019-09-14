@@ -33,4 +33,4 @@ collection classes, located in the `Bolt\Controller` namespace.
 | `Bolt\Controller\Async\Widget`            | Extension Widget callback handling
 
 You can modify some of the routing to suit your own needs in
-`app/config/routing.yml`.
+`config/bolt/routing.yml`.

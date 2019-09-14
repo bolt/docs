@@ -14,7 +14,7 @@ providers, and their registration order, and effective `boot()` order.
 Debugging your service providers registration is usually for the following
 reasons:
   * Finding out what service providers are registering
-  * A higher ordered (later registering) provider is replacing a service 
+  * A higher ordered (later registering) provider is replacing a service
     unexpectedly
   * You're getting exceptions trying to `extend()` a service that hasn't been
     defined yet
@@ -23,7 +23,7 @@ reasons:
 ## Usage
 
 ```bash
-    php .app/nut debug:service-providers [options]
+    php .bin/console debug:service-providers [options]
 ```
 
 ## Options
@@ -39,7 +39,7 @@ An edited-down example of the output:
 
 
 ```bash
-$ php ./app/nut debug:service-providers 
+$ php ./bin/console debug:service-providers
 +---------------------------------------------------+-------+
 | Provider Class Name                               | Order |
 +---------------------------------------------------+-------+

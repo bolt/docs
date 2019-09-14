@@ -46,7 +46,7 @@ In the above example:
   * `setIcon('fa:leaf')` set the icon for the menu to any of the
     [Font Awesome icons](https://fontawesome.com/v4.7.0/icons/)
   * `setPermission('settings')` sets the required permission, as defined in the
-    `app/config/permissions.yml` file
+    `config/bolt/permissions.yml` file
   * `setroute('KoalaExtension')` sets the route to "KoalaExtension", which is
     used for generating paths and URLs, like in `{{ path() }}`. Strictly
     speaking this is optional, but we strongly recommend it, to prevent problems

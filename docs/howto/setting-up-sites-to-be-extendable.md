@@ -122,7 +122,7 @@ namespace Bundle\Site;
 use Bolt\Controller\Frontend as BoltController;
 
 class FrontendController extends BoltController {
-    
+
 }
 ```
 
@@ -171,7 +171,7 @@ explore in the future.
 Finally here's a couple of simple examples of how to do basic additions.
 Firstly we'll add a new custom page to our site that sits outside of Bolt.
 
-In routing (`app/config/routing.yml) add this:
+In routing (`config/bolt/routing.yml) add this:
 
 ```yml
 helloworldpage:
@@ -195,7 +195,7 @@ page.
 It's worth remembering that now you have your extension class defined you can
 use it to do all the things described in the documentation,
 [the basics are here][basics] and some slightly more advanced ideas are
-discussed in [the intermediate section][intermediate]. 
+discussed in [the intermediate section][intermediate].
 
 For this example we'll make a new Twig filter, in our templates we sometimes
 want to really shout about our content so we want a filter that we can use like
@@ -221,12 +221,12 @@ class CustomisationExtension extends SimpleExtension
             'shout' => 'shoutFilter',
         ];
     }
-    
-    public function shoutFilter($text) 
+
+    public function shoutFilter($text)
     {
         return strtoupper($text) . '!!';
     }
-    
+
 }
 
 ```

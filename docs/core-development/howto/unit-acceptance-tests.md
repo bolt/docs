@@ -13,19 +13,19 @@ For running unit tests you need [PHPUnit](http://www.phpunit.de/), this can
 be run from the `require-dev` install of PHPUnit that comes with Bolt:
 
 ```bash
-    $ composer install --dev 
+    $ composer install --dev
 ```
 
 After installing, you can run the unit test suite by running:
 
 ```bash
-    $ php vendor/bin/phpunit 
+    $ php vendor/bin/phpunit
 ```
 
-This can now also be done by using app/nut:
+This can now also be done by using bin/console:
 
 ```bash
-    $ php app/nut tests:run
+    $ php bin/console tests:run
 ```
 
 Acceptance Tests
@@ -36,7 +36,7 @@ this can be run from the `require-dev` install of CodeCeption that comes with
 Bolt:
 
 ```bash
-    $ composer install --dev 
+    $ composer install --dev
 ```
 
 After installing, you can run the acceptance test suite by running:

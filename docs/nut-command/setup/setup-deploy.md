@@ -27,7 +27,7 @@ use SFTP, if your host supports it.
 ## Usage
 
 ```bash
-    php app/nut setup:deploy [options] <target>
+    php bin/console setup:deploy [options] <target>
 ```
 
 <p class="note"><strong>Note:</strong> This command will not appear in the list
@@ -53,7 +53,7 @@ of available commands if the <code>.deploy.yml</code> file is not present.</p>
 ### Example: Checking a connection
 
 ```
-    php app/nut setup:deploy --check production
+    php bin/console setup:deploy --check production
 ```
 
 Using this command will allow you to verify the connection and destination
@@ -63,7 +63,7 @@ will help prevent the accidental removal of files on the destination environment
 ### Example: Running a deployment
 
 ```
-    php app/nut setup:deploy production
+    php bin/console setup:deploy production
 ```
 
 This will run the actual deployment: Uploading and/or updating the files on the
@@ -198,13 +198,13 @@ A very simple editor is also available by adding the `--edit` option to the
 command.
 
 ```
-php app/nut setup:deploy --edit <target>
+php bin/console setup:deploy --edit <target>
 ```
 
 ### Example: Editing the configuration for the "production" target
 
 ```
-php app/nut setup:deploy --edit production
+php bin/console setup:deploy --edit production
 ```
 
 This will allow you to interactively review and modify the settings in your

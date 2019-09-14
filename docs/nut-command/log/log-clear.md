@@ -10,7 +10,7 @@ Nut's `log:clear` command clears (truncates) the system & change logs.
 ## Usage
 
 ```bash
-    php ./app/nut log:clear [options]
+    php ./bin/console log:clear [options]
 ```
 
 
@@ -24,7 +24,7 @@ Nut's `log:clear` command clears (truncates) the system & change logs.
 ## Example
 
 ```bash
-$ php ./app/nut log:clear
+$ php ./bin/console log:clear
 Are you sure you want to clear the system & change logs? yes
 System & change logs cleared!
 ```

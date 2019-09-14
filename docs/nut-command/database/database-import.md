@@ -11,7 +11,7 @@ file.
 ## Usage
 
 ```bash
-    php ./app/nut database:import [options]
+    php ./bin/console database:import [options]
 ```
 
 
@@ -28,7 +28,7 @@ file.
 ### Importing records
 
 ```bash
-$ php ./app/nut database:import --file=my-site-export.json --overwrite
+$ php ./bin/console database:import --file=my-site-export.json --overwrite
 
  [WARNING] This command may overwrite or replace data in the current database.
 

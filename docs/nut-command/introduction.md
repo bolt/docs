@@ -11,11 +11,11 @@ Bolt provides a powerful command line tool, based on the Symfony
 a convenient tool for those that do prefer the command line. Its use is not
 required for normal use.</p>
 
-Nut is usualy located at `{site root}/app/nut`, and can be executed using your
+Nut is usualy located at `{site root}/bin/console`, and can be executed using your
 PHP binary, for example to execute the `cache:clear` Nut command:
 
 ```bash
-$ php ./app/nut cache:clear
+$ php ./bin/console cache:clear
 
 Cache cleared!
 ```
@@ -32,7 +32,7 @@ Bolt's web interface.
 Typing out a Nut command is best done following this pattern:
 
 ```bash
-$ php ./app/nut command [options] [arguments]
+$ php ./bin/console command [options] [arguments]
 ```
 
 #### Options and Arguments
@@ -47,12 +47,12 @@ Some example of how an `example:command` command line would be built to be
 executed by Nut:
 
 ```bash
-$ php ./app/nut example:command --option-without-value
-$ php ./app/nut example:command SingleArgumentValue
-$ php ./app/nut example:command --option-without-value SingleArgumentValue
-$ php ./app/nut example:command --send-report true
-$ php ./app/nut example:command --pets cats dogs --option-without-value
-$ php ./app/nut example:command --pets cats dogs FirstArgumentValue SecondArgumentValue
+$ php ./bin/console example:command --option-without-value
+$ php ./bin/console example:command SingleArgumentValue
+$ php ./bin/console example:command --option-without-value SingleArgumentValue
+$ php ./bin/console example:command --send-report true
+$ php ./bin/console example:command --pets cats dogs --option-without-value
+$ php ./bin/console example:command --pets cats dogs FirstArgumentValue SecondArgumentValue
 ```
 
 
@@ -77,13 +77,13 @@ learning, or refreshing you memory on, command use.
 For example, to see Nut's base help:
 
 ```bash
-$ php ./app/nut --help
+$ php ./bin/console --help
 ```
 
 Alternatively, to get the help text for the `cache:clear` Nut command:
 
 ```bash
-$ php ./app/nut cache:clear --help
+$ php ./bin/console cache:clear --help
 ```
 
 <p class="note"><strong>Note:</strong> If for any reason Nut generates an
@@ -98,7 +98,7 @@ To see a list of available commands for a given Bolt installation, simply run
 Nut without any parameters:
 
 ```bash
-$ php app/nut
+$ php bin/console
 ```
 
 

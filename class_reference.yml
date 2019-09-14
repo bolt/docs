@@ -901,7 +901,7 @@
 -
     name: http_cache.cache_dir
     type: string
-    value: app/cache/development/http
+    value: var/cache/development/http
     file: ''
 -
     name: http_cache.esi
@@ -1231,7 +1231,7 @@
 -
     name: profiler.cache_dir
     type: string
-    value: app/cache/profiler
+    value: var/cache/profiler
     file: ''
 -
     name: profiler.listener
@@ -2266,7 +2266,7 @@
 -
     name: translator.cache_dir
     type: string
-    value: app/cache/trans
+    value: var/cache/trans
     file: ''
 -
     name: translator.caching

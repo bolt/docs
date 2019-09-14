@@ -10,7 +10,7 @@ Nut's `role:remove` command removes a given role from a user's Bolt account.
 ## Usage
 
 ```bash
-    php ./app/nut role:remove <username> <role>
+    php ./bin/console role:remove <username> <role>
 ```
 
 
@@ -28,7 +28,7 @@ Nut's `role:remove` command removes a given role from a user's Bolt account.
 
 
 ```bash
-$ php ./app/nut role:remove kenny editor
+$ php ./bin/console role:remove kenny editor
 
 User 'kenny' no longer has role 'editor'.
 ```

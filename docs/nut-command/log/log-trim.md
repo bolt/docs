@@ -11,14 +11,14 @@ days.
 ## Usage
 
 ```bash
-    php ./app/nut log:trim
+    php ./bin/console log:trim
 ```
 
 
 ## Example
 
 ```bash
-$ php ./app/nut log:trim
+$ php ./bin/console log:trim
 System & change logs trimmed!
 ```
 

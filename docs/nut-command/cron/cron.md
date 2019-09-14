@@ -14,7 +14,7 @@ section of the documentation
 ## Usage
 
 ```bash
-    php ./app/nut cron [options]
+    php ./bin/console cron [options]
 ```
 
 
@@ -36,7 +36,7 @@ The optional interim names you can use with `--run` are:
 ### Run tasks scheduled hourly
 
 ```bash
-$ php ./app/nut cron --run=cron.Hourly
+$ php ./bin/console cron --run=cron.Hourly
 Running Cron Hourly Jobs
 
 Cron run!

@@ -62,18 +62,18 @@ All files use the same YAML syntax, and can also be edited via the Bolt backend.
 
 | YAML file                     | Description |
 | ----------------------------- | ----------- |
-| `app/config/config.yml`       | The file where all general configuration of your website is defined.
-| `app/config/contenttypes.yml` | The definitions of your contenttypes, e.g. pages, blog items etc.
-| `app/config/menu.yml`         | The file that contains the menu(s) for your website.
-| `app/config/taxonomy.yml`     | Categories, chapters, tags etc. are defined here.
-| `app/config/routing.yml`      | The file where you can define custom urls for your website.
-| `app/config/permissions.yml`  | Here you can specify groups, users, etc. For most websites, the default permissions settings will be just fine.
+| `config/bolt/config.yml`       | The file where all general configuration of your website is defined.
+| `config/bolt/contenttypes.yml` | The definitions of your contenttypes, e.g. pages, blog items etc.
+| `config/bolt/menu.yml`         | The file that contains the menu(s) for your website.
+| `config/bolt/taxonomy.yml`     | Categories, chapters, tags etc. are defined here.
+| `config/bolt/routing.yml`      | The file where you can define custom urls for your website.
+| `config/bolt/permissions.yml`  | Here you can specify groups, users, etc. For most websites, the default permissions settings will be just fine.
 
 There are two other locations where configuration files can be found:
 
 | Folder                   | Description |
 | ------------------------ | ----------- |
-| `app/config/extensions/` | If you install extensions, their config files will be located in this directory.
+| `config/bolt/extensions/` | If you install extensions, their config files will be located in this directory.
 | `public/theme/`          | In the folder for the active theme, there can optionally be a `theme.yml`.
 
 To access the values in these files in your templates or PHP code, you'll need

@@ -19,7 +19,7 @@ system. This means that:
 
 The permissions needed to perform an action are hard-coded into Bolt, but
 everything else is configurable by editing the YAML file
-`app/config/permissions.yml`; this can be done either directly, or through
+`config/bolt/permissions.yml`; this can be done either directly, or through
 Bolt's back-end UI.
 
 Things to keep in mind

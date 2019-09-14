@@ -19,13 +19,13 @@ Debugging Twig operations is usually for the following reasons:
     * Tests
   * Determining what parameters an operation requires, if a parameter is required,
     or what default value is used if none supplied
-  * Finding out the correct name (and typographical case) of an operation 
+  * Finding out the correct name (and typographical case) of an operation
 
 
 ## Usage
 
 ```bash
-    php .app/nut debug:twig [options] [--] [<filter>]
+    php .bin/console debug:twig [options] [--] [<filter>]
 ```
 
 ## Options
@@ -42,7 +42,7 @@ Debugging Twig operations is usually for the following reasons:
 To find all twig operations, and parameters, with the text "asset":
 
 ```bash
-$ php ./app/nut debug:twig asset
+$ php ./bin/console debug:twig asset
 
 Functions
 ---------
@@ -55,7 +55,7 @@ Functions
 To find all twig operations, and parameters, with the text "json":
 
 ```bash
-$ php ./app/nut debug:twig json
+$ php ./bin/console debug:twig json
 
 Filters
 -------
@@ -74,7 +74,7 @@ Tests
 An edited-down example of the output:
 
 ```bash
-$ php ./app/nut debug:twig 
+$ php ./bin/console debug:twig
 
 Functions
 ---------

@@ -53,7 +53,7 @@ menuyml:
     shorttitle: Menus
     prefix: |
         You can define one or more menus in
-        the file `app/config/menu.yml`, which can then be inserted in your
+        the file `config/bolt/menu.yml`, which can then be inserted in your
         templates using the `{{ menu() }}` tag.
     table:
         - [ "Example" ]
@@ -68,7 +68,7 @@ contenttypes:
     title: ContentTypes and `contenttypes.yml`
     shorttitle: Contenttypes
     prefix: |
-        The ContentTypes in Bolt are defined in the file `app/config/contenttypes.yml`. You can edit
+        The ContentTypes in Bolt are defined in the file `config/bolt/contenttypes.yml`. You can edit
         this file directly, or from within  the Bolt interface under 'Settings' > 'ContentTypes'.
     table:
         - [ Key, Function ]
@@ -134,7 +134,7 @@ fieldoptions:
         - [ "`group: Foo`", "Separate this and all subsequent fields (until another group declaration) into a tab with the name 'Foo'. Replace 'Foo' with the desired label of the tab." ]
         - [ "`prefix: ..`", "HTML to add before the field. " ]
         - [ "`postfix: ..`", "HTML to add after the field. " ]
-        - [ "`separator: true`", "Add `<hr>` divider after the field. " ]        
+        - [ "`separator: true`", "Add `<hr>` divider after the field. " ]
         - [ "`default: ..`", "The default value for a field, if applicable. See below for an example." ]
         - [ "`required: true`", "Use this to make a field required. Only works on `text`, `textarea`, `html`, `date`, `datetime`, `float` and `integer` fields." ]
         - [ "`readonly: true`", "Use this to make a field read-only. Only works on `float`, `integer` and `text` fields." ]
@@ -173,7 +173,7 @@ permissionsyml:
     title: Permissions and `permissions.yml`
     shorttitle: "Permissions"
     prefix: |
-        The permissions needed to perform an action are configurable by editing `app/config/permissions.yml`.
+        The permissions needed to perform an action are configurable by editing `config/bolt/permissions.yml`.
         This can be done either directly, or through Bolt’s back-end UI. By changing the permissions you basically change the way
         how people can interact with Bolt, and who is allowed to do what.
     links: { "Permissions in the docs": "configuration/permissions"}

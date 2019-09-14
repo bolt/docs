@@ -49,7 +49,7 @@ Bolt is run, the <code>.yml.dist</code>-files will be automatically copied to
 you first run Bolt, just copy <code>contenttypes.yml.dist</code> to
 <code>contenttypes.yml</code> yourself.</p>
 
-To add this ContentType, edit the file `app/config/contenttypes.yml`, and add
+To add this ContentType, edit the file `config/bolt/contenttypes.yml`, and add
 the following to the bottom or top of the file:
 
 ```yaml
@@ -183,7 +183,7 @@ This is explained in detail in the section [The structure of a Record](#structur
 Defining ContentTypes
 ---------------------
 
-The ContentTypes in Bolt are defined in the file `app/config/contenttypes.yml`.
+The ContentTypes in Bolt are defined in the file `config/bolt/contenttypes.yml`.
 You can edit this file directly, or from within the Bolt interface under
 Configuration > ContentTypes. Each distinct group of content can have its own
 ContentType, to enable the user to store the content as needed. Fields can be

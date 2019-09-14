@@ -11,7 +11,7 @@ password.
 ## Usage
 
 ```bash
-    php ./app/nut user:reset-password [options] [--] <username>
+    php ./bin/console user:reset-password [options] [--] <username>
 ```
 
 
@@ -25,7 +25,7 @@ password.
 ## Example
 
 ```bash
-$ php ./app/nut user:reset-password kenny
+$ php ./bin/console user:reset-password kenny
 Are you sure you want to reset the password for 'kenny'? yes
 New password for kenny is R@nd0mStr1ng
 ```

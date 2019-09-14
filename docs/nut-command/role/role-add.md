@@ -10,7 +10,7 @@ Nut's `role:add` command adds a given role to a user's Bolt account.
 ## Usage
 
 ```bash
-    php ./app/nut role:add <username> <role>
+    php ./bin/console role:add <username> <role>
 ```
 
 
@@ -28,7 +28,7 @@ Nut's `role:add` command adds a given role to a user's Bolt account.
 
 
 ```bash
-$ php ./app/nut role:add kenny chief-editor
+$ php ./bin/console role:add kenny chief-editor
 
 User 'kenny' now has role 'chief-editor'.
 ```

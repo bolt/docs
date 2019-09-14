@@ -117,5 +117,5 @@ argument labelled `type`.
 This can then be called from your Bolt installation:
 
 ```bash
-./app/nut koala:gumleaves [--summary] [type]
+./bin/console koala:gumleaves [--summary] [type]
 ```

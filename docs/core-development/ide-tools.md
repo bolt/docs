@@ -54,7 +54,7 @@ For more information, the plugin source repository can be [found on GitHub][sile
 Simply run the Nut command `pimple:dump`, i.e.:
 
 ```bash
-php ./app/nut pimple:dump
+php ./bin/console pimple:dump
 ```
 
 This will generate a `pimple.json` file in the root directory, that once the

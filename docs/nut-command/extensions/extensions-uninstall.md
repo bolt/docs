@@ -10,7 +10,7 @@ Nut's `extensions:uninstall` command .
 ## Usage
 
 ```bash
-    php ./app/nut extensions:uninstall <name>
+    php ./bin/console extensions:uninstall <name>
 ```
 
 
@@ -27,7 +27,7 @@ Nut's `extensions:uninstall` command .
 
 
 ```bash
-$ ./app/nut extensions:uninstall bolt/boltforms
+$ ./bin/console extensions:uninstall bolt/boltforms
 
 Starting uninstall of bolt/boltforms… [DONE]
 Loading composer repositories with package information

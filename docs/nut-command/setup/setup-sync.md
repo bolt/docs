@@ -11,7 +11,7 @@ with the web root.
 ## Usage
 
 ```bash
-    php ./app/nut setup:sync [options]
+    php ./bin/console setup:sync [options]
 ```
 
 
@@ -26,7 +26,7 @@ with the web root.
 ## Examples
 
 ```bash
-$ ./app/nut setup:sync
+$ ./bin/console setup:sync
 
 Synchronising Bolt asset directories with the web root
 ======================================================
@@ -36,7 +36,7 @@ Synchronising Bolt asset directories with the web root
 
 
 ```bash
-$ ./app/nut setup:sync --themes
+$ ./bin/console setup:sync --themes
 
  Continuing will copy/update the example themes into your installation, overwriting older copies. Is this OK? (yes/no) [yes]:
  >

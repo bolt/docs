@@ -15,7 +15,7 @@ web sites, it is for development and testing only.</p>
 ## Usage
 
 ```bash
-    php ./app/nut server:run [options] [--] [<address>]
+    php ./bin/console server:run [options] [--] [<address>]
 ```
 
 
@@ -39,7 +39,7 @@ web sites, it is for development and testing only.</p>
 
 
 ```bash
-$ php ./app/nut server:run
+$ php ./bin/console server:run
 
 
  [OK] Server running on http://0.0.0.0:8000
@@ -54,7 +54,7 @@ $ php ./app/nut server:run
 
 
 ```bash
-$ php ./app/nut server:run example.com --port=8888
+$ php ./bin/console server:run example.com --port=8888
 
 
  [OK] Server running on http://example.com:8888

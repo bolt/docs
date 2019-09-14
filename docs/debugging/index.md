@@ -18,7 +18,7 @@ Sections:
 ### Configuring Bolt
 
 When debugging in Bolt, often you'll need to adjust settings in your
-`app/config/config.yml` file.
+`config/bolt/config.yml` file.
 
 #### Enabling debugging
 
@@ -42,7 +42,7 @@ debug_error_level: -1
 #### Enabling debug logging
 
 Enabling the debug log writes the default application logger's messages to
-`app/cache/bolt-debug.log`.
+`var/cache/bolt-debug.log`.
 
 ```yaml
 debuglog:
@@ -69,7 +69,7 @@ non-production environments.</p>
 ### Twig
 
 When writing and debugging Twig templates in Bolt, enable `strict_variables` in
-your `app/config/config.yml` file, making Twig be strict on the use of
+your `config/bolt/config.yml` file, making Twig be strict on the use of
 undeclared variables.
 
 ```yaml

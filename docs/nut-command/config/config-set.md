@@ -15,7 +15,7 @@ configuration files, by default `config.yml`.
 ## Usage
 
 ```bash
-    php ./app/nut config:set [options] [--] <key> <value>
+    php ./bin/console config:set [options] [--] <key> <value>
 ```
 
 
@@ -40,7 +40,7 @@ configuration files, by default `config.yml`.
 ### Enabling debugging
 
 ```bash
-$ php ./app/nut config:set debug true
+$ php ./bin/console config:set debug true
 New value for debug: true was successful. File updated.
 ```
 
@@ -48,6 +48,6 @@ New value for debug: true was successful. File updated.
 ### Setting a ContentType field type
 
 ```bash
-$ ./app/nut config:set pages/fields/body/type text --file contenttypes.yml
+$ ./bin/console config:set pages/fields/body/type text --file contenttypes.yml
 New value for pages/fields/body/type: text was successful. File updated.
 ```

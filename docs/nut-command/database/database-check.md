@@ -11,7 +11,7 @@ columns.
 ## Usage
 
 ```bash
-    php ./app/nut database:check
+    php ./bin/console database:check
 ```
 
 
@@ -20,14 +20,14 @@ columns.
 ### No changes required
 
 ```
-$ php ./app/nut database:update
+$ php ./bin/console database:update
 Your database is already up to date.
 ```
 
 ### New ContentType table required
 
 ```bash
-$ php ./app/nut database:check
+$ php ./bin/console database:check
 Modifications required:
  - Table `bolt_entries` is not present.
 One or more fields/tables are missing from the Database. Please run 'nut database:update' to fix this.

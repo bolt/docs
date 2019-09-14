@@ -12,14 +12,14 @@ and required dependencies.
 ## Usage
 
 ```bash
-    php ./app/nut extensions:setup
+    php ./bin/console extensions:setup
 ```
 
 
 ## Example
 
 ```bash
-$ php ./app/nut extensions:setup
+$ php ./bin/console extensions:setup
 
 Creating/updating composer.json… [DONE]
 

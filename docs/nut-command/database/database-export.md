@@ -11,7 +11,7 @@ file.
 ## Usage
 
 ```bash
-    php ./app/nut database:export [options]
+    php ./bin/console database:export [options]
 ```
 
 
@@ -29,7 +29,7 @@ file.
 
 
 ```bash
-$ php ./app/nut database:export --file=my-site-export.json --contenttype=pages
+$ php ./bin/console database:export --file=my-site-export.json --contenttype=pages
 
  [WARNING] This command operates on the current database, taking a backup is advised before export.
 

@@ -11,5 +11,5 @@ files and directories.
 ## Usage
 
 ```bash
-    php ./app/nut cache:clear
+    php ./bin/console cache:clear
 ```

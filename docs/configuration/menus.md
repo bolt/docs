@@ -5,10 +5,10 @@ Creating menus
 ==============
 
 Bolt has built-in functionality to create menus in your frontend templates. You
-can define one or more menus in the file `app/config/menu.yml`, which can then
+can define one or more menus in the file `config/bolt/menu.yml`, which can then
 be inserted in your templates using the `{{ menu() }}` tag.
 
-To change one or more of the menus, edit the file `app/config/menu.yml`. You
+To change one or more of the menus, edit the file `config/bolt/menu.yml`. You
 can add more separate menus, if you wish, and each menu can have one level of
 items below it. See the default `menu.yml` for an example of the supported
 options:
@@ -55,7 +55,7 @@ the intended one:
 ```
 
 By default, the menu is rendered using the template
-`/app/theme_defaults/_sub_menu.twig`. You can 'override' the default by copying
+`/bolt/templates/helpers/_sub_menu.twig`. You can 'override' the default by copying
 this file to the root of your own theme folder. Bolt will pick your own version, and then
 it will not be overwritten in a future update. However, it is good practice to
 explicitly state which template file should be used to render a menu. Like
@@ -107,7 +107,7 @@ A detailed example
 
 In this section we'll show you a somewhat more elaborate example of how you can
 create a menu, with submenus. First, start by adding a small menu to your
-`app/config/menu.yml`-file:
+`config/bolt/menu.yml`-file:
 
 ```yaml
 test:
@@ -164,7 +164,7 @@ As you can see, the `{% for %}`-loop iterated over all of the items in the
 so it has a submenu, listing some content on our site. In this example, we'll
 assume that you have a `pages` ContentType, and that records `1`, `2` and `3`
 exist. If they don't, just replace them with some contenttype/id pairs that you
-do have. Edit the `app/config/menu.yml`-file:
+do have. Edit the `config/bolt/menu.yml`-file:
 
 ```yaml
 test:
@@ -344,7 +344,7 @@ Some of the more commonly used 'tricks' are:
     `class` attribute, but only it the item has a `class` defined in the
     `.yml`-file.
 
-See the default `/app/theme_defaults/_sub_menu.twig` file for an in-depth
+See the default `/bolt/templates/helpers/_sub_menu.twig` file for an in-depth
 example of all of the things you can do with menus. Remember that you should
 always copy this file to your own theme folder, or create your own from
 scratch. If you modify the default file, it will most likely get overwritten

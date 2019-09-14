@@ -11,14 +11,14 @@ web server rather than setting up Apache or Nginx.
 To run the built-in server, simply change to the site root directory and run:
 
 ```bash
-php ./app/nut server:run
+php ./bin/console server:run
 ```
 
 If you wish to specify a host name or different TCP port, simply add these after
 `server:run`, e.g.
 
 ```bash
-php ./app/nut server:run example.com --port=8080
+php ./bin/console server:run example.com --port=8080
 ```
 
 <p class="note"><strong>Note:</strong> Using the method above is preferred over

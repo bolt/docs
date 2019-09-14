@@ -10,7 +10,7 @@ Nut's `database:prefill` command re-fill the database Lorem Ipsum records.
 ## Usage
 
 ```bash
-    php ./app/nut database:prefill [options] [--] [<contenttypes>]...
+    php ./bin/console database:prefill [options] [--] [<contenttypes>]...
 ```
 
 
@@ -26,7 +26,7 @@ Nut's `database:prefill` command re-fill the database Lorem Ipsum records.
 ### Pre-filling with a "Pages" ContentType
 
 ```bash
-$ php ./app/nut database:prefill pages
+$ php ./bin/console database:prefill pages
 Continue with this action? yes
 Database pre-filled
 ```

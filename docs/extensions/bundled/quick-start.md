@@ -120,7 +120,7 @@ Configuring the Bundle
 ----------------------
 
 Configuration settings for your bundle will be read from a YAML file in
-the `app/config/extensions/` directory called `customisation.bundle.yml`.
+the `config/bolt/extensions/` directory called `customisation.bundle.yml`.
 
 
 Adding Functionality

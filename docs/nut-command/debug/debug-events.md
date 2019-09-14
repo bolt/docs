@@ -23,16 +23,16 @@ be executed <strong>before</strong> `-1`.</p>
 
 Debugging event listeners is usually for the following reasons:
   * Calculate your event listener's priority, to execute before, or after,
-    another listener   
+    another listener
   * Finding listeners that may be unexpectedly halting propagation of events,
-    meaning that remaining listeners to that event are not being called, 
+    meaning that remaining listeners to that event are not being called,
     commonly due to `Event::stopPropagation()` having been called by a prior
     listener
 
 ## Usage
 
 ```bash
-    php .app/nut debug:events [options] [--] [<event>]
+    php .bin/console debug:events [options] [--] [<event>]
 ```
 
 Running `debug:events`, without providing an event name, will output details on
@@ -61,7 +61,7 @@ all events.
 To check what is listening to the `kernel.response` event:
 
 ```bash
-$ php ./app/nut debug:events kernel.response
+$ php ./bin/console debug:events kernel.response
 
 Registered Listeners for "kernel.response" Event
 ================================================
@@ -86,10 +86,10 @@ Registered Listeners for "kernel.response" Event
 
 ### Sort by Callable
 
-To see the `kernel.response` events, sorted by the callable: 
+To see the `kernel.response` events, sorted by the callable:
 
 ```bash
-$ php ./app/nut debug:events kernel.response --sort-listener
+$ php ./bin/console debug:events kernel.response --sort-listener
 
 Registered Listeners for "kernel.response" Event
 ================================================

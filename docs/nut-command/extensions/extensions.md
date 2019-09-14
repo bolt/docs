@@ -10,14 +10,14 @@ Nut's `extensions` command lists all installed extensions.
 ## Usage
 
 ```bash
-    php ./app/nut extensions
+    php ./bin/console extensions
 ```
 
 
 ## Example
 
 ```bash
-$ ./app/nut extensions
+$ ./bin/console extensions
 +--------------------+---------+----------------+---------------------------------------------------------------------------+
 | Name               | Version | Type           | Description                                                               |
 +--------------------+---------+----------------+---------------------------------------------------------------------------+

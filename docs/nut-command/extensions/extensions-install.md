@@ -10,7 +10,7 @@ Nut's `extensions:install` command installs an extension by name and version.
 ## Usage
 
 ```bash
-    php ./app/nut extensions:install <name> <version>
+    php ./bin/console extensions:install <name> <version>
 ```
 
 
@@ -31,7 +31,7 @@ For more information on _version constraints_, see Composer's page on
 
 
 ```bash
-$ php ./app/nut extensions:install bolt/boltforms ^3.0
+$ php ./bin/console extensions:install bolt/boltforms ^3.0
 
 Starting install of bolt/boltforms:^3.0… [DONE]
 Loading composer repositories with package information
