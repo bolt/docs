@@ -1,15 +1,11 @@
 ---
 title: Setting up Bolt
 ---
-Setting up Bolt
-===============
 
-To get started with setting up the first Admin user in your new Bolt install,
-open the Bolt site in your browser. You should be greeted by the screen to
-create the first user. If you see this 'Create the first user' screen, do so
-accordingly. After you've created the first 'Administrator' user, you will be
-automatically logged in to the Bolt backend. You should now see the (empty)
-Dashboard screen.
+
+After installation you can run the `bin/console bolt:setup` command, that will
+set up the database and the first user. You can then log in to the Bolt
+backend. You should now see Bolt's Dashboard screen.
 
 If this is not the case, but you see an error page instead, see below for a
 number of possible causes and solutions.
