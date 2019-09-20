@@ -26,7 +26,7 @@ DATABASE_URL=sqlite:///%kernel.project_dir%/var/data/bolt.sqlite
 # MySQL
 DATABASE_URL=mysql://root:"root%1"@127.0.0.1:3306/four
 
-# MySQL
+# PostgreSQL
 DATABASE_URL=pgsql://root:"root%1"@127.0.0.1:5432/four
 ```
 
