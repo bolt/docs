@@ -32,7 +32,7 @@ package so installing via this process is the best way to ensure your project
 structure is correct. All you need to do from a command-line is run:
 
 ```
-composer create-project bolt/composer-install:^3.5 <MYPROJECT> --prefer-dist
+composer create-project bolt/composer-install:^3.6 <MYPROJECT> --prefer-dist
 ```
 
 %%VERSION%% is the current latest release but you can change that as each new
