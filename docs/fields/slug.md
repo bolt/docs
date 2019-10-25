@@ -20,6 +20,7 @@ good slug would be <code>about-our-company</code>.</p>
         slug:
             type: slug
             uses: title
+            route_prefix: /page/
 ```
 
 ## Example usage in templates:
@@ -45,6 +46,8 @@ The field has one option to change the functionality of the field:
    this set to the textfield that you use as the title, (often called `title`),
    but you can also use it with multiple fields like for example
    `[title, subtitle]`.
+ - `route_prefix` changes the content type prefix which is displayed. Useful when 
+   using custom routes.
 
 <p class="note"> <strong>Note:</strong> Usually this field shows up in the
 editor with a label like <code>Permalink:</code>. If the ContentType is
