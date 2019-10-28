@@ -109,6 +109,38 @@ This will produce on a default install:
 ```
   
 
+You can also use this function to enable asset versioning (with Webpack, Symfony Encore, Laravel Mix, etc.). To do so add the following configuration to your `config.yml`:
+
+```yaml
+assets:
+    web:
+        json_manifest_path: build/manifest.json 
+        # This file is at %webroot%/build/manifest.json
+```
+
+Then in your twig templates:
+
+```twig
+<link rel="stylesheet" href="{{ asset('build/app.css', 'web') }}" />
+<script src="{{ asset('build/app.js', 'web') }}"></script>
+```
+
+For example, if your `manifest.json` file contains the following:
+
+```json
+{
+  "build/app.css": "/build/app.8fd8daccd3a40a57bad06ae2d8f4c28d.css",
+  "build/app.js": "/build/app.2fec6da74d584bcd9fd2.js"
+}
+```
+
+the setup above would output:
+
+```html
+<link rel="stylesheet" href="/build/app.8fd8daccd3a40a57bad06ae2d8f4c28d.css" />
+<script src="/build/app.2fec6da74d584bcd9fd2.js"></script>
+```
+
 For a more in-depth description of the `asset` function, see the
 [Symfony documentation on assets][symfonyasset].
 
@@ -310,6 +342,6 @@ For more in-depth information about this function, see
 [absolute_url][absolute_url] in the Symfony documentation.
 
 
-[symfonyasset]: http://symfony.com/doc/current/templating.html#templating-assets
-[page]: http://symfony.com/doc/current/templating.html#linking-to-pages
+[symfonyasset]: https://symfony.com/doc/current/templating.html#templating-assets
+[page]: https://symfony.com/doc/current/templating.html#linking-to-pages
 [absolute_url]: https://symfony.com/doc/current/reference/twig_reference.html#absolute-url
