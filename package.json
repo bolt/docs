@@ -20,10 +20,10 @@
     "build": "encore production"
   },
   "devDependencies": {
-    "@babel/cli": "7.0.0-beta.44",
-    "@babel/core": "7.0.0-beta.44",
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
     "@babel/preset-env": "7.0.0-beta.44",
-    "@symfony/webpack-encore": "^0.20.1",
+    "@symfony/webpack-encore": "^0.28.0",
     "autoprefixer": "^8.3.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
