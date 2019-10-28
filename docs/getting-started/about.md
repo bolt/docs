@@ -4,39 +4,57 @@ title: About Bolt
 About Bolt
 ==========
 
-Bolt is a tool for Content Management, which strives to be as simple and
-straightforward as possible. It is quick to set up, easy to configure, uses
-elegant templates, and above all: it's a joy to use. Bolt is created using
-modern Open Source libraries, and is best suited to build sites in HTML5, with
+Bolt is a CMS, which strives to be as simple and straightforward as possible.
+It is quick to set up, easy to configure, uses elegant templates, and above all: it's a joy to use.
+
+It is made using modern Open Source libraries, and is best suited to build sites in HTML5 with
 modern markup.
 
-Basically, there are three groups of users we've created Bolt for:
+Bolt is created for:
 
- - End users (read 'editors') that want to focus on producing and editing
-   content, and not on clicking buttons in the CMS.
- - Front-end designers and developers who like to write clean markup, and who
-   want to build websites where the CMS doesn't dictate what the templates or
-   site should look like.
- - Developers who need a system that's easy to set up and configure, that's
-   easy to manage and maintain, but is also flexible and versatile.
+ - **End users** (read 'editors') that focus on producing and editing
+   content.
+ - **Front-end developers / designers** who want to set up websites where the CMS is
+  flexible and easy to implement.
+ - **Developers** who need a system that's easy to manage, flexible and versatile.
 
-Using Bolt as a content editor: you don't have to know anything about HTML,
-CSS, PHP or any of the other technical stuff we used to build Bolt. Using Bolt
-should be about writing and editing content, so that's the focus of Bolt's user
-interface. Far more information about how Bolt works can be found in the
-[User manual](../manual).
 
-Building a website with Bolt: we assume you have the usual Frontender skills.
-You know HTML/CSS, and have working knowledge about JavaScript so you can
-implement things like Google Analytics trackers, jQuery plugins and such. To
-create a working site out of your static HTML, you'll need to know about how
-Bolt uses Content and ContentTypes, and how to make templates using Twig.
-Information about those topics can be found in the chapters
-[ContentTypes](../contenttypes/intro) and
-[Building templates](../templating/building-templates).
+###End users / Editors
 
-With creating Bolt we wanted to focus on creating something simple,
-straightforward and enjoyable. Bolt concentrates on being a content management
-system with a small footprint. Out of the box it may not offer all of the
-features of larger systems, but, being built on modular, loosely coupled
-components it can be an ideal foundation for projects large and small.
+As a content editor, using Bolt is about writing and editing content.
+So we optimized of Bolt's user interface to make it clear and user friendly.
+You don't have to know anything about HTML, CSS or other code, just start creating content.
+
+<p class="tips">
+  <strong>Getting started for editors:</strong>
+  <br>
+  <a href="../manual">User Manual</a>
+</p>
+
+###Front-end developers / designers
+You know HTML/CSS and some basic JavaScript. To create a working site out of your static HTML, you'll need to know about the building blocks of Bolt.
+
+<p class="tips">
+  <strong>Getting started for front-end developers and designers:</strong>
+  <br>
+  <a href="../contenttypes/intro">ContentTypes</a><br>
+  <a href="../templating/building-templates">Building templates</a>
+</p>
+
+###Developers
+You have a knowledge of Symfony and you want to customize a Bolt website to your exact needs. You'll want to know about configuring bolt and how to create extensions.
+
+<p class="tips">
+  <strong>Getting started for developers:</strong>
+  <br>
+  <a href="../configuration/introduction">Configuring Bolt</a><br>
+  <a href="../extensions/introduction">Introduction to extensions</a>
+</p>
+
+Creating Bolt, we wanted to focus on creating something simple,
+straightforward and enjoyable.
+
+Bolt concentrates on being a content management
+system with a small footprint. Being built on modular, loosely coupled
+components it is an ideal foundation for projects large and small.
+
