@@ -40,6 +40,9 @@ strategy, you can install Bolt inside a single directory, or you can install the
 public assets inside a public directory and keep the application code outside
 the web root.
 
+<p class="tip"><strong>Tip:</strong> Always run <code>composer update</code>
+after doing the initial setup. This ensures you that you're running the
+latest versions of packages, suitable for your platform.</p>
 
 ### Automated Install
 
