@@ -6,13 +6,13 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(false)
+    .enableSingleRuntimeChunk()
 
     .addEntry('app', './assets/js/app.js')
 
     // Babel
     .configureBabel(function(babelConfig) {
-        babelConfig.plugins.push('syntax-object-rest-spread');
-        babelConfig.plugins.push('transform-object-rest-spread');
+        babelConfig.plugins.push('@babel/plugin-proposal-object-rest-spread');
     })
 
     // Loaders

@@ -14,7 +14,7 @@ $brand-light: lighten($brand, 10);
 $brand-invert: findColorInvert($brand);
 $brand-dark: darken($brand, 1);
 $secondary: #1863af;
-$ceramic: #F0F3F3;
+$ceramic: #ECF3F8;
 $speed: 120ms;
 
 //=== Custom Fonts
@@ -28,8 +28,6 @@ $family-monospace: Menlo, Consolas, 'Liberation Mono', 'Source Code Pro', monosp
 $primary:           $brand;
 $primary-invert:    $brand-invert;
 $info:              $brand-dark;
-$warning:           $secondary;
-$warning-invert:    $white;
 $black:             $base;
 $dark:              $base;
 $text:              $base;
