@@ -1,0 +1,13 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/assets/runtime.js",
+        "/assets/app.js"
+      ],
+      "css": [
+        "/assets/app.css"
+      ]
+    }
+  }
+}

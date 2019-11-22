@@ -1,7 +1,7 @@
 
 .note,
 .notification,
-.tips,
+.tip,
 .warning {
     @extend .notification;
     @include mt(4);
@@ -13,13 +13,15 @@
 
 .note,
 .notification {
-    background-color: mix(#ffdd57, #fff3cd, 50%) !important;
+    background-color: #c3e6cb !important;
     color: $yellow-invert;
-    &::before {
+
+    &:before {
         display: none;
         font-family: "Font Awesome 5 Solid";
-        content: "\f0e7";
+        content: "\f075";
     }
+
     .svg-inline--fa {
         display: block;
         width: 32px;
@@ -30,21 +32,34 @@
         padding: 6px;
         text-align: center;
         border-radius: 50%;
-        background-color: darken($yellow,17.5%);
+        background-color: darken(#c3e6cb, 17.5%);
     }
 }
 
-.warning,
-.is-warning:not(.button){
-    background-color: $warning !important;
-    color: $warning-invert;
+.warning {
+    background-color: mix(#ffdd57, #fff3cd, 50%) !important;
+    color: $yellow-invert;
+
+    &:before {
+        display: none;
+        font-family: "Font Awesome 5 Solid";
+        content: "\f0e7";
+    }
+
     .svg-inline--fa {
         background-color: darken($warning,17.5%);
     }
 }
 
-.tips {
+.tip {
     background-color: $ceramic !important;
+
+    &:before {
+        display: none;
+        font-family: "Font Awesome 5 Solid";
+        content: "\f0eb";
+    }
+
     .svg-inline--fa {
         background-color: darken($ceramic,15%);
     }
