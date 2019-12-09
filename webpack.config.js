@@ -6,7 +6,7 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(false)
-    .enableSingleRuntimeChunk()
+    .disableSingleRuntimeChunk()
 
     .addEntry('app', './assets/js/app.js')
 
