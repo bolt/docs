@@ -65,7 +65,7 @@ Autoloading
 
 Autoloading of your service providers can be set-up in the same way as
 [Extension Bundles][bundles], by adding your base namespace and source
-directory ot the `psr-4` section of your project root `composer.json` file,
+directory to the `psr-4` section of your project root `composer.json` file,
 e.g.
 
 ```json
