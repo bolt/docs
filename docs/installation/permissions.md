@@ -18,7 +18,6 @@ Most FTP clients will allow you to do this quickly, using a 'include files' or
 
 <a href="/files/ftp-chmod.png" class="popup"><img src="/files/ftp-chmod.png" width="590"></a><br>
 
-
 Setting Permissions (Quick & Easy)
 ----------------------------------
 
@@ -36,7 +35,6 @@ this, run:
 ```bash
 chmod a+r .
 ```
-
 
 Setting Permissions (Secure)
 ----------------------------
