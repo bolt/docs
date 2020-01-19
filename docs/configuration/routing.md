@@ -26,15 +26,15 @@ For example, if you have a 'Pages' ContentType, with 'Page' as a
   - `http://example.org/pages`
   - `http://example.org/page/lorem-ipsum-dolor`
 
-## routing.yml
+## routing.yaml
 
 Below you will find a complete description of the route definition in the YAML
 file.
 
 The easiest way to add your own is to follow the examples defined in the
-distributed `routing.yml.dist` file. The order of the routes is important
+distributed `routing.yaml` file. The order of the routes is important
 because it is a first-come first-serve architecture. So if you add your own
-ContentType routes it will probably need to be defined before the general
+ContentType routes, they will probably need to be defined before the general
 **contentlink** route. Some routing examples are listed below.
 
 ### Make old `.html` pages work
@@ -42,7 +42,7 @@ ContentType routes it will probably need to be defined before the general
 In this example we add routes to make old `/contact.html` links work with your
 new Bolt system.
 
-```
+```yaml
 oldpages:
     path: /{slug}.html
     defaults:
@@ -58,7 +58,7 @@ In this example we use the host requirement to show a specific page on the home
 of a particular host. The _defaults_ are set to the regular record-action with a
 specific ContentType and slug set up.
 
-```
+```yaml
 example:
     path: /example
     defaults:
@@ -77,7 +77,7 @@ _defaults_ are set to the regular record-action but we also added an additional
 `contenttype: page` line to tell Bolt to use this route for all records with
 ContentType **page**.
 
-```
+```yaml
 pagebinding:
     path: /{slug}
     defaults:
@@ -88,7 +88,7 @@ pagebinding:
 
 An alternative is to also add the creation date:
 
-```
+```yaml
 pagebinding:
     path: /{slug}
     defaults:
@@ -106,7 +106,7 @@ want to exempt a few pages and not a complete ContentType. Don't forget to add
 the `recordslug: page/about` line. This route should be high in the route list
 for it to work correctly.
 
-```
+```yaml
 aboutbinding:
     path: /about
     defaults:
@@ -124,7 +124,7 @@ a parameter `template` that may points out a template that should be stored as a
 regular file under currently selected theme in the filesystem. Using file
 extension `.twig` is optional.
 
-```
+```yaml
 templatebinding:
     path: /static-page
     defaults:
@@ -136,7 +136,7 @@ templatebinding:
 
 The complete format of a single route in YAML is as follows:
 
-```
+```yaml
 bindname:
     path:       /{parameter..}/
     defaults:
