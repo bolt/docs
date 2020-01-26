@@ -41,15 +41,7 @@ In this example, we'll create a very simple ContentType for news items. Each
 news item will have a title, an image, and some text. We'll also be using some
 of the fixed Fields, like the `slug`, the `ownerid` and the various dates.
 
-<p class="note"><strong>Note:</strong> If you've just installed Bolt, you might
-not have the <code>contenttypes.yml</code>-file yet. You will however have a
-<code>contenttypes.yml.dist</code>-file in that same folder. The first time
-Bolt is run, the <code>.yml.dist</code>-files will be automatically copied to
-<code>.yml</code>-files. If you wish to do some configuration <em>before</em>
-you first run Bolt, just copy <code>contenttypes.yml.dist</code> to
-<code>contenttypes.yml</code> yourself.</p>
-
-To add this ContentType, edit the file `config/bolt/contenttypes.yml`, and add
+To add this ContentType, edit the file `config/bolt/contenttypes.yaml`, and add
 the following to the bottom or top of the file:
 
 ```yaml
@@ -71,40 +63,29 @@ news:
     record_template: newsitem.twig
 ```
 
-<p class="note"><strong>Note:</strong> This file is in the YAML format, which
+<p class="tip"><strong>Tip:</strong> This file is in the YAML format, which
 means that the indentation is important. Make sure you leave leading spaces
 intact.</p>
 
 This creates a new ContentType 'news'. Its name is 'News', and a single record
 is named 'News Item'. We've defined fields for 'title', 'slug', 'image' and
-'text'. The 'record_template' defines the default template to use, when displaying a
-single record in the browser.
+'text'. The 'record_template' defines the default template to use, when
+displaying a single record in the browser.
 
-After you've saved the file and refresh the Dashboard screen in your browser,
-you'll be greeted by a warning that the Database needs to be updated. If we do
-this, the new ContentType will be added to the database, with the fields that
-we defined in our `contenttypes.yml` file.
+<p class="note"><strong>Note:</strong> You should always ensure that the key that defines each of the ContentTypes and the value of the <code>slug</code> are the same. In the above example, we start with the key <code>news:</code>, and the slug is set to <code>slug: news</code>. If these do not match, Bolt will show an error message.</p>
 
-<p class="tip"><strong>Tip:</strong> The Bolt backend is located at
-<code>/bolt</code>, relative from the 'home' location of your website.</p>
-
-
-<a href="/files/content-example1.png" class="popup"><img src="/files/content-example1.png" width="500"></a>
-
-When you go to Configuration > Check Database, the database will be updated,
-and you'll be given the option to add some "Lorem Ipsum" Records to the newly
-created ContentType. If you do this, and go back to the dashboard, you'll see
-your new ContentType with some example news items. Sweet!
+Save the file and refresh the Dashboard screen in your browser. If you do this,
+you'll see your new ContentType in the sidebar, ready for use. Sweet!
 
 <a href="/files/content-example2.png" class="popup"><img src="/files/content-example2.png" width="500"></a>
 
-<p class="note"><strong>Note:</strong>In the following examples we're going to
-tell you to make modifications to the default `base-2016` theme. This is
+<p class="note"><strong>Note:</strong> In the following examples we're going to
+tell you to make modifications to the default `base-2020` theme. This is
 actually a very bad practice, and if you're going to make your own theme, make
-a copy of the `base-2016` theme, and do your modifications in the copy.</p>
+a copy of the `base-2020` theme, and do your modifications in the copy.</p>
 
 To add a listing of these news items to the website, edit the twig template
-`theme/base-2016/index.twig`. Most likely, it'll contain an include for a
+`theme/base-2020/index.twig`. Most likely, it'll contain an include for a
 header and some other things. Add the following to the HTML-code, preferably
 somewhere below the header section:
 
@@ -171,8 +152,8 @@ href="../templating/building-templates">Template documentation</a>.</p>
 In the frontend of the website, in your templates, all content is accessible as
 an array. If you're accessing one record, it will be an array containing the
 fields, taxonomies and metadata. If you're accessing a set of records, it will
-be an array of arrays. I.e. `{{ page.title }}` for the title of a page or `{{ events.4.date }}`
-for the date of the fourth event in an array.
+be an array of arrays. I.e. `{{ page.title }}` for the title of a page or `{{
+events.4.date }}` for the date of the fourth event in an array.
 
 If you're building a template and are unsure of what a certain variable contains
 or how the fields are named, use `{{ dump(foo) }}`, where 'foo' is the name of
@@ -183,7 +164,7 @@ This is explained in detail in the section [The structure of a Record](#structur
 Defining ContentTypes
 ---------------------
 
-The ContentTypes in Bolt are defined in the file `config/bolt/contenttypes.yml`.
+ContentTypes in Bolt are defined in the file `config/bolt/contenttypes.yaml`.
 You can edit this file directly, or from within the Bolt interface under
 Configuration > ContentTypes. Each distinct group of content can have its own
 ContentType, to enable the user to store the content as needed. Fields can be
@@ -397,6 +378,7 @@ pages:
     taxonomy: [ chapters ]
     recordsperpage: 100
 ```
+
 Keeping fields together in a group
 ----------------------------------
 If you have defined groups in a YAML repeated node, you can add a field from a
@@ -405,6 +387,7 @@ specific ContentType to one of these groups.
 In the example below, the **slider** field will appear in the tab **media**.
 
 Example:
+
 ```yaml
 __nodes:
     record_defaults: &record_defaults

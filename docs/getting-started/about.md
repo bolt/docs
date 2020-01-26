@@ -27,7 +27,7 @@ optimized of Bolt's user interface to make it clear and user friendly. You
 don't have to know anything about HTML, CSS or other code, just start creating
 content.
 
-<p class="tips">
+<p class="tip">
   <strong>Getting started for editors:</strong>
   <br>
   <a href="../manual">User Manual</a>
@@ -39,7 +39,7 @@ Front-end developers / designers
 You know HTML/CSS and some basic JavaScript. To create a working site out of
 your static HTML, you'll need to know about the building blocks of Bolt.
 
-<p class="tips">
+<p class="tip">
   <strong>Getting started for front-end developers and designers:</strong>
   <br>
   <a href="../contenttypes/intro">ContentTypes</a><br>
@@ -50,10 +50,11 @@ Developers
 ----------
 
 You have a knowledge of Symfony and you either want to customize a Bolt website
-to your exact needs, or you want to build a project on top of Bolt. You'll want
-to know about configuring Bolt and how to create extensions.
+to your exact needs, you want to build a project on top of Bolt, or you wish to
+contribute to the ecosystem by creating Extensions. You'll want to know about
+configuring Bolt, its inner workings and how to create extensions.
 
-<p class="tips">
+<p class="tip">
   <strong>Getting started for developers:</strong>
   <br>
   <a href="../configuration/introduction">Configuring Bolt</a><br>

@@ -16,34 +16,34 @@ default templates, but you can refine this in the definition of the ContentTypes
 or even on a per-record basis. The rules for selecting a template are as
 follows.
 
-### Selection of a template for an single record page:
+**Selection of a template for a single record page:**
 
-  - If a single page like `/page/foo-bar` is requested, and the ContentType
-    has a `templateselect` field, and a template is selected for this record,
-    that template will be used.
-  - Otherwise, if the ContentType definition has a value for `record_template`,
-    that template will be used.
-  - Otherwise, Bolt will check if a template with a suited name exists. For
-    example, if the ContentType's `singular_name` is 'Entry', Bolt will check
-    for an `entry.twig` template. If it exists, that template will be used.
-  - Otherwise, if `record_template` is set in `theme.yml`, that template will
-    be used.
-  - Otherwise, if `record_template` is set in `config.yml`, that template will
-    be used.
-  - If no other rule matches, Bolt will use a template named `record.twig`
+- If a single page like `/page/foo-bar` is requested, and the ContentType
+  has a `templateselect` field, and a template is selected for this record,
+  that template will be used.
+- Otherwise, if the ContentType definition has a value for `record_template`,
+  that template will be used.
+- Otherwise, Bolt will check if a template with a suited name exists. For
+  example, if the ContentType's `singular_name` is 'Entry', Bolt will check
+  for an `entry.twig` template. If it exists, that template will be used.
+- Otherwise, if `record_template` is set in `theme.yaml`, that template will
+  be used.
+- Otherwise, if `record_template` is set in `config.yaml`, that template will
+  be used.
+- If no other rule matches, Bolt will use a template named `record.twig`
 
-### Selection of a template for an overview page:
+**Selection of a template for an overview page:**
 
-  - If an overview page like `/entries` is requested, and the ContentType
-    definition has a value for `listing_template`, that template will be used.
-  - Otherwise, Bolt will check if a template with a suited name exists. For
-    example, if the ContentType's name is 'Entries', Bolt will check for an
-    `entries.twig` template. If it exists, that template will be used.
-  - Otherwise, if `listing_template` is set in `theme.yml`, that template will
-    be used.
-  - Otherwise, if `listing_template` is set in `config.yml`, that template will
-    be used.
-  - If no other rule matches, Bolt will use a template named `listing.twig`.
+- If an overview page like `/entries` is requested, and the ContentType
+  definition has a value for `listing_template`, that template will be used.
+- Otherwise, Bolt will check if a template with a suited name exists. For
+  example, if the ContentType's name is 'Entries', Bolt will check for an
+  `entries.twig` template. If it exists, that template will be used.
+- Otherwise, if `listing_template` is set in `theme.yaml`, that template will
+  be used.
+- Otherwise, if `listing_template` is set in `config.yaml`, that template will
+  be used.
+- If no other rule matches, Bolt will use a template named `listing.twig`.
 
 In the default template for a single record, it is available as both `{{ record
 }}` and also by the name of the singular name. So, in the above example, you can

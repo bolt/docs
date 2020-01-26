@@ -55,6 +55,11 @@ To run a Bolt site in production, you'll need apache with `mod_rewrite`
 <strong>enabled</strong> (`.htaccess` files) or Nginx. See the chapter on
 [webserver configuration][webserver] for details.
 
+<p class="note"><strong>Note:</strong> This documentation makes the assumption
+that you're setting up Bolt on a local development machine. Not on the server
+where you intend to run a production website. If you do not have a local
+development environment, we recommend taking the time to set this up. </p>
+
 Browser requirements
 --------------------
 
