@@ -81,12 +81,23 @@
                         </span>
                         Edit this page on GitHub
                     </a>
+                    {% if openineditor(page) %}
+                        <br>
+                    <a href="{{ openineditor(page) }}" class="github">
+                        <span class="icon">
+                            <i class="fab fa-2x fa-github"></i>
+                        </span>
+                        Edit this page in your editor
+                    </a>
+                    {% endif %}
                     <hr>
                     Couldn't find what you were looking for? We are happy to help you in the
                     <a href="https://discuss.bolt.cm/" target="_blank">forum</a>, on
                     <a href="https://slack.bolt.cm/" target="_blank">Slack</a> or on
                     <a href="https://github.com/bolt" target="_blank">Github</a>.<br>
                 </div>
+
+
 
             </section>
         </div>

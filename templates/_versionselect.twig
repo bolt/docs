@@ -46,4 +46,15 @@
         </span>
         <span>Edit on GitHub</span>
     </a>
+
+    {% if openineditor(page) %}
+        <a class="button is-info" href="{{ openineditor(page) }}">
+            <span class="icon is-small">
+                <i class="fab fa-github"></i>
+            </span>
+            <span>
+            Edit in editor
+            </span>
+        </a>
+    {% endif %}
 </div>

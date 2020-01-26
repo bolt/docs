@@ -6,6 +6,8 @@ services:
         autowire: true
         autoconfigure: true
         public: false
+        bind:
+            $editor: '%env(OPEN_IN_EDITOR)%'
 
     Bolt\Docs\Controller\Site:
         tags: ['controller.service_arguments']
@@ -21,7 +23,9 @@ services:
     Bolt\Docs\PageBuilder:
         $configCacheFactory: '@config_cache_factory'
         $cacheDir: '%kernel.project_dir%/var/cache/pages'
+
     Bolt\Docs\Twig\MarkdownExtension: ~
+    Bolt\Docs\Twig\OpenInEditorExtension: ~
 
     Cocur\Slugify\SlugifyInterface:
         class: Cocur\Slugify\Slugify
