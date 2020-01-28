@@ -3,7 +3,7 @@ title: Debugging Bolt
 short_title: Debugging
 pages:
     - debug-bar
-    - nut-commands
+    - console-commands
     - dump-function
     - backtrace-function
 ---
@@ -18,59 +18,39 @@ Sections:
 ### Configuring Bolt
 
 When debugging in Bolt, often you'll need to adjust settings in your
-`config/bolt/config.yml` file.
+`.env` file.
 
 #### Enabling debugging
 
 Ensure you have debugging enabled:
 ```yaml
-debug: true
+APP_DEBUG=1
 ```
 
-<p class="warning"><strong>Warning:</strong> When <code>debug: true</code> is
+<p class="warning"><strong>Warning:</strong> When <code>APP_DEBUG=1</code> is
 set, some internal data can be visible during debugging. You should therefore
 use caution with enabling debugging in a production environment.</p>
 
-#### Setting debug error level
+#### Debug logging
 
-It is also advised to set the debug error level to show all errors:
-
-```yaml
-debug_error_level: -1
-```
-
-#### Enabling debug logging
-
-Enabling the debug log writes the default application logger's messages to
-`var/cache/bolt-debug.log`.
-
-```yaml
-debuglog:
-    enabled: true
-```
+The default application logger's messages are available in
+`var/log/dev.log` if in dev environment. In the production environment, the log
+is available in `var/log/prod.log`.
 
 <p class="note"><strong>Note:</strong> This file's size can grow quickly.</p>
 
-#### Enabling debugging while logged off
-
-If you're debugging problems on a development server, and are missing a login
-token, the debug bar, and dumping functions will not appear.
-
-Setting `debug_show_loggedoff` will enable the debug bar, and dump output
-always.
-
+#### Environment setting
+When deploying a local Bolt site to the production environment, it is advised
+to set Bolt's environment variable to production. The environment variable is
+available in `.env` and can be set to
 ```yaml
-debug_show_loggedoff: true
+APP_ENV=prod
 ```
-
-<p class="warning"><strong>Warning:</strong> This should only be enabled in
-non-production environments.</p>
-
-### Twig
-
-When writing and debugging Twig templates in Bolt, enable `strict_variables` in
-your `config/bolt/config.yml` file, making Twig be strict on the use of
-undeclared variables.
+for production environments, or
+```yaml
+APP_ENV=dev
+```
+when developing locally.
 
 ```yaml
 strict_variables: true

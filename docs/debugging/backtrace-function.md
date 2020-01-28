@@ -9,14 +9,6 @@ Using this function you can get a backtrace through the code to the current
 point in the execution. Useful for when you're debugging something, and you're
 not quite sure how you got here to begin with. 
 
-### Twig
-
-In your templates, use the following:
-
-```
-    {{ backtrace() }}
-```
-
 ### PHP
 
 In your code you can also use backtrace, like this:
