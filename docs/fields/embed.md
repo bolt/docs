@@ -24,11 +24,14 @@ To insert the HTML for the embed:
 {{ record.embedded.html|raw }}
 ```
 
-Additionally, the provider & author names, as well as the author URL are
-available:
+Additionally, the following properties are available:
 
 ```twig
-{{ record.embedded.provider_name }}
-{{ record.embedded.author_name }}
-{{ record.embedded.author_url }}
+{{ record.embedded.url }}
+{{ record.embedded.width }}
+{{ record.embedded.height }}
+{{ record.embedded.title }}
+{{ record.embedded.authorname }}
+{{ record.embedded.authorurl }}
+{{ record.embedded.thumbnail }}
 ```
