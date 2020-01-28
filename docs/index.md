@@ -9,14 +9,12 @@ pages:
     - contenttypes
     - fields
     - templating
-    - extensions
-    - publishing-marketplace
+    - twig-components
     - howto
     - nut-command
     - debugging
     - performance
     - manual
     - other
-    - internals
     - core-development
 ---

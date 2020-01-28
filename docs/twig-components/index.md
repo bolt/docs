@@ -175,23 +175,6 @@ these values:
 {% endif %}
 ```
 
-### ismobileclient
-
-This Twig function allows you to do a basic test to check if the current client
-(browser) is a mobile device, like a mobile phone.
-
-```twig
-{% if ismobileclient() %}
-  You are on mobile, most likely.
-{% else %}
-  You are most likely not on a mobile device.
-{% endif %}
-```
-
-Note that this function is pretty rudimentary, so use it sparingly. Often, it's
-advisable to use media queries in CSS, for more fine-grained control over how
-to present information on a varying number of screen sizes.
-
 ### popup (Magnific Popup)
 
 To insert an image in the HTML, which functions as an image popup use either
@@ -320,11 +303,114 @@ Example 2: Using in `setcontent`
 ```
 
 For more info on debugging your Bolt site, see the chapter on
-[Bolt Internals](../internals).
+[Debugging Bolt](../debugging).
 
-<p class="note"><strong>Note:</strong> Don't forget to set <code>debug:
-true</code> in your <code>config.yml</code> file. Otherwise the
+<p class="note"><strong>Note:</strong> Don't forget to set <code>APP_DEBUG=1
+</code> in your <code>.env</code> file. Otherwise the
 <code>dump()</code> will output nothing at all.</p>
+
+### field_factory(name, *definition=null*)
+
+The field factory function creates a field on the fly with a name and optional definition.
+```twig
+{% set field = field_factory('title', { 'type': 'text', 'label' : 'Awesome title' }) %}
+```
+
+### menu(*name = null*, *template = "helper/_menu.html.twig"*, *class = ""*, *withsubmenus = true*)
+
+The menu renders HTML containing your site's menu items, as defined in the `menu.yaml` file.
+
+| Argument       | Description |
+|----------------|-------------|
+| `name`         | The name of the menu to generate. If `null`, Bolt will build the first menu defined in `menu.yaml`. |
+| `template`     | The relative path to the template used to generate the menu. The template must be located under `/templates`. Default value is `"helper/_menu.html.twig"`  |
+| `class `       | An optional `class` parameter passed to the template. |
+| `withsubmenus` | When `true`, sub-menus will be included. Default is `true`. |
+
+### menu_array(*name = null*)
+
+Returns an array of the menu items defined in the `menu.yaml` file for the given `name`.
+If `name` is `null`, the array contains the definition for the first menu in the file.
+The menu_array function is used internally as part of the previous `menu()` function.
+
+Example output of `menu_array()`
+```twig
+array:4 [▼
+  0 => array:7 [▼
+    "label" => "Home"
+    "title" => "This is the <b>first<b> menu item."
+    "link" => "homepage"
+    "class" => "homepage"
+    "submenu" => null
+    "uri" => "/"
+    "current" => false
+  ]
+  1 => array:7 [▼
+    "label" => "About"
+    "title" => "About This Site"
+    "link" => "blocks/about"
+    "class" => ""
+    "submenu" => array:1 [▼
+      0 => array:7 [▼
+        "label" => "Sub 1"
+        "title" => "Incidunt exercitationem sed."
+        "link" => "entry/29"
+        "class" => ""
+        "submenu" => null
+        "uri" => "/entry/incidunt-exercitationem-sed"
+        "current" => false
+      ]
+    ]
+    "uri" => "/block/about"
+    "current" => false
+  ]
+  ...
+]
+```
+
+
+### admin_menu_array()
+
+Returns an array similar to the menu_array() function, but for the admin menu instead.
+
+### excerpt()
+
+See [excerpt filter](#excerpt).
+
+### previous_record()
+
+See [previous filter](#previous).
+
+### next_record()
+
+See [next filter](#next).
+
+### dump()
+
+Dumps the entire object, similar to PHP's `var_dump`
+
+```twig
+{% dump(record) %}
+```
+
+### canonical(*path = null*, *params = []*)
+
+Returns the `canonical` URL for the given path. If path is null, the current path is used instead.
+
+### markdown(content)
+
+See [markdown filter](#markdown).
+
+### media()
+
+See [media filter](#media).
+
+### list_records(templateselect)
+
+Returns the templates for the `templateselect` field. Note the `list_records()` function
+should only be called with instances of templateselect.
+
+
 
 Twig filters
 ------------
@@ -450,7 +536,7 @@ or:
 
 ### round, ceil and floor
 
-The `round`, `floor` and `ceil` modifiers can be used to round numbers (or
+The `round` modifier can be used to round numbers (or
 strings containing a numerical-like values) to the nearest integer, which
 basically means "whole number".
 
@@ -459,7 +545,7 @@ basically means "whole number".
 
 Rounded, Pi is {{ pi|round }} {# "3" #}
 
-The constant Pi is somewhere between {{ pi|floor }} and {{ pi|ceil }}
+The constant Pi is somewhere between {{ pi|round(1, 'floor') }} and {{ pi|round(1, 'ceil') }}
 {# "3 and 4" #}
 ```
 
@@ -772,9 +858,9 @@ extensions to find out:
 {{ dump(app.extensions.all()) }}
 ```
 
-[linkintpl-asset]: linking-in-templates#using-asset-to-link-to-assets-or-files
-[linkintpl-pathurl]: linking-in-templates#using-path-and-url-to-link-to-named-routes
-[linkintpl-current]: linking-in-templates#linking-to-the-current-page
+[linkintpl-asset]: ../templating/linking-in-templates#using-asset-to-link-to-assets-or-files
+[linkintpl-pathurl]: ../templating/linking-in-templates#using-path-and-url-to-link-to-named-routes
+[linkintpl-current]: ../templating/linking-in-templates#linking-to-the-current-page
 [twig]: http://twig.sensiolabs.org/doc/templates.html
 [inc]: http://twig.sensiolabs.org/doc/functions/include.html
 [inheritance]: http://twig.sensiolabs.org/doc/templates.html#template-inheritance
