@@ -16,7 +16,7 @@ If you don't have Composer installed on your system already, it can be obtained
 from the [Composer project website][get-composer], or by running the following
 command:
 
-```
+```bash
 curl -sS https://getcomposer.org/installer | php
 ```
 

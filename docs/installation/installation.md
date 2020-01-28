@@ -9,8 +9,13 @@ the application. For now, we recommend the **composer create-project** as the
 fastest way to get an installation of Bolt up and running. If you don't have
 composer yet, see [here][get-composer].
 
-Set up a new Bolt 4 project, using the following command, replacing `myprojectname`
-with your desired project's name.
+<p class="note"><strong>Note:</strong> This documentation makes the assumption
+that you're setting up Bolt on a local development machine. Not on the server
+where you intend to run a production website. If you do not have a local
+development environment, we recommend taking the time to set this up. </p>
+
+Set up a new Bolt 4 project, using the following command, replacing
+`myprojectname` with your desired project's name.
 
 ```bash
 composer create-project bolt/project myprojectname
@@ -49,21 +54,35 @@ bin/console bolt:add-user
 bin/console doctrine:fixtures:load
 ```
 
-Run Bolt using the built-in webserver, Symfony CLI, Docker or your own
-preferred webserver:
+Starting a webserver
+--------------------
+
+You can run Bolt locally using the built-in webserver, Symfony CLI, Docker or
+your own preferred webserver. If you choose to set up a web server yourself,
+you can either set up something like [Mamp, Xampp, Laragaon][local] or
+otherwise there's docs for [Apache][apache] and [Nginx][nginx].
+
+<p class="note"><strong>Note:</strong> The folder you've just created has a
+<code>public/</code> folder. This is the actual web root of the site. If you're
+not using one of the options below, but are configuring a webserver yourself,
+make sure you use <code>public/</code> as the web root. Bolt does <em>not</em>
+support putting all of its files inside the webroot itself, as that is
+considered to be a bad practice.</p>
+
+Start PHP's built-in webserver…
 
 ```bash
 bin/console server:start
 ```
 
-or…
+or use the Symfony CLI …
 
 ```bash
 symfony server:start -d
 symfony open:local
 ```
 
-or…
+or use Docker…
 
 ```bash
 make docker-install
@@ -78,3 +97,6 @@ Log in using the credentials you created when setting up the first user.
 
 [get-composer]: ./composer-create-project/install-composer
 [db-setup]: ../configuration/database
+[local]: https://www.slant.co/topics/5299/versus/~laragon_vs_xampp_vs_mamp
+[apache]: webserver/apache
+[nginx]: webserver/nginx
