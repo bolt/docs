@@ -509,6 +509,26 @@ In that case, the `find_translation()` function works like the [translated](#tra
 {% set translated = find_translations(fieldwithtranslations, 'nl') %} # returns the NL translation, or null if it does not exist.
 ```
 
+### htmllang()
+
+Returns the appropriate code for the `lang` attribute of the `<html>` tag for the current locale.
+
+### locales()
+
+Takes the list of codes of the locales (languages) enabled in the
+application and returns an array with the name of each locale written
+in its own language (e.g. English, Français, Español, etc.).
+
+Please refer to the [locales][locales-page] documentation.
+
+### locale(localecode)
+
+Returns the locale for the given localecode. Please refer to the [locales][locales-page] documentation.
+
+### flag(localecode)
+
+Returns a `<span>` element containing the flag representation of the given localecode.
+
 ### countwidgets()
 
 Please refer to the [widgets][widgets-page] documentation.
@@ -951,6 +971,14 @@ See [popup function](#popup-magnific-popup)
 ### media
 
 Returns the media array associated with the field. Note, this should only be used with image and file fields.
+
+### json_records
+
+Encodes the given array of records into json.
+
+### normalize_records
+
+Returns an array of normalized records.
 
 ### preg_replace
 
