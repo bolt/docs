@@ -1,5 +1,5 @@
 ---
-title: Twig tags, functions & filters
+title: Twig Components
 ---
 Twig tags, functions & filters
 ==============================
@@ -42,7 +42,7 @@ These queries are currently possible:
 <h3>{{ about.title }}</h3>
 {{ about.introduction|raw }}
 
-<a href="{{ about.link }}">link</a>
+<a href="{{ about|link }}">link</a>
 ```
 
 ### switch
@@ -74,7 +74,7 @@ This tag is used to iterate over arrays or collections of an object, similar to
 {% setcontent pages = 'pages' limit 5 order '-datecreated' %}
 <ul>
   {% for page in pages %}
-    <li><a href="{{ page.link }}">{{ page.title }}</a></li>
+    <li><a href="{{ page|link }}">{{ page.title }}</a></li>
   {% else %}
     <p>No recent pages.</p>
   {% endfor %}
@@ -175,23 +175,6 @@ these values:
 {% endif %}
 ```
 
-### ismobileclient
-
-This Twig function allows you to do a basic test to check if the current client
-(browser) is a mobile device, like a mobile phone.
-
-```twig
-{% if ismobileclient() %}
-  You are on mobile, most likely.
-{% else %}
-  You are most likely not on a mobile device.
-{% endif %}
-```
-
-Note that this function is pretty rudimentary, so use it sparingly. Often, it's
-advisable to use media queries in CSS, for more fine-grained control over how
-to present information on a varying number of screen sizes.
-
 ### popup (Magnific Popup)
 
 To insert an image in the HTML, which functions as an image popup use either
@@ -278,7 +261,7 @@ used in an if/else clause, to redirect visitors based on some criteria.
 {% setcontent records = "pages/latest/5" %}
 {% for record in records %}
 
-    <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+    <h2><a href="{{ record|link }}">{{ record.title }}</a></h2>
     <p>{{ record.excerpt() }}</p>
 
 {% else %}
@@ -320,11 +303,240 @@ Example 2: Using in `setcontent`
 ```
 
 For more info on debugging your Bolt site, see the chapter on
-[Bolt Internals](../internals).
+[Debugging Bolt][debugging-page].
 
-<p class="note"><strong>Note:</strong> Don't forget to set <code>debug:
-true</code> in your <code>config.yml</code> file. Otherwise the
+<p class="note"><strong>Note:</strong> Don't forget to set <code>APP_DEBUG=1
+</code> in your <code>.env</code> file. Otherwise the
 <code>dump()</code> will output nothing at all.</p>
+
+### field_factory(name, *definition=null*)
+
+The field factory function creates a field on the fly with a name and optional definition.
+```twig
+{% set field = field_factory('title', { 'type': 'text', 'label' : 'Awesome title' }) %}
+```
+
+### menu(*name = null*, *template = "helpers/_menu.html.twig"*, *class = ""*, *withsubmenus = true*)
+
+The menu renders HTML containing your site's menu items, as defined in the `menu.yaml` file.
+
+| Argument       | Description |
+|----------------|-------------|
+| `name`         | The name of the menu to generate. If `null`, Bolt will build the first menu defined in `menu.yaml`. |
+| `template`     | The relative path to the template used to generate the menu. The template must be located under `/templates`. Default value is `"helper/_menu.html.twig"`  |
+| `class `       | An optional `class` parameter passed to the template. |
+| `withsubmenus` | When `true`, sub-menus will be included. Default is `true`. |
+
+### menu_array(*name = null*)
+
+Returns an array of the menu items defined in the `menu.yaml` file for the given `name`.
+If `name` is `null`, the array contains the definition for the first menu in the file.
+The menu_array function is used internally as part of the previous `menu()` function.
+
+Example output of `menu_array()`
+```twig
+array:4 [▼
+  0 => array:7 [▼
+    "label" => "Home"
+    "title" => "This is the <b>first<b> menu item."
+    "link" => "homepage"
+    "class" => "homepage"
+    "submenu" => null
+    "uri" => "/"
+    "current" => false
+  ]
+  1 => array:7 [▼
+    "label" => "About"
+    "title" => "About This Site"
+    "link" => "blocks/about"
+    "class" => ""
+    "submenu" => array:1 [▼
+      0 => array:7 [▼
+        "label" => "Sub 1"
+        "title" => "Incidunt exercitationem sed."
+        "link" => "entry/29"
+        "class" => ""
+        "submenu" => null
+        "uri" => "/entry/incidunt-exercitationem-sed"
+        "current" => false
+      ]
+    ]
+    "uri" => "/block/about"
+    "current" => false
+  ]
+  ...
+]
+```
+
+
+### admin_menu_array()
+
+Returns an array similar to the menu_array() function, but for the admin menu instead.
+
+### excerpt()
+
+See [excerpt filter](#excerpt).
+
+### previous_record()
+
+See [previous filter](#previous).
+
+### next_record()
+
+See [next filter](#next).
+
+### dump()
+
+Dumps the entire object, similar to PHP's `var_dump`
+
+```twig
+{% dump(record) %}
+```
+
+### canonical(*path = null*, *params = []*)
+
+Returns the `canonical` URL for the given path. If path is null, the current path is used instead.
+
+### markdown(content)
+
+See [markdown filter](#markdown).
+
+### media()
+
+See [media filter](#media).
+
+### list_templates(templateselect)
+
+Returns the templates for the `templateselect` field. Note the `list_records()` function
+should only be called with instances of templateselect.
+
+### pager(records, *template = '/helpers/_pager_basic.html.twig'*, *class='pagination'*, *surround=3*)
+
+Splits `records` into pages with a pager using the an optional `template`, `class` and `surround`.
+
+| Argument       | Description |
+|----------------|-------------|
+| `records`      | The content records to build the pager for. |
+| `template`     | The relative path to the template used to generate the pager. The template must be located under `/templates`. Default value is `"/helpers/_pager_basic.html.twig"`  |
+| `class `       | An optional `class` parameter passed to the template. Default is `pagination`. |
+| `surround`     | The amount of items to show around the 'current' one. "3" by default. |
+
+
+```twig
+{{ pager(blogposts, template = 'helpers/_pager_basic.html.twig', 'awesome-posts', 5) }}
+```
+
+### select_options(selectfield)
+
+Returns an array of all options of the select field. Each array contains the `key`, `value` and a `selected` flag
+for the select option. Note the `select_options()` function should only be called with instances of select fields.
+
+Example output of `select_options(field)`
+```twig
+array:3 [▼
+  0 => array:3 [▶
+    "key" => "milk"
+    "value" => "Milk"
+    "selected" => false
+  ]
+  1 => array:3 [▶
+    "key" => "cake"
+    "value" => "Cake"
+    "selected" => true
+  ]
+  2 => array:3 [▶
+    "key" => "egg"
+    "value" => "Egg"
+    "selected" => false
+  ]
+]
+```
+
+For more select fields, check out the [Select field][select-page] page.
+
+### icon(*record=null*, *icon='question-circle'*)
+
+Returns an `<icon>` tag using FontAwesome icons. This function has two usages:
+to get the icon for the given record, or if `record=null`, to get the icon specified in the `icon` parameter.
+
+#### Record icon
+
+When a contenttype record is passed, the `icon` function first looks for the `icon_one` definition
+in your `contenttypes.yaml`. If this is not set, then the `icon_many` setting is used instead.
+
+Assuming Bolt's default `showcases` contenttype:
+```twig
+{{ icon(showcase) # returns <i class='fas mr-2 fa-gift'></i> }}
+```
+
+#### Icon specified in icon parameter
+
+The `icon` function can also be used to return any of FontAwesome's icons. This happens when the first
+parameter is set to null, and the second parameter is the icon to retrieve.
+
+```twig
+{{ icon(null, 'biking') # returns <i class='fas mr-2 fa-biking'></i> }}
+```
+
+### related_content()
+
+See [related filter](#related-name-null-contenttype-null-bidirectional-true-publishedonly-true)
+
+### all_related_content()
+
+See [related_all filter](#related-all-bidirectional-true-limit-true-pubishedonly-true)
+
+### first_related_content()
+
+See [related_first filter](#related-first-name-null-contenttype-null-bidirectional-true-publishedonly-true)
+
+### find_translations(field, *locale=null*)
+
+Returns an array of all translated versions of the specified field, if the `locale` parameter is not give/null.
+When `locale` is specified, returns only the translation for that locale if it exists, and null otherwise.
+In that case, the `find_translation()` function works like the [translated](#translated-locale) filter.
+
+```twig
+{% set translated_array = find_translations(fieldwithtranslations) %} # returns an array of translated fields
+{% set translated = find_translations(fieldwithtranslations, 'nl') %} # returns the NL translation, or null if it does not exist.
+```
+
+### htmllang()
+
+Returns the appropriate code for the `lang` attribute of the `<html>` tag for the current locale.
+
+### locales()
+
+Takes the list of codes of the locales (languages) enabled in the
+application and returns an array with the name of each locale written
+in its own language (e.g. English, Français, Español, etc.).
+
+Please refer to the [locales][locales-page] documentation.
+
+### locale(localecode)
+
+Returns the locale for the given localecode. Please refer to the [locales][locales-page] documentation.
+
+### flag(localecode)
+
+Returns a `<span>` element containing the flag representation of the given localecode.
+
+### countwidgets()
+
+Please refer to the [widgets][widgets-page] documentation.
+
+### listwidgets
+
+Please refer to the [widgets][widgets-page] documentation.
+
+
+### haswidgets()
+
+Please refer to the [widgets][widgets-page] documentation.
+
+### widgets()
+
+Please refer to the [widgets][widgets-page] documentation.
 
 Twig filters
 ------------
@@ -371,7 +583,7 @@ inquit, vitae beatum et eundem supremum diem, scribebamus haec. Duo Reges: const
 ### localedatetime
 
 Outputs a localized, readable version of a timestamp, based on the `locale`
-setting in the `config.yml`-file. See the [Locales](../other/locales) page for
+setting in the `config.yml`-file. See the [Locales][locales-page] page for
 more information on locales. If the locale you've set in `config.yml` does not
 work, you should verify that the locale is properly installed on your system.
 
@@ -414,6 +626,9 @@ Outputs:
 The `localedatetime`-filter uses the PHP `strftime()` function internally. For all
 possible options, see the official [strftime()][strftime] page on php.net.
 
+### localedate
+
+Alias for [localedatetime](#localedatetime)
 
 ### date
 
@@ -450,7 +665,7 @@ or:
 
 ### round, ceil and floor
 
-The `round`, `floor` and `ceil` modifiers can be used to round numbers (or
+The `round` modifier can be used to round numbers (or
 strings containing a numerical-like values) to the nearest integer, which
 basically means "whole number".
 
@@ -459,7 +674,7 @@ basically means "whole number".
 
 Rounded, Pi is {{ pi|round }} {# "3" #}
 
-The constant Pi is somewhere between {{ pi|floor }} and {{ pi|ceil }}
+The constant Pi is somewhere between {{ pi|round(1, 'floor') }} and {{ pi|round(1, 'ceil') }}
 {# "3 and 4" #}
 ```
 
@@ -482,6 +697,10 @@ In this example, we build links to all category listing pages:
 {% endfor %}
 <ul>
 ```
+
+### ucwords
+
+Converts the first character of every word into upper case.
 
 ### shy
 
@@ -657,17 +876,17 @@ add the `raw` modifier.
 
 ### order
 
-In most cases the results of `{% setcontent %}` or `{{ record.related() }}` are
+In most cases the results of `{% setcontent %}` or `{{ record|related() }}` are
 in the desired order. In some cases you might want to reorder them, by using the
 `order`-filter. The filter takes one or two parameters: the names of the fields
 you wish to order the results on:
 
 ```twig
-{% set relatedrecords = record.related() %}
+{% set relatedrecords = record|related() %}
 <p class="meta">Related content:
     <ul>
     {% for related in relatedrecords|order('datepublish') %}
-        <li><a href="{{ related.link }}">{{ related.title }}</a></li>
+        <li><a href="{{ related|link }}">{{ related.title }}</a></li>
     {%  endfor %}
     </ul>
 </p>
@@ -680,7 +899,7 @@ or:
 {% setcontent entries = "entries/latest/10" %}
 <ul>
 {% for entry in entries|order('title', 'subtitle') %}
-    <li><a href="{{ entry.link }}">{{ entry.title }}</a></li>
+    <li><a href="{{ entry|link }}">{{ entry.title }}</a></li>
 {%  endfor %}
 </ul>
 ```
@@ -690,6 +909,73 @@ or:
 and this case sensitivity is undesirable, you can use `|order('slug')` instead.
 The slug is always lowercase, so this will normalize the ordering.
 
+### shuffle
+
+Randomly shuffles the passed array.
+
+
+### title
+
+Returns the guessed title for the given record.
+
+The title is guessed by first looking at the title_format setting in the `contenttypes.yaml` file for that record,
+and by looking for common field names for a title across different languages.
+
+### previous(*byColumn = 'id'*, *sameContentType=true*)
+
+Returns the previous record from the database query based on the passed parameters.
+By default, `|previous` finds the left adjacent element for the same contenttype using the record's database id.
+
+### next(*byColumn = 'id', *sameContentType=true*)
+
+Returns the next record from the database query based on the passed parameters.
+Uses the same logic as the [previous filter](#previous)
+
+### link(canonical = false)
+
+Returns the absolute path to the record. If called with `true`, it will return the canonical link to the record instead.
+
+### edit_link
+
+Returns the edit link for the record in the Bolt backend.
+
+### taxonomies
+
+Returns an array of all taxonomies linked to the record.
+
+### label
+
+Returns the label of the field, as defined in the field's `contenttypes.yaml` definition.
+
+### type
+
+Returns the field type of the field, as defined in the field's `contenttypes.yaml` definition.
+
+### selected
+
+Returns all selected records from the content select field. Note, this filter should only be
+used on select fields that select from a list of Content, as opposed to a list of items.
+
+### markdown
+
+Transforms the given markdown content into HTML content, i.e. parses markdown into HTML.
+
+### popup
+
+See [popup function](#popup-magnific-popup)
+
+### media
+
+Returns the media array associated with the field. Note, this should only be used with image and file fields.
+
+### json_records
+
+Encodes the given array of records into json.
+
+### normalize_records
+
+Returns an array of normalized records.
+
 ### preg_replace
 
 Makes PHPs `preg_replace()` function available as twig filter. Example usage:
@@ -698,6 +984,34 @@ Makes PHPs `preg_replace()` function available as twig filter. Example usage:
 {{ content.text|preg_replace('/[^a-z]+/', '_') }}
 ```
 
+### related(*name=null*, *contenttype=null*, *bidirectional=true*, *publishedonly=true*)
+
+Returns an array of records that are related to the given record.
+
+```twig
+{% set relatedrecords = record|related() %}
+<p class="meta">Related content:
+    <ul>
+    {% for related in relatedrecords %}
+        <li><a href="{{ related|link }}">{{ related|title }}</a></li>
+    {%  endfor %}
+    </ul>
+</p>
+```
+
+### related_all(*bidirectional=true*, *limit=true*, *pubishedonly=true*)
+
+Returns an array of all records that are a relation with any other record.
+
+See [related filter](#related-name-null-contenttype-null-bidirectional-true-publishedonly-true).
+
+### related_first(*name=null*, *contenttype=null*, *bidirectional=true*, *publishedonly=true*)
+
+Returns the first record related to the given record.
+
+### translated(locale)
+
+Returns the field translated into the given locale.
 
 Available variables in Twig
 ---------------------------
@@ -713,7 +1027,19 @@ Available variables in Twig
 {{ dump(app.config.get('general')) }}
 ```
 
-For more info on `app`, see the chapter on [Bolt Internals](../internals/container-service-references).
+For more info on `app`, check the Symfony app variable.
+
+### user
+
+```twig
+{{ user.displayName }} # shows the logged in user's display name                                                                
+{{ user.username }}
+{{ user.email }}
+{{ user.lastSeenAt }}
+{{ user.locale }}
+{{ user.disabled }} # true if user is disabled, otherwise false.
+{{ user.roles }} # returns an array containing the user's roles
+```
 
 
 Tests
@@ -772,9 +1098,13 @@ extensions to find out:
 {{ dump(app.extensions.all()) }}
 ```
 
-[linkintpl-asset]: linking-in-templates#using-asset-to-link-to-assets-or-files
-[linkintpl-pathurl]: linking-in-templates#using-path-and-url-to-link-to-named-routes
-[linkintpl-current]: linking-in-templates#linking-to-the-current-page
+[widgets-page]: ../templating/widgets
+[debugging-page]: ../debugging
+[select-page]: ../fields/select
+[locales-page]: ../other/locales
+[linkintpl-asset]: ../templating/linking-in-templates#using-asset-to-link-to-assets-or-files
+[linkintpl-pathurl]: ../templating/linking-in-templates#using-path-and-url-to-link-to-named-routes
+[linkintpl-current]: ../templating/linking-in-templates#linking-to-the-current-page
 [twig]: http://twig.sensiolabs.org/doc/templates.html
 [inc]: http://twig.sensiolabs.org/doc/functions/include.html
 [inheritance]: http://twig.sensiolabs.org/doc/templates.html#template-inheritance

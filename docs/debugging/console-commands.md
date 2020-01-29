@@ -1,12 +1,13 @@
 ---
-title: Nut Commands
+title: Console Commands
 level: intermediate
 ---
-Nut Commands
+Console Commands
 ============
 
-Bolt's command line utility `nut` has several commands that you may find very
-helpful to query and debug certain parts to Bolt's internals.
+Bolt's command line utility `console` has several commands that you may find very
+helpful to query and debug certain parts to Bolt's internals. To run the utility,
+type in `php bin/console` in Bolt's root directory.
 
   - [Event Listeners][debug-events]
     - Outputs configured event details such as name, listening function, and

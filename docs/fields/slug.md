@@ -31,6 +31,12 @@ print the link to a record like this:
 {{ record.link() }}
 ```
 
+or get the canonical URL like this:
+```twig
+{{ record.canonical() }}
+
+```
+
 You can also just output the slug like this:
 
 ```twig

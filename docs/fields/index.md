@@ -7,13 +7,11 @@ pages:
     - html
     - image
     - file
-    - video
     - embed
     - select
     - markdown
     - textarea
-    - repeater
-    - block
+    - collection
     - integer
     - float
     - hidden
@@ -22,8 +20,8 @@ pages:
     - datetime
     - imagelist
     - filelist
-    - geolocation
     - templateselect
+    - set
 ---
 
 Introduction to Bolt Field Types
@@ -54,9 +52,9 @@ All fields have a general structure, like this:
             ..
 ```
 
-All fields have a number of common options, that you can use on all field types.
+All fields have a number of common options which you can use on all field types.
 These are mostly different ways to show information to the editor, but also
-includes things like making a field required.
+include things like making a field required.
 
 See the section "[Common options for all fields](fields/common)" for a more
 in-depth explanation of these fields.

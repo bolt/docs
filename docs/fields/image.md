@@ -16,7 +16,7 @@ Simple image upload/select field.
 ## Example usage in templates:
 
 ```twig
-{{ record.cover|showimage() }}
+{{ record.cover|image() }}
 ```
 or
 ```twig
