@@ -897,6 +897,36 @@ The slug is always lowercase, so this will normalize the ordering.
 
 Randomly shuffles the passed array.
 
+
+### title
+
+Returns the guessed title for the given record.
+
+The title is guessed by first looking at the title_format setting in the `contenttypes.yaml` file for that record,
+and by looking for common field names for a title across different languages.
+
+### previous(*byColumn = 'id'*, *sameContentType=true*)
+
+Returns the previous record from the database query based on the passed parameters.
+By default, `|previous` finds the left adjacent element for the same contenttype using the record's database id.
+
+### next(*byColumn = 'id', *sameContentType=true*)
+
+Returns the next record from the database query based on the passed parameters.
+Uses the same logic as the [previous filter](#previous)
+
+### link(canonical = false)
+
+Returns the absolute path to the record. If called with `true`, it will return the canonical link to the record instead.
+
+### edit_link
+
+Returns the edit link for the record in the Bolt backend.
+
+### taxonomies
+
+Returns an array of all taxonomies linked to the record.
+
 ### preg_replace
 
 Makes PHPs `preg_replace()` function available as twig filter. Example usage:
