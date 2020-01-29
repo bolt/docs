@@ -12,6 +12,5 @@ pages:
     - content-search
     - template-specific-fields
     - widgets
-    - twig-functionality
     - live-editor
 ---
