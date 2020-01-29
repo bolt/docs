@@ -1027,7 +1027,19 @@ Available variables in Twig
 {{ dump(app.config.get('general')) }}
 ```
 
-For more info on `app`, see the chapter on [Bolt Internals](../internals/container-service-references).
+For more info on `app`, check the Symfony app variable.
+
+### user
+
+```twig
+{{ user.displayName }} # shows the logged in user's display name                                                                
+{{ user.username }}
+{{ user.email }}
+{{ user.lastSeenAt }}
+{{ user.locale }}
+{{ user.disabled }} # true if user is disabled, otherwise false.
+{{ user.roles }} # returns an array containing the user's roles
+```
 
 
 Tests
