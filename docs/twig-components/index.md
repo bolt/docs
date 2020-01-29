@@ -940,6 +940,10 @@ Returns the field type of the field, as defined in the field's `contenttypes.yam
 Returns all selected records from the content select field. Note, this filter should only be
 used on select fields that select from a list of Content, as opposed to a list of items.
 
+### markdown
+
+Transforms the given markdown content into HTML content, i.e. parses markdown into HTML.
+
 ### preg_replace
 
 Makes PHPs `preg_replace()` function available as twig filter. Example usage:
