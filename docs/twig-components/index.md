@@ -1,5 +1,5 @@
 ---
-title: Twig tags, functions & filters
+title: Twig Components
 ---
 Twig tags, functions & filters
 ==============================
