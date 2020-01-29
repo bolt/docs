@@ -1,6 +1,8 @@
         {% if page.submenu|length > 1 %}
             <div class='quick-links is-desktop'>
+                {% if with_label|default(false) %}
                 <span class="menu-label has-text-dark">Jump to:</span>
+                {% endif %}
                 <ul>
                     {% for anchor, item in page.submenu %}
                         <li><a href='#{{ anchor }}'>{{ item|raw }}</a></li>
