@@ -944,6 +944,14 @@ used on select fields that select from a list of Content, as opposed to a list o
 
 Transforms the given markdown content into HTML content, i.e. parses markdown into HTML.
 
+### popup
+
+See [popup function](#popup-magnific-popup)
+
+### media
+
+Returns the media array associated with the field. Note, this should only be used with image and file fields.
+
 ### preg_replace
 
 Makes PHPs `preg_replace()` function available as twig filter. Example usage:
