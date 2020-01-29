@@ -466,7 +466,7 @@ in your `contenttypes.yaml`. If this is not set, then the `icon_many` setting is
 
 Assuming Bolt's default `showcases` contenttype:
 ```twig
-icon(showcase) # returns <i class='fas mr-2 fa-gift'></i>
+{{ icon(showcase) # returns <i class='fas mr-2 fa-gift'></i> }}
 ```
 
 #### Icon specified in icon parameter
@@ -475,7 +475,7 @@ The `icon` function can also be used to return any of FontAwesome's icons. This 
 parameter is set to null, and the second parameter is the icon to retrieve.
 
 ```twig
-icon(null, 'biking') # returns <i class='fas mr-2 fa-biking'></i>
+{{ icon(null, 'biking') # returns <i class='fas mr-2 fa-biking'></i> }}
 ```
 
 ### related_content()
@@ -497,6 +497,34 @@ See [related_options filter](#related_options)
 ### related_values()
 
 See [related_values filter](#related_values)
+
+### find_translations(field, *locale=null*)
+
+Returns an array of all translated versions of the specified field, if the `locale` parameter is not give/null.
+When `locale` is specified, returns only the translation for that locale if it exists, and null otherwise.
+In that case, the `find_translation()` function works like the [translated](#translated) filter.
+
+```twig
+{% set translated_array = find_translations(fieldwithtranslations) %} # returns an array of translated fields
+{% set translated = find_translations(fieldwithtranslations, 'nl') %} # returns the NL translation, or null if it does not exist.
+```
+
+### countwidgets()
+
+Please refer to the [widgets][widgets-page] documentation.
+
+### listwidgets
+
+Please refer to the [widgets][widgets-page] documentation.
+
+
+### haswidgets()
+
+Please refer to the [widgets][widgets-page] documentation.
+
+### widgets()
+
+Please refer to the [widgets][widgets-page] documentation.
 
 Twig filters
 ------------
@@ -947,6 +975,7 @@ extensions to find out:
 {{ dump(app.extensions.all()) }}
 ```
 
+[widgets-page]: ../templating/widgets
 [debugging-page]: ../debugging
 [select-page]: ../fields/select
 [locales-page]: ../other/locales
