@@ -42,7 +42,7 @@ These queries are currently possible:
 <h3>{{ about.title }}</h3>
 {{ about.introduction|raw }}
 
-<a href="{{ about.link }}">link</a>
+<a href="{{ about|link }}">link</a>
 ```
 
 ### switch
@@ -74,7 +74,7 @@ This tag is used to iterate over arrays or collections of an object, similar to
 {% setcontent pages = 'pages' limit 5 order '-datecreated' %}
 <ul>
   {% for page in pages %}
-    <li><a href="{{ page.link }}">{{ page.title }}</a></li>
+    <li><a href="{{ page|link }}">{{ page.title }}</a></li>
   {% else %}
     <p>No recent pages.</p>
   {% endfor %}
@@ -261,7 +261,7 @@ used in an if/else clause, to redirect visitors based on some criteria.
 {% setcontent records = "pages/latest/5" %}
 {% for record in records %}
 
-    <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+    <h2><a href="{{ record|link }}">{{ record.title }}</a></h2>
     <p>{{ record.excerpt() }}</p>
 
 {% else %}
@@ -480,23 +480,15 @@ parameter is set to null, and the second parameter is the icon to retrieve.
 
 ### related_content()
 
-See [related filter](#related)
+See [related filter](#related-name-null-contenttype-null-bidirectional-true-publishedonly-true)
 
 ### all_related_content()
 
-See [related_all filter](#related_all)
+See [related_all filter](#related-all-bidirectional-true-limit-true-pubishedonly-true)
 
 ### first_related_content()
 
-See [related_first filter](#related_first)
-
-### related_options()
-
-See [related_options filter](#related_options)
-
-### related_values()
-
-See [related_values filter](#related_values)
+See [related_first filter](#related-first-name-null-contenttype-null-bidirectional-true-publishedonly-true)
 
 ### find_translations(field, *locale=null*)
 
@@ -880,17 +872,17 @@ add the `raw` modifier.
 
 ### order
 
-In most cases the results of `{% setcontent %}` or `{{ record.related() }}` are
+In most cases the results of `{% setcontent %}` or `{{ record|related() }}` are
 in the desired order. In some cases you might want to reorder them, by using the
 `order`-filter. The filter takes one or two parameters: the names of the fields
 you wish to order the results on:
 
 ```twig
-{% set relatedrecords = record.related() %}
+{% set relatedrecords = record|related() %}
 <p class="meta">Related content:
     <ul>
     {% for related in relatedrecords|order('datepublish') %}
-        <li><a href="{{ related.link }}">{{ related.title }}</a></li>
+        <li><a href="{{ related|link }}">{{ related.title }}</a></li>
     {%  endfor %}
     </ul>
 </p>
@@ -903,7 +895,7 @@ or:
 {% setcontent entries = "entries/latest/10" %}
 <ul>
 {% for entry in entries|order('title', 'subtitle') %}
-    <li><a href="{{ entry.link }}">{{ entry.title }}</a></li>
+    <li><a href="{{ entry|link }}">{{ entry.title }}</a></li>
 {%  endfor %}
 </ul>
 ```
@@ -987,6 +979,32 @@ Makes PHPs `preg_replace()` function available as twig filter. Example usage:
 ```twig
 {{ content.text|preg_replace('/[^a-z]+/', '_') }}
 ```
+
+### related(*name=null*, *contenttype=null*, *bidirectional=true*, *publishedonly=true*)
+
+Returns an array of records that are related to the given record.
+
+```twig
+{% set relatedrecords = record|related() %}
+<p class="meta">Related content:
+    <ul>
+    {% for related in relatedrecords %}
+        <li><a href="{{ related|link }}">{{ related|title }}</a></li>
+    {%  endfor %}
+    </ul>
+</p>
+```
+
+### related_all(*bidirectional=true*, *limit=true*, *pubishedonly=true*)
+
+Returns an array of all records that are a relation with any other record.
+
+See [related filter](#related-name-null-contenttype-null-bidirectional-true-publishedonly-true).
+
+### related_first(*name=null*, *contenttype=null*, *bidirectional=true*, *publishedonly=true*)
+
+Returns the first record related to the given record.
+
 
 
 Available variables in Twig
