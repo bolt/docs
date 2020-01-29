@@ -893,6 +893,10 @@ or:
 and this case sensitivity is undesirable, you can use `|order('slug')` instead.
 The slug is always lowercase, so this will normalize the ordering.
 
+### shuffle
+
+Randomly shuffles the passed array.
+
 ### preg_replace
 
 Makes PHPs `preg_replace()` function available as twig filter. Example usage:
