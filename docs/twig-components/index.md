@@ -927,6 +927,19 @@ Returns the edit link for the record in the Bolt backend.
 
 Returns an array of all taxonomies linked to the record.
 
+### label
+
+Returns the label of the field, as defined in the field's `contenttypes.yaml` definition.
+
+### type
+
+Returns the field type of the field, as defined in the field's `contenttypes.yaml` definition.
+
+### selected
+
+Returns all selected records from the content select field. Note, this filter should only be
+used on select fields that select from a list of Content, as opposed to a list of items.
+
 ### preg_replace
 
 Makes PHPs `preg_replace()` function available as twig filter. Example usage:
