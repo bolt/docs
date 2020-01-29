@@ -303,7 +303,7 @@ Example 2: Using in `setcontent`
 ```
 
 For more info on debugging your Bolt site, see the chapter on
-[Debugging Bolt](../debugging).
+[Debugging Bolt][debugging-page].
 
 <p class="note"><strong>Note:</strong> Don't forget to set <code>APP_DEBUG=1
 </code> in your <code>.env</code> file. Otherwise the
@@ -316,7 +316,7 @@ The field factory function creates a field on the fly with a name and optional d
 {% set field = field_factory('title', { 'type': 'text', 'label' : 'Awesome title' }) %}
 ```
 
-### menu(*name = null*, *template = "helper/_menu.html.twig"*, *class = ""*, *withsubmenus = true*)
+### menu(*name = null*, *template = "helpers/_menu.html.twig"*, *class = ""*, *withsubmenus = true*)
 
 The menu renders HTML containing your site's menu items, as defined in the `menu.yaml` file.
 
@@ -405,12 +405,78 @@ See [markdown filter](#markdown).
 
 See [media filter](#media).
 
-### list_records(templateselect)
+### list_templates(templateselect)
 
 Returns the templates for the `templateselect` field. Note the `list_records()` function
 should only be called with instances of templateselect.
 
+### pager(records, *template = '/helpers/_pager_basic.html.twig'*, *class='pagination'*, *surround=3*)
 
+Splits `records` into pages with a pager using the an optional `template`, `class` and `surround`.
+
+| Argument       | Description |
+|----------------|-------------|
+| `records`      | The content records to build the pager for. |
+| `template`     | The relative path to the template used to generate the pager. The template must be located under `/templates`. Default value is `"/helpers/_pager_basic.html.twig"`  |
+| `class `       | An optional `class` parameter passed to the template. Default is `pagination`. |
+| `surround`     | The amount of items to show around the 'current' one. "3" by default. |
+
+
+```twig
+{{ pager(blogposts, template = 'helpers/_pager_basic.html.twig', 'awesome-posts', 5) }}
+```
+
+### select_options(selectfield)
+
+Returns an array of all options of the select field. Each array contains the `key`, `value` and a `selected` flag
+for the select option. Note the `select_options()` function should only be called with instances of select fields.
+
+Example output of `select_options(field)`
+```twig
+array:3 [▼
+  0 => array:3 [▶
+    "key" => "milk"
+    "value" => "Milk"
+    "selected" => false
+  ]
+  1 => array:3 [▶
+    "key" => "cake"
+    "value" => "Cake"
+    "selected" => true
+  ]
+  2 => array:3 [▶
+    "key" => "egg"
+    "value" => "Egg"
+    "selected" => false
+  ]
+]
+```
+
+For more select fields, check out the [Select field][select-page] page.
+
+### icon(*record=null*, *icon='question-circle'*)
+
+Returns an `<icon>` tag using FontAwesome icons. This function has two usages:
+to get the icon for the given record, or if `record=null`, to get the icon specified in the `icon` parameter.
+
+#### Record icon
+
+When a contenttype record is passed, the `icon` function first looks for the `icon_one` definition
+in your `contenttypes.yaml`. If this is not set, then the `icon_many` setting is used instead.
+
+Assuming Bolt's default `showcases` contenttype:
+```twig
+icon(showcase) # returns <i class='fas mr-2 fa-gift'></i>
+```
+
+#### Icon specified in icon parameter
+
+The `icon` function can also be used to return any of FontAwesome's icons. This happens when the first
+parameter is set to null, and the second parameter is the icon to retrieve.
+
+```twig
+icon(null, 'biking') # returns <i class='fas mr-2 fa-biking'></i>
+```
 
 Twig filters
 ------------
@@ -457,7 +523,7 @@ inquit, vitae beatum et eundem supremum diem, scribebamus haec. Duo Reges: const
 ### localedatetime
 
 Outputs a localized, readable version of a timestamp, based on the `locale`
-setting in the `config.yml`-file. See the [Locales](../other/locales) page for
+setting in the `config.yml`-file. See the [Locales][locales-page] page for
 more information on locales. If the locale you've set in `config.yml` does not
 work, you should verify that the locale is properly installed on your system.
 
@@ -500,6 +566,9 @@ Outputs:
 The `localedatetime`-filter uses the PHP `strftime()` function internally. For all
 possible options, see the official [strftime()][strftime] page on php.net.
 
+### localedate
+
+Alias for [localedatetime](#localedatetime)
 
 ### date
 
@@ -858,6 +927,9 @@ extensions to find out:
 {{ dump(app.extensions.all()) }}
 ```
 
+[debugging-page]: ../debugging
+[select-page]: ../fields/select
+[locales-page]: ../other/locales
 [linkintpl-asset]: ../templating/linking-in-templates#using-asset-to-link-to-assets-or-files
 [linkintpl-pathurl]: ../templating/linking-in-templates#using-path-and-url-to-link-to-named-routes
 [linkintpl-current]: ../templating/linking-in-templates#linking-to-the-current-page
