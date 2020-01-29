@@ -1,0 +1,35 @@
+<header>
+    <nav class="navbar is-light is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="brand--text is-size-3" href="/">
+                Bolt<span class="has-text-weight-normal">cms</span>
+            </a>
+            <div class="brand--payoff is-hidden">Sophisticated, Lightweight and Simple</div>
+        </div>
+        <div class="navbar-menu" id="navbar-menu">
+            <div class="navbar-start">
+                {% set route = app.request.attributes.get('_route') %}
+                {% set route_params = app.request.attributes.get('_route_params') %}
+                {% if version.version < 4.0 %}
+                    <a href="https://bolt.cm/" class="navbar-item">Home [bolt.cm]</a>
+                    <a href="{{ path('page', {version: version})}}" class="navbar-item">Documentation</a>
+                    <a href="{{ path('page', {version: version, page: 'manual'}) }}" class="navbar-item">Manual</a>
+                    <a href="https://github.com/bolt/core" class="navbar-item">Source on Github</a>
+                    <a href="{{ path('cheatsheet', {version: version}) }}" class="navbar-item">Cheatsheet</a>
+                {% else %}
+                    <a href="https://bolt.cm/" class="navbar-item">Home [boltcms.io]</a>
+                    <a href="{{ path('page', {version: version})}}" class="navbar-item">Documentation</a>
+                    <a href="{{ path('page', {version: version, page: 'manual'}) }}" class="navbar-item">Manual</a>
+                    <a href="https://github.com/bolt/core" class="navbar-item">Source on Github</a>
+                    {#                        <a href="{{ path('cheatsheet', {version: version}) }}" class="navbar-item">Cheatsheet</a>#}
+                    <a href="https://slack.bolt.cm/" class="navbar-item">Slack</a>
+                {% endif %}
+            </div>
+        </div>
+        <button class="button button-bars is-primary is-hidden-desktop navbar-burger" data-target="navbar-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>

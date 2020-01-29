@@ -1,0 +1,63 @@
+<footer class="columns is-gapless">
+    <div class="footer-top columns">
+        <div class="column is-one-third">
+            <h2 class="title is-4">Links</h2>
+            <ul class="links">
+                {% set route = app.request.attributes.get('_route') %}
+                {% set route_params = app.request.attributes.get('_route_params') %}
+
+                {% if version.version < 4.0 %}
+                    <li><a href="https://bolt.cm/">Home</a></li>
+                    <li><a href="https://bolt.cm/features">Features</a></li>
+                    <li><a href="{{ path('page', {version: version})}}">Documentation</a></li>
+                    <li><a href="https://bolt.cm/news">News</a></li>
+                    <li><a href="https://bolt.cm/community">Community</a></li>
+                    <li><a href="https://market.bolt.cm/">Marketplace</a></li>
+                    <li><a href="https://bolt.cm/pages/download">Download</a></li>
+                {% else %}
+                    <li><a href="https://boltcms.io/">Home</a></li>
+                    <li><a href="{{ path('page', {version: version })}}">Documentation</a></li>
+                    <li><a href="https://bolt.cm/community">Community</a></li>
+                    <li><a href="{{ path('page', {version: version, page: 'installation/installation'})}}">Download / Installation</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="column is-one-third">
+            <h2 class="title is-4">Connect</h2>
+            <ul class="connect">
+                <li>
+                        <span class="icon is-large">
+                            <i class="fab fa-lg fa-twitter"></i>
+                        </span>
+                    <a href="https://twitter.com/boltcms">Twitter</a>
+                </li>
+                <li>
+                        <span class="icon is-large">
+                            <i class="fab fa-lg fa-github-alt"></i>
+                        </span>
+                    <a href="https://github.com/bolt">Github</a>
+                </li>
+                <li>
+                        <span class="icon is-large">
+                            <i class="fab fa-lg fa-slack-hash"></i>
+                        </span>
+                    <a href="https://slack.bolt.cm/">Slack</a>
+                </li>
+                <li>
+                        <span class="icon is-large">
+                           <i class="fas fa-lg fa-comments"></i>
+                        </span>
+                    <a href="https://discuss.bolt.cm/">Forums</a>
+                </li>
+            </ul>
+        </div>
+        <div class="column is-one-third logo">
+            {% if version.version < 4.0 %}
+                <img src="{{ asset('images/bolt.png') }}" width='170' alt="BoltCM" />
+            {% else %}
+                <img src="{{ asset('images/bolt_4.png') }}" width='220' alt="Bolt cms logo" />
+            {% endif %}
+        </div>
+    </div>
+    <div class="footer-bottom">&copy; Copyright {{ "now"|date('Y') }} Bolt CMS</div>
+</footer>

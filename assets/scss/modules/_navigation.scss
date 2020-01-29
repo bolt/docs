@@ -46,8 +46,16 @@
             padding: 0;
         }
 
+        li:before {
+            content: '-';
+            color: #FFF;
+            position: absolute;
+            margin-left: -9px;
+            margin-top: 6px;
+        }
+
         li {
-            margin: 0;
+            margin-left: 6px;
             font-size: 90%;
         }
 
