@@ -46,7 +46,7 @@
                     </p>
                 {% endif %}
 
-                {{ include('_sub_quicklinks.twig') }}
+                {% include '_sub_quicklinks.twig' with {'with_label': true} %}
 
                 {{ page.content|replace({'%%VERSION%%': version})|raw }}
 
