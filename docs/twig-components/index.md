@@ -698,6 +698,10 @@ In this example, we build links to all category listing pages:
 <ul>
 ```
 
+### ucwords
+
+Converts the first character of every word into upper case.
+
 ### shy
 
 The "soft hyphenate" filter can be used for strings without spaces, that would
@@ -1004,8 +1008,6 @@ See [related filter](#related-name-null-contenttype-null-bidirectional-true-publ
 ### related_first(*name=null*, *contenttype=null*, *bidirectional=true*, *publishedonly=true*)
 
 Returns the first record related to the given record.
-
-
 
 Available variables in Twig
 ---------------------------
