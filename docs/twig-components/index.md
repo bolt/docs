@@ -478,6 +478,26 @@ parameter is set to null, and the second parameter is the icon to retrieve.
 icon(null, 'biking') # returns <i class='fas mr-2 fa-biking'></i>
 ```
 
+### related_content()
+
+See [related filter](#related)
+
+### all_related_content()
+
+See [related_all filter](#related_all)
+
+### first_related_content()
+
+See [related_first filter](#related_first)
+
+### related_options()
+
+See [related_options filter](#related_options)
+
+### related_values()
+
+See [related_values filter](#related_values)
+
 Twig filters
 ------------
 
