@@ -16,7 +16,9 @@
 
     <main class="docs__main">
         <div class="docs__main--body">
+
             {% include '_versionselect.twig' %}
+
             <section id="content" class="content">
 
                 <a href="#sidebar" class="button is-info is-hidden-desktop" id="jumpbutton">Jump to docs navigation</a>
@@ -103,53 +105,6 @@
         </div>
     </main>
 
-    <aside id="sidebar" class="docs__sidebar">
-        {# <div class="docs__sidebar--brand">
-            <div class="brand">
-                <a class="brand--text is-size-3" href="https://bolt.cm/">
-                    BOLT<span class="has-text-weight-light">CMS</span>
-                </a>
-                <div class="brand--payoff is-hidden">Sophisticated, Lightweight and Simple</div>
-            </div>
-            <button class="button button-bars is-primary is-hidden-desktop">
-                <span class="icon">
-                <i class="fa fa-bars"></i>
-                </span>
-            </button>
-            <button class="button button-search is-primary is-hidden-desktop">
-                <span class="icon">
-                <i class="fa fa-search"></i>
-                </span>
-            </button>
-        </div> #}
-
-        <div class="docs__sidebar--search">
-            <label for="algolia-search">Search the documentation:</label>
-            <div class="control has-icons-right">
-                <input type="text" placeholder="Search ..." id="algolia-search" data-version="{{ version }}" class="input" />
-                <span class="icon is-small is-right">
-                    <i class="fa fa-search"></i>
-                </span>
-            </div>
-        </div>
-
-        <div class="docs__sidebar--menu">
-            <nav id="sidebar-nav" class="menu" role="navigation">
-
-                <ul class="menu-list is-hidden">
-                    {% for v in versions %}
-                        <a href="{{ path('page', {version: v}) }}">{{ v }}</a>
-                    {% endfor %}
-                </ul>
-
-                <ul class="menu-list">
-                    {% for sub in page.root.subPages %}
-                        {{ macro.menu(sub, page) }}
-                    {% endfor %}
-                </ul>
-
-            </nav>
-        </div>
-    </aside>
+    {% include '_sidebar.twig' %}
 
 {% endblock content %}

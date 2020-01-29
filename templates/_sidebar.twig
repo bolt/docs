@@ -1,0 +1,32 @@
+{% import '_macros.twig' as macro %}
+
+<aside id="sidebar" class="docs__sidebar">
+
+    <div class="docs__sidebar--search">
+        <label for="algolia-search">Search the documentation:</label>
+        <div class="control has-icons-right">
+            <input type="text" placeholder="Search ..." id="algolia-search" data-version="{{ version }}" class="input" />
+            <span class="icon is-small is-right">
+                    <i class="fa fa-search"></i>
+                </span>
+        </div>
+    </div>
+
+    <div class="docs__sidebar--menu">
+        <nav id="sidebar-nav" class="menu" role="navigation">
+
+            <ul class="menu-list is-hidden">
+                {% for v in versions %}
+                    <a href="{{ path('page', {version: v}) }}">{{ v }}</a>
+                {% endfor %}
+            </ul>
+
+            <ul class="menu-list">
+                {% for sub in page.root.subPages %}
+                    {{ macro.menu(sub, page) }}
+                {% endfor %}
+            </ul>
+
+        </nav>
+    </div>
+</aside>
