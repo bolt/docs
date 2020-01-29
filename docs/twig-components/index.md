@@ -494,7 +494,7 @@ See [related_first filter](#related-first-name-null-contenttype-null-bidirection
 
 Returns an array of all translated versions of the specified field, if the `locale` parameter is not give/null.
 When `locale` is specified, returns only the translation for that locale if it exists, and null otherwise.
-In that case, the `find_translation()` function works like the [translated](#translated) filter.
+In that case, the `find_translation()` function works like the [translated](#translated-locale) filter.
 
 ```twig
 {% set translated_array = find_translations(fieldwithtranslations) %} # returns an array of translated fields
@@ -1008,6 +1008,10 @@ See [related filter](#related-name-null-contenttype-null-bidirectional-true-publ
 ### related_first(*name=null*, *contenttype=null*, *bidirectional=true*, *publishedonly=true*)
 
 Returns the first record related to the given record.
+
+### translated(locale)
+
+Returns the field translated into the given locale.
 
 Available variables in Twig
 ---------------------------
