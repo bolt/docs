@@ -13,9 +13,10 @@ Each has its benefits and drawbacks.
     of SQLite is that it requires no configuration, and as such, it works 'out
     of the box' on practically any web server. This is why it's Bolt's default
     choice.
-  - **MySQL** - is perhaps the most well-known database engine, which is
-    supported on the majority of web servers. MySQL is very well-known, and there
-    are good third-party tools for maintenance, backup and migration.
+  - **MySQL** (and the similar **MariaDB**) - is perhaps the most well-known
+    database engine, which is supported on the majority of web servers. MySQL is
+    very well-known, and there are good third-party tools for maintenance,
+    backup and migration.
   - **PostgreSQL** - is a very well-designed database engine, but not as widely
     available as MySQL.
 
@@ -24,65 +25,20 @@ otherwise.
 
 If you wish to edit the database configuration, you have to change the settings
 in the `.env` file or as environment variables. Apart from SQLite, you can use
-MySQL and PostgreSQL as database systems. Set the database, username and
-password as Doctrine DSN / Database URLs:
+MySQL(MariaDB) and PostgreSQL as database systems. Set the database, username
+and password as Doctrine DSN / Database URLs:
 
 
 ```env
-# SQLite (note: THREE slashes, if the path is absolute!)
+# SQLite (note: _three_ slashes)
 DATABASE_URL=sqlite:///%kernel.project_dir%/var/data/bolt.sqlite
 
-# MySQL
-DATABASE_URL=mysql://root:"root%1"@127.0.0.1:3306/four
+# MYSQL / MariaDB
+#DATABASE_URL=mysql://db_user:"db_password"@localhost:3306/db_name
 
-# MySQL
-DATABASE_URL=pgsql://root:"root%1"@127.0.0.1:5432/four
+# Postgres
+#DATABASE_URL=postgresql://db_user:"db_password"@localhost:5432/db_name?serverVersion=11"
 ```
-<!--
-```yaml
-database:
-    driver: mysql
-    username: bolt
-    password: password
-    databasename: bolt
-```
-
-or:
-
-```yaml
-database:
-    driver: postgres
-    username: bolt
-    password: password
-    databasename: bolt
-```
-
-<p class="note"><strong>Note:</strong> The config file is in the YAML format,
-  which means that the indentation is important. Make sure you leave leading
-  spaces intact.</p>
-
-If the hostname or port are something else than `localhost:3306`, you can add them like
-this:
-
-```yaml
-database:
-    driver: mysql
-    username: bolt
-    password: password
-    databasename: bolt
-    host: database.example.org
-    port: 3306
-```
-
-The default prefix for the database tables is `bolt_`. You can change this with the `prefix` option like so:
-```yaml
-database:
-    driver: mysql
-    username: bolt
-    password: password
-    databasename: bolt
-    prefix: yourapp
-``` -->
 
 Other settings can be changed in the `config.yml` file later on. Either
 directly from the Bolt backend, or by making edits in the file itself using

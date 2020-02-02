@@ -22,17 +22,19 @@ composer create-project bolt/project myprojectname
 ```
 
 Navigate into the newly created folder, and configure the database in `.env` or
-your environment variables:
+your environment variables, replacing `db_user`, `db_password` and `db_name`
+where appropriate:
 
 ```env
-# SQLite (note: THREE slashes, if the path is absolute!)
+# SQLite (note: _three_ slashes)
 DATABASE_URL=sqlite:///%kernel.project_dir%/var/data/bolt.sqlite
 
-# MySQL
-DATABASE_URL=mysql://root:"root%1"@127.0.0.1:3306/four
+# MYSQL / MariaDB
+#DATABASE_URL=mysql://db_user:"db_password"@localhost:3306/db_name
 
-# PostgreSQL
-DATABASE_URL=pgsql://root:"root%1"@127.0.0.1:5432/four
+# Postgres
+#DATABASE_URL=postgresql://db_user:"db_password"@localhost:5432/db_name?serverVersion=11"
+
 ```
 
 You can read more information about [configuring the database here][db-setup].
@@ -57,9 +59,9 @@ bin/console doctrine:fixtures:load
 Starting a webserver
 --------------------
 
-You can run Bolt locally using the built-in webserver, Symfony CLI, Docker or
-your own preferred webserver. If you choose to set up a web server yourself,
-you can either set up something like [Mamp, Xampp, Laragaon][local] or
+You can run Bolt locally using the built-in webserver, [Symfony CLI][cli],
+Docker or your own preferred webserver. If you choose to set up a web server
+yourself, you can either set up something like [Mamp, Xampp, Laragon][local] or
 otherwise there's docs for [Apache][apache] and [Nginx][nginx].
 
 <p class="note"><strong>Note:</strong> The folder you've just created has a
@@ -75,10 +77,10 @@ Start PHP's built-in webserver…
 bin/console server:start
 ```
 
-or use the Symfony CLI …
+or use the Symfony CLI ([download here][cli]) …
 
 ```bash
-symfony server:start -d
+symfony serve -d
 symfony open:local
 ```
 
@@ -95,6 +97,7 @@ The Bolt admin panel can be found at http://127.0.0.1:8000/bolt
 
 Log in using the credentials you created when setting up the first user.
 
+[cli]: https://symfony.com/download
 [get-composer]: ./composer-create-project/install-composer
 [db-setup]: ../configuration/database
 [local]: https://www.slant.co/topics/5299/versus/~laragon_vs_xampp_vs_mamp
