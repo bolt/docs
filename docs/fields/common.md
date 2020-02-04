@@ -17,7 +17,7 @@ in more detail below.
 | `separator` | Insert `<hr>` after the field. |
 | `info`      | Use for displaying extra information about the field in a info popup besides the label. |
 | `default`   | The default value for a field, if applicable. |
-| `required`  | make this field required so that the record cannot be saved without it being filled. |
+| `required`  | make this field required so that the record cannot be saved without it being filled. The required option does not work on list types such as Collection, Imagelist and Filelist. To control the number of elements in list types, check the `limit` option.
 | `pattern`   | Add a custom validation pattern to validate against when saving. |
 | `readonly`  | Do not allow an editor to change the value of this field. |
 | `index`     | Add a database index for this field, only add if you know what this means. |
@@ -130,8 +130,7 @@ shown that, *"the x field is required or needs to match a pattern"*. You can
 set a custom error message for a field with the error option. for example
 `error: "The title field is required and must be no longer than 40 characters"`
 
-Currently, you can use the `required` option for fields of type `text`,
-`textarea`, `html`, `date`, `datetime`, `float` and `integer`.
+Currently, you can use the `required` option for all field types, expect for `collection`, `imagelist` and `filelist`.
 
 For example, to make a title required, you can do this:
 
