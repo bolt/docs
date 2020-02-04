@@ -18,11 +18,15 @@ Simple image upload/select field.
 ```twig
 {{ record.cover|image() }}
 ```
+
 or
+
 ```twig
 {{ record.cover|thumbnail() }}
 ```
+
 or
+
 ```twig
 {{ record.cover|popup() }}
 ```
@@ -58,7 +62,11 @@ bolt's image functions.
 
 ## Media attributes
 
-For each uploaded image you can manage the associated Metadata, like "Title", "Description", "Copyright" and more. You can edit these from the Content Edit screen via the "Edit attributes", in the pull-down next to "Upload". Alternatively, you can locate the image under "File Management" > "Uploaded Files", where you can find all previously uploaded files.
+For each uploaded image you can manage the associated Metadata, like "Title",
+"Description", "Copyright" and more. You can edit these from the Content Edit
+screen via the "Edit attributes", in the pull-down next to "Upload".
+Alternatively, you can locate the image under "File Management" > "Uploaded
+Files", where you can find all previously uploaded files.
 
 You can access this Metadata in templates by using the `media` filter on an Image:
 
