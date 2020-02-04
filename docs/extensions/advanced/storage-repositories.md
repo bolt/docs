@@ -167,7 +167,6 @@ class Race extends \Bolt\Storage\Entity\Content
     public function getDayLeftCountBeforeRace()
     {
         $now = new \DateTime();
-        $now = new \DateTime();
         $interval = $this->racedate->diff($now);
         $dayLeftCount = $interval->format('%a');
         return $dayLeftCount;
