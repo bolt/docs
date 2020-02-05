@@ -29,7 +29,7 @@ in more detail below.
 If you have a number of fields in your ContentType, it might be convenient to
 add grouping to the fields, by using tabs. It will look like this:
 
-<a href="/files/contenttype-tabs.png" class="popup"><img src="/files/contenttype-tabs.png"></a>
+<a href="/files/4.0.contenttype-tabs.png" class="popup"><img src="/files/4.0.contenttype-tabs.png"></a>
 
 To do this, simply add `group` to the fields that you would like to place under
 a certain tab. You don't need to specify _all_ of the fields with a grouping,
