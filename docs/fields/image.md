@@ -42,7 +42,7 @@ field.
 ```yaml
         cover:
             type: image
-            attrib: true
+            alt: true
             extensions: [ gif, jpg, png ]
             upload: portfolio
 ```
