@@ -124,7 +124,6 @@ where `somevalue` in this instance may equal something like `page/1`:
 {% setcontent linkeditem = record.somevalue returnsingle %}
 ```
 
-
 ## Additional options
 
 ### Selecting multiple values
@@ -251,7 +250,6 @@ of Records.
 In this case, `record` is the current Record, `selectfield` is the name of the
 field. We use `contentSelect` to verify that this select contains references to
 other Content, as opposed to a Select Field that has a number of fixed options.
-is the attribute that returns the selected value or values.
 
 Below that, the `setcontent` tag fetches the `selectedRecords` from the correct
 ContentType. After that, we iterate over these, using a regßular for loop. The
