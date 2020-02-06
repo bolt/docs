@@ -759,6 +759,25 @@ You can specify two parameters: strict mode and extrachars.
 => my-beautiful-image.jpg
 ```
 
+### plaintext
+
+Use this modifier to return a "plaintext" version of the string. For example:
+
+```twig
+{% set text = "Bonum patria: señor & <em>éxilium</em>!" %}
+{{ text|plaintext }}
+
+=> Bonum patria: señor & éxilium!
+```
+
+This returns a string with letters, numbers and common extra characters, but
+without HTML tags. This makes the output very suited for - for example - use in
+`<title>` tags.
+
+The main difference between this filter and `|striptags` is that the output of
+this filter is marked as HTML in Twig, meaning that characters like `&` and `'`
+will not be escaped. If you wish these to be escaped, use `|striptags` instead.
+
 ### showimage
 
 Use this filter to insert an image in the HTML. You can optionally provide the
@@ -1080,7 +1099,7 @@ Symfony's flashes can be accessed through the global app variable:
 The global user variable is a copy of `{{ app.user }}` as discussed earlier.
 
 ```twig
-{{ user.displayName }} # shows the logged in user's display name                                                                
+{{ user.displayName }} # shows the logged in user's display name
 {{ user.username }}
 {{ user.email }}
 {{ user.lastSeenAt }}

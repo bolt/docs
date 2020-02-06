@@ -270,7 +270,7 @@ Now all that's left is to modify your submenu template (`_sub_menu.twig`) so tha
 ```twig
 {% macro display_menu_item(item, loop, extraclass, withsubmenus) %}
     {% from _self import display_menu_item %}
-    {% spaceless %}
+    {% apply spaceless %}
     <li class="index-{{ loop.index -}}
         {{ item.path|default('') == 'homepage' ? ' menu-text' -}}
         {{ loop.first ? ' first' -}}
@@ -316,7 +316,7 @@ Now all that's left is to modify your submenu template (`_sub_menu.twig`) so tha
         {% endif %}
 
     </li>
-    {% endspaceless %}
+    {% endapply %}
 {% endmacro %}
 ```
 
