@@ -12,6 +12,9 @@ PHP.
 Since this repository is set up to use git's worktree feature, it is advised to
 use git version 2.5 or later.
 
+**Note:** Git worktree is a dumpster fire. If a branch breaks, see below on how to 
+fix it.
+
 Updating Documentation
 ----------------------
 
@@ -103,7 +106,7 @@ folder.
 To see the documentation site go to `example.localhost/3.5/`, from where you'll
 get redirected to the front page of the documentation.
 
-### Building front-end assets
+## Building front-end assets
 
 First, install the `npm` dependencies: 
 
@@ -115,6 +118,34 @@ Then, build the assets:
 
 ```bash
 npm run build 
+```
+
+## If a "worktree" breaks, here's how to fix it
+
+As mentioned above, Git's worktree feature is iffy at best. It might 
+break all of a sudden, with no apparent way to fix it:
+
+```bash
+$ git pull
+fatal: not a git repository: /Users/bob/Sites/docs/.git/worktrees/XXX
+```
+
+To fix it, run the following commands, replacing `XXX` with the actual 
+name of your broken worktree branch.
+
+```bash 
+cd ..
+rm -rf XXX
+git worktree prune
+git branch -D XXX
+git worktree add -b XXX XXX
+cd XXX
+
+# note: you are now in a new `XXX` folder, but you need to `reset` 
+# it to actually show `XXX`, and not a botched copy of another branch
+git checkout master
+git branch -D XXX
+git checkout XXX
 ```
 
 [bolt]: http://docs.bolt.cm/
