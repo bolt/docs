@@ -40,25 +40,21 @@ field.
 
 * `extensions` Allows you to restrict users to only be able to upload files with
   certain file extensions.
-* `attrib` Can be set to a custom attribute, such as alt-texts, titles, captions or data-attributes. For example:
-  * `alt` Show a text field for the `alt` parameter
-  * `title` Show a text field for the `title` parameter
-  * `caption` Show a custom field for a `caption` that image will use in your template
-  * `[alt, title, caption]` Add more than one attribute
+* `alt` Can be used to set to `true` to create a field for the image alt attribute.
 * `upload` Allows you to upload files for this field into a specified directory
   so they remain grouped. This directory will be created in `{%web%}/files/`
 
 ```yaml
         cover:
             type: image
-            attrib: [alt, title, caption]
+            alt: true
             extensions: [ gif, jpg, png ]
             upload: portfolio
 ```
 
-You can call these in your templates by using `{{ record.values.image.alt }}`
-or `{{ record.values.image.caption }}` and they will also be automatically used by
-bolt's image functions.
+You can call these in your templates by using `{{ record.cover.alt }}`
+or `{{ record.cover.caption }}` and they will also be automatically used by
+Bolt's image functions.
 
 ## Media attributes
 
@@ -108,3 +104,4 @@ Another example:
 
     Copyright: {{ media.copyright }}
 ```
+
