@@ -14,7 +14,7 @@ suitable for indexing by search engines. Ideally, it is both semantic and
 human-readable. For example, if you have a page named "About our company", a
 good slug would be <code>about-our-company</code>.</p>
 
-## Basic Configuration:
+## Basic Configuration
 
 ```yaml
         slug:
@@ -22,20 +22,20 @@ good slug would be <code>about-our-company</code>.</p>
             uses: title
 ```
 
-## Example usage in templates:
+### Example usage in templates
 
 The slug is not often used by itself, but rather as a part of a link. You can
 print the link to a record like this:
 
 ```twig
-{{ record.link() }}
+{{ record|link }}
+
+{{ record|link(true) }}
 ```
 
-or get the canonical URL like this:
-```twig
-{{ record.canonical() }}
-
-```
+The second example will output a _canonical_ link to the record. This means
+that the link will include the full scheme, hostname and path, like
+`https://example.org/page/about-us`.
 
 You can also just output the slug like this:
 
@@ -43,7 +43,7 @@ You can also just output the slug like this:
 {{ record.slug }}
 ```
 
-## Options:
+### Options
 
 The field has one option to change the functionality of the field:
 
@@ -51,8 +51,3 @@ The field has one option to change the functionality of the field:
    this set to the textfield that you use as the title, (often called `title`),
    but you can also use it with multiple fields like for example
    `[title, subtitle]`.
-
-<p class="note"> <strong>Note:</strong> Usually this field shows up in the
-editor with a label like <code>Permalink:</code>. If the ContentType is
-"viewless", there is no real permalink to the Record, so it will instead be
-labelled <code>Unique Alias:</code> to reflect this.</p>
