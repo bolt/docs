@@ -1,5 +1,7 @@
 ---
 title: Twig Components
+pages:
+    - extras
 ---
 Twig tags, functions & filters
 ==============================
@@ -150,7 +152,6 @@ For images in `imagelist` field types use:
     {{ dump(imageinfo(image.filename)) }}
 {% endfor %}
 ```
-
 
 The aspect ratio is the proportional relationship between the width and the
 height of the image. In general, this is used to determine whether an image is
@@ -543,9 +544,10 @@ Twig filters
 
 ### excerpt
 
-Excerpt creates a short, text-only, excerpt of a record or a string. It's useful
-to get short blurbs of text for overview pages, listings, et cetera. If you pass
-it a string, it will simply strip out HTML and, reduce it to a given length:
+Excerpt creates a short, text-only, excerpt of a record or a string. It's
+useful to get short blurbs of text for overview pages, listings, et cetera. If
+you pass it a string, it will simply strip out HTML and, reduce it to a given
+length:
 
 ```twig
 {% set text = "Bonum patria: miserum exilium. Ut optime, secundum" %}
@@ -555,9 +557,9 @@ it a string, it will simply strip out HTML and, reduce it to a given length:
 ```
 
 If you get an excerpt of a Record, Bolt will attempt to get an excerpt that's
-representative of the Record. If it has a recognisable title, it will start with
-that, and it will use the other text-fields to complete it. In fact, it's the
-same function that's used in the Bolt backend, on the dashboard.
+representative of the Record. If it has a recognisable title, it will start
+with that, and it will use the other text-fields to complete it. In fact, it's
+the same function that's used in the Bolt backend, on the dashboard. See also [extras][extras].
 
 ```twig
 {% setcontent page = "pages/1" %}
@@ -568,7 +570,8 @@ dissensio? Cum ageremus, inquit, vitae beatum et eundem supremum diem, scribebam
 Duo Reges: constructio int…
 ```
 
-It is also possible to highlight a keyword in an excerpt, which can be used in search results.
+It is also possible to highlight a keyword in an excerpt, which can be used in
+search results.
 
 ```twig
 {% set keyword = 'ageremus' %}{# this is the keyword you want to highlight #}
@@ -808,17 +811,17 @@ You can specify three parameters: the width, height, and the mode of cropping.
 The mode of cropping is important if you're requesting a thumbnail that has
 different proportions than the original image. Valid options for cropping are:
 
-  - 'c' (crop, default) - Makes sure you always get an image that is the
+  - `c` (crop, default) - Makes sure you always get an image that is the
     specified width and height. The image is not transformed, so it will be
     cropped to fit the boundaries is necessary.
-  - 'f' ('fit') - The image will not be cropped but resized to fit within the
+  - `f` ('fit') - The image will not be cropped but resized to fit within the
     given maximum width and height. This means that you will always get an image
     with the exact same width and height that you specified. The resulting image
     might be deformed, and will _not_ have the same aspect ratio as the
     original.
-  - 'b' (borders) - Will add a border to the image, in order to make it fit
+  - `b` (borders) - Will add a border to the image, in order to make it fit
     within the given boundaries.
-  - 'r' (resize) - Will resize the image to fit the boundaries, without
+  - `r` (resize) - Will resize the image to fit the boundaries, without
     cropping. This means your thumbnail might be smaller than the width/height
     given, but the the image will always maintain the aspect ratio of the
     original image.
@@ -839,14 +842,14 @@ mode.
 
 You can set the size in your `config.yml`, like this:
 
-```
+```yaml
 thumbnails: [ 160, 120, c ]
 ```
 
 To use a defined [thumbnail alias](../configuration/thumbnails#thumbnail-aliases),
 you just need to pass in your alias name like so:
 
-```
+```twig
 <img src="{{ content.image|thumbnail('cover') }}">
 ```
 
@@ -878,6 +881,8 @@ set the other dimension to `null`, and set cropping mode to resize.
 ```twig
 <img src="{{ content.image|image(400, null, "r") }}">
 ```
+
+See also [extras][extras].
 
 ### raw
 
@@ -933,26 +938,16 @@ The slug is always lowercase, so this will normalize the ordering.
 Randomly shuffles the passed array.
 
 
-### title
-
-Returns the guessed title for the given record.
-
-The title is guessed by first looking at the title_format setting in the `contenttypes.yaml` file for that record,
-and by looking for common field names for a title across different languages.
-
 ### previous(*byColumn = 'id'*, *sameContentType=true*)
 
-Returns the previous record from the database query based on the passed parameters.
-By default, `|previous` finds the left adjacent element for the same contenttype using the record's database id.
+Returns the previous record from the database query based on the passed
+parameters. By default, `|previous` finds the left adjacent element for the
+same contenttype using the record's database id.
 
 ### next(*byColumn = 'id', *sameContentType=true*)
 
 Returns the next record from the database query based on the passed parameters.
 Uses the same logic as the [previous filter](#previous)
-
-### link(canonical = false)
-
-Returns the absolute path to the record. If called with `true`, it will return the canonical link to the record instead.
 
 ### edit_link
 
@@ -964,20 +959,24 @@ Returns an array of all taxonomies linked to the record.
 
 ### label
 
-Returns the label of the field, as defined in the field's `contenttypes.yaml` definition.
+Returns the label of the field, as defined in the field's `contenttypes.yaml`
+definition.
 
 ### type
 
-Returns the field type of the field, as defined in the field's `contenttypes.yaml` definition.
+Returns the field type of the field, as defined in the field's
+`contenttypes.yaml` definition.
 
 ### selected
 
-Returns all selected records from the content select field. Note, this filter should only be
-used on select fields that select from a list of Content, as opposed to a list of items.
+Returns all selected records from the content select field. Note, this filter
+should only be used on select fields that select from a list of Content, as
+opposed to a list of items.
 
 ### markdown
 
-Transforms the given markdown content into HTML content, i.e. parses markdown into HTML.
+Transforms the given markdown content into HTML content, i.e. parses markdown
+into HTML.
 
 ### popup
 
@@ -985,7 +984,8 @@ See [popup function](#popup-magnific-popup)
 
 ### media
 
-Returns the media array associated with the field. Note, this should only be used with image and file fields.
+Returns the media array associated with the field. Note, this should only be
+used with image and file fields.
 
 ### json_records
 
@@ -1040,7 +1040,6 @@ Available variables in Twig
 ```twig
 {{ app.config.get('general/sitename') }}
 ```
-
 
 ```twig
 {{ dump(app.config.get('general')) }}
@@ -1224,3 +1223,4 @@ extensions to find out:
 [date]: http://php.net/manual/en/function.date.php
 [for]: http://twig.sensiolabs.org/doc/tags/for.html
 [switch]: http://php.net/manual/en/control-structures.switch.php
+[extras]: ./twig-components/extras

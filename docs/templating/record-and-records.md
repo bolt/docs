@@ -20,7 +20,7 @@ Using a `{{ record }}`
 The easiest way to see what the contents of a record (or any other variable,
 for that matter) are, is to use the `dump()` function:
 
-```
+```twig
 {{ dump(record) }}
 ```
 
@@ -82,14 +82,14 @@ know what type of field you're dealing with. This is where the `fieldtype()`
 function comes in handy, it reads the fieldtype from the `contenttypes.yml`
 configuration file:
 
-```
+```twig
 {% for key,value in record.values %}
 
   {% if record.fieldtype(key) == "image" %}
 
       <div class='imageholder-wide'><img src="{{ record.image|thumbnail(800, 600) }}"></div>
 
-  {% elseif record.fieldtype(key) not in ['templateselect'] 
+  {% elseif record.fieldtype(key) not in ['templateselect']
             and key != "templatefields"
             and value != "" %}
 
@@ -104,19 +104,18 @@ configuration file:
 records of the same or different ContentTypes, see the page on <a
 href="../contenttypes/relationships">Relations</a>.</p>
 
-
 Using `{{ records }}`
--------------------
+---------------------
 
-The `{{ records }}` array is basically a set of several content records. When
-you have a `{{ records }}` array, you can iterate over each of the records to
+The `{{ records }}` array is basically a set of several Content Records. When
+you have a `{{ records }}` array, you can iterate over each of these records to
 output them as desired. In the following example you can see how to get an array
 of records. You'll notice that in this case it's not actually called `records`,
 but `pages`. Since it's just a variable name, we can call it whatever we like.
-After getting the `{{ pages }}` array, we use a simple `for` loop, so we can
+After getting the `{{ pages }}` array, we use a conventional `for` loop, so we can
 iterate over each of the separate `{{ page }}` records.
 
-```
+```twig
 {% setcontent pages = 'pages/latest/4' %}
 
 {% for page in pages %}
@@ -134,7 +133,7 @@ following.
 
 Check how many records there are:
 
-```
+```twig
 {% if pages|length > 0 %} More than 0 records {% endif %}
 
 {% if pages|length < 5 %} Less than 5 records {% endif %}
@@ -144,7 +143,7 @@ There are exactly {{ pages|length }} records.
 
 [Reverse](http://twig.sensiolabs.org/doc/filters/reverse.html) the array:
 
-```
+```twig
 {% for page in pages|reverse %}
 
     {# Do something with each {{ page }} #}
@@ -155,7 +154,7 @@ There are exactly {{ pages|length }} records.
 
 Or [slice](http://twig.sensiolabs.org/doc/filters/slice.html) the array:
 
-```
+```twig
 {% set slice = pages|slice(1,3) %}
 
 {% for page in slice %}
@@ -168,7 +167,7 @@ Or [slice](http://twig.sensiolabs.org/doc/filters/slice.html) the array:
 
 Use only the first or last record of the array with the `first` or `last` filters:
 
-```
+```twig
 {% set firstrecords = records|first %}
 
 The title of the first record is:
