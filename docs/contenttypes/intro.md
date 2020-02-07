@@ -72,7 +72,11 @@ is named 'News Item'. We've defined fields for 'title', 'slug', 'image' and
 'text'. The 'record_template' defines the default template to use, when
 displaying a single record in the browser.
 
-<p class="note"><strong>Note:</strong> You should always ensure that the key that defines each of the ContentTypes and the value of the <code>slug</code> are the same. In the above example, we start with the key <code>news:</code>, and the slug is set to <code>slug: news</code>. If these do not match, Bolt will show an error message.</p>
+<p class="note"><strong>Note:</strong> You should always ensure that the key
+that defines each of the ContentTypes and the value of the <code>slug</code>
+are the same. In the above example, we start with the key <code>news:</code>,
+and the slug is set to <code>slug: news</code>. If these do not match, Bolt
+will show an error message.</p>
 
 Save the file and refresh the Dashboard screen in your browser. If you do this,
 you'll see your new ContentType in the sidebar, ready for use. Sweet!
@@ -152,8 +156,14 @@ href="../templating/building-templates">Template documentation</a>.</p>
 In the frontend of the website, in your templates, all content is accessible as
 an array. If you're accessing one record, it will be an array containing the
 fields, taxonomies and metadata. If you're accessing a set of records, it will
-be an array of arrays. I.e. `{{ page.title }}` for the title of a page or `{{
-events.4.date }}` for the date of the fourth event in an array.
+be an array of arrays. I.e. `{{ page.title }}` for the title of a page or
+`{{ events.3.date }}` for the date of the fourth event in an array.
+
+<p class="note"><strong>Tip:</strong> Although it's possible to access an array
+of records by its index number, this is not used very often in practice. It's
+much more common to use a loop like <code>{% for event in events %}</code>, to
+iterate over all of the <code>events</code>, and then use them seperately as a
+single <code>event</code>.</p>
 
 If you're building a template and are unsure of what a certain variable contains
 or how the fields are named, use `{{ dump(foo) }}`, where 'foo' is the name of
@@ -204,10 +214,9 @@ The available options are:
 |--------|-------------|
 | `name` | The name of the ContentType, as it should be shown on screen or in the browser. It should be plural, if possible. |
 | `singular_name` | The name of one Record in the ContentType. This should be singular. For example, if the ContentType's name is 'Pages', this should be 'Page' |
-| `slug` (optional) | This determines the slug of the ContentType, and therefore the URLs that are generated for this ContentType. When omitted, the slug will be automatically generated. |
-| `singular_slug` (optional) | This determines the slug of a single record in this ContentType, and therefore the URLs that are generated for these records. When omitted, the slug will be automatically generated. |
-| `description` (optional) | A short description of the ContentType. This will be shown on the overview screen in the right aside column. |
-| `tablename` (optional) | The (base) name of the table, as used in the database. If omitted, the `slug` will be used for this. |
+| `slug` <small>(optional)</small> | This determines the slug of the ContentType, and therefore the URLs that are generated for this ContentType. When omitted, the slug will be automatically generated. |
+| `singular_slug` <small>(optional)</small> | This determines the slug of a single record in this ContentType, and therefore the URLs that are generated for these records. When omitted, the slug will be automatically generated. |
+| `description` <small>(optional)</small> | A short description of the ContentType. This will be shown on the overview screen in the right aside column. |
 | `fields` | The fields that make up the content in this ContentType. See the [Fields Definition][field-types] section for details. |
 | `taxonomy` | An array listing the different taxonomies used by this ContentType. For example `[ categories, tags ]`. See the page on [Taxonomies][ct-taxonomies] for details. |
 | `relations` | An array listing the different relations available to this ContentType. See the page on [Relations][ct-relations] for details. |
@@ -215,18 +224,17 @@ The available options are:
 | `listing_template` | The default template to use, when displaying an overview of Records of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. |
 | `listing_records` | The amount of records to show on a single overview page in the frontend. If there are more records, the results will be paginated   |
 | `listing_sort` | The field used to sort the results on. You can reverse the order by adding a '-'. For example `title` or `-datepublish`. |
-| `sort` (optional) | The default sorting of this ContentType, in the overview in Bolt's backend interface. For example `-datecreated`. Note that if your ContentType has a Taxonomy with `has_sortorder`, that the `sort` will be overruled by the Taxonomy's sorting. |
-| `recordsperpage` (optional) | The amount of records shown on each page in the Bolt backend. If there are more records, they will be paginated. |
-| `show_on_dashboard` (optional) | When set to `false` the ContentType will not appear in the 'Recently edited &hellip;' list on the dashboard page. |
-| `show_in_menu` (optional) | When set to `false` the ContentType will show in a submenu instead of as a top level menu. Can also be set to a word or sentence to group ContentTypes under different menus. |
-| `default_status` (optional) | Use this to set the default status for new records in this ContentType, i.e. `published`, `held`, `draft` or `timed`. |
-| `searchable` (optional) | A boolean value to determine whether this ContentType should show up in search results. |
-| `viewless` (optional) | When set to `true`, routes will not be set for the ContentType listing, or the records themselves. Useful for creating [Resource ContentTypes][howto-resource-ct]. |
-| `singleton` (optional) | When set to `true`, the Bolt UI will adapt to give a fluent experience for ContentTypes with one post. Like a complex homepage or general settings. [Singletons][howto-singletons]. |
-| `title_format` (optional) | Is used to determine the format of the title in the backend. For example if you have two fields for `firstname` and `lastname` you might put `[ firstname, lastname ]` here. |
-| `icon_many` (optional) | A [Font Awesome][fa] icon to be used in the sidebar for this ContentType. For example: `fa:cubes`. See the full list of available icons at [Font Awesome website](https://fontawesome.com/v4.7.0/icons/). |
-| `icon_one` (optional) | A [Font Awesome][fa] icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`. |
-| `allow_numeric_slugs` (optional, advanced) | By default, Bolt prefixes slugs purely numeric with the ContentType slug (e.g. `entry-123` for an entry with title `123`), in order to distinguish slugs from IDs. If this option is set to `true`, numeric slugs remain unprefixed. Care has to be taken not to use [routes][routing] of the form `/{contenttype}/{id}` for links in templates or for [fetching content][fetching-content]!
+| `sort` <small>(optional)</small> | The default sorting of this ContentType, in the overview in Bolt's backend interface. For example `-datecreated`. Note that if your ContentType has a Taxonomy with `has_sortorder`, that the `sort` will be overruled by the Taxonomy's sorting. |
+| `records_per_page` <small>(optional)</small> | The amount of records shown on each page in the Bolt backend. If there are more records, they will be paginated. |
+| `show_on_dashboard` <small>(optional)</small> | When set to `false` the ContentType will not appear in the 'Recently edited &hellip;' list on the dashboard page. |
+| `show_in_menu` <small>(optional)</small> | When set to `false` the ContentType will show in a submenu instead of as a top level menu. Can also be set to a word or sentence to group ContentTypes under different menus. |
+| `default_status` <small>(optional)</small> | Use this to set the default status for new records in this ContentType, i.e. `published`, `held`, `draft` or `timed`. |
+| `searchable` <small>(optional)</small> | A boolean value to determine whether this ContentType should show up in search results. |
+| `viewless` <small>(optional)</small> | When set to `true`, routes will not be set for the ContentType listing, or the records themselves. Useful for creating [Resource ContentTypes][howto-resource-ct]. |
+| `singleton` <small>(optional)</small> | When set to `true`, the Bolt UI will adapt to give a fluent experience for ContentTypes with one post. Like a complex homepage or general settings. [Singletons][howto-singletons]. |
+| `title_format` <small>(optional)</small> | Is used to determine the format of the title in the backend. For example if you have two fields for `firstname` and `lastname` you might put `[ firstname, lastname ]` here. |
+| `icon_many` <small>(optional)</small> | A [Font Awesome][fa] icon to be used in the sidebar for this ContentType. For example: `fa:cubes`. See the full list of available icons in the [FA gallery][gallery]. |
+| `icon_one` <small>(optional)</small> | A [Font Awesome][fa] icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`. |
 
 <p class="note"><strong>Note:</strong> A ContentType slug or name may not start
 with a double underscore. A field key may not contain a double underscore.
@@ -415,7 +423,8 @@ pages:
 (...)
 ```
 
-[fa]: http://fortawesome.github.io/Font-Awesome/
+[fa]: https://fontawesome.com
+[gallery]: https://fontawesome.com/v4.7.0/icons/
 [ct-relations]: ../contenttypes/relationships
 [ct-taxonomies]: ../contenttypes/taxonomies
 [fetching-content]: ../templating/content-fetching
