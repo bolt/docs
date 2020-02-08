@@ -98,9 +98,10 @@ from normal users.
 ### Show on Dashboard
 
 By setting `show_on_dashboard: false` we will hide the editing and existence of
-these records from the Bolt Dashboard. While we are going to use permissions to
+these records from the Bolt Dashboard.
+<!-- While we are going to use permissions to
 make these inaccessible to most users, it is still nice to keep them well
-confined.
+confined. -->
 
 ### Searchable
 
@@ -112,6 +113,7 @@ search results.
 By setting `viewless: true`, routes will not be set for the ContentType listing,
 or the records themselves.
 
+<!--
 Permissions
 -----------
 
@@ -130,7 +132,7 @@ contenttypes:
 ```
 
 This will limit edit, create, (de)publish, delete and view access to only those
-with the `root` and `chief-editor` roles.
+with the `root` and `chief-editor` roles. -->
 
 Accessing Resource Records in Templates
 ---------------------------------------
@@ -154,7 +156,7 @@ editor provides, the snippet below will output a fully working HTML link.
 {% setcontent block = "block/about-us" %}
 {% if block.contentlink %}
     <p>
-        <a href="{{ relative_path(block.contentlink|e) }}">Read more</a>
+        <a href="{{ absolute_link(block.contentlink|e) }}">Read more</a>
     </p>
 {% endif %}
 

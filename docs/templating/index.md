@@ -10,7 +10,5 @@ pages:
     - linking-in-templates
     - content-paging
     - content-search
-    - template-specific-fields
     - widgets
-    - live-editor
 ---

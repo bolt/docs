@@ -3,6 +3,7 @@ title: Twig Components
 pages:
     - extras
 ---
+
 Twig tags, functions & filters
 ==============================
 
@@ -187,7 +188,7 @@ can do with the `thumbnail` filter.
 ```twig
 {{ record.photo|popup(100, 100, "r") }}
 or
-{{ popup("2016-08/foo.jpg", 100, 100) }}
+{{ popup("2020-08/foo.jpg", 100, 100) }}
 ```
 
 By default, Magnific will display the filename under the image in the popup.
@@ -195,9 +196,9 @@ You can specify another value for this caption by using a fourth parameter
 (e.g alt or title tag).
 
 ```twig
-{{ popup("2016-08/foo.jpg", 100, 100, 'My title') }}
+{{ popup("2020-08/foo.jpg", 100, 100, 'My title') }}
 or
-{{ popup("2016-08/foo.jpg", 100, 100, record.values.image.alt) }}
+{{ popup("2020-08/foo.jpg", 100, 100, record.values.image.alt) }}
 ```
 
 Note that you should include the Magnific Popup `.js` and `.css` yourself, as
@@ -271,6 +272,28 @@ used in an if/else clause, to redirect visitors based on some criteria.
 
 {% endfor %}
 ```
+
+### absolute_link
+
+Use `absolute_link` to create a proper link to either a relative page, or to an
+external source. In the below example, the editor can provide either
+`page/about`, or `https://boltcms.io`, and both will work:
+
+```twig
+<a href="{{ absolute_link(block.contentlink|e) }}">Read more</a>
+```
+
+See also [Linking in templates][linkintpl], with a detailed
+description of a good usecase.
+
+
+### absolute_url
+
+Use `absolute_url` to create a full link with scheme and domain name from a link
+
+See also [Linking in templates][linkintpl], with a detailed
+description of a good usecase.
+
 
 ### getuser & getuserid
 
@@ -594,7 +617,7 @@ In Bolt dates are stored with each record for the date the record was created,
 when it was last edited, and optionally when it was published. These dates are
 stored in a way that makes it easier for the database to work with them when it
 comes to sorting or selecting a specific period. They look like:
-`2013-02-18 09:41:10`, which isn't suitable to output on the website itself.
+`2020-02-18 09:41:10`, which isn't suitable to output on the website itself.
 The localedatetime filter transforms the ugly timestamp to a readable,
 localized text. Examples:
 
@@ -605,9 +628,9 @@ localized text. Examples:
 
 Outputs:
 
- - '2012-12-05 06:51:16' is the same as 'mánudagur desember 5', if your locale is set to
+ - '2020-12-05 06:51:16' is the same as 'mánudagur desember 5', if your locale is set to
     `is_IS`,  or
- - '2012-12-05 06:51:16' is the same as 'Monday December 5', if it's set to `en_GB`. Note
+ - '2020-12-05 06:51:16' is the same as 'Monday December 5', if it's set to `en_GB`. Note
     that it correctly uses capitals according to the chosen language's conventions.
 
 Some other examples:
@@ -622,9 +645,9 @@ Some other examples:
 
 Outputs:
 
- - Created: Fri 9 Nov 10:55:19 2012
- - Published: The Sunday in week 07 of 2013
- - Last changed: February 17, 2013 01:09:30 pm
+ - Created: Fri 9 Nov 10:55:19 2020
+ - Published: The Sunday in week 07 of 2020
+ - Last changed: February 17, 2020 01:09:30 pm
 
 The `localedatetime`-filter uses the PHP `strftime()` function internally. For all
 possible options, see the official [strftime()][strftime] page on php.net.
@@ -790,7 +813,7 @@ filter.
 ```twig
 {{ record.photo|showimage(800, 600) }}
 or
-{{ showimage("2013-03/foo.jpg", 800, 600) }}
+{{ showimage("2020-03/foo.jpg", 800, 600) }}
 ```
 
 ### thumbnail
@@ -862,8 +885,8 @@ Use this modifier to create a link to an image of your choosing. For example:
 <img src="{{ content.photo|image }}">
 ```
 
-If `content.photo` is an image in your `files/` folder, like `2012-11/foo.jpg`,
-this modifier will output a link like `/files/2012-11/foo.jpg`. This is useful
+If `content.photo` is an image in your `files/` folder, like `2020-11/foo.jpg`,
+this modifier will output a link like `/files/2020-11/foo.jpg`. This is useful
 for creating absolute links to an image, regardless of whether Bolt is installed
 in the root of your domain, a subdomain or a folder.
 
@@ -1211,6 +1234,7 @@ extensions to find out:
 [debugging-page]: ../debugging
 [select-page]: ../fields/select
 [locales-page]: ../other/locales
+[linkintpl]: ../templating/linking-in-templates
 [linkintpl-asset]: ../templating/linking-in-templates#using-asset-to-link-to-assets-or-files
 [linkintpl-pathurl]: ../templating/linking-in-templates#using-path-and-url-to-link-to-named-routes
 [linkintpl-current]: ../templating/linking-in-templates#linking-to-the-current-page
