@@ -64,7 +64,7 @@ array:7 [▼
 You can see the values of all extras, using:
 
 ```twig
-{{ dump(record|extras ) }}
+{{ dump(record.extras ) }}
 ```
 
 [slug]: ../fields/slug#options
