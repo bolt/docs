@@ -1,7 +1,5 @@
 ---
 title: Extras (or "Magic Attributes")
-pages:
-    - extras
 ---
 Extras (or "Magic Attributes")
 ==============================
