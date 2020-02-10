@@ -106,3 +106,31 @@ The field has three specific options:
                 content:
                     type: html
 ```
+
+## Default value
+
+A collection may contain a number of pre-defined default sub-fields.
+To set those, the `default:` option takes an array which defines the 
+order, field name and default value for the collection item.
+
+Example:
+
+```yaml
+        features:
+            type: collection
+            fields:
+                title:
+                    type: text
+                image:
+                    type: image
+                    extensions: [ gif, jpg, png ]
+                content:
+                    type: html
+            default:
+                0:
+                    field: title
+                    default: "This is the first default field in the collection."
+                1:
+                    field: html
+                    default: "This is the <b>second</b> default field in the collection."
+```
