@@ -38,6 +38,19 @@ Additionally, the following properties are available:
 {{ record.embedded.responsive_inline }}
 ```
 
+## Default value
+
+The embed field can contain a default value, which you can set using the
+`default:` option like so:
+
+```yaml
+        embedded:
+            type: embed
+            default:
+                url: "https://www.youtube.com/embed/sRrqF8eXs38"
+                width: "480"
+                height: "270"
+
 ## Responsive options
 
 An embed field can be set to responsive, thereby ignoring the `width` and `height` options. Bolt provides two responsive options.

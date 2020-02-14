@@ -41,3 +41,17 @@ The field has one option to change the functionality of the field:
             upload: portfolio
 ```
 
+## Default value
+
+The `imagelist` field can be instantiated with an array of images as default
+value using the `default:` option like so:
+
+```yaml
+        carousel:
+            type: imagelist
+            default:
+                0:
+                    filename: "cat.jpg"
+                1:
+                    filename: "dog.jpg"
+```

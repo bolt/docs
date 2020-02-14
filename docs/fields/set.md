@@ -86,3 +86,24 @@ knowing that our set comprises of sub-fields `image` and
     {{ record.contentset.text }}
 ```
 
+## Default value
+
+When you want to give a set a default value, use the `default: ` option
+of the sub-field.
+
+Example:
+
+```yaml
+        contentset:
+            type: set
+            label: Content Set
+            group: Sets
+            fields:
+                image:
+                    label: Image with description
+                    type: image
+                text:
+                    label: Paragraph
+                    type: text
+                    default: "This is the default value of the paragraph field in the contentset."
+```

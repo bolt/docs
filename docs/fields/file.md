@@ -35,3 +35,16 @@ field.
             extensions: [ png, pdf ]
             upload: portfolio
 ```
+
+## Default value
+
+When you want to give an file a default value, use `default: `. You can set the default
+value for an image like so:
+
+```yaml
+        attachment:
+            type: file
+            default:
+                filename: "example.pdf"
+                title: "This is an example pdf file."
+```
