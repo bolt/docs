@@ -34,6 +34,8 @@ Additionally, the following properties are available:
 {{ record.embedded.authorname }}
 {{ record.embedded.authorurl }}
 {{ record.embedded.thumbnail }}
+{{ record.embedded.responsive }}
+{{ record.embedded.responsive_inline }}
 ```
 
 ## Default value
@@ -48,4 +50,39 @@ The embed field can contain a default value, which you can set using the
                 url: "https://www.youtube.com/embed/sRrqF8eXs38"
                 width: "480"
                 height: "270"
+
+## Responsive options
+
+An embed field can be set to responsive, thereby ignoring the `width` and `height` options. Bolt provides two responsive options.
+
+### Responsive by class
+
+```twig
+{{ record.embedded.responsive|html }}
+```
+
+The example above will render the embedded `iframe` wrapped around a container parent as follows:
+
+```html
+<div class="embed-responsive">
+    <iframe ... />
+</div>
+```
+
+You can use this class to apply the responsive styling in css as you see fit.
+
+### Responsive by inline styles
+
+Alternatively, the `responsive_inline` value can be used to render a responsive embedded field, without any custom CSS required.
+
+```twig
+{{ record.embedded.responsive_inline|raw }}
+```
+
+will render the following:
+
+```html
+<div style="overflow: hidden; padding-bottom: 56.25%; position: relative; height: 0;">
+    <iframe style="left: 0; top: 0; height: 100%; width: 100%; position: absolute;" ... />
+</div>
 ```
