@@ -5,14 +5,33 @@ title: Available variables in Twig
 Available variables in Twig
 ===========================
 
-## app
+To see all variables defined in the current page, use
 
 ```twig
-{{ app.config.get('general/sitename') }}
+# To output all variables in place in the HTML output
+{{ dump() }}
+
+# To output all variables in the Symfony toolbar
+{% dump() %}
 ```
 
+## App
+
+App is an instance of `Symfony\Bridge\Twig\Appvariable`. It contains:
+
+| Name           | Description |
+|----------------|-------------|
+| `debug`        | Boolean indicating whether Debug is enabled or not |
+| `environment`  | Indicating the current environment, like `dev` or `prod` |
+| `request`      | Instance of `Symfony\Component\HttpFoundation\Request` |
+| `session`      | Instance of `Symfony\Component\HttpFoundation\Session\Session` |
+| `flashes`      | Array of Session Flashes |
+| `user`         | Instance of `Bolt\Entity\User` |
+| `tokenStorage` | Instance of Symfony's `UsageTrackingTokenStorage` |
+| `requestStack` | Instance of `Symfony\Component\HttpFoundation\RequestStack` |
+
 ```twig
-{{ dump(app.config.get('general')) }}
+{{ app.debug }}
 ```
 
 ### Request
@@ -20,6 +39,7 @@ Available variables in Twig
 The app variable also includes information about the request, accessible by:
 
 ```twig
+{{ dump(app.request) }}
 {% set request = app.request %}
 {% set method = request.method %}
 {% set host = request.headers.host %}
@@ -35,10 +55,21 @@ The session can be accessed through the app variable:
 
 ### User
 
-Apart from the global `user` variable, the user can also be accessed using the app variable:
+Apart from the global `user` variable, the user can also be accessed using the
+app variable:
 
 ```twig
 {% set user = app.user %}
+```
+
+```twig
+{{ user.displayName }} # shows the logged in user's display name
+{{ user.username }}
+{{ user.email }}
+{{ user.lastSeenAt }}
+{{ user.locale }}
+{{ user.disabled }} # true if user is disabled, otherwise false.
+{{ user.roles }} # returns an array containing the user's roles
 ```
 
 ### Environment
@@ -63,24 +94,11 @@ Symfony's flashes can be accessed through the global app variable:
 {% endfor %}
 ```
 
-## user
+## Config
 
-The global user variable is a copy of `{{ app.user }}` as discussed earlier.
-
-```twig
-{{ user.displayName }} # shows the logged in user's display name
-{{ user.username }}
-{{ user.email }}
-{{ user.lastSeenAt }}
-{{ user.locale }}
-{{ user.disabled }} # true if user is disabled, otherwise false.
-{{ user.roles }} # returns an array containing the user's roles
-```
-
-## config
-
-The config global variable is used to access the configuration available in your `config.yaml` and `contenttypes.yaml` files.
-It has a bunch of useful methods
+The config global variable is used to access the configuration available in
+your `config.yaml` and `contenttypes.yaml` files. It has a bunch of useful
+methods
 
 ### get(path)
 
@@ -94,48 +112,39 @@ Returns a config value using a path
 ### has(path)
 
 Returns true if config matches path, and false otherwise.
+
 ```twig
 {% set has_sitename = config.get('general/sitename') %} # returns true
 {% set has_fakedummy = config.get('fake/dummy) %} # returns false
 ```
 
-### getContentType(contenttype)
+### contentType(contenttype)
 
 Returns the configuration for the given contenttype.
 
 ```twig
-{% homepage_config = config.getContentType('homepage') %}
+{% set homepage_config = config.contentType('homepage') %}
 ```
 
-## theme
+## Theme
 
-The global theme variable contains the configuration for your current theme, as defined in `theme.yaml`.
-For example, if you have configured your theme with a dark/light modes, here is how to access them:
+The global theme variable contains the configuration for your current theme, as
+defined in `theme.yaml`. For example, if you have configured your theme with a
+dark/light modes, here is how to access them:
 
 ```twig
-{% set mode = theme.get('mode')
+{% set mode = theme.get('mode') %}
 ```
 
 <p class="note"><strong>Note:</strong> Unlike the global <code>config</code>,
 the global <code>theme</code> variable is a multi-dimensional array. Thus,
 to access nested configurations, use <code>theme.get('level-1').get('level-2')</code>.</p>
 
+## Record
 
-[widgets-page]: ../templating/widgets
-[debugging-page]: ../debugging
-[select-page]: ../fields/select
-[locales-page]: ../other/locales
-[linkintpl]: ../templating/linking-in-templates
-[linkintpl-asset]: ../templating/linking-in-templates#using-asset-to-link-to-assets-or-files
-[linkintpl-pathurl]: ../templating/linking-in-templates#using-path-and-url-to-link-to-named-routes
-[linkintpl-current]: ../templating/linking-in-templates#linking-to-the-current-page
-[twig]: http://twig.sensiolabs.org/doc/templates.html
-[inc]: http://twig.sensiolabs.org/doc/functions/include.html
-[inheritance]: http://twig.sensiolabs.org/doc/templates.html#template-inheritance
-[number]: http://twig.sensiolabs.org/doc/filters/number_format.html
-[popup]: http://dimsemenov.com/plugins/magnific-popup/
-[strftime]: http://php.net/manual/en/function.strftime.php
-[date]: http://php.net/manual/en/function.date.php
-[for]: http://twig.sensiolabs.org/doc/tags/for.html
-[switch]: http://php.net/manual/en/control-structures.switch.php
-[extras]: ./twig-components/extras
+Most pages will have a global 'record' defined that corresponds to the current page. For more information on this, see [Record and Records][record]
+
+
+---
+[record]: ../templating/record-and-records
+
