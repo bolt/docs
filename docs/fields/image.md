@@ -52,10 +52,6 @@ field.
             upload: portfolio
 ```
 
-You can call these in your templates by using `{{ record.cover.alt }}`
-or `{{ record.cover.caption }}` and they will also be automatically used by
-Bolt's image functions.
-
 ## Media attributes
 
 For each uploaded image you can manage the associated Metadata, like "Title",
@@ -105,3 +101,29 @@ Another example:
     Copyright: {{ media.copyright }}
 ```
 
+You can call these in your templates by using `{{ record.values.image.alt }}`
+or `{{ record.values.image.caption }}` and they will also be automatically used by
+bolt's image functions.
+
+## Default value
+
+When you want to give an image a default value, use `default: `. You can set the default
+value for an image like so:
+
+```yaml
+        hero:
+            type: image
+            alt: true
+            default:
+                filename: "cover.jpg"
+                alt: "This is the cover image"
+```
+
+or, without the `alt` attribute:
+
+```yaml
+        hero:
+            type: image
+            default:
+                filename: "cover.jpg"
+```

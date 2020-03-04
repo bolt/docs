@@ -37,3 +37,20 @@ The field has a one option to change the functionality of the field:
             extensions: [ png, pdf ]
             upload: portfolio
 ```
+
+## Default value
+
+The `filelist` field can be instantiated with an array of files as default
+value using the `default:` option like so:
+
+```yaml
+        documents:
+            type: filelist
+            default:
+                0:
+                    filename: "2019.pdf"
+                    title: "2019 document"
+                1:
+                    filename: "2020.pdf"
+                    title: "2020 document"
+```

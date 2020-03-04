@@ -99,25 +99,34 @@ description will override that field type default.
 
 ## Default values
 
-When you want to give a record a default value, use `default:`. For most fields
-this will set the initial value of the field, when you're creating a new record
-of this ContentType. For `date` and `datetime` fields, the value is passed
+When you want to give a record a default value, use `default:`. For fields that
+contain scalar values, such as `text`, `textarea`, `html`, `checkbox`, etc. the
+default value is set like so:
+```yaml
+        city:
+            type: text
+            default: "Amsterdam"
+```
+
+For `date` fields, the value is passed 
 through [strtotime](http://php.net/manual/en/function.strtotime.php), meaning
 that you can use a fixed date as default, like "1900-01-01 12:00:00", but also
 relative dates like "first day of this month", "next Monday" or "yesterday".
 
-For select fields, you can use one of the values that you define. For example:
+For `select` and `multiselect` fields, you can use one or more of the values 
+that you define, as an array. For example:
 
 ```yaml
-    colors:
-        type: select
-        values: [ red, green, blue ]
-        default: green
+        colors:
+            type: select
+            values: [ red, green, blue ]
+            default: [ green ]
 ```
 
-If your select field is using a list of records from another ContentType as its
-values, and you want to define a default, you will need to use the ID of the 
-record that you want to set as the default.
+The value of other fields fields such as `image`, `imagelist`, `file`, 
+`filelist`, `set`, `collection` and `embed` is non-scalar, therefore the default
+value for those field is set differently. Please consult the documentation for how
+to configure the default value for each specific field.
 
 ## Required and patterns
 
