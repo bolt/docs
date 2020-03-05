@@ -10,11 +10,12 @@ pages:
     - fields
     - templating
     - twig-components
-    - howto
-    - nut-command
-    - debugging
+    - extensions
+    - core-development
     - performance
     - manual
     - other
-    - core-development
+    - howto
+    - nut-command
+    - debugging
 ---
