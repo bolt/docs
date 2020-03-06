@@ -1,4 +1,5 @@
 ---
+section: Templating & Twig
 title: Templating
 redirect: templating/template-selection
 pages:

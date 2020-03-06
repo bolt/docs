@@ -1,5 +1,5 @@
 ---
-title: Event Dispatcher
+title: Request & Response
 ---
 
 The HttpFoundation Component

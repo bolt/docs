@@ -12,10 +12,10 @@ pages:
     - twig-components
     - extensions
     - core-development
+    - nut-command
+    - debugging
     - performance
     - manual
     - other
     - howto
-    - nut-command
-    - debugging
 ---

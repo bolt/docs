@@ -1,4 +1,5 @@
 ---
+section: Bolt Development
 title: "Extending Bolt"
 pages:
     - introduction
