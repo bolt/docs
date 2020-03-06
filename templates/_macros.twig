@@ -47,9 +47,6 @@
 
         {% set selected = current.url starts with page.url %}
         <li class="{{ not selected ? 'closed' }}{{ current.url == page.url ? ' selected'}}">
-            {% if page.title == "Getting Started" %}
-                {% dump(page.section) %}
-            {% endif %}
             {% if page.subPages is not empty %}
                 <a href="{{ page.url }}" class="{{ current.url == page.url ? 'is-active'}}"><span>{{ page.title }}</span></a>
 
