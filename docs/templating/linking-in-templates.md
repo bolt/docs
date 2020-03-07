@@ -12,7 +12,7 @@ They are:
  - To link to the 'current page', use `{{ canonical() }}` or `{{ record.link() }}`
  - To generate a relative or absolute path, use `{{ path() }}`
  - To generate a scheme-relative or absolute url, use `{{ url() }}`
- - To generate sensible links from user-provided input, use `{{ relative_path() }}`
+ - To generate sensible links from user-provided input, use `{{ absolute_link() }}`
  - To generate absolute links from relative links, use `{{ absolute_url() }}`
 
 The following sections of this page will detail the different functions, and how
@@ -65,9 +65,9 @@ Examples:
 This would produce, on an default install, the following output:
 
 ```twig
-<link rel="stylesheet" href="/theme/base-2016/css/theme.css">
+<link rel="stylesheet" href="/theme/base-2020/css/theme.css">
 
-<script src="/theme/base-2016/js/jquery.min.js"></script>
+<script src="/theme/base-2020/js/jquery.min.js"></script>
 
 <img src="/files/kitten.jpg">
 ```
@@ -212,7 +212,7 @@ front end, as well as the "Routing" panel in the debug toolbar.
 For more in-depth information about this function, see [Linking to pages][page]
 in the Symfony documentation.
 
-## Working with "raw links", using `relative_path`
+## Working with "raw links", using `absolute_link`
 
 As you've seen in the examples above, these mostly deal with paths and urls
 programmatically. Often you will find that a client or editor wants to have a
@@ -242,7 +242,7 @@ editor provided:
 
 ```twig
 {% if record.contentlink %}
-    <a href="{{ relative_path(record.contentlink|e) }}">Read more</a>
+    <a href="{{ absolute_link(record.contentlink|e) }}">Read more</a>
 {% endif %}
 ```
 
@@ -269,7 +269,7 @@ to content and file assets alike. For example:
 <img src="{{ absolute_url( asset('kitten.jpg', 'files') ) }}" />
 ```
 
-For more in-depth information about this function, see 
+For more in-depth information about this function, see
 [absolute_url][absolute_url] in the Symfony documentation.
 
 
