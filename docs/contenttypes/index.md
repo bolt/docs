@@ -1,4 +1,5 @@
 ---
+section: Content & ContentTypes
 title: ContentTypes
 redirect: contenttypes/intro
 pages:

@@ -1,4 +1,5 @@
 ---
+section: Other Information
 title: Performance Tuning
 short_title: Performance Tuning
 pages:

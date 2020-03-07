@@ -1,4 +1,5 @@
 ---
+section: Configuration
 title: Configuration
 redirect: configuration/introduction
 pages:
