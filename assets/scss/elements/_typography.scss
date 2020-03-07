@@ -2,7 +2,6 @@
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $family-header;
-  scroll-margin-top: 5rem;
 }
 
 .content h1 {
@@ -33,7 +32,7 @@ main a {
     text-decoration: underline;
     text-decoration-skip: ink;
 }
-
+                
 .quick-links {
     margin: 0 0 2em;
     ul {
