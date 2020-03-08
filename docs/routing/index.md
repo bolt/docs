@@ -73,12 +73,12 @@ example:
 
 ### ContentType overrides
 
-This case overrides the default routing for single pages of different ContentTypes. Bolt will no
-longer create `/page/{slug}` links but will now create `/{slug}` routes. The old
-routes will still work, but the canonicals will be fixed to the new routes. The
-_defaults_ are set to the regular record-action but we also added an additional
-`contenttype: page` line to tell Bolt to use this route for all records with
-ContentType **page**.
+This case overrides the default routing for single pages of different
+ContentTypes. Bolt will no longer create `/page/{slug}` links but will now
+create `/{slug}` routes. The old routes will still work, but the canonicals
+will be fixed to the new routes. The _defaults_ are set to the regular
+record-action but we also added an additional `contenttype: page` line to tell
+Bolt to use this route for all records with ContentType **page**.
 
 Note that doing this will make it impossible for you to have two records in
 different contenttypes that share the same slug. If there are duplicates of
