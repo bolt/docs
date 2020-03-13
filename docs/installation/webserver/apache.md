@@ -14,14 +14,19 @@ DirectoryIndex index.php index.html index.htm
 # Prevent directory listing
 Options -Indexes
 
-<FilesMatch "\.(yml|db|twig|md)$">
-    <IfModule mod_authz_core.c>
-        Require all denied
-    </IfModule>
-    <IfModule !mod_authz_core.c>
-        Order deny,allow
-        Deny from all
-    </IfModule>
+# Make sure MultiViews is disabled if available.
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+
+<FilesMatch "\.(dist|db|markdown|md|twig|yaml|yml)|(bower|composer|jsdoc|package)\.json$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
 </FilesMatch>
 
 <IfModule mod_rewrite.c>
@@ -29,15 +34,38 @@ Options -Indexes
 
   RewriteRule cache/ - [F]
 
-  # Some servers require the RewriteBase to be set. If so, set to the correct directory.
+  # Some servers require the RewriteBase to be set. If so, set to the correct folder.
   # RewriteBase /
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !=/favicon.ico
   RewriteRule ^ ./index.php [L]
+
 </IfModule>
 
+
+# set the correct mime type for woff2 font type
+# =============================================
+# if you don't set your own mimetypes or you aren't using
+# HTML5 Boilerplate Server Configs https://github.com/h5bp/server-configs-apache
+# then you can uncomment (delete the hash/pound/octothorpe/number symbol)
+# the section below:
+
+#<IfModule mod_mime.c>
+#  AddType application/font-woff2    woff2
+#</IfModule>
+
+# Block access to all hidden files and directories. These types of files 
+# usually contain user preferences and can include private information like, 
+# for example, the `.git` or `.svn` directories.
+<IfModule mod_rewrite.c>
+   RewriteEngine On
+   RewriteCond %{REQUEST_URI} "!(^|/)\.well-known/([^./]+./?)+$" [NC]
+   RewriteCond %{SCRIPT_FILENAME} -d [OR]
+   RewriteCond %{SCRIPT_FILENAME} -f
+   RewriteRule "(^|/)\." - [F]
+</IfModule>
 ```
 
 In some cases it won't work without the `RewriteBase` line, and in some cases
