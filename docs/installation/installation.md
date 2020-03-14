@@ -50,7 +50,7 @@ Alternatively, run the following commands in sequence to do it step by step:
 bin/console bolt:setup
 
 # As separate steps
-bin/console doctrine:database:create --if-not-exists
+bin/console doctrine:database:create
 bin/console doctrine:schema:create
 bin/console bolt:add-user
 bin/console doctrine:fixtures:load
