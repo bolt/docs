@@ -51,7 +51,7 @@ add some dummy content ("fixtures") to the database.
 Alternatively, run the following commands in sequence to do it step by step:
 
 ```bash
-bin/console doctrine:database:create
+bin/console doctrine:database:create --if-not-exists
 bin/console doctrine:schema:create
 bin/console bolt:add-user
 bin/console doctrine:fixtures:load
