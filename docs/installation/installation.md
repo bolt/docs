@@ -76,7 +76,6 @@ make sure you use <code>public/</code> as the web root. Bolt does <em>not</em>
 support putting all of its files inside the webroot itself, as that is
 considered to be a bad practice.</p>
 
-
 Start PHP's built-in webserver…
 
 ```bash
