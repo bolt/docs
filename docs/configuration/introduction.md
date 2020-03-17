@@ -22,7 +22,7 @@ the `AllowOverride` option is enabled.
 
 ### Permissions errors
 
-Bolt needs to write data to a number of folders like `cache/` and
+Bolt needs to write data to a number of folders like `var/` and
 `files/`, where uploaded images and other files will be saved.
 
 If you get an error when opening your new install in a browser window, your
@@ -40,6 +40,10 @@ browser, you will be redirected to a page like <tt>/bolt/login</tt>. <br>If you
 get a 'File not found'-error, you'll most likely have a <em>rewrites</em>
 error. See <a href="../howto/making-sure-htaccess-works">this page on .htaccess
 and mod_rewrite on apache </a> for help.</p>
+
+<p class="note"><strong>Note</strong> If you're using SQLite, ensure the
+database file is writable for the webserver's user. Read more about it on the
+<a href="../installation/permissions"> File system permissions</a> page.</p>
 
 ## Fill with test content
 

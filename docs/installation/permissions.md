@@ -13,8 +13,8 @@ JavaScript, CSS, Twig and other files.
 
 However, Bolt must be able to **read and write** certain directories.
 
-Most FTP clients will allow you to do this quickly, using a 'include files' or
-'apply to enclosed' option.
+From the Command Line this is easy to fix. Most FTP clients will allow you to
+do this quickly as well, using a 'include files' or 'apply to enclosed' option.
 
 <a href="/files/ftp-chmod.png" class="popup"><img src="/files/ftp-chmod.png" width="590"></a><br>
 
@@ -56,6 +56,12 @@ for dir in config/ public/files/ public/theme/ public/thumbs/ var/ ; do
     find $dir -type f -print0 | xargs -0 chmod u+rw-x,g+rw-x,o+r-wx > /dev/null 2>&1
 done
 ```
+
+<p class="note"><strong>Note</strong> If you're using SQLite, you must ensure
+the database file is writable for the webserver's user. It's stored in
+<code>var/data/bolt.sqlite</code> by default. This means that it's taken into
+account in the above instructions. If you've configured the file to be located
+elsewhere, you might need to set the permissions yourself.</p>
 
 Make sure that the root folder is also readable by the web server. On some
 setups (mainly shared hosting solutions) this is not always the case. To remedy

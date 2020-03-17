@@ -56,6 +56,11 @@ bin/console bolt:add-user
 bin/console doctrine:fixtures:load
 ```
 
+<p class="note"><strong>Tip:</strong> Depending on your configuration and what
+webserver you're going to use, you might need to set some permissions on a
+number of files and folders. Read more about it on the <a href="./permissions">
+File system permissions</a> page.</p>
+
 Starting a webserver
 --------------------
 
@@ -64,12 +69,13 @@ Docker or your own preferred webserver. If you choose to set up a web server
 yourself, you can either set up something like [Mamp, Xampp, Laragon][local] or
 otherwise there's docs for [Apache][apache] and [Nginx][nginx].
 
-<p class="note"><strong>Note:</strong> The folder you've just created has a
+<p class="tip"><strong>Note:</strong> The folder you've just created has a
 <code>public/</code> folder. This is the actual web root of the site. If you're
 not using one of the options below, but are configuring a webserver yourself,
 make sure you use <code>public/</code> as the web root. Bolt does <em>not</em>
 support putting all of its files inside the webroot itself, as that is
 considered to be a bad practice.</p>
+
 
 Start PHP's built-in webserver…
 
