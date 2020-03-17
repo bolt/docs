@@ -73,6 +73,37 @@ the `partials/_sub_menu.twig`. Note that this file should be present in your
 {{ menu(name='main', template = 'partials/_sub_menu.twig') }}
 ```
 
+
+You can specify other parameters besides the menu name and the template. For
+example, you can also set the the `ul` class or whether or not the output
+should contain submenus. You can control these using the so-called named
+arguments in Twig. For example:
+
+```twig
+{{ menu(
+    identifier = 'foo',
+    template = 'partials/_menu_foo.twig',
+    params = {'withsubmenus': false, 'class': 'myclass'}
+) }}
+```
+
+Which is equivalent to this shorthand version:
+
+```twig
+{{ menu('foo', 'partials/_menu_foo.twig', {'withsubmenus': false, 'class': 'myclass'}) }}
+```
+
+Doing this will render the menu `foo`, using the template `_menu_foo.twig`. The
+filename can be anything, but it's good practice to prefix it with `_menu`, so
+it's always easily recognizable later, or to other people working with your
+HTML.
+
+<p class="note"><strong>Note:</strong> You can define more than one menu in
+your <code>menu.yml</code> file, but you should define <em>only one</em> menu
+in each template file. So, if you have multiple menus that should be rendered
+with different HTML, you should have as many
+<code>_menu_<em>menuname</em>.twig</code> files in your theme.</p>
+
 ### menu_array()
 
 Returns an array of the menu items defined in the `menu.yaml` file for the
