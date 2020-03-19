@@ -45,15 +45,24 @@ directly from the Bolt backend, or by making edits in the file itself using
 your preferred editor.
 
 After configuring the Database, run `bin/console bolt:setup`. This will create
-and initialise the Database for you, then lets you create the first user, and
-add some dummy content ("fixtures") to the database.
+and initialise the Database for you, then lets you create the first (admin)
+user, and add some dummy content ("fixtures") to the database.
+
+```bash
+bin/console bolt:setup
+```
 
 Alternatively, run the following commands in sequence to do it step by step:
 
 ```bash
 bin/console doctrine:database:create
 bin/console doctrine:schema:create
-bin/console bolt:add-user
+bin/console bolt:add-user --admin
 bin/console doctrine:fixtures:load
 ```
 
+<p class="note"><strong>Note:</strong> Make sure to create at least one
+<strong>admin</strong> user, using either <code>bolt:setup</code> or by adding
+the <code>--admin</code> flag to <code>bolt:add-user</code>. Otherwise, you'll
+only create a "regular" user that doesn't have administrative permissions, and
+they won't be able to log into the backend.</p>
