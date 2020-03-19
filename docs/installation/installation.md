@@ -40,8 +40,8 @@ DATABASE_URL=sqlite:///%kernel.project_dir%/var/data/bolt.sqlite
 You can read more information about [configuring the database here][db-setup].
 
 After configuring the Database, run `bin/console bolt:setup`. This will create
-and initialise the Database for you, then lets you create the first user, and
-add some dummy content ("fixtures") to the database.
+and initialise the Database for you, then lets you create the first (admin)
+user, and add some dummy content ("fixtures") to the database.
 
 Alternatively, run the following commands in sequence to do it step by step:
 
@@ -52,14 +52,20 @@ bin/console bolt:setup
 # As separate steps
 bin/console doctrine:database:create
 bin/console doctrine:schema:create
-bin/console bolt:add-user
+bin/console bolt:add-user --admin
 bin/console doctrine:fixtures:load
 ```
 
-<p class="note"><strong>Tip:</strong> Depending on your configuration and what
+<p class="tip"><strong>Tip:</strong> Depending on your configuration and what
 webserver you're going to use, you might need to set some permissions on a
 number of files and folders. Read more about it on the <a href="./permissions">
 File system permissions</a> page.</p>
+
+<p class="note"><strong>Note:</strong> Make sure to create at least one
+<strong>admin</strong> user, using either <code>bolt:setup</code> or by adding
+the <code>--admin</code> flag to <code>bolt:add-user</code>. Otherwise, you'll
+only create a "regular" user that doesn't have administrative permissions, and
+they won't be able to log into the backend.</p>
 
 Starting a webserver
 --------------------
@@ -69,7 +75,7 @@ Docker or your own preferred webserver. If you choose to set up a web server
 yourself, you can either set up something like [Mamp, Xampp, Laragon][local] or
 otherwise there's docs for [Apache][apache] and [Nginx][nginx].
 
-<p class="tip"><strong>Note:</strong> The folder you've just created has a
+<p class="note"><strong>Note:</strong> The folder you've just created has a
 <code>public/</code> folder. This is the actual web root of the site. If you're
 not using one of the options below, but are configuring a webserver yourself,
 make sure you use <code>public/</code> as the web root. Bolt does <em>not</em>
