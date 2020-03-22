@@ -159,8 +159,8 @@ If you'd like to show only one specific Taxonomy, for example 'tags', use
 something like this:
 
 ```twig
-{% for tag in record|taxonomy.tags|default %}
-    {{ tag }}{% if not loop.last %}, {% endif %}
+{% for tag in record|taxonomies.tags|default %}
+    {{ tag.name }}{% if not loop.last %}, {% endif %}<hr>
 {% endfor %}
 ```
 
