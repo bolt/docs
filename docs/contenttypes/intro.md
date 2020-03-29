@@ -73,9 +73,9 @@ is named 'News Item'. We've defined fields for 'title', 'slug', 'image' and
 displaying a single record in the browser.
 
 <p class="note"><strong>Note:</strong> You should always ensure that the key
-that defines each of the ContentTypes and the value of the <code>slug</code>
+that defines each of the ContentTypes and the value of the <code>name</code>
 are the same. In the above example, we start with the key <code>news:</code>,
-and the slug is set to <code>slug: news</code>. If these do not match, Bolt
+and the name is set to <code>name: News</code>. If these do not match, Bolt
 will show an error message.</p>
 
 Save the file and refresh the Dashboard screen in your browser. If you do this,
@@ -104,7 +104,7 @@ somewhere below the header section:
 
     <p class="meta"><a href="{{ newsitem.link }}">Link</a> -
     Posted by {{ newsitem.user.displayname }}
-    on {{ newsitem.datecreated|date("M d, ’y")}}</p>
+    on {{ newsitem.createdAt|date("M d, ’y")}}</p>
 
 </article>
 {% endfor %}
@@ -118,7 +118,7 @@ When you refresh the front page of the website, you should see four news items
 listed on the page. You can click the title to go to the news item on a separate
 page, but it will use the default `record.twig` template. In the ContentType we
 defined the template as `newsitem.twig`, but it doesn't exist. Create the file
-in the `theme/base-2016/` folder, and add the following HTML-code:
+in the `theme/base-2020/` folder, and add the following HTML-code:
 
 ```twig
 <!DOCTYPE html>
@@ -142,7 +142,7 @@ in the `theme/base-2016/` folder, and add the following HTML-code:
 
         <p class="meta"><a href="{{ newsitem.link }}">Link</a> -
             Posted by {{ newsitem.user.displayname }}
-            on {{ newsitem.datecreated|date("M d, ’y")}}</p>
+            on {{ newsitem.createdAt|date("M d, ’y")}}</p>
 
     </article>
 </body>
@@ -192,7 +192,8 @@ name:
 
 The `name` defines the name of the ContentType, and it should be a 'safe'
 version of the `name:` option below. Basically this means that it should be a
-lowercase version, without any special characters. Like this:
+lowercase version, without any special characters.  Spaces should be replaced
+by hyphens.  Like this:
 
 ```yaml
 pages:
@@ -208,15 +209,21 @@ cafes:
     ..
 ```
 
+```yaml
+blog-posts:
+    name: "Blog Posts"
+    singular_name: "Blog Post"
+    ..
+```
+
 The available options are:
 
 | Option | Description |
 |--------|-------------|
 | `name` | The name of the ContentType, as it should be shown on screen or in the browser. It should be plural, if possible. |
+| `slug` <small>(optional)</small> | This determines the slug of the ContentType, and therefore the URLs that are generated for this ContentType. When omitted, the slug will be automatically generated from the `name`. |
 | `singular_name` | The name of one Record in the ContentType. This should be singular. For example, if the ContentType's name is 'Pages', this should be 'Page' |
-| `slug` <small>(optional)</small> | This determines the slug of the ContentType, and therefore the URLs that are generated for this ContentType. When omitted, the slug will be automatically generated. |
-| `singular_slug` <small>(optional)</small> | This determines the slug of a single record in this ContentType, and therefore the URLs that are generated for these records. When omitted, the slug will be automatically generated. |
-| `description` <small>(optional)</small> | A short description of the ContentType. This will be shown on the overview screen in the right aside column. |
+| `singular_slug` <small>(optional)</small> | This determines the slug of a single record in this ContentType, and therefore the URLs that are generated for these records. When omitted, the slug will be automatically generated from the `singular_name`. |
 | `fields` | The fields that make up the content in this ContentType. See the [Fields Definition][field-types] section for details. |
 | `taxonomy` | An array listing the different taxonomies used by this ContentType. For example `[ categories, tags ]`. See the page on [Taxonomies][ct-taxonomies] for details. |
 | `relations` | An array listing the different relations available to this ContentType. See the page on [Relations][ct-relations] for details. |
@@ -235,6 +242,7 @@ The available options are:
 | `title_format` <small>(optional)</small> | Is used to determine the format of the title in the backend. For example if you have two fields for `firstname` and `lastname` you might put `[ firstname, lastname ]` here. |
 | `icon_many` <small>(optional)</small> | A [Font Awesome][fa] icon to be used in the sidebar for this ContentType. For example: `fa:cubes`. See the full list of available icons in the [FA gallery][gallery]. |
 | `icon_one` <small>(optional)</small> | A [Font Awesome][fa] icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`. |
+| `locales` <small>(optional)</small> | The locales the content can be entered in.  i.e. `['en', 'nl', 'pt_BR', 'es']`. |
 
 <p class="note"><strong>Note:</strong> A ContentType slug or name may not start
 with a double underscore. A field key may not contain a double underscore.
@@ -300,33 +308,31 @@ At the topmost level, it contains the following items:
 
 | Item | Description |
 |------|-------------|
-| `id` | The unique identifying  number of this record in the database, for this ContentType. Note: there are duplicate ids for records in different ContentTypes. For example, there can be a record with id `1` for Pages, and also a record with id `1` for News. |
-| `values` | `An array with the values of this record. |
-| `taxonomy` | `An array (or `NULL`) for the taxonomy of this record. |
-| `contenttype` | `An array representation of the ContentType that this record belongs to, complete with the fields that the record should have.  |
-| `user` | `an array, containing information about the user, like the displayname, email-address, etcetera. |
-
-The values contain the fields that are defined in the ContentType, together
-with a few other fixed fields. The fixed fields are:
-
-| Field name | Description |
-|------------|-------------|
-| `id` | The record's unique identifying number. |
-| `slug` | The record's slug. Either generated automatically, or specified by the content editor. |
-| `datecreated` | The timestamp of when the record was first created. |
-| `datechanged` | The timestamp of when the record was last edited of modified. |
-| `datepublish` | The timestamp when the record was published, or when it _will_ be published. |
-| `datedepublish` | The timestamp when the record was depublished, or when it _will_ be depublished. |
-| `ownerid` | The id of the user that last edited (or created) this record. |
+| `id` | The unique identifying number of this record in the database. |
+| `contentType` | A string containing the key of the content type. |
+| `author` | An array, containing information about the user, like the displayname, email-address, etcetera. |
 | `status` | The current status of this record. Can be either `published`, `depublished`, `held`, `timed` or `draft`. |
+| `createdAt` | The timestamp of when the record was first created. |
+| `modifiedAt` | The timestamp of when the record was last edited of modified. |
+| `publishedAt` | The timestamp when the record was published, or when it _will_ be published. |
+| `depublishedAt` | The timestamp when the record was depublished, or when it _will_ be depublished. |
+| `fields` | An array with metadata of the Fields on this record.  To get field values, see below. |
+| `contentTypeDefinition` | An array with metadata of the ContentType that this record belongs to. |
+| `taxonomies` | An aray with metadata of the Taxonomies attached to this record. |
+
+The object also contains a generic getter for a record field values.  Fetch the value
+using {{ record.field_name }}.  If the `field_name` is not found, it throws an exception 
+if it's invoked from code, and return null if invoked from within a template. 
+(In templates we need to be more lenient, in order to do things like `{% if record.foo %}..{% endif %}`.
+Note: We can not rely on `{% if record.foo is defined %}`, because it always returns `true` for object properties.)
+
+There is also a variety of built-in twig helper [filters][twig-filters] and [functions][twig-functions] to get various 
+pieces of record data.  
 
 If you're building a template and are unsure of what a certain variable
 contains or how the fields are named, use `{{ dump(foo) }}`, where 'foo' is the
 name of your record or array. In most templates, `{{ dump(record) }}` will work
 as a generic fallback for whatever the name of your record is.
-
-For detailed information on how to access the various fields and values in your
-templates, see the [Twig tags, filters & functions][bolt-twig] page.
 
 Advanced: YAML Repeated Nodes
 -----------------------------
@@ -432,4 +438,5 @@ pages:
 [howto-resource-ct]: ../howto/resource-contenttype
 [howto-singletons]: ../howto/singleton-contenttype
 [routing]: ../configuration/routing
-[bolt-twig]: ../templating/twig-functionality
+[twig-filters]: ../twig-components/filters
+[twig-functions]: ../twig-components/functions
