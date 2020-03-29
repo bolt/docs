@@ -43,12 +43,12 @@ new Bolt system.
 
 ```yaml
 oldpages:
-    path: /{slug}.html
-    defaults:
-        _controller: Bolt\Controller\Frontend\DetailController::record
-        contenttypeslug: pages
-    requirements:
-        slug: [a-z0-9-_]+
+  path: /{slugOrId}.html
+  defaults:
+    _controller: Bolt\Controller\Frontend\DetailController::record
+    contentTypeSlug: pages
+  requirements:
+    slug: "[a-z0-9-_]+"
 ```
 
 After adding this, a request for `/welcome.html`, will be handled by the
@@ -63,12 +63,12 @@ specific ContentType and slug set up.
 
 ```yaml
 example:
-    path: /example
-    defaults:
-        _controller: Bolt\Controller\Frontend\DetailController::record
-        contenttypeslug: pages
-        slug: example
-    host: www.mydomain.org
+  path: /example
+  defaults:
+    _controller: Bolt\Controller\Frontend\DetailController::record
+    contentTypeSlug: pages
+    slugOrId: example
+  host: www.example.org
 ```
 
 ### ContentType overrides
@@ -87,40 +87,39 @@ way to differentiate them.
 
 ```yaml
 pagebinding:
-    path: /{slugOrId}
-    methods: [GET|POST]
-    defaults:
-        _controller: Bolt\Controller\Frontend\DetailController::record
+  path: /{slugOrId}
+  methods: [GET|POST]
+  defaults:
+    contentTypeSlug: page
+    _controller: Bolt\Controller\Frontend\DetailController::record
 ```
 
 An alternative is to also add the creation date:
 
 ```yaml
 pagebinding:
-    path: /{slug}
-    defaults:
-        _controller: Bolt\Controller\Frontend\DetailController::record
-        contenttypeslug: pages
-    requirements:
-      datecreated:    '\d{4}-\d{2}-\d{2}'
-    contenttype: pages
+  path: /{datecreated}/{slugOrId}
+  methods: [GET|POST]
+  defaults:
+    contentTypeSlug: page
+    _controller: Bolt\Controller\Frontend\DetailController::record
+  requirements:
+    datecreated: '\d{4}-\d{2}-\d{2}'
 ```
 
 ### Single record override
 
 This example overrides a single record to a specific URL. Useful if you only
-want to exempt a few pages and not a complete ContentType. Don't forget to add
-the `recordslug: page/about` line. This route should be high in the route list
-for it to work correctly.
+want to exempt a few pages and not a complete ContentType. This route should be 
+high in the route list for it to work correctly.
 
 ```yaml
 aboutbinding:
-    path: /about
-    defaults:
-        _controller: Bolt\Controller\Frontend\DetailController::record
-        contenttypeslug: pages
-        slug: about
-    recordslug: page/about
+  path: /about
+  defaults:
+    _controller: Bolt\Controller\Frontend\DetailController::record
+    contentTypeSlug: about
+    slugOrId: about-us
 ```
 
 ### Filesystem based page generation
@@ -132,10 +131,10 @@ regular file under currently selected theme in the filesystem.
 
 ```yaml
 templatebinding:
-    path: /static-page
-    defaults:
-        _controller: Bolt\Controller\Frontend\TemplateController::record:template
-        template: static-page.html.twig
+  path: /static-page
+  defaults:
+    _controller: Bolt\Controller\Frontend\TemplateController::template
+    templateName: static-page.twig
 ```
 
 ## Further reading
