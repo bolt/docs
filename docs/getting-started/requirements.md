@@ -7,7 +7,7 @@ Requirements
 The system requirements for Bolt are modest, and it should run on any fairly
 modern web server.
 
-- PHP 7.2.5 or higher
+- PHP 7.3 or higher
 - Access to SQLite (which comes bundled with PHP), _or_ MySQL _or_
     PostgreSQL
 
