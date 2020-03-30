@@ -193,7 +193,7 @@ name:
 The `name` defines the name of the ContentType, and it should be a 'safe'
 version of the `name:` option below. Basically this means that it should be a
 lowercase version, without any special characters. Spaces should be replaced
-by hyphens.  Like this:
+by hyphens. Like this:
 
 ```yaml
 pages:
