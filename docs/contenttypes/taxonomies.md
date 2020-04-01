@@ -33,22 +33,23 @@ how they behave. There are three main types of Taxonomy:
     viewed as a part of the other records with the same grouping. As such, a
     record can have only one 'grouping' at most.
 
-The default `taxonomy.yml` has good examples of all three types. If `name` and
-`singular_name` are omitted, they are generated automatically by Bolt.
+The default `taxonomy.yml` has good examples of all three types. You must specify either a `slug` or `name` on each definition.
 
 ```yaml
 tags:
     slug: tags
     singular_slug: tag
     behaves_like: tags
+    postfix: "Add some freeform tags. Start a new tag by typing a comma or space."
     allow_spaces: false
     #listing_template: tag-listing.twig #custom template
 
-chapters:
-    slug: chapters
-    singular_slug: chapter
+groups:
+    slug: groups
+    singular_slug: group
     behaves_like: grouping
-    options: [ main, meta, other ]
+    options: { main: "The main group", meta: "Meta group", other: "The other stuff" }
+    has_sortorder: true
 
 categories:
     name: Categories
@@ -56,7 +57,7 @@ categories:
     singular_name: Category
     singular_slug: category
     behaves_like: categories
-    multiple: 1
+    multiple: true
     options: [ news, events, movies, music, books, life, love, fun ]
 ```
 
@@ -64,9 +65,10 @@ The common options are:
 
 | Option name | Description |
 |-------------|-------------|
-| `slug`, `singular_slug` | The plural and singular names of the taxonomies, that are used internally. Use alphanumeric lowercase slugs only. |
-| `name`, `singular_name` | The plural and singular "pretty names" that are used for the taxonomy. You can use both uppercase and lowercase, as well as numbers and spaces in these. |
+| `slug`, `singular_slug` | The plural and singular names of the taxonomies, that are used internally. Use alphanumeric lowercase slugs only. These are both derived from `name` and `singular_name` respectively if they are not defined. |
+| `name`, `singular_name` | The plural and singular "pretty names" that are used for the taxonomy. You can use both uppercase and lowercase, as well as numbers and spaces in these. These are both derived from `slug` and `singular_slug` respectively if they are not defined. |
 | `behaves_like` | Each taxonomy has a required value for `behaves_like` value, that defines the type of the taxonomy. Allowed values are `tags`, `categories` and `grouping`. |
+| `required` | If a user is required to select this taxonomy for an entry. Defaults to `true`. |
 | `allow_spaces` | This option is used for tags taxonomies only, and defines  whether or not the tag taxonomy will allow spaces in the tags. Allowed values are `true` and `false`. For example, if set to `true`, an input of "star wars" will add a single tag called "star wars". If set to `false`, this same input will add two separate tags called "star" and "wars". |
 | `listing_template` | By default, a taxonomy's listing page will use the `listing.twig` template. However, by specifying a `listing_template`, you can set a different template for each taxonomy. Bolt will automatically create listing pages for all taxonomies using the slug. For example `/category/movies` will display all records that have the "movies" category. |
 | `multiple` | This option is used for category taxonomies only, and defines whether or not the editor can select multiple categories. |
@@ -152,39 +154,18 @@ pages:
     taxonomy: [ categories, tags ]
 ```
 
-Displaying Taxonomies in templates
+Displaying Taxonomies on a Record
 ----------------------------------
-
-If you'd like to show only one specific Taxonomy, for example 'tags', use
-something like this:
-
-```twig
-{% for tag in record|taxonomies.tags|default %}
-    {{ tag.name }}{% if not loop.last %}, {% endif %}<hr>
-{% endfor %}
-```
-
-If you're using a listing, and would like to access the taxonomy name, simply
-use `{{ slug }}`.
-
-Displaying all used taxonomies
-------------------------------
-
-If you'd like to just display the used Taxonomies in your templates, you can
-either write some Twig code to output all of them in sequence, but for a quick
-fix, you can use a snippet like the following:
-
-After updating your content with Taxonomies, you can edit your templates to
-show the Taxonomies and to link to automatically generated listing pages:
+If you would like to display the taxonomy on a record, for example 'tags', 
+use something like this:
 
 ```twig
-{% for type, values in record|taxonomy %}
-    <em>{{ type }}:</em>
-    {% for link, value in values %}
-            <a href="{{ link }}">{{ value }}</a>{% if not loop.last %}, {% endif %}
-    {% endfor %}
-    {% if not loop.last %} - {% endif %}
-{% endfor %}
+{% if record|taxonomies['tags'] is defined %}
+Tags:
+  {% for tag in record|taxonomies['tags'] %}
+     <a href="{{ tag.link }}">{{ tag.name }}</a>{% if not loop.last %}, {% endif %}
+  {% endfor %}
+{% endif %}
 ```
 
 For a slightly more sophisticated example, see the default taxonomy links
@@ -193,6 +174,80 @@ theme:
 
 ```twig
 {% include '_sub_taxonomylinks.twig' with {record: record} %}
+```
+
+Taxonomy Record Listing
+-----------------------
+On the listing template that displays all records associated with a taxonomy 
+(for example: `/category/movies`), if you would like to display the taxonomy
+name above the listing of records, simply use `{{ slug }}`.
+
+Displaying Taxonomy Listings
+----------------------------
+If you would like to display links to all the category listing
+pages in a sidebar on your website, you can do something like this:
+
+```twig
+{% for category in config.get('taxonomies/categories/options') %}
+    <li><a href="/categories/{{ category|slug }}">{{ category }}</a></li>
+{% endfor %}
+```
+
+Displaying a list of tags is a little more complex, since the field
+is free-form. You could write a twig extension to query for all the 
+used tags on your entries in order to display them on your site:
+
+```php
+<?php
+
+namespace App;
+
+use Bolt\Entity\Taxonomy;
+use Doctrine\ORM\EntityManagerInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
+
+class TagCloudTwigExtension extends AbstractExtension
+{
+    /** @var EntityManagerInterface */
+    private $objectManager;
+
+    public function __construct(EntityManagerInterface $objectManager)
+    {
+        $this->objectManager = $objectManager;
+    }
+
+    public function getFunctions()
+    {
+        return [
+            new TwigFunction('tag_cloud', [$this, 'tagCloud']),
+        ];
+    }
+
+    public function tagCloud() {
+        $om = $this->objectManager;
+        $qb = $om->createQueryBuilder();
+        $qb->select("t.name, t.slug")
+            ->addSelect("count(c) as count")
+            ->from(Taxonomy::class, 't')
+            ->leftJoin('t.content', 'c')
+            ->where("t.type = 'tags'")
+            ->groupBy("t.id")
+            ->orderBy("t.name");
+        $query = $qb->getQuery();
+        $results = $query->getResult();
+        return $results;
+    }
+}
+```
+
+And then display the tag cloud on your website using:
+
+```twig
+{% for tag in tag_cloud() %}
+    <a href="/tag/{{ tag.slug }}">#{{ tag.name }} ({{ tag.count }})</a>
+    {% if not loop.last %} | {% endif %}
+{% endfor %}
 ```
 
 [tax]: https://github.com/bolt/bolt/blob/%%VERSION%%/bolt/templates/helpers/_sub_taxonomylinks.twig
