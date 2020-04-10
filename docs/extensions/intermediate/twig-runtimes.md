@@ -31,6 +31,7 @@ namespace Bolt\Extension\DropBear\KoalaCatcher;
 
 use Bolt\Extension\DropBear\KoalaCatcher\Twig;
 use Bolt\Extension\SimpleExtension;
+use Silex\Application;
 
 /**
  * An extension for catching koalas.

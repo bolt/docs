@@ -90,7 +90,7 @@ An alternative is to also add the creation date:
 
 ```
 pagebinding:
-    path: /{slug}
+    path: /{datecreated}/{slug}
     defaults:
         _controller: controller.frontend:record
         contenttypeslug: page

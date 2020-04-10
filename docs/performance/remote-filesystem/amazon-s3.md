@@ -5,6 +5,9 @@ level: advanced
 Amazon S3
 =========
 
+__Notice:__
+__Things described on this page can be implemented easier using [Amazon Bolt Extension](https://market.bolt.cm/view/jarjak/amazon)__
+
 Configuring Bolt to use Amazon Simple Storage Service (Amazon S3) requires the
 addition of Flysystem and caching libraries, as well as custom service provider
 code to your project.
