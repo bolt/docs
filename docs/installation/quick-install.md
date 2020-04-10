@@ -26,7 +26,7 @@ php app/nut init
 If all goes well, you'll be greeted by the following:
 
 ```bash
-Welcome to Bolt! - version %%VERSION%%.0.
+Welcome to Bolt! - version %%VERSION%%.X.
 ```
 
 View this short screencast, to see it in action:

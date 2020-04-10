@@ -368,6 +368,16 @@ It is also possible to highlight a keyword in an excerpt, which can be used in s
 inquit, vitae beatum et eundem supremum diem, scribebamus haec. Duo Reges: constructio int…
 ```
 
+Some of your content's fields are often not wanted in an excerpt. To strip them from it, you can pass an array containing the unwelcomed fields names.
+
+```twig
+{% setcontent page = "pages/1" %}
+{{ page|excerpt(200, null, null, ['your', 'unwanted', 'fieldnames']) ) }}
+# or
+{{ page|excerpt(stripFields=['your', 'unwanted', 'fieldnames']) ) }}
+```
+
+
 ### localedatetime
 
 Outputs a localized, readable version of a timestamp, based on the `locale`

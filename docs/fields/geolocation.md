@@ -10,7 +10,7 @@ see the values that are stored, use `{{ dump(page.geolocation) }}`.
 
 <p class="tip"><strong>Note:</strong> This field requires a `google_api_key`
 key to be set in the main config as well as activating the "Google Maps JavaScript API"
-for your project on the <a href="https://console.cloud.google.com/apis">Google Cloud Platform Console</a></p>
+for your project on the <a href="https://console.cloud.google.com/apis">Google Cloud Platform Console</a>. More info on <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">'How to get an API key'.</a></p>
 
 ## Basic Configuration:
 

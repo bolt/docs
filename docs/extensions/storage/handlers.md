@@ -16,7 +16,7 @@ the database.
 
 Lets take a look at an example:
 
-```
+```php
 /**
  *  Handler class to perform select query and return a resultset.
  */
@@ -72,7 +72,7 @@ class SelectQueryHandler
 You can add the new handler by registering it with your parser. This can be done
 by the following code:
 
-```
+```php
     $app['query.parser']->addHandler('select', new SelectQueryHandler());
     $app['query.parser']->addOperation('select');
 ```
