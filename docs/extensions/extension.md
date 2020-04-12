@@ -64,8 +64,8 @@ Something like this works well:
 This way you'll set it up so you can work on your project _and_ the extension,
 and they will interfere with eachother as little as possible.
 
-<p class="tip"> <strong>Tip:</strong> You might notice that the structure of
-the folders with the extension and the Bolt project are quite similar. This is
+<p class="tip"> <strong>Tip:</strong> You might notice that the structure of the
+folders that hold the extension and the Bolt project are quite similar. This is
 no coincidence: Both with Bolt and Extensions alike, we follow the default
 Symfony project structure as much as feasible. </p>
 
@@ -146,7 +146,7 @@ Extensions site recognize it as a proper Bolt extension.
 
 To prevent clutter in your repo, you should also add a `.gitignore` file:
 
-```
+```gitignore
 ### Platfom-specific files
 .DS_Store
 thumbs.db
@@ -211,7 +211,7 @@ Now, Composer will treat our local repository as a common Composer package.
 Install it using `composer req bobdenotter/my-awesome-extension`.
 
 ```bash
-$ composer req bobdenotter/my-awesome-extension
+$ composer req bobdenotter/my-awesome-extension:dev-master
 
 Using version dev-master for bobdenotter/my-awesome-extension
 ./composer.json has been updated
@@ -226,7 +226,10 @@ Executing script bolt:copy-assets [OK]
 ```
 
 Obviously, you should tweak the two commands above to match your set up, using
-the correct path and package `name`.
+the correct path and package `name`. Note the
+additional `:dev-master` in the command below. This explicitly instructs
+composer to install the master branch, which is then picked up by Studio to
+work on in parallel.
 
 After you've installed the local extension, you can verify that Bolt recognizes
 it correctly, by running the following:
@@ -249,9 +252,6 @@ This is the obvious part. You now have a working set up, and you can work on
 your extension, until you feel it's ready for release. In the following
 chapters you can read about the `BaseExtension`, `BaseWidget`, and the other
 things you can do with Bolt Extensions.
-
-
-
 
 [studio]: https://github.com/franzliedke/studio#installation
 [ext-site]: https://extensions.boltcms.io
