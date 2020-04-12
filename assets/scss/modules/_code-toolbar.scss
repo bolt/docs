@@ -39,7 +39,7 @@
 
 .copy-code{
     height: 100%;
-    color: $white;
+    color: $text;
 
     display: inline-flex;
     align-items: center;
@@ -63,6 +63,6 @@
     }
     a,
     &:hover {
-        color: $ceramic;
+        color: $link-hover;
     }
 }
