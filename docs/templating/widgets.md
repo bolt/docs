@@ -17,7 +17,8 @@ strictly speaking it wouldn't be considered a 'widget' anymore.
 
 One of the main advantages of these widgets is that they are not dependant on
 the page they are displayed on, and as such, they can easily be placed on
-different locations and in different themes.
+different locations and in different themes on the frontend or on the backend
+of a Bolt installation.
 
 Bolt itself does not come with any widgets, so they are usually added by
 extensions, as the site-owner sees fit. A good example to get acquainted with
