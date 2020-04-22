@@ -229,8 +229,8 @@ Bolt\Entity\Taxonomy {#3690 ▼
 }
 ```
 
-A common usecase is conditional output of something, if a taxonomy is set or
-not. You can do this with the following syntax:
+A common usecase is conditional output of something, depending on whether a
+taxonomy is set or not. You can do this with the following syntax:
 
 ```twig
 {% if record|taxonomies.tags.biology is defined %}
