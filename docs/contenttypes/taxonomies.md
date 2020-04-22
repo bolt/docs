@@ -156,7 +156,7 @@ pages:
 
 Displaying Taxonomies on a Record
 ----------------------------------
-If you would like to display the taxonomy on a record, for example 'tags', 
+If you would like to display the taxonomy on a record, for example 'tags',
 use something like this:
 
 ```twig
@@ -176,9 +176,91 @@ theme:
 {% include '_sub_taxonomylinks.twig' with {record: record} %}
 ```
 
+You can use `dump` to inspect the Taxonomies on a record:
+
+```twig
+{{ dump(record|taxonomies) }}
+
+Tightenco\Collect\Support\Collection {#3381 ▼
+  #items: array:3 [▼
+    "tags" => array:4 [▼
+      "animation" => Bolt\Entity\Taxonomy {#3690 ▶}
+      "drama" => Bolt\Entity\Taxonomy {#3880 ▶}
+      "education" => Bolt\Entity\Taxonomy {#3413 ▶}
+      "web" => Bolt\Entity\Taxonomy {#3571 ▶}
+    ]
+    "groups" => array:1 [▼
+      "meta" => Bolt\Entity\Taxonomy {#3564 ▶}
+    ]
+    "categories" => array:2 [▼
+      "life" => Bolt\Entity\Taxonomy {#3568 ▶}
+      "love" => Bolt\Entity\Taxonomy {#3293 ▶}
+    ]
+  ]
+}
+```
+
+Or for one specific taxonomy:
+
+```twig
+{{ dump(record|taxonomies.tags) }}
+
+array:4 [▼
+  "animation" => Bolt\Entity\Taxonomy {#3695 ▶}
+  "drama" => Bolt\Entity\Taxonomy {#3885 ▶}
+  "education" => Bolt\Entity\Taxonomy {#3520 ▶}
+  "web" => Bolt\Entity\Taxonomy {#3576 ▶}
+]
+```
+
+Or even one specific item in a taxonomy:
+
+```twig
+{{ dump(record|taxonomies.tags.animation) }}
+
+Bolt\Entity\Taxonomy {#3690 ▼
+    -id: 6
+    -content: Doctrine\ORM\PersistentCollection {#3687 ▶}
+    -type: "tags"
+    -slug: "animation"
+    -name: "animation"
+    -sortorder: 0
+    -link: "/tags/animation"
+}
+```
+
+A common usecase is conditional output of something, if a taxonomy is set or
+not. You can do this with the following syntax:
+
+```twig
+{% if record|taxonomies.tags.biology is defined %}
+    This is Biology
+{% else %}
+    No, this isn't biology.
+{% endif %}
+```
+
+In the above example we're using the 'dot notation' to access the taxonomies.
+In case you're working with variables, it's likely more legible if you use the
+'bracket notation':
+
+```twig
+{% set mytaxonomy = 'movies' %}
+
+{% if record|taxonomies.tags[mytaxonomy] is defined %}
+    Movies are the best!
+{% endif %}
+```
+
+<p class="note"><strong>Note:</strong> You can use this 'dot' and 'bracket'
+notation interchangeably, according to your preference.
+<code>record|taxonomies.categories.blog</code> is equivalent to
+<code>record|taxonomies['categories']['blog']</code>.</p>
+
+
 Taxonomy Record Listing
 -----------------------
-On the listing template that displays all records associated with a taxonomy 
+On the listing template that displays all records associated with a taxonomy
 (for example: `/category/movies`), if you would like to display the taxonomy
 name above the listing of records, simply use `{{ slug }}`.
 
@@ -194,7 +276,7 @@ pages in a sidebar on your website, you can do something like this:
 ```
 
 Displaying a list of tags is a little more complex, since the field
-is free-form. You could write a twig extension to query for all the 
+is free-form. You could write a twig extension to query for all the
 used tags on your entries in order to display them on your site:
 
 ```php
