@@ -7,7 +7,7 @@ Twig filters
 
 ### excerpt
 
-Excerpt creates a short, text-only, excerpt of a record or a string. It's
+The Excerpt filter creates a short, text-only, excerpt of a record or a string. It's
 useful to get short blurbs of text for overview pages, listings, et cetera. If
 you pass it a string, it will simply strip out HTML and, reduce it to a given
 length:
@@ -45,6 +45,31 @@ search results.
 => …consectetur adipiscing elit. Videsne quam sit magna dissensio? Cum <mark>ageremus</mark>,
 inquit, vitae beatum et eundem supremum diem, scribebamus haec. Duo Reges: constructio int…
 ```
+
+| Parameter      | Description |
+|----------------|-------------|
+| `length`       | The maximum length of the excerpt                        |
+| `includeTitle` | Whether to include the "title" in the excerpt or omit it |
+| `focus`        | keyword to be highlighted with `<mark>` in the excerpt   |
+
+### title
+
+The Excerpt filter creates a short, text-only, title of a record. It'll produce
+a suitable title-like output that can be used for overview pages, listings, et
+cetera. It does this, regardless of the actual structure of the ContentType. It
+looks at fields named 'title' or 'heading', or at the fields used in the slug,
+but as long as there's any text fields, you'll get a consistent and useable
+output.
+
+| Parameter  | Description |
+|------------|-------------|
+| `locale`   | The locale to generate the title for |
+| `length`   | The maximum length of the title      |
+
+<p class="note"><strong>Note:</strong> Twig supports named parameters. So, if
+you want to set the length of the title, without having to explicitly set the
+locale, you can use this: <code>{{ record|title(length = 100) }}</code>.</p>
+
 
 ### localedatetime
 
@@ -107,7 +132,6 @@ See the various options for 'date' on the [PHP website][date].
 <p class="note"><strong>Note:</strong> This filter does <em>not</em> display a
 localized version of the date. Use the <code>{{ localedatetime }}</code>-filter if
 you want to display dates in other languages than English.</p>
-
 
 ### current
 
