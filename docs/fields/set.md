@@ -16,10 +16,10 @@ one value (e.g. a collection of Books where a Book has a title, publication date
 
 The configuration of a Set field consists of a few parts:
 
- - The 'key', used to identify the entirety of the set.
+ - The 'key', used to identify the name of the set field.
  - `type: set` to define it as a set type.
  - Other optional values, like in other field types (like 'label' or 'group').
- - A `fields` key, that contains one or more sub-fields like `text`,
+ - A `fields` key, that contains one or more sub-fields, for example `text`,
    `image`, `html` and `select`.
 
 A straighforward example can look like this:
@@ -62,7 +62,7 @@ For instance if you just want to iterate over all fields
 within the set then the template code will look like this:
 
 ```twig
-{% for group in record.contentset %}
+{% for field in record.contentset %}
     {{ field.fieldtype }}:
     {{ field }}
 {% endfor %}
@@ -75,6 +75,14 @@ sub-field, if it is a text field such as like `text`, `html`, `textarea` or
 value regardless of type. In practice, you'll often want to use the techniques
 described in the section below for individual fields to output the specific type
 of field in the layout you require.
+
+Alternatively, if you want to loop over fields and get their names as well, you can use:
+```twig
+{% for name, field in record.contentset %}
+    {{ name }}
+    {{ field }}
+{% endfor %}
+```
 
 If you know the names of the fields you want to render then you can fetch a
 field from the set by name. For instance using the same example as above but
