@@ -91,17 +91,6 @@ The field has three specific options:
                     type: html
 ```
 
-<<<<<<< Updated upstream
-## Default value
-
-A collection may contain a number of pre-defined default sub-fields.
-To set those, the `default:` option takes an array which defines the 
-order, field name and default value for the collection item.
-
-Example:
-
-=======
-
 * `collapsible`: Whether the separate collection items of this Collections are collapsible in
   the backend. This allows the editor to get a better overview, if there are
   multiple collection items. The default is `false`, you can set it to `true` to enable
@@ -109,28 +98,12 @@ Example:
 * `default`: The default field option is also supported for a collection field. See the example
   for how to configure a default value for collections.
   
->>>>>>> Stashed changes
 ```yaml
         features:
             type: collection
             fields:
                 title:
                     type: text
-<<<<<<< Updated upstream
-                image:
-                    type: image
-                    extensions: [ gif, jpg, png ]
-                content:
-                    type: html
-            default:
-                0:
-                    field: title
-                    default: "This is the first default field in the collection."
-                1:
-                    field: html
-                    default: "This is the <b>second</b> default field in the collection."
-```
-=======
                 content:
                     type: html
                 image:
@@ -153,4 +126,3 @@ Example:
 set the field name in the <code>field</code> config (e.g. <code>field: title</code>) and the default value for that item,
 e.g. <code>default: "Lets start with a title"`</code>. 
 What is inside the item <code>default</code> will depend on the field type.</p>
->>>>>>> Stashed changes
