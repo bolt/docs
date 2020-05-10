@@ -58,10 +58,11 @@ done
 ```
 
 <p class="note"><strong>Note</strong> If you're using SQLite, you must ensure
-the database file is writable for the webserver's user. It's stored in
-<code>var/data/bolt.sqlite</code> by default. This means that it's taken into
-account in the above instructions. If you've configured the file to be located
-elsewhere, you might need to set the permissions yourself.</p>
+that both the database file as well as the containing folder are writable for
+the webserver's user. It's stored in <code>var/data/bolt.sqlite</code> by
+default. This means that it's taken into account in the above instructions. If
+you've configured the file to be located elsewhere, you might need to set the
+permissions yourself.</p>
 
 Make sure that the root folder is also readable by the web server. On some
 setups (mainly shared hosting solutions) this is not always the case. To remedy
