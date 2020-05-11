@@ -96,8 +96,8 @@ knowing that our set comprises of sub-fields `image` and
 
 ## Default value
 
-When you want to give a set a default value, use the `default: ` option
-of the sub-field.
+The default value of the fields inside a set should be configured for the entire set,
+as shown in the example below.
 
 Example:
 
@@ -110,8 +110,15 @@ Example:
                 image:
                     label: Image with description
                     type: image
-                text:
+                paragraph:
                     label: Paragraph
                     type: text
-                    default: "This is the default value of the paragraph field in the contentset."
+            default:
+                paragraph: "This is teh default value of the paragraph field in the contentset"
 ```
+
+<p class="note"><strong>Note:</strong> The value specified under <code>default:text</code>
+<strong>must</strong> match the default value for that field. For example, the default
+value of a <code>text</code> field is a string, while the default for an <code>image</code>
+is an object.
+</p>
