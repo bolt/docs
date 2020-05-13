@@ -139,7 +139,7 @@ fieldoptions:
         - [ "`required: true`", "Use this to make a field required. Only works on `text`, `textarea`, `html`, `date`, `datetime`, `float` and `integer` fields." ]
         - [ "`readonly: true`", "Use this to make a field read-only. Only works on `float`, `integer` and `text` fields." ]
         - [ "`pattern: ..`", "Use this to validate a field against a certain pattern, using [regular expressions](http://en.wikipedia.org/wiki/Regular_expression). " ]
-        - [ "`allowtwig: true`", "Explicitly allow twig to be used in this field. " ]
+        - [ "`allow_twig: true`", "Explicitly allow twig to be used in this field. " ]
         - [ "`info: ..`", "Use for displaying extra information about the field." ]
         - [ "`extensions: [ .. ]`", "A list of allowed file extensions for uploading. Used with `file`, `filelist`, `image` and `imagelist`" ]
         - [ "`upload: foo`", "A custom path for uploaded files. Used with `file`, `filelist`, `image` and `imagelist`" ]

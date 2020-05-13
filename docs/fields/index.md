@@ -7,7 +7,6 @@ pages:
     - html
     - image
     - file
-    - email
     - embed
     - select
     - markdown

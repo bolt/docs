@@ -54,7 +54,7 @@ inquit, vitae beatum et eundem supremum diem, scribebamus haec. Duo Reges: const
 
 ### title
 
-The Excerpt filter creates a short, text-only, title of a record. It'll produce
+The Title filter creates a short, text-only, title of a record. It'll produce
 a suitable title-like output that can be used for overview pages, listings, et
 cetera. It does this, regardless of the actual structure of the ContentType. It
 looks at fields named 'title' or 'heading', or at the fields used in the slug,
