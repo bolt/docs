@@ -91,11 +91,10 @@ In the case where you want to provide a large volume of informational text
 about the use and purpose of a field, the value of the `info` parameter can be
 used.
 
-The info parameter will place a button beside the field label that, when hovered
-over, will display a popup with the info text.
+<a href="/files/info-option.png" class="popup"><img src="/files/info-option.png"></a>
 
-For fields that have an info button by default (e.g. `image` field), the info
-description will override that field type default.
+The info parameter will place an 'i' symbol beside the field label that, when hovered
+over, will display a popup with the info text.
 
 ## Default values
 
@@ -139,7 +138,7 @@ shown that, *"the x field is required or needs to match a pattern"*. You can
 set a custom error message for a field with the error option. for example
 `error: "The title field is required and must be no longer than 40 characters"`
 
-Currently, you can use the `required` option for all field types, expect for `collection`, `imagelist` and `filelist`.
+Currently, you can use the `required` option for all field types, except for `collection`, `imagelist` and `filelist`.
 
 For example, to make a title required, you can do this:
 
