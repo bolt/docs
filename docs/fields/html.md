@@ -27,8 +27,9 @@ To print out the HTML field you just need to do in your templates:
 The field has a few options to change the appearance and functionality of the
 field.
 
-* `allowtwig` can be set to true or false to control if twig may be used in the
+* `allow_twig` can be set to true or false to control if twig may be used in the
   field
+<!--
 * `options` contains the options for the <abbr title="What You See Is What You Get">WYSIWYG</abbr>
   editor. See below for an example and the [CKEditor API][ckeditor] for more
   information on possible options:
@@ -46,8 +47,8 @@ field.
                     uiColor: '#BADA55'
                     autoGrow_minHeight: 300
                     # The following would remove all the default bolt buttons from the button bar. No whitespace in the value allowed.
-                    removeButtons : "Bold,Link,Unlink,NumberedList,BulletedList,Italic,Format,Indent,Outdent,RemoveFormat,Maximize" 
-```
+                    removeButtons : "Bold,Link,Unlink,NumberedList,BulletedList,Italic,Format,Indent,Outdent,RemoveFormat,Maximize"
+``` -->
 
 ## Input Sanitisation
 

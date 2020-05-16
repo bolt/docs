@@ -2,9 +2,9 @@
 title: Email field
 ---
 Email field
-==============
+===========
 
-Simple HTML input with `type='email'`
+Simple HTML input with `type='email'`.
 
 ## Basic Configuration:
 
@@ -21,6 +21,5 @@ Simple HTML input with `type='email'`
 
 ## Options:
 
-The field has a few options to change the functionality of the field.
-Please check the [common options for all fields](common)
-
+The field has a few options to change the functionality of the field. Please
+check the [common options for all fields](common).
