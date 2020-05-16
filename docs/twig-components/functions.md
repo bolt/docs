@@ -249,24 +249,30 @@ For more info on debugging your Bolt site, see the chapter on
 </code> in your <code>.env</code> file. Otherwise the
 <code>dump()</code> will output nothing at all.</p>
 
-### field_factory(name, *definition=null*)
+### field_factory
 
 The field factory function creates a field on the fly with a name and optional definition.
+
+| Parameter      | Description |
+|----------------|-------------|
+| `name`         | The name of the field |
+| `definition`   | The definition of the field, same options as a field definition in `contenttypes.yaml`  |
+
 ```twig
 {% set field = field_factory('title', { 'type': 'text', 'label' : 'Awesome title' }) %}
 ```
 
 ### excerpt()
 
-See [excerpt filter](#excerpt).
+See [excerpt filter][excerpt_filter].
 
 ### previous_record()
 
-See [previous filter](#previous).
+See [previous filter][previous_filter].
 
 ### next_record()
 
-See [next filter](#next).
+See [next filter][next_filter].
 
 ### dump()
 
@@ -282,11 +288,11 @@ Returns the `canonical` URL for the given path. If path is null, the current pat
 
 ### markdown(content)
 
-See [markdown filter](#markdown).
+See [markdown filter][markdown_filter].
 
 ### media()
 
-See [media filter](#media).
+See [media filter][media_filter].
 
 ### list_templates(templateselect)
 
@@ -425,3 +431,9 @@ Please refer to the [widgets][widgets-page] documentation.
 [for]: http://twig.sensiolabs.org/doc/tags/for.html
 [switch]: http://php.net/manual/en/control-structures.switch.php
 [extras]: ./twig-components/extras
+[excerpt_filter]: ./filters#excerpt
+[excerpt_filter]: ./filters#excerpt
+[previous_filter]: ./filters#previous
+[next_filter]: ./filters#next
+[markdown_filter]: ./filters#markdown
+[media_filter]: ./filters#media

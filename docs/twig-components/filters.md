@@ -425,16 +425,35 @@ The slug is always lowercase, so this will normalize the ordering.
 Randomly shuffles the passed array.
 
 
-### previous(*byColumn = 'id'*, *sameContentType=true*)
+### previous
 
-Returns the previous record from the database query based on the passed
-parameters. By default, `|previous` finds the left adjacent element for the
+Returns the previous record from the database.
+By default, `|previous` finds the left adjacent element for the
 same contenttype using the record's database id.
 
-### next(*byColumn = 'id', *sameContentType=true*)
+```twig
+{% set record_before = record|previous %}
+```
 
-Returns the next record from the database query based on the passed parameters.
-Uses the same logic as the [previous filter](#previous)
+| Parameter         | Description |
+|-------------------|-------------|
+| `byColumn`        | Sort records based on the passsed column's value. Default is `id` |
+| `sameContentType` | If set to `true`, it only sorts records of the same contenttype. Default is `true` |
+
+### next
+
+Returns the next record from the database.
+By default, `|next` finds the right adjacent element for the
+same contenttype using the record's database id.
+
+```twig
+{% set record_after = record|next %}
+```
+
+| Parameter         | Description |
+|-------------------|-------------|
+| `byColumn`        | Sort records based on the passsed column's value. Default is `id` |
+| `sameContentType` | If set to `true`, it only sorts records of the same contenttype. Default is `true` |
 
 ### edit_link
 
@@ -467,7 +486,7 @@ into HTML.
 
 ### popup
 
-See [popup function](#popup-magnific-popup)
+See [popup function][popup_function]
 
 ### media
 
@@ -490,9 +509,16 @@ Makes PHPs `preg_replace()` function available as twig filter. Example usage:
 {{ content.text|preg_replace('/[^a-z]+/', '_') }}
 ```
 
-### related(*name=null*, *contenttype=null*, *bidirectional=true*, *publishedonly=true*)
+### related
 
 Returns an array of records that are related to the given record.
+
+| Parameter      | Description |
+|----------------|-------------|
+| `name`         | The related content's name or contenttype. If not set, it will fetch all related records. |
+| `bidirectional`| Performs bidirectional search. Default is `true` |
+| `limit`        | Limits the number of related records that are returned.  |
+| `publishedOnly`| Return only related records that are published. Default is `true` |
 
 ```twig
 {% set relatedrecords = record|related() %}
@@ -505,19 +531,49 @@ Returns an array of records that are related to the given record.
 </p>
 ```
 
-### related_all(*bidirectional=true*, *limit=true*, *pubishedonly=true*)
+### related_by_type
 
-Returns an array of all records that are a relation with any other record.
+Returns a two-dimensional array of related records, where the first key is the contenttype.
 
-See [related filter](#related-name-null-contenttype-null-bidirectional-true-publishedonly-true).
+```
+    [
+        'entries' => [ related_entry_1, related_entry_2, ... ],
+        'pages' => [ related_page_1, related_page_2, ... ]
+    ]
+```
 
-### related_first(*name=null*, *contenttype=null*, *bidirectional=true*, *publishedonly=true*)
+| Parameter      | Description |
+|----------------|-------------|
+| `bidirectional`| Performs bidirectional search. Default is `true` |
+| `limit`        | Limits the number of related records that are returned.  |
+| `publishedOnly`| Return only related records that are published. Default is `true` |
 
-Returns the first record related to the given record.
 
-### translated(locale)
+### related_first
 
-Returns the field translated into the given locale.
+Returns the first of the returned related records.
+
+| Parameter      | Description |
+|----------------|-------------|
+| `name`         | The related content's name or contenttype. If not set, it will fetch all related records. |
+| `bidirectional`| Performs bidirectional search. Default is `true` |
+| `publishedOnly`| Return only related records that are published. Default is `true` |
+
+### translated
+
+Returns the field translated into the requested locale.
+
+| Parameter      | Description |
+|----------------|-------------|
+| `locale`       | The requested translation's locale, as a string. |
+
+```twig
+    {% set image_nl = record.image|translated('nl') %}
+```
+
+<p class="note"><strong>Note:</strong> The `|translated` filter
+will return the field in the requested locale, but it will also
+change the locale of the `record.image` itself.</p>
 
 [widgets-page]: ../templating/widgets
 [debugging-page]: ../debugging
@@ -537,3 +593,4 @@ Returns the field translated into the given locale.
 [for]: http://twig.sensiolabs.org/doc/tags/for.html
 [switch]: http://php.net/manual/en/control-structures.switch.php
 [extras]: ./twig-components/extras
+[popup_function]: ./functions#popup-magnific-popup
