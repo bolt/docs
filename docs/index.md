@@ -13,6 +13,7 @@ pages:
     # Content & ContentTypes
     - contenttypes
     - fields
+    - localization
     # Templating & Twig
     - templating
     - twig-components

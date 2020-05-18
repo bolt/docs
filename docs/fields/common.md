@@ -22,6 +22,7 @@ in more detail below.
 | `readonly`  | Do not allow an editor to change the value of this field. |
 | `index`     | Add a database index for this field, only add if you know what this means. |
 | `class`     | Add a CSS selector to the field element. |
+| `localize`  | `boolean`, default is `false`. If set to true, marks this field as localizable (translatable) within this Content Type. Visit the <a href="/localization/">localization page</a> for more information. |
 
 ## Grouping fields in tabs
 

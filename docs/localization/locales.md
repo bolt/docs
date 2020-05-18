@@ -4,19 +4,32 @@ title: Locales
 Locales
 =======
 
-In the `config.yml`-file you can set the Locale to be used by Bolt. A locale is
-a set of parameters that defines the used language, country and any special
-variant preferences that are used in Bolt's frontend.
+In the `services.yaml` file  you can configure Bolt's locale settings.
+A locale is a set of parameters that defines the used language, country 
+and any special variant preferences that are used in Bolt's frontend.
 
-Currently, the locale settings are only used for date formatting on the
-Frontend and Backend of your site, but we're looking into adding localization
-features for other parts of the Frontend and the Backend as well.
+The locale settings are used to:
+* configure the allowed interface languages for the Bolt backend user
 
-The Locale setting is defined in the `config.yml`-file like this:
+* configure the allowed languages for Content Types and fields
 
+* configure the default language for fields
+
+The default locale is configured in the `services.yaml` file like this:
+```yaml
+parameters:
+    locale: 'en_US'
 ```
-locale: en_GB
+
+To allow backend users (editors) to choose a language for their interface,
+and/or to add localizable fields and content types, you must ensure that
+the locales you want to use are defined in the `services.yaml` file like this:
+```yaml
+parameters:
+    # This parameter defines the codes of the locales (languages) enabled in the application
+    app_locales: en|en_US|nl # This allows general English, US English and general Dutch
 ```
+
 
 As you can see, the locale consists of two parts: The language part, and the
 country part. In some cases the codes are the same, like `nl_NL` for
@@ -47,7 +60,7 @@ sv_SE    Swedish              Sweden                           sv   SE
 A much longer list of possible options can be found here:
 [List of Locales, languages and countrycodes](https://github.com/bobdenotter/locales/blob/master/locales_list.txt).
 
-Bolt's `localedatetime()` function and filter uses the setting from `config.yml` to
+Bolt's `localedatetime()` function and filter uses the setting from `services.yaml` to
 set the language for the date formatting. For an overview of the options, see
 php.net's [strftime page](http://php.net/strftime), and the documentation
-section on [localedatetime()](../templating/twig-functionality#filter-localedatetime).
+section on [localedatetime()](../twig-components/filters#localedatetime).
