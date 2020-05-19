@@ -225,12 +225,12 @@ The available options are:
 | `singular_name` | The name of one Record in the ContentType. This should be singular. For example, if the ContentType's name is 'Pages', this should be 'Page' |
 | `singular_slug` <small>(optional)</small> | This determines the slug of a single record in this ContentType, and therefore the URLs that are generated for these records. When omitted, the slug will be automatically generated from the `singular_name`. |
 | `fields` | The fields that make up the content in this ContentType. See the [Fields Definition][field-types] section for details. |
-| `taxonomy` | An array listing the different taxonomies used by this ContentType. For example `[ categories, tags ]`. See the page on [Taxonomies][ct-taxonomies] for details. |
-| `relations` | An array listing the different relations available to this ContentType. See the page on [Relations][ct-relations] for details. |
+| `taxonomy` <small>(optional)</small> | An array listing the different taxonomies used by this ContentType. For example `[ categories, tags ]`. See the page on [Taxonomies][ct-taxonomies] for details. |
+| `relations` <small>(optional)</small> | An array listing the different relations available to this ContentType. See the page on [Relations][ct-relations] for details. |
 | `record_template` | The default template to use, when displaying a single Record of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. This can be overridden on a per-record basis, if one of the fields is defined as type `templateselect`. |
 | `listing_template` | The default template to use, when displaying an overview of Records of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. |
-| `listing_records` | The amount of records to show on a single overview page in the frontend. If there are more records, the results will be paginated   |
-| `listing_sort` | The field used to sort the results on. You can reverse the order by adding a '-'. For example `title` or `-datepublish`. |
+| `listing_records` <small>(optional)</small> | The amount of records to show on a single overview page in the frontend. If there are more records, the results will be paginated   |
+| `listing_sort` <small>(optional)</small> | The field used to sort the results on. You can reverse the order by adding a '-'. For example `title` or `-datepublish`. |
 | `sort` <small>(optional)</small> | The default sorting of this ContentType, in the overview in Bolt's backend interface. For example `-datecreated`. Note that if your ContentType has a Taxonomy with `has_sortorder`, that the `sort` will be overruled by the Taxonomy's sorting. |
 | `records_per_page` <small>(optional)</small> | The amount of records shown on each page in the Bolt backend. If there are more records, they will be paginated. |
 | `show_on_dashboard` <small>(optional)</small> | When set to `false` the ContentType will not appear in the 'Recently edited &hellip;' list on the dashboard page. |
@@ -239,14 +239,11 @@ The available options are:
 | `searchable` <small>(optional)</small> | A boolean value to determine whether this ContentType should show up in search results. |
 | `viewless` <small>(optional)</small> | When set to `true`, routes will not be set for the ContentType listing, or the records themselves. Useful for creating [Resource ContentTypes][howto-resource-ct]. |
 | `singleton` <small>(optional)</small> | When set to `true`, the Bolt UI will adapt to give a fluent experience for ContentTypes with one post. Like a complex homepage or general settings. [Singletons][howto-singletons]. |
-| `title_format` <small>(optional)</small> | Is used to determine the format of the title in the backend. For example if you have two fields for `firstname` and `lastname` you might put `[ firstname, lastname ]` here. |
+| `title_format` <small>(optional)</small> | Is used to determine the format of the title. For example if you have two fields for `firstname` and `lastname` you might put `{firstname} {lastname}` here. |
+| `excerpt_format` <small>(optional)</small> | Is used to determine the format of the excerpt. For example if you have two fields for `highlights` and `content` you might put `{highlights}: {content}` here. |
 | `icon_many` <small>(optional)</small> | A [Font Awesome][fa] icon to be used in the sidebar for this ContentType. For example: `fa:cubes`. See the full list of available icons in the [FA gallery][gallery]. |
 | `icon_one` <small>(optional)</small> | A [Font Awesome][fa] icon to be used in the sidebar for a single record of this ContentType. For example: `fa:cube`. |
 | `locales` <small>(optional)</small> | The locales the content can be entered in.  i.e. `['en', 'nl', 'pt_BR', 'es']`. |
-
-<p class="note"><strong>Note:</strong> A ContentType slug or name may not start
-with a double underscore. A field key may not contain a double underscore.
-Those names are reserved for internal use.</p>
 
 ### Automatic titles versus `title_format`
 
@@ -256,6 +253,24 @@ always shown with a linked title. Even if the ContentType does not actually
 have a field named `title`, Bolt will make a reasonable assumption as to what
 the "Title" should be. By using `title_format` you can override this, if Bolt
 doesn't provide correct titles for a ContentType.
+
+### title_format and excerpt_format
+
+The `title_format` and `excerpt_format` options both support all fields defined
+in the content type, the `author`, `status` and `id` of the record. For example:
+
+```yaml
+pages:
+    name: Pages
+    singular_name: Page
+    title_format: "{id} ({status}): {title}" # e.g. "35 (published): About us
+    excerpt_format: "{author}: {content}" # e.g. John Doe: Whole content until character limit...
+    fields:
+        title:
+            type: text
+        content:
+            type: html    
+```
 
 ### Singleton ContentTypes
 
