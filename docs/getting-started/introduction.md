@@ -36,7 +36,7 @@ option in the top left of the screen.
         <small>Writing templates, Twig, fetching content, paging, search</small>
     </a>
 
-    <a href="../configuration/routing" class="button large docsintro">
+    <a href="../routing" class="button large docsintro">
         Routing<br>
         <small>Configuring routes, to create custom links / URLs</small>
     </a>
