@@ -280,12 +280,12 @@ What happens in this example is the following:
   this case, it will output something like 'August 26, ’12'.
 
 [cts]: ../contenttypes/intro
-[twig]: http://twig.sensiolabs.org/documentation
-[twig-designers]: http://twig.sensiolabs.org/doc/templates.html
-[control-structure]: https://twig.sensiolabs.org/doc/3.x/templates.html#control-structure
-[twig-tags]: https://twig.symfony.com/doc/3.x/
-[tag-for]: https://twig.sensiolabs.org/doc/3.x/tags/for.html
-[tag-if]: https://twig.sensiolabs.org/doc/3.x/tags/if.html
-[tag-set]: https://twig.sensiolabs.org/doc/3.x/tags/set.html
-[tag-include]: https://twig.sensiolabs.org/doc/3.x/tags/include.html
-[tag-block]: https://twig.sensiolabs.org/doc/3.x/tags/extends.html#how-do-blocks-work
+[twig]: http://twig.symfony.com/documentation
+[twig-designers]: http://twig.symfony.com/doc/templates.html
+[control-structure]: https://twig.symfony.com/doctemplates.html#control-structure
+[twig-tags]: https://twig.symfony.com/doc
+[tag-for]: https://twig.symfony.com/doctags/for.html
+[tag-if]: https://twig.symfony.com/doctags/if.html
+[tag-set]: https://twig.symfony.com/doctags/set.html
+[tag-include]: https://twig.symfony.com/doctags/include.html
+[tag-block]: https://twig.symfony.com/doctags/extends.html#how-do-blocks-work

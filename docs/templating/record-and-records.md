@@ -141,7 +141,7 @@ Check how many records there are:
 There are exactly {{ pages|length }} records.
 ```
 
-[Reverse](http://twig.sensiolabs.org/doc/filters/reverse.html) the array:
+[Reverse](http://twig.symfony.com/doc/filters/reverse.html) the array:
 
 ```twig
 {% for page in pages|reverse %}
@@ -152,7 +152,7 @@ There are exactly {{ pages|length }} records.
 {% endfor %}
 ```
 
-Or [slice](http://twig.sensiolabs.org/doc/filters/slice.html) the array:
+Or [slice](http://twig.symfony.com/doc/filters/slice.html) the array:
 
 ```twig
 {% set slice = pages|slice(1,3) %}

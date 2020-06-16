@@ -74,5 +74,5 @@ This tag is used to iterate over arrays or collections of an object, similar to
 See: [`for` in the Twig documentation][for].
 
 [content]: ../templating/content-fetching
-[for]: http://twig.sensiolabs.org/doc/tags/for.html
+[for]: http://twig.symfony.com/doc/tags/for.html
 [switch]: http://php.net/manual/en/control-structures.switch.php
