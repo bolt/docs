@@ -1,5 +1,5 @@
 
-# http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+# http://twig.symfony.com/doc/templates.html#template-inheritance
 # http://blog.lazycloud.net/symfony2-twig-cheatsheet/
 # http://willthemoor.github.io/Twig-Cheat-Sheet/
 # http://www.symfony2cheatsheet.com/#templating
@@ -199,7 +199,7 @@ routing:
 
 twig:
     title: Twig
-    prefix: "The templates in Bolt are written in [Twig](http://twig.sensiolabs.org/). This is a fast, flexible and elegant templating language."
+    prefix: "The templates in Bolt are written in [Twig](http://twig.symfony.com/). This is a fast, flexible and elegant templating language."
     table:
         - [ "Syntax", "Meaning"]
         - [ "`{{ … }}`", "Output someting, like 'echo' or 'print'."]
@@ -239,10 +239,10 @@ twiginclude:
         An alternative to using 'include', is to set up your templates using Template
         Inheritance. This is a method of defining a base template, and then expand it in
         more detail in the templates that extend this base template. See the section on
-        [Template inheritance](http://twig.sensiolabs.org/doc/templates.html#template-inheritance) on the twig website.
+        [Template inheritance](http://twig.symfony.com/doc/templates.html#template-inheritance) on the twig website.
     links:
-        "Including other templates": "http://twig.sensiolabs.org/doc/templates.html#including-other-templates"
-        "Template inheritance": "http://twig.sensiolabs.org/doc/templates.html#template-inheritance"
+        "Including other templates": "http://twig.symfony.com/doc/templates.html#including-other-templates"
+        "Template inheritance": "http://twig.symfony.com/doc/templates.html#template-inheritance"
 
 twigmacro:
     title: Using macros in Twig
@@ -259,7 +259,7 @@ twigmacro:
         If you've defined the macros in the same file, you need to import them, using `_self`:
         `{% import _self as macro %}`
     links:
-        "Macro in the Twig docs": "http://twig.sensiolabs.org/doc/tags/macro.html"
+        "Macro in the Twig docs": "http://twig.symfony.com/doc/tags/macro.html"
 
 twigcontrolif:
     title: "The `{% if %}` control structure"
@@ -272,7 +272,7 @@ twigcontrolif:
         - [ "`{% if user.name == 'bob' %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Oh, it's you…`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Well, hello {{ user.name }}`<br>`{% endif %}`", "'if' statement, with an `else` clause."]
     table_linear: true
     links:
-        "If in the Twig docs": "http://twig.sensiolabs.org/doc/tags/if.html"
+        "If in the Twig docs": "http://twig.symfony.com/doc/tags/if.html"
 
 twigcontrolfor:
     title: "The `{% for %}` control structure"
@@ -286,7 +286,7 @@ twigcontrolfor:
         - [ "`{% for u in users|sort('name') %}`", "Use a filter, for example to sort on `u.name`."]
     table_linear: true
     links:
-        "For in the Twig docs": "http://twig.sensiolabs.org/doc/tags/for.html"
+        "For in the Twig docs": "http://twig.symfony.com/doc/tags/for.html"
 
 twigfunctions:
     title: Bolt functions in Twig
@@ -329,20 +329,20 @@ twigdefaultfunctions:
         Bolt uses the Twig template engine. As such, all default
         twig `{{ functions() }}` also work in Bolt. Most of these have a
         similar meaning in plain PHP or Javascript. The available functions are:
-        <a href="http://twig.sensiolabs.org/doc/functions/attribute.html">attribute</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/block.html">block</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/constant.html">constant</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/cycle.html">cycle</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/date.html">date</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/dump.html">dump</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/include.html">include</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/max.html">max</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/min.html">min</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/parent.html">parent</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/random.html">random</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/range.html">range</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/source.html">source</a>,
-        <a href="http://twig.sensiolabs.org/doc/functions/template_from_string.html">template_from_string</a>.
+        <a href="http://twig.symfony.com/doc/functions/attribute.html">attribute</a>,
+        <a href="http://twig.symfony.com/doc/functions/block.html">block</a>,
+        <a href="http://twig.symfony.com/doc/functions/constant.html">constant</a>,
+        <a href="http://twig.symfony.com/doc/functions/cycle.html">cycle</a>,
+        <a href="http://twig.symfony.com/doc/functions/date.html">date</a>,
+        <a href="http://twig.symfony.com/doc/functions/dump.html">dump</a>,
+        <a href="http://twig.symfony.com/doc/functions/include.html">include</a>,
+        <a href="http://twig.symfony.com/doc/functions/max.html">max</a>,
+        <a href="http://twig.symfony.com/doc/functions/min.html">min</a>,
+        <a href="http://twig.symfony.com/doc/functions/parent.html">parent</a>,
+        <a href="http://twig.symfony.com/doc/functions/random.html">random</a>,
+        <a href="http://twig.symfony.com/doc/functions/range.html">range</a>,
+        <a href="http://twig.symfony.com/doc/functions/source.html">source</a>,
+        <a href="http://twig.symfony.com/doc/functions/template_from_string.html">template_from_string</a>.
 
 
 setcontent:
@@ -368,24 +368,24 @@ twifdefaulttags:
     prefix: |
         Bolt uses the Twig template engine. As such, all default
         twig `{% tags %}` also work in Bolt. The available tags are:
-        <a href="http://twig.sensiolabs.org/doc/tags/autoescape.html">autoescape</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/block.html">block</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/do.html">do</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/embed.html">embed</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/extends.html">extends</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/filter.html">filter</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/flush.html">flush</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/for.html">for</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/from.html">from</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/if.html">if</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/import.html">import</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/include.html">include</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/macro.html">macro</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/sandbox.html">sandbox</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/set.html">set</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/spaceless.html">spaceless</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/use.html">use</a>,
-        <a href="http://twig.sensiolabs.org/doc/tags/verbatim.html">verbatim</a>.
+        <a href="http://twig.symfony.com/doc/tags/autoescape.html">autoescape</a>,
+        <a href="http://twig.symfony.com/doc/tags/block.html">block</a>,
+        <a href="http://twig.symfony.com/doc/tags/do.html">do</a>,
+        <a href="http://twig.symfony.com/doc/tags/embed.html">embed</a>,
+        <a href="http://twig.symfony.com/doc/tags/extends.html">extends</a>,
+        <a href="http://twig.symfony.com/doc/tags/filter.html">filter</a>,
+        <a href="http://twig.symfony.com/doc/tags/flush.html">flush</a>,
+        <a href="http://twig.symfony.com/doc/tags/for.html">for</a>,
+        <a href="http://twig.symfony.com/doc/tags/from.html">from</a>,
+        <a href="http://twig.symfony.com/doc/tags/if.html">if</a>,
+        <a href="http://twig.symfony.com/doc/tags/import.html">import</a>,
+        <a href="http://twig.symfony.com/doc/tags/include.html">include</a>,
+        <a href="http://twig.symfony.com/doc/tags/macro.html">macro</a>,
+        <a href="http://twig.symfony.com/doc/tags/sandbox.html">sandbox</a>,
+        <a href="http://twig.symfony.com/doc/tags/set.html">set</a>,
+        <a href="http://twig.symfony.com/doc/tags/spaceless.html">spaceless</a>,
+        <a href="http://twig.symfony.com/doc/tags/use.html">use</a>,
+        <a href="http://twig.symfony.com/doc/tags/verbatim.html">verbatim</a>.
 
 twigfilters:
     title: Bolt Filters in Twig
@@ -413,37 +413,37 @@ twigdefaultfilters:
         Bolt uses the Twig template engine. As such, all default
         twig `{{ |filters }}` also work in Bolt. Most of these have a
         similar meaning in plain PHP or Javascript. The available filters are:
-        <a href="http://twig.sensiolabs.org/doc/filters/abs.html">abs</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/batch.html">batch</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/capitalize.html">capitalize</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/convert_encoding.html">convert_encoding</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/date.html">date</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/date_modify.html">date_modify</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/default.html">default</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/escape.html">escape</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/first.html">first</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/format.html">format</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/join.html">join</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/json_encode.html">json_encode</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/keys.html">keys</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/last.html">last</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/length.html">length</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/lower.html">lower</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/merge.html">merge</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/nl2br.html">nl2br</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/number_format.html">number_format</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/raw.html">raw</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/replace.html">replace</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/reverse.html">reverse</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/round.html">round</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/slice.html">slice</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/sort.html">sort</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/split.html">split</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/striptags.html">striptags</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/title.html">title</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/trim.html">trim</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/upper.html">upper</a>,
-        <a href="http://twig.sensiolabs.org/doc/filters/url_encode.html">url_encode</a>.
+        <a href="http://twig.symfony.com/doc/filters/abs.html">abs</a>,
+        <a href="http://twig.symfony.com/doc/filters/batch.html">batch</a>,
+        <a href="http://twig.symfony.com/doc/filters/capitalize.html">capitalize</a>,
+        <a href="http://twig.symfony.com/doc/filters/convert_encoding.html">convert_encoding</a>,
+        <a href="http://twig.symfony.com/doc/filters/date.html">date</a>,
+        <a href="http://twig.symfony.com/doc/filters/date_modify.html">date_modify</a>,
+        <a href="http://twig.symfony.com/doc/filters/default.html">default</a>,
+        <a href="http://twig.symfony.com/doc/filters/escape.html">escape</a>,
+        <a href="http://twig.symfony.com/doc/filters/first.html">first</a>,
+        <a href="http://twig.symfony.com/doc/filters/format.html">format</a>,
+        <a href="http://twig.symfony.com/doc/filters/join.html">join</a>,
+        <a href="http://twig.symfony.com/doc/filters/json_encode.html">json_encode</a>,
+        <a href="http://twig.symfony.com/doc/filters/keys.html">keys</a>,
+        <a href="http://twig.symfony.com/doc/filters/last.html">last</a>,
+        <a href="http://twig.symfony.com/doc/filters/length.html">length</a>,
+        <a href="http://twig.symfony.com/doc/filters/lower.html">lower</a>,
+        <a href="http://twig.symfony.com/doc/filters/merge.html">merge</a>,
+        <a href="http://twig.symfony.com/doc/filters/nl2br.html">nl2br</a>,
+        <a href="http://twig.symfony.com/doc/filters/number_format.html">number_format</a>,
+        <a href="http://twig.symfony.com/doc/filters/raw.html">raw</a>,
+        <a href="http://twig.symfony.com/doc/filters/replace.html">replace</a>,
+        <a href="http://twig.symfony.com/doc/filters/reverse.html">reverse</a>,
+        <a href="http://twig.symfony.com/doc/filters/round.html">round</a>,
+        <a href="http://twig.symfony.com/doc/filters/slice.html">slice</a>,
+        <a href="http://twig.symfony.com/doc/filters/sort.html">sort</a>,
+        <a href="http://twig.symfony.com/doc/filters/split.html">split</a>,
+        <a href="http://twig.symfony.com/doc/filters/striptags.html">striptags</a>,
+        <a href="http://twig.symfony.com/doc/filters/title.html">title</a>,
+        <a href="http://twig.symfony.com/doc/filters/trim.html">trim</a>,
+        <a href="http://twig.symfony.com/doc/filters/upper.html">upper</a>,
+        <a href="http://twig.symfony.com/doc/filters/url_encode.html">url_encode</a>.
 
 twigtests:
     title: Twig tests in Bolt
@@ -460,15 +460,15 @@ twigdefaulttests:
         Bolt uses the Twig template engine. As such, all default
         twig `tests` also work in Bolt. Most of these have a
         similar meaning in plain PHP or Javascript. The available tests are:
-        <a href="http://twig.sensiolabs.org/doc/tests/constant.html">constant</a>,
-        <a href="http://twig.sensiolabs.org/doc/tests/defined.html">defined</a>,
-        <a href="http://twig.sensiolabs.org/doc/tests/divisibleby.html">divisibleby</a>,
-        <a href="http://twig.sensiolabs.org/doc/tests/empty.html">empty</a>,
-        <a href="http://twig.sensiolabs.org/doc/tests/even.html">even</a>,
-        <a href="http://twig.sensiolabs.org/doc/tests/iterable.html">iterable</a>,
-        <a href="http://twig.sensiolabs.org/doc/tests/null.html">null</a>,
-        <a href="http://twig.sensiolabs.org/doc/tests/odd.html">odd</a>,
-        <a href="http://twig.sensiolabs.org/doc/tests/sameas.html">sameas</a>.
+        <a href="http://twig.symfony.com/doc/tests/constant.html">constant</a>,
+        <a href="http://twig.symfony.com/doc/tests/defined.html">defined</a>,
+        <a href="http://twig.symfony.com/doc/tests/divisibleby.html">divisibleby</a>,
+        <a href="http://twig.symfony.com/doc/tests/empty.html">empty</a>,
+        <a href="http://twig.symfony.com/doc/tests/even.html">even</a>,
+        <a href="http://twig.symfony.com/doc/tests/iterable.html">iterable</a>,
+        <a href="http://twig.symfony.com/doc/tests/null.html">null</a>,
+        <a href="http://twig.symfony.com/doc/tests/odd.html">odd</a>,
+        <a href="http://twig.symfony.com/doc/tests/sameas.html">sameas</a>.
     add_separator: true
 
 twigvariables:

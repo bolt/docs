@@ -16,7 +16,7 @@ many ContentTypes.
 
 <p class="note"><strong>Note:</strong> This section requires some knowledge of
 Bolt and Twig (in particular,
-<a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a>).
+<a href="http://twig.symfony.com/doc/templates.html#template-inheritance">Template Inheritance</a>).
 Please remember that this is only one way to handle multilingual content.
 Questions and/or suggestions are welcome, please check the
 <a href="../other/contributing">contributing guide</a> or the
@@ -185,7 +185,7 @@ extension.</p>
 Making Templates and Fetching Content
 -------------------------------------
 Probably, the most interesting part. It is best to make use of the powerful
-[Template Inheritance](http://twig.sensiolabs.org/doc/templates.html#template-
+[Template Inheritance](http://twig.symfony.com/doc/templates.html#template-
 inheritance), in Twig, where you define one master template — e.g. `master.twig`
 — that is extended by other pages. Start by determining the current language
 based on the URL and define all ContentTypes and menus.
@@ -429,7 +429,7 @@ clean(er). Think of setting the locale and exposing default variables via
 functions in a custom extension.
 
 <p class="tip"><strong>Tip:</strong> Use
-<a href="http://twig.sensiolabs.org/doc/tags/macro.html">Twig macros</a> to make
+<a href="http://twig.symfony.com/doc/tags/macro.html">Twig macros</a> to make
 reusable functions in Twig.</p>
 
 

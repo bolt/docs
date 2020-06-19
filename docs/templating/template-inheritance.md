@@ -193,10 +193,10 @@ the record's `cutest_kitten` field:
 
 ```
 
-[twig-function-block]: https://twig.sensiolabs.org/doc/functions/block.html
-[twig-function-parent]: https://twig.sensiolabs.org/doc/functions/parent.html
-[twig-tag-block]: https://twig.sensiolabs.org/doc/tags/block.html
-[twig-tag-extends]: https://twig.sensiolabs.org/doc/tags/extends.html
-[twig-tag-with]: https://twig.sensiolabs.org/doc/tags/with.html
-[twig-tag-use]: https://twig.sensiolabs.org/doc/tags/use.html
-[twig-inheritance]: http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+[twig-function-block]: https://twig.symfony.com/doc/functions/block.html
+[twig-function-parent]: https://twig.symfony.com/doc/functions/parent.html
+[twig-tag-block]: https://twig.symfony.com/doc/tags/block.html
+[twig-tag-extends]: https://twig.symfony.com/doc/tags/extends.html
+[twig-tag-with]: https://twig.symfony.com/doc/tags/with.html
+[twig-tag-use]: https://twig.symfony.com/doc/tags/use.html
+[twig-inheritance]: http://twig.symfony.com/doc/templates.html#template-inheritance

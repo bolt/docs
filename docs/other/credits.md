@@ -47,7 +47,7 @@ Below are some of the many third party libraries that are used by Bolt:
 [Silex]: http://silex.sensiolabs.org/
 [Symfony]: http://symfony.com/
 [Doctrine DBAL]: http://www.doctrine-project.org
-[Twig]: http://twig.sensiolabs.org/
+[Twig]: http://twig.symfony.com/
 [Guzzle]: http://guzzlephp.org/
 [Bootstrap]: http://getbootstrap.com/
 [Font Awesome]: http://fontawesome.io/
