@@ -77,19 +77,19 @@ for more details.
 
 ### Getting the type of a certain field
 
-If you're iterating over an array of `record.values`, it's sometimes useful to
-know what type of field you're dealing with. This is where the `fieldtype()`
-function comes in handy, it reads the fieldtype from the `contenttypes.yml`
+If you're iterating over an array of `record.fields`, it's sometimes useful to
+know what type of field you're dealing with. This is where the `type`
+property comes in handy, it reads the fieldtype from the `contenttypes.yml`
 configuration file:
 
 ```twig
-{% for key,value in record.values %}
+{% for field in record.fields %}
 
-  {% if record.fieldtype(key) == "image" %}
+  {% if field.type === "image" %}
 
       <div class='imageholder-wide'><img src="{{ record.image|thumbnail(800, 600) }}"></div>
 
-  {% elseif record.fieldtype(key) not in ['templateselect']
+  {% elseif field.type not in ['templateselect']
             and key != "templatefields"
             and value != "" %}
 
