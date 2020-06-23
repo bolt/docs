@@ -16,13 +16,19 @@ Simple image upload/select field.
 ## Example usage in templates:
 
 ```twig
-{{ record.cover|image() }}
+{{ record.cover|showimage() }}
 ```
 
 or
 
 ```twig
-{{ record.cover|thumbnail() }}
+{{ record.cover|thumbnail(1368, 1026)|showimage }}
+```
+
+or
+
+```twig
+<img src="{{ record.cover.path }}" alt="{{ record.cover.alt|default(record|title) }}">
 ```
 
 or
