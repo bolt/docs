@@ -30,7 +30,7 @@ Records, you're using an **Array of Records**. For instance, if you create a
 page that has 'the five latest events', you'll be using an Array of 5 'event'
 Records of ContentType 'events'.
 
-Before we'll dive into the details, we'll give you a quick example of a simple
+Before we dive into the details, we'll give you a quick example of a simple
 ContentType, how it's stored, and how you can access it in templates to display
 on your site.
 
@@ -38,7 +38,7 @@ An Example: News items
 ----------------------
 
 In this example, we'll create a very simple ContentType for news items. Each
-news item will have a title, an image, and some text. We'll also be using some
+news item will have a title, a photo, and some text. We'll also be using some
 of the fixed Fields, like the `slug`, the `ownerid` and the various dates.
 
 To add this ContentType, edit the file `config/bolt/contenttypes.yaml`, and add
@@ -55,7 +55,7 @@ news:
         slug:
             type: slug
             uses: title
-        image:
+        photo:
             type: image
         text:
             type: html
@@ -68,7 +68,7 @@ means that the indentation is important. Make sure you leave leading spaces
 intact.</p>
 
 This creates a new ContentType 'news'. Its name is 'News', and a single record
-is named 'News Item'. We've defined fields for 'title', 'slug', 'image' and
+is named 'News Item'. We've defined fields for 'title', 'slug', 'photo' and
 'text'. The 'record_template' defines the default template to use, when
 displaying a single record in the browser.
 
@@ -81,11 +81,12 @@ will show an error message.</p>
 Save the file and refresh the Dashboard screen in your browser. If you do this,
 you'll see your new ContentType in the sidebar, ready for use. Sweet!
 
-<a href="/files/content-example2.png" class="popup"><img src="/files/content-example2.png" width="500"></a>
+<a href="/files/4.0.content-example2.png" class="popup"><img src="/files/4.0.content-example2.png" width="500"></a>
 
 <p class="note"><strong>Note:</strong> In the following examples we're going to
 tell you to make modifications to the default `base-2020` theme. This is
-actually a very bad practice, and if you're going to make your own theme, make
+actually a very bad practice, because future updates of Bolt will override
+ any changes made to that theme. If you're going to make your own theme, make
 a copy of the `base-2020` theme, and do your modifications in the copy.</p>
 
 To add a listing of these news items to the website, edit the twig template
@@ -97,16 +98,16 @@ somewhere below the header section:
 {% setcontent newsitems = "news/latest/4" %}
 
 {% for newsitem in newsitems %}
-<article>
-    <h2><a href="{{ newsitem.link }}">{{ newsitem.title }}</a></h2>
+    <article>
+        <h2><a href="{{ newsitem|link }}">{{ newsitem.title }}</a></h2>
 
-    {{ newsitem.excerpt }}
+        {{ newsitem|excerpt }}
 
-    <p class="meta"><a href="{{ newsitem.link }}">Link</a> -
-    Posted by {{ newsitem.user.displayname }}
-    on {{ newsitem.createdAt|date("M d, ’y")}}</p>
+        <p class="meta"><a href="{{ newsitem|link }}">Link</a> -
+            Posted by {{ newsitem.author.displayname }}
+            on {{ newsitem.createdAt|date("M d, ’y")}}</p>
 
-</article>
+        </article>
 {% endfor %}
 ```
 
@@ -132,16 +133,16 @@ in the `theme/base-2020/` folder, and add the following HTML-code:
 
     <article>
 
-        <h1><a href="{{ newsitem.link }}">{{ newsitem.title }}</a></h1>
+        <h1><a href="{{ newsitem|link }}">{{ newsitem.title }}</a></h1>
 
-        {% if content.image!="" %}
+        {% if newsitem.photo is not empty %}
             <div class='imageholder'><img src="{{ newsitem.image|thumbnail(480, 480) }}"></div>
         {% endif %}
 
         {{ newsitem.text }}
 
-        <p class="meta"><a href="{{ newsitem.link }}">Link</a> -
-            Posted by {{ newsitem.user.displayname }}
+        <p class="meta"><a href="{{ newsitem|link }}">Link</a> -
+            Posted by {{ newsitem.author.displayname }}
             on {{ newsitem.createdAt|date("M d, ’y")}}</p>
 
     </article>
@@ -228,6 +229,7 @@ The available options are:
 | `taxonomy` <small>(optional)</small> | An array listing the different taxonomies used by this ContentType. For example `[ categories, tags ]`. See the page on [Taxonomies][ct-taxonomies] for details. |
 | `relations` <small>(optional)</small> | An array listing the different relations available to this ContentType. See the page on [Relations][ct-relations] for details. |
 | `record_template` | The default template to use, when displaying a single Record of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. This can be overridden on a per-record basis, if one of the fields is defined as type `templateselect`. |
+| `record_route` | The name of the route that should be matched for the record page of this ContentType. For more on routing, read the [routing documentation][routing]. |
 | `listing_template` | The default template to use, when displaying an overview of Records of this ContentType. The template itself should be located in your `theme/foo/` folder, in Bolt's root folder. |
 | `listing_records` <small>(optional)</small> | The amount of records to show on a single overview page in the frontend. If there are more records, the results will be paginated   |
 | `listing_sort` <small>(optional)</small> | The field used to sort the results on. You can reverse the order by adding a '-'. For example `title` or `-datepublish`. |
@@ -317,7 +319,7 @@ The structure of a Record
 Every record is an object, that contains the information of that record, as
 well as some meta-information and its taxonomy.
 
-<a href="/files/content-example3.png" class="popup"><img src="/files/content-example3.png" width="500"></a>
+<a href="/files/4.0.content-example3.png" class="popup"><img src="/files/4.0.content-example3.png" width="500"></a>
 
 At the topmost level, it contains the following items:
 
@@ -325,7 +327,7 @@ At the topmost level, it contains the following items:
 |------|-------------|
 | `id` | The unique identifying number of this record in the database. |
 | `contentType` | A string containing the key of the content type. |
-| `author` | An array, containing information about the user, like the displayname, email-address, etcetera. |
+| `author` | An array, containing information about the user, like the displayname, email address, etcetera. |
 | `status` | The current status of this record. Can be either `published`, `depublished`, `held`, `timed` or `draft`. |
 | `createdAt` | The timestamp of when the record was first created. |
 | `modifiedAt` | The timestamp of when the record was last edited of modified. |
@@ -337,7 +339,7 @@ At the topmost level, it contains the following items:
 
 The object also contains a generic getter for a record field values.  Fetch the value
 using {{ record.field_name }}.  If the `field_name` is not found, it throws an exception 
-if it's invoked from code, and return null if invoked from within a template. 
+if it's invoked from code, and returns null if invoked from within a twig template. 
 (In templates we need to be more lenient, in order to do things like `{% if record.foo %}..{% endif %}`.
 Note: We can not rely on `{% if record.foo is defined %}`, because it always returns `true` for object properties.)
 
@@ -452,6 +454,6 @@ pages:
 [field-types]: ../fields
 [howto-resource-ct]: ../howto/resource-contenttype
 [howto-singletons]: ../howto/singleton-contenttype
-[routing]: ../configuration/routing
 [twig-filters]: ../twig-components/filters
 [twig-functions]: ../twig-components/functions
+[routing]: ../routing

@@ -53,7 +53,7 @@ You can control which fields are localizable on a per-field basis using the
 The above example will make the `pages` content type localizable: that means, editors
 will be able to create different versions of the same page in the specified 4 languages: 
 English, Dutch, Japanese and Norwegian. To learn more about locales, 
-visit the [locales page](./locales.md).
+visit the [locales page](./locales).
 
 
 
@@ -105,7 +105,7 @@ The example above says that the `photo` field will be available in the default l
 That is, the locale configured in the `services.yaml` file.
 
 Bolt provides 2 ways to specify the default locale:
-* To override the default locale for all your content types, visit the [locales](./locales.md) page
+* To override the default locale for all your content types, visit the [locales][locales-page] page
 * To override the default locale for a single field, use `default_locale` on that field, as shown below:
 
 ```yaml
@@ -119,3 +119,5 @@ pages:
             default_locale: 'nl'
     locales: ['en', 'nl', 'ja', 'nb']
 ```
+
+[locales-page]: ./localization/locales
