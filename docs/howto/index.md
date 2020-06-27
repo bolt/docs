@@ -4,6 +4,7 @@ short_title: HOWTOs
 pages:
     - resource-contenttype
     - singleton-contenttype
+    - transform-repeaters-to-sets-and-collections
     - simple-menu
     - resetting-a-password
     - using-php-built-in-web-server
