@@ -18,13 +18,9 @@ These queries are currently possible:
 
   * `entry/12` - get entry with id 12
   * `page/about` - get page with slug about
-  * `event/latest/5` - get latest 5 events
-  * `news/first/5` - get first 5 newsitems
-  * `quote/random/5` - get 5 random quotes
   * `animal/search/5` - search for animals and return 5 of them (use
     where parameter 'filter' to specify search string)
-  * `(animal,plant)/search/20` - search for animals and plants and
-    return 20 of them (use where parameter 'filter' to specify searchstring)
+  * `(animal,plant)` - fetch records for animals and plants
 
 ```twig
 {% setcontent about = 'page/about' %}

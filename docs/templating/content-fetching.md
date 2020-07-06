@@ -47,7 +47,7 @@ If you need a single record, and know its `id` or `slug`, you can do this:
 If you need the '5 latest pages' or '3 first reviews', there's also a shortcut for that:
 
 ```
-{% setcontent latestpages = 'pages/latest/5' %}
+{% setcontent latestpages = 'pages' latest limit 5 %}
 
 {{ dump(latestpages) }}
 ```
@@ -55,7 +55,7 @@ If you need the '5 latest pages' or '3 first reviews', there's also a shortcut f
 and:
 
 ```
-{% setcontent firstreviews = 'reviews/first/3' %}
+{% setcontent firstreviews = 'reviews' earliest limit 3 %}
 
 {{ dump(firstreviews) }}
 ```
@@ -67,8 +67,8 @@ If you need more specific criteria to select the records on, you can use the
 `where` clause. The parameters must be listed in a hash.
 
 ```
-{# get all pages with ownerid '2' #}
-{% setcontent mypages = 'pages' where { ownerid: '2' } %}
+{# get all pages with author id '2' #}
+{% setcontent pages = 'pages' where { author : { id: 1 } } %}
 
 {# get all events with eventdate '2012-10-15' #}
 {% setcontent myevents = 'events' where { eventdate: '2012-10-15' } %}
@@ -82,7 +82,7 @@ equal':
 
 ```
 {# get all pages not created by user '1' #}
-{% setcontent mypages = 'pages' where { ownerid: '!1' } %}
+{% setcontent mypages = 'pages' where { author: { id: '!1' } } %}
 
 {# get all products where price is not empty #}
 {% setcontent myproducts = 'products' where { price: '!' } %}
@@ -91,7 +91,7 @@ equal':
 {% setcontent myevents = 'events' where { eventdate: '<2012-10-15' } %}
 
 {# get all blog entries which have been published before last monday #}
-{% setcontent myarticles = 'entries' where { status: 'published', datepublish: '< last monday' } %}
+{% setcontent myarticles = 'entries' where { status: 'published', publishedAt: '< last monday' } %}
 
 {# get all books with amountsold over 1,000 #}
 {% setcontent mybooks = 'books' where { amountsold: '>1000' } %}
@@ -161,16 +161,16 @@ You can use these date notations like this:
 
 ```
 {# Selecting pages published _before_ yesterday #}
-{% setcontent mypages = 'pages' where { datepublish: '<yesterday' } %}
+{% setcontent mypages = 'pages' where { publishedAt: '<yesterday' } %}
 
 {# If you want to include yesterday in your `where`, use 'before today' #}
-{% setcontent mypages = 'pages' where { datepublish: '<today' } %}
+{% setcontent mypages = 'pages' where { publishedAt: '<today' } %}
 
 {# Selecting pages published earlier today, or in the future #}
-{% setcontent mypages = 'pages' where { datepublish: '>today' } %}
+{% setcontent mypages = 'pages' where { publishedAt: '>today' } %}
 
 {# Selecting pages published today only #}
-{% setcontent mypages = 'pages' where { datepublish: '>today && <tomorrow' } %}
+{% setcontent mypages = 'pages' where { publishedAt: '>today && <tomorrow' } %}
 ```
 
 <p class="tip"><strong>Tip:</strong> When using 'where' statements with a field
@@ -185,7 +185,7 @@ clause:
 
 ```
 {# get all pages not created by 'pete', and created after july 2012, with a .jpg image #}
-{% setcontent mypages = 'pages' where { ownerid: '!3', datecreated: '>2012-07-31', image: '%.jpg%' } %}
+{% setcontent mypages = 'pages' where { author: { id: '!3' }, createdAt: '>2012-07-31', image: '%.jpg%' } %}
 ```
 
 ### 'AND' and 'OR'
@@ -198,7 +198,7 @@ either select using `AND` or `OR`. examples:
 
 ```yaml
 {# get all pages created by ownerid '3' or '4' #}
-{% setcontent mypages = 'pages' where { ownerid: '3 || 4' } %}
+{% setcontent mypages = 'pages' where { author: { id : '3 || 4' } } %}
 
 {# get all pages with an id greater than 29, but smaller or equal to 37 #}
 {% setcontent mypages = 'pages' where { id: '>29 && <=37' } %}
@@ -209,7 +209,7 @@ where statement that will never give good results:
 
 ```yaml
 {# This will _always_ match: #}
-{% setcontent mypages = 'pages' where { ownerid: '!3 || !4' } %}
+{% setcontent mypages = 'pages' where { author: { id: '!3 || !4' } } %}
 
 {# This will never work: #}
 {% setcontent mypages = 'pages' where { id: '<29 && >37' } %}
@@ -232,26 +232,26 @@ Since `AND` is the default, there is no `&&&` equivalent to `|||`.
 Getting content for a specific user
 -----------------------------------
 
-As you might've noticed, in the examples above, we've used `ownerid` a couple
+As you might've noticed, in the examples above, we've used `author` a couple
 of times to get content specific to a given user. In Bolt, content is stored
-with a reference to the owner, the so called `ownerid`. This means that you
+with a reference to the author. This means that you
 cannot do things like this:
 
 ```
 {# get all pages created by user 'bob' #}
-{% setcontent mypages = 'pages' where { username: 'admin' } %}
+{% setcontent mypages = 'pages' where { author { username : 'bob' } } %}
 ```
 
-Instead, you'll need to use the `ownerid`. If you don't know the `ownerid`, but
-you _do_ know their name, you can use the `getuserid()` function.
+Instead, you'll need to use `author: {id : 1 }`. If you don't know the `id`, but
+you _do_ know their name, you can use the `getuser()` function.
 
 ```
 {# get all pages created by user 'bob' #}
-{% set myuserid = getuserid('bob') %}
-{% setcontent mypages = 'pages' where { ownerid: myuserid } %}
+{% set myuserid = getuser('bob').id %}
+{% setcontent mypages = 'pages' where { author: { id: myuserid } } %}
 
 {# or, on one line #}
-{% setcontent mypages = 'pages' where { ownerid: getuserid('bob') } %}
+{% setcontent mypages = 'pages' where { ownerid: getuser('bob').id } %}
 ```
 
 Using `limit`
@@ -261,7 +261,7 @@ practice to limit the maximum number of records, by adding a `limit` clause.
 
 ```
 {# get 10 pages created by 'bob' #}
-{% setcontent mypages = 'pages' where { ownerid: '1' } limit 10 %}
+{% setcontent mypages = 'pages' limit 10 %}
 ```
 
 Ordering results
@@ -296,7 +296,7 @@ makes the difference?
 {% setcontent mypage = 'page/about' %}
 {{ mypage }} {# mypage is one record #}
 
-{% setcontent mypages = 'page/latest/5' %}
+{% setcontent mypages = 'page' latest 5 %}
 {% for mypage in mypages %}
   {{ mypage }} {# mypages is an array that we can iterate over #}
 {% endfor %}
@@ -314,6 +314,16 @@ following is the case:
 If you use `limit 1`, you will get an array with 1 record. Unless, of course,
 one of the above criteria was met.
 
+To override the default behaviour, you can explicitly request either a single
+record or multiple records:
+```twig
+{% setcontent mypage = 'pages' returnsingle %}
+{# by specifying `returnsingle`, Bolt will return a single page from the pages ContentType #}
+
+{% setcontent arrayofpages = 'pages' returnmultiple %}
+{# by specifying `returnmultiple`, Bolt will return an array of pages, even if it is an array of 1 #}
+```
+
 
 Using the `printquery` option
 -----------------------------
@@ -323,11 +333,12 @@ desired results, you can add `printquery` to the `{% setcontent %}`- tag. Doing
 this will output the SQL query Bolt creates and executes. For example:
 
 ```
-{% setcontent entries = 'entries/latest/5' printquery %}
+{% setcontent entries = 'entries' latest 5 printquery %}
 
 will show:
 
-SELECT bolt_entries.* FROM bolt_entries WHERE (`bolt_entries`.`status` = 'published')
-ORDER BY `datepublish` DESC LIMIT 5
+SELECT content FROM Bolt\Entity\Content content WHERE content.contentType = :ct0 AND content.status = :status_1 ORDER BY content.publishedAt DESC
+ct0: entries
+status_1: published
 ```
 
