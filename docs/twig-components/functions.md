@@ -211,27 +211,55 @@ See also [Linking in templates][linkintpl], with a detailed
 description of a good usecase.
 
 
-### getuser & getuserid
+### getuser
 
 Sometimes you need to fetch a specific record based on the correct user. In
 cases like these, You'll need to be able to get the data for this user, and the
-user's id. For these occasions, the functions `getuserid` and `getuser` come in
-handy. The function takes one argument: either a known id, or the username,
-that the user also uses to log on.
+user's id. For these occasions, the function `getuser` comes in
+handy.
+
+To fetch a user, pass at least one of the arguments below:
+
+| Argument name | Explanation        |
+| ------------- |--------------------|
+| `username`    | Search by username |
+| `id`          | Search by id       |
+| `displayname` | Search by display name |
+| `email`       | Search by email    |
 
 Example 1: Getting a user
 
 ```twig
-{{ dump(getuser(1)) }}
+    {{ getuser(username = 'admin') }} {# fetches the user with username 'admin'. If it does not exist, returns null #}
+    {{ getuser(id = 1) }} {# fetches the user with id '1' #}
+    {{ getuser(displayname = 'Administrator') }}
+    {{ getuser(email = 'admin@example.org' }}
+    
+    {# Or even like this: #}
+    {{ getuser(username = 'admin', id = 1) }}
 ```
-
-<a href="/files/templatetags-getuser.png" class="popup"><img src="/files/templatetags-getuser.png" width="500"></a>
-
 
 Example 2: Using in `setcontent`
 
 ```twig
-{% setcontent pages = "pages" where { ownerid: getuserid('admin') } %}
+{% setcontent pages = "pages" where { ownerid: getuser('admin').id } %}
+```
+
+#### User properties
+
+Every user in Bolt has the following properties: `id`, `username`, `email`, `displayname`, `lastIp`,
+`roles`, `lastseenat`, `locale`, `backendtheme` and `disabled`.
+
+The user also has a `password` property, but for security reasons the value of that property
+will always be empty.
+
+For example, here is how to fetch the user with `username = 'admin'` and use its properties:
+
+```twig
+    {% set firstuser = getuser(username='admin') %}
+    <p>Username: {{ firstuser.username }} </p>
+    <p>Last seen: {{ firstuser.lastseenat|date }} </p>
+    <p>User locale: {{ firstuser.locale }} </p> 
 ```
 
 ### dump()
