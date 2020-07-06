@@ -68,7 +68,7 @@ If you need more specific criteria to select the records on, you can use the
 
 ```
 {# get all pages with author id '2' #}
-{% setcontent pages = 'pages' where { author : { id: 1 } } %}
+{% setcontent pages = 'pages' where { author: 2 } %}
 
 {# get all events with eventdate '2012-10-15' #}
 {% setcontent myevents = 'events' where { eventdate: '2012-10-15' } %}
@@ -82,7 +82,7 @@ equal':
 
 ```
 {# get all pages not created by user '1' #}
-{% setcontent mypages = 'pages' where { author: { id: '!1' } } %}
+{% setcontent mypages = 'pages' where { author: '!1' } %}
 
 {# get all products where price is not empty #}
 {% setcontent myproducts = 'products' where { price: '!' } %}
@@ -185,7 +185,7 @@ clause:
 
 ```
 {# get all pages not created by 'pete', and created after july 2012, with a .jpg image #}
-{% setcontent mypages = 'pages' where { author: { id: '!3' }, createdAt: '>2012-07-31', image: '%.jpg%' } %}
+{% setcontent mypages = 'pages' where { author: '!3', createdAt: '>2012-07-31', image: '%.jpg%' } %}
 ```
 
 ### 'AND' and 'OR'
@@ -198,7 +198,7 @@ either select using `AND` or `OR`. examples:
 
 ```yaml
 {# get all pages created by ownerid '3' or '4' #}
-{% setcontent mypages = 'pages' where { author: { id : '3 || 4' } } %}
+{% setcontent mypages = 'pages' where { author: '3 || 4' } %}
 
 {# get all pages with an id greater than 29, but smaller or equal to 37 #}
 {% setcontent mypages = 'pages' where { id: '>29 && <=37' } %}
@@ -209,7 +209,7 @@ where statement that will never give good results:
 
 ```yaml
 {# This will _always_ match: #}
-{% setcontent mypages = 'pages' where { author: { id: '!3 || !4' } } %}
+{% setcontent mypages = 'pages' where { author: '!3 || !4' } %}
 
 {# This will never work: #}
 {% setcontent mypages = 'pages' where { id: '<29 && >37' } %}
@@ -239,19 +239,19 @@ cannot do things like this:
 
 ```
 {# get all pages created by user 'bob' #}
-{% setcontent mypages = 'pages' where { author { username : 'bob' } } %}
+{% setcontent mypages = 'pages' where { author: 'bob' } %}
 ```
 
-Instead, you'll need to use `author: {id : 1 }`. If you don't know the `id`, but
+Instead, you'll need to use `author: 1`. If you don't know the `id`, but
 you _do_ know their name, you can use the `getuser()` function.
 
 ```
 {# get all pages created by user 'bob' #}
 {% set myuserid = getuser('bob').id %}
-{% setcontent mypages = 'pages' where { author: { id: myuserid } } %}
+{% setcontent mypages = 'pages' where { author: myuserid } %}
 
 {# or, on one line #}
-{% setcontent mypages = 'pages' where { ownerid: getuser('bob').id } %}
+{% setcontent mypages = 'pages' where { author: getuser('bob').id } %}
 ```
 
 Using `limit`
