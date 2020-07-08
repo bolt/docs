@@ -6,7 +6,7 @@ config:get
 ==========
 
 Nut's `config:get` command returns the value of an **existing** key in Bolt's
-configuration files, by default `config.yml`.
+configuration files, by default `config.yaml`.
 
 <p class="note"><strong>Note:</strong> sub keys can be specified in the
 <code>key</code> argument using <code>/</code>as a delimiter, e.g.
@@ -55,7 +55,7 @@ thumbnails/quality: 80
 ### Query a ContentType's field type
 
 ```bash
-$ php ./bin/console config:get pages/fields/body/type --file contenttypes.yml
+$ php ./bin/console config:get pages/fields/body/type --file contenttypes.yaml
 pages/fields/body/type: html
 ```
 

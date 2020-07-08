@@ -17,11 +17,11 @@ Some of the more commonly used 'tricks' are:
   - `{% if item|current %}active{% endif %}` - Output `current`, but only if
     we're on the page that the item links to.
   - `{% if item.title is defined %}title='{{ item.title|escape }}'{% endif %}`
-    - Add a `title` attribute, but only if it's defined in our `.yml`-file, or
+    - Add a `title` attribute, but only if it's defined in our `.yaml`-file, or
     if the ContentType has a `subtitle` field.
   - `{% if item.class is defined %}class='{{item.class}}'{% endif %}` - Add a
     `class` attribute, but only it the item has a `class` defined in the
-    `.yml`-file.
+    `.yaml`-file.
 
 See the default `/bolt/templates/helpers/_sub_menu.twig` file for an in-depth
 example of all of the things you can do with menus. Remember that you should

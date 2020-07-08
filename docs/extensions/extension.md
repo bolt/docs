@@ -154,7 +154,7 @@ Vagrantfile
 .vagrant*
 .idea
 .vscode/*
-appveyor.yml
+appveyor.yaml
 
 ### Local files
 vendor/
@@ -238,7 +238,7 @@ Note: If you get a message like this:
   Could not find a matching version of package foo/bar-qux. Check the package 
   spelling, your version constraint and that the package is available in a stability 
   which matches your minimum-stability (dev).
-  ```
+```
 
 Then you might have been too quick. It usually takes a few minutes for Composer to
 index the package, and make it available. Just try it again after a minute or two. 

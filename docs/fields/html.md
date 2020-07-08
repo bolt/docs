@@ -29,7 +29,10 @@ field.
 
 * `allow_twig` can be set to true or false to control if twig may be used in the
   field
-<!--
+
+  this is here
+
+<!---
 * `options` contains the options for the <abbr title="What You See Is What You Get">WYSIWYG</abbr>
   editor. See below for an example and the [CKEditor API][ckeditor] for more
   information on possible options:
@@ -48,7 +51,8 @@ field.
                     autoGrow_minHeight: 300
                     # The following would remove all the default bolt buttons from the button bar. No whitespace in the value allowed.
                     removeButtons : "Bold,Link,Unlink,NumberedList,BulletedList,Italic,Format,Indent,Outdent,RemoveFormat,Maximize"
-``` -->
+``` 
+-->
 
 ## Input Sanitisation
 

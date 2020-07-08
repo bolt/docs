@@ -5,7 +5,7 @@ Relationships
 =============
 
 You can define relationships between records by adding a relation to
-`contenttypes.yml`.
+`contenttypes.yaml`.
 
 ```yaml
 pages:
@@ -48,7 +48,7 @@ record that has a relation to another record. It looks like this:
 <a href="/files/relations2.png" class="popup"><img src="/files/relations2.png" width="350"></a>
 
 If you see this, you might consider adding the reverse relation to the
-`contenttypes.yml` as well.
+`contenttypes.yaml` as well.
 
 Relations in templates
 ----------------------

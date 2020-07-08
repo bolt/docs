@@ -8,7 +8,7 @@ Once an application has loaded then you are able to access configuration
 parameters either in PHP code or via Twig templates within your active theme.
 As part of the application boot process a few processing steps happen to
 compile the final configuration and this includes merging any environment
-specific overrides inside `_local.yml`  suffixed files.
+specific overrides inside `_local.yaml`  suffixed files.
 
 Accessing Configuration in PHP
 ------------------------------
@@ -26,16 +26,16 @@ These prefixes are:
 
 | Section        | YAML file |
 | ---------------| --------- |
-| `general`      | `config.yml` and `config_local.yml`
-| `contenttypes` | `contenttypes.yml`
-| `menu`         | `menu.yml`
-| `permissions`  | `permissions.yml`
-| `routing`      | `routing.yml`
-| `taxonomy`     | `taxonomy.yml`
-| `theme`        | `theme.yml` (in the active theme directory)
+| `general`      | `config.yaml` and `config_local.yaml`
+| `contenttypes` | `contenttypes.yaml`
+| `menu`         | `menu.yaml`
+| `permissions`  | `permissions.yaml`
+| `routing`      | `routing.yaml`
+| `taxonomy`     | `taxonomy.yaml`
+| `theme`        | `theme.yaml` (in the active theme directory)
 
-"General" refers to the main configuration found in `config.yml` and
-`config_local.yml`. For example to fetch the `locale` setting from the main
+"General" refers to the main configuration found in `config.yaml` and
+`config_local.yaml`. For example to fetch the `locale` setting from the main
 configuration, we can use: `$app['config']->get('general/locale');`
 
 To traverse into an array we just need to specify it in the method call:
@@ -54,7 +54,7 @@ To print the relevant value:
 {{ config.get('general/locale') }}
 ```
 
-The `theme.yml` can also be accessed directly, so it looks cleaner in the
+The `theme.yaml` can also be accessed directly, so it looks cleaner in the
 template code:
 
 ```twig

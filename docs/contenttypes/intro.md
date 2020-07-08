@@ -287,7 +287,7 @@ More details and examples can be found in
 
 ### Grouping ContentTypes in the sidebar
 
-If you have a larger number of ContentTypes, the siebar in Bolt's backend might
+If you have a larger number of ContentTypes, the sidebar in Bolt's backend might
 look too cluttered. To make your the sidebar tidier, you can group several
 ContentTypes together in the sidebar menu, using the `show_in_menu` option.
 

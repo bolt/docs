@@ -13,7 +13,7 @@ example, a website about movies might have "Romance", "Science Fiction" and
 called a taxonomy. Bolt allows you to define and use your own taxonomies to
 classify and structure your content.
 
-You can create Bolt Taxonomies by adding them to `taxonomy.yml`. Bolt can use the
+You can create Bolt Taxonomies by adding them to `taxonomy.yaml`. Bolt can use the
 common 'tags' and 'categories' out of the box, but it also allows you to
 customize them to your needs. You can define your own Taxonomies, and choose
 how they behave. There are three main types of Taxonomy:
@@ -33,7 +33,7 @@ how they behave. There are three main types of Taxonomy:
     viewed as a part of the other records with the same grouping. As such, a
     record can have only one 'grouping' at most.
 
-The default `taxonomy.yml` has good examples of all three types. You must specify either a `slug` or `name` on each definition.
+The default `taxonomy.yaml` has good examples of all three types. You must specify either a `slug` or `name` on each definition.
 
 ```yaml
 tags:
@@ -82,7 +82,7 @@ Setting options
 ---------------
 
 Both the grouping as well as the categories Taxonomies use a number of set
-options. You can set these possible options in your `taxonomy.yml`, after
+options. You can set these possible options in your `taxonomy.yaml`, after
 which the editor can select one or more of them when they are editing the
 content. Yaml allows us to specify these options in a few different ways,
 depending on your needs.
@@ -133,7 +133,7 @@ Adding Taxonomies to ContentTypes
 ---------------------------------
 
 Once the Taxonomies are added, you need to add them to your ContentTypes in
-`contenttypes.yml`, so you can use them in your content. For example:
+`contenttypes.yaml`, so you can use them in your content. For example:
 
 ```yaml
 entries:

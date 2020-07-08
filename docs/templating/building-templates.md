@@ -154,7 +154,7 @@ The current default theme contains the following files and folders:
 | `partials/_header.twig` | Helper template that gets included as the header. |
 | `partials/_footer.twig` | Helper template that gets included as the footer. |
 | `partials/_recordfooter.twig` | Footer specifically for ContentType records |
-| `theme.yml` | A file with configuration related to the theme and how it works with bolt. Can also contain configuration for template specific fields and values for the theme to use in its templates. |
+| `theme.yaml` | A file with configuration related to the theme and how it works with bolt. Can also contain configuration for template specific fields and values for the theme to use in its templates. |
 | `js/` | Compiled JavaScript files |
 | `css/` | Compiled CSS files |
 
@@ -175,12 +175,12 @@ ContentType will be available under <a>domain.com/foo/slug-of-record</a>, where
 `slug-of-record` is the "slugified" version of the title. Bolt will try to use
 `foo.twig` as the template to render the page.
 
-You can change this by either defining another template in `contenttypes.yml`,
+You can change this by either defining another template in `contenttypes.yaml`,
 or using a 'template select' field in the ContentType. More information about
 this can be found in the section on working with [ContentTypes][cts].
 
-Using your themes `theme.yml` you can provide overrides for certain settings
-of the main `config.yml`. These are useful when building themes and you want to
+Using your themes `theme.yaml` you can provide overrides for certain settings
+of the main `config.yaml`. These are useful when building themes and you want to
 provide your own templates.
 
 These are (provided with examples):
@@ -195,11 +195,11 @@ maintenance_template: maintenance.twig
 
 `listing_template` is used for both ContentType listings and taxonomy listings.
 
-By using the `template_directory` setting in your themes `theme.yml` you can
+By using the `template_directory` setting in your themes `theme.yaml` you can
 choose the location of the templates within your theme structure.
 
 For example to place all your templates in a directory called `twig` you would
-add the following to your theme's theme.yml:
+add the following to your theme's theme.yaml:
 
 ```yaml
 template_directory: twig

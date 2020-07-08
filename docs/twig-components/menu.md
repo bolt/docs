@@ -99,10 +99,11 @@ it's always easily recognizable later, or to other people working with your
 HTML.
 
 <p class="note"><strong>Note:</strong> You can define more than one menu in
-your <code>menu.yml</code> file, but you should define <em>only one</em> menu
+your <code>menu.yaml</code> file, but you should define <em>only one</em> menu
 in each template file. So, if you have multiple menus that should be rendered
 with different HTML, you should have as many
 <code>_menu_<em>menuname</em>.twig</code> files in your theme.</p>
+
 
 ### menu_array()
 

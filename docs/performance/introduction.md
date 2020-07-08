@@ -10,23 +10,23 @@ website when putting it 'live'. When developing Bolt, you usually have different
 settings than you would use in a production environment.
 
 
-Use `config_local.yml`
+Use `config_local.yaml`
 ----------------------
 
 Regardless of how you 'deploy' a site with Bolt, you've undoubtedly bumped into
 the nuisance of keeping environment specific settings in sync between your
 development version, and the 'live' production site. To make this a bit easier,
-you can use a `config_local.yml`, that you can place right next to the 'regular'
-`config.yml`. Any setting you make in this file, will _overrule_ a setting made
-in `config.yml`.
+you can use a `config_local.yaml`, that you can place right next to the 'regular'
+`config.yaml`. Any setting you make in this file, will _overrule_ a setting made
+in `config.yaml`.
 
-If you use a version control tool like Git, you can put the `config.yml` file
-into the repository, but you shouldn't commit `config_local.yml`. This way you
+If you use a version control tool like Git, you can put the `config.yaml` file
+into the repository, but you shouldn't commit `config_local.yaml`. This way you
 can bring most of the configuration under version control, but your database
 credential isn't included.
 
 You can edit this file through the Bolt backend as well, just like the regular
-config. To get there, use the button on the edit screen for `config.yml`:
+config. To get there, use the button on the edit screen for `config.yaml`:
 
 <a href="/files/howto_config_local.png" class="popup"><img src="/files/howto_config_local.png" width="571"></a><br>
 
@@ -78,7 +78,7 @@ feature, do the following:
 
  - Create a folder `thumbs` in the web root of your website, and make sure it's
    writable to the web server.
- - Set `save_files: true` in the `thumbnails:` section of `config.yml`.
+ - Set `save_files: true` in the `thumbnails:` section of `config.yaml`.
 
 Doing this means that thumbnails will be saved as actual files, with the exact
 same name as will show up in the url. By default Bolt caches the results of each
@@ -92,7 +92,7 @@ Configure the backend path and other branding
 ---------------------------------------------
 
 The default path to the Bolt backend is `/bolt`, but this can be configured in
-`config.yml`. Doing this has a tiny benefit when it comes to security, because
+`config.yaml`. Doing this has a tiny benefit when it comes to security, because
 bots and crawlers won't be able to use the default location to try for
 passwords, but it also looks professional, for your clients.
 
@@ -165,7 +165,7 @@ Putting it all together
 -----------------------
 
 Combining the tips mentioned above, here's a full example of what your
-`config_local.yml` could contain.
+`config_local.yaml` could contain.
 
 ```yaml
 # Database credentials.
