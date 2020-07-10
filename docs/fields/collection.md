@@ -151,7 +151,7 @@ The field has three specific options:
                         alt: "Picture of a kitten"
                 2:
                     field: content
-                    default: "<strong>Finish storng</strong> after the kitten with some content"
+                    default: "<strong>Finish strong</strong> after the kitten with some content"
 ```
 
 <p class="note"><strong>Note:</strong> To set the default items inside a collection, you <strong>must</strong>
