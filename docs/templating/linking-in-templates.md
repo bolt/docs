@@ -9,7 +9,7 @@ pages, or to include assets like CSS and Javascript resources in your HTML.
 They are:
 
  - To link to assets, like CSS, Javascript or other files, use `{{ asset() }}`
- - To link to the 'current page', use `{{ canonical() }}` or `{{ record.link() }}`
+ - To link to the 'current page', use `{{ canonical() }}` or `{{ record|link" }}`
  - To generate a relative or absolute path, use `{{ path() }}`
  - To generate a scheme-relative or absolute url, use `{{ url() }}`
  - To generate sensible links from user-provided input, use `{{ absolute_link() }}`
@@ -97,11 +97,11 @@ domain name. It is defined dynamically by Bolt, and can be influenced using the
 `canonical: ` setting in your `config.yaml`.
 
 Alternatively, if you want to create links to a specific page in a listing, or a
-record you've fetched using `{% setcontent %}`, you can use the `.link()`
-function to get the link. For example:
+record you've fetched using `{% setcontent %}`, you can use the `"link"`
+filter to get the link. For example:
 
 ```twig
-<a href="{{ record.link() }}">{{ record.title }}</a>
+<a href="{{ record|link }}">{{ record.title }}</a>
 
 {# -> <a href="http://example.org/page/lorum-ipsum">Lorum Ipsum</a> #}
 ```
@@ -149,31 +149,25 @@ domain name. For example, use `url` when you need the link to insert in an
 email, or to link to the page from an external source, like social media. In
 other cases you should just stick with `path` for simplicity.
 
-You can also pass in extra parameters with these functions, that are used to
-generate the link. For example, to produce a link relative to the base of your
-site:
-
 ```twig
 <a href="{{ path(
-    'contentlink',
+    'listing',
     {
-        'contenttypeslug': link_content_type,
-        'slug': link_slug,
+        'contentTypeSlug': link_content_type,
         'section': query_section
     })
 }}">
-    Link to a absolute path of the ContentType "{{ link_content_type }}", with
-    the slug of "{{ link_slug }}", and the query parameter `section` with the
-    value of {{ query_section }}
+    Link to a absolute path of the ContentType "{{ link_content_type }}" with
+    the query parameter `section` with the value of {{ query_section }}
 </a>
 ```
 
 This would produce, on an default install, the following output:
 
 ```html
-<a href="/pages/about?section=koala">
-    Link to a absolute path of the ContentType "pages", with the slug of
-    "about", and the query parameter `section` with the value of koala
+<a href="/pages?section=koala">
+    Link to a absolute path of the ContentType "pages", with the query parameter 
+    `section` with the value of koala
 </a>
 ```
 
@@ -185,29 +179,43 @@ so will give you absolute links, which are less error prone.
 The different output for 'relative' illustrated:
 
 ```twig
-{% set parameters = {'contenttypeslug': 'pages', 'slug': 'dicis-vicimus'} %}
+{% set parameters = {'contentTypeSlug': 'pages', 'slugOrId': 'dicis-vicimus'} %}
 
-{{ path('contentlink', parameters) }} => /pages/dicis-vicimus
-{{ path('contentlink', parameters, true) }} => ../pages/dicis-vicimus
-{{ url('contentlink', parameters) }} => http://example.org/pages/dicis-vicimus
-{{ url('contentlink', parameters, true) }} => //example.org/pages/dicis-vicimus
+{{ path('record', parameters) }} => /pages/dicis-vicimus
+{{ path('record', parameters, true) }} => ../pages/dicis-vicimus
+{{ url('record', parameters) }} => http://example.org/pages/dicis-vicimus
+{{ url('record', parameters, true) }} => //example.org/pages/dicis-vicimus
 ```
 
 Under the hood, these functions create links to routes defined in the Routing
 inside Bolt. This is the case for both Bolt core functionality, but extensions
 can also add paths that can be used with this function.
 
-The most commonly used routes are:
+## Most commonly used routes are:
 
 | Route            | Description |
 |------------------|-------------|
 | `homepage`       |  Generate a link to the homepage of the site.
-| `contentlisting` | Used for links to the listing view of a contenttype. For example: `{{ path('contentlisting', {'contenttypeslug': 'pages'}) }}` will generate a link like `/pages`.
-| `contentlink`    |  Used for links to ContentTypes by ContentType name and slug
+| `homepage_locale`|  Generate a link to the homepage in a non-default locale
+| `listing`        | Used for links to the listing view of a ContentType. For example: `{{ path('listing', {'contentTypeSlug': 'pages'}) }}` will generate a link like `/pages`.
+| `listing_locale` |  Used for links to the listing view of a ContentType in a non-default locale. For example: `{{ path('listing', {'contentTypeSlug': 'pages', '_locale': 'nl'}) }}` will generate a link like `/nl/pages`.
+| `record`         |  Used for links to a single record in a ContentType.
+| `record_locale`  | Used for links to a single record in a ContentType in a non-default locale.
 | `search`         |  Generate a link to the search results page of the site. Often used as the 'target' of a form that allows the user to perform a search, e.g.: `<form method="get" action="{{ path('search') }}">`
+
+For example, with default `en` locale:
+
+```twig
+    {{ path('record', { 'contentTypeSlug' : 'pages', 'slugOrId' : '24' } ) }} # /pages/dicis-vicimus (assuming record with id 24 is a page)
+    {{ path('record_locale', { 'contentTypeSlug' : 'pages', 'slugOrId' : '24', '_locale' : 'nl' }) }} # /nl/pages/dicis-vicimus #if the slug is localized, the translated slug will be used. Otherwise, the slug of the page in the default locale will be used instead. 
+    {{ path('record_locale', { 'contentTypeSlug' : 'pages', 'slugOrId' : '24', '_locale' : 'en' }) }} # /pages/dicis-vicimus
+    {{ path('record', { 'contentTypeSlug' : 'pages', 'slugOrId' : 'dicis-vicimus' }) }} # /pages/dicis-vicimus
+```
 
 You can inspect the `routing.yaml` file for more of the 'baked in' routes for the
 front end, as well as the "Routing" panel in the debug toolbar.
+
+You can also view all defined routes by running `bin/console debug:router`
 
 For more in-depth information about this function, see [Linking to pages][page]
 in the Symfony documentation.
