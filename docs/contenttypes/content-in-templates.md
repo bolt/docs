@@ -46,7 +46,7 @@ pages and search results.
 
 ### The Homepage
 
-In your `config.yml` you can set which record is used for the homepage of the
+In your `config.yaml` you can set which record is used for the homepage of the
 site, and you can set the template as well:
 
 ```yaml

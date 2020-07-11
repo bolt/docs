@@ -15,12 +15,12 @@ Nut's `setup:deploy` is a simple tool to deploy a build of the current site
 from a local workstation to a (S)FTP enabled destination host.
 
 To use this tool on your development machine **only** you can create a file
-named `.deploy.yml`.
+named `.deploy.yaml`.
 
-Each key in the `.deploy.yml` represents a deployment target that can be
+Each key in the `.deploy.yaml` represents a deployment target that can be
 uploaded to the remote destination via either FTP or SFTP (secure FTP).
 
-Every deployment configuration you add to `.deploy.yml` must set the `protocol`
+Every deployment configuration you add to `.deploy.yaml` must set the `protocol`
 to either `ftp` or `sftp`, and an `options` array. It is strongly recommended to
 use SFTP, if your host supports it.
 
@@ -31,14 +31,15 @@ use SFTP, if your host supports it.
 ```
 
 <p class="note"><strong>Note:</strong> This command will not appear in the list
-of available commands if the <code>.deploy.yml</code> file is not present.</p>
+of available commands if the <code>.deploy.yaml</code> file is not present.</p>
+
 
 
 ## Arguments
 
 | Argument | Description |
 |----------|-------------|
-| target   | Name of the deployment setting to use from .deploy.yml
+| target   | Name of the deployment setting to use from .deploy.yaml
 
 
 ## Options
@@ -76,7 +77,7 @@ View this short screencast, to see it in action:
 
 ## Configuration File
 
-Configuration is done in the `.deploy.yml` file in the site's root directory on
+Configuration is done in the `.deploy.yaml` file in the site's root directory on
 your development environment, with the following format:
 
 ```
@@ -208,7 +209,7 @@ php bin/console setup:deploy --edit production
 ```
 
 This will allow you to interactively review and modify the settings in your
-`.deploy.yml` file.
+`.deploy.yaml` file.
 
 <a href="/files/nut-deploy.png" class="popup"><img src="/files/nut-deploy.png" width="590"></a>
 

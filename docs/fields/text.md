@@ -38,7 +38,7 @@ All content in this field type will be sanitised before it gets inserted into
 the database. This means that only 'whitelisted' HTML like `<b>` and
 `<img src="…">` is kept, while things like `<embed>` and `<script>` are scrubbed
 from the field before being stored. As a site-implementor you can control the
-whitelisted tags and attributes using the following section in `config.yml`:
+whitelisted tags and attributes using the following section in `config.yaml`:
 
 ```yaml
 htmlcleaner:

@@ -74,8 +74,8 @@ locale, you can use this: <code>{{ record|title(length = 100) }}</code>.</p>
 ### localedatetime
 
 Outputs a localized, readable version of a timestamp, based on the `locale`
-setting in the `config.yml`-file. See the [Locales][locales-page] page for
-more information on locales. If the locale you've set in `config.yml` does not
+setting in the `config.yaml`-file. See the [Locales][locales-page] page for
+more information on locales. If the locale you've set in `config.yaml` does not
 work, you should verify that the locale is properly installed on your system.
 
 In Bolt dates are stored with each record for the date the record was created,
@@ -327,7 +327,7 @@ mode.
 <img src="{{ content.image|thumbnail }}">
 ```
 
-You can set the size in your `config.yml`, like this:
+You can set the size in your `config.yaml`, like this:
 
 ```yaml
 thumbnails: [ 160, 120, c ]

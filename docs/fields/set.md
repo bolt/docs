@@ -45,13 +45,13 @@ supported.
 
 <a href="/files/set.png" class="popup"><img src="/files/set.png" width="590"></a><br>
 
-
 <p class="note"><strong>Note:</strong> Sets are useable with most of the
 available field types, except for a few where it would get too complex, or where
 it simply does not make sense to have more than one of. In short, do
 <strong>not</strong> use <code>type: slug</code>, <code>type: set</code>,
 <code>type: collection</code> or <code>type: templateselect</code> as fields in
 your set. These fields will not work as expected. </p>
+
 
 ## Example usage in templates:
 
@@ -114,7 +114,7 @@ Example:
                     label: Paragraph
                     type: text
             default:
-                paragraph: "This is teh default value of the paragraph field in the contentset"
+                paragraph: "This is the default value of the paragraph field in the contentset"
 ```
 
 <p class="note"><strong>Note:</strong> The value specified under <code>default:text</code>

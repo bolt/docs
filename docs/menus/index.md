@@ -10,12 +10,12 @@ Creating menus
 ==============
 
 Bolt has built-in functionality to create menus in your frontend templates. You
-can define one or more menus in the file `config/bolt/menu.yml`, which can then
+can define one or more menus in the file `config/bolt/menu.yaml`, which can then
 be inserted in your templates using the `{{ menu() }}` tag.
 
-To change one or more of the menus, edit the file `config/bolt/menu.yml`. You
+To change one or more of the menus, edit the file `config/bolt/menu.yaml`. You
 can add more separate menus, if you wish, and each menu can have one level of
-items below it. See the default `menu.yml` for an example of the supported
+items below it. See the default `menu.yaml` for an example of the supported
 options:
 
 ```yaml

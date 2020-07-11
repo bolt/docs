@@ -44,7 +44,7 @@ Defined package names are:
 
 | Packages     | Description |
 |--------------|-------------|
-| `theme`      | The path to the currently selected theme folder, as defined in your `config.yml`. Use this in your theme to transparently create links to your `.js` and `.css` files. Doing this ensures the links will still work, if your theme gets renamed, or if the site gets installed in a sub-folder.
+| `theme`      | The path to the currently selected theme folder, as defined in your `config.yaml`. Use this in your theme to transparently create links to your `.js` and `.css` files. Doing this ensures the links will still work, if your theme gets renamed, or if the site gets installed in a sub-folder.
 | `files`      | The path to the `files/` folder where images and other files are uploaded by the Editors to be used in the content of the website.
 | `bolt`       | Used to link to Bolt's core asset files. Use of this package name is discouraged in your own theme, because there is no guarantee that these files that are shipped with Bolt will remain unchanged after an update of Bolt.
 | `extensions` | The path to the publicly accessible assets of extensions. For example, if an extension requires a `.js` or `.css` file, it will use this, to ensure it gets included in the theme. As with `bolt`, it's usually not necessary to use these yourself if you're developing a theme.
@@ -94,7 +94,7 @@ email or some other external source. The easiest way to do this is by using the
 
 The canonical link is a fully specified link, which includes the scheme and
 domain name. It is defined dynamically by Bolt, and can be influenced using the
-`canonical: ` setting in your `config.yml`.
+`canonical: ` setting in your `config.yaml`.
 
 Alternatively, if you want to create links to a specific page in a listing, or a
 record you've fetched using `{% setcontent %}`, you can use the `"link"`
@@ -212,7 +212,7 @@ For example, with default `en` locale:
     {{ path('record', { 'contentTypeSlug' : 'pages', 'slugOrId' : 'dicis-vicimus' }) }} # /pages/dicis-vicimus
 ```
 
-You can inspect the `routing.yml` file for more of the 'baked in' routes for the
+You can inspect the `routing.yaml` file for more of the 'baked in' routes for the
 front end, as well as the "Routing" panel in the debug toolbar.
 
 You can also view all defined routes by running `bin/console debug:router`

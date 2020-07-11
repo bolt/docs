@@ -79,7 +79,7 @@ for more details.
 
 If you're iterating over an array of `record.fields`, it's sometimes useful to
 know what type of field you're dealing with. This is where the `type`
-property comes in handy, it reads the fieldtype from the `contenttypes.yml`
+property comes in handy, it reads the fieldtype from the `contenttypes.yaml`
 configuration file:
 
 ```twig

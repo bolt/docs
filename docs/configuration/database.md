@@ -40,7 +40,7 @@ DATABASE_URL=sqlite:///%kernel.project_dir%/var/data/bolt.sqlite
 #DATABASE_URL=postgresql://db_user:"db_password"@localhost:5432/db_name?serverVersion=11"
 ```
 
-Other settings can be changed in the `config.yml` file later on. Either
+Other settings can be changed in the `config.yaml` file later on. Either
 directly from the Bolt backend, or by making edits in the file itself using
 your preferred editor.
 

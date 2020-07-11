@@ -3,7 +3,7 @@ A detailed example
 
 In this section we'll show you a somewhat more elaborate example of how you can
 create a menu, with submenus. First, start by adding a small menu to your
-`config/bolt/menu.yml`-file:
+`config/bolt/menu.yaml`-file:
 
 ```yaml
 test:
@@ -60,7 +60,7 @@ As you can see, the `{% for %}`-loop iterated over all of the items in the
 so it has a submenu, listing some content on our site. In this example, we'll
 assume that you have a `pages` ContentType, and that records `1`, `2` and `3`
 exist. If they don't, just replace them with some contenttype/id pairs that you
-do have. Edit the `config/bolt/menu.yml`-file:
+do have. Edit the `config/bolt/menu.yaml`-file:
 
 ```yaml
 test:
