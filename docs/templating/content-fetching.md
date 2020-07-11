@@ -175,9 +175,9 @@ You can use these date notations like this:
 
 <p class="tip"><strong>Tip:</strong> When using 'where' statements with a field
 that is a date, you can use relative, textual dates, like <code>'last monday'
-</code> or <code>'&gt; this year'</code>. Internally, Bolt uses the <code>
-strtotime()</code> funtion for this, so we refer to its
-<a href="http://php.net/manual/en/function.strtotime.php" target="_blank">
+</code> or <code>'&gt; this year'</code>. Internally, Bolt uses the PHP <code>
+strtotime()</code> function for this, so we refer to its
+<a href="https://www.php.net/manual/en/function.strtotime.php" target="_blank">
 manual page</a> for details. </p>
 
 Like mentioned above, you can add more than one parameter to the where
