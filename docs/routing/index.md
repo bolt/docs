@@ -34,7 +34,7 @@ The easiest way to add your own is to follow the examples defined in the
 distributed `routes.yaml` file. The order of the routes is important
 because it is a first-come first-serve architecture. So if you add your own
 ContentType routes, they will probably need to be defined before the general
-**contentlink** route. Some routing examples are listed below.
+**record** route. Some routing examples are listed below.
 
 ### Make old `.html` pages work
 
@@ -139,7 +139,11 @@ templatebinding:
 
 ## Further reading
 
+For more information about linking and routing in Bolt, please read
+the Bolt documentation on [linking in templates][linking-in-templates].
+
 For more in-depth documentation about Routing, please read [Symfony's
 Routing][sf-docs] documentation.
 
 [sf-docs]: https://symfony.com/doc/current/routing.html
+[linking-in-templates]: ../templating/linking-in-templates
