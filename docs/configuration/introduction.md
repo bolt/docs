@@ -123,7 +123,7 @@ You can also set the value of a config setting dynamically at the
 application runtime, rather than have it hardcoded in a config file.
 
 This way you define settings either in the `.env` file and their ilk, or in a
-server's **environment** settings. This is usedfor the database settings, as
+server's **environment** settings. This is used for the database settings, as
 well as for toggling the 'environments'.
 
 You can also use Symfony's methods to use different configurations per
