@@ -71,55 +71,27 @@ you want to set the length of the title, without having to explicitly set the
 locale, you can use this: <code>{{ record|title(length = 100) }}</code>.</p>
 
 
-### localedatetime
+### localdate
 
-Outputs a localized, readable version of a timestamp, based on the `locale`
-setting in the `config.yaml`-file. See the [Locales][locales-page] page for
-more information on locales. If the locale you've set in `config.yaml` does not
-work, you should verify that the locale is properly installed on your system.
+Outputs a localized, readable version of a timestamp.
 
-In Bolt dates are stored with each record for the date the record was created,
-when it was last edited, and optionally when it was published. These dates are
-stored in a way that makes it easier for the database to work with them when it
-comes to sorting or selecting a specific period. They look like:
-`2020-02-18 09:41:10`, which isn't suitable to output on the website itself.
-The localedatetime filter transforms the ugly timestamp to a readable,
-localized text. Examples:
+| Parameter  | Description |
+|------------|-------------|
+| `format`   | `Optional` The format used to disdplay. If not provided, the default `date_format` from `config/config.yaml` will be used instead.        |
+| `locale`   | `Optional` The locale (language) in which to translate the date. If not provided, the default locale from `config/services.yaml` will be used instead. |
+
+<p class="tip">To check all available date formats, please refer to the official php documentation 
+<a href="https://www.php.net/manual/en/function.date.php">
+https://www.php.net/manual/en/function.date.php</a></a></p>
 
 ```twig
-'{{ record.datepublish }}' is the same as
-'{{ record.datepublish|localedatetime("%A %B %e") }}'
+    {{ record.publishedAt|localdate }} {# Display published date with default format and locale #} 
+    {{ record.publishedAt|localdate(format='F j, Y H:i') }} {# Display published date with custom format and default locale #} 
+    {{ record.publishedAt|localdate(locale='nl') }} {# Display published date with default format and custom locale #} 
+    {{ record.publishedAt|localdate(format='F j, Y H:i', locale='nl') }} {# Display published date with default format and custom locale #} 
+
+    {{ "now"|localdate }} {# Display the current date and time #}
 ```
-
-Outputs:
-
- - '2020-12-05 06:51:16' is the same as 'mánudagur desember 5', if your locale is set to
-    `is_IS`,  or
- - '2020-12-05 06:51:16' is the same as 'Monday December 5', if it's set to `en_GB`. Note
-    that it correctly uses capitals according to the chosen language's conventions.
-
-Some other examples:
-
-```twig
-<ul>
-    <li> Created: {{ record.datecreated|localedatetime("%c") }}</li>
-    <li> Published: {{ record.datepublish|localedatetime("The %A in week %V of %Y") }}</li>
-    <li> Last changed: {{ record.datechanged|localedatetime("%B %e, %Y %r ") }}</li>
-</ul>
-```
-
-Outputs:
-
- - Created: Fri 9 Nov 10:55:19 2020
- - Published: The Sunday in week 07 of 2020
- - Last changed: February 17, 2020 01:09:30 pm
-
-The `localedatetime`-filter uses the PHP `strftime()` function internally. For all
-possible options, see the official [strftime()][strftime] page on php.net.
-
-### localedate
-
-Alias for [localedatetime](#localedatetime)
 
 ### date
 
