@@ -11,6 +11,10 @@ one value (e.g. a collection of Books where a Book has a title, publication date
 <!-- note: by including the old / officious name, it can be found using search. -->
 <!-- block repeater -->
 
+<p class="warning">Note, do <strong>not</strong> name fields inside a set with the name <code>content</code>.
+This is a reserved word for Bolt, because it is used to get a Record from it's field 
+<code>{{ myfield.content }}</code>. You will not be able to access the field with name <code>content</code> inside
+a set.</p>
 
 ## Basic Configuration:
 
