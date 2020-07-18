@@ -77,7 +77,7 @@ Outputs a localized, readable version of a timestamp.
 
 | Parameter  | Description |
 |------------|-------------|
-| `format`   | `Optional` The format used to disdplay. If not provided, the default `date_format` from `config/config.yaml` will be used instead.        |
+| `format`   | `Optional` The format used to display. If not provided, the default `date_format` from `config/config.yaml` will be used instead.        |
 | `locale`   | `Optional` The locale (language) in which to translate the date. If not provided, the default locale from `config/services.yaml` will be used instead. |
 
 <p class="tip">To check all available date formats, please refer to the official php documentation 
