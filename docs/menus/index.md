@@ -22,7 +22,7 @@ options:
 main:
   - label: Home
     title: This is the first menu item. Fo shizzle!
-    path: homepage
+    path: /
     class: first
   - path: entry/1
     label: Second item
@@ -61,4 +61,3 @@ the intended one:
 Much more information on rendering menus in your templates can be found on the page on [menus in the Twig Components section][twig].
 
 [twig]: ../twig-components/menu
-

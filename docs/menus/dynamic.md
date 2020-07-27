@@ -41,7 +41,7 @@ Now all that's left is to modify your submenu template (`_sub_menu.twig`) so tha
     {% from _self import display_menu_item %}
     {% apply spaceless %}
     <li class="index-{{ loop.index -}}
-        {{ item.path|default('') == 'homepage' ? ' menu-text' -}}
+        {{ item.path|default('') == '/' ? ' menu-text' -}}
         {{ loop.first ? ' first' -}}
         {{ loop.last ? ' last' -}}
         {{ (item.submenu|default(false) and withsubmenus) ? ' is-dropdown-submenu-parent' -}}
