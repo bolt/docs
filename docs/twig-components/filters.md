@@ -343,6 +343,37 @@ set the other dimension to `null`, and set cropping mode to resize.
 
 See also [extras][extras].
 
+### svg
+
+Use this filter to render an inlined SVG image. For example:
+
+```twig
+{{ content.photo|svg }}
+```
+
+If `content.photo` is an svg image (see [image filter](#image)), this filter
+will output the contents of the svg file as plain HTML, for example:
+
+```html
+<svg height="100" width="100">
+  <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+  Sorry, your browser does not support inline SVG.  
+</svg> 
+```
+
+If the `|svg` filter is called on a variable that is not an svg image, it will
+not output anything.
+
+To render an inlined svg, and a standard `<img>` tag otherwise, use this:
+
+```twig
+{% if content.photo|split('.')|last == 'svg' %} {# if extension is `.svg` #}
+    {{ content.photo|svg }}
+{% else %}
+    {{ content.photo|showimage }}
+{% endif %}
+```
+
 ### raw
 
 If the content contains HTML-fields, they will be rendered with escaped

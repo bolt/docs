@@ -13,6 +13,7 @@ pages:
     - log
     - event
     - request
+    - configfiles
     # - request-cache
     # - remote-filesystem
 level: advanced
