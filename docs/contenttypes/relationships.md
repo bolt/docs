@@ -35,7 +35,7 @@ The `relations` are defined by the `slug` of the ContentType that it's related t
 | `multiple` | `true` or `false`, to indicate whether the user can pick one related record, or more than one.  Defaults to `false`. |
 | `label` | The label to show on the edit screen. |
 | `order` | The order in which the items are listed on the edit screen. This can be any field in the ContentType. Prefix with `-` to reverse the sorting. In the case of the example, `-id` means that the records that were created last are at the top.
-| `format` | How to show the titles for each record that can be selected. This takes a twig string where `item` is the record that can be selected.  For example if you have two fields for firstname and lastname you might put `'{{item.firstname}} {{item.lastname}}'` here. The default is `'{{ item.title|escape }} (№ {{ item.id }})'` |
+| `format` | How to show the titles for each record that can be selected. For example if you have two fields for firstname and lastname you might put `'{{firstname}} {{lastname}}'` here. The default is `'{title} (№ {id}, {status})'` |
 
 Editing a record that has relations defined looks like this:
 
@@ -60,7 +60,7 @@ To get the related records in twig, use the _filter_ `related`.
         <p>Related content:</p>
         <ul>
         {% for related in relatedrecords %}
-            <li><a href="{{ related.link }}">{{ related.title }}</a></li>
+            <li><a href="{{ related|link }}">{{ related.title }}</a></li>
         {%  endfor %}
         </ul>
     {% endif %}

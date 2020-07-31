@@ -283,9 +283,15 @@ Note that the records are fetched from the database, according to the `orderby`
 parameter. If you use `orderby 'title'`, you will get records with titles
 starting with 'a'.
 
-You can also get results randomised by using content queries. Please see the
-[setcontent](twig-functionality#setcontent) documentation for examples.
+### Random order
 
+To get 'random' selection of records, you can use the `random` directive,
+either in combination with the `limit` directive or on its own.
+
+The example below will return a pseudo-randomised selection of 3 testimonials:
+```twig
+{% setcontent testimonials = 'testimonials' random limit 3 %}
+```
 
 One record or multiple records?
 -------------------------------
