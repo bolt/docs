@@ -107,7 +107,7 @@ you want to display dates in other languages than English.</p>
 
 ### current
 
-Checks if a given record corresponds to the page being shown in the browser.
+Checks if a given record or menu corresponds to the page being shown in the browser.
 Useful for adding 'active' states to menus and such.
 
 ```twig
@@ -123,7 +123,6 @@ or:
     No, you're viewing another page than {{ page.title}}
 {% endif %}
 ```
-
 
 ### round, ceil and floor
 
@@ -266,7 +265,14 @@ modifier will output a link like `/thumbs/320x240/foo.jpg`. This is useful for
 creating absolute links to a thumbnail, regardless of whether Bolt is installed
 in the root of your domain, a subdomain or a folder.
 
-You can specify three parameters: the width, height, and the mode of cropping.
+| Parameter         | Description |
+|-------------------|-------------|
+| `width`           | The desired width of the resulting image. If empty, it will be relative to the height. |
+| `height`          | The desired height of the resulting image. If empty, it will be relative to the width. |
+| `location`        | An extra parameter to specify the location (folder) of the image on the server. Default is `files`, which is where the images are stored. |
+| `path`            | The path to the image within the current location. |
+| `fit`             | Specify the mode of cropping. See below. |
+
 The mode of cropping is important if you're requesting a thumbnail that has
 different proportions than the original image. Valid options for cropping are:
 
@@ -288,7 +294,7 @@ different proportions than the original image. Valid options for cropping are:
 Use the cropping parameter like this:
 
 ```twig
-<img src="{{ content.image|thumbnail(100, 100, "r") }}">
+<img src="{{ content.image|thumbnail(width=100, height=100, fit="r") }}">
 ```
 
 If you omit the width and height altogether, the thumbnail will use the
@@ -298,20 +304,6 @@ mode.
 ```twig
 <img src="{{ content.image|thumbnail }}">
 ```
-
-You can set the size in your `config.yaml`, like this:
-
-```yaml
-thumbnails: [ 160, 120, c ]
-```
-
-To use a defined [thumbnail alias](../configuration/thumbnails#thumbnail-aliases),
-you just need to pass in your alias name like so:
-
-```twig
-<img src="{{ content.image|thumbnail('cover') }}">
-```
-
 
 ### image
 
@@ -562,19 +554,19 @@ Returns the first of the returned related records.
 | `bidirectional`| Performs bidirectional search. Default is `true` |
 | `publishedOnly`| Return only related records that are published. Default is `true` |
 
-### translated
+### translate
 
-Returns the field translated into the requested locale.
+Returns the field translate into the requested locale.
 
 | Parameter      | Description |
 |----------------|-------------|
 | `locale`       | The requested translation's locale, as a string. |
 
 ```twig
-    {% set image_nl = record.image|translated('nl') %}
+    {% set image_nl = record.image|translate('nl') %}
 ```
 
-<p class="note"><strong>Note:</strong> The `|translated` filter
+<p class="warning"><strong>Note:</strong> The `|translate` filter
 will return the field in the requested locale, but it will also
 change the locale of the `record.image` itself.</p>
 
