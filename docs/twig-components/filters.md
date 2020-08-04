@@ -107,7 +107,7 @@ you want to display dates in other languages than English.</p>
 
 ### current
 
-Checks if a given record corresponds to the page being shown in the browser.
+Checks if a given record or menu corresponds to the page being shown in the browser.
 Useful for adding 'active' states to menus and such.
 
 ```twig
@@ -123,7 +123,6 @@ or:
     No, you're viewing another page than {{ page.title}}
 {% endif %}
 ```
-
 
 ### round, ceil and floor
 
@@ -266,29 +265,38 @@ modifier will output a link like `/thumbs/320x240/foo.jpg`. This is useful for
 creating absolute links to a thumbnail, regardless of whether Bolt is installed
 in the root of your domain, a subdomain or a folder.
 
-You can specify three parameters: the width, height, and the mode of cropping.
+| Parameter         | Description |
+|-------------------|-------------|
+| `width`           | The desired width of the resulting image. If empty, it will be relative to the height. |
+| `height`          | The desired height of the resulting image. If empty, it will be relative to the width. |
+| `location`        | An extra parameter to specify the location (folder) of the image on the server. Default is `files`, which is where the images are stored. |
+| `path`            | The path to the image within the current location. |
+| `fit`             | Specify the mode of cropping. See below. |
+
 The mode of cropping is important if you're requesting a thumbnail that has
 different proportions than the original image. Valid options for cropping are:
 
-  - `c` (crop, default) - Makes sure you always get an image that is the
+  - `n` ('contain', 'default') - Makes sure you always get an image that fits the
     specified width and height. The image is not transformed, so it will be
-    cropped to fit the boundaries is necessary.
-  - `f` ('fit') - The image will not be cropped but resized to fit within the
-    given maximum width and height. This means that you will always get an image
-    with the exact same width and height that you specified. The resulting image
-    might be deformed, and will _not_ have the same aspect ratio as the
-    original.
-  - `b` (borders) - Will add a border to the image, in order to make it fit
-    within the given boundaries.
-  - `r` (resize) - Will resize the image to fit the boundaries, without
-    cropping. This means your thumbnail might be smaller than the width/height
-    given, but the the image will always maintain the aspect ratio of the
-    original image.
+    resized to fit the boundaries that are necessary.
+  - `m` ('max') - Resizes the image to fit within the width and height 
+    boundaries without cropping, distorting or altering the aspect ratio, 
+    and will also not increase the size of the image if it is smaller than 
+    the output size.
+  - `f` ('fill') - Resizes the image to fit within the width and height boundaries
+    without cropping or distorting the image, and the remaining space is filled
+    with the background color. The resulting image will match the constraining dimensions.
+  - `s` ('stretch') - Stretches the image to fit the constraining dimensions exactly.
+    The resulting image will fill the dimensions, and will not maintain the aspect
+    ratio of the input image.
+  - `c` ('crop') - Resizes the image to fill the width and height boundaries and crops any 
+    excess image data. The resulting image will match the width and height
+    constraints without distorting the image.
 
-Use the cropping parameter like this:
+Use the fit parameter like this:
 
 ```twig
-<img src="{{ content.image|thumbnail(100, 100, "r") }}">
+<img src="{{ content.image|thumbnail(width=100, height=100, fit="f") }}">
 ```
 
 If you omit the width and height altogether, the thumbnail will use the
@@ -298,20 +306,6 @@ mode.
 ```twig
 <img src="{{ content.image|thumbnail }}">
 ```
-
-You can set the size in your `config.yaml`, like this:
-
-```yaml
-thumbnails: [ 160, 120, c ]
-```
-
-To use a defined [thumbnail alias](../configuration/thumbnails#thumbnail-aliases),
-you just need to pass in your alias name like so:
-
-```twig
-<img src="{{ content.image|thumbnail('cover') }}">
-```
-
 
 ### image
 
@@ -331,14 +325,14 @@ By doing so, the image will be resized, and it behave exactly like the
 [thumbnail filter](#thumbnail).
 
 ```twig
-<img src="{{ content.photo|image(100, 100, "r") }}">
+<img src="{{ content.photo|image(100, 100, "s") }}">
 ```
 
 To scale an image proportionally to a given width or height,
-set the other dimension to `null`, and set cropping mode to resize.
+set the other dimension to `null`, and set cropping mode to contain.
 
 ```twig
-<img src="{{ content.image|image(400, null, "r") }}">
+<img src="{{ content.image|image(400, null, "n") }}">
 ```
 
 See also [extras][extras].
@@ -562,19 +556,19 @@ Returns the first of the returned related records.
 | `bidirectional`| Performs bidirectional search. Default is `true` |
 | `publishedOnly`| Return only related records that are published. Default is `true` |
 
-### translated
+### translate
 
-Returns the field translated into the requested locale.
+Returns the field translate into the requested locale.
 
 | Parameter      | Description |
 |----------------|-------------|
 | `locale`       | The requested translation's locale, as a string. |
 
 ```twig
-    {% set image_nl = record.image|translated('nl') %}
+    {% set image_nl = record.image|translate('nl') %}
 ```
 
-<p class="note"><strong>Note:</strong> The `|translated` filter
+<p class="warning"><strong>Note:</strong> The `|translate` filter
 will return the field in the requested locale, but it will also
 change the locale of the `record.image` itself.</p>
 
