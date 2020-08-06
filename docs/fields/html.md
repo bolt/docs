@@ -29,7 +29,8 @@ field.
 
 * `allow_twig` can be set to true or false to control if twig may be used in the
   field.
-
+* `height` can be set to a number, e.g. 10 [rows](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea),
+ or to a [CSS length unit](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#Absolute_length_units), e.g. 150px or 50vh.
 
 <!---
 * `options` contains the options for the <abbr title="What You See Is What You Get">WYSIWYG</abbr>
