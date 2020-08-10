@@ -21,7 +21,7 @@ provider that supports the OEmbed standard.
 To insert the HTML for the embed:
 
 ```twig
-{{ record.embedded.html|raw }}
+{{ record.embedded.html }}
 ```
 
 Additionally, the following properties are available:
@@ -50,6 +50,7 @@ The embed field can contain a default value, which you can set using the
                 url: "https://www.youtube.com/embed/sRrqF8eXs38"
                 width: "480"
                 height: "270"
+```
 
 ## Responsive options
 
@@ -58,7 +59,7 @@ An embed field can be set to responsive, thereby ignoring the `width` and `heigh
 ### Responsive by class
 
 ```twig
-{{ record.embedded.responsive|html }}
+{{ record.embedded.responsive }}
 ```
 
 The example above will render the embedded `iframe` wrapped around a container parent as follows:
@@ -76,7 +77,7 @@ You can use this class to apply the responsive styling in css as you see fit.
 Alternatively, the `responsive_inline` value can be used to render a responsive embedded field, without any custom CSS required.
 
 ```twig
-{{ record.embedded.responsive_inline|raw }}
+{{ record.embedded.responsive_inline }}
 ```
 
 will render the following:
