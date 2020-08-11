@@ -4,12 +4,11 @@ title: Paging content
 Paging
 ======
 
-When you have more records than you'd like to display on one page, you can add
-paging. If you want to add paging to your template, add `allowpaging` to your
-`setcontent` tag, and add a `pager` tag.
+When you have more records than you'd like to display on one page, Bolt will paginate
+your records. To display the pager, add a `pager` function.
 
 ```
-{% setcontent entries = "entries/latest/3" allowpaging %}
+{% setcontent entries = "entries" latest limit 25  %}
 
 {% for entry in entries %}
     {{ entry.title }}
@@ -18,79 +17,71 @@ paging. If you want to add paging to your template, add `allowpaging` to your
 {{ pager() }}
 ```
 
-If you have more than one block of records that you want to paginate on one
-page, you can use their names in a parameter to keep them separate. Note that
-if you start paging different ContentTypes by different amounts, you will get
-unexpected results. If you have more than one ContentType on a page that you
-wish to paginate, it's advised to use the same amount of records for all of the
-`{% setcontent %}` tags.
+## Number of records per page
 
+### Number of records per page on listing pages
+To configure the number of records per page on a [listing page][listing-page], 
+set the `listing_records` option for the ContentType in `contenttypes.yaml`:
 
-```
-{% setcontent myentries = "entries/latest/3" allowpaging %}
-
-{{ pager('entries') }}
-
-{% setcontent mypages = "pages/latest/6" allowpaging %}
-
-{{ pager('pages') }}
-
+```yaml
+    pages:
+        name: Pages
+        singular_name: Page
+        ...
+        listing_records: 10 
 ```
 
-<p class="note"><strong>Note:</strong> The parameter passed to the
-<code>pager()</code> function must be the used ContentType, and not the
-variable you've used to set the content to. </p>
+If there are more than 10 pages, the content will be paginated.
 
-You can add an optional parameter do determine how many 'neighboring' pages are
-shown in the pager:
+### Number of records per page using setcontent
 
+If you're using `setcontent` to fetch records, you can limit the number of 
+records per page by using the limit directive:
+
+```twig
+{% setcontent pages = 'pages' limit 10 %}
+{{ pager(pages) }}
 ```
-{{ pager('', 2) }} or: {{ pager('', 4) }}
+
+## Displaying the pager
+
+To show the pager, use the `pager` function in your twig template:
+
+```twig
+{{ pager() }}
 ```
 
-By default, Bolt will output a simple yet functional pager. Be sure to add some
-styles to your CSS to make it look right. These are the default rules:
+### Pager templates
 
-```
-.pagination {
-}
+Bolt comes with three partial templates for displaying the pager:
 
-.pagination ul {
-    float: left;
-    clear: both;
-    display: block;
-    margin: 8px 0;
-    padding: 0;
-    border: 1px solid #DDD;
-}
+- `_pager_basic.html.twig` renders a plain html pager
+- `_pager_bootstrap.html.twig` renders a [Bootstrap pagination component][bootstrap-pagination]
+- `_pager_bulma.html.twig` renders a [Bulma pagination component][bulma-pagination] 
 
-.pagination ul li {
-    float: left;
-    list-style-type: none;
-    border-right: 1px solid #DDD;
-    padding: 4px 6px;
-}
-
-.pagination ul li:last-child {
-    border-right: none;
-}
-
-.pagination ul li.active {
-    font-weight: bold;
-    background-color: #CCF;
-}
-
-.pagination ul li a {
-    text-decoration: none;
-}
+For example, use the following to render the Bulma pagination component:
+```twig
+{{ pager(template='@bolt/helpers/_pager_bulma.html.twig') }} 
 ```
 
 If you'd like to define your own pager from scratch, just copy
-`/bolt/templates/helpers/_sub_pager.twig` to your own theme folder, and rename it
-to something like `_sub_mypager.twig`. Then, pass the name as an extra
-parameter to the `pager` tag:
+`/vendor/bolt/templates/helpers/_pager_basic.html.twig` to your own theme folder, and rename it
+to something like `mypager.twig`. Then, pass the name as an extra
+parameter to the `pager` function:
 
 ```
-{{ pager('', 3, '_sub_mypager.twig') }}
+{{ pager(template='mypager.twig) }}
 ```
 
+### Pager options
+
+| Parameter      | Description |
+|----------------|-------------|
+| `records` <small>optional</small> | The records to paginate. Default on a listing page are the listing records. |
+| `template` <small>optional</small> | The twig template used to render the pager. By default, use Bolt's basic pager.  |
+| `class` <small>optional</small> | An optional class name. Default is `pagination`. |
+| `surround` <small>optional</small> | Specifies how many items to show around the current page. Default is `3`.
+
+[listing-page]: ../contenttypes/content-in-templates#record-listing-pages
+[bootstrap-pagination]: https://getbootstrap.com/docs/4.0/components/pagination/
+[bulma-pagination]: https://bulma.io/documentation/components/pagination/
