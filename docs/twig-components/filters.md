@@ -102,7 +102,7 @@ https://www.php.net/manual/en/function.date.php</a></a></p>
 See the various options for 'date' on the [PHP website][date].
 
 <p class="note"><strong>Note:</strong> This filter does <em>not</em> display a
-localized version of the date. Use the <code>{{ localedatetime }}</code>-filter if
+localized version of the date. Use the <code>{{ localdate }}</code>-filter if
 you want to display dates in other languages than English.</p>
 
 ### current
@@ -386,8 +386,13 @@ add the `raw` modifier.
 
 In most cases the results of `{% setcontent %}` or `{{ record|related() }}` are
 in the desired order. In some cases you might want to reorder them, by using the
-`order`-filter. The filter takes one or two parameters: the names of the fields
-you wish to order the results on:
+`order`-filter.
+
+| Parameter  | Description |
+|------------|-------------|
+| `on`       | The first field to order on. Appending a <code>-</code> will result in descending order. Default is <code>-datepublish</code> |
+| `onSecondary` | If two records have the same <code>on</code> order, this is used to determine the appropriate order. |
+
 
 ```twig
 {% set relatedrecords = record|related() %}
@@ -475,6 +480,22 @@ Returns the field type of the field, as defined in the field's
 Returns all selected records from the content select field. Note, this filter
 should only be used on select fields that select from a list of Content, as
 opposed to a list of items.
+
+For a Content select field with `multiple: false`:
+```twig
+{% set selected_record = record.select_field|selected %}
+
+{{ selected_record.id }} {{ selected_record|title }}<br>
+```
+
+For a Content select field with `multiple: true`:
+```twig
+{% set selected_records = record.select_field|selected %}
+
+{% for selected_record in selected_records %}
+    {{ selected_record.id }} {{ selected_record|title }} <br>
+{% endfor %}
+```
 
 ### markdown
 
@@ -568,9 +589,9 @@ Returns the field translate into the requested locale.
     {% set image_nl = record.image|translate('nl') %}
 ```
 
-<p class="warning"><strong>Note:</strong> The `|translate` filter
+<p class="warning"><strong>Note:</strong> The <code>|translate</code> filter
 will return the field in the requested locale, but it will also
-change the locale of the `record.image` itself.</p>
+change the locale of the <code>record.image</code> itself.</p>
 
 [widgets-page]: ../templating/widgets
 [debugging-page]: ../debugging
