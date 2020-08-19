@@ -5,15 +5,165 @@ title: Twig functions
 Twig functions
 ==============
 
+## absolute_link
 
-### asset
+Use `absolute_link` to create a proper link to either a relative page, or to an
+external source. In the below example, the editor can provide either
+`page/about`, or `https://boltcms.io`, and both will work:
+
+```twig
+<a href="{{ absolute_link(block.contentlink|e) }}">Read more</a>
+```
+
+See also [Linking in templates][linkintpl], with a detailed
+description of a good usecase.
+
+
+## absolute_url
+
+Use `absolute_url` to create a full link with scheme and domain name from a link
+
+See also [Linking in templates][linkintpl], with a detailed
+description of a good usecase.
+
+
+## all_related_content()
+
+See [related_all filter](#related-all-bidirectional-true-limit-true-pubishedonly-true)
+
+
+## asset
 
 Use the `{{ asset() }}` Twig function to create public link to the so-called
 assets in your theme, like JavaScript, CSS or other files.
 
 For more information, see [Linking in templates][linkintpl-asset].
 
-### htmllang
+## canonical
+
+Use the `canonical` Twig function to create a valid URI to the current page, to
+use in as an external link. If a path is given, returns the `canonical` URL for that given path.
+
+For more information, see [Linking in templates][linkintpl-pathurl].
+
+
+## countwidgets()
+
+Please refer to the [widgets][widgets-page] documentation.
+
+
+## dump()
+
+Dumps the entire object, similar to PHP's `var_dump`
+
+```twig
+{% set about = content('page', {'slug': 'about'}) %}
+
+{{ dump(about) }}
+```
+
+For more info on debugging your Bolt site, see the chapter on
+[Debugging Bolt][debugging-page].
+
+<p class="note"><strong>Note:</strong> Don't forget to set <code>APP_DEBUG=1
+</code> in your <code>.env</code> file. Otherwise the
+<code>dump()</code> will output nothing at all.</p>
+
+
+## excerpt()
+
+See [excerpt filter][excerpt_filter].
+
+## field_factory
+
+The field factory function creates a field on the fly with a name and optional definition.
+
+| Parameter      | Description |
+|----------------|-------------|
+| `name`         | The name of the field |
+| `definition`   | The definition of the field, same options as a field definition in `contenttypes.yaml`  |
+
+```twig
+{% set field = field_factory('title', { 'type': 'text', 'label' : 'Awesome title' }) %}
+```
+
+
+## find_translations(field, *locale=null*)
+
+Returns an array of all translated versions of the specified field, if the `locale` parameter is not give/null.
+When `locale` is specified, returns only the translation for that locale if it exists, and null otherwise.
+In that case, the `find_translation()` function works like the [translated](#translated-locale) filter.
+
+```twig
+{% set translated_array = find_translations(fieldwithtranslations) %} # returns an array of translated fields
+{% set translated = find_translations(fieldwithtranslations, 'nl') %} # returns the NL translation, or null if it does not exist.
+```
+
+
+## first_related_content()
+
+See [related_first filter](#related-first-name-null-contenttype-null-bidirectional-true-publishedonly-true)
+
+
+## getuser()
+
+Sometimes you need to fetch a specific record based on the correct user. In
+cases like these, You'll need to be able to get the data for this user, and the
+user's id. For these occasions, the function `getuser` comes in
+handy.
+
+To fetch a user, pass at least one of the arguments below:
+
+| Argument name | Explanation        |
+| ------------- |--------------------|
+| `username`    | Search by username |
+| `id`          | Search by id       |
+| `displayname` | Search by display name |
+| `email`       | Search by email    |
+
+Example 1: Getting a user
+
+```twig
+    {{ getuser(username = 'admin') }} {# fetches the user with username 'admin'. If it does not exist, returns null #}
+    {{ getuser(id = 1) }} {# fetches the user with id '1' #}
+    {{ getuser(displayname = 'Administrator') }}
+    {{ getuser(email = 'admin@example.org' }}
+
+    {# Or even like this: #}
+    {{ getuser(username = 'admin', id = 1) }}
+```
+
+Example 2: Using in `setcontent`
+
+```twig
+{% setcontent pages = "pages" where { ownerid: getuser('admin').id } %}
+```
+
+### User properties
+
+Every user in Bolt has the following properties: `id`, `username`, `email`, `displayname`, `lastIp`,
+`roles`, `lastseenat`, `locale`, `backendtheme` and `disabled`.
+
+The user also has a `password` property, but for security reasons the value of that property
+will always be empty.
+
+For example, here is how to fetch the user with `username = 'admin'` and use its properties:
+
+```twig
+    {% set firstuser = getuser(username='admin') %}
+    <p>Username: {{ firstuser.username }} </p>
+    <p>Last seen: {{ firstuser.lastseenat|date }} </p>
+    <p>User locale: {{ firstuser.locale }} </p>
+```
+
+## haswidgets()
+
+Please refer to the [widgets][widgets-page] documentation.
+
+## htmllang()
+
+Returns the appropriate code for the `lang` attribute of the `<html>` tag for
+the current locale.
 
 This Twig function will output the currently set locale in a suitable format
 for the HTML lang attribute in your templates. For example, if you've set
@@ -25,27 +175,31 @@ for the HTML lang attribute in your templates. For example, if you've set
 # <html lang="en-GB">
 ```
 
-### include
+## icon(*record=null*, *icon='question-circle'*)
 
-Use this to include another Twig template in the current template. Twig parses
-the template like any other template, so included templates have access to the
-variables of the active template, e.g. those that you would use in the 'main'
-template.
+Returns an `<icon>` tag using FontAwesome icons. This function has two usages:
+to get the icon for the given record, or if `record=null`, to get the icon specified in the `icon` parameter.
 
-You can also use `include` inside the included templates.
+### Record icon
 
+When a contenttype record is passed, the `icon` function first looks for the `icon_one` definition
+in your `contenttypes.yaml`. If this is not set, then the `icon_many` setting is used instead.
+
+Assuming Bolt's default `showcases` contenttype:
 ```twig
-{{ include('_header.twig') }}
+{{ icon(showcase) # returns <i class='fas mr-2 fa-gift'></i> }}
 ```
 
-For more information, see [include][inc].
+### Icon specified in icon parameter
 
-An alternative to using 'include', is to set up your templates using Template
-Inheritance. This is a method of defining a base template, and then expand it in
-more detail in the templates that extend this base template. See the section on
-[Template inheritance][inheritance] on the twig website.
+The `icon` function can also be used to return any of FontAwesome's icons. This happens when the first
+parameter is set to null, and the second parameter is the icon to retrieve.
 
-### imageinfo
+```twig
+{{ icon(null, 'biking') # returns <i class='fas mr-2 fa-biking'></i> }}
+```
+
+## imageinfo
 
 Sometimes it can be useful to have more information about a specific image in
 your templates. You might want to know which type it is, what the dimensions
@@ -93,7 +247,98 @@ these values:
 {% endif %}
 ```
 
-### popup (Magnific Popup)
+
+## include
+
+Use this to include another Twig template in the current template. Twig parses
+the template like any other template, so included templates have access to the
+variables of the active template, e.g. those that you would use in the 'main'
+template.
+
+You can also use `include` inside the included templates.
+
+```twig
+{{ include('_header.twig') }}
+```
+
+For more information, see [include][inc].
+
+An alternative to using 'include', is to set up your templates using Template
+Inheritance. This is a method of defining a base template, and then expand it in
+more detail in the templates that extend this base template. See the section on
+[Template inheritance][inheritance] on the twig website.
+
+## list_templates(templateselect)
+
+Returns the templates for the `templateselect` field. Note the `list_records()` function
+should only be called with instances of templateselect.
+
+## listwidgets
+
+Please refer to the [widgets][widgets-page] documentation.
+
+
+## locale(localecode)
+
+Returns the locale for the given localecode. Please refer to the [locales][locales-page] documentation.
+
+## locales()
+
+Takes the list of codes of the locales (languages) enabled in the
+application and returns an array with the name of each locale written
+in its own language (e.g. English, Français, Español, etc.).
+
+```twig
+{% for locale in locales() %}
+    <p>
+        {{ locale.emoji }}
+        {{ locale.flag }}
+        {{ locale.code }}
+        {{ locale.name }}
+        {{ locale.localizedname }}
+        {{ locale.link }}
+        {{ locale.current }}
+    </p>
+{% endfor %}
+```
+
+Will output something like:
+
+```html
+<p>🇬🇧 gb en English English {{ link-to-translated-page }} 1</p> <!-- 1 because current is truthy -->
+
+<p>🇳🇱 nl nl Dutch Nederlands {{ link-to-translated-page }}</p>
+
+<p>🇯🇵 jp ja Japanese 日本語 {{ link-to-translated-page }}</p>
+
+<p>🇳🇴 no nb Norwegian Bokmål norsk bokmål {{ link-to-translated-page }}</p>
+```
+
+Please refer to the [locales][locales-page] documentation.
+
+## markdown(content)
+
+See [markdown filter][markdown_filter].
+
+## media()
+
+See [media filter][media_filter].
+
+
+## next_record()
+
+See [next filter][next_filter].
+
+
+## path()
+
+Use the `path` Twig function to create valid URI strings to paths configured on
+your site.
+
+For more information, see [Linking in templates][linkintpl-current].
+
+
+## popup()
 
 To insert an image in the HTML, which functions as an image popup use either
 the `popup` function or filter.
@@ -138,28 +383,15 @@ well as set up the 'initialization' code:
 For more information about Magnific Popup, see the
 [Magnific Popup website][popup].
 
-### path
 
-Use the `path` Twig function to create valid URI strings to paths configured on
-your site.
 
-For more information, see [Linking in templates][linkintpl-current].
+## previous_record()
 
-### canonical
+See [previous filter][previous_filter].
 
-Use the `canonical` Twig function to create a valid URI to the current page, to
-use in as an external link.
 
-For more information, see [Linking in templates][linkintpl-pathurl].
 
-### url
-
-Use the `path` Twig function to create valid URL strings to paths configured on
-your site.
-
-For more information, see [Linking in templates][linkintpl-pathurl].
-
-### redirect
+## redirect
 
 Use this function to redirect from a page to another page or domain. Commonly
 used in an if/else clause, to redirect visitors based on some criteria.
@@ -189,146 +421,11 @@ used in an if/else clause, to redirect visitors based on some criteria.
 {% endfor %}
 ```
 
-### absolute_link
+## related_content()
 
-Use `absolute_link` to create a proper link to either a relative page, or to an
-external source. In the below example, the editor can provide either
-`page/about`, or `https://boltcms.io`, and both will work:
+See [related filter](#related-name-null-contenttype-null-bidirectional-true-publishedonly-true)
 
-```twig
-<a href="{{ absolute_link(block.contentlink|e) }}">Read more</a>
-```
-
-See also [Linking in templates][linkintpl], with a detailed
-description of a good usecase.
-
-
-### absolute_url
-
-Use `absolute_url` to create a full link with scheme and domain name from a link
-
-See also [Linking in templates][linkintpl], with a detailed
-description of a good usecase.
-
-
-### getuser
-
-Sometimes you need to fetch a specific record based on the correct user. In
-cases like these, You'll need to be able to get the data for this user, and the
-user's id. For these occasions, the function `getuser` comes in
-handy.
-
-To fetch a user, pass at least one of the arguments below:
-
-| Argument name | Explanation        |
-| ------------- |--------------------|
-| `username`    | Search by username |
-| `id`          | Search by id       |
-| `displayname` | Search by display name |
-| `email`       | Search by email    |
-
-Example 1: Getting a user
-
-```twig
-    {{ getuser(username = 'admin') }} {# fetches the user with username 'admin'. If it does not exist, returns null #}
-    {{ getuser(id = 1) }} {# fetches the user with id '1' #}
-    {{ getuser(displayname = 'Administrator') }}
-    {{ getuser(email = 'admin@example.org' }}
-    
-    {# Or even like this: #}
-    {{ getuser(username = 'admin', id = 1) }}
-```
-
-Example 2: Using in `setcontent`
-
-```twig
-{% setcontent pages = "pages" where { ownerid: getuser('admin').id } %}
-```
-
-#### User properties
-
-Every user in Bolt has the following properties: `id`, `username`, `email`, `displayname`, `lastIp`,
-`roles`, `lastseenat`, `locale`, `backendtheme` and `disabled`.
-
-The user also has a `password` property, but for security reasons the value of that property
-will always be empty.
-
-For example, here is how to fetch the user with `username = 'admin'` and use its properties:
-
-```twig
-    {% set firstuser = getuser(username='admin') %}
-    <p>Username: {{ firstuser.username }} </p>
-    <p>Last seen: {{ firstuser.lastseenat|date }} </p>
-    <p>User locale: {{ firstuser.locale }} </p> 
-```
-
-### dump()
-
-```twig
-{% set about = content('page', {'slug': 'about'}) %}
-
-{{ dump(about) }}
-```
-
-For more info on debugging your Bolt site, see the chapter on
-[Debugging Bolt][debugging-page].
-
-<p class="note"><strong>Note:</strong> Don't forget to set <code>APP_DEBUG=1
-</code> in your <code>.env</code> file. Otherwise the
-<code>dump()</code> will output nothing at all.</p>
-
-### field_factory
-
-The field factory function creates a field on the fly with a name and optional definition.
-
-| Parameter      | Description |
-|----------------|-------------|
-| `name`         | The name of the field |
-| `definition`   | The definition of the field, same options as a field definition in `contenttypes.yaml`  |
-
-```twig
-{% set field = field_factory('title', { 'type': 'text', 'label' : 'Awesome title' }) %}
-```
-
-### excerpt()
-
-See [excerpt filter][excerpt_filter].
-
-### previous_record()
-
-See [previous filter][previous_filter].
-
-### next_record()
-
-See [next filter][next_filter].
-
-### dump()
-
-Dumps the entire object, similar to PHP's `var_dump`
-
-```twig
-{% dump(record) %}
-```
-
-### canonical(*path = null*, *params = []*)
-
-Returns the `canonical` URL for the given path. If path is null, the current path is used instead.
-
-### markdown(content)
-
-See [markdown filter][markdown_filter].
-
-### media()
-
-See [media filter][media_filter].
-
-### list_templates(templateselect)
-
-Returns the templates for the `templateselect` field. Note the `list_records()` function
-should only be called with instances of templateselect.
-
-
-### select_options(selectfield)
+## select_options(selectfield)
 
 Returns an array of all options of the select field. Each array contains the `key`, `value` and a `selected` flag
 for the select option. Note the `select_options()` function should only be called with instances of select fields.
@@ -356,109 +453,15 @@ array:3 [▼
 
 For more select fields, check out the [Select field][select-page] page.
 
-### icon(*record=null*, *icon='question-circle'*)
+## url
 
-Returns an `<icon>` tag using FontAwesome icons. This function has two usages:
-to get the icon for the given record, or if `record=null`, to get the icon specified in the `icon` parameter.
+Use the `path` Twig function to create valid URL strings to paths configured on
+your site.
 
-### Record icon
-
-When a contenttype record is passed, the `icon` function first looks for the `icon_one` definition
-in your `contenttypes.yaml`. If this is not set, then the `icon_many` setting is used instead.
-
-Assuming Bolt's default `showcases` contenttype:
-```twig
-{{ icon(showcase) # returns <i class='fas mr-2 fa-gift'></i> }}
-```
-
-### Icon specified in icon parameter
-
-The `icon` function can also be used to return any of FontAwesome's icons. This happens when the first
-parameter is set to null, and the second parameter is the icon to retrieve.
-
-```twig
-{{ icon(null, 'biking') # returns <i class='fas mr-2 fa-biking'></i> }}
-```
-
-### related_content()
-
-See [related filter](#related-name-null-contenttype-null-bidirectional-true-publishedonly-true)
-
-### all_related_content()
-
-See [related_all filter](#related-all-bidirectional-true-limit-true-pubishedonly-true)
-
-### first_related_content()
-
-See [related_first filter](#related-first-name-null-contenttype-null-bidirectional-true-publishedonly-true)
-
-### find_translations(field, *locale=null*)
-
-Returns an array of all translated versions of the specified field, if the `locale` parameter is not give/null.
-When `locale` is specified, returns only the translation for that locale if it exists, and null otherwise.
-In that case, the `find_translation()` function works like the [translated](#translated-locale) filter.
-
-```twig
-{% set translated_array = find_translations(fieldwithtranslations) %} # returns an array of translated fields
-{% set translated = find_translations(fieldwithtranslations, 'nl') %} # returns the NL translation, or null if it does not exist.
-```
-
-### htmllang()
-
-Returns the appropriate code for the `lang` attribute of the `<html>` tag for the current locale.
-
-### locales()
-
-Takes the list of codes of the locales (languages) enabled in the
-application and returns an array with the name of each locale written
-in its own language (e.g. English, Français, Español, etc.).
-
-```twig
-{% for locale in locales() %}
-    <p>
-        {{ locale.emoji }}
-        {{ locale.flag }}
-        {{ locale.code }}
-        {{ locale.name }}
-        {{ locale.localizedname }}
-        {{ locale.link }}
-        {{ locale.current }}
-    </p>
-{% endfor %}
-```
-
-Will output something like:
-
-```html
-<p>🇬🇧 gb en English English {{ link-to-translated-page }} 1</p> <!-- 1 because current is truthy -->
-
-<p>🇳🇱 nl nl Dutch Nederlands {{ link-to-translated-page }}</p>
-
-<p>🇯🇵 jp ja Japanese 日本語 {{ link-to-translated-page }}</p>
-
-<p>🇳🇴 no nb Norwegian Bokmål norsk bokmål {{ link-to-translated-page }}</p>
-```
-
-Please refer to the [locales][locales-page] documentation.
-
-### locale(localecode)
-
-Returns the locale for the given localecode. Please refer to the [locales][locales-page] documentation.
-
-### countwidgets()
-
-Please refer to the [widgets][widgets-page] documentation.
-
-### listwidgets
-
-Please refer to the [widgets][widgets-page] documentation.
+For more information, see [Linking in templates][linkintpl-pathurl].
 
 
-### haswidgets()
-
-Please refer to the [widgets][widgets-page] documentation.
-
-### widgets()
+## widgets()
 
 Please refer to the [widgets][widgets-page] documentation.
 
