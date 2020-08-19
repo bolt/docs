@@ -580,6 +580,11 @@ Returns the field translate into the requested locale.
     {% set image_nl = record.image|translate('nl') %}
 ```
 
+<p class="warning"><strong>Note:</strong> The <code>|translate</code> filter
+will return the field in the requested locale, but it will also
+change the locale of the <code>record.image</code> itself.</p>
+
+
 ## type
 
 Returns the field type of the field, as defined in the field's
@@ -589,9 +594,30 @@ Returns the field type of the field, as defined in the field's
 
 Converts the first character of every word into upper case.
 
-<p class="warning"><strong>Note:</strong> The <code>|translate</code> filter
-will return the field in the requested locale, but it will also
-change the locale of the <code>record.image</code> itself.</p>
+## url_decode
+
+This filter does the opposite of Twig's built-in `url_encode` filter: It
+decodes a given URL-encoded string, replacing any `%##` encoding in the given
+string. Plus symbols ('+') are decoded to a space character.
+
+```twig
+{{ "Mot%C3%B6rhead%20and%20Mg%C5%82a%20are%20cool"|url_decode }}
+
+=> Motörhead and Mgła are cool
+```
+
+It works both on plain strings, as well as encoded arrays of URL parameters:
+
+```twig
+{% set params = {'param1': 'value', 'foo': 'bar', 'qux': 'Motörhead and Mgła are cool'} %}
+
+{{ dump(params) }}
+{{ dump(params|url_encode) }}
+{{ dump(params|url_encode|url_decode) }}
+```
+
+![](https://user-images.githubusercontent.com/1833361/90623780-405a3400-e217-11ea-8fc8-b0a908530117.png)
+
 
 [widgets-page]: ../templating/widgets
 [debugging-page]: ../debugging
