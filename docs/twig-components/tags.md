@@ -5,6 +5,25 @@ title: Twig tags
 Twig tags
 =========
 
+## for
+
+This tag is used to iterate over arrays or collections of an object, similar to
+`foreach` in PHP.
+
+```twig
+<h3>Recent pages</h3>
+{% setcontent pages = 'pages' limit 5 order '-datecreated' %}
+<ul>
+  {% for page in pages %}
+    <li><a href="{{ page|link }}">{{ page.title }}</a></li>
+  {% else %}
+    <p>No recent pages.</p>
+  {% endfor %}
+</ul>
+```
+
+See: [`for` in the Twig documentation][for].
+
 ## setcontent
 
 The `setcontent` tag is used to perform various queries on the database. It
@@ -49,25 +68,6 @@ way. For example:
     This is the default fallback.
 {% endswitch %}
 ```
-
-## for
-
-This tag is used to iterate over arrays or collections of an object, similar to
-`foreach` in PHP.
-
-```twig
-<h3>Recent pages</h3>
-{% setcontent pages = 'pages' limit 5 order '-datecreated' %}
-<ul>
-  {% for page in pages %}
-    <li><a href="{{ page|link }}">{{ page.title }}</a></li>
-  {% else %}
-    <p>No recent pages.</p>
-  {% endfor %}
-</ul>
-```
-
-See: [`for` in the Twig documentation][for].
 
 [content]: ../templating/content-fetching
 [for]: http://twig.symfony.com/doc/tags/for.html
