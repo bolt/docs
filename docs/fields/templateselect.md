@@ -35,7 +35,7 @@ theme folder. By default these are all files ending in `.twig`, but _don't_
 start with an underscore (`_`). So, a file like `_partial_menu.twig` isn't
 shown.
 
-Using the `filter` options, you cam provide a glob pattern that decides which
+Using the `filter` options, you can provide a glob pattern that decides which
 templates to show. For example: to only match `twig` templates that start with
 the word "pages" you can do this:
 
