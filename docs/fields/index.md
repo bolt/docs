@@ -13,12 +13,10 @@ pages:
     - markdown
     - textarea
     - collection
-    - integer
-    - float
+    - number
     - hidden
     - checkbox
     - date
-    - datetime
     - imagelist
     - filelist
     - templateselect
