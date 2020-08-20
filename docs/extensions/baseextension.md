@@ -9,7 +9,7 @@ or custom code `extend` the `Bolt\BaseExtension` class.
 | Topic |    |
 |-------|----|
 | **Extension** | Bolt's BaseExtension class. Has some helpers and other functionality commonly used in an Extension scope |
-| **Twig** |
+| **Twig** | Bolt's TwigAwareController class has some helper functions for rendering records, listings and finding templates. |
 | **Command** |
 | **Listener** |
 | **Widget** |
