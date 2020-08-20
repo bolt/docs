@@ -1,16 +1,16 @@
 ---
-title: Integer field
+title: Float field
 ---
-Integer field
-=============
+Number field
+===========
 
-Simple field for inputting whole numbers.
+Simple field for inputting numbers.
 
 ## Basic Configuration:
 
 ```yaml
         number:
-            type: integer
+            type: number
 ```
 
 ## Example usage in templates:
@@ -28,3 +28,4 @@ The field has a few options to change the functionality of the field.
 * `step` How much to "step" the value up and down when using the browser
   controls.
 * `placeholder` Placeholder text inside the input control.
+* `mode` Number type. Can be either `float` or `integer`
