@@ -10,7 +10,7 @@ directly fetch content from the database. For this you can use the
 `{% setcontent ... %}` tag. The following example will get the content record
 with slug 'about' from the 'pages' ContentType:
 
-```
+```twig
 {% setcontent about = 'page/about' %}
 
 {{ dump(about) }}
@@ -19,7 +19,7 @@ with slug 'about' from the 'pages' ContentType:
 There are a lot of options for the `setcontent` tag. Most are optional, and all
 can be used together any way you'd like. The most basic syntax is:
 
-```
+```twig
 {% setcontent _variable_ = '_contenttype_' %}
 ```
 
@@ -36,7 +36,7 @@ below), but often it's easier to use the shortcut that Bolt provides.
 
 If you need a single record, and know its `id` or `slug`, you can do this:
 
-```
+```twig
 {# get the page with slug 'about' #}
 {% setcontent about = 'page/about' %}
 
@@ -46,7 +46,7 @@ If you need a single record, and know its `id` or `slug`, you can do this:
 
 If you need the '5 latest pages' or '3 first reviews', there's also a shortcut for that:
 
-```
+```twig
 {% setcontent latestpages = 'pages' latest limit 5 %}
 
 {{ dump(latestpages) }}
@@ -54,7 +54,7 @@ If you need the '5 latest pages' or '3 first reviews', there's also a shortcut f
 
 and:
 
-```
+```twig
 {% setcontent firstreviews = 'reviews' earliest limit 3 %}
 
 {{ dump(firstreviews) }}
@@ -66,7 +66,7 @@ Using `where`
 If you need more specific criteria to select the records on, you can use the
 `where` clause. The parameters must be listed in a hash.
 
-```
+```twig
 {# get all pages with author id '2' #}
 {% setcontent pages = 'pages' where { author: 2 } %}
 
@@ -80,7 +80,7 @@ the matching field in the available records. It's also possible to use
 modifiers for the values, to select based on 'smaller than' or 'does not
 equal':
 
-```
+```twig
 {# get all pages not created by user '1' #}
 {% setcontent mypages = 'pages' where { author: '!1' } %}
 
@@ -102,13 +102,21 @@ equal':
 {% setcontent blog_entries = 'blog' where { id: whereid } %}
 ```
 
+You can also pass an object-like variable to the `where` clause, if this is more convenient for you.
+This is useful when you're building the query dynamically, e.g. based on user input.
+
+```twig
+{% set condition = {'title': '%lorem%', 'status': "published"} %}
+{% setcontent records = 'pages,showcases' where condition %}
+```
+
 <p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code>
 Bolt only selects dates before or equal to <code>'2012-12-01 00:00:00'</code>.
 If you want to include December 1st, use <code>'&lt;2012-12-02'</code>. </p>
 
 ### The `%like%` option
 
-```
+```twig
 {# get all pages with titles that contain 'ipsum' #}
 {% setcontent mypages = 'pages' where { title: '%ipsum%' } %}
 ```
@@ -137,7 +145,7 @@ Dolor", but <code>'ipsu%'</code> won't. </p>
 You can use the same syntax to get records with a specific taxonomy. Note that
 you should always use the _plural_ name of the taxonomy in the query:
 
-```
+```twig
 {# get all events in the category 'music' #}
 {% setcontent myevents = 'events' where { categories: 'music' } %}
 
@@ -159,7 +167,7 @@ future. Some examples are:
 
 You can use these date notations like this:
 
-```
+```twig
 {# Selecting pages published _before_ yesterday #}
 {% setcontent mypages = 'pages' where { publishedAt: '<yesterday' } %}
 
@@ -183,7 +191,7 @@ manual page</a> for details. </p>
 Like mentioned above, you can add more than one parameter to the where
 clause:
 
-```
+```twig
 {# get all pages not created by 'pete', and created after july 2012, with a .jpg image #}
 {% setcontent mypages = 'pages' where { author: '!3', createdAt: '>2012-07-31', image: '%.jpg%' } %}
 ```
@@ -207,27 +215,13 @@ either select using `AND` or `OR`. examples:
 Please note that using these operators, it'll be quite easy to create a
 where statement that will never give good results:
 
-```yaml
+```twig
 {# This will _always_ match: #}
 {% setcontent mypages = 'pages' where { author: '!3 || !4' } %}
 
 {# This will never work: #}
 {% setcontent mypages = 'pages' where { id: '<29 && >37' } %}
 ```
-
-By using the `|||`-operator (three pipes) you can create an `OR`-part for
-multiple columns. For example:
-
-```
-{# Select users from Amsterdam that match either username 'pete' or firstname 'Mike' #}
-{% setcontent mypages = 'pages' where { city: 'Amsterdam', 'username ||| firstname': 'pete ||| Mike' } %}
-
-{# Query output:
-    WHERE ( (city = 'Amsterdam') AND ( (username = 'pete') OR (firstname = 'Mike') ) )
-#}
-```
-
-Since `AND` is the default, there is no `&&&` equivalent to `|||`.
 
 Getting content for a specific user
 -----------------------------------
@@ -237,7 +231,7 @@ of times to get content specific to a given user. In Bolt, content is stored
 with a reference to the author. This means that you
 cannot do things like this:
 
-```
+```twig
 {# get all pages created by user 'bob' #}
 {% setcontent mypages = 'pages' where { author: 'bob' } %}
 ```
@@ -245,7 +239,7 @@ cannot do things like this:
 Instead, you'll need to use `author: 1`. If you don't know the `id`, but
 you _do_ know their name, you can use the `getuser()` function.
 
-```
+```twig
 {# get all pages created by user 'bob' #}
 {% set myuserid = getuser('bob').id %}
 {% setcontent mypages = 'pages' where { author: myuserid } %}
@@ -256,13 +250,27 @@ you _do_ know their name, you can use the `getuser()` function.
 
 Using `limit`
 -------------
-There's no built-in limit to the amount of records returned. It is good
+There's a default built-in limit to the amount of records returned, which is 20. It is good
 practice to limit the maximum number of records, by adding a `limit` clause.
 
-```
+```twig
 {# get 10 pages created by 'bob' #}
-{% setcontent mypages = 'pages' limit 10 %}
+{% setcontent mypages = 'pages' where { author: getuser('bob').ud } limit 10 %}
 ```
+
+Paginating results
+------------------
+By default, Bolt will paginate records with the default for the `limit` directive. It will
+also match the current page, using the `?page=2` query parameter in the URL, e.g.
+`example.org/entries?page=2`
+
+Additionally, you can specify/override the current page of results using the `page` directive:
+
+```twig
+{% setcontent entries = 'entries' page 4 %}
+```
+
+To read more about pagination in Bolt, check the [Paging content][paging-content] page.
 
 Ordering results
 ----------------
@@ -271,7 +279,7 @@ The results can be sorted by any of the fields of the ContentType, using the
 determined by the inclusion (or omission) of the minus before the name of
 the field: `title` vs. `-title`.
 
-```
+```twig
 {# get 10 pages, sorted alphabetically on title #}
 {% setcontent mypages = 'pages' limit 10 orderby 'title' %}
 
@@ -298,7 +306,7 @@ One record or multiple records?
 Sometimes Bolt will return one record, and sometimes a set of records. What
 makes the difference?
 
-```
+```twig
 {% setcontent mypage = 'page/about' %}
 {{ mypage }} {# mypage is one record #}
 
@@ -348,3 +356,4 @@ ct0: entries
 status_1: published
 ```
 
+[paging-content]: ../templating/content-paging
