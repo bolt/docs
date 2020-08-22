@@ -7,7 +7,7 @@ Requirements
 The system requirements for Bolt are modest, and it should run on any fairly
 modern web server.
 
-- PHP 7.2.5 or higher
+- PHP 7.2.9 or higher
 - Access to SQLite (which comes bundled with PHP), _or_ MySQL _or_
     PostgreSQL
 
@@ -40,7 +40,7 @@ underlying Symfony components, and must be disabled:
 
 <p class="note"><strong>Note:</strong> A Bolt server must be accessible by a
 host name, or fully qualified domain name (FQDN), otherwise authentication will
-not work. Using `localhost` as the host name should also work.
+not work. Using <code>localhost</code> as the host name should also work.
 </br></br>
 For developing sites, it is often useful to add a custom host name for the
 development server to your local computer's hosts file.</p>
@@ -71,5 +71,5 @@ Use Firefox, Edge, Safari or Chrome.
 separated for websites that are built with Bolt. The templates that Bolt uses,
 are developed the way you want them to be.</p>
 
-[webserver]: installation/webserver/nginx
+[webserver]: ../installation/webserver/apache
 [cli]: https://symfony.com/download
