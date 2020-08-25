@@ -6,6 +6,9 @@ Accessing & Reading Configuration
 
 Once an application has loaded then you are able to access configuration
 parameters either in PHP code or via Twig templates within your active theme.
+As part of the application boot process a few processing steps happen to	
+compile the final configuration and this includes merging any environment	
+specific overrides inside `_local.yaml`  suffixed files.
 
 Accessing Configuration in PHP
 ------------------------------
@@ -39,7 +42,7 @@ These prefixes are:
 
 | Section        | YAML file |
 | ---------------| --------- |
-| `general`      | `config.yaml`
+| `general`      | `config.yaml` and `config_local.yaml`
 | `contenttypes` | `contenttypes.yaml`
 | `menu`         | `menu.yaml`
 | `permissions`  | `permissions.yaml`
@@ -48,6 +51,7 @@ These prefixes are:
 | `theme`        | `theme.yaml` (in the active theme directory)
 
 "General" refers to the main configuration found in `config.yaml`. 
+`config_local.yaml`.
 
 To traverse into an array we just need to specify it in the method call:
 `$config->get('general/thumbnails/quality');`
