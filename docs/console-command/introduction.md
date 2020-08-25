@@ -1,21 +1,25 @@
 ---
 title: Introduction
 ---
-The command line utility Nut
-============================
+The command line utility Console
+================================
 
 Bolt provides a powerful command line tool, based on the Symfony
 [Console component][console].
 
-<p class="note"><strong>Note:</strong> The <code>nut</code> command is merely
-a convenient tool for those that do prefer the command line. Its use is not
-required for normal use.</p>
+<p class="note"><strong>Note:</strong> The <code>bin/console</code> command is
+merely a convenient tool for those that do prefer the command line. Its use is
+not required for normal use.</p>
 
-Nut is usualy located at `{site root}/bin/console`, and can be executed using your
-PHP binary, for example to execute the `cache:clear` Nut command:
+Console is usualy located at `{site root}/bin/console`, and can be executed using your
+PHP binary, for example to execute the `cache:clear` Console command:
 
 ```bash
 $ php ./bin/console cache:clear
+
+… or simply:
+
+$ bin/console cache:clear
 
 Cache cleared!
 ```
@@ -29,7 +33,7 @@ Bolt's web interface.
 
 #### The command
 
-Typing out a Nut command is best done following this pattern:
+Typing out a Console command is best done following this pattern:
 
 ```bash
 $ php ./bin/console command [options] [arguments]
@@ -44,7 +48,7 @@ Options are the parameters that are suffixed with `--`, e.g. `--help`. Unlike
 argument, options can also not contain a user supplied value.
 
 Some example of how an `example:command` command line would be built to be
-executed by Nut:
+executed by Console:
 
 ```bash
 $ php ./bin/console example:command --option-without-value
@@ -58,7 +62,7 @@ $ php ./bin/console example:command --pets cats dogs FirstArgumentValue SecondAr
 
 ##### Default options
 
-Nut commands all have the following set of options that you can add to your
+Console commands all have the following set of options that you can add to your
 command line:
 
 ```yaml
@@ -74,19 +78,19 @@ command line:
 The `--help` option will give contextual help text, and is the most useful for
 learning, or refreshing you memory on, command use.
 
-For example, to see Nut's base help:
+For example, to see Console's base help:
 
 ```bash
 $ php ./bin/console --help
 ```
 
-Alternatively, to get the help text for the `cache:clear` Nut command:
+Alternatively, to get the help text for the `cache:clear` Console command:
 
 ```bash
 $ php ./bin/console cache:clear --help
 ```
 
-<p class="note"><strong>Note:</strong> If for any reason Nut generates an
+<p class="note"><strong>Note:</strong> If for any reason Console generates an
 exception when running, you can re-run the command with the <code>-vvv</code>
 option to generate a backtrace to assist in finding the root cause of the
 problem.</p>
@@ -95,7 +99,7 @@ problem.</p>
 ### Available commands
 
 To see a list of available commands for a given Bolt installation, simply run
-Nut without any parameters:
+Console without any parameters:
 
 ```bash
 $ php bin/console
@@ -165,12 +169,12 @@ $ php bin/console
 ```
 
 
-### Adding your own Nut command
+### Adding your own Console command
 
-Bolt enables you to extend Nut, and add your own command, via a Bolt extension,
-see the [Nut Console Commands][nut-extension] section of the extension
+Bolt enables you to extend Console, and add your own command, via a Bolt extension,
+see the [Console Console Commands][Console-extension] section of the extension
 documentation for more information.
 
 [console]: http://symfony.com/doc/2.8/components/console.html
-[nut-extension]: ../extensions/intermediate/nut-commands
+[Console-extension]: ../extensions/intermediate/Console-commands
 

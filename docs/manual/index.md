@@ -1,5 +1,6 @@
 ---
-title: End User Manual
+section: End User Manual
+title: User Manual
 short_title: User Manual
 pages:
     - first-user

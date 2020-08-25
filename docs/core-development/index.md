@@ -15,43 +15,30 @@ development of Bolt.
 
 <div class="docsintro">
     <a href="https://docs.bolt.cm/api/bolt/bolt/3.x/" class="button medium docsintro">
-        Bolt Core API docs (draft)<br>
+        Bolt Core API docs<br>
         <small>(auto-generated)</small>
     </a>
 
-    <a href="https://docs.bolt.cm/api/bolt/collection/master/" class="button medium docsintro">
-        Collection API docs<br>
-        <small>(auto-generated)</small>
+
+    <a href="https://github.com/bolt/core" class="button medium docsintro">
+        "Core" <br>
+        <small>Main Github Repository</small>
     </a>
 
-    <a href="https://docs.bolt.cm/api/bolt/common/master/" class="button medium docsintro">
-        Common API docs<br>
-        <small>(auto-generated)</small>
+    <a href="https://github.com/bolt/core" class="button medium docsintro">
+        "Project" <br>
+        <small>Composer install repository </small>
     </a>
 
-    <a href="https://docs.bolt.cm/api/bolt/filesystem/master/" class="button medium docsintro">
-        Filesystem API docs<br>
-        <small>(auto-generated)</small>
-    </a>
 
-    <a href="https://docs.bolt.cm/api/bolt/session/master/" class="button medium docsintro">
-        Session API docs<br>
-        <small>(auto-generated)</small>
-    </a>
-
-    <a href="https://docs.bolt.cm/api/bolt/thumbs/master/" class="button medium docsintro">
-        Thumbs API docs<br>
-        <small>(auto-generated)</small>
-    </a>
-
-    <a href="class-reference" class="button medium docsintro">
-        Class reference<br>
-        <small>All of Bolt Core's classes, in one diagram</small>
+    <a href="[class-reference](https://roadmap.boltcms.io/)" class="button medium docsintro">
+        Bolt Roadmap<br>
+        <small>Development roadmap & milestones</small>
     </a>
 </div>
 
 If you plan on working on the Bolt core code, we recommend forking and cloning
-the `bolt/bolt` repository from GitHub.
+the `bolt/core` repository from GitHub.
 
 See the ["Clone the Git Repository"][clone] section for details on cloning.
 
