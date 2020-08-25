@@ -6,8 +6,8 @@ Accessing & Reading Configuration
 
 Once an application has loaded then you are able to access configuration
 parameters either in PHP code or via Twig templates within your active theme.
-As part of the application boot process a few processing steps happen to	
-compile the final configuration and this includes merging any environment	
+As part of the application boot process a few processing steps happen to
+compile the final configuration and this includes merging any environment
 specific overrides inside `_local.yaml`  suffixed files.
 
 Accessing Configuration in PHP
