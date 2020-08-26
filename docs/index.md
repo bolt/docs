@@ -20,11 +20,12 @@ pages:
     # Bolt Development
     - extensions
     - core-development
-    - nut-command
+    - console-command
     - debugging
-    # Other Information
-    - performance
+    # End User Manual
     - manual
+    # - performance
+    # Various
     - other
     - howto
 ---

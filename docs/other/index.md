@@ -1,4 +1,5 @@
 ---
+section: Various
 title: Other Information
 short_title: Other
 pages:
