@@ -22,16 +22,16 @@ options:
 main:
   - label: Home
     title: This is the first menu item. Fo shizzle!
-    path: homepage
+    link: homepage
     class: first
-  - path: entry/1
+  - link: entry/1
     label: Second item
     submenu:
       - label: Sub 1
-        path: entry/2
+        link: entry/2
       - label: Sub 2
         class: menu-item-class
-        path: entry/3
+        link: entry/3
 ```
 
 In this case `main` is the name of the menu. The options are:
@@ -41,8 +41,7 @@ In this case `main` is the name of the menu. The options are:
 | `label` | override the 'title' of the record with a defined label. If omitted, the 'title' of the record is used. |
 | `title` | used as a 'title'-attribute in the rendered HTML. If omitted this can be substituted for the `subtitle`-field in a record. |
 | `class` | used to define an HTML `class`-attribute  |
-| `path` | The 'path' to a record in Bolt, or a group of records. For example `path: page/about` will make this item link to a record of type 'page'  with the slug 'about'. `path: page/1` will link to the 'page' with id '1'. `path: entries` will link to the `/entries` overview page. |
-| `link` | define an external link to another site. For example `link: https://bolt.cm`. Do not use `link` together with `path`! |
+| `link` | the `link` to a Bolt record, group of records or an external site. For example `link: page/about` will make this item link to a record of type 'page'  with the slug 'about'. `link: page/1` will link to the 'page' with id '1'. `link: entries` will link to the `/entries` overview page. `link: https://bolt.cm` will link to that external website. |
 | `submenu` | defines a submenu. In the submenu you can define other items, with the same options as before. |
 
 To insert a menu in your templates, use

@@ -107,6 +107,11 @@ pagebinding:
     datecreated: '\d{4}-\d{2}-\d{2}'
 ```
 
+<p class="warning"><strong>Warning:</strong> to generate the correct new links to those pages
+using the <code>|link</code> filter in Twig, update your page ContentType definition
+by setting <code>record_route: pagebinding</code>. Otherwise, the 
+<code>|link</code> filter will still use Bolt's default routes.</p>
+
 ### Single record override
 
 This example overrides a single record to a specific URL. Useful if you only
