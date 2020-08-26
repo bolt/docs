@@ -67,12 +67,12 @@ test:
   - label: Bolt
     link: https://bolt.cm
   - label: All pages
-    path: pages/
+    link: pages/
     submenu:
-      - path: page/1
-      - path: page/2
+      - link: page/1
+      - link: page/2
       - label: last page
-        path: page/3
+        link: page/3
         class: my_class
   - label: Symfony
     link: https://symfony.com
