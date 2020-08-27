@@ -29,7 +29,7 @@ For example, the following would clone the Bolt repository automatically
 checking out the default branch, and installing dependant packages:
 
 ```bash
-git clone git://github.com/bolt/bolt.git
+git clone git://github.com/bolt/core.git
 cd bolt
 composer install
 ```
@@ -124,7 +124,7 @@ from `bolt/themes`.
 unit & acceptance tests.</p>
 
 Should you require updated copies of these themes, they can be resynchronised
-with the copies in the vendor directory via the Nut [`setup:sync`][nut-setup-sync]
+with the copies in the vendor directory via the `bin/console bolt:copy-themes`
 command.
 
 
@@ -163,4 +163,3 @@ After you've done this, skip to the section [Setting up Bolt][config].
 [core-dev]: ../core-development
 [webroot]: ../howto/troubleshooting-outside-webroot
 [config]: ../configuration/introduction
-[nut-setup-sync]: ../nut-command/setup/setup-sync

@@ -5,7 +5,7 @@ level: intermediate
 Routing Configuration
 =====================
 
-Nut's `debug:router` command displays the configured routes, or details of a
+Console's `debug:router` command displays the configured routes, or details of a
 named route.
 
 
@@ -46,24 +46,23 @@ An edited-down example of the output:
 
 ```bash
 $ php ./bin/console debug:router
-+----------------+-----------+--------+------+------------------------------------------+
-| Route Name     | Method(s) | Scheme | Host | Path                                     |
-+----------------+-----------+--------+------+------------------------------------------+
-| thumb          | GET       |  ANY   |  ANY | /thumbs/{width}x{height}{action}/{file}  |
-| login          | GET       | https  |  ANY | /bolt/login                              |
-| postLogin      | POST      | https  |  ANY | /bolt/login                              |
-| logout         | ANY       |  ANY   |  ANY | /bolt/logout                             |
-| editcontent    | GET|POST  |  ANY   |  ANY | /bolt/editcontent/{contenttypeslug}/{id} |
-| profile        | ANY       |  ANY   |  ANY | /bolt/profile                            |
-| async          | GET       |  ANY   |  ANY | /async                                   |
-| homepage       | ANY       |  ANY   |  ANY | /                                        |
-| search         | ANY       |  ANY   |  ANY | /search                                  |
-| preview        | ANY       |  ANY   |  ANY | /preview/{contenttypeslug}               |
-| contentlink    | ANY       |  ANY   |  ANY | /{contenttypeslug}/{slug}                |
-| taxonomylink   | ANY       |  ANY   |  ANY | /{taxonomytype}/{slug}                   |
-| contentlisting | ANY       |  ANY   |  ANY | /{contenttypeslug}                       |
-+----------------+-----------+--------+------+------------------------------------------+
-```
+ ---------------------------------------------------- ---------- -------- ------ -------------------------------------------------
+  Name                                                 Method     Scheme   Host   Path
+ ---------------------------------------------------- ---------- -------- ------ -------------------------------------------------
+  bolt_login                                           ANY        ANY      ANY    /bolt/login
+  bolt_logout                                          ANY        ANY      ANY    /bolt/logout
+  thumbnail                                            GET        ANY      ANY    /thumbs/{paramString}/{filename}
+  record                                               GET|POST   ANY      ANY    /{contentTypeSlug}/{slugOrId}
+  record_locale                                        GET|POST   ANY      ANY    /{_locale}/{contentTypeSlug}/{slugOrId}
+  homepage                                             GET|POST   ANY      ANY    /
+  homepage_locale                                      GET|POST   ANY      ANY    /{_locale}/
+  listing                                              GET|POST   ANY      ANY    /{contentTypeSlug}
+  listing_locale                                       GET|POST   ANY      ANY    /{_locale}/{contentTypeSlug}
+  search                                               GET|POST   ANY      ANY    /search
+  search_locale                                        GET|POST   ANY      ANY    /{_locale}/search
+  taxonomy                                             GET|POST   ANY      ANY    /{taxonomyslug}/{slug}
+  taxonomy_locale                                      GET|POST   ANY      ANY    /{_locale}/{taxonomyslug}/{slug}
+ ---------------------------------------------------- ---------- -------- ------ -------------------------------------------------```
 
 ### Single Route Name
 

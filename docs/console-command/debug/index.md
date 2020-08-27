@@ -15,14 +15,14 @@ Bolt's command line tool, Nut, provides some helpful commands that make it a
 great tool for tool for certain debugging tasks.
 
 Available Twig functions, filters, tags & tests:
-  * [Twig Operations](nut/twig-operations)
+  * [Twig Operations](./debug/debug-twig)
 
 Routing related issues:
-  * [Route Matcher](nut/route-matcher)
-  * [Routing Configuration](nut/router)
+  * [Route Matcher](./debug/router-match)
+  * [Routing Configuration](./debug/debug-router)
 
 Event listener information:
-  * [Event Listeners](nut/event-listeners)
+  * [Event Listeners](./debug/debug-events)
 
 Service Providers
-  * [Service Providers](nut/service-providers)
+  * [Service Providers](./debug/debug-service-providers)

@@ -4,5 +4,5 @@ short_title: Set-up
 pages:
   - setup-sync
   - setup-deploy
-redirect: nut-command/setup/setup-sync
+redirect: console-command/setup/setup-sync
 ---

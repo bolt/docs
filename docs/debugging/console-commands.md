@@ -22,8 +22,8 @@ type in `php bin/console` in Bolt's root directory.
   - [Twig Operations][debug-twig]
     - Outputs a list of twig functions, filters, globals and tests.
 
-[debug-events]: ../nut-command/debug/debug-events
-[debug-router]: ../nut-command/debug/debug-router
-[debug-providers]: ../nut-command/debug/debug-service-providers
-[debug-twig]: ../nut-command/debug/debug-twig
-[router-match]: ../nut-command/debug/router-match
+[debug-events]: ../console-command/debug/debug-events
+[debug-router]: ../console-command/debug/debug-router
+[debug-providers]: ../console-command/debug/debug-service-providers
+[debug-twig]: ../console-command/debug/debug-twig
+[router-match]: ../console-command/debug/router-match

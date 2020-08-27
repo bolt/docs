@@ -22,26 +22,6 @@ After installing, you can run the unit test suite by running:
     $ php vendor/bin/phpunit
 ```
 
-This can now also be done by using bin/console:
 
-```bash
-    $ php bin/console tests:run
-```
-
-Acceptance Tests
-----------------
-
-For running acceptance tests you need [CodeCeption](http://codeception.com/),
-this can be run from the `require-dev` install of CodeCeption that comes with
-Bolt:
-
-```bash
-    $ composer install --dev
-```
-
-After installing, you can run the acceptance test suite by running:
-
-```bash
-    $ php vendor/bin/codecept build
-    $ php vendor/bin/codecept run
-```
+For more on running unit and behavioural tests, please follow the instructions in
+the `bolt/core` repository on GitHub [here](https://github.com/bolt/core#testing)
