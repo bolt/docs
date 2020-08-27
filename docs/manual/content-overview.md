@@ -5,7 +5,7 @@ Content overview
 ===========
 You are now on the overview page for one of your ContentTypes.
 
-<a href="/files/screenshots/overview.png" class="popup"><img src="/files/screenshots/overview.png" width="590"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/90907693-97a50380-e3d3-11ea-820f-8d53bbb79a5e.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/90907693-97a50380-e3d3-11ea-820f-8d53bbb79a5e.png" width="590"></a><br>
 
 All the content items are shown in the overview and can be selected for further
 editing by clicking on the title, edit button or arrow button. (Items can also

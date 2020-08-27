@@ -199,55 +199,6 @@ parameter is set to null, and the second parameter is the icon to retrieve.
 {{ icon(null, 'biking') # returns <i class='fas mr-2 fa-biking'></i> }}
 ```
 
-## imageinfo
-
-Sometimes it can be useful to have more information about a specific image in
-your templates. You might want to know which type it is, what the dimensions
-are, and what the aspect ratio is. In these cases, the `imageinfo` function can
-be used. It returns an array of data about the image. See the screenshot for
-details:
-
-<a href="/files/imageinfo.png" class="popup"><img src="/files/imageinfo.png" width="600"></a>
-
-To see the available values for an image, use:
-
-```twig
-{{ dump(imageinfo(record.image)) }}
-{# assuming 'record.image' is the image of the current record. #}
-```
-
-For images in `imagelist` field types use:
-
-```twig
-{% for image in record.imagelist %}
-    {{ dump(imageinfo(image.filename)) }}
-{% endfor %}
-```
-
-The aspect ratio is the proportional relationship between the width and the
-height of the image. In general, this is used to determine whether an image is
-'landscape' or 'portrait'. Note that an image is considered to be landscape if
-the aspect ratio is equal to or larger than 5:4 (1.25). An image is considered
-to be portrait if the aspect ratio is equal to or smaller than 4:5 (0.8). Images
-between those ratios are considered to be Square, even though the width and
-height might not be exactly equal. For example, an image that is 650 x 600
-pixels is classified as square. If you need more precise values, you can do your
-own calculations, using the 'aspectratio' value.
-
-For example, if you want to style an image, depending on its aspect ratio, you can use
-these values:
-
-```twig
-{% if imageinfo(record.image).landscape %}
-    <img src="{{ thumbnail(record.image, 400, 320) }}" class="landscape">
-{% elseif imageinfo(record.image).portrait %}
-    <img src="{{ thumbnail(record.image, 320, 400) }}" class="portrait">
-{% else %}
-    <img src="{{ thumbnail(record.image, 320, 320) }}" class="square">
-{% endif %}
-```
-
-
 ## include
 
 Use this to include another Twig template in the current template. Twig parses

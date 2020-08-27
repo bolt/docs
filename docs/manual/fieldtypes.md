@@ -9,20 +9,20 @@ Text and HTML fields
 
 ### Text
 
-<a href="/files/fieldtypes/text.png" class="popup"><img src="/files/fieldtypes/text.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91459622-21971580-e887-11ea-89f4-34eca1f725ce.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91459622-21971580-e887-11ea-89f4-34eca1f725ce.png"></a><br>
 
 A normal text input, often used for titles, short captions and alike.
 
 ### Textarea
 
-<a href="/files/fieldtypes/textarea.png" class="popup"><img src="/files/fieldtypes/textarea.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91459746-45f2f200-e887-11ea-805b-5678d46d4b1b.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91459746-45f2f200-e887-11ea-805b-5678d46d4b1b.png"></a><br>
 
 A longer text input, often used for text that should be unstyled and 1 - 5
 paragraphs in length.
 
 ### Markdown
 
-<a href="/files/fieldtypes/markdown.png" class="popup"><img src="/files/fieldtypes/markdown.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91459821-63c05700-e887-11ea-9d12-5b3e84a24322.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91459821-63c05700-e887-11ea-9d12-5b3e84a24322.png"></a><br>
 
 A Markdown field. Markdown allows you to write using an easy-to-read,
 easy-to-write plain text format, which then converts to valid HTML for viewing
@@ -32,7 +32,7 @@ comfortable using it.
 
 ### HTML
 
-<a href="/files/fieldtypes/html.png" class="popup"><img src="/files/fieldtypes/html.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91459881-789cea80-e887-11ea-9681-ffd60be1c8a6.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91459881-789cea80-e887-11ea-9681-ffd60be1c8a6.png"></a><br>
 
 A WYSIWYG field that allows greater freedom to edit styling and presentation of
 text. Often used for the body of a page or article. Features of the WYSIWYG can
@@ -43,13 +43,13 @@ Date Fields
 
 ### Date
 
-<a href="/files/fieldtypes/date.png" class="popup"><img src="/files/fieldtypes/date.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91460561-3627dd80-e888-11ea-9485-6ba7acdd7efa.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91460561-3627dd80-e888-11ea-9485-6ba7acdd7efa.png"></a><br>
 
 A field for a single date that includes *no* time value.
 
 ### Datetime
 
-<a href="/files/fieldtypes/datetime.png" class="popup"><img src="/files/fieldtypes/datetime.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91460494-23150d80-e888-11ea-9bbd-cfa9ba8ccd3b.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91460494-23150d80-e888-11ea-9bbd-cfa9ba8ccd3b.png"></a><br>
 
 A field for a single date and time.
 
@@ -58,7 +58,7 @@ Media fields
 
 ### Image
 
-<a href="/files/fieldtypes/image.png" class="popup"><img src="/files/fieldtypes/image.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91460674-5ce61400-e888-11ea-9371-ee958177c8c1.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91460674-5ce61400-e888-11ea-9371-ee958177c8c1.png"></a><br>
 
 A field for a single image, allows for them to be uploaded, selected from the
 server or selected from the stack. Optionally can include `alt` and `title`
@@ -66,54 +66,45 @@ attributes.
 
 ### Imagelist
 
-<a href="/files/fieldtypes/imagelist.png" class="popup"><img src="/files/fieldtypes/imagelist.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91460750-7ab37900-e888-11ea-848c-6b7c9d526efe.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91460750-7ab37900-e888-11ea-848c-6b7c9d526efe.png"></a><br>
 
 A field for multiple images, with the same ways to add images as the image
 field. Also allows for a line of text to be attached to each image.
 
 ### File
 
-<a href="/files/fieldtypes/file.png" class="popup"><img src="/files/fieldtypes/file.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91461007-ca924000-e888-11ea-883e-c03b1b40f53c.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91461007-ca924000-e888-11ea-883e-c03b1b40f53c.png"></a><br>
 
 A field for a single file, allows for them to be uploaded, selected from the
 server or selected from the stack.
 
 ### Filelist
 
-<a href="/files/fieldtypes/filelist.png" class="popup"><img src="/files/fieldtypes/filelist.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91461093-e4338780-e888-11ea-9429-b980a3252909.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91461093-e4338780-e888-11ea-9429-b980a3252909.png"></a><br>
 
 A field for multiple files, with the same ways to add files as the file
 field. Also allows for a line of text to be attached to each file.
 
-### Video
+### Embed
 
-<a href="/files/fieldtypes/video.png" class="popup"><img src="/files/fieldtypes/video.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91461493-5e640c00-e889-11ea-86d1-18b3c554dec6.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91461493-5e640c00-e889-11ea-86d1-18b3c554dec6.png"></a><br>
 
-A field for embedding videos from websites like Youtube and Vimeo. Also allows
+A field for embedding videos and other content from websites like Youtube and Vimeo. Also allows
 selection of size of the video and previewing of it.
-
-### Geolocation
-
-<a href="/files/fieldtypes/geolocation.png" class="popup"><img src="/files/fieldtypes/geolocation.png"></a><br>
-
-A field for selecting geographic locations via either address lookup, manual
-selection on a map or by entering longitude and latitude. This requires that a
-google api key has been set in the main configuration. To get a key you can
-follow [this guide](https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key)
 
 Number-based fields
 ----------------
 
 ### Checkbox
 
-<a href="/files/fieldtypes/checkbox.png" class="popup"><img src="/files/fieldtypes/checkbox.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91461591-7b004400-e889-11ea-8fa1-6c94d35d278e.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91461591-7b004400-e889-11ea-8fa1-6c94d35d278e.png"></a><br>
 
 A field to store "True or false" type values. Internally stored as either 1 for
 true if the checkbox was checked, and 0 for false if it wasn’t checked.
 
 ### Integer
 
-<a href="/files/fieldtypes/integer.png" class="popup"><img src="/files/fieldtypes/integer.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91461920-e1856200-e889-11ea-8f43-64d870f0a4ec.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91461920-e1856200-e889-11ea-8f43-64d870f0a4ec.png"></a><br>
 
 A field to store whole numbers. The value must be between -2147483648 and
 +2147483647. Often used for storing things like prices of products.

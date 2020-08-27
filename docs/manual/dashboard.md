@@ -14,12 +14,12 @@ have content on your site. In that case please click one of the ContentTypes
 under the section Content in the left menu and skip to
 [Content overview](content-overview)*
 
-<a href="/files/screenshots/dashboard-empty.png" class="popup"><img src="/files/screenshots/dashboard-empty.png" width="590"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/90907241-02097400-e3d3-11ea-8ed5-ac64db51a0df.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/90907241-02097400-e3d3-11ea-8ed5-ac64db51a0df.png" width="590"></a><br>
 
 Click on the "add some lorem ipsum dummy content" to get started quickly with
 example content, and then click on Dashboard to return here.
 
-<a href="/files/screenshots/dashboard-full.png" class="popup"><img src="/files/screenshots/dashboard-full.png" width="590"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/90907241-02097400-e3d3-11ea-8ed5-ac64db51a0df.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/90907241-02097400-e3d3-11ea-8ed5-ac64db51a0df.png" width="590"></a><br>
 
 This is what your dashboard will usually look like, with listings of your
 latest edited content, and options to quickly start a new page or other
