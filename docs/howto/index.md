@@ -11,7 +11,7 @@ pages:
     - using-php-built-in-web-server
     - making-sure-htaccess-works
     - curl-ca-certificates
-    - setting-up-sites-to-be-extendable
+#    - setting-up-sites-to-be-extendable
 ---
 HOWTOs and Recipes
 ===================
