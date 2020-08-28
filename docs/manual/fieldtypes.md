@@ -111,7 +111,7 @@ A field to store whole numbers. The value must be between -2147483648 and
 
 ### Float
 
-<a href="/files/fieldtypes/float.png" class="popup"><img src="/files/fieldtypes/float.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91531685-77ae9c00-e90d-11ea-95d6-df32970b9b32.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91531685-77ae9c00-e90d-11ea-95d6-df32970b9b32.png"></a><br>
 
 A field to store decimal numbers. Internally stored so that they can be sorted
 numerically.
@@ -121,7 +121,7 @@ Select fields
 
 ### Select
 
-<a href="/files/fieldtypes/select.png" class="popup"><img src="/files/fieldtypes/select.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91531755-93b23d80-e90d-11ea-86ed-a36990385780.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91531755-93b23d80-e90d-11ea-86ed-a36990385780.png"></a><br>
 
 A drop-down list to make a pre-defined selection from. There are two ways of
 specifying the list of available options. Either predefined options or by
@@ -129,7 +129,7 @@ selecting from a ContentTypes records.
 
 ### Multiselect
 
-<a href="/files/fieldtypes/multiselect.png" class="popup"><img src="/files/fieldtypes/multiselect.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91531813-b04e7580-e90d-11ea-9931-3528b059188f.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91531813-b04e7580-e90d-11ea-9931-3528b059188f.png"></a><br>
 
 A selectfield that allows for multiple items to be selected.
 
@@ -138,14 +138,14 @@ Bolt-specific fields
 
 ### Templateselect
 
-<a href="/files/fieldtypes/templateselect.png" class="popup"><img src="/files/fieldtypes/templateselect.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91534734-556b4d00-e912-11ea-8b2f-1452ed3204cf.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91534734-556b4d00-e912-11ea-8b2f-1452ed3204cf.png"></a><br>
 
 Allows one to choose a specific template for each particular record. Can add
 additional fields by using the feature "Template specific fields".
 
 ### Slug
 
-<a href="/files/fieldtypes/slug.png" class="popup"><img src="/files/fieldtypes/slug.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/91534811-7a5fc000-e912-11ea-9c1f-cc7de20debe7.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91534811-7a5fc000-e912-11ea-9c1f-cc7de20debe7.png"></a><br>
 
 This field will determine what "slug" or permalink is used for accessing the
 record on the frontend.
@@ -155,51 +155,32 @@ record on the frontend.
 This section will be present in all ContentTypes and allows for a few different
 options:
 
-#### Publication date
+<a href="https://user-images.githubusercontent.com/7093518/91534876-96fbf800-e912-11ea-9fcb-ee9c4792f3f0.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91534876-96fbf800-e912-11ea-9fcb-ee9c4792f3f0.png"></a><br>
 
-<a href="/files/fieldtypes/publicationdate.png" class="popup"><img src="/files/fieldtypes/publicationdate.png"></a><br>
+#### Publication date
 
 This will determine when the record will be published if used in conjuction
 with the status "Timed publish". 
 
 #### Depublication date
 
-<a href="/files/fieldtypes/depublicationdate.png" class="popup"><img src="/files/fieldtypes/depublicationdate.png"></a><br>
-
 This will allow for the record to be depublished after a certain date and time.
 
 #### Status
 
-<a href="/files/fieldtypes/status.png" class="popup"><img src="/files/fieldtypes/status.png"></a><br>
-
 This allows you to decide the status of the record. The choices are:
 
 * Published
-* Not published
+* Held
 * Draft
 * Timed publish
-
-#### Owner
-
-<a href="/files/fieldtypes/owner.png" class="popup"><img src="/files/fieldtypes/owner.png"></a><br>
-
-This will allow you to select which user owns the record. This can affect who
-has the ability to edit the record if your permissions are set up as such.
-
-#### Comment
-
-<a href="/files/fieldtypes/image.png" class="popup"><img src="/files/fieldtypes/image.png"></a><br>
-
-This field only appears if you have enabled the changelog in your main
-configuration but will allow you to add a comment describing the changes to a
-record.
 
 Relations and taxonomy
 ----------------------
 
 ### Relations
 
-<a href="/files/fieldtypes/relationships.png" class="popup"><img src="/files/fieldtypes/relationships.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/90906874-8e676700-e3d2-11ea-92b7-928514f576b9.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/90906874-8e676700-e3d2-11ea-92b7-928514f576b9.png"></a><br>
 
 Relations allows you to tie a record to another record of either the same or a
 different ContentType for usage in your templates. An example of this is often
@@ -207,12 +188,12 @@ seen on ecommerece websites that have a "related products" section.
 
 ### Taxonomy
 
-<a href="/files/fieldtypes/taxonomy.png" class="popup"><img src="/files/fieldtypes/taxonomy.png"></a><br>
+<a href="https://user-images.githubusercontent.com/7093518/90906874-8e676700-e3d2-11ea-92b7-928514f576b9.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/90906874-8e676700-e3d2-11ea-92b7-928514f576b9.png"></a><br>
 
 Taxonomy allow you to categorize your record with different types of taxonomy
 set up in your taxonomy file. There are three different types of taxonomy:
 
-* **Tags** - Tags are a sort of ‘freeform’ labeling. Each record can have
+* **tags** - Tags are a sort of ‘freeform’ labeling. Each record can have
   several tags, that do not have to be selected from a predefined list. Just
   add tags, as you go! Examples of websites that use tags extensively are
   Flickr or Delicious. The taxonomy can be set up to allow spaces in tag names
