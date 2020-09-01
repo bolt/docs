@@ -53,9 +53,8 @@ You can also get the values from the records of a particular ContentType.
             values: mycontenttype/[formatting]
 ```
 
-To display multiple values simply separate them with commas.
-
-For example to display both the id and title of 'pages':
+To display multiple values simply separate them with commas. For example to
+display both the id and title of 'pages':
 
 ```yaml
         somevalue:
@@ -64,8 +63,8 @@ For example to display both the id and title of 'pages':
 ```
 
 A simple substition is performed for all `{something}` placeholders. You can
-insert the name of a field, but also `{id}`, `{status}`, or the magic
-attributes `{title}` and `{excerpt}`.
+insert the name of a field, but also `{id}`, `{status}` and `{contenttype}`. You
+can also use the magic attributes `{title}` and `{excerpt}`.
 
 If you leave the second part blank, like `values: entries/`, the formatting
 will default to `{title} (№ {id}, {status})`.
@@ -75,7 +74,7 @@ If the list is growing longer, there are a few ways to make it more manageable:
 ```yaml
         somevalue:
             type: select
-            values: programme/name
+            values: programme/{title}
             sort: name
             autocomplete: true
             limit: 1000
@@ -90,6 +89,11 @@ If the list is growing longer, there are a few ways to make it more manageable:
   you have a long list, and you need to show them all to the user, raise this
   limit.
 
+<p class="tip"><strong>Tip:</strong> See the section below for details and
+examples on how to <a href="#outputting-selected-options-from-another-contenttype">
+Outputting selected options from another ContentType</a>.</p>
+
+<!--
 Finally you can pass filters to the query using the filter option. For a full
 reference of what can be passed to a where filter you can see the content
 fetching documentation.
@@ -103,6 +107,7 @@ conditions, as in the following example:
             values: pages/{title}
             filter: { categories: news }
 ```
+-->
 
 ### Populating the values from multiple ContentTypes
 
@@ -111,7 +116,7 @@ To output multiple ContentTypes in the select list, use:
 ```yaml
 somevalue:
     type: select
-    values: (events,news,pages)/title
+    values: (events,news,pages)/{title} - {contenttype} № {id} ({status})
 ```
 
 As the field allows you to select multiple ContentTypes, upon saving it stores
@@ -123,6 +128,11 @@ where `somevalue` in this instance may equal something like `page/1`:
 ```twig
 {% setcontent linkeditem = record.somevalue returnsingle %}
 ```
+
+In practice, you'll often want to fetch the selected records. See the section on
+[Outputting selected options from another ContentType](#outputting-selected-options-from-another-contenttype)
+for details and an example on how to easily do this.
+
 
 ## Additional options
 
@@ -252,9 +262,9 @@ field. We use `contentSelect` to verify that this select contains references to
 other Content, as opposed to a Select Field that has a number of fixed options.
 
 Below that, the `setcontent` tag fetches the `selectedRecords` from the correct
-ContentType. After that, we iterate over these, using a regßular for loop. The
+ContentType. After that, we iterate over these, using a regular `for` loop. The
 items in this loop are "normal" Records, so you can do anything with them, that
-you could normally do with a Content Record.
+you would ordinarily do with a Content Record.
 
 Bolt does not automatically fetch all linked Records this in the background,
 because it's better for performance to only do this when needed.
