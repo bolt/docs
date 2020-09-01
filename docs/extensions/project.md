@@ -5,7 +5,7 @@ If you are working on a Bolt project, you can add your own code to create
 custom functionalities. This means that if you're working on a project that
 requires custom functionality, you are not required to create an extension. You
 can incorporate your code in the Project, since Bolt is a standard Symfony
-project.
+application.
 
 You can do this by adding your custom code to the `src/` folder in your
 project. After initially setting up a new project, it looks like this:

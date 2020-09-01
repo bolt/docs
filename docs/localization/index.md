@@ -7,10 +7,10 @@ pages:
 <!-- internationalization, i18n, translate, language -->
 Bolt comes with built-in localization for all fields by default.
 You do not have to install anything to use this. All it takes to use
-the localization feature in Bolt is to configure your Content Types 
+the localization feature in Bolt is to configure your ContentTypes 
 and Fields to be translatable.
 
-## Localize Content Types
+## Localize ContentTypes
 
 Bolt allows you to specify which languages are enabled for each Content Type.
 This is done using the `locales` setting in the `contenttypes.yaml` file:

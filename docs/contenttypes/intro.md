@@ -307,7 +307,7 @@ showcases:
 
 The result of this example, is shown in the following screenshot:
 
-<a href="/files/contenttype_show_in_menu.png" class="popup"><img src="/files/contenttype_show_in_menu.png" width="642"></a>
+<a href="https://user-images.githubusercontent.com/7093518/91450614-c4966200-e87c-11ea-9f88-ba78be40fba6.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91450614-c4966200-e87c-11ea-9f88-ba78be40fba6.png" width="642"></a>
 
 <p class="note">Tip: If you provide a name, like <code>show_in_menu:
 Foo</code>, then that name will be used, instead of the generic "Other content"

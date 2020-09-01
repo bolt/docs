@@ -5,23 +5,28 @@ level: intermediate
 extensions
 ==========
 
-Nut's `extensions` command lists all installed extensions.
+Console's `extensions:list` command lists all installed extensions.
 
 ## Usage
 
 ```bash
-    php ./bin/console extensions
+    php ./bin/console extensions:list
 ```
 
 
 ## Example
 
 ```bash
-$ ./bin/console extensions
-+--------------------+---------+----------------+---------------------------------------------------------------------------+
-| Name               | Version | Type           | Description                                                               |
-+--------------------+---------+----------------+---------------------------------------------------------------------------+
-| bolt/boltforms     | 3.0.0   | bolt-extension | Powerful and flexible HTML form generator for Bolt based on Symfony Forms |
-+--------------------+---------+----------------+---------------------------------------------------------------------------+
+$ ./bin/console extensions:list
+
+ Currently installed extensions:
+ -------------------------------------------- -----------------------------------
+  Class                                        Extension name
+ -------------------------------------------- -----------------------------------
+  AcmeCorp\ReferenceExtension\Extension        AcmeCorp ReferenceExtension
+  BobdenOtter\ConfigurationNotices\Extension   Bolt Configuration Notices Widget
+  BobdenOtter\WeatherWidget\Extension          Dashboard Weather Widget
+  Bolt\NewsWidget\Extension                    Dashboard News Widget
+ -------------------------------------------- -----------------------------------
 ```
 

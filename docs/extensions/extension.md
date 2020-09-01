@@ -19,7 +19,7 @@ Developing an extension usually is done in the following steps:
 - Tag a release on Github / Gitlab / Bitbucket, and see it show up on the [Extensions site][ext-site].
 
 Alternatively, you can start working on your extension as a project extension
-([described here][project]), and then convert it to a proper extension at a
+([described here][project]), and then convert it to a standalone extension at a
 convenient time. It works pretty much the same, so you can pick whatever suits
 your workflow best.
 

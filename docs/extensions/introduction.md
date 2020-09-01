@@ -25,7 +25,7 @@ heavily borrow from the tools and ecosystem that the Symfony network provides.
   Dependency Injection and Autowiring of Services.
 
 Apart from the information contained in this chapter, it's very useful if you
-have some experience about PHP, as well as Symfony. Here's some recommended
+have some experience with PHP, as well as Symfony. Here's some recommended
 resources, if you want to brush up on your knowledge:
 
 PHP in general:

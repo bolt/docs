@@ -39,13 +39,7 @@ The `relations` are defined by the `slug` of the ContentType that it's related t
 
 Editing a record that has relations defined looks like this:
 
-<a href="/files/relations1.png" class="popup"><img src="/files/relations1.png" width="350"></a>
-
-If you define a relation only one way, for example from `entries` to `pages`,
-but not the other way around, you will still see the references when editing the
-record that has a relation to another record. It looks like this:
-
-<a href="/files/relations2.png" class="popup"><img src="/files/relations2.png" width="350"></a>
+<a href="https://user-images.githubusercontent.com/7093518/91450856-0d4e1b00-e87d-11ea-847e-13a075ddf164.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91450856-0d4e1b00-e87d-11ea-847e-13a075ddf164.png" width="350"></a>
 
 If you see this, you might consider adding the reverse relation to the
 `contenttypes.yaml` as well.

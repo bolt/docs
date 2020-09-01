@@ -109,26 +109,6 @@ categories:
         movies: Cool Movies
 ```
 
-Sorting order
--------------
-
-Bolt ContentTypes can have their own sorting order. Usually this is defined as
-something like `sort: title` in the ContentType to sort alphabetically by
-title. Sometimes it might make more sense to use a grouping Taxonomy, and sort
-within those groups. To do this, you can add `has_sortorder`, which allows the
-editor to not only select a group to classify a record, but it also allows them
-to set a sorting order by which the records inside that specific group are
-sorted.
-
-<a href="/files/taxonomy_sortorder2.png" class="popup"><img src="/files/taxonomy_sortorder2.png" width="500"></a>
-
-In Bolt's backend listing for the content-type, the content will be organised
-by the selected group, and it will be sorted by the sorting order:
-
-<a href="/files/taxonomy_sortorder1.png" class="popup"><img src="/files/taxonomy_sortorder1.png" width="500"></a>
-
-Note that the sorting is done inside the group only.
-
 Adding Taxonomies to ContentTypes
 ---------------------------------
 

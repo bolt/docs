@@ -5,9 +5,7 @@ Maintenance (offline) mode
 ==========================
 
 Bolt comes with a built-in 'Maintenance Mode'. If this mode is active, regular
-visitors to the site will see this page:
-
-<a href="/files/maintenance.png" class="popup"><img src="/files/maintenance.png" width="450"></a>
+visitors to the site will see the website's configured maintenance page, or a default.
 
 <p class="tip"><strong>Note:</strong> This page returns a HTTP 503 status code.
 This means "Service Unavailable" and makes the maintenance page search engine friendly.</p>

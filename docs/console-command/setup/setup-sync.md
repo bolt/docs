@@ -1,61 +1,14 @@
 ---
-title: setup:sync
+title: bolt:setup
 level: intermediate
 ---
-setup:sync
+bolt:setup
 ==========
 
-Nut's `setup:sync` command synchronise a Bolt install private asset directories
-with the web root.
+Console's `bolt:setup` command initializes the installation and database.
 
 ## Usage
 
 ```bash
-    php ./bin/console setup:sync [options]
+    php ./bin/console bolt:setup
 ```
-
-
-## Options
-
-| Option | Description |
-|--------|-------------|
-| -t, --themes | Copy example themes from bolt/themes into the site theme base-directory
-
-
-
-## Examples
-
-```bash
-$ ./bin/console setup:sync
-
-Synchronising Bolt asset directories with the web root
-======================================================
-
- [OK] Directory synchronisation succeeded.
-```
-
-
-```bash
-$ ./bin/console setup:sync --themes
-
- Continuing will copy/update the example themes into your installation, overwriting older copies. Is this OK? (yes/no) [yes]:
- >
-
-Installing theme: base-2016
-===========================
-
- [OK]
-
-
-Installing theme: skeleton
-==========================
-
- [OK]
-
-
-Synchronising Bolt asset directories with the web root
-======================================================
-
- [OK] Directory synchronisation succeeded.
-```
-
