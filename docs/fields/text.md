@@ -50,3 +50,29 @@ By design, you can _not_ disable the sanitation entirely. If you need to allow
 the editors to insert unfiltered HTML or javascript, use a `type: textarea`
 field instead.
 
+By design, you can _not_ disable the sanitation entirely. If you need to allow
+the editors to insert unfiltered HTML or javascript, use a `type: textarea`
+field instead.
+
+## "Hiding" a field
+
+The <code>class:</code>-option can be used to create "hidden" fields. Sometimes
+you might want to _not_ show a field, but still want to display some
+information to the editor. For example to give them more detailed instructions
+on how to use the current ContentType. You can do this:
+
+```yaml
+        helpful_tip:
+            type: text
+            class: d-none
+            label: 'A Helpful tip'
+            postfix: |
+                Duo Reges: constructio interrete. Eiuro, inquit adridens, hac
+                quidem de re; Paulum, cum regem Persem captum adduceret, eodem
+                flumine invectio? Videsne quam sit magna dissensio?
+            group: Instructions
+```
+
+And the result will be:
+
+![Screenshot of a helpful tip](https://user-images.githubusercontent.com/1833361/91960796-a1e7cb80-ed0a-11ea-9613-6701210a09a6.png)
