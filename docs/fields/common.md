@@ -77,14 +77,37 @@ after a field. For example:
 ```
 
 As you can see, using `postfix: "<hr>"` gives a simple and effective way of
-adding a divider in the edit screen.
-
-You can set the field option `separator : true` to make Bolt insert an `<hr>`-tag 
-after the field.
+adding a divider in the edit screen, but you could also set the field option
+`separator : true` to make Bolt insert an `<hr>`-tag after the field.
 
 Because the prefix & postfix values are parsed as markdown, you can insert
 basic markup like links, e.g. `[Bolt](https://bolt.cm)`, or font style, e.g.
-`*strong* _underline_`.
+`*strong* _underline_`. However, if you start it with either `<p>`, `<span>` or `<div>`, it's being output as is.
+
+You can leverage these options to create rich output to help you editors do their work. This is a more elaborate example:
+
+```yaml
+    fields:
+        title:
+            type: text
+            class: large
+            required: true
+            pattern: ".{2,255}" # see: http://html5pattern.com/
+            error: "The Title field is required, and must contain at least 2 characters"
+            placeholder: "Placeholder for the title"
+            group: Text
+            postfix: |
+                This is an example of a longer "postfix". Simple text is capped at a reasonable width
+                to enhance legibility. Necessitatibus dolor corrupti assumenda placeat quia occati
+                aut. Facere porro placeat molestiae fuga. Laboriosam et asperiores atque impedit
+                dolorem dicta aut. Harum inventore ipsa voluptas consectetur quaerat eius ad.
+                <div class="alert alert-secondary" role="alert"><strong>Tip:</strong> You can even
+                use HTML in a prefix! Note that this one does take the full available width.</div>
+```
+
+The output will look like this:
+
+![Screenshot of postfix output](https://user-images.githubusercontent.com/1833361/91934186-faa76c00-ecea-11ea-8ea0-d851c2089b31.png)
 
 ## Info
 
@@ -108,12 +131,12 @@ default value is set like so:
             default: "Amsterdam"
 ```
 
-For `date` fields, the value is passed 
+For `date` fields, the value is passed
 through [strtotime](http://php.net/manual/en/function.strtotime.php), meaning
 that you can use a fixed date as default, like "1900-01-01 12:00:00", but also
 relative dates like "first day of this month", "next Monday" or "yesterday".
 
-For `select` and `multiselect` fields, you can use one or more of the values 
+For `select` and `multiselect` fields, you can use one or more of the values
 that you define, as an array. For example:
 
 ```yaml
@@ -123,7 +146,7 @@ that you define, as an array. For example:
             default: [ green ]
 ```
 
-The value of other fields fields such as `image`, `imagelist`, `file`, 
+The value of other fields fields such as `image`, `imagelist`, `file`,
 `filelist`, `set`, `collection` and `embed` is non-scalar, therefore the default
 value for those field is set differently. Please consult the documentation for how
 to configure the default value for each specific field.
