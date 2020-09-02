@@ -62,7 +62,7 @@ If you've set the `homepage` to use not one singular record, but a group of
 records, like this:
 
 ```yaml
-homepage: entries/latest/10
+homepage: entries
 ```
 
 Then you would have `{{ records }}` available, as well as a variable with the

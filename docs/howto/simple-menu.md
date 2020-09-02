@@ -10,7 +10,7 @@ taxonomy 'chapter'.
 
 ```
     <nav id="main">
-    {% setcontent pages = 'pages/latest/4' where { 'taxonomy/chapter': 'main'}  %}
+    {% setcontent pages = 'pages' latest limit 4 where { 'taxonomy/chapter': 'main'}  %}
 
     {% for page in pages %}
         {% if loop.first %}<ul>{% endif %}
@@ -19,7 +19,7 @@ taxonomy 'chapter'.
     {% else %}
         <em>No main navigation items. Add some Pages, and set the 'Chapter' to 'Main'.</em>
     {% endfor %}
-    </nav> 
+    </nav>
 ```
 
 <p class="note"><strong>Note:</strong> This is a specific sample. In general,

@@ -95,7 +95,7 @@ header and some other things. Add the following to the HTML-code, preferably
 somewhere below the header section:
 
 ```twig
-{% setcontent newsitems = "news/latest/4" %}
+{% setcontent newsitems = "news" latest limit 4 %}
 
 {% for newsitem in newsitems %}
     <article>
@@ -271,7 +271,7 @@ pages:
         title:
             type: text
         content:
-            type: html    
+            type: html
 ```
 
 ### Singleton ContentTypes
@@ -338,13 +338,13 @@ At the topmost level, it contains the following items:
 | `taxonomies` | An aray with metadata of the Taxonomies attached to this record. |
 
 The object also contains a generic getter for a record field values.  Fetch the value
-using {{ record.field_name }}.  If the `field_name` is not found, it throws an exception 
-if it's invoked from code, and returns null if invoked from within a twig template. 
+using {{ record.field_name }}.  If the `field_name` is not found, it throws an exception
+if it's invoked from code, and returns null if invoked from within a twig template.
 (In templates we need to be more lenient, in order to do things like `{% if record.foo %}..{% endif %}`.
 Note: We can not rely on `{% if record.foo is defined %}`, because it always returns `true` for object properties.)
 
-There is also a variety of built-in twig helper [filters][twig-filters] and [functions][twig-functions] to get various 
-pieces of record data.  
+There is also a variety of built-in twig helper [filters][twig-filters] and [functions][twig-functions] to get various
+pieces of record data.
 
 If you're building a template and are unsure of what a certain variable
 contains or how the fields are named, use `{{ dump(foo) }}`, where 'foo' is the

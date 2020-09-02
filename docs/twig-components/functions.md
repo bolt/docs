@@ -359,7 +359,7 @@ used in an if/else clause, to redirect visitors based on some criteria.
 ```
 
 ```twig
-{% setcontent records = "pages/latest/5" %}
+{% setcontent records = "pages" limit latest 5 %}
 {% for record in records %}
 
     <h2><a href="{{ record|link }}">{{ record.title }}</a></h2>
