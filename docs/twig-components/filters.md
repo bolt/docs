@@ -188,7 +188,7 @@ or:
 
 ```twig
 {# get the 10 latest entries by date, but sort them on the title field #}
-{% setcontent entries = "entries/latest/10" %}
+{% setcontent entries = "entries" latest limit 10 %}
 <ul>
 {% for entry in entries|order('title', 'subtitle') %}
     <li><a href="{{ entry|link }}">{{ entry.title }}</a></li>
@@ -618,8 +618,8 @@ It works both on plain strings, as well as encoded arrays of URL parameters:
 
 ![](https://user-images.githubusercontent.com/1833361/90623780-405a3400-e217-11ea-8fc8-b0a908530117.png)
 
-<p class="warning"><strong>Note:</strong> If you're simply trying to get a 
-parameter from the URL, you might want to use the built-in <code>app.request</code> 
+<p class="warning"><strong>Note:</strong> If you're simply trying to get a
+parameter from the URL, you might want to use the built-in <code>app.request</code>
 instead. For example: <code>{{ app.request.get('foo') }}</code>.</p>
 
 [widgets-page]: ../templating/widgets

@@ -116,7 +116,7 @@ After getting the `{{ pages }}` array, we use a conventional `for` loop, so we c
 iterate over each of the separate `{{ page }}` records.
 
 ```twig
-{% setcontent pages = 'pages/latest/4' %}
+{% setcontent pages = 'pages' latest limit 4 %}
 
 {% for page in pages %}
 
