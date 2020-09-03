@@ -4,12 +4,13 @@ title: Implementing Search
 Searching in content
 ====================
 
-There are two ways to search. You can use the global search, which searches
-through all the ContentTypes. Or you can use the search which is provided in
+There are three ways to search. You can use the global search, which searches
+through all the ContentTypes. You can also use the listing search, which searches
+through the ContentType of the listing page. Or you can use the search which is provided in
 the `{% setcontent .. %}` tag.
 
-Bolt searches through all fields that a ContentType has, including taxonomies
-like tags and categories. Note that Relations do not show up in the search
+Bolt searches through all fields that a ContentType has. 
+Note that Relations do not show up in the search
 results, but the actual records these relations point to should show up, if the
 search term is found.
 
@@ -17,22 +18,11 @@ Searching is case insensitive, and normalised. This means that a search for
 'CAFE' or 'cafe' is equal, and either will show records that have the word
 'Café' in it.
 
-Internally Bolt uses a 'result weight' to assign a score to all matching
-records. For example, a match in a title will usually give a higher score than
-a match somewhere in the body tag. The search algorithm uses an 'OR' type
-search. If you search for more than one word, you will get results for all
-records containing one or more of these words. Records that contain more than
-one word will usually show up higher than records with only one matching word,
-because it will get a higher score. See the section below on how to influence
-the scoring for results.
-
 Global search
 -------------
 
-The global search is configured inside the config.yaml and the routing.yaml. In
-config you define which template will show the results and in the routing you
-could change to default URL. By default this global search will search through
-all ContentTypes unless 'searchable' is set to _false_.
+The global search will search through
+all ContentTypes excluding the ones where 'searchable' is set to _false_.
 
 You can initiate the search by visiting the URL `/search?q=SEARCH`.
 
@@ -49,42 +39,97 @@ search_results_records: 10
 In the template you have access to three variables:
 
   - **records** - the search result records
-  - **search** - the sanitized search query
-  - **searchresult** - an array with various values regarding your search
+  - **searchTerm** - the sanitized search query
 
 Example use case:
 
+```twig
+{% if records|length == 0 %}
+    <p>
+        {{ searchresult.no_of_results }} results for {{ searchTerm }} found.
+    </p>
+{% else %}
+    <ol>
+    {% for record in records %}
+        <li>
+            <a href="{{ record|link }}">{{ record.title }}</a>
+        </li>
+    {% endfor %}
+    </ol>
+{% endif %}
 ```
-<p>
-    {{ searchresult.no_of_results }} results for {{ search }} found.
-</p>
 
-<ol>
-{% for record in records %}
-    <li>
-        <a href="{{ record.link }}">{{ record.title }}</a>
-        <!-- {{ record.searchresultweight }} - this returns the index-score or
-        weight of the result, an indication of the relevance }} -->
-    </li>
-{% endfor %}
-</ol>
+## Listing search / filter
+
+The listing search allows you to search through the records of the 
+listing page that you are currently on. As such, it is useful for creating
+custom filters to get a subset from all published records.
+
+Note that the listing search is configured in `config.yaml`:
+
+```yaml
+# Allow filtering on listing pages using query parameters, much like you
+# would with {% setcontent %}. E.g. /pages?order=id and /pages?title=%voluptat%
+# Useful for search.
+query_search: true
 ```
 
-The search added one 'special' value added to each record:
-`record.searchresultweight`. The results are sorted on this value, as it's an
-indication to how good it matched. In the default implementation it returns a
-score of how good the search terms matched against a record. For instance, if
-the search term was **exactly** the title it returns a higher score then when
-it only matched some part of the title or body text.
+The listing search uses query parameters that work just as the where parameters
+for `setcontent`.
 
-The other two variables are `search` which returns a sanitized query, which is
-the actual query that ran. And `searchresult` which contain various values
-useful to show.
+For example, to filter all pages that contain the word `lorem` you'd go to 
+`/pages?anyField=%lorem%`. The `setcontent` equivalent of the results is:
 
-  - **searchresult.no_of_results** - number of actual results
-    (ignores paging of course)
-  - **searchresult.query** - the decoded and parsed query as an array.
-  - **searchresult.results** - the search results, same as `records`
+```twig
+{% setcontent records = 'pages' where { anyField: '%lorem%' } %}
+```
+
+Using this, it is easy to create a search form on any listing page:
+
+```twig
+<form>
+    <input type="text" name="anyField--like">
+    <input type="submit">
+</form>
+```
+
+<p class="note"><strong>Note: </strong> By adding the <code>--like</code>
+modifier to the name of the input, Bolt will broaden the search to include
+any field that _contains_ the keyword.</p>
+
+You can search on specific fields, for example if we have this
+ContentType definition:
+
+```yaml
+pages:
+    name: Pages
+    singular_name: Page
+    fields:
+      title:
+        type: text
+      body:
+        type: html
+      pagetype:
+        type: select
+        values: [ post, article, announcement ]
+```
+
+Then, we can add this form to the listing page:
+
+```twig
+<form>
+    <select name="pagetype">
+       <option value="post">Posts</option>
+       <option value="article">Articles</option>
+       <option value="announcement">Announcements</option>
+    </select>
+    <input type="submit">
+</form>
+```
+
+Every time a user submits the form, the link will update,
+e.g. `/pages?pagetype=post` and it will contain only the records
+where the select is _exactly_ post.
 
 ## `{% setcontent %}` search
 
@@ -107,48 +152,3 @@ Some examples:
 If you're not getting the results you're expecting, use `{{ dump(results) }}`
 to dump the set of results, or add the `printquery` parameter at the end of the
 `{% setcontent %}`-tag.
-
-## Influencing the scores
-
-All results are sorted on the `searchresultweight` value, which is set by
-Bolt's search algortihm as a score of how "good" the match is. In the default
-implementation it returns a score of how well the search terms matched against
-a record. For instance, if the search term was **exactly** the title it returns
-a higher score then when it only matched some part of the title or body text. A
-match in a title field also scores higher than a result in the body text
-somewhere.
-
-Optionally, you can set the scoring for fields and taxonomies, to change the
-scoring for a match in those fields or taxonomies. In our opinion, you seldomly
-need to adjust these scorings manually, and it suffices to use the defaults. By
-default, a match in any field in the ContentType gets a base score of '50'. A
-match in the title gets a base score of '100', and a matching taxonomy gets a
-base score of '75'.
-
-You can override these scores in the config files for the ContentTypes and
-taxonomies. For example, in `contenttypes.yaml`:
-
-```yaml
-pages:
-    name: Pages
-    singular_name: page
-    fields:
-        title:
-            type: text
-            class: large
-            searchweight: 20
-        html:
-            type: html
-            height: 150px
-            searchweight: 100
-```
-
-Or in `taxonomy.yaml`:
-
-```yaml
-tags:
-    slug: tags
-    singular_slug: tag
-    behaves_like: tags
-    searchweight: 80
-```

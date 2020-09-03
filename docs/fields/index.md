@@ -15,6 +15,7 @@ pages:
     - collection
     - number
     - hidden
+    - data
     - checkbox
     - date
     - imagelist
