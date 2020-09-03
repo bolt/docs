@@ -88,12 +88,16 @@ Using this, it is easy to create a search form on any listing page:
 
 ```twig
 <form>
-    <input type="text" name="anyField">
+    <input type="text" name="anyField--like">
     <input type="submit">
 </form>
 ```
 
-Similarly, you can search on specific fields, for example if we have this
+<p class="note"><strong>Note: </strong> By adding the <code>--like</code>
+modifier to the name of the input, Bolt will broaden the search to include
+any field that _contains_ the keyword.</p>
+
+You can search on specific fields, for example if we have this
 ContentType definition:
 
 ```yaml
@@ -125,7 +129,7 @@ Then, we can add this form to the listing page:
 
 Every time a user submits the form, the link will update,
 e.g. `/pages?pagetype=post` and it will contain only the records
-matching this selection.
+where the select is _exactly_ post.
 
 ## `{% setcontent %}` search
 
