@@ -207,11 +207,20 @@ The slug is always lowercase, so this will normalize the ordering.
 
 You can also order records using Twig's default `sort` filter, which may give you
 finer control over the ordering. For example, you can order the related pages by
-their group like so:
+their group in ascending order like so:
 
 ```twig
 <ul>
 {% for page in record|related|sort((a, b) => a|taxonomies['groups'] <=> b|taxonomies['groups']) %}
+    <li><a href="{{ page|link }}">{{ page.title }}</a></li>
+{% endfor %}
+</ul>
+```
+
+Or, to rder them in descending order, simply add `|reverse` after the sort filter like so:
+
+```twig
+{% for page in record|related|sort((a, b) => a|taxonomies['groups'] <=> b|taxonomies['groups'])|reverse %}
     <li><a href="{{ page|link }}">{{ page.title }}</a></li>
 {% endfor %}
 </ul>
