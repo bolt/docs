@@ -170,14 +170,15 @@ in the desired order. In some cases you might want to reorder them, by using the
 
 | Parameter  | Description |
 |------------|-------------|
-| `on`       | The first field to order on. Appending a <code>-</code> will result in descending order. Default is <code>-datepublish</code> |
-| `onSecondary` | If two records have the same <code>on</code> order, this is used to determine the appropriate order. |
+| `on` <small>optional</small>  | The first field to order on. Appending a <code>-</code> will result in descending order. Default is <code>-publishedAt</code> |
+| `onSecondary` <small>optional</small> | If two records have the same <code>on</code> order, this is used to determine the appropriate order. |
+| `locale` <small>optional</small>   | Order by the <code>on</code> or <code>onSecondary</code> value in the given locale. Default is the current locale. |
 
 ```twig
 {% set relatedrecords = record|related() %}
 <p class="meta">Related content:
     <ul>
-    {% for related in relatedrecords|order('datepublish') %}
+    {% for related in relatedrecords|order('publishedAt') %}
         <li><a href="{{ related|link }}">{{ related.title }}</a></li>
     {%  endfor %}
     </ul>
@@ -187,8 +188,9 @@ in the desired order. In some cases you might want to reorder them, by using the
 or:
 
 ```twig
-{# get the 10 latest entries by date, but sort them on the title field #}
-{% setcontent entries = "entries" latest limit 10 %}
+{# get the 10 latest entries by date, but sort them on the title and subtitle fields #}
+{% setcontent entries = "entries/latest/10" %}
+
 <ul>
 {% for entry in entries|order('title', 'subtitle') %}
     <li><a href="{{ entry|link }}">{{ entry.title }}</a></li>
@@ -200,6 +202,29 @@ or:
 'banana' will come _before_ 'Apple'. If you're sorting on a title or name field
 and this case sensitivity is undesirable, you can use `|order('slug')` instead.
 The slug is always lowercase, so this will normalize the ordering.
+
+### ordering using Twig's <code>sort</code> filter.
+
+You can also order records using Twig's default `sort` filter, which may give you
+finer control over the ordering. For example, you can order the related pages by
+their group in ascending order like so:
+
+```twig
+<ul>
+{% for page in record|related|sort((a, b) => a|taxonomies['groups'] <=> b|taxonomies['groups']) %}
+    <li><a href="{{ page|link }}">{{ page.title }}</a></li>
+{% endfor %}
+</ul>
+```
+
+Or, to rder them in descending order, simply add `|reverse` after the sort filter like so:
+
+```twig
+{% for page in record|related|sort((a, b) => a|taxonomies['groups'] <=> b|taxonomies['groups'])|reverse %}
+    <li><a href="{{ page|link }}">{{ page.title }}</a></li>
+{% endfor %}
+</ul>
+```
 
 ## plaintext
 
