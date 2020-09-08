@@ -61,7 +61,7 @@ Where applicable, you can add extra settings under the `default:` key in the
 settings.
 
 Note that this documentation uses Javascript, whilst Bolt's configuration uses
-Yaml. For example, the documentation for '[Paste][paste]' has this example:
+Yaml. For example, the documentation for '[Paste](https://imperavi.com/redactor/docs/settings/paste/)' has this example:
 
 ```javascript
 $R('#content', {
