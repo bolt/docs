@@ -50,9 +50,9 @@ plugins:
 Bolt's version of Redactor ships with all the official plugins and options. you
 can add or remove buttons by configuring them in the `buttons:` and `plugins:`
 parameters. Check the official Redactor documentation for [all available
-buttons][buttons]. Note that some buttons might require you to enable the
+buttons](https://imperavi.com/redactor/docs/settings/button/). Note that some buttons might require you to enable the
 corresponding plugin as well. See here for a list of
-[the available plugins][plugins].
+[the available plugins](https://imperavi.com/redactor/plugins/).
 
 ## Settings
 
