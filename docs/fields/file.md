@@ -39,7 +39,7 @@ field.
 ## Default value
 
 When you want to give an file a default value, use `default: `. You can set the default
-value for an image like so:
+value for a download like so:
 
 ```yaml
         attachment:
