@@ -7,7 +7,7 @@ Redactor field
 Provides a "Redactor" field type, which is a sophisticated,
 lightweight and elegant WYSIWYG editor component for
 [Bolt](https://boltcms.io). The editor itself is developed by
-[Imperavi][https://imperavi.com/redactor], and is licensed for usage in Bolt.
+[Imperavi](https://imperavi.com/redactor), and is licensed for usage in Bolt.
 
 This extension allows you to add fields of `type: redactor` in your
 ContentTypes, as defined in `contenttypes.yaml`, like any other Field type.
