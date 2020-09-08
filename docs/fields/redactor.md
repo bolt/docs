@@ -81,7 +81,7 @@ default:
 ## Adding custom plugins
 
 If you've written your own plugin for Redactor according to the documentation
-[for Creating Plugins][create-plugin], you can add it to the editor in Bolt, by
+[for Creating Plugins](https://imperavi.com/redactor/docs/how-to/create-a-plugin/), you can add it to the editor in Bolt, by
 placing it in `/public/assets/redactor/_plugins`. Then, add it to the
 `bolt-redactor.yaml` configuration:
 
