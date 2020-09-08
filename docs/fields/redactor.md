@@ -27,6 +27,10 @@ To print out the Redactor field you just need to do in your templates:
 {{ record.content }}
 ```
 
+The result will look like this:
+
+![image](https://raw.githubusercontent.com/eduardomart/docs/patch-15/bolt_v4_redactor_field.png)
+
 You can configure the editor in `config/extensions/bolt-redactor.yaml`. This
 configuration affects all the instances of the Redactor field that you've
 configured in your ContentTypes. The default configuration looks like this:
