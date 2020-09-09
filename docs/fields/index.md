@@ -4,6 +4,8 @@ pages:
     - common
     - text
     - slug
+    - article
+    - redactor
     - html
     - image
     - file
