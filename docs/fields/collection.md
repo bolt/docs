@@ -123,9 +123,9 @@ The field has three specific options:
                     type: html
 ```
 
-* `collapsible`: Whether the separate collection items of this Collections are collapsible in
+* `default_state`: Whether the separate collection items of this Collections are collapsed in
   the backend. This allows the editor to get a better overview, if there are
-  multiple collection items. The default is `false`, you can set it to `true` to enable
+  multiple collection items. The default is `collapsed`, you can set it to `expanded` to disable
   this feature.
 * `default`: The default field option is also supported for a collection field. See the example
   for how to configure a default value for collections.
