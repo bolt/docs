@@ -17,7 +17,7 @@ building a theme for others to use.
 ```
 
 This will always assume that there's a Record defined as `record`, and it will
-output all eligable fields, including ones you might've output yourself
+output all eligeble fields, including ones you might've output yourself
 already, like the title and a main image.
 
 We can make it a bit more robust by ensuring we pass in the correct record,
