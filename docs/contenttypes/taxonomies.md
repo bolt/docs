@@ -143,7 +143,7 @@ use something like this:
 {% if record|taxonomies['tags'] is defined %}
 Tags:
   {% for tag in record|taxonomies['tags'] %}
-     <a href="{{ tag.link }}">{{ tag.name }}</a>{% if not loop.last %}, {% endif %}
+     <a href="{{ tag|link }}">{{ tag.name }}</a>{% if not loop.last %}, {% endif %}
   {% endfor %}
 {% endif %}
 ```
