@@ -48,7 +48,7 @@ field.
   certain file extensions.
 * `alt` Can be used to set to `true` to create a field for the image alt attribute.
 * `upload` Allows you to upload files for this field into a specified directory
-  so they remain grouped. This directory will be created in `{%web%}/files/`
+  so they remain grouped. See also the [`upload_location` setting][upload_location].
 
 ```yaml
         cover:
@@ -66,7 +66,8 @@ screen via the "Edit attributes", in the pull-down next to "Upload".
 Alternatively, you can locate the image under "File Management" > "Uploaded
 Files", where you can find all previously uploaded files.
 
-You can access this Metadata in templates by using the `media` filter on an Image:
+You can access this Metadata in templates by using the `media` filter on an
+Image:
 
 ```twig
     {{ dump(record.image|media) }}
@@ -108,9 +109,10 @@ Another example:
 ```
 
 You can call these in your templates by using `{{ record.values.image.alt }}`
-or `{{ record.values.image.caption }}` and they will also be automatically used by
-bolt's image functions.
+or `{{ record.values.image.caption }}` and they will also be automatically used
+by Bolt's image functions.
 
+<!--
 ## Default value
 
 When you want to give an image a default value, use `default: `. You can set the default
@@ -133,3 +135,6 @@ or, without the `alt` attribute:
             default:
                 filename: "cover.jpg"
 ```
+-->
+
+[upload_location]: ../../configuration/settings#upload-location

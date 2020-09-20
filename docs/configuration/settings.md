@@ -10,8 +10,8 @@ Configuration Settings
 This page lists most of the common configuration settings, found in the
 `config.yaml` configuration file and in the `.env` settings.
 
-Note: Database setup is best done in ENV variables. See the file `.env`
-in the project root.
+Note: Database setup is best done in ENV variables. See the file `.env` in the
+project root.
 
 ## Config.yaml
 
@@ -39,7 +39,7 @@ theme: site-2020
 ```
 
 Set the timezone to be used on the website. For a list of valid timezone
-settings, see: http://php.net/manual/en/timezones.php
+settings, see: [timezones][timezones] on the PHP website.
 
 ```yaml
 timezone: UTC
@@ -339,5 +339,24 @@ curl_options:
     verify_peer: false
 ```
 
+## .env
+
+Some Application-specific settings are best done in the Environment, instead of
+in a configuration file. You can choose to set these as you please (or as your
+hosting provider allows), or simply in a `.env` file in the project root.
+
+ - See also [debugging](../debugging#configuring-bolt).
+ - See also [database setup](../installation/installation).
+
+```bash
+APP_ENV=dev
+APP_DEBUG=1
+```
+
+```bash
+APP_SECRET=fbeba65dd5d06e6c55e79d69d6e8fe8c
+```
+
 [curl]: https://curl.haxx.se/libcurl/c/curl_easy_setopt.html
 [date]: https://www.php.net/manual/en/function.date.php
+[timezones]: http://php.net/manual/en/timezones.php
