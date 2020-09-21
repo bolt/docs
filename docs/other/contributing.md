@@ -11,10 +11,10 @@ it an even better product!
 How you can contribute
 ----------------------
 
-- Discuss topics on the [wiki](https://github.com/bolt/bolt/wiki)
-- Comment on, or add [issues](https://github.com/bolt/bolt/issues?state=open)
-- Contribute docs to [bolt-docs](https://github.com/bolt/bolt-docs).
-- Contribute code to [bolt](https://github.com/bolt/bolt)
+- Discuss topics on the [wiki](https://github.com/bolt/core/wiki)
+- Comment on, or add [issues](https://github.com/bolt/core/issues)
+- Contribute docs to [bolt-docs](https://github.com/bolt/docs).
+- Contribute code to [bolt](https://github.com/bolt/core)
 - Write [extensions](../extensions/introduction)
 
 Contributing docs or code
@@ -83,26 +83,26 @@ url. The steps cover this [help/manual][fork] of GitHub. Lines starting with `#`
 are comments, lines with `$` are commands which you need to execute in your
 terminal.
 
-- Step 1: Go to `https://github.com/bolt/bolt` and click the fork button You now
-  have your own bolt repository, named `<your github username>/bolt`. In my case
-  this is `bobdenotter/bolt`.
+- Step 1: Go to `https://github.com/bolt/core` and click the fork button You now
+  have your own bolt repository, named `<your github username>/core`. In my case
+  this is `bobdenotter/core`.
 - Step 2: You now need to clone the project from your personal repository to
   your local machine to be able to work on it. Open up a terminal and navigate
   to the folder you'd like to put your project in. Clone the repository to your
   machine, like so:
 
-    `$ git clone https://github.com/<your github username>/bolt.git`
+    `$ git clone https://github.com/<your github username>/core.git`
 
 - Enter the project you've just cloned by changing to the folder just created:
 
-  `$ cd bolt`
+  `$ cd core`
 
 - Step 3: Now you're in the project folder, you have a git root here. This root
   is in a hidden folder `.git/`. You now need to configure the bolt repository
   to be the source you want to get updates from. This is a remote repository
   called the 'upstream'. Add the upstream like so:
 
-  `$ git remote add upstream https://github.com/bolt/bolt.git`
+  `$ git remote add upstream https://github.com/bolt/core.git`
 
   You can now update your local version of bolt with the latest version of bolt
   of the official repository by fetching the code from the 'upstream' you've
@@ -145,7 +145,7 @@ terminal.
   `$ git push origin issue-123-create-login-form:issue-123-create-login-form`
 
 - Step 7: Go to the right repository (here:
-  `https://github.com/<username>/bolt`) and switch to the branch 'issue-123
+  `https://github.com/<username>/core`) and switch to the branch 'issue-123
   -create-login-form'. Then find the pull request button to create a pull
   request. In the pull request screen, you can do three things: you can view
   your commits, the changed files and fill in a title and description. First
