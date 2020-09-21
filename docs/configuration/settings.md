@@ -329,6 +329,15 @@ directories will be created in `public/files/`.
 upload_location: "{contenttype}/{year}/{month}/"
 ```
 
+<p class="note"><b>Note:</b> You can <em>not</em> use the current Record's
+<code>slug</code> as (sub)folder for uploading of files. This is because at the
+time you're uploading the files, the slug is often not yet known. Let's say you
+create a new Page, you upload an image, type a title and then save it. The file
+would be uploaded before the given title determines the slug. So, the image
+would be uploaded <em>somewhere</em>, but most likely <em>not</em> where the
+Editor would expect it. To prevent this confusion, you cannot use
+<code>slug</code> in this setting.</p>
+
 ### Curl Options
 
 Options to use with curl requests. For all options, check the official [curl
