@@ -47,7 +47,12 @@ You can also just output the slug like this:
 
 The field has one option to change the functionality of the field:
 
- - `uses` determines what field(s) are used to build the slug. Usually you want
-   this set to the textfield that you use as the title, (often called `title`),
-   but you can also use it with multiple fields like for example
-   `[title, subtitle]`.
+| Option | Description |
+|--------
+| `uses`          | Determines what field(s) are used to build the slug. Usually you want this set to the textfield that you use as the title, (often called `title`), but you can also use it with multiple fields like for example `[title, subtitle]`.
+| `allow_numeric` | By default slugs are alphanumeric, and they start with a letter. So, if the "title" of a Record is "2021", the slug would become `page-2021`, to distinguish Slugs from IDs. If you wish to allow numeric slugs, set `allow_numeric: true`. Note that doing so might make it so a link like `entry/9000` is no longer canonical: It could refer to either the entry with ID № 9000, or it could refer to the entry with slug `9000`.
+
+<p class="note"> <strong>Note:</strong> Usually this field shows up in the
+editor with a label like <code>Permalink:</code>. If the ContentType is
+"viewless", there is no real permalink to the Record, so it will instead be
+labelled <code>Unique Alias:</code> to reflect this.</p>

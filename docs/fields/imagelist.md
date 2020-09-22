@@ -32,7 +32,7 @@ The field has one option to change the functionality of the field:
 * `extensions` Allows you to restrict users to only be able to upload files
   with certain file extensions
 * `upload` Allows you to upload files for this field into a specified directory
-  so they remain grouped. This directory will be created in `{%web%}/files/`
+  so they remain grouped. See also the [`upload_location` setting][upload_location].
 
 ```yaml
         gallery:
@@ -41,6 +41,7 @@ The field has one option to change the functionality of the field:
             upload: portfolio
 ```
 
+<!--
 ## Default value
 
 The `imagelist` field can be instantiated with an array of images as default
@@ -55,3 +56,6 @@ value using the `default:` option like so:
                 1:
                     filename: "dog.jpg"
 ```
+-->
+
+[upload_location]: ../../configuration/settings#upload-location

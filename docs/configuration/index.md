@@ -6,6 +6,7 @@ pages:
     - introduction
     - database
     # - permissions
+    - settings
     - menus
     # - thumbnails
     - routing
