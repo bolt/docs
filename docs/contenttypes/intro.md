@@ -81,16 +81,16 @@ will show an error message.</p>
 Save the file and refresh the Dashboard screen in your browser. If you do this,
 you'll see your new ContentType in the sidebar, ready for use. Sweet!
 
-<a href="/files/4.0.content-example2.png" class="popup"><img src="/files/4.0.content-example2.png" width="500"></a>
+<a href="https://user-images.githubusercontent.com/1833361/93924753-7195ba80-fd15-11ea-91fc-40b40467749f.png" class="popup"><img src="https://user-images.githubusercontent.com/1833361/93924753-7195ba80-fd15-11ea-91fc-40b40467749f.png" width="500"></a>
 
 <p class="note"><strong>Note:</strong> In the following examples we're going to
-tell you to make modifications to the default `base-2020` theme. This is
+tell you to make modifications to the default `base-2021` theme. This is
 actually a very bad practice, because future updates of Bolt will override
  any changes made to that theme. If you're going to make your own theme, make
-a copy of the `base-2020` theme, and do your modifications in the copy.</p>
+a copy of the `base-2021` theme, and do your modifications in the copy.</p>
 
 To add a listing of these news items to the website, edit the twig template
-`theme/base-2020/index.twig`. Most likely, it'll contain an include for a
+`theme/base-2021/index.twig`. Most likely, it'll contain an include for a
 header and some other things. Add the following to the HTML-code, preferably
 somewhere below the header section:
 
@@ -119,7 +119,7 @@ When you refresh the front page of the website, you should see four news items
 listed on the page. You can click the title to go to the news item on a separate
 page, but it will use the default `record.twig` template. In the ContentType we
 defined the template as `newsitem.twig`, but it doesn't exist. Create the file
-in the `theme/base-2020/` folder, and add the following HTML-code:
+in the `theme/base-2021/` folder, and add the following HTML-code:
 
 ```twig
 <!DOCTYPE html>

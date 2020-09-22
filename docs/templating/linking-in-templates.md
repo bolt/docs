@@ -8,10 +8,10 @@ There are a number of Twig functions in Bolt that you can use to link to other
 pages, or to include assets like CSS and Javascript resources in your HTML.
 They are:
 
- - To link to assets, like CSS, Javascript or other files, use `{{ asset() }}`
- - To link to the 'current page', use `{{ canonical() }}` or `{{ record|link" }}`
- - To generate a relative or absolute path, use `{{ path() }}`
- - To generate a scheme-relative or absolute url, use `{{ url() }}`
+ - To link to assets, like CSS, Javascript or other files, use `{{ asset(…) }}`
+ - To link to the 'current page', use `{{ canonical() }}` or `{{ record|link() }}`
+ - To generate a relative or absolute path, use `{{ path(…) }}`
+ - To generate a scheme-relative or absolute url, use `{{ url(…) }}`
  - To generate sensible links from user-provided input, use `{{ absolute_link() }}`
  - To generate absolute links from relative links, use `{{ absolute_url() }}`
 
@@ -44,7 +44,7 @@ Defined package names are:
 
 | Packages     | Description |
 |--------------|-------------|
-| `theme`      | The path to the currently selected theme folder, as defined in your `config.yaml`. Use this in your theme to transparently create links to your `.js` and `.css` files. Doing this ensures the links will still work, if your theme gets renamed, or if the site gets installed in a sub-folder.
+| `theme`      | The path to the currently selected theme folder, as defined in your `config.yaml`. Use this in your theme to transparently create links to your `.js` and `.css` files. Doing this ensures the links will still work, if your theme gets renamed, or if the site gets installed in a sub-folder. This is the default, if you omit the `package` parameter.
 | `files`      | The path to the `files/` folder where images and other files are uploaded by the Editors to be used in the content of the website.
 | `bolt`       | Used to link to Bolt's core asset files. Use of this package name is discouraged in your own theme, because there is no guarantee that these files that are shipped with Bolt will remain unchanged after an update of Bolt.
 | `extensions` | The path to the publicly accessible assets of extensions. For example, if an extension requires a `.js` or `.css` file, it will use this, to ensure it gets included in the theme. As with `bolt`, it's usually not necessary to use these yourself if you're developing a theme.
@@ -52,8 +52,8 @@ Defined package names are:
 Examples:
 
 ```twig
-{# Include theme.css from the 'css' folder in your theme. #}
-<link rel="stylesheet" href="{{ asset('css/theme.css', 'theme') }}">
+{# Include theme.css from the 'css' folder in your theme.  #}
+<link rel="stylesheet" href="{{ asset('css/theme.css') }}">
 
 {# Include jquery.min.js from the 'js' folder in your theme. #}
 <script src="{{ asset('js/jquery.min.js', 'theme') }}"></script>
@@ -65,9 +65,9 @@ Examples:
 This would produce, on an default install, the following output:
 
 ```twig
-<link rel="stylesheet" href="/theme/base-2020/css/theme.css">
+<link rel="stylesheet" href="/theme/base-2021/css/theme.css">
 
-<script src="/theme/base-2020/js/jquery.min.js"></script>
+<script src="/theme/base-2021/js/jquery.min.js"></script>
 
 <img src="/files/kitten.jpg">
 ```
@@ -166,7 +166,7 @@ This would produce, on an default install, the following output:
 
 ```html
 <a href="/pages?section=koala">
-    Link to a absolute path of the ContentType "pages", with the query parameter 
+    Link to a absolute path of the ContentType "pages", with the query parameter
     `section` with the value of koala
 </a>
 ```
@@ -207,7 +207,7 @@ For example, with default `en` locale:
 
 ```twig
     {{ path('record', { 'contentTypeSlug' : 'pages', 'slugOrId' : '24' } ) }} # /pages/dicis-vicimus (assuming record with id 24 is a page)
-    {{ path('record_locale', { 'contentTypeSlug' : 'pages', 'slugOrId' : '24', '_locale' : 'nl' }) }} # /nl/pages/dicis-vicimus #if the slug is localized, the translated slug will be used. Otherwise, the slug of the page in the default locale will be used instead. 
+    {{ path('record_locale', { 'contentTypeSlug' : 'pages', 'slugOrId' : '24', '_locale' : 'nl' }) }} # /nl/pages/dicis-vicimus #if the slug is localized, the translated slug will be used. Otherwise, the slug of the page in the default locale will be used instead.
     {{ path('record_locale', { 'contentTypeSlug' : 'pages', 'slugOrId' : '24', '_locale' : 'en' }) }} # /pages/dicis-vicimus
     {{ path('record', { 'contentTypeSlug' : 'pages', 'slugOrId' : 'dicis-vicimus' }) }} # /pages/dicis-vicimus
 ```
@@ -215,7 +215,7 @@ For example, with default `en` locale:
 You can inspect the `routing.yaml` file for more of the 'baked in' routes for the
 front end, as well as the "Routing" panel in the debug toolbar.
 
-You can also view all defined routes by running `bin/console debug:router`
+You can also view all defined routes by running `bin/console debug:router`.
 
 For more in-depth information about this function, see [Linking to pages][page]
 in the Symfony documentation.
@@ -242,7 +242,11 @@ blocks:
             type: text
             label: Link
             placeholder: 'contenttype/slug or http://example.org/'
-            postfix: "Use this to add a link for this Block. This could either be an 'internal' link like <tt>page/about</tt>, if you use a contenttype/slug combination. Otherwise use a proper URL, like `http://example.org`."
+            postfix: |
+                Use this to add a link for this Block. This could either be an
+                'internal' link like <tt>page/about</tt>, if you use a
+                contenttype/slug combination. Otherwise use a proper URL, like
+                `http://example.org`.
 ```
 
 Then, in your templates you can insert the correct link, depending on what the
@@ -279,7 +283,6 @@ to content and file assets alike. For example:
 
 For more in-depth information about this function, see
 [absolute_url][absolute_url] in the Symfony documentation.
-
 
 [symfonyasset]: http://symfony.com/doc/current/templating.html#templating-assets
 [page]: http://symfony.com/doc/current/templating.html#linking-to-pages
