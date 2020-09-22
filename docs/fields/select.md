@@ -249,7 +249,7 @@ of Records.
 ```twig
 {% if record.selectfield.selectedIds|default %}
 <ul>
-    {% setcontent selectedRecords = record.selectfield.contentType where {'id': record.selectfield.selectedIds} %}
+    {% setcontent selectedRecords = record.selectfield.contentType where {'id': record.selectfield.selectedIds} returnmultiple %}
     {% for record in selectedRecords %}
         <li><a href="{{ record|link }}">{{ record|title }}</a></li>
     {% endfor %}
