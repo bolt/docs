@@ -12,8 +12,8 @@ They are:
  - To link to the 'current page', use `{{ canonical() }}` or `{{ record|link() }}`
  - To generate a relative or absolute path, use `{{ path(…) }}`
  - To generate a scheme-relative or absolute url, use `{{ url(…) }}`
- - To generate sensible links from user-provided input, use `{{ absolute_link() }}`
- - To generate absolute links from relative links, use `{{ absolute_url() }}`
+ - To generate sensible links from user-provided input, use `{{ absolute_link(…) }}`
+ - To generate absolute links from relative links, use `{{ absolute_url(…) }}`
 
 The following sections of this page will detail the different functions, and how
 to use them effectively.
