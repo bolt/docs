@@ -247,7 +247,7 @@ fetch these records, and then you can loop over them, like a regular collection
 of Records.
 
 ```twig
-{% if record.selectfield.contentSelect %}
+{% if record.selectfield.selectedIds|default %}
 <ul>
     {% setcontent selectedRecords = record.selectfield.contentType where {'id': record.selectfield.selectedIds} %}
     {% for record in selectedRecords %}
