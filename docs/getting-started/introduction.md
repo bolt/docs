@@ -36,9 +36,9 @@ option in the top left of the screen.
         <small>Configuring routes, to create custom links / URLs</small>
     </a>
 
-    <a href="../internals" class="button medium docsintro">
-        Bolt Internals<br>
-        <small>Contributing, coding standards</small>
+    <a href="../extensions/introduction" class="button medium docsintro">
+        Extending Bolt<br>
+        <small>Writing extensions, submitting them to the Marketplace</small>
     </a>
 
     <a href="../other/manifesto" class="button medium docsintro">
@@ -51,8 +51,5 @@ option in the top left of the screen.
         <small>HOWTO's on various topics</small>
     </a>
 
-    <a href="../extensions/introduction" class="button large expand docsintro">
-        Extending Bolt<br>
-        <small>Writing extensions, submitting them to the Marketplace</small>
-    </a>
+
 </div>
