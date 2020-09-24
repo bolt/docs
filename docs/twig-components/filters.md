@@ -89,33 +89,9 @@ inquit, vitae beatum et eundem supremum diem, scribebamus haec. Duo Reges: const
 
 ## image
 
-Use this modifier to create a link to an image of your choosing. For example:
+Use this modifier to create a link to an image of your choosing. 
 
-```twig
-<img src="{{ content.photo|image }}">
-```
-
-If `content.photo` is an image in your `files/` folder, like `2020-11/foo.jpg`,
-this modifier will output a link like `/files/2020-11/foo.jpg`. This is useful
-for creating absolute links to an image, regardless of whether Bolt is installed
-in the root of your domain, a subdomain or a folder.
-
-You can specify three parameters: the width, height, and the mode of cropping.
-By doing so, the image will be resized, and it behave exactly like the
-[thumbnail filter](#thumbnail).
-
-```twig
-<img src="{{ content.photo|image(100, 100, "s") }}">
-```
-
-To scale an image proportionally to a given width or height,
-set the other dimension to `null`, and set cropping mode to contain.
-
-```twig
-<img src="{{ content.image|image(400, null, "n") }}">
-```
-
-See also [extras][extras].
+For details, see [extras][extras].
 
 ## json_records
 
@@ -664,5 +640,5 @@ instead. For example: <code>{{ app.request.get('foo') }}</code>.</p>
 [date]: http://php.net/manual/en/function.date.php
 [for]: http://twig.symfony.com/doc/tags/for.html
 [switch]: http://php.net/manual/en/control-structures.switch.php
-[extras]: ./twig-components/extras
+[extras]: ./extras
 [popup_function]: ./functions#popup-magnific-popup
