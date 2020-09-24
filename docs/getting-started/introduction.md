@@ -21,7 +21,7 @@ option in the top left of the screen.
         <small>Dive in, various methods to install Bolt quickly</small>
     </a>
 
-    <a href="../cheatsheet" class="button large docsintro">
+    <a href="../contenttypes" class="button large docsintro">
         ContentTypes<br>
         <small>ContentTypes, records, fields, taxonomies, relationships, etc</small>
     </a>
