@@ -7,7 +7,7 @@ Installing Bolt
 With the release of Bolt 4 stable, there will be a number of ways to install
 the application. For now, we recommend the **composer create-project** as the
 fastest way to get an installation of Bolt up and running. If you don't have
-composer yet, see [here][install-composer].
+composer yet, see [here][get-composer].
 
 <p class="note"><strong>Note:</strong> This documentation makes the assumption
 that you're setting up Bolt on a local development machine. Not on the server
