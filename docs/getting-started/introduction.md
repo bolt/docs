@@ -22,11 +22,6 @@ option in the top left of the screen.
     </a>
 
     <a href="../cheatsheet" class="button large docsintro">
-        The Bolt cheatsheet<br>
-        <small>A great little reference for all things Bolt</small>
-    </a>
-
-    <a href="../contenttypes" class="button large expand docsintro">
         ContentTypes<br>
         <small>ContentTypes, records, fields, taxonomies, relationships, etc</small>
     </a>
