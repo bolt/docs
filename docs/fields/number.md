@@ -1,5 +1,5 @@
 ---
-title: Float field
+title: Number (float) field
 ---
 Number field
 ===========
