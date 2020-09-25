@@ -62,8 +62,8 @@ For a checkout of the current stable (default) branch, execute the following
 commands:
 
 ```bash
-git clone git://github.com/bolt/bolt.git
-cd bolt
+git clone git://github.com/bolt/core.git
+cd core
 ```
 
 
@@ -72,9 +72,9 @@ cd bolt
 For a checkout of the `3.x` feature branch, execute the following commands:
 
 ```bash
-git clone git://github.com/bolt/bolt.git
-cd bolt
-git checkout 3.x
+git clone git://github.com/bolt/core.git
+cd core
+git checkout 4.x
 ```
 
 
@@ -84,8 +84,8 @@ For a checkout of the next-generation bleeding-edge 4.x development `master`
 branch, execute the following commands:
 
 ```bash
-git clone git://github.com/bolt/bolt.git
-cd bolt
+git clone git://github.com/bolt/core.git
+cd core
 git checkout master
 ```
 
