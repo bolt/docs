@@ -109,7 +109,7 @@ The Bolt admin panel can be found at http://127.0.0.1:8000/bolt
 Log in using the credentials you created when setting up the first user.
 
 [cli]: https://symfony.com/download
-[get-composer]: ./composer-create-project/install-composer
+[get-composer]: install-composer
 [db-setup]: ../configuration/database
 [local]: https://www.slant.co/topics/5299/versus/~laragon_vs_xampp_vs_mamp
 [apache]: webserver/apache
