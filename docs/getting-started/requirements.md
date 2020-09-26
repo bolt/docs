@@ -8,17 +8,16 @@ The system requirements for Bolt are modest, and it should run on any fairly
 modern web server.
 
 - PHP 7.2.9 or higher
-- Access to SQLite (which comes bundled with PHP), _or_ MySQL _or_
-    PostgreSQL
+- Access to SQLite (which comes bundled with PHP), _or_ MySQL/MariaDB.
 
 The PHP installation has a few additional requirements. On most servers these
-are default settings, and Bolt should work out-of-the-box.
+are installed by default, and Bolt should work out-of-the-box.
 
 - A minimum of 32MB of memory allocated to PHP
 - The following common PHP extensions:
   - pdo
   - mysqlnd (to use MySQL as a database)
-  - pgsql (to use PostgreSQL as a database)
+  <!-- - pgsql (to use PostgreSQL as a database) -->
   - openssl
   - curl
   - gd
