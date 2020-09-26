@@ -31,11 +31,10 @@ DATABASE_URL=sqlite:///%kernel.project_dir%/var/data/bolt.sqlite
 
 # MYSQL / MariaDB
 #DATABASE_URL=mysql://db_user:"db_password"@localhost:3306/db_name
-
-# Postgres
-#DATABASE_URL=postgresql://db_user:"db_password"@localhost:5432/db_name?serverVersion=11"
-
 ```
+
+<!-- # Postgres
+#DATABASE_URL=postgresql://db_user:"db_password"@localhost:5432/db_name?serverVersion=11" -->
 
 You can read more information about [configuring the database here][db-setup].
 

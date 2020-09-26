@@ -33,7 +33,7 @@ server might need to have the permissions set manually. See our
 
 By default, Bolt is configured to use an SQLite database. See
 [configure the database](database), if you want to change this to MySQL
-or PostgreSQL.
+or MariaDB.
 
 <p class="tip"><strong>Tip</strong> When you first open any Bolt page in your
 browser, you will be redirected to a page like <tt>/bolt/login</tt>. <br>If you
