@@ -447,7 +447,7 @@ pages:
 ```
 
 [fa]: https://fontawesome.com
-[gallery]: https://fontawesome.com/v4.7.0/icons/
+[gallery]: https://fontawesome.com/icons?d=gallery&m=free
 [ct-relations]: ../contenttypes/relationships
 [ct-taxonomies]: ../contenttypes/taxonomies
 [fetching-content]: ../templating/content-fetching
