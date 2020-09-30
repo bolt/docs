@@ -66,5 +66,5 @@ extensions. For more information see the section on [Activation][activation]
 [autoloading]: autoloading
 [activation]: activation
 [basics]: ../basics/basics
-[intermediate]: ../basics/intermediate
-[advanced]: ../basics/advanced
+[intermediate]: ../intermediate
+[advanced]: ../advanced
