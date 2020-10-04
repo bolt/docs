@@ -97,6 +97,34 @@ For details, see [extras][extras].
 
 Encodes the given array of records into json.
 
+## json_decode
+
+This method parses a string with JSON into an array / object. It is the opposite of `json_encode`:
+
+Example: 
+
+```twig
+{% set json_string = '{"selected":"search","zoom":"10","search":"Vienna, Austria","lat":48.2081743,"long":16.3738189}' %}
+
+{% if json_string is json %}
+    {{ dump(json_string|json_decode()) }}
+{% else %}
+    <code>json_string</code> is not valid JSON
+{% endif %}
+```    
+   
+## json_encode
+
+This method renders an array into a JSON string. It is the opposite of `json_decode`.
+  
+Example:
+
+```twig
+{% set array = {selected: "search", zoom: "10", search: "Vienna, Austria", lat: 48.2081743, long: 16.3738189 } %}
+
+{{ dump(array|json_encode()) }}
+```
+
 ## label
 
 Returns the label of the field, as defined in the field's `contenttypes.yaml`
