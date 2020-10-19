@@ -20,7 +20,7 @@ to use them effectively.
 
 ## Using `asset` to link to assets or files.
 
-Use the `{{ asset() }}` Twig function to create public link to the so-called
+Use the `{{ asset() }}` Twig function to create public links to the so-called
 assets in your theme, like JavaScript, CSS or other files.
 
 The `asset` function definition is:
