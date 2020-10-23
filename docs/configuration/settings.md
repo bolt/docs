@@ -227,7 +227,7 @@ Can be overridden for each content type.
 records_per_page: 8
 ```
 
-Default settings for thumbnails.
+### Default settings for thumbnails
 
 | Option          | Description |
 |-----------------|-------------|
