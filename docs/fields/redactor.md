@@ -14,6 +14,12 @@ ContentTypes, as defined in `contenttypes.yaml`, like any other Field type.
 
 ## Basic Configuration:
 
+Redactor needs to be installed before you can use it in your website:
+
+```
+php composer req bolt/redactor
+```
+
 ```yaml
         content:
             type: redactor
