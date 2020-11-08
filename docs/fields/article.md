@@ -4,13 +4,22 @@ title: Article field
 Article field
 ==========
 
-
 This extension provides a "Article" field type, which is a powerful text editor 
 for creating rich content in your Bolt websites. It can work with grids, embeds, 
 typographic markup and media. The editor itself is developed by [Imperavi](https://imperavi.com/article), 
 and is licensed for usage in Bolt.
 
+The Article extension ships with Bolt by default. If you're on a custom install, 
+it might need to be installed before you can use it in your website. If so, run 
+the following command to install it: 
+
+```
+composer require bolt/article
+```
+
 ## Basic Configuration:
+
+To add Article fields in your ContentTypes, use `type: article` in `contenttypes.yaml`:
 
 ```yaml
         content:
