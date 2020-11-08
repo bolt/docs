@@ -9,16 +9,20 @@ lightweight and elegant WYSIWYG editor component for
 [Bolt](https://boltcms.io). The editor itself is developed by
 [Imperavi](https://imperavi.com/redactor), and is licensed for usage in Bolt.
 
+The Redactor extension ships with Bolt by default. If you're on a custom install, 
+it might need to be installed before you can use it in your website. If so, run 
+the following command to install it: 
+
+```
+composer require bolt/redactor
+```
+
 This extension allows you to add fields of `type: redactor` in your
 ContentTypes, as defined in `contenttypes.yaml`, like any other Field type.
 
 ## Basic Configuration:
 
-Redactor needs to be installed before you can use it in your website:
-
-```
-php composer req bolt/redactor
-```
+To add Redactor fields in your ContentTypes, use `type: redactor` in `contenttypes.yaml`:
 
 ```yaml
         content:
