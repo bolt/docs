@@ -45,9 +45,6 @@ settings:
             group: footer
         footer_copyright:
             type: text
-        company_address:
-            type: geolocation
-            group: common
     viewless: true
     singleton: true
     default_status: published
