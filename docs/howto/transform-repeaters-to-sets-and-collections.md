@@ -7,7 +7,7 @@ Transform Bolt 3 repeaters to Bolt 4 sets and collections
 
 ## Repeater → collection with 1 set
 
-In Bolt 3, it the `repeater` is available as a special field type
+In Bolt 3, the `repeater` is available as a special field type
 that allows an array-type structure of sub-fields within a single field name.
 It allowed Editors to repeat those sub-fields as they wish to build the record.
 
@@ -87,7 +87,7 @@ The Editor can then insert these in the Record as needed.
 Thus, the block field combined three functionalities:
 * Allow Editors to add multiple instances of a field (repeat fields)
 * Group sub-fields together under one parent field
-* Alllow Editors to manually select which of the available blocks to repeat
+* Allow Editors to manually select which of the available blocks to repeat
 
 In Bolt 4, these three functionalities are provided by two distinct fields:
 * The `collection` field allows sub-fields to be repeated (but does not restrict)
