@@ -65,7 +65,7 @@ For example, use the following to render the Bulma pagination component:
 ```
 
 If you'd like to define your own pager from scratch, just copy
-`/vendor/bolt/templates/helpers/_pager_basic.html.twig` to your own theme folder, and rename it
+`/vendor/bolt/core/templates/helpers/_pager_basic.html.twig` to your own theme folder, and rename it
 to something like `mypager.twig`. Then, pass the name as an extra
 parameter to the `pager` function:
 
