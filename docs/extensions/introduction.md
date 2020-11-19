@@ -19,7 +19,7 @@ heavily borrow from the tools and ecosystem that the Symfony network provides.
 - Bolt extensions are true Composer packages. If you create a Bolt extension,
   you can add it to packagist, and it will show up on the
   [Extensions site][extensions]. You can install and remove it from a Bolt
-  project using `composer require` and `composer delete`.
+  project using `composer require` and `composer remove`.
 - Custom code for a specific project can be put in the `src/` folder. This
   follows the default Symfony project structure, and this folder is set up for
   Dependency Injection and Autowiring of Services.
