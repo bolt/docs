@@ -11,6 +11,7 @@ pages:
     - using-php-built-in-web-server
     - making-sure-htaccess-works
     - curl-ca-certificates
+    - encore-setup
 #    - setting-up-sites-to-be-extendable
 ---
 HOWTOs and Recipes
