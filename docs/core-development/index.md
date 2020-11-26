@@ -31,7 +31,7 @@ development of Bolt.
     </a>
 
 
-    <a href="[class-reference](https://roadmap.boltcms.io/)" class="button medium docsintro">
+    <a href="https://roadmap.boltcms.io" class="button medium docsintro">
         Bolt Roadmap<br>
         <small>Development roadmap & milestones</small>
     </a>
