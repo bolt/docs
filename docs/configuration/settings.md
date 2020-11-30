@@ -361,7 +361,7 @@ curl_options:
 
 ### Fixtures seed
 
-The fixtures are used to generate random conten. However, in a testing or 
+The fixtures are used to generate random content. However, in a testing or 
 CI-environment, this randomness might cause side-effects. By setting the seed 
 to a fixed number, you can produce the same output every time it runs: 
 
