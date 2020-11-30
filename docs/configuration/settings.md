@@ -63,6 +63,17 @@ background images on the login screen.
 omit_backgrounds: true
 ```
 
+### Omit the `generator` meta tag and `x-powered-by` header
+
+By default, Bolt adds an `generator` meta tag and `x-powered-by` header 
+to the output. If you do not wish to include these headers, you can 
+disable them using the following: 
+
+```yaml
+omit_meta_generator_tag: true
+omit_powered_by_header: true
+```
+
 ### Canonical
 
 If your site is reachable under different urls (say, both `blog.example.org/`
@@ -346,6 +357,27 @@ documentation][curl].
 ```yaml
 curl_options:
     verify_peer: false
+```
+
+### Fixtures seed
+
+The fixtures are used to generate random conten. However, in a testing or 
+CI-environment, this randomness might cause side-effects. By setting the seed 
+to a fixed number, you can produce the same output every time it runs: 
+
+```yaml
+fixtures_seed: 87654
+```
+
+
+### Localization settings
+
+When set to true, fields with empty values will fallback to the default 
+locale's value.
+
+```yaml
+localization:
+    fallback_when_missing: true 
 ```
 
 ## .env
