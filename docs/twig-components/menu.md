@@ -28,7 +28,7 @@ main:
   - label: All pages
     link: pages/
   - label: The Bolt site
-    link: https://bolt.cm
+    link: https://boltcms.io/
     class: bolt-site
     title: Visit the excellent Bolt website!
 ```
@@ -56,7 +56,7 @@ The menu tag renders HTML containing your site's menu items, as defined in the
 
 The default output is taken from the file
 `vendor/bolt/core/templates/helpers/_menu.html.twig`. Most often, you'll want
-to customize thie file yourself. You can copy this file to your own theme in
+to customize this file yourself. You can copy this file to your own theme in
 `public/themes`, and use the `template` parameter to ensure it's being used.
 
 Examples:
