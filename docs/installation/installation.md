@@ -4,15 +4,32 @@ title: Installation
 Installing Bolt
 ===============
 
-With the release of Bolt 4 stable, there will be a number of ways to install
+With the stable release of Bolt 4, there will be a number of ways to install
 the application. For now, we recommend the **composer create-project** as the
-fastest way to get an installation of Bolt up and running. If you don't have
-composer yet, see [here][get-composer].
+fastest way to get an installation of Bolt up and running.
+
+What is **composer** you may ask? It is a dependency manager for PHP, or in
+other words it helps you manage the third-party libraries and tools, such as
+Bolt itself, that your project relies on.
+
+## Step 1: Make sure you have composer installed.
+
+If you don't have composer installed yet, see [here][get-composer].
 
 <p class="note"><strong>Note:</strong> This documentation makes the assumption
 that you're setting up Bolt on a local development machine. Not on the server
 where you intend to run a production website. If you do not have a local
 development environment, we recommend taking the time to set this up. </p>
+
+<p class="note"><strong>Note: </strong> This documentation makes the assumption
+that you know how to run composer on your machine. If not, the quickest way
+to get started is to follow the <a href="https://getcomposer.org/doc/00-intro.md"
+ target="_blank">composer getting started</a> section of the composer documentation.</p>
+
+## Step 2: Set up a new Bolt project
+
+Open the command line (command prompt on Windows) and go to the folder
+inside of which you want to create your new Bolt project.
 
 Set up a new Bolt 4 project, using the following command, replacing
 `myprojectname` with your desired project's name.
@@ -21,6 +38,12 @@ Set up a new Bolt 4 project, using the following command, replacing
 composer create-project bolt/project myprojectname
 ```
 
+## Step 3 (optional): Configure the database
+
+<p class="note"><strong>Note:</strong> This step is optional. If you are not
+sure about setting up a database connection, you can leave this step out. Bolt
+will automatically use a default SQLite database without further configuration
+needed.</p>
 Navigate into the newly created folder, and configure the database in `.env` or
 your environment variables, replacing `db_user`, `db_password` and `db_name`
 where appropriate:
@@ -38,7 +61,9 @@ DATABASE_URL=sqlite:///%kernel.project_dir%/var/data/bolt.sqlite
 
 You can read more information about [configuring the database here][db-setup].
 
-After configuring the Database, run `bin/console bolt:setup`. This will create
+## Step 4: Initialise your new project
+
+Run `bin/console bolt:setup`. This will create
 and initialise the Database for you, then lets you create the first (admin)
 user, and add some dummy content ("fixtures") to the database.
 
@@ -61,13 +86,32 @@ number of files and folders. Read more about it on the <a href="./permissions">
 File system permissions</a> page.</p>
 
 <p class="note"><strong>Note:</strong> Make sure to create at least one
-<strong>admin</strong> user, using either <code>bolt:setup</code> or by adding
-the <code>--admin</code> flag to <code>bolt:add-user</code>. Otherwise, you'll
-only create a "regular" user that doesn't have administrative permissions, and
-they won't be able to log into the backend.</p>
+<strong>admin</strong> user, using either <code>bolt:setup</code> or by
+running <code>bin/console bolt:setup --admin</code>. Otherwise, you 
+won't be able to log into the backend.</p>
 
-Starting a webserver
+## Step 5: Start the server to view your new site
+
+Start PHP's built-in webserver by running:
+
+```bash
+bin/console server:start
+```
+
+After it runs, you will see a message similar to this:
+
+```bash
+ [OK] Server listening on http://127.0.0.1:8000                           
+```
+
+Open up a browser and go to `http://127.0.0.1:8000` to view your new
+Bolt project. To access the Bolt Editor, go to `http://127.0.0.1:8000/bolt`.
+
+Starting a webserver (additional tips)
 --------------------
+
+This section gives you additional options on configuring the web server to
+run your Bolt project.
 
 You can run Bolt locally using the built-in webserver, [Symfony CLI][cli],
 Docker or your own preferred webserver. If you choose to set up a web server
