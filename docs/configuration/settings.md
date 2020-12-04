@@ -372,7 +372,7 @@ fixtures_seed: 87654
 
 ### Localization settings
 
-When set to true, fields with empty values will fallback to the default 
+When set to true, fields with empty values in the current locale will fallback to the default 
 locale's value.
 
 ```yaml
