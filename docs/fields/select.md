@@ -209,33 +209,34 @@ When using a Select field with a number of options, you can output them like
 this:
 
 ```twig
-{% for value in record.selectfield.selected %}
+{% for value in record.selectfield %}
     <li>{{ value }}</li>
 {% endfor %}
 ```
 
 In this case, `record` is the current Record, `selectfield` is the name of the
-field, and `selected` is the attribute that returns the selected value or
-values.
+field.
 
 If you're using a key/value hash, it's sometimes useful to be able to access
 either of them:
 
 ```twig
 <ul>
-{% for key, value in record.selectfield.selected %}
+{% for key, value in record.selectfield %}
     <li>{{ value }} <small>(key: <code>{{ key }}</code>)</small></li>
 {% endfor %}
 </ul>
 ```
 
 If you wish to access all the possible defined options for the field,
-regardless of whether they were selected or not, use `options` to get key/value
+regardless of whether they were selected or not, use `select_options` function to get key/value
 pairs for all the options:
 
 ```twig
-{{ dump(record.selectfield.options) }}
+{{ dump(select_options(record.selectfield)) }}
 ```
+
+To read more on using `select_options`, check the [documentation for that function][select-options].
 
 ### Outputting selected options from another ContentType
 
@@ -243,28 +244,25 @@ If you're using the Select Field to select items from a different ContentType,
 you might've noticed that outputting `{{ record.selectfield }}` will simply
 output the ID of the selected record(s). Normally, you'll want to be able to
 output something with those selected records. In order to do that, you need to
-fetch these records, and then you can loop over them, like a regular collection
-of Records.
+fetch the records using the `selected` filter.
 
 ```twig
-{% if record.selectfield.selectedIds|default %}
 <ul>
-    {% setcontent selectedRecords = record.selectfield.contentType where {'id': record.selectfield.selectedIds} returnmultiple %}
-    {% for record in selectedRecords %}
+    {% for record in record.selectfield|selected %}
         <li><a href="{{ record|link }}">{{ record|title }}</a></li>
     {% endfor %}
 </ul>
-{% endif %}
 ```
 
-In this case, `record` is the current Record, `selectfield` is the name of the
-field. We use `contentSelect` to verify that this select contains references to
-other Content, as opposed to a Select Field that has a number of fixed options.
-
-Below that, the `setcontent` tag fetches the `selectedRecords` from the correct
-ContentType. After that, we iterate over these, using a regular `for` loop. The
-items in this loop are "normal" Records, so you can do anything with them, that
-you would ordinarily do with a Content Record.
+<p class="warning"><strong>Warning: </strong> If the select field has
+<code>multiple: false</code> (the default), then the <code>selected</code>
+filter will only return one record. If you have enabled <code>multiple: true</code>,
+then <code>selected</code> will return an array of records.</p>
 
 Bolt does not automatically fetch all linked Records this in the background,
 because it's better for performance to only do this when needed.
+
+To read more about this filder, check the [selected filer documentation][selected].
+
+[select-options]: /twig-components/functions#select-options-selectfield
+[selected]: /twig-components/filters#selected
