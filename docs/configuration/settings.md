@@ -101,7 +101,7 @@ favicon: images/favicon-bolt.ico
 
 The default content to use for the homepage, and the template to render it
 with. This can either be a singleton like `homepage`, a specific record (like
-`page/1`) or a listing of records (like `entries`). In the chosen
+`pages/1`) or a listing of records (like `entries`). In the chosen
 homepage_template, you will have `record` or `records` at your disposal,
 depending on the homepage setting.
 
