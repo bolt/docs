@@ -113,6 +113,20 @@ search results.
 By setting `viewless: true`, routes will not be set for the ContentType listing,
 or the records themselves.
 
+There are cases when you need only the listing, or only the record pages.
+
+#### Show listing pages only:
+```yaml
+viewless: true
+viewless_listing: false
+```
+
+#### Show record pages only:
+```
+viewless: false
+viewless_listing: true
+```
+
 <!--
 Permissions
 -----------
