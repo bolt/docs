@@ -50,10 +50,6 @@ By design, you can _not_ disable the sanitation entirely. If you need to allow
 the editors to insert unfiltered HTML or javascript, use a `type: textarea`
 field instead.
 
-By design, you can _not_ disable the sanitation entirely. If you need to allow
-the editors to insert unfiltered HTML or javascript, use a `type: textarea`
-field instead.
-
 ## "Hiding" a field
 
 The <code>class:</code>-option can be used to create "hidden" fields. Sometimes
