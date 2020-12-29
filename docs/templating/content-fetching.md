@@ -255,7 +255,7 @@ practice to limit the maximum number of records, by adding a `limit` clause.
 
 ```twig
 {# get 10 pages created by 'bob' #}
-{% setcontent mypages = 'pages' where { author: getuser('bob').ud } limit 10 %}
+{% setcontent mypages = 'pages' where { author: getuser('bob').id } limit 10 %}
 ```
 
 Paginating results
