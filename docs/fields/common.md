@@ -24,6 +24,7 @@ in more detail below.
 | `class`     | Add a CSS selector to the field element. |
 | `variant`   | Allows for the field to be displayed in an alternative fashion. Currently, the only supported option is `variant: inline`, which will display the label and the input horizontally, making the output more compact. 
 | `localize`  | `boolean`, default is `false`. If set to true, marks this field as localizable (translatable) within this Content Type. Visit the <a href="/localization/">localization page</a> for more information. |
+| `sanitise`  | `boolean`, default is `true`. If set to false, the value of the field will not be sanitised. This means HTML tags like `<script>` and `<embed` will be left as-is.
 
 ## Grouping fields in tabs
 
