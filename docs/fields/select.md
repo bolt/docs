@@ -200,7 +200,7 @@ The most basic usage of this field in templates, is simply:
 
 Where it'll output the (key of) the selected value. If there's more than one
 selected item, they're output as a comma separated string. In practice, this is
-often not very useful. If you're using a key/value hash, or selecting items
+often nog very useful. If you're using a key/value hash, or selecting items
 from another ContentType, you'll want to output more information.
 
 ### Outputting selected options

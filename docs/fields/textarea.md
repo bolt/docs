@@ -30,12 +30,22 @@ The field has a few options to change the functionality of the field.
 
 ## Input Sanitisation
 
-All content in this field type will be inserted into the database as-is. No
-sanitisation will take place. This means that if you need to allow the editors
-to insert unfiltered HTML or javascript in the content, you can do so using
-this field type.
+All content in this field type will be sanitised before it gets inserted into
+the database. This means that only 'whitelisted' HTML like `<b>` and
+`<img src="…">` is kept, while things like `<embed>` and `<script>` are scrubbed
+from the field before being stored. As a site-implementor you can control the
+whitelisted tags and attributes using the following section in `config.yaml`:
 
-On the other hand, if you do want the extra failsafe of having the input
-filtered before it gets saved in the database, use a `type: text`, `type: html`
-or `type: markdown` field instead.
+```yaml
+htmlcleaner:
+    allowed_tags: [ div, span, p, br, hr, s, u, strong, em, i, b, li, ul, ol, …, … ]
+    allowed_attributes: [ id, class, style, name, value, href, src, alt, title, …, … ]
+```
 
+To disable sanitisation for this field, you can add `sanitise: false` to the field config, like so:
+
+```yaml
+        title:
+            type: textarea
+            sanitise: false
+```

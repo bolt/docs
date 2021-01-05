@@ -4,7 +4,7 @@ title: Article field
 Article field
 ==========
 
-This extension provides a "Article" field type, which is a powerful text editor 
+This extension provides an "Article" field type, which is a powerful text editor 
 for creating rich content in your Bolt websites. It can work with grids, embeds, 
 typographic markup and media. The editor itself is developed by [Imperavi](https://imperavi.com/article), 
 and is licensed for usage in Bolt.
@@ -163,3 +163,25 @@ Alternatively, if your theme is using Bootstrap or Bulma, you can configure
 Article to use the grid format from your preferred framework directly. See the
 documentation on [using Bootstrap grid][bootstrap-grid] or [using Bulma
 grid][bulma-grid].
+
+## Input Sanitisation
+
+All content in this field type will be sanitised before it gets inserted into
+the database. This means that only 'whitelisted' HTML like `<b>` and
+`<img src="…">` is kept, while things like `<embed>` and `<script>` are scrubbed
+from the field before being stored. As a site-implementor you can control the
+whitelisted tags and attributes using the following section in `config.yaml`:
+
+```yaml
+htmlcleaner:
+    allowed_tags: [ div, span, p, br, hr, s, u, strong, em, i, b, li, ul, ol, …, … ]
+    allowed_attributes: [ id, class, style, name, value, href, src, alt, title, …, … ]
+```
+
+To disable sanitisation for this field, you can add `sanitise: false` to the field config, like so:
+
+```yaml
+        title:
+            type: article
+            sanitise: false
+```

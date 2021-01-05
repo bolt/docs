@@ -38,6 +38,10 @@ htmlcleaner:
     allowed_attributes: [ id, class, style, name, value, href, src, alt, title, …, … ]
 ```
 
-By design, you can _not_ disable the sanitation entirely. If you need to allow
-the editors to insert unfiltered HTML or javascript, use a `type: textarea`
-field instead.
+To disable sanitisation for this field, you can add `sanitise: false` to the field config, like so:
+
+```yaml
+        title:
+            type: markdown
+            sanitise: false
+```
