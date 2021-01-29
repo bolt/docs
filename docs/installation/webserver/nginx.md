@@ -128,6 +128,11 @@ location = /(?:favicon.ico|robots.txt) {
     access_log                    off;
 }
 
+# Deny access to any files in the theme folder, except for the listed extensions.
+location ~ theme\/.+\.(?!(html?|css|js|jpe?g|png|gif|svg|pdf|avif|webp|mp3|mp?4a?v?|woff2?|txt|ico|zip|tgz|otf|ttf|eot|woff|woff2)$)[^\.]+?$ {
+  return 403;
+}
+
 # Redirect requests for */index.php to the same route minus the "index.php" in the URI.
 location ~ /index.php/(.*) {
     rewrite ^/index.php/(.*) /$1 permanent;
