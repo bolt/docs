@@ -154,7 +154,7 @@ the templates.
 For example if you want to see if `bar` was one of the selected values:
 
 ```twig
-{% if 'bar' in record.somevalues %}
+{% if 'bar' in record.somevalues.selected %}
     ..
 {% endif %}
 ```
@@ -163,7 +163,7 @@ Or if you want to print out the selected values in an `ul`:
 
 ```twig
 <ul>
-    {% for values in record.somevalues %}
+    {% for values in record.somevalues.selected %}
         <li>{{ values }}</li>
     {% endfor %}
 </ul>
@@ -209,20 +209,21 @@ When using a Select field with a number of options, you can output them like
 this:
 
 ```twig
-{% for value in record.selectfield %}
+{% for value in record.selectfield.selected %}
     <li>{{ value }}</li>
 {% endfor %}
 ```
 
 In this case, `record` is the current Record, `selectfield` is the name of the
-field.
+field. The additional `.selected` method is used to get the actual _selected_ 
+items, instead of an object that contains them all.
 
 If you're using a key/value hash, it's sometimes useful to be able to access
 either of them:
 
 ```twig
 <ul>
-{% for key, value in record.selectfield %}
+{% for key, value in record.selectfield.selected %}
     <li>{{ value }} <small>(key: <code>{{ key }}</code>)</small></li>
 {% endfor %}
 </ul>
