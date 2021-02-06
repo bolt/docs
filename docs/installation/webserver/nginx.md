@@ -148,7 +148,7 @@ your Bolt sites on a host.
 ```nginx
 # Block access to "hidden" files
 # i.e. file names that begin with a dot "."
-location ~ /\. {
+location ~ /\.(?!well-known) {
     deny                          all;
 }
 
