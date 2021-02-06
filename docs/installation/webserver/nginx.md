@@ -148,6 +148,7 @@ your Bolt sites on a host.
 ```nginx
 # Block access to "hidden" files
 # i.e. file names that begin with a dot "."
+# An exception is included for Let's Encrypt ssl verification
 location ~ /\.(?!well-known) {
     deny                          all;
 }
