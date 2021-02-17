@@ -34,7 +34,7 @@ Doctrine DSN / Database URLs:
 DATABASE_URL=sqlite:///%kernel.project_dir%/var/data/bolt.sqlite
 
 # MYSQL / MariaDB
-#DATABASE_URL=mysql://db_user:"db_password"@localhost:3306/db_name
+#DATABASE_URL="mysql://db_user:db_password@localhost:3306/db_name"
 ```
 
 <!-- # Postgres
