@@ -290,7 +290,7 @@ the field: `title` vs. `-title`.
 {% setcontent mypages = 'pages' limit 10 orderby '-modifiedAt,-publishedAt' %}
 
 {# You can chain as many orderby's like this as you need #}
-{% setcontent mypages = 'pages\ limit 10 orderby '-modifiedAt,-publishedAt,-createdAt,title,subtitle' %}
+{% setcontent mypages = 'pages' limit 10 orderby '-modifiedAt,-publishedAt,-createdAt,title,subtitle' %}
 
 ```
 
