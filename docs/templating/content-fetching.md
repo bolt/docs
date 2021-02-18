@@ -287,7 +287,7 @@ the field: `title` vs. `-title`.
 {% setcontent mypages = 'pages' limit 10 orderby '-modifiedAt' %}
 
 {# If two records have the same modifiedAt, you can order them by publishedAt descending #}
-{% setcontent mypages = 'pages\ limit 10 orderby '-modifiedAt,-publishedAt' %}
+{% setcontent mypages = 'pages' limit 10 orderby '-modifiedAt,-publishedAt' %}
 
 {# You can chain as many orderby's like this as you need #}
 {% setcontent mypages = 'pages\ limit 10 orderby '-modifiedAt,-publishedAt,-createdAt,title,subtitle' %}
