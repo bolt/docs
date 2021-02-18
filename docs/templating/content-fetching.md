@@ -283,8 +283,15 @@ the field: `title` vs. `-title`.
 {# get 10 pages, sorted alphabetically on title #}
 {% setcontent mypages = 'pages' limit 10 orderby 'title' %}
 
-{# get the 10 latest modified pages, sorted datechanged descending #}
-{% setcontent mypages = 'pages' limit 10 orderby '-datechanged' %}
+{# get the 10 latest modified pages, sorted modifiedAt descending #}
+{% setcontent mypages = 'pages' limit 10 orderby '-modifiedAt' %}
+
+{# If two records have the same modifiedAt, you can order them by publishedAt descending #}
+{% setcontent mypages = 'pages' limit 10 orderby '-modifiedAt,-publishedAt' %}
+
+{# You can chain as many orderby's like this as you need #}
+{% setcontent mypages = 'pages' limit 10 orderby '-modifiedAt,-publishedAt,-createdAt,title,subtitle' %}
+
 ```
 
 Note that the records are fetched from the database, according to the `orderby`
