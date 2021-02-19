@@ -53,7 +53,7 @@ You can control which fields are localizable on a per-field basis using the
 The above example will make the `pages` content type localizable: that means, editors
 will be able to create different versions of the same page in the specified 4 languages: 
 English, Dutch, Japanese and Norwegian. To learn more about locales, 
-visit the [locales page](./locales).
+visit the [locales page](/localization/locales).
 
 
 
