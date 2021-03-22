@@ -237,6 +237,34 @@ notation interchangeably, according to your preference.
 <code>record|taxonomies.categories.blog</code> is equivalent to
 <code>record|taxonomies['categories']['blog']</code>.</p>
 
+Show records with the same taxonomy value
+-----------------------------------------
+If you would like to display a list of records with the same taxonomy values, for instance “all pages in the same chapter”, you can do something like this:
+
+
+```twig
+{% setcontent mypages = 'pages' where {'chapters': myvalue } %}
+<ul>
+{% for record in mypages %}
+<li><a>{% if record|current %} class="active"{% endif %} href="{{ record|link }}"> {{ record|title }}</a></li>
+{% endfor %}
+</ul>
+```
+
+If you have a taxonomy with the multiple: true setting you cna do something like this:
+
+```twig
+{% if record|taxonomies.chapters is defined %}
+{% for value in record|taxonomies['chapters'] %}
+{% setcontent mypages = 'pages' where {'chapters': value.slug } %}
+<ul>
+    {% for record in mypages %}
+    <li><a class="tag{% if record|current %} active{% endif %}" href="{{ record|link }}"> {{ record|title }}</a></li>
+    {% endfor %}
+</ul>
+{% endfor %}
+{% endif %}
+```
 
 Taxonomy Record Listing
 -----------------------
