@@ -149,7 +149,7 @@ Tags:
 ```
 
 For a slightly more sophisticated example, see the default taxonomy links
-template [`_sub_taxonomylinks.twig`][tax], or even use it directly in your own
+template [`_taxonomylinks.html.twig`][tax], or even use it directly in your own
 theme:
 
 ```twig
