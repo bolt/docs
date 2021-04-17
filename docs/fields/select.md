@@ -119,14 +119,10 @@ somevalue:
     values: (events,news,pages)/{title} - {contenttype} № {id} ({status})
 ```
 
-As the field allows you to select multiple ContentTypes, upon saving it stores
-`contenttype/id` in the database.
-
-You can then use this to fetch the selected record by using the following code,
-where `somevalue` in this instance may equal something like `page/1`:
+You can then use this to fetch the selected record by using the following code:
 
 ```twig
-{% setcontent linkeditem = record.somevalue returnsingle %}
+{% setcontent linkeditem = '(events,news,pages)' where { id: record.somevalue } %}
 ```
 
 In practice, you'll often want to fetch the selected records. See the section on
