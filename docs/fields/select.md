@@ -129,6 +129,75 @@ In practice, you'll often want to fetch the selected records. See the section on
 [Outputting selected options from another ContentType](#outputting-selected-options-from-another-contenttype)
 for details and an example on how to easily do this.
 
+### Populating the values from services
+
+#### Option 1: Static callable
+
+Example contenttypes.yaml configuration:
+
+```yaml
+books:
+    type: select
+    values: App\Books::getOptions
+```
+
+Allows you to implement an App\Books class like so (where the ```$field``` argument is optional):
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App;
+
+use Bolt\Entity\Field\SelectField;
+
+class Books
+{
+    public static function getOptions(SelectField $field): iterable
+    {
+        return [
+            'Animal Farm',
+            '1984',
+        ];
+    }
+}
+```
+#### Option 2: Callable as a Symfony service (with autowiring and autoloading)
+
+Example ```contenttypes.yaml``` configuration:
+
+```yaml
+books:
+    type: select
+    values: App\Books
+```
+
+Allows you to implement an ```App\Books``` class like so (where the ```$field``` argument is optional):
+Important: the ```App\Books``` service must explicitly be [public](https://symfony.com/doc/current/service_container/alias_private.html#marking-services-as-public-private), so that it does not get automatically removed from the container if unused
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App;
+
+class Books
+{
+    public function __construct(SomeNiceService $service)
+    {
+        $this->service = $service;
+    }
+
+    public function getOptions(SelectField $field): iterable
+    {
+        // $this->service is available here
+        return $this->service->getBooks();
+    }
+}
+```
+Note: the method name ```getOptions``` is significant in this case.
 
 ## Additional options
 
