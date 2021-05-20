@@ -176,9 +176,9 @@ in using an existing account, connect with your Github account, or create a new
 one. After you've done this, you can [submit][submit] a new package. Simply
 fill out the full URL of your git repository, and click the button.
 
-If all went well, you can confirm the next step, and you'll now have published
+If all went well, you can confirm the next step, and you'll now have published 
+your extension-to-be on Packagist. If it didn't go through, Packagist will most 
 likely tell you why it didn't, enabling you to fix the error and to try again.
-your extension-to-be on Packagist. If it didn't go through, Packagist will most
 
 <p class="note"><strong>Note:</strong> You're submitting our package to
 Packagist already, but it won't show up on the Bolt Extension website until
