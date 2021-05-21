@@ -45,7 +45,7 @@ Date Field
 
 <a href="https://user-images.githubusercontent.com/7093518/91460561-3627dd80-e888-11ea-9485-6ba7acdd7efa.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91460561-3627dd80-e888-11ea-9485-6ba7acdd7efa.png"></a><br>
 
-A field for a single date with or without time. See https://github.com/bolt/docs/edit/4.0/docs/manual/fieldtypes.md for options
+A field for a single date with or without time. See https://docs.bolt.cm/4.0/fields/date#jumpbutton for options
 
 
 Media fields
