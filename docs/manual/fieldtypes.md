@@ -38,20 +38,15 @@ A WYSIWYG field that allows greater freedom to edit styling and presentation of
 text. Often used for the body of a page or article. Features of the WYSIWYG can
 be turned on or off in the Main configuration.
 
-Date Fields
------------
+Date Field
+----------
 
 ### Date
 
 <a href="https://user-images.githubusercontent.com/7093518/91460561-3627dd80-e888-11ea-9485-6ba7acdd7efa.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91460561-3627dd80-e888-11ea-9485-6ba7acdd7efa.png"></a><br>
 
-A field for a single date that includes *no* time value.
+A field for a single date with or without time. See https://docs.bolt.cm/4.0/fields/date#jumpbutton for options
 
-### Datetime
-
-<a href="https://user-images.githubusercontent.com/7093518/91460494-23150d80-e888-11ea-9bbd-cfa9ba8ccd3b.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91460494-23150d80-e888-11ea-9bbd-cfa9ba8ccd3b.png"></a><br>
-
-A field for a single date and time.
 
 Media fields
 ------------
