@@ -255,6 +255,20 @@ linking to other ContentTypes since it can give an ordered relation. Usage:
             sortable: true
 ```
 
+### Set a default value
+
+If you want to have a default option selected you can use the `default` option.
+
+```yaml
+        somevalue:
+            type: select
+            values:
+              yes: Yes
+              no: No
+              undecided: Well, it can go either way…
+            default: undecided
+```
+
 ## Usage in templates
 
 The most basic usage of this field in templates, is simply:
