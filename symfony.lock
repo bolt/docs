@@ -173,6 +173,9 @@
             "ref": "305b268e55e75059f20ec9827a8fd09a35c59866"
         }
     },
+    "symfony/http-client-contracts": {
+        "version": "v1.1.10"
+    },
     "symfony/http-foundation": {
         "version": "v4.0.1"
     },
@@ -192,7 +195,7 @@
         "version": "v1.12.0"
     },
     "symfony/polyfill-intl-normalizer": {
-        "version": "v1.18.1"
+        "version": "v1.23.0"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.6.0"
@@ -210,7 +213,10 @@
         "version": "v1.12.0"
     },
     "symfony/polyfill-php80": {
-        "version": "v1.18.1"
+        "version": "v1.23.0"
+    },
+    "symfony/polyfill-php81": {
+        "version": "v1.23.0"
     },
     "symfony/process": {
         "version": "v4.1.3"
