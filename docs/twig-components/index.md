@@ -22,350 +22,341 @@ function, filters, tests & operators, with a few additions that are specific to
 working with Bolt. If you're not familiar with Twig yet, you should read
 "[Twig for Template Designers][twig]", on the official Twig website.
 
-
 ## Function
 
-- [__(id, parameters = [], domain = null, locale = null)](twig-components/method/__)
-- [absolute_link(link)](twig-components/method/absolute_link)
-- [absolute_url(path)](twig-components/method/absolute_url)
-- [admin_menu_array()](twig-components/method/admin_menu_array)
-- [asset_version(path, packageName = null)](twig-components/method/asset_version)
-- [asset(path, packageName = null)](twig-components/method/asset)
-- [attribute](twig-components/method/attribute)
-- [backtrace(options = 2, limit = 25)](twig-components/method/backtrace)
-- [block](twig-components/method/block)
-- [canonical(route = null, params = [])](twig-components/method/canonical)
-- [constant](twig-components/method/constant)
-- [constant(constant, object = null)](twig-components/method/constant)
-- [controller(controller, attributes = [], query = [])](twig-components/method/controller)
-- [country_timezones](twig-components/method/country_timezones)
-- [country_timezones(country)](twig-components/method/country_timezones)
-- [countwidgets(target)](twig-components/method/countwidgets)
-- [csrf_token(tokenId)](twig-components/method/csrf_token)
-- [cycle](twig-components/method/cycle)
-- [cycle(values, position)](twig-components/method/cycle)
-- [date](twig-components/method/date)
-- [date(date = null, timezone = null)](twig-components/method/date)
-- [dns_prefetch(uri, attributes = [])](twig-components/method/dns_prefetch)
-- [dump](twig-components/method/dump)
-- [dump()](twig-components/method/dump)
-- [encore_entry_css_files(entryName, entrypointName = "_default")](twig-components/method/encore_entry_css_files)
-- [encore_entry_js_files(entryName, entrypointName = "_default")](twig-components/method/encore_entry_js_files)
-- [encore_entry_link_tags(entryName, packageName = null, entrypointName = "_default", attributes = [])](twig-components/method/encore_entry_link_tags)
-- [encore_entry_script_tags(entryName, packageName = null, entrypointName = "_default", attributes = [])](twig-components/method/encore_entry_script_tags)
-- [excerpt(content, length = 280, includeTitle = false, focus = null, wrap = false)](twig-components/method/excerpt)
-- [expression(expression)](twig-components/method/expression)
-- [extension_exists(name)](twig-components/method/extension_exists)
-- [extensions()](twig-components/method/extensions)
-- [field_choices(view)](twig-components/method/field_choices)
-- [field_errors(view)](twig-components/method/field_errors)
-- [field_factory(name, definition = null)](twig-components/method/field_factory)
-- [field_help(view)](twig-components/method/field_help)
-- [field_label(view)](twig-components/method/field_label)
-- [field_name(view)](twig-components/method/field_name)
-- [field_value(view)](twig-components/method/field_value)
-- [find_translations(entity, locale = null)](twig-components/method/find_translations)
-- [first_related_content(content, name = null, publishedOnly = true)](twig-components/method/first_related_content)
-- [flag(localeCode)](twig-components/method/flag)
-- [form_end(unknown?)](twig-components/method/form_end)
-- [form_errors(unknown?)](twig-components/method/form_errors)
-- [form_help(unknown?)](twig-components/method/form_help)
-- [form_label(unknown?)](twig-components/method/form_label)
-- [form_parent(formView)](twig-components/method/form_parent)
-- [form_rest(unknown?)](twig-components/method/form_rest)
-- [form_row(unknown?)](twig-components/method/form_row)
-- [form_start(unknown?)](twig-components/method/form_start)
-- [form_widget(unknown?)](twig-components/method/form_widget)
-- [form(unknown?)](twig-components/method/form)
-- [fragment_uri(controller, absolute = false, strict = true, sign = true)](twig-components/method/fragment_uri)
-- [getuser(username = null, id = null, displayname = null, email = null)](twig-components/method/getuser)
-- [haswidgets(target)](twig-components/method/haswidgets)
-- [html_classes](twig-components/method/html_classes)
-- [html_classes(args)](twig-components/method/html_classes)
-- [htmllang()](twig-components/method/htmllang)
-- [icon(record = null, icon = "question-circle")](twig-components/method/icon)
-- [impersonation_exit_path(exitTo = null)](twig-components/method/impersonation_exit_path)
-- [impersonation_exit_url(exitTo = null)](twig-components/method/impersonation_exit_url)
-- [include](twig-components/method/include)
-- [include(template, variables = [], withContext = true, ignoreMissing = false, sandboxed = false)](twig-components/method/include)
-- [is_granted(role, object = null, field = null)](twig-components/method/is_granted)
-- [knp_menu_get_breadcrumbs_array(menu, subItem = null)](twig-components/method/knp_menu_get_breadcrumbs_array)
-- [knp_menu_get_current_item(menu)](twig-components/method/knp_menu_get_current_item)
-- [knp_menu_get(menu, path = [], options = [])](twig-components/method/knp_menu_get)
-- [knp_menu_render(menu, options = [], renderer = null)](twig-components/method/knp_menu_render)
-- [link(uri, rel, attributes = [])](twig-components/method/link)
-- [list_templates(field)](twig-components/method/list_templates)
-- [listwidgets(target)](twig-components/method/listwidgets)
-- [locale(localeCode)](twig-components/method/locale)
-- [locales(localeCodes = null, all = false)](twig-components/method/locales)
-- [logout_path(key = null)](twig-components/method/logout_path)
-- [logout_url(key = null)](twig-components/method/logout_url)
-- [markdown(content)](twig-components/method/markdown)
-- [max](twig-components/method/max)
-- [max(args)](twig-components/method/max)
-- [media(unknown?)](twig-components/method/media)
-- [menu_array(name = null)](twig-components/method/menu_array)
-- [menu(name = null, template = "helpers\/_menu.html.twig", class = "", withsubmenus = true)](twig-components/method/menu)
-- [min](twig-components/method/min)
-- [min(args)](twig-components/method/min)
-- [next_record(content, byColumn = "id", sameContentType = true)](twig-components/method/next_record)
-- [pager(records = null, template = "@bolt\/helpers\/_pager_basic.html.twig", class = "pagination", surround = 3)](twig-components/method/pager)
-- [pagerfanta_page_url(pagerfanta, page, options = [])](twig-components/method/pagerfanta_page_url)
-- [pagerfanta(pagerfanta, viewName = null, options = [])](twig-components/method/pagerfanta)
-- [parent](twig-components/method/parent)
-- [path(name, parameters = [], relative = false)](twig-components/method/path)
-- [popup(image, width = 320, height = 240)](twig-components/method/popup)
-- [preconnect(uri, attributes = [])](twig-components/method/preconnect)
-- [prefetch(uri, attributes = [])](twig-components/method/prefetch)
-- [preload(uri, attributes = [])](twig-components/method/preload)
-- [prerender(uri, attributes = [])](twig-components/method/prerender)
-- [previous_record(content, byColumn = "id", sameContentType = true)](twig-components/method/previous_record)
-- [profiler_dump_log(message, context = null)](twig-components/method/profiler_dump_log)
-- [profiler_dump(data, maxDepth = 0)](twig-components/method/profiler_dump)
-- [random](twig-components/method/random)
-- [random(values = null, max = null)](twig-components/method/random)
-- [range](twig-components/method/range)
-- [range(low, high, step)](twig-components/method/range)
-- [redirect(path)](twig-components/method/redirect)
-- [related_content_by_type(content, bidirectional = true, limit = null, publishedOnly = true)](twig-components/method/related_content_by_type)
-- [related_content(content, name = null, bidirectional = true, limit = null, publishedOnly = true)](twig-components/method/related_content)
-- [related_options(contentTypeSlug, order = null, format = "", required = false)](twig-components/method/related_options)
-- [related_values_from_content(unknown?)](twig-components/method/related_values_from_content)
-- [related_values(source, contentType)](twig-components/method/related_values)
-- [relative_path(path)](twig-components/method/relative_path)
-- [render_*(strategy, uri, options = [])](twig-components/method/render_*)
-- [render(uri, options = [])](twig-components/method/render)
-- [secret(slug)](twig-components/method/secret)
-- [select_options(field)](twig-components/method/select_options)
-- [showimage(image, width = null, height = null)](twig-components/method/showimage)
-- [source](twig-components/method/source)
-- [source(name, ignoreMissing = false)](twig-components/method/source)
-- [stimulus_controller(dataOrControllerName, controllerValues = [])](twig-components/method/stimulus_controller)
-- [t(message, parameters = [], domain = null)](twig-components/method/t)
-- [taxonomy_options(taxonomy)](twig-components/method/taxonomy_options)
-- [taxonomy_values(current, taxonomy)](twig-components/method/taxonomy_values)
-- [template_from_string](twig-components/method/template_from_string)
-- [template_from_string(template, name = null)](twig-components/method/template_from_string)
-- [thumbnail(image, width = null, height = null, location = null, path = null, fit = null)](twig-components/method/thumbnail)
-- [url(name, parameters = [], schemeRelative = false)](twig-components/method/url)
-- [widget(name, params = [])](twig-components/method/widget)
-- [widgets(target, params = [])](twig-components/method/widgets)
-
-
+- [__(id, parameters = [], domain = null, locale = null)](twig-components/method/__)  <small>(Bolt)</small>
+- [absolute_link(link)](twig-components/method/absolute_link)  <small>(Bolt)</small>
+- [absolute_url(path)](twig-components/method/absolute_url)  <small>(Bolt)</small>
+- [admin_menu_array()](twig-components/method/admin_menu_array)  <small>(Bolt)</small>
+- [asset_version(path, packageName = null)](twig-components/method/asset_version)  <small>(Twig)</small>
+- [asset(path, packageName = null)](twig-components/method/asset)  <small>(Twig)</small>
+- [attribute](twig-components/method/attribute)  <small>(Twig)</small>
+- [backtrace(options = 2, limit = 25)](twig-components/method/backtrace)  <small>(Bolt)</small>
+- [block](twig-components/method/block)  <small>(Twig)</small>
+- [canonical(route = null, params = [])](twig-components/method/canonical)  <small>(Bolt)</small>
+- [constant](twig-components/method/constant)  <small>(Twig)</small>
+- [constant(constant, object = null)](twig-components/method/constant)  <small>(Twig)</small>
+- [controller(controller, attributes = [], query = [])](twig-components/method/controller)  <small>()</small>
+- [country_timezones](twig-components/method/country_timezones)  <small>(Twig)</small>
+- [country_timezones(country)](twig-components/method/country_timezones)  <small>(Twig)</small>
+- [countwidgets(target)](twig-components/method/countwidgets)  <small>(Bolt)</small>
+- [csrf_token(tokenId)](twig-components/method/csrf_token)  <small>(Twig)</small>
+- [cycle](twig-components/method/cycle)  <small>(Twig)</small>
+- [cycle(values, position)](twig-components/method/cycle)  <small>(Twig)</small>
+- [date](twig-components/method/date)  <small>(Twig)</small>
+- [date(date = null, timezone = null)](twig-components/method/date)  <small>(Twig)</small>
+- [dns_prefetch(uri, attributes = [])](twig-components/method/dns_prefetch)  <small>()</small>
+- [dump](twig-components/method/dump)  <small>(Twig)</small>
+- [dump()](twig-components/method/dump)  <small>(Bolt)</small>
+- [encore_entry_css_files(entryName, entrypointName = "_default")](twig-components/method/encore_entry_css_files)  <small>(Twig)</small>
+- [encore_entry_js_files(entryName, entrypointName = "_default")](twig-components/method/encore_entry_js_files)  <small>(Twig)</small>
+- [encore_entry_link_tags(entryName, packageName = null, entrypointName = "_default", attributes = [])](twig-components/method/encore_entry_link_tags)  <small>(Twig)</small>
+- [encore_entry_script_tags(entryName, packageName = null, entrypointName = "_default", attributes = [])](twig-components/method/encore_entry_script_tags)  <small>(Twig)</small>
+- [excerpt(content, length = 280, includeTitle = false, focus = null, wrap = false)](twig-components/method/excerpt)  <small>(Bolt)</small>
+- [expression(expression)](twig-components/method/expression)  <small>()</small>
+- [extension_exists(name)](twig-components/method/extension_exists)  <small>(Bolt)</small>
+- [extensions()](twig-components/method/extensions)  <small>(Bolt)</small>
+- [field_choices(view)](twig-components/method/field_choices)  <small>(Forms)</small>
+- [field_errors(view)](twig-components/method/field_errors)  <small>(Forms)</small>
+- [field_factory(name, definition = null)](twig-components/method/field_factory)  <small>(Forms)</small>
+- [field_help(view)](twig-components/method/field_help)  <small>(Forms)</small>
+- [field_label(view)](twig-components/method/field_label)  <small>(Forms)</small>
+- [field_name(view)](twig-components/method/field_name)  <small>(Forms)</small>
+- [field_value(view)](twig-components/method/field_value)  <small>(Forms)</small>
+- [find_translations(entity, locale = null)](twig-components/method/find_translations)  <small>(Bolt)</small>
+- [first_related_content(content, name = null, publishedOnly = true)](twig-components/method/first_related_content)  <small>(Bolt)</small>
+- [flag(localeCode)](twig-components/method/flag)  <small>(Bolt)</small>
+- [form_end(unknown?)](twig-components/method/form_end)  <small>(Forms)</small>
+- [form_errors(unknown?)](twig-components/method/form_errors)  <small>(Forms)</small>
+- [form_help(unknown?)](twig-components/method/form_help)  <small>(Forms)</small>
+- [form_label(unknown?)](twig-components/method/form_label)  <small>(Forms)</small>
+- [form_parent(formView)](twig-components/method/form_parent)  <small>(Forms)</small>
+- [form_rest(unknown?)](twig-components/method/form_rest)  <small>(Forms)</small>
+- [form_row(unknown?)](twig-components/method/form_row)  <small>(Forms)</small>
+- [form_start(unknown?)](twig-components/method/form_start)  <small>(Forms)</small>
+- [form_widget(unknown?)](twig-components/method/form_widget)  <small>(Forms)</small>
+- [form(unknown?)](twig-components/method/form)  <small>(Forms)</small>
+- [fragment_uri(controller, absolute = false, strict = true, sign = true)](twig-components/method/fragment_uri)  <small>(Twig)</small>
+- [getuser(username = null, id = null, displayname = null, email = null)](twig-components/method/getuser)  <small>(Bolt)</small>
+- [haswidgets(target)](twig-components/method/haswidgets)  <small>(Bolt)</small>
+- [html_classes](twig-components/method/html_classes)  <small>(Twig)</small>
+- [html_classes(args)](twig-components/method/html_classes)  <small>(Twig)</small>
+- [htmllang()](twig-components/method/htmllang)  <small>(Bolt)</small>
+- [icon(record = null, icon = "question-circle")](twig-components/method/icon)  <small>(Bolt)</small>
+- [impersonation_exit_path(exitTo = null)](twig-components/method/impersonation_exit_path)  <small>(Twig)</small>
+- [impersonation_exit_url(exitTo = null)](twig-components/method/impersonation_exit_url)  <small>(Twig)</small>
+- [include](twig-components/method/include)  <small>(Twig)</small>
+- [include(template, variables = [], withContext = true, ignoreMissing = false, sandboxed = false)](twig-components/method/include)  <small>(Twig)</small>
+- [is_granted(role, object = null, field = null)](twig-components/method/is_granted)  <small>(Twig)</small>
+- [knp_menu_get_breadcrumbs_array(menu, subItem = null)](twig-components/method/knp_menu_get_breadcrumbs_array)  <small>(KNP Menu)</small>
+- [knp_menu_get_current_item(menu)](twig-components/method/knp_menu_get_current_item)  <small>(KNP Menu)</small>
+- [knp_menu_get(menu, path = [], options = [])](twig-components/method/knp_menu_get)  <small>(KNP Menu)</small>
+- [knp_menu_render(menu, options = [], renderer = null)](twig-components/method/knp_menu_render)  <small>(KNP Menu)</small>
+- [link(uri, rel, attributes = [])](twig-components/method/link)  <small>(Twig)</small>
+- [list_templates(field)](twig-components/method/list_templates)  <small>(Bolt)</small>
+- [listwidgets(target)](twig-components/method/listwidgets)  <small>(Bolt)</small>
+- [locale(localeCode)](twig-components/method/locale)  <small>(Bolt)</small>
+- [locales(localeCodes = null, all = false)](twig-components/method/locales)  <small>(Bolt)</small>
+- [logout_path(key = null)](twig-components/method/logout_path)  <small>(Twig)</small>
+- [logout_url(key = null)](twig-components/method/logout_url)  <small>(Twig)</small>
+- [markdown(content)](twig-components/method/markdown)  <small>(Bolt)</small>
+- [max](twig-components/method/max)  <small>(Twig)</small>
+- [max(args)](twig-components/method/max)  <small>(Twig)</small>
+- [media(unknown?)](twig-components/method/media)  <small>(Bolt)</small>
+- [menu_array(name = null)](twig-components/method/menu_array)  <small>(Bolt)</small>
+- [menu(name = null, template = "helpers\/_menu.html.twig", class = "", withsubmenus = true)](twig-components/method/menu)  <small>(Bolt)</small>
+- [min](twig-components/method/min)  <small>(Twig)</small>
+- [min(args)](twig-components/method/min)  <small>(Twig)</small>
+- [next_record(content, byColumn = "id", sameContentType = true)](twig-components/method/next_record)  <small>()</small>
+- [pager(records = null, template = "@bolt\/helpers\/_pager_basic.html.twig", class = "pagination", surround = 3)](twig-components/method/pager)  <small>(Bolt)</small>
+- [pagerfanta_page_url(pagerfanta, page, options = [])](twig-components/method/pagerfanta_page_url)  <small>(Pagerfanta)</small>
+- [pagerfanta(pagerfanta, viewName = null, options = [])](twig-components/method/pagerfanta)  <small>(Pagerfanta)</small>
+- [parent](twig-components/method/parent)  <small>(Twig)</small>
+- [path(name, parameters = [], relative = false)](twig-components/method/path)  <small>(Bolt)</small>
+- [popup(image, width = 320, height = 240)](twig-components/method/popup)  <small>(Bolt)</small>
+- [preconnect(uri, attributes = [])](twig-components/method/preconnect)  <small>()</small>
+- [prefetch(uri, attributes = [])](twig-components/method/prefetch)  <small>()</small>
+- [preload(uri, attributes = [])](twig-components/method/preload)  <small>()</small>
+- [prerender(uri, attributes = [])](twig-components/method/prerender)  <small>()</small>
+- [previous_record(content, byColumn = "id", sameContentType = true)](twig-components/method/previous_record)  <small>()</small>
+- [profiler_dump_log(message, context = null)](twig-components/method/profiler_dump_log)  <small>()</small>
+- [profiler_dump(data, maxDepth = 0)](twig-components/method/profiler_dump)  <small>()</small>
+- [random](twig-components/method/random)  <small>(Twig)</small>
+- [random(values = null, max = null)](twig-components/method/random)  <small>()</small>
+- [range](twig-components/method/range)  <small>(Twig)</small>
+- [range(low, high, step)](twig-components/method/range)  <small>()</small>
+- [redirect(path)](twig-components/method/redirect)  <small>(Bolt)</small>
+- [related_content_by_type(content, bidirectional = true, limit = null, publishedOnly = true)](twig-components/method/related_content_by_type)  <small>(Bolt)</small>
+- [related_content(content, name = null, bidirectional = true, limit = null, publishedOnly = true)](twig-components/method/related_content)  <small>(Bolt)</small>
+- [related_options(contentTypeSlug, order = null, format = "", required = false)](twig-components/method/related_options)  <small>(Bolt)</small>
+- [related_values_from_content(unknown?)](twig-components/method/related_values_from_content)  <small>(Bolt)</small>
+- [related_values(source, contentType)](twig-components/method/related_values)  <small>(Bolt)</small>
+- [relative_path(path)](twig-components/method/relative_path)  <small>(Bolt)</small>
+- [render_*(strategy, uri, options = [])](twig-components/method/render_*)  <small>()</small>
+- [render(uri, options = [])](twig-components/method/render)  <small>()</small>
+- [secret(slug)](twig-components/method/secret)  <small>(Bolt)</small>
+- [select_options(field)](twig-components/method/select_options)  <small>(Bolt)</small>
+- [showimage(image, width = null, height = null)](twig-components/method/showimage)  <small>(Bolt)</small>
+- [source](twig-components/method/source)  <small>(Twig)</small>
+- [source(name, ignoreMissing = false)](twig-components/method/source)  <small>()</small>
+- [stimulus_controller(dataOrControllerName, controllerValues = [])](twig-components/method/stimulus_controller)  <small>()</small>
+- [t(message, parameters = [], domain = null)](twig-components/method/t)  <small>()</small>
+- [taxonomy_options(taxonomy)](twig-components/method/taxonomy_options)  <small>(Bolt)</small>
+- [taxonomy_values(current, taxonomy)](twig-components/method/taxonomy_values)  <small>(Bolt)</small>
+- [template_from_string](twig-components/method/template_from_string)  <small>(Twig)</small>
+- [template_from_string(template, name = null)](twig-components/method/template_from_string)  <small>()</small>
+- [thumbnail(image, width = null, height = null, location = null, path = null, fit = null)](twig-components/method/thumbnail)  <small>(Bolt)</small>
+- [url(name, parameters = [], schemeRelative = false)](twig-components/method/url)  <small>(Bolt)</small>
+- [widget(name, params = [])](twig-components/method/widget)  <small>(Bolt)</small>
+- [widgets(target, params = [])](twig-components/method/widgets)  <small>(Bolt)</small>
 
 ## Filter
 
-- [abbr_class](twig-components/method/abbr_class)
-- [abbr_method](twig-components/method/abbr_method)
-- [abs](twig-components/method/abs)
-- [allow_twig(unknown?)](twig-components/method/allow_twig)
-- [as_array](twig-components/method/as_array)
-- [batch(size, fill = null, preserveKeys = true)](twig-components/method/batch)
-- [boolval](twig-components/method/boolval)
-- [capitalize](twig-components/method/capitalize)
-- [column(name, index = null)](twig-components/method/column)
-- [convert_encoding(to, from)](twig-components/method/convert_encoding)
-- [country_name(locale = null)](twig-components/method/country_name)
-- [currency_name(locale = null)](twig-components/method/currency_name)
-- [currency_symbol(locale = null)](twig-components/method/currency_symbol)
-- [current](twig-components/method/current)
-- [data_uri(mime = null, parameters = [])](twig-components/method/data_uri)
-- [date_modify(modifier)](twig-components/method/date_modify)
-- [date(format = null, timezone = null)](twig-components/method/date)
-- [default(default = "")](twig-components/method/default)
-- [desc](twig-components/method/desc)
-- [doctrine_format_sql(highlight)](twig-components/method/doctrine_format_sql)
-- [doctrine_prettify_sql](twig-components/method/doctrine_prettify_sql)
-- [doctrine_pretty_query(highlightOnly = false)](twig-components/method/doctrine_pretty_query)
-- [doctrine_replace_query_parameters(parameters)](twig-components/method/doctrine_replace_query_parameters)
-- [e(strategy = "html", charset = null, autoescape = false)](twig-components/method/e)
-- [edit_link](twig-components/method/edit_link)
-- [escape(strategy = "html", charset = null, autoescape = false)](twig-components/method/escape)
-- [excerpt(length = 280, includeTitle = false, focus = null, wrap = false)](twig-components/method/excerpt)
-- [feature](twig-components/method/feature)
-- [file_excerpt(line, srcContext = 3)](twig-components/method/file_excerpt)
-- [file_link(line)](twig-components/method/file_link)
-- [file_relative](twig-components/method/file_relative)
-- [filter(arrow)](twig-components/method/filter)
-- [first](twig-components/method/first)
-- [floatval](twig-components/method/floatval)
-- [form_encode_currency(widget = "")](twig-components/method/form_encode_currency)
-- [format_*_number(number, attrs = [], type = "default", locale = null)](twig-components/method/format_*_number)
-- [format_args](twig-components/method/format_args)
-- [format_args_as_text](twig-components/method/format_args_as_text)
-- [format_bytes(precision = 2)](twig-components/method/format_bytes)
-- [format_currency(currency, attrs = [], locale = null)](twig-components/method/format_currency)
-- [format_date(dateFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null)](twig-components/method/format_date)
-- [format_datetime(dateFormat = "medium", timeFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null)](twig-components/method/format_datetime)
-- [format_file_from_text](twig-components/method/format_file_from_text)
-- [format_file(line, text = null)](twig-components/method/format_file)
-- [format_log_message(context)](twig-components/method/format_log_message)
-- [format_number(attrs = [], style = "decimal", type = "default", locale = null)](twig-components/method/format_number)
-- [format_time(timeFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null)](twig-components/method/format_time)
-- [format(args)](twig-components/method/format)
-- [has_path(path)](twig-components/method/has_path)
-- [html_attr](twig-components/method/html_attr)
-- [humanize](twig-components/method/humanize)
-- [image(onlyValues = false)](twig-components/method/image)
-- [intval](twig-components/method/intval)
-- [join(glue = "", and = null)](twig-components/method/join)
-- [json_decode(assoc = false, depth = 512, options = 0)](twig-components/method/json_decode)
-- [json_encode(options, depth)](twig-components/method/json_encode)
-- [json_records(includeDefinition = true, options = 0, locale = "")](twig-components/method/json_records)
-- [keys](twig-components/method/keys)
-- [knp_menu_as_string(separator = " > ")](twig-components/method/knp_menu_as_string)
-- [label](twig-components/method/label)
-- [language_name(locale = null)](twig-components/method/language_name)
-- [last](twig-components/method/last)
-- [length](twig-components/method/length)
-- [less(replace = "...", break = "<!-- pagebreak -->")](twig-components/method/less)
-- [line(line = 1)](twig-components/method/line)
-- [link(canonical = false, locale = null)](twig-components/method/link)
-- [linkify(protocols = ["http","mail"], attributes = [], mode = "normal")](twig-components/method/linkify)
-- [localdate(format = null, locale = null, timezone = null)](twig-components/method/localdate)
-- [locale_name(locale = null)](twig-components/method/locale_name)
-- [lower](twig-components/method/lower)
-- [map(arrow)](twig-components/method/map)
-- [markdown](twig-components/method/markdown)
-- [meaning](twig-components/method/meaning)
-- [media](twig-components/method/media)
-- [merge(arr2)](twig-components/method/merge)
-- [next(byColumn = "id", sameContentType = true)](twig-components/method/next)
-- [nl2br(is_xhtml)](twig-components/method/nl2br)
-- [normalize_records(locale = "")](twig-components/method/normalize_records)
-- [number_format(decimal = null, decimalPoint = null, thousandSep = null)](twig-components/method/number_format)
-- [order(on = "-publishedAt", onSecondary = null, locale = null)](twig-components/method/order)
-- [paragraph](twig-components/method/paragraph)
-- [placeholders(replacements = [])](twig-components/method/placeholders)
-- [plaintext](twig-components/method/plaintext)
-- [popup(width = 320, height = 240)](twig-components/method/popup)
-- [preg_filter(pattern, replacement = "", limit = -1)](twig-components/method/preg_filter)
-- [preg_get_all(pattern, group = 0)](twig-components/method/preg_get_all)
-- [preg_get(pattern, group = 0)](twig-components/method/preg_get)
-- [preg_grep(pattern, flags = "")](twig-components/method/preg_grep)
-- [preg_match(pattern)](twig-components/method/preg_match)
-- [preg_quote(delimiter = "\/")](twig-components/method/preg_quote)
-- [preg_replace(pattern, replacement = "", limit = -1)](twig-components/method/preg_replace)
-- [preg_split(pattern)](twig-components/method/preg_split)
-- [previous(byColumn = "id", sameContentType = true)](twig-components/method/previous)
-- [product](twig-components/method/product)
-- [raw](twig-components/method/raw)
-- [record](twig-components/method/record)
-- [reduce(arrow, initial = null)](twig-components/method/reduce)
-- [related_by_type(bidirectional = true, limit = null, publishedOnly = true)](twig-components/method/related_by_type)
-- [related_first(name = null, publishedOnly = true)](twig-components/method/related_first)
-- [related_options(order = null, format = "", required = false)](twig-components/method/related_options)
-- [related_values_from_content(unknown?)](twig-components/method/related_values_from_content)
-- [related_values(contentType)](twig-components/method/related_values)
-- [related(name = null, bidirectional = true, limit = null, publishedOnly = true)](twig-components/method/related)
-- [replace(from)](twig-components/method/replace)
-- [reverse(preserveKeys = false)](twig-components/method/reverse)
-- [round(precision = 0, method = "common")](twig-components/method/round)
-- [safestring(strict = false, extrachars = "")](twig-components/method/safestring)
-- [sanitise](twig-components/method/sanitise)
-- [selected(returnsingle = false, returnarray = false)](twig-components/method/selected)
-- [serialize(format = "json", context = [])](twig-components/method/serialize)
-- [showimage(width = null, height = null)](twig-components/method/showimage)
-- [shuffle](twig-components/method/shuffle)
-- [shy](twig-components/method/shy)
-- [slice(start, length = null, preserveKeys = false)](twig-components/method/slice)
-- [slug](twig-components/method/slug)
-- [sort(arrow = null)](twig-components/method/sort)
-- [spaceless](twig-components/method/spaceless)
-- [split(delimiter, limit = null)](twig-components/method/split)
-- [status_options](twig-components/method/status_options)
-- [striptags(allowable_tags)](twig-components/method/striptags)
-- [strtotime(now)](twig-components/method/strtotime)
-- [strval](twig-components/method/strval)
-- [sum](twig-components/method/sum)
-- [svg](twig-components/method/svg)
-- [taxonomies](twig-components/method/taxonomies)
-- [thumbnail(width = null, height = null, location = null, path = null, fit = null)](twig-components/method/thumbnail)
-- [timezone_name(locale = null)](twig-components/method/timezone_name)
-- [title_case](twig-components/method/title_case)
-- [title_fields_names(unknown?)](twig-components/method/title_fields_names)
-- [title(locale = "", length = 120)](twig-components/method/title)
-- [trans(arguments = [], domain = null, locale = null, count = null)](twig-components/method/trans)
-- [translate(locale)](twig-components/method/translate)
-- [trim(characterMask = null, side = "both")](twig-components/method/trim)
-- [truncate(length, replace = "...")](twig-components/method/truncate)
-- [type](twig-components/method/type)
-- [ucwords(delimiters = "")](twig-components/method/ucwords)
-- [upper](twig-components/method/upper)
-- [url_decode](twig-components/method/url_decode)
-- [url_encode](twig-components/method/url_encode)
-- [values](twig-components/method/values)
-- [yaml_dump(inline = 0, dumpObjects = 0)](twig-components/method/yaml_dump)
-- [yaml_encode(inline = 0, dumpObjects = 0)](twig-components/method/yaml_encode)
-
-
+- [abbr_class](twig-components/method/abbr_class)  <small>(Twig)</small>
+- [abbr_method](twig-components/method/abbr_method)  <small>(Twig)</small>
+- [abs](twig-components/method/abs)  <small>(Twig)</small>
+- [allow_twig(unknown?)](twig-components/method/allow_twig)  <small>(Bolt)</small>
+- [as_array](twig-components/method/as_array)  <small>(Jasny)</small>
+- [batch(size, fill = null, preserveKeys = true)](twig-components/method/batch)  <small>(Twig)</small>
+- [boolval](twig-components/method/boolval)  <small>(Squirrelphp)</small>
+- [capitalize](twig-components/method/capitalize)  <small>(Twig)</small>
+- [column(name, index = null)](twig-components/method/column)  <small>(Twig)</small>
+- [convert_encoding(to, from)](twig-components/method/convert_encoding)  <small>(Twig)</small>
+- [country_name(locale = null)](twig-components/method/country_name)  <small>(Twig)</small>
+- [currency_name(locale = null)](twig-components/method/currency_name)  <small>(Twig)</small>
+- [currency_symbol(locale = null)](twig-components/method/currency_symbol)  <small>(Twig)</small>
+- [current](twig-components/method/current)  <small>(Twig)</small>
+- [data_uri(mime = null, parameters = [])](twig-components/method/data_uri)  <small>(Twig)</small>
+- [date_modify(modifier)](twig-components/method/date_modify)  <small>(Twig)</small>
+- [date(format = null, timezone = null)](twig-components/method/date)  <small>(Bolt)</small>
+- [default(default = "")](twig-components/method/default)  <small>(Twig)</small>
+- [desc](twig-components/method/desc)  <small>(Twig)</small>
+- [doctrine_format_sql(highlight)](twig-components/method/doctrine_format_sql)  <small>(Doctrine)</small>
+- [doctrine_prettify_sql](twig-components/method/doctrine_prettify_sql)  <small>(Doctrine)</small>
+- [doctrine_pretty_query(highlightOnly = false)](twig-components/method/doctrine_pretty_query)  <small>(Doctrine)</small>
+- [doctrine_replace_query_parameters(parameters)](twig-components/method/doctrine_replace_query_parameters)  <small>(Doctrine)</small>
+- [e(strategy = "html", charset = null, autoescape = false)](twig-components/method/e)  <small>(Twig)</small>
+- [edit_link](twig-components/method/edit_link)  <small>(Bolt)</small>
+- [escape(strategy = "html", charset = null, autoescape = false)](twig-components/method/escape)  <small>(Twig)</small>
+- [excerpt(length = 280, includeTitle = false, focus = null, wrap = false)](twig-components/method/excerpt)  <small>(Bolt)</small>
+- [feature](twig-components/method/feature)  <small>(Twig)</small>
+- [file_excerpt(line, srcContext = 3)](twig-components/method/file_excerpt)  <small>()</small>
+- [file_link(line)](twig-components/method/file_link)  <small>()</small>
+- [file_relative](twig-components/method/file_relative)  <small>()</small>
+- [filter(arrow)](twig-components/method/filter)  <small>(Twig)</small>
+- [first](twig-components/method/first)  <small>(Twig)</small>
+- [floatval](twig-components/method/floatval)  <small>(Squirrelphp)</small>
+- [form_encode_currency(widget = "")](twig-components/method/form_encode_currency)  <small>(Forms)</small>
+- [format_*_number(number, attrs = [], type = "default", locale = null)](twig-components/method/format_*_number)  <small>(Twig)</small>
+- [format_args](twig-components/method/format_args)  <small>(Twig)</small>
+- [format_args_as_text](twig-components/method/format_args_as_text)  <small>(Twig)</small>
+- [format_bytes(precision = 2)](twig-components/method/format_bytes)  <small>(Twig)</small>
+- [format_currency(currency, attrs = [], locale = null)](twig-components/method/format_currency)  <small>(Twig)</small>
+- [format_date(dateFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null)](twig-components/method/format_date)  <small>(Twig)</small>
+- [format_datetime(dateFormat = "medium", timeFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null)](twig-components/method/format_datetime)  <small>(Twig)</small>
+- [format_file_from_text](twig-components/method/format_file_from_text)  <small>(Twig)</small>
+- [format_file(line, text = null)](twig-components/method/format_file)  <small>(Twig)</small>
+- [format_log_message(context)](twig-components/method/format_log_message)  <small>(Twig)</small>
+- [format_number(attrs = [], style = "decimal", type = "default", locale = null)](twig-components/method/format_number)  <small>(Twig)</small>
+- [format_time(timeFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null)](twig-components/method/format_time)  <small>(Twig)</small>
+- [format(args)](twig-components/method/format)  <small>(Twig)</small>
+- [has_path(path)](twig-components/method/has_path)  <small>(Bolt)</small>
+- [html_attr](twig-components/method/html_attr)  <small>(Jasny)</small>
+- [humanize](twig-components/method/humanize)  <small>(Twig)</small>
+- [image(onlyValues = false)](twig-components/method/image)  <small>(Bolt)</small>
+- [intval](twig-components/method/intval)  <small>(Squirrelphp)</small>
+- [join(glue = "", and = null)](twig-components/method/join)  <small>(Twig)</small>
+- [json_decode(assoc = false, depth = 512, options = 0)](twig-components/method/json_decode)  <small>(Bolt)</small>
+- [json_encode(options, depth)](twig-components/method/json_encode)  <small>(Twig)</small>
+- [json_records(includeDefinition = true, options = 0, locale = "")](twig-components/method/json_records)  <small>(Bolt)</small>
+- [keys](twig-components/method/keys)  <small>(Twig)</small>
+- [knp_menu_as_string(separator = " > ")](twig-components/method/knp_menu_as_string)  <small>(KNP Menu)</small>
+- [label](twig-components/method/label)  <small>(Bolt)</small>
+- [language_name(locale = null)](twig-components/method/language_name)  <small>(Twig)</small>
+- [last](twig-components/method/last)  <small>(Twig)</small>
+- [length](twig-components/method/length)  <small>(Twig)</small>
+- [less(replace = "...", break = "<!-- pagebreak -->")](twig-components/method/less)  <small>(Jasny)</small>
+- [line(line = 1)](twig-components/method/line)  <small>(Jasny)</small>
+- [link(canonical = false, locale = null)](twig-components/method/link)  <small>(Bolt)</small>
+- [linkify(protocols = ["http","mail"], attributes = [], mode = "normal")](twig-components/method/linkify)  <small>(Jasny)</small>
+- [localdate(format = null, locale = null, timezone = null)](twig-components/method/localdate)  <small>(Bolt)</small>
+- [locale_name(locale = null)](twig-components/method/locale_name)  <small>(Bolt)</small>
+- [lower](twig-components/method/lower)  <small>(Twig)</small>
+- [map(arrow)](twig-components/method/map)  <small>(Twig)</small>
+- [markdown](twig-components/method/markdown)  <small>(Bolt)</small>
+- [meaning](twig-components/method/meaning)  <small>()</small>
+- [media](twig-components/method/media)  <small>(Bolt)</small>
+- [merge(arr2)](twig-components/method/merge)  <small>(Twig)</small>
+- [next(byColumn = "id", sameContentType = true)](twig-components/method/next)  <small>(Bolt)</small>
+- [nl2br(is_xhtml)](twig-components/method/nl2br)  <small>(Twig)</small>
+- [normalize_records(locale = "")](twig-components/method/normalize_records)  <small>(Bolt)</small>
+- [number_format(decimal = null, decimalPoint = null, thousandSep = null)](twig-components/method/number_format)  <small>(Twig)</small>
+- [order(on = "-publishedAt", onSecondary = null, locale = null)](twig-components/method/order)  <small>(Twig)</small>
+- [paragraph](twig-components/method/paragraph)  <small>(Jasny)</small>
+- [placeholders(replacements = [])](twig-components/method/placeholders)  <small>(Bolt)</small>
+- [plaintext](twig-components/method/plaintext)  <small>(Bolt)</small>
+- [popup(width = 320, height = 240)](twig-components/method/popup)  <small>(Bolt)</small>
+- [preg_filter(pattern, replacement = "", limit = -1)](twig-components/method/preg_filter)  <small>(Jasny)</small>
+- [preg_get_all(pattern, group = 0)](twig-components/method/preg_get_all)  <small>(Jasny)</small>
+- [preg_get(pattern, group = 0)](twig-components/method/preg_get)  <small>(Jasny)</small>
+- [preg_grep(pattern, flags = "")](twig-components/method/preg_grep)  <small>(Jasny)</small>
+- [preg_match(pattern)](twig-components/method/preg_match)  <small>(Jasny)</small>
+- [preg_quote(delimiter = "\/")](twig-components/method/preg_quote)  <small>(Jasny)</small>
+- [preg_replace(pattern, replacement = "", limit = -1)](twig-components/method/preg_replace)  <small>(Jasny)</small>
+- [preg_split(pattern)](twig-components/method/preg_split)  <small>(Jasny)</small>
+- [previous(byColumn = "id", sameContentType = true)](twig-components/method/previous)  <small>(Bolt)</small>
+- [product](twig-components/method/product)  <small>(Jasny)</small>
+- [raw](twig-components/method/raw)  <small>()</small>
+- [record](twig-components/method/record)  <small>()</small>
+- [reduce(arrow, initial = null)](twig-components/method/reduce)  <small>()</small>
+- [related_by_type(bidirectional = true, limit = null, publishedOnly = true)](twig-components/method/related_by_type)  <small>(Bolt)</small>
+- [related_first(name = null, publishedOnly = true)](twig-components/method/related_first)  <small>(Bolt)</small>
+- [related_options(order = null, format = "", required = false)](twig-components/method/related_options)  <small>(Bolt)</small>
+- [related_values_from_content(unknown?)](twig-components/method/related_values_from_content)  <small>(Bolt)</small>
+- [related_values(contentType)](twig-components/method/related_values)  <small>(Bolt)</small>
+- [related(name = null, bidirectional = true, limit = null, publishedOnly = true)](twig-components/method/related)  <small>(Bolt)</small>
+- [replace(from)](twig-components/method/replace)  <small>(Twig)</small>
+- [reverse(preserveKeys = false)](twig-components/method/reverse)  <small>(Twig)</small>
+- [round(precision = 0, method = "common")](twig-components/method/round)  <small>(Twig)</small>
+- [safestring(strict = false, extrachars = "")](twig-components/method/safestring)  <small>(Bolt)</small>
+- [sanitise](twig-components/method/sanitise)  <small>(Bolt)</small>
+- [selected(returnsingle = false, returnarray = false)](twig-components/method/selected)  <small>(Bolt)</small>
+- [serialize(format = "json", context = [])](twig-components/method/serialize)  <small>(Twig)</small>
+- [showimage(width = null, height = null)](twig-components/method/showimage)  <small>(Bolt)</small>
+- [shuffle](twig-components/method/shuffle)  <small>(Twig)</small>
+- [shy](twig-components/method/shy)  <small>(Bolt)</small>
+- [slice(start, length = null, preserveKeys = false)](twig-components/method/slice)  <small>(Twig)</small>
+- [slug](twig-components/method/slug)  <small>(Bolt)</small>
+- [sort(arrow = null)](twig-components/method/sort)  <small>(Twig)</small>
+- [spaceless](twig-components/method/spaceless)  <small>(Twig)</small>
+- [split(delimiter, limit = null)](twig-components/method/split)  <small>(Twig)</small>
+- [status_options](twig-components/method/status_options)  <small>(Bolt)</small>
+- [striptags(allowable_tags)](twig-components/method/striptags)  <small>(Bolt)</small>
+- [strtotime(now)](twig-components/method/strtotime)  <small>(Squirrelphp)</small>
+- [strval](twig-components/method/strval)  <small>(Squirrelphp)</small>
+- [sum](twig-components/method/sum)  <small>(Jasny)</small>
+- [svg](twig-components/method/svg)  <small>(Bolt)</small>
+- [taxonomies](twig-components/method/taxonomies)  <small>(Bolt)</small>
+- [thumbnail(width = null, height = null, location = null, path = null, fit = null)](twig-components/method/thumbnail)  <small>(Bolt)</small>
+- [timezone_name(locale = null)](twig-components/method/timezone_name)  <small>(Twig)</small>
+- [title_case](twig-components/method/title_case)  <small>(Bolt)</small>
+- [title_fields_names(unknown?)](twig-components/method/title_fields_names)  <small>(Bolt)</small>
+- [title(locale = "", length = 120)](twig-components/method/title)  <small>(Bolt)</small>
+- [trans(arguments = [], domain = null, locale = null, count = null)](twig-components/method/trans)  <small>(Bolt)</small>
+- [translate(locale)](twig-components/method/translate)  <small>(Bolt)</small>
+- [trim(characterMask = null, side = "both")](twig-components/method/trim)  <small>(Bolt)</small>
+- [truncate(length, replace = "...")](twig-components/method/truncate)  <small>(Jasny)</small>
+- [type](twig-components/method/type)  <small>()</small>
+- [ucwords(delimiters = "")](twig-components/method/ucwords)  <small>(Bolt)</small>
+- [upper](twig-components/method/upper)  <small>(Twig)</small>
+- [url_decode](twig-components/method/url_decode)  <small>(Bolt)</small>
+- [url_encode](twig-components/method/url_encode)  <small>(Bolt)</small>
+- [values](twig-components/method/values)  <small>(Jasny)</small>
+- [yaml_dump(inline = 0, dumpObjects = 0)](twig-components/method/yaml_dump)  <small>(Twig)</small>
+- [yaml_encode(inline = 0, dumpObjects = 0)](twig-components/method/yaml_encode)  <small>(Twig)</small>
 
 ## Global
 
-- [app = object(Symfony\Bridge\Twig\AppVariable)](twig-components/method/app)
-- [config = object(Bolt\Configuration\Config)](twig-components/method/config)
-- [defaultLocale = "en"](twig-components/method/defaultLocale)
-
-
+- [app = object(Symfony\Bridge\Twig\AppVariable)](twig-components/method/app)  <small>(Bolt)</small>
+- [config = object(Bolt\Configuration\Config)](twig-components/method/config)  <small>(Bolt)</small>
+- [defaultLocale = "en"](twig-components/method/defaultLocale)  <small>(Bolt)</small>
 
 ## Tag
 
-- [apply](twig-components/method/apply)
-- [autoescape](twig-components/method/autoescape)
-- [block](twig-components/method/block)
-- [break](twig-components/method/break)
-- [cache](twig-components/method/cache)
-- [continue](twig-components/method/continue)
-- [deprecated](twig-components/method/deprecated)
-- [do](twig-components/method/do)
-- [embed](twig-components/method/embed)
-- [extends](twig-components/method/extends)
-- [flush](twig-components/method/flush)
-- [for](twig-components/method/for)
-- [foreach](twig-components/method/foreach)
-- [from](twig-components/method/from)
-- [if](twig-components/method/if)
-- [import](twig-components/method/import)
-- [include](twig-components/method/include)
-- [macro](twig-components/method/macro)
-- [sandbox](twig-components/method/sandbox)
-- [set](twig-components/method/set)
-- [setcontent](twig-components/method/setcontent)
-- [use](twig-components/method/use)
-- [verbatim](twig-components/method/verbatim)
-- [with](twig-components/method/with)
-
-
+- [apply](twig-components/method/apply)  <small>(Twig)</small>
+- [autoescape](twig-components/method/autoescape)  <small>(Twig)</small>
+- [block](twig-components/method/block)  <small>(Twig)</small>
+- [break](twig-components/method/break)  <small>(Squirrelphp)</small>
+- [cache](twig-components/method/cache)  <small>(Twig)</small>
+- [continue](twig-components/method/continue)  <small>(Squirrelphp)</small>
+- [deprecated](twig-components/method/deprecated)  <small>(Twig)</small>
+- [do](twig-components/method/do)  <small>(Twig)</small>
+- [embed](twig-components/method/embed)  <small>(Twig)</small>
+- [extends](twig-components/method/extends)  <small>(Twig)</small>
+- [flush](twig-components/method/flush)  <small>(Twig)</small>
+- [for](twig-components/method/for)  <small>(Twig)</small>
+- [foreach](twig-components/method/foreach)  <small>(Squirrelphp)</small>
+- [from](twig-components/method/from)  <small>(Twig)</small>
+- [if](twig-components/method/if)  <small>(Twig)</small>
+- [import](twig-components/method/import)  <small>(Twig)</small>
+- [include](twig-components/method/include)  <small>(Twig)</small>
+- [macro](twig-components/method/macro)  <small>(Twig)</small>
+- [sandbox](twig-components/method/sandbox)  <small>(Twig)</small>
+- [set](twig-components/method/set)  <small>(Twig)</small>
+- [setcontent](twig-components/method/setcontent)  <small>(Bolt)</small>
+- [use](twig-components/method/use)  <small>(Twig)</small>
+- [verbatim](twig-components/method/verbatim)  <small>(Twig)</small>
+- [with](twig-components/method/with)  <small>(Twig)</small>
 
 ## Test
 
-- [array](twig-components/method/array)
-- [bool](twig-components/method/bool)
-- [boolean](twig-components/method/boolean)
-- [callable](twig-components/method/callable)
-- [constant](twig-components/method/constant)
-- [defined](twig-components/method/defined)
-- [divisible by](twig-components/method/divisible)
-- [empty](twig-components/method/empty)
-- [even](twig-components/method/even)
-- [extension](twig-components/method/extension)
-- [false](twig-components/method/false)
-- [float](twig-components/method/float)
-- [int](twig-components/method/int)
-- [integer](twig-components/method/integer)
-- [iterable](twig-components/method/iterable)
-- [json](twig-components/method/json)
-- [knp_menu_ancestor](twig-components/method/knp_menu_ancestor)
-- [knp_menu_current](twig-components/method/knp_menu_current)
-- [none](twig-components/method/none)
-- [null](twig-components/method/null)
-- [object](twig-components/method/object)
-- [odd](twig-components/method/odd)
-- [rootform](twig-components/method/rootform)
-- [same as](twig-components/method/same)
-- [scalar](twig-components/method/scalar)
-- [selectedchoice](twig-components/method/selectedchoice)
-- [string](twig-components/method/string)
-- [true](twig-components/method/true)
+- [array](twig-components/method/array)  <small>(Squirrelphp)</small>
+- [bool](twig-components/method/bool)  <small>(Squirrelphp)</small>
+- [boolean](twig-components/method/boolean)  <small>(Squirrelphp)</small>
+- [callable](twig-components/method/callable)  <small>(Squirrelphp)</small>
+- [constant](twig-components/method/constant)  <small>(Twig)</small>
+- [defined](twig-components/method/defined)  <small>(Twig)</small>
+- [divisible by](twig-components/method/divisible)  <small>(Twig)</small>
+- [empty](twig-components/method/empty)  <small>(Twig)</small>
+- [even](twig-components/method/even)  <small>()</small>
+- [extension](twig-components/method/extension)  <small>()</small>
+- [false](twig-components/method/false)  <small>(Squirrelphp)</small>
+- [float](twig-components/method/float)  <small>(Squirrelphp)</small>
+- [int](twig-components/method/int)  <small>(Squirrelphp)</small>
+- [integer](twig-components/method/integer)  <small>(Squirrelphp)</small>
+- [iterable](twig-components/method/iterable)  <small>()</small>
+- [json](twig-components/method/json)  <small>()</small>
+- [knp_menu_ancestor](twig-components/method/knp_menu_ancestor)  <small>(KNP Menu)</small>
+- [knp_menu_current](twig-components/method/knp_menu_current)  <small>(KNP Menu)</small>
+- [none](twig-components/method/none)  <small>()</small>
+- [null](twig-components/method/null)  <small>()</small>
+- [object](twig-components/method/object)  <small>(Squirrelphp)</small>
+- [odd](twig-components/method/odd)  <small>()</small>
+- [rootform](twig-components/method/rootform)  <small>()</small>
+- [same as](twig-components/method/same)  <small>()</small>
+- [scalar](twig-components/method/scalar)  <small>(Squirrelphp)</small>
+- [selectedchoice](twig-components/method/selectedchoice)  <small>(Forms)</small>
+- [string](twig-components/method/string)  <small>()</small>
+- [true](twig-components/method/true)  <small>(Squirrelphp)</small>
 
 [twig]: http://twig.symfony.com/doc/templates.html

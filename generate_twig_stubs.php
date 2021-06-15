@@ -63,7 +63,7 @@ foreach ($twigData as $method) {
         $list[$method['type']] = sprintf("\n\n## %s\n\n", ucfirst($method['type']));
     }
 
-    $list[$method['type']] .= sprintf(" - [%s](twig-components/method/%s)\n", $method['name'], $plainName);
+    $list[$method['type']] .= sprintf("- [%s](twig-components/method/%s) <small>(%s)</small>\n", $method['name'], $plainName, $method['origin']);
     $links[] = sprintf("    - %s", $plainName);
 
     file_put_contents('docs/twig-components/method/' . $plainName . '.md', $output);
