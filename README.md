@@ -48,11 +48,11 @@ composer install
 
 ### Worktrees Set-up
 
-An example that sets up work trees for version 3.0 of the documentation
+An example that sets up work trees for version 4.0 of the documentation
 branches:
 
 ```
-git worktree add -b 3.0 var/versions/3.0
+git worktree add -b 4.0 var/versions/4.0
 ```
 
 Alternatively, if you have `grep` and `sed` installed, this will set up all of
