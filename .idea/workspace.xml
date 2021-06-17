@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a29ad82-eb8a-4b54-a7ed-d6387857665e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/docs/twig-components/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/twig-components/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/twig-components/method/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/twig-components/method/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/twig-components/method/render.md" beforeDir="false" />
+    <list default="true" id="8a29ad82-eb8a-4b54-a7ed-d6387857665e" name="Default Changelist" comment="Initial commit 5.0 with correction to *_files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/twig-components/method/abbr_class.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/twig-components/method/abbr_class.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/twig-components/method/abbr_method.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/twig-components/method/abbr_method.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/twig-components/method/abs.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/twig-components/method/abs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/twig-components/method/apply.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/twig-components/method/apply.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/twig-components/method/asset.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/twig-components/method/asset.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/twig-components/method/asset_version.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/twig-components/method/asset_version.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/twig-components/method/attribute.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/twig-components/method/attribute.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/twig-components/method/autoescape.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/twig-components/method/autoescape.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -24,6 +30,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -39,11 +46,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1623744320008</updated>
-      <workItem from="1623744321280" duration="3993000" />
+      <workItem from="1623744321280" duration="5599000" />
+      <workItem from="1623916100057" duration="3904000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit 5.0 with correction to *_files">
+      <created>1623752884501</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623752884501</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit 5.0 with correction to *_files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit 5.0 with correction to *_files" />
   </component>
 </project>
