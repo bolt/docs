@@ -164,7 +164,9 @@ class PageBuilder
 
     protected function loadPage($file): Page
     {
-        if (! \is_readable($this->root . $file)) {
+        $rootFile = $this->root . $file;
+
+        if (! \is_readable($rootFile)) {
             throw new FileNotFoundException($file);
         }
 
@@ -173,9 +175,11 @@ class PageBuilder
         $page->setVersion($this->version);
         $page->setPath($file);
 
-        $document = \file_get_contents($this->root . $file);
+        $document = \file_get_contents($rootFile);
+
         if (\mb_strpos($document, '---') === 0) {
-            $parts = \explode("---\n", $document, 3);
+            $parts = \explode("---", $document, 3);
+
             $source = $parts[2];
             $page->setVariables($this->yamlParser->parse($parts[1]));
         } else {
