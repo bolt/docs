@@ -8,10 +8,10 @@ The Bolt Permissions System
 Bolt uses a [Role-Based Permission](https://en.wikipedia.org/wiki/Role-based_access_control)
 system. This means that:
 
-* Every *user* can be a member of zero or more *roles*
+* Every *user* can have zero or more *roles*
 * Every *role* can grant zero or more *permissions*
 * The same *permission* can be granted through several different *roles*
-* Several users can be members of the same *role*
+* Several users can have the same *role*
 * Every permission-protected *action* requires a given *permission*, or
   possibly a combination of *permissions*
 * The same *permission* can govern more than one *action*, but usually we try
@@ -32,14 +32,17 @@ permissions you don't want them to have. Two important considerations:
 
  1. Permissions are quite central to Bolt's inner workings, and by
     misconfiguring them, you can lock yourself out - for example, removing the
-    `anonymous` role from the `login` or `postLogin` permissions will make
-    logging in completely impossible: you will not even be allowed to see the
-    login page.
+    `IS_AUTHENTICATED_REMEMBERED` role from the `dashboard` permission will make
+    the bolt dashboard completely inaccessible for everyone.
 
- 2. If somebody has the permission to `useredit`, they can also grant
-    permissions to themselves or others. This means they can make themselves
-    `root`, or take away `root` from others. In short: **Do _not_ give someone
-    `edit users` permission, unless you trust them fully!!**
+ 2. If somebody has the permission to `user:edit`, they can also grant
+    permissions to themselves or others. This means they can give themselves
+    roles with more permissions, or take away those roles from others.
+    This is similar for a lot of permissions that are by default assigned
+    to ROLE_ADMIN only.
+    In short: **Do _not_ give someone the `ROLE_ADMIN` (or `ROLE_DEVELOPER`) role, 
+    or change the setup in a way that they have permission to do things that were
+    previously only accessible to ROLE_ADMIN unless you trust them fully!!**
 
 
 The `permissions.yml` File Format
@@ -64,15 +67,15 @@ Permissions fall into two categories: *global permissions* and
 *per-ContentType permissions*.
 
 **Global permissions** govern actions that are not specific to any ContentType,
-such as editing configuration files, modifying users, logging in and out,
+such as editing configuration files, modifying users,
 performing database maintenance, etc. These permissions can be found in the
 `global:` section of the `permissions.yml` file; most of them map directly to a
-URL route in the Bolt back-end, e.g. the `global:translation` permission maps
+URL route in the Bolt back-end, e.g. the `translation` permission maps
 to `http://your-domain.org/bolt/translation`. The default configuration file
 describes those permissions in more detail that do not follow this mapping.
 
 **Per-ContentType permissions** govern actions specific to a ContentType. They
-are defined in three "layers": the `contenttype-all`, `contenttype-default`,
+are defined in three "layers": the `contenttype-base`, `contenttype-default`,
 and `contenttypes` sections. The way these work is a bit tricky to wrap one's
 head around, but it allows for maximum flexibility without too much clutter.
 
@@ -83,15 +86,16 @@ For each ContentType, the following permissions are available:
 | `create` | required to create new records |
 | `edit` | required to modify existing records |
 | `delete` | required to delete existing records; (note that it is usually preferable to disallow deletion entirely, and use depublication instead,  because deletion cannot be undone) |
-| `publish` and `depublish` | required to change the publication state of a record |
-| `change-ownership` | required to transfer ownership of a record to another user |
+| `change-status` | required to change the publication state of a record |
+| `change-ownership` | required to transfer ownership of a record to another user (NOT IMPLEMENTED YET) |
+| `view` | required to view a record in the admin interface (_not_ in the front end) -- note that the permissions above implicitly allow `view` as well|
 
 How ContentType Specific Permissions Are Calculated
 ----------------------------------------------------
 For ContentType related actions, permissions can be set individually for each
 ContentType. For this, we define three groups of permission sets.
 
- - The `contenttype-all` permission sets *overrides*; any roles specified here
+ - The `contenttype-base` permission sets *overrides*; any roles specified here
    will grant a permission for all ContentTypes, regardless of the rest of this
    section.
  - The `contenttype-default` contains rules that are used when the desired
@@ -99,14 +103,11 @@ ContentType. For this, we define three groups of permission sets.
  - The `contenttypes` section specifies permissions for individual
    ContentTypes.
 
-To understand how this works, it may be best to follow the permission checker
+To understand how this works, it may be best to follow the `ContentVoter`
 through its decision-making process.
 
-First, it checks whether the current user is in the `root` role; if so, it
-short-circuits and always grants anything unconditionally.
-
-Otherwise, it checks whether any of the current user's roles match any of the
-roles in `contenttype-all/{permission}`. If so, the search is over, and the
+It checks whether any of the current user's roles match any of the
+roles in `contenttype-base/{permission}`. If so, the search is over, and the
 permission can be granted.
 
 The next step is to find `contenttypes/{contenttype}/{permission}`. If it is
@@ -127,39 +128,49 @@ default`; but if the permission is not mentioned, the corresponding entry in
 
 Configuring Roles
 -----------------
-A simple web site will typically use a three-tiered role system: editors,
-administrators, and developers. Such a system matches the access-level based
-system found in earlier Bolt versions. Available roles can be configured in the
-`roles:` section of the `permissions.yml`.
+Bolt uses [Symfony Security](https://symfony.com/doc/current/security.html)
+for its Roles and Permissions setup. Because of this part of the security configuration
+is in `config/packages/security.yaml`.
 
-Besides the user-configurable roles, Bolt implements four built-in roles that
-cannot be changed (but they *can* be configured to grant permissions). These
-roles are:
+The default setup will contain the following assignable roles: `ROLE_DEVELOPER`, `ROLE_ADMIN`, 
+`ROLE_CHIEF_EDITOR`, `ROLE_EDITOR`, `ROLE_USER`.
 
-* `root`, the "superuser" role; Bolt will automatically grant all permissions
-  to this role. Manually adding it to any permission is pointless, because it
-  implicitly grants every permission anyway.
-* `everyone`, the "anonymous" role; every user automatically has this role.
-  Adding the `everyone` role to any permission will grant it to all users.
-* `owner`: this role is only valid in the context of an individual content
-  item, and the user who "owns" the item (usually the person who created it)
-  will be in the `owner` role.
-* `anonymous`: this role is automatically assigned at all times, even when no
-  user is
-  logged in at all.
+These roles are put in a hierarchy specified in `config/packages/security.yaml`, this 
+means that in the order specified above every role also has the permissions given to
+the roles that are following it. (So `ROLE_ADMIN` can do everything `ROLE_CHIEF_EDITOR` can do etc.)
+
+Below is an explanation of permissions for these roles in general terms, as
+configured by default. Always check `config/bolt/permissions.yaml` if you want
+to be certain.
+
+`ROLE_USER` is the role a user gets when there is no role set. It doesn't
+give access to anything in the bolt admin.
+
+`ROLE_EDITOR` is to be used when you want to limit the contenttypes that can be
+edited.
+
+`ROLE_CHIEF_EDITOR` is for the main editor of the website - the default setup is
+such that this role allows editing _all_ contenttypes.
+
+`ROLE_ADMIN` can do everything that is possible
+
+`ROLE_DEVELOPER` can 'switch user', a function that is really convenient during 
+development when you want to check the effects of security settings for other accounts.
+
+There are also roles that should not be assigned in the config files. 
+See for example `CONTENT_OWNER` below.
 
 Content Ownership
 -----------------
 
 Every record of a ContentType has an *owner*; depending on the configuration,
-the owner may have more permissions on a record than other users; this is
-governed by the magic `owner` role, which is assigned automatically by Bolt
-within the context of a content
-item.
+the owner may have more permissions on a record than other users. This is
+governed by the `CONTENT_OWNER` role. `CONTENT_OWNER` is assigned automatically by Bolt
+within the context of a content item.
 
 Ownership of a content item defaults to the user who created it, but it can be
-transferred explicitly. Transferring ownership is governed by the `change-
-ownership` permission.
+transferred explicitly. Transferring ownership is governed by the `change-ownership` 
+permission. (NOT IMPLEMENTED YET)
 
 An Example: Editors and Chief Editors
 -------------------------------------
@@ -169,19 +180,18 @@ content, but only the chief editor can decide if and when it is published. Each
 editor is allowed to edit her own work, but not someone else's; the chief
 editor, however, should be able to redact everyone's articles.
 
-To achieve this, grant the `create` permission to a role named `editor`, and
-the `publish` and `depublish` permissions to a role named `chief-editor`.
-Additionally, grant `edit` to the magic `owner` role and to `chief-editor`.
+To achieve this, grant the `create` permission to a role named `ROLE_EDITOR`, and
+the `change-status` permissions to a role named `ROLE_CHIEF_EDITOR`.
+Additionally, grant `edit` to the `CONTENT_OWNER` role and to `ROLE_CHIEF_EDITOR`.
 
 This is what it looks like in `permissions.yml`:
 
 ```
 contenttype-default:
-    edit: [ owner, chief-editor ]
-    create: [ editor, chief-editor ]
-    publish: [ chief-editor ]
-    depublish: [ chief-editor ]
-    change-ownership: [ chief-editor ]
+    edit: [ CONTENT_OWNER, ROLE_CHIEF_EDITOR ]
+    create: [ ROLE_EDITOR, ROLE_CHIEF_EDITOR ]
+    change-status: [ ROLE_CHIEF_EDITOR ]
+    change-ownership: [ ROLE_CHIEF_EDITOR ]
 ```
 
 
@@ -189,57 +199,43 @@ Manually Checking Permissions
 -----------------------------
 
 Sometimes, you want to check permissions as part of a template or extension.
-This is perfectly possible: Bolt exposes permission checks to extensions
-through the `$app['user']->isAllowed()` method, and to templates through the
-`isallowed()` template function. These functions both take a *permission query*
-as their argument; the grammar for these is as follows:
+You can use the default Symfony functionality for this.
+In code you can inject the `Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface` 
+and use it like `$authorizationChecker->isGranted('permissionname'))`
+In twig templates the `is_granted('permissionname')` is available. 
+If the permission is object specific you should pass that object (content item)
+as a second parameter, e.g. `is_granted('change-status', record)` 
 
-```
-permission-query := or-query | allow-all
-
-allow-all := '' # -> always grant
-
-or-query := and-query [ ( or, and-query ) ... ] # -> grant iff any of the subparts grant
-or := 'or' | '|' | '||' # -> case-insensitive
-
-and-query := simple-query [ ( and, simple-query ) ... ] # -> grant iff all of the subparts grant
-and := 'and' | '&' | '&&' # -> case-insensitive
-
-simple-query := true | false | permission
-
-true := 'true' # -> case insensitive, always grant
-false := 'false' # -> case insensitive, never grant
-permission := word [ ( ':', word) ... ] # -> a tuple of permission specifier parts, as outlined above.
-```
-
-Additionally, you can pass a ContentType slug and a content ID as optional arguments; by
-doing so, the query is run against those instead of at the global "scope".
 
 A few examples:
 
 ```php
-# view any page and view any entry, *or* edit any entry
-isallowed("(contenttype:pages:view and contenttype:entries:view) or contenttype:entries:edit")
+# check if the currently authenticated user has permission to view the dashboard
+/** @var AuthorizationCheckerInterface $authorizationChecker */
+$authorizationChecker->isGranted('dashboard');
 ```
 
-```php
-# create new foobars, edit foobar #1, or delete foobar #1
-isallowed("contenttype:foobar:create or contenttype:foobar:edit:1 or contenttype:foobar:delete:1")
+```twig
+# check if the currently authenticated user can change the status of this record:
+is_granted('change-status', record)
 ```
-
-```php
-# for item #23, check if any permission is granted that would allow viewing:
-isallowed("frontend or view or edit", "items", 23)
-```
-
 
 Debugging Permissions
 ---------------------
 
-If enabled, permission auditing logs to the system log details of which
-permissions are granted or denied during a request. It is not suitable for
-normal production use.
+Use the symfony toolbar to debug permissions in combination with the 'switch user'
+functionality available to users with the `ROLE_DEVELOPER` role.
 
-```yaml
-debug_permission_audit_mode: true
-```
+Extending the Permission System
+---------------------
+
+Bolt uses [Symfony Security](https://symfony.com/doc/current/security.html), this
+makes it relatively easy to obtain documentation and tips on how to achieve what you want.
+Start by reading the linked documentation when you want to make a change.
+The Bolt classes that implement the Bolt specific functionality are 
+in the `Bolt\Security` namespace. `ContentVoter` and `GlobalVoter` are doing most
+of the decision making. (Strictly speaking they are only 'voting' and the decision is
+made elsewhere in the security system)
+
+If you search the bolt core code for `isGranted` and the templates for `is_granted` you will 
+find almost all places where security checks are currently used.
