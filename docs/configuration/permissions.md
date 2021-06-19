@@ -237,5 +237,5 @@ in the `Bolt\Security` namespace. `ContentVoter` and `GlobalVoter` are doing mos
 of the decision making. (Strictly speaking they are only 'voting' and the decision is
 made elsewhere in the security system)
 
-If you search the bolt core code for `isGranted` and the templates for `is_granted` you will 
+If you search the Bolt core code for `isGranted` and the templates for `is_granted` you will 
 find almost all places where security checks are currently used.
