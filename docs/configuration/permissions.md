@@ -33,7 +33,7 @@ permissions you don't want them to have. Two important considerations:
  1. Permissions are quite central to Bolt's inner workings, and by
     misconfiguring them, you can lock yourself out - for example, removing the
     `IS_AUTHENTICATED_REMEMBERED` role from the `dashboard` permission will make
-    the bolt dashboard completely inaccessible for everyone.
+    the Bolt dashboard completely inaccessible for everyone.
 
  2. If somebody has the permission to `user:edit`, they can also grant
     permissions to themselves or others. This means they can give themselves
