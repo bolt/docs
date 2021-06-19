@@ -11,7 +11,7 @@ system. This means that:
 * Every *user* has zero or more *roles*
 * Every *role* can grant zero or more *permissions*
 * The same *permission* can be granted through several different *roles*
-* Several users can have the same *role*
+* Several users can have the same *role*, and one role can be granted to multiple *users*
 * Every permission-protected *action* requires a given *permission*, or
   possibly a combination of *permissions*
 * The same *permission* can govern more than one *action*, but usually we try
