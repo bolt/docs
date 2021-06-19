@@ -8,7 +8,7 @@ The Bolt Permissions System
 Bolt uses a [Role-Based Permission](https://en.wikipedia.org/wiki/Role-based_access_control)
 system. This means that:
 
-* Every *user* can have zero or more *roles*
+* Every *user* has zero or more *roles*
 * Every *role* can grant zero or more *permissions*
 * The same *permission* can be granted through several different *roles*
 * Several users can have the same *role*
