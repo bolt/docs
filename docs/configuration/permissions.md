@@ -144,7 +144,7 @@ configured by default. Always check `config/bolt/permissions.yaml` if you want
 to be certain.
 
 `ROLE_USER` is the role a user gets when there is no role set. It doesn't
-give access to anything in the bolt admin.
+give access to anything in the Bolt administration panel.
 
 `ROLE_EDITOR` is to be used when you want to limit the contenttypes that can be
 edited.
