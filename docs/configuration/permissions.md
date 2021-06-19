@@ -42,7 +42,7 @@ permissions you don't want them to have. Two important considerations:
     to ROLE_ADMIN only.
     In short: **Do _not_ give someone the `ROLE_ADMIN` (or `ROLE_DEVELOPER`) role, 
     or change the setup in a way that they have permission to do things that were
-    previously only accessible to ROLE_ADMIN unless you trust them fully!!**
+    previously only accessible to `ROLE_ADMIN` unless you trust them fully!**
 
 
 The `permissions.yml` File Format
