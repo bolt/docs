@@ -1,48 +1,74 @@
 # autoescape
 
-`autoescape` is a Twig tag to, whether automatic escaping is enabled or not, mark a section of a template to be
-escaped or not by using the autoescape tag:
+`autoescape` 
 
-`{% autoescape %}`<br>
-Everything will be automatically escaped in this block using the HTML strategy<br>
-`{% endautoescape %}`
+Whether automatic escaping is enabled or not, mark a section of a template to be
+escaped or not by using the `autoescape` tag:
 
-`{% autoescape 'html' %}`<br>
-Everything will be automatically escaped in this block using the HTML strategy<br>
-`{% endautoescape %}`
 
-`{% autoescape 'js' %}`<br>
-Everything will be automatically escaped in this block using the js escaping strategy<br>
-`{% endautoescape %}`
+{% autoescape %}
+Everything will be automatically escaped in this block using the HTML strategy
+{% endautoescape %}</pre>
 
-`{% autoescape false %}`<br>
-Everything will be outputted as is in this block<br>
-`{% endautoescape %}` 
+<br>
+`{% autoescape 'html' %}`
 
+&emsp;Everything will be automatically escaped in this block using the HTML strategy
+```twig
+{% endautoescape %}
+```
+<br>
+`{% autoescape 'js' %}`
+
+&emsp;Everything will be automatically escaped in this block using the js escaping strategy
+
+```twig
+{% endautoescape %}
+```
+
+<br>
+<pre style="width: auto">{% autoescape false %}</pre>
+
+&emsp;Everything will be outputted as is in this block
+
+<pre style="width: auto">{% endautoescape %}</pre>
+
+<br>
 When automatic escaping is
 enabled everything is escaped by default except for values explicitly marked as safe. Those can be marked in the
-template by using the raw filter:
+template by using the <u>raw</u> filter:
 
-`{% autoescape %}`<br>
-&emsp;`{{ safe_value|raw }}`<br>
-`{% endautoescape %} `
+<pre style="width: auto">{% autoescape %}
+    {{ safe_value|raw }}
+{% endautoescape %}</pre>
 
+<br>
 Functions returning template data (like macros and parent)
 always return safe markup.
 
-Note
+<div style="background-color: #f5f5f5;">
+<p><strong>Note</strong></p>
 
-Twig is smart enough to not escape an already escaped value by the escape filter.
+<p>Twig is smart enough to not escape an already escaped value by the escape filter.</p>
+</div>
+<br>
+<div style="background-color: #f5f5f5;">
+<p><strong>Note</strong></p>
 
-Note
+<p>Twig does not escape static expressions:</p>
 
-Twig does not escape static expressions:
 
-{% set hello = "<strong>Hello</strong>" %} {{ hello }} {{ "<strong>world</strong>" }} Will be rendered "<strong>
-Hello</strong> world".
+<pre style="width: auto">{% set hello = "&lt;strong&gt;Hello&lt;/strong&gt;" %}
+{{ hello }}
+{{ "&lt;strong&gt;world&lt;/strong&gt;" }} </pre>
 
-Note
+
+Will be rendered "&lt;strong&gt;Hello&lt;/strong&gt; <strong>world</strong>".
+</div>
+
+Note:
 
 The chapter Twig for Developers gives more information about when and how automatic escaping is applied.
+
 
 Source: [Twig](https://twig.symfony.com/autoescape)

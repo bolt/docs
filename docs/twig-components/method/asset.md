@@ -1,6 +1,10 @@
 # asset
 
-`asset(path, packageName = null)` is a Twig function to return the public path of the given asset path (which can be a
+`asset(path, packageName = null)` 
+
+type: `string` | null default: `null`
+
+`asset` is a Twig function to return the public path of the given asset path (which can be a
 CSS file, a JavaScript file, an image path, etc.). This function takes into account where the application is installed (
 e.g. in case the project is accessed in a host subdirectory) and the optional asset package base path.
 
