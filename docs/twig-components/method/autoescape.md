@@ -6,32 +6,25 @@ Whether automatic escaping is enabled or not, mark a section of a template to be
 escaped or not by using the `autoescape` tag:
 
 
-{% autoescape %}
-Everything will be automatically escaped in this block using the HTML strategy
+<pre>{% autoescape %}
+    Everything will be automatically escaped in this block using the HTML strategy
+{% endautoescape %}</pre>
+<br>
+
+<pre>{% autoescape 'html' %}
+    Everything will be automatically escaped in this block using the HTML strategy
 {% endautoescape %}</pre>
 
 <br>
-`{% autoescape 'html' %}`
+<pre>{% autoescape 'js' %}`
+    Everything will be automatically escaped in this block using the js escaping strategy
+{% endautoescape %}</pre>
 
-&emsp;Everything will be automatically escaped in this block using the HTML strategy
-```twig
-{% endautoescape %}
-```
-<br>
-`{% autoescape 'js' %}`
-
-&emsp;Everything will be automatically escaped in this block using the js escaping strategy
-
-```twig
-{% endautoescape %}
-```
 
 <br>
-<pre style="width: auto">{% autoescape false %}</pre>
-
-&emsp;Everything will be outputted as is in this block
-
-<pre style="width: auto">{% endautoescape %}</pre>
+<pre style="width: auto">{% autoescape false %}
+    Everything will be outputted as is in this block
+{% endautoescape %}</pre>
 
 <br>
 When automatic escaping is
