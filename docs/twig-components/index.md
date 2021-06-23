@@ -165,7 +165,7 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [country_name(locale = null)](twig-components/method/country_name)  <small>(Twig)</small>
 - [currency_name(locale = null)](twig-components/method/currency_name)  <small>(Twig)</small>
 - [currency_symbol(locale = null)](twig-components/method/currency_symbol)  <small>(Twig)</small>
-- [current](twig-components/method/current)  <small>(Twig)</small>
+- [current](twig-components/method/current)  <small>(Bolt)</small>
 - [data_uri(mime = null, parameters = [])](twig-components/method/data_uri)  <small>(Twig)</small>
 - [date_modify(modifier)](twig-components/method/date_modify)  <small>(Twig)</small>
 - [date(format = null, timezone = null)](twig-components/method/date)  <small>(Bolt)</small>

@@ -3,7 +3,7 @@
 `{{ method|abbr_method }}`
 
 `method`<br>
-type: `string`
+&emsp;type: `string`
 
 `abbr_method` generates an <abbr> element using the FQCN::method() syntax. If method is Closure,
 Closure will be used instead and if method doesn’t have a class name, it’s shown as a function (method()).

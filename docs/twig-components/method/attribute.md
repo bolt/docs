@@ -1,22 +1,24 @@
 # attribute
 
-`attribute`
+`attribute` is a Twig function that can be used to access a "dynamic" attribute of a variable:
 
-The attribute function can be used to access a "dynamic" attribute of a variable:
-
-`{{ attribute(object, method) }}`<br>
-`{{ attribute(object, method, arguments) }}`<br>
-`{{ attribute(array, item) }}`<br>
+```twig
+{{ attribute(object, method) }}
+{{ attribute(object, method, arguments) }}
+{{ attribute(array, item) }}
+```
 
 In addition, the defined test can check for the existence of a dynamic attribute:
 
-`{{ attribute(object, method) is defined ? 'Method exists' : 'Method does not exist' }}`
-
+```twig
+{{ attribute(object, method) is defined ? 'Method exists' : 'Method does not exist' }}
 ```
-Note:
+
+
+### Note:
 
 The resolution algorithm is the same as the one used for the . notation, except that the item can be any valid expression.
-```
+
 
 
 Source: [Twig](https://twig.symfony.com/attribute)
