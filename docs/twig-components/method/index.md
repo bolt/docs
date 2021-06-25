@@ -50,7 +50,6 @@ pages:
 - defaultLocale
 - defined
 - deprecated
-- desc
 - divisible
 - dns_prefetch
 - do

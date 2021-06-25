@@ -170,7 +170,6 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [date_modify(modifier)](twig-components/method/date_modify)  <small>(Twig)</small>
 - [date(format = null, timezone = null)](twig-components/method/date)  <small>(Bolt)</small>
 - [default(default = "")](twig-components/method/default)  <small>(Twig)</small>
-- [desc](twig-components/method/desc)  <small>(Twig)</small>
 - [doctrine_format_sql(highlight)](twig-components/method/doctrine_format_sql)  <small>(Doctrine)</small>
 - [doctrine_prettify_sql](twig-components/method/doctrine_prettify_sql)  <small>(Doctrine)</small>
 - [doctrine_pretty_query(highlightOnly = false)](twig-components/method/doctrine_pretty_query)  <small>(Doctrine)</small>
