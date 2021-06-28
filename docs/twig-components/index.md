@@ -132,7 +132,7 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [related_values_from_content(unknown?)](twig-components/method/related_values_from_content)  <small>(Bolt)</small>
 - [related_values(source, contentType)](twig-components/method/related_values)  <small>(Bolt)</small>
 - [relative_path(path)](twig-components/method/relative_path)  <small>(Bolt)</small>
-- [render_*(strategy, uri, options = [])](twig-components/method/render_*)  <small>()</small>
+- [render_*(strategy, uri, options = [])](twig-components/method/render_)  <small>()</small>
 - [render(uri, options = [])](twig-components/method/render)  <small>()</small>
 - [secret(slug)](twig-components/method/secret)  <small>(Bolt)</small>
 - [select_options(field)](twig-components/method/select_options)  <small>(Bolt)</small>
@@ -165,12 +165,11 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [country_name(locale = null)](twig-components/method/country_name)  <small>(Twig)</small>
 - [currency_name(locale = null)](twig-components/method/currency_name)  <small>(Twig)</small>
 - [currency_symbol(locale = null)](twig-components/method/currency_symbol)  <small>(Twig)</small>
-- [current](twig-components/method/current)  <small>(Twig)</small>
+- [current](twig-components/method/current)  <small>(Bolt)</small>
 - [data_uri(mime = null, parameters = [])](twig-components/method/data_uri)  <small>(Twig)</small>
 - [date_modify(modifier)](twig-components/method/date_modify)  <small>(Twig)</small>
 - [date(format = null, timezone = null)](twig-components/method/date)  <small>(Bolt)</small>
 - [default(default = "")](twig-components/method/default)  <small>(Twig)</small>
-- [desc](twig-components/method/desc)  <small>(Twig)</small>
 - [doctrine_format_sql(highlight)](twig-components/method/doctrine_format_sql)  <small>(Doctrine)</small>
 - [doctrine_prettify_sql](twig-components/method/doctrine_prettify_sql)  <small>(Doctrine)</small>
 - [doctrine_pretty_query(highlightOnly = false)](twig-components/method/doctrine_pretty_query)  <small>(Doctrine)</small>
@@ -187,7 +186,7 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [first](twig-components/method/first)  <small>(Twig)</small>
 - [floatval](twig-components/method/floatval)  <small>(Squirrelphp)</small>
 - [form_encode_currency(widget = "")](twig-components/method/form_encode_currency)  <small>(Forms)</small>
-- [format_*_number(number, attrs = [], type = "default", locale = null)](twig-components/method/format_*_number)  <small>(Twig)</small>
+- [format_*_number(number, attrs = [], type = "default", locale = null)](twig-components/method/format__number)  <small>(Twig)</small>
 - [format_args](twig-components/method/format_args)  <small>(Twig)</small>
 - [format_args_as_text](twig-components/method/format_args_as_text)  <small>(Twig)</small>
 - [format_bytes(precision = 2)](twig-components/method/format_bytes)  <small>(Twig)</small>

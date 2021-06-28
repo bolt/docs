@@ -50,7 +50,6 @@ pages:
 - defaultLocale
 - defined
 - deprecated
-- desc
 - divisible
 - dns_prefetch
 - do
@@ -109,7 +108,7 @@ pages:
 - form_start
 - form_widget
 - format
-- format_*_number
+- format__number
 - format_args
 - format_args_as_text
 - format_bytes
@@ -233,7 +232,6 @@ pages:
 - related_values
 - related_values_from_content
 - relative_path
-- render
 - render_
 - replace
 - reverse
