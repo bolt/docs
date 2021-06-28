@@ -104,6 +104,11 @@ true if the checkbox was checked, and 0 for false if it wasn’t checked.
 A field to store whole numbers. The value must be between -2147483648 and
 +2147483647. Often used for storing things like prices of products.
 
+To use an integer in a Twig calculation, its value must be extracted, e.g. 
+```
+{% set bonus = (myinteger.parsedValue + 300) %}
+```
+
 ### Float
 
 <a href="https://user-images.githubusercontent.com/7093518/91531685-77ae9c00-e90d-11ea-95d6-df32970b9b32.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91531685-77ae9c00-e90d-11ea-95d6-df32970b9b32.png"></a><br>
