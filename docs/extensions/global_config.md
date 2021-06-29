@@ -1,0 +1,5 @@
+Global (Bolt) Configuration
+===========================
+
+[todo]
+
