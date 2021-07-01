@@ -1,6 +1,6 @@
 # from
 
-`from` is a Twig tag to ...
-
+`from` is a Twig tag to import [macro](https://twig.symfony.com/doc/3.x/tags/macro.html) names into the current namespace. The tag is documented in detail in
+the documentation for the [macro](https://twig.symfony.com/doc/3.x/tags/macro.html) tag.
 
 Source: [Twig](https://twig.symfony.com/from)

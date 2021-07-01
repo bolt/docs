@@ -6,12 +6,10 @@
 {{ file|file_link(line) }}
 ```
 
-file
-
+file <br>
 type: `string`
 
-line
-
+line<br>
 type: `integer`
 
 Source: [Twig](https://symfony.com/doc/current/reference/twig_reference.html#file-link)
