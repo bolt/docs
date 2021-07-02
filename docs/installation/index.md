@@ -7,4 +7,6 @@ pages:
     # - manual-download-and-extraction
     - permissions
     - webserver
+    - deployment
+
 ---
