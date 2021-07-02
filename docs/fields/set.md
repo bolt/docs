@@ -26,7 +26,7 @@ The configuration of a Set field consists of a few parts:
  - A `fields` key, that contains one or more sub-fields, for example `text`,
    `image`, `html` and `select`.
 
-A straighforward example can look like this:
+A straightforward example can look like this:
 
 ```yaml
         contentset:
