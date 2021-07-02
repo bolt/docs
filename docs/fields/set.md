@@ -33,6 +33,7 @@ A straighforward example can look like this:
             type: set
             label: Content Set
             group: Sets
+            icon: "fa-gift"
             fields:
                 image:
                     label: Image with description
@@ -110,6 +111,7 @@ Example:
             type: set
             label: Content Set
             group: Sets
+            icon: "fa-gift"
             fields:
                 image:
                     label: Image with description
@@ -126,3 +128,7 @@ Example:
 value of a <code>text</code> field is a string, while the default for an <code>image</code>
 is an object.
 </p>
+
+## Options:
+
+* `icon` Lets you define a Fontawesome icon for your sets
