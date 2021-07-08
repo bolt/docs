@@ -4,12 +4,10 @@
 inside the kernel root directory, the kernel root directory path is replaced by `kernel.project_dir` (showing the full
 path in a tooltip on hover).
 
-`file`
-
+`file`<br>
 type: `string`
 
-`line`
-
+`line`<br>
 type: `integer`
 
 `text` *(optional)*
