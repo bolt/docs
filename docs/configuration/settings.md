@@ -87,7 +87,7 @@ If you include `https://`, it will be included in the canonical urls.
 canonical: example.org
 ```
 
-Bolt can insert a <link rel="shortcut icon"> for all pages on the site.
+Bolt can insert a `<link rel="shortcut icon">` for all pages on the site.
 
 Note: The location given is relative to the currently selected theme. If you
 want to set the icon yourself in your custom HTML theme, just dont enable the
