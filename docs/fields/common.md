@@ -30,10 +30,10 @@ in more detail below.
 
 <p class="note"><strong>Note:</strong> If you are using a title like "Rock &
 Roll", but it gets output on the website as "Rock &amp;amp; Roll", this means
-that Bolt is not treating it as HTML. To fix this, there are a few options:
-Either use <code>allow_html: true</code> for the field, or escape it yourself
-using <code>{{ record|title }}</code> or apply the raw-filter using <code>
-{{ record.title|raw }}</code></p>
+it is treated as HTML. To fix this, there are a few options: Either use <code>
+allow_html: true</code> for the field, or escape it yourself using <code>
+{{ record|title }}</code> or apply the raw-filter using <code>
+{{ record.title|raw }}</code>.</p>
 
 ## Grouping fields in tabs
 
