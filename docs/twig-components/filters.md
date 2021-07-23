@@ -518,7 +518,7 @@ To render an inlined svg, and a standard `<img>` tag otherwise, use this:
 {% endif %}
 ```
 <p class="note"><strong>Note:</strong>Bolt renders the code inside the .svg file 
-"as is". If your page uses multiple inline .svg's on one page that use the same 
+"as is". If your site uses multiple inline .svg's on one page that use the same 
 `id` names, this will make the outputted HTML invalid and may lead to unexpected 
 results.</p>
 
