@@ -32,7 +32,7 @@ default ones:
 |----------------|-------------|
 | `helpers/_pager_basic.html.twig` | A basic pager, without much opinionated styling |
 | `helpers/_pager_bootstrap.html.twig`     | Works well, if you're building a theme based on Bootstrap   |
-| `helpers/_pager_bulma.html.twig `       | Works well, if you're building a theme based on Bootstrap |
+| `helpers/_pager_bulma.html.twig `       | Works well, if you're building a theme based on Bulma |
 
 If you wish to create your own template, you can copy one of the above from
 `vendor/bolt/core/templates/helpers/` to your own theme's template folder.
