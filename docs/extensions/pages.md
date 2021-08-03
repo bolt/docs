@@ -43,7 +43,7 @@ class UserContentController extends TwigAwareController implements BackendZoneIn
 
 ### Defining the controller route with the backend url prefix
 
-Localte the `config/routes.yaml` file and add the following **after** 
+Locale the `config/routes.yaml` file and add the following **after** 
 `project`:
 
 ```yaml
