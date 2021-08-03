@@ -6,13 +6,13 @@ Adding Pages in the backend
 You can add pages to Bolt's backend by creating a custom
 Controller in the `src` folder of your project.
 
-To configure it as a backend controller, two steps are necessary:
-* The controller class needs to implement the `BackendZoneInterface`
+To configure it as a backend Controller, two steps are necessary:
+* The Controller class needs to implement the `BackendZoneInterface`
  that Bolt provides
 * The `routes.yaml` file needs to add Bolt backend prefix for
 the controller's routes.
 
-### Creating a backend page controller
+### Creating a backend page Controller
 
 ```php
 <?php
@@ -54,12 +54,12 @@ app_panel:
 ```
 
 <p class="note">Make sure to replace <code>UserContentController.php</code>
-with the name of your controller class.</p>
+with the name of your Controller class.</p>
 
 ### Using a Twig template to render the page
 
 You can use any Twig template of your choosing to render the page.
-In this example, the controller defined `content_user.html.twig` as
+In this example, the Controller defined `content_user.html.twig` as
 the template that will be used to generate the response. Make sure
 to create a file with that name in the `templates` folder in the root of
 your project.
