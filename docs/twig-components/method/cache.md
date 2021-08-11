@@ -78,16 +78,18 @@ variables, meaning that the changes are local to the template fragment:
 
 The cache tag is part of the CacheExtension which is not installed by default. Install it first:
 
-<pre style="background-color: black; color: white">$ composer require twig/cache-extra</pre>
+```twig
+$ composer require twig/cache-extra</pre>
+```
 
-<br>
 On Symfony projects, you can automatically enable it by installing the
 twig/extra-bundle:
 
-<pre style="background-color: black; color: white">$ composer require twig/extra-bundle</pre> 
-<br>
-Or add the extension explicitly on the Twig environment:
+```twig
+$ composer require twig/extra-bundle</pre> 
+```
 
+Or add the extension explicitly on the Twig environment:
 
 ```twig
 use Twig\Extra\Cache\CacheExtension;

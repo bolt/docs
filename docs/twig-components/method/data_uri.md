@@ -22,10 +22,16 @@
 
 The data_uri filter is part of the HtmlExtension which is not installed by default. Install it first:
 
-<pre style="background-color: black; color: white">$ composer require twig/html-extra</pre>
+```twig
+$ composer require twig/html-extra
+```
+
 Then, on Symfony projects, install the twig/extra-bundle:
 
-<pre style="background-color: black; color: white">$ composer require twig/extra-bundle</pre>
+```twig
+$ composer require twig/extra-bundle
+```
+
 Otherwise, add the extension explicitly on the Twig environment:
 
 ```twig

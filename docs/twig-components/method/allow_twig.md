@@ -1,6 +1,6 @@
 # allow_twig
 
-`allow_twig(unknown?)` is a Twig filter to ...
+`allow_twig(boolean)` is a Twig filter to be set to true or false to control if twig may be used in the field.
 
 
 Source: Bolt
