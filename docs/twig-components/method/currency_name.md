@@ -24,13 +24,17 @@ By default, the filter uses the current locale. You can pass it explicitly:
 ### Note
 
 The currency_name filter is part of the IntlExtension which is not installed by default. Install it first:
-<br>
-<pre style="background-color: black; color: white">$ composer require twig/intl-extra</pre>
-<br>
+
+```twig
+$ composer require twig/intl-extra
+```
+
 Then, on Symfony projects, install the twig/extra-bundle:
-<br>
-<pre style="background-color: black; color: white">$ composer require twig/extra-bundle</pre>
-<br>
+
+```twig
+$ composer require twig/extra-bundle
+```
+
 Otherwise, add the extension explicitly on the Twig environment:
 
 ```twig
