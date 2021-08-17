@@ -1,6 +1,6 @@
 # dump
 
-`dump()` is a Twig function to dump the entire object, similar to PHP's var_dump
+`dump()` is a Twig function to dump the entire object, similar to PHP's var_dump.
 
 ```twig
 {% set about = content('page', {'slug': 'about'}) %}
