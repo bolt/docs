@@ -1,7 +1,7 @@
 # order
 
 `order(on = "-publishedAt", onSecondary = null, locale = null)` is a Twig filter to reorder the results of {% setcontent
-%} or {{ record|related() }}
+%} or {{ record|related() }}.
 
 |Parameter    |Description
 |---|---
