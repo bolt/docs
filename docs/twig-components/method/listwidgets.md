@@ -2,5 +2,4 @@
 
 `listwidgets(target)` is a Twig function to ...
 
-
-Source: Bolt
+Please refer to the [widgets](https://docs.bolt.cm/4.0/templating/widgets) documentation.
