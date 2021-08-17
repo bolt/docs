@@ -1,6 +1,6 @@
 # defaultLocale
 
-`defaultLocale = "en"` is a Twig global to access the default language set in your `services.yaml`
+`defaultLocale = "en"` is a Twig global to access the default language set in your `services.yaml`.
 
 ```twig
 parameters:
