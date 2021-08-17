@@ -6,7 +6,6 @@
 {{ var is null }}
 ```
 
-Note
-none is an alias for null.
+<p class="note"><strong>Note:</strong> none is an alias for null.</p>
 
 Source: [Twig](https://twig.symfony.com/doc/3.x/tests/null.html)
