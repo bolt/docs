@@ -1,6 +1,6 @@
 # html_attr
 
-`html_attr` is a Twig filter to turn an array into an HTML attribute string
+`html_attr` is a Twig filter to turn an array into an HTML attribute string.
 
 Jasny's Twig Extensions can be easily installed using composer:
 
