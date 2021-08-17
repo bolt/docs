@@ -1,6 +1,3 @@
 # next_record
 
-`next_record(content, byColumn = "id", sameContentType = true)` is a Twig function to ...
-
-
-Source: 
+See [next](/5.0/twig-components/method/next) filter.
