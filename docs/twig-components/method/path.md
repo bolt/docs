@@ -1,6 +1,6 @@
 # path
 
-`path(name, parameters = [], relative = false)` is a Twig function to ...
+`path(name, parameters = [], relative = false)` is a Twig function to create valid URI strings to paths configured on
+your site.
 
-
-Source: Bolt
+For more information, see [Linking](/templating/linking-in-templates#linking-to-the-current-page) in templates.

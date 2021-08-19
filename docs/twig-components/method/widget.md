@@ -2,5 +2,4 @@
 
 `widget(name, params = [])` is a Twig function to ...
 
-
-Source: Bolt
+Please refer to the [widgets](https://docs.bolt.cm/5.0/templating/widgets) documentation.

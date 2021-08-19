@@ -1,6 +1,7 @@
 # url
 
-`url(name, parameters = [], schemeRelative = false)` is a Twig function to ...
+`url(name, parameters = [], schemeRelative = false)` is a Twig function to create valid URL strings to paths configured
+on your site.
 
-
-Source: Bolt
+For more information,
+see [Linking in templates](https://docs.bolt.cm/4.0/templating/linking-in-templates#using-path-and-url-to-link-to-named-routes).
