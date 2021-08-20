@@ -2,7 +2,7 @@
 
 `paragraph` is a Twig filter to add HTML paragraph and line breaks to text.
 
-Jasny's Twig Extensions can be easily installed using composer:
+Jasny's Twig Extensions can be easily installed using Composer:
 
 ```twig
 composer require jasny/twig-extensions
@@ -15,7 +15,7 @@ $twig = new Twig_Environment($loader, $options);
 $twig->addExtension(new Jasny\Twig\ArrayExtension());
 ```
 
-To use in a symfony project register the extensions as a service:
+To use in a Symfony project register the extensions as a service:
 
 ```twig
 twig.extension.array:
