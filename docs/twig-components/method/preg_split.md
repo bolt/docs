@@ -1,6 +1,6 @@
 # preg_split
 
-`preg_split(pattern)` is a Twig filter to make PHPs preg_split() function available as twig filter. It splits text into
+`preg_split(pattern)` is a Twig filter to make PHPs preg_split() function available as Twig filter. It splits text into
 an array using a regular expression.
 
 ```twig
