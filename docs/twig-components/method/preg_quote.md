@@ -11,7 +11,7 @@ need to match in some text and the string may contain special regex characters.
 Result: '\$40 for a g3\/400'
 ```
 
-Jasny's Twig Extensions can be easily installed using composer:
+Jasny's Twig Extensions can be easily installed using Composer:
 
 ```twig
 composer require jasny/twig-extensions
@@ -24,7 +24,7 @@ $twig = new Twig_Environment($loader, $options);
 $twig->addExtension(new Jasny\Twig\ArrayExtension());
 ```
 
-To use in a symfony project register the extensions as a service:
+To use in a Symfony project register the extensions as a service:
 
 ```twig
 twig.extension.array:
