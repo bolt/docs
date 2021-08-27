@@ -1,6 +1,17 @@
 # extensions
 
-`extensions()` is a Twig function to ...
+`extensions()` is a Twig function to display all the installed extensions.
+
+For example:
+
+```twig
+{% dump(extensions()) %}
+```
+
+Will return all the existing functions in an array.
+
+Result:
+
 
 
 Source: Bolt
