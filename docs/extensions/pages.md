@@ -43,7 +43,7 @@ class UserContentController extends TwigAwareController implements BackendZoneIn
 
 ### Defining the controller route with the backend url prefix
 
-Locale the `config/routes.yaml` file and add the following **after** 
+Locate the `config/routes.yaml` file and add the following **after** 
 `project`:
 
 ```yaml
@@ -84,7 +84,7 @@ custom backend pages:
 | `@bolt/_base/layout.html.twig` | This is the standard template that any Bolt page uses. It contains the top bar, the sidebar and aside components. | [Layout link][layout-link]
 | `@bolt/_base/layout_blank.html.twig` | This is the barebones version of the layout. Use it only if you do not want to show the default Bolt backend look and feel. | [Blank layout link][blank-layout-link]
 
-All available templates that Bolt uses under the hood are available in Bolt's [repository][https://github.com/bolt/core/tree/master/templates].
+All available templates that Bolt uses under the hood are available in Bolt's [repository](https://github.com/bolt/core/tree/master/templates).
 
 ## Add a page to Bolt's sidebar menu
 
