@@ -53,10 +53,6 @@ pages:
 - divisible
 - dns_prefetch
 - do
-- doctrine_format_sql
-- doctrine_prettify_sql
-- doctrine_pretty_query
-- doctrine_replace_query_parameters
 - dump
 - e
 - edit_link
@@ -69,20 +65,13 @@ pages:
 - escape
 - even
 - excerpt
-- expression
 - extends
 - extension
 - extension_exists
 - extensions
 - 'false' # Note: Ensure we parse this as a string, not a boolean.
 - feature
-- field_choices
-- field_errors
 - field_factory
-- field_help
-- field_label
-- field_name
-- field_value
 - file_excerpt
 - file_link
 - file_relative
@@ -97,7 +86,6 @@ pages:
 - for
 - foreach
 - form
-- form_encode_currency
 - form_end
 - form_errors
 - form_help
@@ -108,7 +96,6 @@ pages:
 - form_start
 - form_widget
 - format
-- format__number
 - format_args
 - format_args_as_text
 - format_bytes
@@ -117,7 +104,6 @@ pages:
 - format_datetime
 - format_file
 - format_file_from_text
-- format_log_message
 - format_number
 - format_time
 - fragment_uri
@@ -142,7 +128,6 @@ pages:
 - is_granted
 - iterable
 - join
-- json
 - json_decode
 - json_encode
 - json_records
@@ -175,7 +160,6 @@ pages:
 - map
 - markdown
 - max
-- meaning
 - media
 - menu
 - menu_array
@@ -192,8 +176,6 @@ pages:
 - odd
 - order
 - pager
-- pagerfanta
-- pagerfanta_page_url
 - paragraph
 - parent
 - path
@@ -215,8 +197,6 @@ pages:
 - previous
 - previous_record
 - product
-- profiler_dump
-- profiler_dump_log
 - random
 - range
 - raw
@@ -258,8 +238,6 @@ pages:
 - source
 - spaceless
 - split
-- status_options
-- stimulus_controller
 - string
 - striptags
 - strtotime
@@ -281,7 +259,6 @@ pages:
 - trim
 - 'true'
 - truncate
-- type
 - ucwords
 - upper
 - url

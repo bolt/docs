@@ -10,8 +10,6 @@ For example:
 
 Will return all the existing functions in an array.
 
-Result:
+Result example:
 
-
-
-Source: Bolt
+![dump of extensions](/files/screenshots/dump-of-extensions.png "extensions()")

@@ -56,10 +56,6 @@ deprecated | tag | Twig
 divisible by | test | Twig
 dns_prefetch(uri, attributes = []) | function |
 do | tag | Twig
-doctrine_format_sql(highlight) | filter | Doctrine
-doctrine_prettify_sql | filter | Doctrine
-doctrine_pretty_query(highlightOnly = false) | filter | Doctrine
-doctrine_replace_query_parameters(parameters) | filter | Doctrine
 dump | function | Twig
 dump() | function | Bolt
 e(strategy = "html", charset = null, autoescape = false) | filter | Twig
@@ -74,20 +70,13 @@ escape(strategy = "html", charset = null, autoescape = false) | filter | Twig
 even | test |
 excerpt(content, length = 280, includeTitle = false, focus = null, wrap = false) | function | Bolt
 excerpt(length = 280, includeTitle = false, focus = null, wrap = false) | filter | Bolt
-expression(expression) | function |
 extends | tag | Twig
 extension | test |
 extension_exists(name) | function | Bolt
 extensions() | function | Bolt
 false | test | Squirrelphp
 feature | filter |  Twig
-field_choices(view) | function | Forms
-field_errors(view) | function | Forms
 field_factory(name, definition = null) | function | Forms
-field_help(view) | function | Forms
-field_label(view) | function | Forms
-field_name(view) | function | Forms
-field_value(view) | function | Forms
 file_excerpt(line, srcContext = 3) | filter |
 file_link(line) | filter |
 file_relative | filter |
@@ -101,7 +90,6 @@ floatval | filter | Squirrelphp
 flush | tag | Twig
 for | tag | Twig
 foreach | tag | Squirrelphp
-form_encode_currency(widget = "") | filter | Forms
 form_end(unknown?) | function |  Forms
 form_errors(unknown?) | function |  Forms
 form_help(unknown?) | function |  Forms
@@ -121,11 +109,9 @@ format_date(dateFormat = "medium", pattern = "", timezone = null, calendar = "gr
 format_datetime(dateFormat = "medium", timeFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null) | filter | Twig
 format_file_from_text | filter | Twig
 format_file(line, text = null) | filter | Twig
-format_log_message(context) | filter | Twig
 format_number(attrs = [], style = "decimal", type = "default", locale = null) | filter | Twig
 format_time(timeFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null) | filter | Twig
 format(args) | filter |  Twig
-fragment_uri(controller, absolute = false, strict = true, sign = true) | function | Twig
 from | tag | Twig
 getuser(username = null, id = null, displayname = null, email = null) | function | Bolt
 has_path(path) | filter | Bolt
@@ -155,7 +141,6 @@ json_decode(assoc = false, depth = 512, options = 0) | filter | Bolt
 json_encode(options, depth) | filter | Twig
 json_records(includeDefinition = true, options = 0, locale = "") | filter | Bolt
 keys | filter | Twig
-knp_menu_ancestor | test  |  KNP Menu
 knp_menu_as_string(separator = " > ") | filter |  KNP Menu
 knp_menu_current | test |  KNP Menu
 knp_menu_get_breadcrumbs_array(menu, subItem = null) | function | KNP Menu
@@ -186,7 +171,6 @@ markdown | filter | Bolt
 markdown(content) | function | Bolt
 max | function | Twig
 max(args) | function | Twig
-meaning | filter |
 media | filter | Bolt
 media(unknown?) | function | Bolt
 menu_array(name = null) | function | Bolt
@@ -205,8 +189,6 @@ object | test | Squirrelphp
 odd | test |
 order(on = "-publishedAt", onSecondary = null, locale = null) | filter | Twig
 pager(records = null, template = "@bolt\/helpers\/_pager_basic.html.twig", class = "pagination", surround = 3) | function | Bolt
-pagerfanta_page_url(pagerfanta, page, options = []) | function | Pagerfanta
-pagerfanta(pagerfanta, viewName = null, options = []) | function | Pagerfanta
 paragraph | filter | Jasny
 parent | function | Twig
 path(name, parameters = [], relative = false) | function | Bolt
@@ -229,8 +211,6 @@ prerender(uri, attributes = []) | function |
 previous_record(content, byColumn = "id", sameContentType = true) | function |
 previous(byColumn = "id", sameContentType = true) | filter | Bolt
 product | filter | Jasny
-profiler_dump_log(message, context = null) | function |
-profiler_dump(data, maxDepth = 0) | function |
 random | function | Twig
 random(values = null, max = null) | function |
 range | function | Twig
@@ -280,8 +260,6 @@ source | function | Twig
 source(name, ignoreMissing = false) | function |
 spaceless | filter | Twig
 split(delimiter, limit = null) | filter | Twig
-status_options | filter | Bolt
-stimulus_controller(dataOrControllerName, controllerValues = []) | function |
 string | test |
 striptags(allowable_tags) | filter | Bolt
 strtotime(now) | filter | Squirrelphp
@@ -305,7 +283,6 @@ translate(locale) | filter | Bolt
 trim(characterMask = null, side = "both") | filter | Bolt
 true | test | Squirrelphp
 truncate(length, replace = "...") | filter | Jasny
-type | filter |
 ucwords(delimiters = "") | filter | Bolt
 upper | filter | Twig
 url_decode | filter | Bolt

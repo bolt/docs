@@ -53,16 +53,9 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [encore_entry_link_tags(entryName, packageName = null, entrypointName = "_default", attributes = [])](twig-components/method/encore_entry_link_tags)  <small>(Twig)</small>
 - [encore_entry_script_tags(entryName, packageName = null, entrypointName = "_default", attributes = [])](twig-components/method/encore_entry_script_tags)  <small>(Twig)</small>
 - [excerpt(content, length = 280, includeTitle = false, focus = null, wrap = false)](twig-components/method/excerpt)  <small>(Bolt)</small>
-- [expression(expression)](twig-components/method/expression)  <small>()</small>
 - [extension_exists(name)](twig-components/method/extension_exists)  <small>(Bolt)</small>
 - [extensions()](twig-components/method/extensions)  <small>(Bolt)</small>
-- [field_choices(view)](twig-components/method/field_choices)  <small>(Forms)</small>
-- [field_errors(view)](twig-components/method/field_errors)  <small>(Forms)</small>
 - [field_factory(name, definition = null)](twig-components/method/field_factory)  <small>(Forms)</small>
-- [field_help(view)](twig-components/method/field_help)  <small>(Forms)</small>
-- [field_label(view)](twig-components/method/field_label)  <small>(Forms)</small>
-- [field_name(view)](twig-components/method/field_name)  <small>(Forms)</small>
-- [field_value(view)](twig-components/method/field_value)  <small>(Forms)</small>
 - [find_translations(entity, locale = null)](twig-components/method/find_translations)  <small>(Bolt)</small>
 - [first_related_content(content, name = null, publishedOnly = true)](twig-components/method/first_related_content)  <small>(Bolt)</small>
 - [flag(localeCode)](twig-components/method/flag)  <small>(Bolt)</small>
@@ -109,8 +102,6 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [min(args)](twig-components/method/min)  <small>(Twig)</small>
 - [next_record(content, byColumn = "id", sameContentType = true)](twig-components/method/next_record)  <small>()</small>
 - [pager(records = null, template = "@bolt\/helpers\/_pager_basic.html.twig", class = "pagination", surround = 3)](twig-components/method/pager)  <small>(Bolt)</small>
-- [pagerfanta_page_url(pagerfanta, page, options = [])](twig-components/method/pagerfanta_page_url)  <small>(Pagerfanta)</small>
-- [pagerfanta(pagerfanta, viewName = null, options = [])](twig-components/method/pagerfanta)  <small>(Pagerfanta)</small>
 - [parent](twig-components/method/parent)  <small>(Twig)</small>
 - [path(name, parameters = [], relative = false)](twig-components/method/path)  <small>(Bolt)</small>
 - [popup(image, width = 320, height = 240)](twig-components/method/popup)  <small>(Bolt)</small>
@@ -119,8 +110,6 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [preload(uri, attributes = [])](twig-components/method/preload)  <small>()</small>
 - [prerender(uri, attributes = [])](twig-components/method/prerender)  <small>()</small>
 - [previous_record(content, byColumn = "id", sameContentType = true)](twig-components/method/previous_record)  <small>()</small>
-- [profiler_dump_log(message, context = null)](twig-components/method/profiler_dump_log)  <small>()</small>
-- [profiler_dump(data, maxDepth = 0)](twig-components/method/profiler_dump)  <small>()</small>
 - [random](twig-components/method/random)  <small>(Twig)</small>
 - [random(values = null, max = null)](twig-components/method/random)  <small>()</small>
 - [range](twig-components/method/range)  <small>(Twig)</small>
@@ -139,7 +128,6 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [showimage(image, width = null, height = null)](twig-components/method/showimage)  <small>(Bolt)</small>
 - [source](twig-components/method/source)  <small>(Twig)</small>
 - [source(name, ignoreMissing = false)](twig-components/method/source)  <small>()</small>
-- [stimulus_controller(dataOrControllerName, controllerValues = [])](twig-components/method/stimulus_controller)  <small>()</small>
 - [t(message, parameters = [], domain = null)](twig-components/method/t)  <small>()</small>
 - [taxonomy_options(taxonomy)](twig-components/method/taxonomy_options)  <small>(Bolt)</small>
 - [taxonomy_values(current, taxonomy)](twig-components/method/taxonomy_values)  <small>(Bolt)</small>
@@ -170,10 +158,6 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [date_modify(modifier)](twig-components/method/date_modify)  <small>(Twig)</small>
 - [date(format = null, timezone = null)](twig-components/method/date)  <small>(Bolt)</small>
 - [default(default = "")](twig-components/method/default)  <small>(Twig)</small>
-- [doctrine_format_sql(highlight)](twig-components/method/doctrine_format_sql)  <small>(Doctrine)</small>
-- [doctrine_prettify_sql](twig-components/method/doctrine_prettify_sql)  <small>(Doctrine)</small>
-- [doctrine_pretty_query(highlightOnly = false)](twig-components/method/doctrine_pretty_query)  <small>(Doctrine)</small>
-- [doctrine_replace_query_parameters(parameters)](twig-components/method/doctrine_replace_query_parameters)  <small>(Doctrine)</small>
 - [e(strategy = "html", charset = null, autoescape = false)](twig-components/method/e)  <small>(Twig)</small>
 - [edit_link](twig-components/method/edit_link)  <small>(Bolt)</small>
 - [escape(strategy = "html", charset = null, autoescape = false)](twig-components/method/escape)  <small>(Twig)</small>
@@ -185,8 +169,6 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [filter(arrow)](twig-components/method/filter)  <small>(Twig)</small>
 - [first](twig-components/method/first)  <small>(Twig)</small>
 - [floatval](twig-components/method/floatval)  <small>(Squirrelphp)</small>
-- [form_encode_currency(widget = "")](twig-components/method/form_encode_currency)  <small>(Forms)</small>
-- [format_*_number(number, attrs = [], type = "default", locale = null)](twig-components/method/format__number)  <small>(Twig)</small>
 - [format_args](twig-components/method/format_args)  <small>(Twig)</small>
 - [format_args_as_text](twig-components/method/format_args_as_text)  <small>(Twig)</small>
 - [format_bytes(precision = 2)](twig-components/method/format_bytes)  <small>(Twig)</small>
@@ -195,7 +177,6 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [format_datetime(dateFormat = "medium", timeFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null)](twig-components/method/format_datetime)  <small>(Twig)</small>
 - [format_file_from_text](twig-components/method/format_file_from_text)  <small>(Twig)</small>
 - [format_file(line, text = null)](twig-components/method/format_file)  <small>(Twig)</small>
-- [format_log_message(context)](twig-components/method/format_log_message)  <small>(Twig)</small>
 - [format_number(attrs = [], style = "decimal", type = "default", locale = null)](twig-components/method/format_number)  <small>(Twig)</small>
 - [format_time(timeFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null)](twig-components/method/format_time)  <small>(Twig)</small>
 - [format(args)](twig-components/method/format)  <small>(Twig)</small>
@@ -223,7 +204,6 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [lower](twig-components/method/lower)  <small>(Twig)</small>
 - [map(arrow)](twig-components/method/map)  <small>(Twig)</small>
 - [markdown](twig-components/method/markdown)  <small>(Bolt)</small>
-- [meaning](twig-components/method/meaning)  <small>()</small>
 - [media](twig-components/method/media)  <small>(Bolt)</small>
 - [merge(arr2)](twig-components/method/merge)  <small>(Twig)</small>
 - [next(byColumn = "id", sameContentType = true)](twig-components/method/next)  <small>(Bolt)</small>
@@ -269,7 +249,6 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [sort(arrow = null)](twig-components/method/sort)  <small>(Twig)</small>
 - [spaceless](twig-components/method/spaceless)  <small>(Twig)</small>
 - [split(delimiter, limit = null)](twig-components/method/split)  <small>(Twig)</small>
-- [status_options](twig-components/method/status_options)  <small>(Bolt)</small>
 - [striptags(allowable_tags)](twig-components/method/striptags)  <small>(Bolt)</small>
 - [strtotime(now)](twig-components/method/strtotime)  <small>(Squirrelphp)</small>
 - [strval](twig-components/method/strval)  <small>(Squirrelphp)</small>
@@ -285,7 +264,6 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [translate(locale)](twig-components/method/translate)  <small>(Bolt)</small>
 - [trim(characterMask = null, side = "both")](twig-components/method/trim)  <small>(Bolt)</small>
 - [truncate(length, replace = "...")](twig-components/method/truncate)  <small>(Jasny)</small>
-- [type](twig-components/method/type)  <small>()</small>
 - [ucwords(delimiters = "")](twig-components/method/ucwords)  <small>(Bolt)</small>
 - [upper](twig-components/method/upper)  <small>(Twig)</small>
 - [url_decode](twig-components/method/url_decode)  <small>(Bolt)</small>
@@ -344,7 +322,6 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [int](twig-components/method/int)  <small>(Squirrelphp)</small>
 - [integer](twig-components/method/integer)  <small>(Squirrelphp)</small>
 - [iterable](twig-components/method/iterable)  <small>()</small>
-- [json](twig-components/method/json)  <small>()</small>
 - [knp_menu_ancestor](twig-components/method/knp_menu_ancestor)  <small>(KNP Menu)</small>
 - [knp_menu_current](twig-components/method/knp_menu_current)  <small>(KNP Menu)</small>
 - [none](twig-components/method/none)  <small>()</small>
