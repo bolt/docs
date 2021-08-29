@@ -1,6 +1,6 @@
 # flag
 
-`flag(localeCode)` is a Twig function to display the abbreviation of the current language used in the application
+`flag(localeCode)` is a Twig function to display the abbreviation of the current language used in the application.
 
 ```twig
 {% for locale in locales() %}

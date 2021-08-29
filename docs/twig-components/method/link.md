@@ -1,8 +1,6 @@
 # link
 
-`link($text, $uri, $attributes)` is a Twig function to display link details.
-
-It accepts as first parameter the text and as second parameter the uri
+`link($text, $uri, $attributes)` is a Twig function to display link details. It accepts as first parameter the text and as second parameter the uri.
 
 Examples:
 

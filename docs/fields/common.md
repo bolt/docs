@@ -8,23 +8,32 @@ Common options for all fields
 All fields have few common options to further customize them. We explain them
 in more detail below.
 
-| Option      | Description |
-|-------------|-------------|
-| `label`     | If omitted, the name of the field will be used as a label in the edit-screen. Replace 'Foo' with the desired label of the field. |
-| `group`     | Group the field under a certain tab when editing. |
-| `prefix`    | Text/HTML to show before the field. |
-| `postfix`   | Text/HTML to show after the field. |
-| `separator` | Insert `<hr>` after the field. |
-| `info`      | Use for displaying extra information about the field in a info popup besides the label. |
-| `default`   | The default value for a field, if applicable. |
-| `required`  | make this field required so that the record cannot be saved without it being filled. The required option does not work on list types such as Collection, Imagelist and Filelist. To control the number of elements in list types, check the `limit` option.
-| `pattern`   | Add a custom validation pattern to validate against when saving. |
-| `readonly`  | Do not allow an editor to change the value of this field. |
-| `index`     | Add a database index for this field, only add if you know what this means. |
-| `class`     | Add a CSS selector to the field element. |
-| `variant`   | Allows for the field to be displayed in an alternative fashion. Currently, the only supported option is `variant: inline`, which will display the label and the input horizontally, making the output more compact. 
-| `localize`  | `boolean`, default is `false`. If set to true, marks this field as localizable (translatable) within this Content Type. Visit the <a href="/localization/">localization page</a> for more information. |
-| `sanitise`  | `boolean`, default is `true`. If set to false, the value of the field will not be sanitised. This means HTML tags like `<script>` and `<embed` will be left as-is.
+| Option       | Description |
+|--------------|-------------|
+| `label`      | If omitted, the name of the field will be used as a label in the edit-screen. Replace 'Foo' with the desired label of the field. |
+| `group`      | Group the field under a certain tab when editing. |
+| `prefix`     | Text/HTML to show before the field. |
+| `postfix`    | Text/HTML to show after the field. |
+| `separator`  | Insert `<hr>` after the field. |
+| `info`       | Use for displaying extra information about the field in a info popup besides the label. |
+| `default`    | The default value for a field, if applicable. |
+| `required`   | make this field required so that the record cannot be saved without it being filled. The required option does not work on list types such as Collection, Imagelist and Filelist. To control the number of elements in list types, check the `limit` option.
+| `pattern`    | Add a custom validation pattern to validate against when saving. |
+| `readonly`   | Do not allow an editor to change the value of this field. |
+| `index`      | Add a database index for this field, only add if you know what this means. |
+| `class`      | Add a CSS selector to the field element. |
+| `variant`    | Allows for the field to be displayed in an alternative fashion. Currently, the only supported option is `variant: inline`, which will display the label and the input horizontally, making the output more compact.
+| `localize`   | `boolean`, default is `false`. If set to true, marks this field as localizable (translatable) within this Content Type. Visit the <a href="/localization/">localization page</a> for more information. |
+| `sanitise`   | `boolean`, default is `true`. If set to false, the value of the field will not be sanitised. This means HTML tags like `<script>` and `<embed` will be left as-is.
+| `allow_twig` | `boolean`, default is `false`. Can be set to true or false to control if Twig may be used in the field.
+| `allow_html` | `boolean`, default is `true` for HTML, Redactor, Article and Markdown fields, `false` for all others. This determines whether the contents of the field are considered to be HTML.
+
+<p class="note"><strong>Note:</strong> If you are using a title like "Rock &
+Roll", but it gets output on the website as "Rock &amp;amp; Roll", this means
+it is treated as HTML. To fix this, there are a few options: Either use <code>
+allow_html: true</code> for the field, or escape it yourself using <code>
+{{ record|title }}</code> or apply the raw-filter using <code>
+{{ record.title|raw }}</code>.</p>
 
 ## Grouping fields in tabs
 

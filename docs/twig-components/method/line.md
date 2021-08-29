@@ -1,6 +1,6 @@
 # line
 
-`line(line = 1)` is a Twig filter to get a single line of text
+`line(line = 1)` is a Twig filter to get a single line of text.
 
 Jasny's Twig Extensions can be easily installed using composer:
 

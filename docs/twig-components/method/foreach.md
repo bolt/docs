@@ -1,6 +1,6 @@
 # foreach
 
-`foreach` is a Twig tag to create loops with the same syntax as in PHP
+`foreach` is a Twig tag to create loops with the same syntax as in PHP.
 
 ```twig
 {% foreach list as sublist %}
@@ -15,10 +15,10 @@ Internally it behaves the exact same way as for: it actually creates ForNode ele
 {% foreach list as sublist %}
     {% foreach sublist as key => value %}
     {% else %}
-        Array "sublist" is empty / no iteration took place
+        # Array "sublist" is empty / no iteration took place #
     {% endforeach %}
 {% else %}
-    Array "list" is empty / no iteration took place
+    # Array "list" is empty / no iteration took place #
 {% endforeach %}
 ```
 
