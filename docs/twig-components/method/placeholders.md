@@ -5,5 +5,5 @@
 For example: 
 
 ```twig
-{{ class|placeholders('year' => date('Y')) }}
+{{ 'This is a string'|placeholders('year' => date('Y')) }}
 ```

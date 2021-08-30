@@ -1,6 +1,13 @@
 # title_case
 
-`title_case` is a Twig filter to ...
+`title_case` is a Twig filter to capitalize every first letter of a word.
 
+For example:
 
-Source: Bolt
+```twig
+{{ 'this is a string'|title_case }}
+```
+
+Result:
+
+This Is a String

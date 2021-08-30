@@ -223,12 +223,6 @@ related_by_type(bidirectional = true, limit = null, publishedOnly = true) | filt
 related_content_by_type(content, bidirectional = true, limit = null, publishedOnly = true) | function | Bolt
 related_content(content, name = null, bidirectional = true, limit = null, publishedOnly = true) | function | Bolt
 related_first(name = null, publishedOnly = true) | filter | Bolt
-related_options(contentTypeSlug, order = null, format = "", required = false) | function | Bolt
-related_options(order = null, format = "", required = false) | filter | Bolt
-related_values_from_content(unknown?) | filter | Bolt
-related_values_from_content(unknown?) | function | Bolt
-related_values(contentType) | filter | Bolt
-related_values(source, contentType) | function | Bolt
 related(name = null, bidirectional = true, limit = null, publishedOnly = true) | filter | Bolt
 relative_path(path) | function | Bolt
 render_*(strategy, uri, options = []) | function |
@@ -242,7 +236,6 @@ same as | test |
 sandbox | tag | Twig
 sanitise | filter | Bolt
 scalar | test | Squirrelphp
-secret(slug) | function |  Bolt
 select_options(field) | function | Bolt
 selected(returnsingle = false, returnarray = false) | filter | Bolt
 selectedchoice | test | Forms |
@@ -268,15 +261,12 @@ sum | filter | Jasny
 svg | filter | Bolt
 t(message, parameters = [], domain = null) | function |
 taxonomies | filter | Bolt
-taxonomy_options(taxonomy) | function | Bolt
-taxonomy_values(current, taxonomy) | function | Bolt
 template_from_string | function | Twig
 template_from_string(template, name = null) | function |
 thumbnail(image, width = null, height = null, location = null, path = null, fit = null) | function | Bolt
 thumbnail(width = null, height = null, location = null, path = null, fit = null) | filter | Bolt
 timezone_name(locale = null) | filter | Twig
 title_case | filter | Bolt
-title_fields_names(unknown?) | filter | Bolt
 title(locale = "", length = 120) | filter | Bolt
 trans(arguments = [], domain = null, locale = null, count = null) | filter | Bolt
 translate(locale) | filter | Bolt
