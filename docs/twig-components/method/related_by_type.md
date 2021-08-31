@@ -12,6 +12,6 @@ array of related records, where the first key is the contenttype.
 
 |Parameter	|Description
 |---|---
-|idirectional	|Performs bidirectional search. Default is true
+|bidirectional	|Performs bidirectional search. Default is true
 |limit	|Limits the number of related records that are returned.
 |publishedOnly	|Return only related records that are published. Default is true

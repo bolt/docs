@@ -1,5 +1,5 @@
 # related_content
 
-`related_content(content, name = null, bidirectional = true, limit = null, publishedOnly = true)`
+`related_content(content, name = null, bidirectional = true, limit = null, publishedOnly = true)` 
 
-See [related filter](https://docs.bolt.cm/5.0/twig-components/functions#related-name-null-contenttype-null-bidirectional-true-publishedonly-true)
+See [related filter](https://docs.boltcms.io/5.0/twig-components/filters#related)
