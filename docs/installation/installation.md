@@ -31,7 +31,7 @@ to get started is to follow the <a href="https://getcomposer.org/doc/00-intro.md
 Open the command line (command prompt on Windows) and go to the folder
 inside of which you want to create your new Bolt project.
 
-Set up a new Bolt 4 project, using the following command, replacing
+Set up a new Bolt 5 project, using the following command, replacing
 `myprojectname` with your desired project's name.
 
 ```bash
