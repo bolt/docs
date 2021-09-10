@@ -94,7 +94,7 @@ Doctrine Repositories are PHP classes that allow you to query the [Entities][ent
 | `UserAuthTokenRepository` | Query and fetch info about authenticated users. Used on the Users & Permissions page |
 | `UserRepository` | Query and fetch Bolt users. |
 
-The `ContentRepository`, itself a Symfony serveice much like the `Query` class, 
+The `ContentRepository`, itself a Symfony service much like the `Query` class, 
 has a number of methods. The `ExampleFetcherFromRepository` class shows how to work with Bolt's
 own `ContentRepository`.
 
