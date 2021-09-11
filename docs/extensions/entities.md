@@ -13,7 +13,7 @@ Thinking of traditional SQL databases, you can think of an Entity as a row in a 
 The entity class serves two purposes:
 
 1. Define the columns and properties of the table in the database (i.e., what fields does it store)
-2. An a PHP object, store the data for a specific instance (row)
+2. A PHP object, store the data for a specific instance (row)
 
 For example, a very basic entity can be defined as a `Product`:
 
@@ -33,7 +33,7 @@ class Product
 }
 ```
 
-## What Entitires does Bolt provide?
+## What Entities does Bolt provide?
 
 Bolt contains a number of entities:
 
