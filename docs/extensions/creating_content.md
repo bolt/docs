@@ -9,7 +9,7 @@ there may be an API of events that need to be managed in Bolt.
 The recommended way for creating Content programatically in Bolt
 is using the provided ContentFactory methods.
 
-### Creating content using `ContentFactorry::create`
+### Creating content using `ContentFactory::create`
 
 ```php
 <?php
