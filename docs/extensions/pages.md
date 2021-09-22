@@ -69,6 +69,10 @@ For example, the `content_user.html.twig` file may contain the following:
 ```twig
 {% extends '@bolt/_base/layout.html.twig' %}
 
+{% block title %}
+   This is the title of the page
+{% endblock %}
+
 {% block main %}
     <p>This is the content for a user. It is currently empty.</p>
 {% endblock %}
