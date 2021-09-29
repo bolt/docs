@@ -163,7 +163,7 @@ Install the extension by running:
 ```
 
 ### Configuring the database
-Database configuration is done completely different from Bolt 3. You no longer need to add
+Database configuration is done completely differently from Bolt 3. You no longer need to add
 it in the `config.yml` or `config_file.yml` files were this configuration used to live.
 
 In Bolt 5 the Database configuration is done in the `.env` and preferably in a `.env.local`
