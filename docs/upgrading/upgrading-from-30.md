@@ -123,7 +123,7 @@ integerfield:
 floatfield:
     type: float
 ```
-These fields do no longer exist in Bolt 5. This types of fields have been combined into one Field called
+These types do no longer exist in Bolt 5. This types of fields have been combined into one Field called
 [Number](https://docs.bolt.cm/4.0/fields/number "Bolt documentation: Number field")
 
 It comes in with an option called `mode` where you can choose between `integer` or `float` to
