@@ -5,7 +5,7 @@ Migrating from Bolt v3.7 to v5.0
 =========================
 
 Recently it has been announced the release of Bolt 5 and since Bolt 3 is reaching
-end of life soon, we have made this guide to make the migration process a bit more 
+end of life the 31st of December 2021, we have made this guide to make the migration process a bit more 
 pleasant for you. 
 
 Keep reading and happy Bolt migration! 
