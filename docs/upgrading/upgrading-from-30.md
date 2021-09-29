@@ -148,7 +148,7 @@ floatfield:
 ### Repeater and Block fields
 The Reapeater and Block fields do no longer exist in Bolt 5. The Collection and Set fields have been
 introduced to take over the role the other fields played. Even though the look and feel is pretty
-much the same as it was in earlier versions, the syntax to define these fields has differ a little bit.
+much the same as it was in earlier versions, the syntax to define these fields differs a little bit.
 There is some documentation already written about [how to transform Repeater and Block fields](https://docs.bolt.cm/4.0/howto/transform-repeaters-to-sets-and-collections#jumpbutton)
 that will help you out in migrating these fields for your site.
 
