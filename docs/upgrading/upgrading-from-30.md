@@ -227,4 +227,34 @@ Your last step will be to migrate your templates. It could be the case that you 
 using old Bolt 3 syntax and this needs to be changed. Some tips on where to put the
 focus on are:
 
-[TODO]
+#### Linking
+In Bolt 3 the Twig syntax to create a link was using something like:
+```twig
+<a href="{{ record.link }}">Read more</a>
+```
+In Bolt 5 the syntax is pretty similar but the pipe character (|) is used instead:
+```twig
+<a href="{{ record|link }}">Read more</a>
+```
+
+#### Accessing config values
+Probably in some of your templates you might have accessed some values from your config files. 
+In Bolt 3 this was done like: 
+```twig
+{{ app.config.get('general/sitename') }}
+```
+In Bolt 5 this is done like:
+```twig
+{{ config.get('general/sitename') }}
+```
+
+#### Twig spaceless tag
+Change the Twig syntax of the `spaceless` tag.
+In Bolt 3 the syntax was:
+```twig
+{% spaceless %} - {% end spaceless%} 
+``` 
+In Bolt 5 the syntax is:
+```twig
+{% apply spaceless %} - {% endapply %} 
+``` 
