@@ -89,7 +89,7 @@ will be put in.
 
 ### Moving Bolt 3 files into Bolt 5 installation
 Once you have installed the latest version of Bolt 5 move forward by copying relevant
-files of yout Bolt 3 site into the recently installed version 5.
+files of your Bolt 3 site into the recently installed version 5.
 In the table below you can see an overview of the list of directories and files to be copied and  
 the location in the new version's structure.
 
