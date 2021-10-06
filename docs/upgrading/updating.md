@@ -5,7 +5,7 @@ Updating Bolt
 =============
 
 <p class="note"><strong>Note:</strong> This page is for updating an existing
-Bolt 4 installation. If you are updating from Bolt 3 or 2, see <a
+Bolt 5 installation. If you are updating from Bolt 3 or 2, see <a
 href='upgrading-from-30'> Upgrading a site from version 2 / 3 to
 %%VERSION%%</a> instead.</p>
 
@@ -21,7 +21,7 @@ If you run into issues after installing, you may have to
 Updating on the command line
 ----------------------------
 
-If you're using the command line, updating a Bolt 4 installation is _really_
+If you're using the command line, updating a Bolt 5 installation is _really_
 easy.
 
   - Check if you have a `composer.json` file.
