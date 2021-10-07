@@ -60,7 +60,6 @@ sv_SE    Swedish              Sweden                           sv   SE
 A much longer list of possible options can be found here:
 [List of Locales, languages and countrycodes](https://github.com/bobdenotter/locales/blob/master/locales_list.txt).
 
-Bolt's `localedatetime()` function and filter uses the setting from `services.yaml` to
-set the language for the date formatting. For an overview of the options, see
-php.net's [strftime page](http://php.net/strftime), and the documentation
-section on [localedatetime()](../twig-components/filters#localedatetime).
+Bolt's `localdate()` function and filter uses the setting from `services.yaml` to
+set the language for the date formatting. For an overview of the options check our
+documentation for [localdate()](../twig-components/filters#localdate).
