@@ -47,7 +47,7 @@ These prefixes are:
 | `menu`         | `menu.yaml`
 | `permissions`  | `permissions.yaml`
 | `routing`      | `routing.yaml`
-| `taxonomy`     | `taxonomy.yaml`
+| `taxonomies`   | `taxonomy.yaml`
 | `theme`        | `theme.yaml` (in the active theme directory)
 
 "General" refers to the main configuration found in `config.yaml`. 
