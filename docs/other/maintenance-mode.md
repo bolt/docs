@@ -16,12 +16,12 @@ mode with these settings in the `config.yml` file:
 
 ```
 maintenance_mode: true
-maintenance_template: maintenance_default.twig
+maintenance: [ blocks/503-maintenance-mode, 'helpers/page_503.html.twig' ]
 ```
 
 The first value turns the maintenance mode on or off. The second option sets
-the template to use. By default, the template `maintenance_default.twig` is
-chosen, which can be found in `bolt/templates/helpers/`. If you wish to change this
+the template to use. This an be an (array of) template names or identifiers for 
+records, which will be tried until a match is found. If you wish to change this
 file, you should set it to another filename, and place that file in your own
 theme- folder. Otherwise it might be overwritten during an update of Bolt.
 
