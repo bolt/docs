@@ -26,13 +26,14 @@ The configuration of a Set field consists of a few parts:
  - A `fields` key, that contains one or more sub-fields, for example `text`,
    `image`, `html` and `select`.
 
-A straighforward example can look like this:
+A straightforward example can look like this:
 
 ```yaml
         contentset:
             type: set
             label: Content Set
             group: Sets
+            icon: "fa-gift"
             fields:
                 image:
                     label: Image with description
@@ -110,6 +111,7 @@ Example:
             type: set
             label: Content Set
             group: Sets
+            icon: "fa-gift"
             fields:
                 image:
                     label: Image with description
@@ -126,3 +128,7 @@ Example:
 value of a <code>text</code> field is a string, while the default for an <code>image</code>
 is an object.
 </p>
+
+## Options:
+
+* `icon` Lets you define a Fontawesome icon for your sets

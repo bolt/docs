@@ -19,6 +19,14 @@ Simple field for inputting numbers.
 {{ record.number }}
 ```
 
+To use number values in Twig equations in {% for %} loops, the value must be extracted using the `|trans` filter
+
+```twig
+    {% for team in teams %}
+        {% set bonus = teams.score|trans + 2 %}
+    {% endfor %}
+```
+
 ## Options:
 
 The field has a few options to change the functionality of the field.

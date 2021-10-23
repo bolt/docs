@@ -97,14 +97,14 @@ Number-based fields
 A field to store "True or false" type values. Internally stored as either 1 for
 true if the checkbox was checked, and 0 for false if it wasn’t checked.
 
-### Integer
+### Number (mode: integer)
 
 <a href="https://user-images.githubusercontent.com/7093518/91461920-e1856200-e889-11ea-8f43-64d870f0a4ec.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91461920-e1856200-e889-11ea-8f43-64d870f0a4ec.png"></a><br>
 
 A field to store whole numbers. The value must be between -2147483648 and
 +2147483647. Often used for storing things like prices of products.
 
-### Float
+### Number (mode: float)
 
 <a href="https://user-images.githubusercontent.com/7093518/91531685-77ae9c00-e90d-11ea-95d6-df32970b9b32.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91531685-77ae9c00-e90d-11ea-95d6-df32970b9b32.png"></a><br>
 
