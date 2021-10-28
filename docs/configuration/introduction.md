@@ -115,7 +115,7 @@ disregard it otherwise. Committing it to version control isn't recommended, and
 be sure not to deploy it to a server it is not needed on.</p>
 
 <p class="tip"><strong>Tip:</strong> Set <code>APP_ENV=prod</code> and
-<code>APP_DEBUG=0</code> in <code>.env</code> on development servers! </p>
+<code>APP_DEBUG=0</code> in <code>.env</code> on production servers! </p>
 
 ### Dynamic values for config settings
 
