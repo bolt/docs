@@ -1,8 +1,8 @@
 ---
-title: Transform Bolt 3 repeaters to Bolt 4 sets and collections
+title: Transform Bolt 3 repeaters to Bolt 5 sets and collections
 ---
 
-Transform Bolt 3 repeaters to Bolt 4 sets and collections
+Transform Bolt 3 repeaters to Bolt 5 sets and collections
 =========================================================
 
 ## Repeater → collection with 1 set
@@ -42,7 +42,7 @@ Given this definition in Bolt 3
                     type: number
 ```
 
-then, the corresponding definition that delivers the same functionality in Bolt 4 would be:
+then, the corresponding definition that delivers the same functionality in Bolt 5 would be:
 ```yaml
         books:
             type: collection
@@ -121,7 +121,7 @@ Given this definition in Bolt 3
                             height: 100px
 ```
 
-then, the corresponding definition that delivers the same functionality in Bolt 4 would be:
+then, the corresponding definition that delivers the same functionality in Bolt 5 would be:
 
 ```yaml
         sections:
@@ -167,7 +167,7 @@ In Twig, this can be displayed as follows:
         {{ showimage(section.image) }}
         <p>{{ section.description }}</p>
 
-    {% else if section.name === 'textsection' %}
+    {% elseif section.name === 'textsection' %}
 
         {{ section.content }}
 
