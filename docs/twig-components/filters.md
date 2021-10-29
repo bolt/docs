@@ -401,14 +401,22 @@ You can specify two parameters: strict mode and extrachars.
 ## showimage
 
 Use this filter to insert an image in the HTML. You can optionally provide the
-width, height and cropping parameters, like you can do with the `thumbnail`
-filter.
+width and height parameters, like you can do with the `thumbnail` filter. The 
+parsed image will be cropped using the 'contain' mode. 
 
 ```twig
 {{ record.photo|showimage(800, 600) }}
 or
 {{ showimage("2020-03/foo.jpg", 800, 600) }}
+
 ```
+
+You can also add `loading="lazy"` in the HTML output:
+```twig
+{{ record.photo|showimage(500, 700, lazy = true) }}
+
+```
+
 
 ## selected
 
