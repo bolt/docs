@@ -114,8 +114,8 @@ Returns a config value using a path
 Returns true if config matches path, and false otherwise.
 
 ```twig
-{% set has_sitename = config.get('general/sitename') %} # returns true
-{% set has_fakedummy = config.get('fake/dummy) %} # returns false
+{% set has_sitename = config.has('general/sitename') %} # returns true
+{% set has_fakedummy = config.has('fake/dummy) %} # returns false
 ```
 
 ### contentType(contenttype)
