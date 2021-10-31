@@ -101,7 +101,7 @@ the location in the new version's structure.
 | Files directory `public/files`                      | `public/files`                 |
 | Thumbnails directory `public/thumbs`                | `public/thumbs`                |
 
-In case you have customized the default Bolt 3 `.htacces` file in the `public` directory,
+In case you have customized the default Bolt 3 `.htaccess` file in the `public` directory,
 you will need to include the modification in the new Bolt 5 `public/.htaccess` file for your
 site to properly work.
 
