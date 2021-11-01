@@ -407,7 +407,7 @@ pages:
         <<: *content_defaults
         <<: *template_defaults
     taxonomy: [ chapters ]
-    recordsperpage: 100
+    records_per_page: 100
 ```
 
 Keeping fields together in a group
