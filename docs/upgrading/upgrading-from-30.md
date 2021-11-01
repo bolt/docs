@@ -137,12 +137,26 @@ integerfield:
     mode: integer
 ```
 
-To migrate the data of an **Integer** field the new field definition will look like:
+To migrate the data of a **Float** field the new field definition will look like:
 ```yaml
 # Bolt 5 float Number field definition
 floatfield:
     type: number
     mode: float 
+```
+
+#### `recordsperpage` is now `records_per_page`
+
+The `recordsperpage` setting for a content type has been changed (since Bolt 4) to use `snake_case` for consistency with other Bolt config items.
+
+```yaml
+# Bolt 3.x syntax
+contenttype_posts:
+  recordsperpage: 10
+
+#Bolt 4.x+ syntax
+contenttype_posts:
+  records_per_page: 10
 ```
 
 ### Repeater and Block fields
