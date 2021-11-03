@@ -288,3 +288,17 @@ In Bolt 5 the syntax is:
 ```twig
 {% apply spaceless %} - {% endapply %} 
 ``` 
+
+#### Twig image function
+
+In Bolt 3, you could render an image using the `image` function in your theme's twig templates:
+
+```twig
+<img src="{{ image(record.image, 600, 500) }}" alt="{{ record.imagealt }}" />
+```
+
+In Bolt 4.x and up, the new syntax is:
+
+```
+<img src="{{ showimage(record.image, 600, 500) }}" alt="{{ record.imagealt }}" />
+```
