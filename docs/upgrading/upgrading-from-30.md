@@ -166,6 +166,22 @@ much the same as it was in earlier versions, the syntax to define these fields d
 There is some documentation already written about [how to transform Repeater and Block fields](https://docs.bolt.cm/4.0/howto/transform-repeaters-to-sets-and-collections#jumpbutton)
 that will help you out in migrating these fields for your site.
 
+### Video field
+
+The `video` field type from Bolt 3 has been dropped in favor of the more generic and all-encompassing [`embed` field type](https://docs.boltcms.io/5.0/fields/embed).
+
+```yaml
+# Bolt 3.x syntax
+videofield:
+    type: video
+
+# Bolt 4.x syntax
+videofield:
+    type: embed
+```
+
+The `embed` type should be a drop-in replacement.
+
 ## Conimex Extension and data import
 To get the exported data migrated you will need to install the [Conimex Extension](https://extensions.boltcms.io/package/bobdenotter-conimex "Conimex Extension: extensions.boltcms.io").
 
