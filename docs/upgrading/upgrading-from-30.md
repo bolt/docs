@@ -300,5 +300,7 @@ In Bolt 3, you could render an image using the `image` function in your theme's 
 In Bolt 4.x and up, the new syntax is:
 
 ```
-<img src="{{ showimage(record.image, 600, 500) }}" alt="{{ record.imagealt }}" />
+{{ showimage(record.image, 600, 500) }}
 ```
+
+Note there's no need to write the `<img>` tag or define a separate `imagealt` field, since the `image` field type includes an alt text field, and the `showimage` twig function outputs the `<img>` tag for you.
