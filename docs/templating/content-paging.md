@@ -70,7 +70,7 @@ to something like `mypager.twig`. Then, pass the name as an extra
 parameter to the `pager` function:
 
 ```
-{{ pager(template='mypager.twig) }}
+{{ pager(template='mypager.twig') }}
 ```
 
 ### Pager options
