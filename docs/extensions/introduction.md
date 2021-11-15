@@ -12,7 +12,7 @@ This chapter has information about the two major ways to write custom code for
 (and "on top of") Bolt. Namely, developing extensions as well as adding custom
 to a specific Bolt project.
 
-As you undoubtedly have discovered by now, Bolt 4 is a Symfony application
+As you undoubtedly have discovered by now, Bolt 5 is a Symfony application
 through and through. This means that for extending the functionality, we
 heavily borrow from the tools and ecosystem that the Symfony network provides.
 

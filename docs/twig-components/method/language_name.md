@@ -34,7 +34,7 @@ $ composer require twig/extra-bundle
 Otherwise, add the extension explicitly on the Twig environment:
 
 ```twig
-use Twig\Ex tra\Intl\IntlExtension;
+use Twig\Extra\Intl\IntlExtension;
 
 $twig = new \Twig\Environment(...);
 $twig->addExtension(new IntlExtension());

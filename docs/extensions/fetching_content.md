@@ -151,7 +151,7 @@ For more information on querying using Repositories, check the official
 ## Creating a custom Repository
 
 You can also create your custom Repository class inside the `src` folder of your project.
-To do so, make sure you read and understand the contept behind [Doctrine repositories][doctrine-repositories] first.
+To do so, make sure you read and understand the concept behind [Doctrine repositories][doctrine-repositories] first.
 
 Below is a Repository skeleton that you can use for Bolt `Content` entities.
 
