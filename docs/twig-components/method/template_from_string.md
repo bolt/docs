@@ -23,7 +23,7 @@ $twig->addExtension(new \Twig\Extension\StringLoaderExtension());
 
 <p class="note"><strong>Note:</strong> Even if you will probably always use the template_from_string function with 
 the include function, you can use it withany tag or function that takes a template as an argument (like the embed or 
-extends tags).
+extends tags).</p>
 
 ##Arguments
 - `template`: The template

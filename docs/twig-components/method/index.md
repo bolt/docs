@@ -209,13 +209,13 @@ pages:
 - related_content_by_type
 - related_first
 - relative_path
-- render_
+- render
 - replace
 - reverse
 - rootform
 - round
 - safestring
-- same
+- same_as
 - sandbox
 - sanitise
 - scalar
