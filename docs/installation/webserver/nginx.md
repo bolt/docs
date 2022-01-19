@@ -82,7 +82,7 @@ on a host.
 ```nginx
 # Default prefix match fallback, as all URIs begin with /
 location / {
-    try_files                     $uri $uri/ /index.php?$query_string;
+    try_files                     $uri $uri/ /index.php$is_args$args;
 }
 
 # Bolt dashboard and backend access
@@ -94,15 +94,15 @@ location / {
 #
 # NOTE: If you set a custom branding path, change '/bolt' & '/bolt/' to match
 location = /bolt {
-    try_files                     $uri /index.php?$query_string;
+    try_files                     $uri /index.php$is_args$args;
 }
 location ^~ /bolt/ {
-    try_files                     $uri /index.php?$query_string;
+    try_files                     $uri /index.php$is_args$args;
 }
 
 # Generated thumbnail images
 location ^~ /thumbs {
-    try_files                     $uri /index.php; #?$query_string;
+    try_files                     $uri /index.php; #$is_args$args;
 
     access_log                    off;
     log_not_found                 off;
@@ -113,7 +113,7 @@ location ^~ /thumbs {
 }
 
 # Don't log, and do cache, asset files
-location ~* ^.+\.(?:atom|bmp|bz2|css|doc|eot|exe|gif|gz|ico|jpe?g|jpeg|jpg|js|map|mid|midi|mp4|ogg|ogv|otf|png|ppt|rar|rtf|svg|svgz|tar|tgz|ttf|wav|woff|xls|zip)$ {
+location ~* ^.+\.(atom|bmp|bz2|css|doc|eot|exe|gif|gz|ico|jpe?g|jpeg|jpg|js|map|mid|midi|mp4|ogg|ogv|otf|png|ppt|rar|rtf|svg|svgz|tar|tgz|ttf|wav|woff|xls|zip)$ {
     access_log                    off;
     log_not_found                 off;
     expires                       max;
@@ -123,14 +123,14 @@ location ~* ^.+\.(?:atom|bmp|bz2|css|doc|eot|exe|gif|gz|ico|jpe?g|jpeg|jpg|js|ma
 }
 
 # Don't create logs for favicon.ico, robots.txt requests
-location = /(?:favicon.ico|robots.txt) {
+location ~ /(favicon.ico|robots.txt) {
     log_not_found                 off;
     access_log                    off;
 }
 
 # Deny access to any files in the theme folder, except for the listed extensions.
 location ~ theme\/.+\.(?!(html?|css|js|jpe?g|png|gif|svg|pdf|avif|webp|mp3|mp?4a?v?|woff2?|txt|ico|zip|tgz|otf|ttf|eot|woff|woff2)$)[^\.]+?$ {
-  return 403;
+    deny                          all;
 }
 
 # Redirect requests for */index.php to the same route minus the "index.php" in the URI.
@@ -153,18 +153,8 @@ location ~ /\.(?!well-known) {
     deny                          all;
 }
 
-# Apache .htaccess & .htpasswd files
-location ~ /\.(htaccess|htpasswd)$ {
-    deny                          all;
-}
-
-# Block access to Sqlite database files
-location ~ /\.(?:db)$ {
-    deny                          all;
-}
-
 # Block access to Markdown, Twig & YAML files directly
-location ~* /(.*)\.(?:markdown|md|twig|yaml|yml)$ {
+location ~* /(.*)\.(markdown|md|twig|yaml|yml)$ {
     deny                          all;
 }
 ```
@@ -218,19 +208,19 @@ To install Bolt within a subfolder, a location describing this must be added.
 
 ```nginx
     location ^~ /subfolder/(.*)$ {
-        try_files $uri $uri/ /subfolder/index.php?$query_string;
+        try_files $uri $uri/ /subfolder/index.php$is_args$args;
     }
 ```
 Two previously added locations must be amended.
 
 ```nginx
     location ^~ /subfolder/bolt/(.*)$ {
-        try_files $uri $uri/ /subfolder/index.php?$query_string;
+        try_files $uri $uri/ /subfolder/index.php$is_args$args;
     }
 
     # Backend async routes
     location ^~ /subfolder/async/(.*)$ {
-        try_files $uri $uri/ /subfolder/index.php?$query_string;
+        try_files $uri $uri/ /subfolder/index.php$is_args$args;
     }
 ```
 
