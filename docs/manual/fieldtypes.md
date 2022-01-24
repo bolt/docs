@@ -38,6 +38,174 @@ A WYSIWYG field that allows greater freedom to edit styling and presentation of
 text. Often used for the body of a page or article. Features of the WYSIWYG can
 be turned on or off in the Main configuration.
 
+### Redactor field
+
+<a href="https://user-images.githubusercontent.com/6607455/148800701-875754f8-70c7-48fa-a6ce-4d7c785d76b8.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/148800701-875754f8-70c7-48fa-a6ce-4d7c785d76b8.PNG"></a><br>
+
+A WYSIWYG field that allows greater freedom to edit styling and presentation of
+text with the advantage of adding extra functionality and custom options and buttons
+to make the editing experience more pleasant.
+
+### Article field
+
+<a href="https://user-images.githubusercontent.com/6607455/148800697-b31ea6a4-f0dc-49fb-9121-2bffc514f029.png" class="popup"><img src="https://user-images.githubusercontent.com/6607455/148800697-b31ea6a4-f0dc-49fb-9121-2bffc514f029.png"></a><br>
+
+A powerful WYSIWYG text editor for creating rich content. It can work with grids, cards, templates and
+other components of website.
+
+### WYSIWYG editors
+
+There are different text editors in Bolt and each of them are more suitable for
+a specific type of site but in general lines all of them provide the same basic
+text editing options.
+
+The text is entered directly in the editing area of the editor. To style, format
+or enrich the text please read the following topics.
+
+#### Text and paragraph formatting
+
+The format of the text can be changed by clicking the format button on the editor's
+toolbar.
+
+<a href="https://user-images.githubusercontent.com/6607455/148800949-09a3b0a0-b988-4c6c-b48d-937177e75419.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/148800949-09a3b0a0-b988-4c6c-b48d-937177e75419.PNG"></a><br>
+
+It allows the selection of a different format from the list. In some cases you will
+be aware of the format change directly in the editing area. You can select any of
+the following options:
+
+<a href="https://user-images.githubusercontent.com/6607455/148800953-4c49356f-c590-46f6-8068-8cbf1edf0500.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/148800953-4c49356f-c590-46f6-8068-8cbf1edf0500.PNG"></a><br>
+
+- **Normal text**: It's the default format. This is the most used when editing content.
+- **Quote**: It allows to format the text as a quote. Use it when you want to add a quote
+  to the content of your webpage.
+- **Code**: It formats the text as code meaning that the main purpose of this format
+  is to be used on text that represents code. For example: PHP, Twig, HTML... any coding
+  language
+- **Heading 2**: It formats the text with a level 2 heading (<h2\>).
+- **Heading 3**: It formats the text with a level 3 heading (<h3\>).
+- **Heading 4**: It formats the text with a level 4 heading (<h4\>).
+- **Heading 5**: It formats the text with a level 5 heading (<h5\>).
+
+#### Text styling
+
+The style of the text can be changed selecting one of the following options:
+
+##### Bold
+
+<a href="https://user-images.githubusercontent.com/6607455/148800951-7f6dbb33-3ca8-49d5-84cf-c9f635b41258.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/148800951-7f6dbb33-3ca8-49d5-84cf-c9f635b41258.PNG"></a><br>
+
+Makes the text bold adding a darker color to the text. 
+
+This helps to emphasize words and sentences in a text.
+
+##### Italic 
+<a href="https://user-images.githubusercontent.com/6607455/148963999-35b3deff-777f-4d54-a313-0dffb368c2e3.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/148963999-35b3deff-777f-4d54-a313-0dffb368c2e3.PNG"></a><br>
+
+Makes the text italic.
+
+This is used to emphasize or contrast part of the text.
+
+#### Rich text
+It is just not plain text what you can use to create the content of the page. The
+WYSIWYG editor allows you to add rich text and media.
+
+##### Lists
+
+<a href="https://user-images.githubusercontent.com/6607455/148966795-f946feb0-f449-4688-b9b3-285a1114cbb7.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/148966795-f946feb0-f449-4688-b9b3-285a1114cbb7.PNG"></a><br>
+
+The lists button allows you to select from different types of lists and create nested lists. 
+
+<a href="" class="popup"><img src="https://user-images.githubusercontent.com/6607455/148966798-ab19ad18-c9dd-472c-a23a-cb0c1feba12c.PNG"></a><br>
+
+- **Unordered List**: It sets the writing mode to bullet points lists. It will add
+  a new bullet point to the list when you press Enter.
+- **Ordered List**: It sets the writing mode to a numbered list starting at 1. It will
+  add the next number when you press Enter.
+- **Outdent**: It removes an item or su item from the list.
+- **Indent**: It adds a sub item to the list. 
+
+###### How to create nested lists
+
+<img src="http://g.recordit.co/Lh6ADdYqyO.gif"/>
+
+To create nested lists you will need to do the following:
+
+1. Click on the lists button and select a type of list, ordered or unordered list.
+2. Write the text for the first item of the list.
+3. Write the text for the second item of the list and click on the list button and
+select the **Indent** option.
+4. Repeat steps 2 and 3 as many times as you need
+5. To go back one level in the nested list use the option **Outdent** from the lists
+button options list.
+
+##### Tables
+
+<a href="https://user-images.githubusercontent.com/6607455/148977760-77738d9e-a59c-4ec4-9b05-68dfbc28a151.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/148977760-77738d9e-a59c-4ec4-9b05-68dfbc28a151.PNG"></a><br>
+
+The **Table** button allows you to select different options for creating tables in
+your content. You can choose the following options:
+
+<a href="https://user-images.githubusercontent.com/6607455/148977764-096fd54a-4d94-4b5d-9ebf-e182e6c8f93f.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/148977764-096fd54a-4d94-4b5d-9ebf-e182e6c8f93f.PNG"></a><br>
+
+- **Insert table**: It adds a default 3x3 table to your content.
+- **Insert row above**: It adds a new row above the row where the text cursor is positioned.
+- **Insert row below**: It adds a new row below the row where the text cursor is positioned.
+- **Insert column left**: It adds a new column to the left of the text cursor position.
+- **Insert column right**: It adds a new column to the right of the text cursor position.
+- **Add head**: It adds a header to the table. This is the first row of the table.
+- **Delete head**: It removes the header from the table.
+- **Delete column**: It removes the column where the text cursor is positioned.
+- **Delete row**: It removes the row where the text cursor is positioned.
+- **Delete table**: It removes the table from the content.
+
+###### How to create tables
+
+<img src="http://g.recordit.co/HHOYNfGl96.gif"/>
+
+1. Click on the **Table** button and select **Insert table**.
+2. Add as many columns as your table need by clicking on the **Table** button 
+   and selecting either **Insert column left** or **Insert column right**.
+2. If your table has a header, click on the **Table** button and select **Add head**.
+3. Add text to the header and rows of the table
+4. If necessary add extra rows by clicking on the **Table** button
+   and selecting either **Insert row above** or **Insert row below**. 
+5. Remove rows, columns and header when necessary by using the options **Delete head**,
+   **Delete column** or **Delete row**.
+   
+To entirely remove a table that is not needed anymore in your content use the **Delete table** option.
+
+If you accidentally remove a table you can revert the changes by clicking **Ctrl + Z**
+
+##### Images
+<a href="https://user-images.githubusercontent.com/6607455/150821018-80c6983a-8b40-4f28-9f9f-27d3b891bbff.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/150821018-80c6983a-8b40-4f28-9f9f-27d3b891bbff.PNG"></a><br>
+
+The image button allows you to add images in the text. 
+
+There are two options to select the images for your content:
+
+  1. Upload the image from your PC.<br>     
+     <a href="https://user-images.githubusercontent.com/6607455/150820655-58379f16-8ae3-49ea-9536-2b458e50046f.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/150820655-58379f16-8ae3-49ea-9536-2b458e50046f.PNG"></a><br><br>
+  
+     Click on the upload panel to open your system file browser window
+     or directly drag and drop the image into the upload panel area.
+     
+         
+  2. Select an image from the server.<br>  
+     <a href="https://user-images.githubusercontent.com/6607455/150820653-4070bf66-f09d-4e19-a968-7b2ea8dc4a51.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/150820653-4070bf66-f09d-4e19-a968-7b2ea8dc4a51.PNG"></a><br><br>
+
+     Click on the "Choose" tab and select the image you want to add to your content.
+     This is a collection of images that have been previously uploaded to the server.
+
+##### Video
+<a href="https://user-images.githubusercontent.com/6607455/150824911-d0635a0b-95d5-485a-bc63-01107bed1e12.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/150824911-d0635a0b-95d5-485a-bc63-01107bed1e12.PNG"></a>
+
+The video button allows you to embed videos in your content.
+
+To add a video click on the video button and paste the link to the Youtube/Vimeo or the
+embed code in the text area and click "Insert".
+
+<a href="https://user-images.githubusercontent.com/6607455/150824917-08d96278-f89f-4a58-9afa-9ad3eafaa75f.PNG" class="popup"><img src="https://user-images.githubusercontent.com/6607455/150824917-08d96278-f89f-4a58-9afa-9ad3eafaa75f.PNG"></a>
+
 Date Field
 ----------
 
