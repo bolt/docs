@@ -241,7 +241,7 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [url_decode](twig-components/method/url_decode)  <small>(Bolt)</small>
 - [url_encode](twig-components/method/url_encode)  <small>(Bolt)</small>
 
-### Symfonoy
+### Symfony
 
 - [file_excerpt(line, srcContext = 3)](twig-components/method/file_excerpt)  <small>Symfony</small>
 - [file_link(line)](twig-components/method/file_link)  <small>(Symfony)</small>
