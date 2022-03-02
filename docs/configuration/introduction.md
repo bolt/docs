@@ -85,7 +85,7 @@ There are a few other locations where configuration files can be found:
 
 | Folder                | Description |
 | --------------------- | ----------- |
-| `.env`                | Configration settings for the environment (including the DEV / PROD switch, and database settings)
+| `.env`                | Configuration settings for the environment (including the DEV / PROD switch, and database settings)
 | `config/extensions/`  | Config files of your installed extensions
 | `config/`             | All configuration files for the underlying Symfony application
 | `public/theme/`       | In the folder for the active theme, there can optionally be a `theme.yaml`.
