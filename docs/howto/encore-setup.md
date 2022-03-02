@@ -85,6 +85,8 @@ After making this change you can reference your assets like this if you've copie
 {{ asset('my-assets/images/home-map.png', 'my-site') }}
 ```
 
-Here 'my-site' refers to the 'my-site' under packages in `assets.yaml`
+Here 'my-site' refers to the 'my-site' under packages in `assets.yaml`[^1].
+[^1]: Note, somes packaged "names" are reserved (because already defined by bolt), like : "bolt", "theme", "public" and "files"
+
 
 Build your files using encore (yarn ...), and refresh the page!
