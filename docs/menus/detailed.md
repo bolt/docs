@@ -69,8 +69,10 @@ test:
   - label: All pages
     link: pages/
     submenu:
-      - link: page/1
-      - link: page/2
+      - label: Page 1
+        link: page/1
+      - label: Page 2
+        link: page/2
       - label: last page
         link: page/3
         class: my_class
