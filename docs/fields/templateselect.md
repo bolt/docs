@@ -35,6 +35,8 @@ theme folder. By default these are all files ending in `.twig`, but _don't_
 start with an underscore (`_`). So, a file like `_partial_menu.twig` isn't
 shown.
 
+### Template Filter
+
 Using the `filter` options, you can provide a glob pattern that decides which
 templates to show. For example: to only match `twig` templates that start with
 the word "pages" you can do this:
@@ -52,3 +54,16 @@ Alternatively, you can set this to a regular expression:
             type: templateselect
             filter: '/^[^_].*twig$/'
 ```
+
+### Template Path
+
+To show twig templates from a custom directory, use the `path` option:
+
+```yaml
+        template:
+            label: "Header Layout"
+            type: templateselect
+            path: 'partials/header/'
+```
+
+<p class="note"><strong>Note:</strong> The path must reside inside the theme's template directory defined via <code>template_directory</code> in your <code>theme.yml</code> theme's config file. Templates outside of this template directory will not be displayed, regardless of the <code>path</code> setting.</p>
