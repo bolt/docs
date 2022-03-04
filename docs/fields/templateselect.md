@@ -57,7 +57,7 @@ Alternatively, you can set this to a regular expression:
 
 ### Template Path
 
-To show twig templates from a custom directory, use the `path` option:
+To show Twig templates from a custom directory, use the `path` option:
 
 ```yaml
         template:
@@ -66,4 +66,7 @@ To show twig templates from a custom directory, use the `path` option:
             path: 'partials/header/'
 ```
 
-<p class="note"><strong>Note:</strong> The path must reside inside the theme's template directory defined via <code>template_directory</code> in your <code>theme.yml</code> theme's config file. Templates outside of this template directory will not be displayed, regardless of the <code>path</code> setting.</p>
+<p class="note"><strong>Note:</strong> The path must reside inside the theme's 
+template directory defined via <code>template_directory</code> in your 
+<code>theme.yaml</code> theme's config file. Templates outside of this template 
+directory will not be displayed, regardless of the <code>path</code> setting.</p>
