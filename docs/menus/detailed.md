@@ -8,7 +8,7 @@ create a menu, with submenus. First, start by adding a small menu to your
 ```yaml
 test:
   - label: Bolt
-    link: https://bolt.cm
+    link: https://boltcms.io
   - label: Example org
     link: http://example.org
   - label: Symfony
@@ -31,7 +31,7 @@ probably isn't present yet, so create it in your own `theme/`-folder.
 <ul>
 {% for item in menu %}
     <li>
-        <a href="{{ item.link }}">{{item.label}}</a>
+        <a href="{{ item.uri }}">{{ item.label }}</a>
     </li>
 {% endfor %}
 </ul>
@@ -39,12 +39,13 @@ probably isn't present yet, so create it in your own `theme/`-folder.
 
 Refresh a page that uses the template that you've added the `{{ menu() }}`-tag
 to in your browser, and you should see a very simple menu, with the following
-HTML-markup:
+HTML-markup. Note that Bolt 'expands' a given contenttype and slug pairing in 
+`link` to a functioning link as `item.uri`.
 
 ```twig
 <ul>
     <li>
-        <a href="https://bolt.cm">Bolt</a>
+        <a href="https://boltcms.io">Bolt</a>
     </li>
     <li>
         <a href="http://example.org">Example org</a>
@@ -65,7 +66,7 @@ do have. Edit the `config/bolt/menu.yaml`-file:
 ```yaml
 test:
   - label: Bolt
-    link: https://bolt.cm
+    link: https://boltcms.io
   - label: All pages
     link: pages/
     submenu:
@@ -89,12 +90,12 @@ example:
 <ul>
 {% for item in menu %}
     <li class="{{ item.class }}">
-        <a href="{{ item.link }}">{{item.label}}</a>
+        <a href="{{ item.uri }}">{{ item.label }}</a>
         {% if item.submenu is defined %}
             <ul>
             {% for item in item.submenu %}
                 <li class="{{ item.class }}">
-                    <a href="{{ item.link }}">{{item.label}}</a>
+                    <a href="{{ item.uri }}">{{ item.label }}</a>
                 </li>
             {% endfor %}
             </ul>
@@ -109,7 +110,7 @@ The output in HTML might look like this now:
 ```twig
 <ul>
     <li class="">
-        <a href="https://bolt.cm">Bolt</a>
+        <a href="https://boltcms.io">Bolt</a>
     </li>
     <li class="">
         <a href="/pages">All pages</a>
