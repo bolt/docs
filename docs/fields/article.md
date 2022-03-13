@@ -64,9 +64,9 @@ plugins:
 Bolt's version of Article ships with all the official plugins and options. you
 can add or remove buttons and plugins by configuring them in the `plugins:`
 parameters. Check the official Article documentation for [all available
-buttons][buttons]. Note that some buttons might require you to enable the
+buttons](https://imperavi.com/article/docs/settings/buttons/). Note that some buttons might require you to enable the
 corresponding plugin as well. See here for a list of
-[the available plugins][plugins].
+[the available plugins](https://imperavi.com/article/plugins/).
 
 ## Settings
 
@@ -75,7 +75,7 @@ Where applicable, you can add extra settings under the `default:` key in the
 settings.
 
 Note that this documentation uses Javascript, whilst Bolt's configuration uses
-Yaml. For example, the documentation for '[Paste][paste]' has this example:
+Yaml. For example, the documentation for '[Paste](https://imperavi.com/article/docs/settings/paste/)' has this example:
 
 ```javascript
 ArticleEditor('#entry', {
@@ -105,8 +105,8 @@ For a list of all plugins that ship with Article, check out [Imperavi](https://i
 ## Adding custom plugins
 
 If you've written your own block or plugin for Article according to the
-documentation [for Creating Plugins][create-plugin] or
-[for Creating Blocks][create-block], you can add it to the editor in Bolt, by
+documentation [for Creating Plugins](https://imperavi.com/article/docs/how-to-create-a-plugin/) or
+[for Creating Blocks](https://imperavi.com/article/docs/how-to-create-a-custom-block/), you can add it to the editor in Bolt, by
 placing it in `/public/assets/article/_plugins`. Then, add it to the
 `bolt-article.yaml` configuration:
 
@@ -161,8 +161,8 @@ If you prefer to copy the file to your own theme, you can link it using:
 
 Alternatively, if your theme is using Bootstrap or Bulma, you can configure
 Article to use the grid format from your preferred framework directly. See the
-documentation on [using Bootstrap grid][bootstrap-grid] or [using Bulma
-grid][bulma-grid].
+documentation on [using Bootstrap grid](https://imperavi.com/article/examples/frameworks/bootstrap-grid/) or [using Bulma
+grid](https://imperavi.com/article/examples/frameworks/bulma-grid/).
 
 ## Input Sanitisation
 
