@@ -29,7 +29,7 @@ field.
   * `large` to make both the field and the font larger
 * `allow_twig` can be set to true or false to control if twig may be used in the
   field
-* `pattern` Use this to validate the field against a certain pattern.
+* `pattern` Use this to validate the field against a certain pattern. [More about patterns](common#required-and-patterns)
 * `placeholder` Placeholder text inside the input control.
 
 ## Input Sanitisation
