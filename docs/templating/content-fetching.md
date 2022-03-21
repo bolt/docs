@@ -85,7 +85,7 @@ equal':
 {% setcontent mypages = 'pages' where { author: '!1' } %}
 
 {# get all products where price is not empty #}
-{% setcontent myproducts = 'products' where { price: '!' } %}
+{% setcontent myproducts = 'products' where { price: '!""' } %}
 
 {# get all events with eventdate before '2012-10-15' #}
 {% setcontent myevents = 'events' where { eventdate: '<2012-10-15' } %}
