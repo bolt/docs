@@ -126,6 +126,7 @@ then, the corresponding definition that delivers the same functionality in Bolt 
 ```yaml
         sections:
             type: collection
+            label: Collection with sets
             fields:
                 imagesection:
                     type: set
