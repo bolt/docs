@@ -157,4 +157,4 @@ documentation.
 [config-accessing]: reading#accessing-configuration-in-php
 [config-env]: reading#reading-environment-variables
 [sf-env]: https://symfony.com/doc/current/configuration.html#configuration-environments
-[internals]: ../internals/container-service-references#app-config)
+[internals]: ../core-development
