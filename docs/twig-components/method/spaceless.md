@@ -32,24 +32,24 @@ This tag is not meant to "optimize" the size of the generated HTML
 content but merely to avoid extra whitespace between HTML tags to avoid browser rendering quirks under some
 circumstances.
 
-### Caution 
-
+<p class="warning"><strong>Caution:</strong>
 As the filter uses a regular expression behind the scenes, its performance is directly related to the text size
 you are working on (remember that filters are executed at runtime).
+</p>
 
-### Tip 
-
+<p class="tip"><strong>Tip:</strong>
 If you want to optimize the size of the generated HTML content, gzip compress the output instead.
+</p>
 
-### Tip 
-
+<p class="tip"><strong>Tip:</strong>
 If you want to create a tag that actually removes all extra whitespace in an HTML string, be warned that this is not
 as easy as it seems to be (think of textarea or pre tags for instance). Using a third-party library like Tidy is
 probably a better idea.
+</p>
 
-### Tip 
-
+<p class="tip"><strong>Tip:</strong>
 For more information on whitespace control, read the dedicated section of the documentation and learn how you can
 also use the whitespace control modifier on your tags.
+</p>
 
 Source: [Twig](https://twig.symfony.com/spaceless)

@@ -6,7 +6,7 @@
 {{ data|json_encode() }}
 ```
 
-### Note
+<p class="note">
 
 Internally, Twig uses the PHP [json_encode](https://www.php.net/json_encode) function.
 

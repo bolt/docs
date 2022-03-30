@@ -5,7 +5,7 @@ the file size in it's respected: 'B', 'KB', 'MB', 'GB', 'TB'.
 
 Installation:
 
-```twig
+```
 https://packagist.org/packages/pnz/twig-extension-number
 ```
 

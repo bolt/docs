@@ -8,10 +8,10 @@
 {% endfor %}
 ```
 
-### Note
-
+<p class="note"><strong>Note:</strong>
 Internally, Twig uses the PHP [asort](https://www.php.net/asort) function to maintain index association. It supports
 Traversable objects by transforming those to arrays.
+</p>
 
 You can pass an arrow function to sort the array:
 

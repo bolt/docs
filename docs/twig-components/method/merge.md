@@ -24,9 +24,10 @@ The `merge` filter also works on hashes:
 
 For hashes, the merging process occurs on the keys: if the key does not already exist, it is added but if the key already exists, its value is overridden.
 
-### Tip
+<p class="tip"><strong>Tip:</strong>
 
 If you want to ensure that some values are defined in an array (by given default values), reverse the two elements in the call:
+</p>
 
 ```twig
 {% set items = { 'apple': 'fruit', 'orange': 'fruit' } %}

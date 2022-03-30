@@ -21,9 +21,10 @@ negative values):
 {# outputs 0, 2, 4, 6, #} 
 ```
 
-### Note
+<p class="note"><strong>Note:</strong>
 
 Note that if the start is greater than the end, range assumes a step of -1:
+</p>
 
 ```twig
 {% for i in range(3, 0) %} 
@@ -42,9 +43,9 @@ The Twig built-in .. operator is just syntactic sugar for the range function (wi
 {% endfor %} 
 ```
 
-### Tip
-
+<p class="tip"><strong>Tip:</strong>
 The `range` function works as the native PHP [range](https://www.php.net/range) function.
+</p>
 
 ## Arguments 
 - low: The first value of the sequence.

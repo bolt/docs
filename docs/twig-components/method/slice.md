@@ -49,8 +49,9 @@ shorter than the length, then only the available variable elements will be prese
 then the sequence will stop that many elements from the end of the variable. If it is omitted, then the sequence will
 have everything from offset up until the end of the variable.
 
-### Note 
+<p class="note"><strong>Note:</strong>
 It also works with objects implementing the Traversable interface.
+</p>
 
 ## Arguments 
 - start: The start of the slice 

@@ -12,8 +12,9 @@
 {# outputs 4321 #}
 ```
 
-### Tip
+<p class="tip"><strong>Tip:</strong>
 For sequences and mappings, numeric keys are not preserved. To reverse them as well, pass true as an argument to the reverse filter:
+</p>
 
 ```twig
 {% for key, value in {1: "a", 2: "b", 3: "c"}|reverse %}
@@ -29,8 +30,9 @@ For sequences and mappings, numeric keys are not preserved. To reverse them as w
 {# output: 3: c    2: b    1: a #}
 ```
 
-### Note
+<p class="note"><strong>Note:</strong>
 It also works with objects implementing the Traversable interface.
+</p>
 
 ## Arguments
 

@@ -44,13 +44,13 @@ The set tag can also be used to 'capture' chunks of text:
 {% endset %}
 ```
 
-### Caution
-
+<p class="warning"><strong>Caution:</strong>
 If you enable automatic output escaping, Twig will only consider the content to be safe when capturing chunks of text.
+</p>
 
-### Note
-
+<p class="note"><strong>Note:</strong>
 Note that loops are scoped in Twig; therefore a variable declared inside a for loop is not accessible outside the loop itself:
+</p>
 
 ```twig
 {% for item in list %}

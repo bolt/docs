@@ -25,9 +25,10 @@ Macros differ from native PHP functions in a few ways:
 
 But as with PHP functions, macros don't have access to the current template variables.
 
-### Tip
+<p class="tip"><strong>Tip:</strong>
 
 You can pass the whole context as an argument by using the special `_context` variable.
+</p>
 
 ## Importing Macros
 
@@ -57,9 +58,11 @@ Alternatively you can import names from the template into the current namespace 
 <p>{{ textarea('comment') }}</p>
 ```
 
-### Tip
+<p class="tip"><strong>Tip:</strong>
 
 When macro usages and definitions are in the same template, you don't need to import the macros as they are automatically available under the special _self variable:
+</p>
+
 ```twig
 <p>{{ _self.input('password', '', 'password') }}</p>
 

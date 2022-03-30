@@ -16,8 +16,9 @@ The round filter takes two optional arguments; the first one specifies the preci
 - ceil always rounds up;
 - floor always rounds down.
 
-### Note
+<p class="note"><strong>Note:</strong>
 The // operator is equivalent to |round(0, 'floor').
+</p>
 
 ## Arguments
 

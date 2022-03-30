@@ -28,9 +28,9 @@ If the delimiter is an empty string, then value will be split by equal chunks. L
 {# bar contains ['aa', 'bb', 'cc'] #}
 ```
 
-###Note
-
+<p class="note"><strong>Note:</strong>
 Internally, Twig uses the PHP explode or str_split (if delimiter is empty) functions for string splitting.
+</p>
 
 ## Arguments
 

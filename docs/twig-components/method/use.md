@@ -48,14 +48,15 @@ to the following one (the imported blocks are not outputted automatically):
 {% block content %}{% endblock %}
 ```
 
-> ### Note
->The use tag only imports a template if it does not extend another template, if it does not define macros, and if the
+<p class="note"><strong>Note:</strong>
+The use tag only imports a template if it does not extend another template, if it does not define macros, and if the
 body is empty. But it can use other templates.
+</p>
 
-<br>
-> ### Note
->Because use statements are resolved independently of the context passed to the template, the template reference cannot
+<p class="note"><strong>Note:</strong>
+Because use statements are resolved independently of the context passed to the template, the template reference cannot
 be an expression.  
+</p>
 
 The main template can also override any imported block. If the template already defines the `sidebar` block, then the
 one defined in blocks.html is ignored. To avoid name conflicts, you can rename imported blocks:
@@ -88,8 +89,9 @@ defined in an imported template:
 
 In this example, `parent()` will correctly call the sidebar block from the blocks.html template.
 
-> ### Tip
->Renaming allows you to simulate inheritance by calling the "parent" block:
+<p class="tip"><strong>Tip:</strong>
+Renaming allows you to simulate inheritance by calling the "parent" block:
+</p>
 
 ```twig
 {% extends "base.html" %}
@@ -102,7 +104,8 @@ In this example, `parent()` will correctly call the sidebar block from the block
 
 ```
 
->###Note
->You can use as many use statements as you want in any given template. If two imported templates define the same block, the latest one wins.
+<p class="note"><strong>Note:</strong>
+You can use as many use statements as you want in any given template. If two imported templates define the same block, the latest one wins.
+</p>
 
 Source: [Twig](https://twig.symfony.com/use)
