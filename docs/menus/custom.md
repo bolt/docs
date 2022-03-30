@@ -14,7 +14,7 @@ Some of the more commonly used 'tricks' are:
     first item in the loop.
   - `{% if loop.last %}last{% endif %}` - Output `last`, but only for the last
     item in the loop.
-  - `{% if item|current %}active{% endif %}` - Output `current`, but only if
+  - `{% if item|current %}active{% endif %}` - Output `active`, but only if
     we're on the page that the item links to.
   - `{% if item.title is defined %}title='{{ item.title|escape }}'{% endif %}`
     - Add a `title` attribute, but only if it's defined in our `.yaml`-file, or
