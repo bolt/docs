@@ -9,6 +9,9 @@ modern web server.
 
 - PHP 7.2.9 or higher
 - Access to SQLite (which comes bundled with PHP), _or_ MySQL/MariaDB.
+  - MySQL 5.7.8 or higher
+  - MariaDB 10.2.3 or higher
+  - SQLite 3.17 (with JSON1), 3.38 or higher
 
 The PHP installation has a few additional requirements. On most servers these
 are installed by default, and Bolt should work out-of-the-box.
