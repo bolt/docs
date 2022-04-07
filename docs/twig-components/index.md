@@ -98,6 +98,7 @@ working with Bolt. If you're not familiar with Twig yet, you should read
 - [menu_array(name = null)](twig-components/method/menu_array)  <small>(Bolt)</small>
 - [menu(name = null, template = "helpers\/_menu.html.twig", class = "", withsubmenus = true)](twig-components/method/menu)  <small>(Bolt)</small>
 - [pager(records = null, template = "@bolt\/helpers\/_pager_basic.html.twig", class = "pagination", surround = 3)](twig-components/method/pager)  <small>(Bolt)</small>
+- [paginate()](twig-components/method/paginate)  <small>(Bolt)</small>
 - [path(name, parameters = [], relative = false)](twig-components/method/path)  <small>(Bolt)</small>
 - [popup(image, width = 320, height = 240)](twig-components/method/popup)  <small>(Bolt)</small>
 - [previous_record(content, byColumn = "id", sameContentType = true)](twig-components/method/previous_record)  <small>(Bolt)</small>

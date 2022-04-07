@@ -189,6 +189,7 @@ object | test | Squirrelphp
 odd | test |
 order(on = "-publishedAt", onSecondary = null, locale = null) | filter | Twig
 pager(records = null, template = "@bolt\/helpers\/_pager_basic.html.twig", class = "pagination", surround = 3) | function | Bolt
+paginate | function | Bolt
 paragraph | filter | Jasny
 parent | function | Twig
 path(name, parameters = [], relative = false) | function | Bolt

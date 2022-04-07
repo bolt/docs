@@ -176,6 +176,7 @@ pages:
 - odd
 - order
 - pager
+- paginate
 - paragraph
 - parent
 - path
