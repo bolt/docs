@@ -1,12 +1,12 @@
 ---
-title: extensions:setup
+title: extensions:configure
 level: intermediate
 ---
 extensions:configure
 ================
 
-Console's `extensions:configure` command sets-up extension configuration,
-services and routes.
+Console's `extensions:configure` command sets up extension configuration,
+services and routes by copying the extension default configuration into your Bolt site `config/` directory.
 
 ## Usage
 
