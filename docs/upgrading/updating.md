@@ -5,7 +5,7 @@ Updating Bolt
 =============
 
 <p class="note"><strong>Note:</strong> This page is for updating an existing
-Bolt 5 installation. If you are updating form Bolt 4, see 
+Bolt 5 installation. If you are updating from Bolt 4, see 
 <a href='https://github.com/bolt/core/discussions/2318'>How to update from Bolt 
 4.x to 5.0</a>.  
 If you are updating from Bolt 3 or 2, see <a
