@@ -4,21 +4,25 @@ title: Hidden field
 Hidden field
 ============
 
-The hidden field is like the text field, except it's hidden from the content
-editor.
+The hidden field offers the possibility to pass a constant value from YAML configuration to Twig template.  
+This field is invisible in content type editing form. Thereby it can't be edited in backend.  
+You can change its value at will in content type YAML definition.  
 
 ## Basic Configuration:
 
 ```yaml
         secret:
-            type: hidden
+            type: hidden  
+            default: "foo bar baz"
 ```
 
 ## Example usage in templates:
 
 ```twig
 {{ record.secret }}
-```
+```  
+Will show :   
+`foo bar baz`
 
 ## Hiding a field, still showing the pre- and postfix
 
