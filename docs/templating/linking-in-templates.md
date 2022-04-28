@@ -279,6 +279,9 @@ to content and file assets alike. For example:
 
 {# Example use with `asset` #}
 <img src="{{ absolute_url( asset('kitten.jpg', 'files') ) }}" />
+
+{# Example use with `image` #}
+<img src="{{ absolute_url ( record.image ) }}" />
 ```
 
 For more in-depth information about this function, see
