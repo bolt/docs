@@ -29,13 +29,14 @@ entries:
 
 The `relations` are defined by the `slug` of the ContentType that it's related to. If a slug is not explicitly defined for a ContentType, the `name` is used. In the example above, it is `pages`. It takes a few parameters:
 
-| Parameter  | Description |
-|------------|-------------|
-| `required` | `true` or `false`, to determine if the user must pick a related record. Defaults to `true`. |
-| `multiple` | `true` or `false`, to indicate whether the user can pick one related record, or more than one.  Defaults to `false`. |
-| `label` | The label to show on the edit screen. |
-| `order` | The order in which the items are listed on the edit screen. This can be any field in the ContentType. Prefix with `-` to reverse the sorting. In the case of the example, `-id` means that the records that were created last are at the top.
-| `format` | How to show the titles for each record that can be selected. For example if you have two fields for firstname and lastname you might put `'{{firstname}} {{lastname}}'` here. The default is `'{title} (№ {id}, {status})'` |
+| Parameter        | Description                                                                                                                                                                                                                                                                                                                                                                                        |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `required`       | `true` or `false`, to determine if the user must pick a related record. Defaults to `true`.                                                                                                                                                                                                                                                                                                        |
+| `multiple`       | `true` or `false`, to indicate whether the user can pick one related record, or more than one.  Defaults to `false`.                                                                                                                                                                                                                                                                               |
+| `label`          | The label to show on the edit screen.                                                                                                                                                                                                                                                                                                                                                              |
+| `order`          | The order in which the items are listed on the edit screen. This can be any field in the ContentType. Prefix with `-` to reverse the sorting. In the case of the example, `-id` means that the records that were created last are at the top.                                                                                                                                                      
+| `format`         | How to show the titles for each record that can be selected. For example if you have two fields for firstname and lastname you might put `'{{firstname}} {{lastname}}'` here. The default is `'{title} (№ {id}, {status})'`                                                                                                                                                                        |
+| `link_to_record` | `true` or `false`, to indicate wether or not to display the pencil icon with a link to the related edit Record page. Defaults to `false`. |
 
 Editing a record that has relations defined looks like this:
 
