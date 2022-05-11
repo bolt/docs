@@ -255,6 +255,19 @@ linking to other ContentTypes since it can give an ordered relation. Usage:
             sortable: true
 ```
 
+### Link to edit record
+
+If you have select lists populated with Records you can add a link to the Record by adding the option:
+`link_to_record: true`. This feature works on single and multiple select lists. It will add the pencil
+icon to the selected items.
+
+```yaml
+        pages:
+            type: select
+            values: pages/
+            link_to_record: true
+```
+
 ### Set a default value
 
 If you want to have a default option selected you can use the `default` option.
