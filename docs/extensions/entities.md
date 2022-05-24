@@ -106,7 +106,7 @@ doctrine:
         is_bundle: false
         type: annotation
         dir: '%kernel.project_dir%/src/Entity/ColorField'
-        prefix: 'App\Color'
+        prefix: 'Bolt\Color'
         alias: Color
 ```
 
