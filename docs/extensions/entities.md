@@ -61,7 +61,7 @@ In `src/Entity/` create a class `ColorField.php`:
 
 declare(strict_types=1);
 
-namespace Bolt\Color;
+namespace App\Color;
 
 use Bolt\Entity\Field;
 use Bolt\Entity\Field\Excerptable;
@@ -106,7 +106,7 @@ doctrine:
         is_bundle: false
         type: annotation
         dir: '%kernel.project_dir%/src/Entity/ColorField'
-        prefix: 'Bolt\Color'
+        prefix: 'App\Color'
         alias: Color
 ```
 
