@@ -17,7 +17,7 @@ Splits `records` into pages with a pager using an optional `template`, `class` a
 | surround	 | The amount of items to show around the 'current' one. "3" by default.                                                                                         |
 
 ```twig
-{{ pager(blogposts, template = 'helpers/_pager_basic.html.twig', 'awesome-posts', 5) }}
+{{ pager(blogposts, 'helpers/_pager_basic.html.twig', 'awesome-posts', 5) }}
 ```
 
 You can define the template used for the pager yourself, or use one of the default ones:
