@@ -376,7 +376,7 @@ __nodes:
     content_defaults: &content_defaults
         image:
             type: image
-            attrib: title
+            alt: true
         body:
             type: html
             height: 300px
