@@ -317,7 +317,7 @@ makes the difference?
 {% setcontent mypage = 'page/about' %}
 {{ mypage }} {# mypage is one record #}
 
-{% setcontent mypages = 'page' latest 5 %}
+{% setcontent mypages = 'page' latest limit 5 %}
 {% for mypage in mypages %}
   {{ mypage }} {# mypages is an array that we can iterate over #}
 {% endfor %}
@@ -354,7 +354,7 @@ desired results, you can add `printquery` to the `{% setcontent %}`- tag. Doing
 this will output the SQL query Bolt creates and executes. For example:
 
 ```
-{% setcontent entries = 'entries' latest 5 printquery %}
+{% setcontent entries = 'entries' latest limit 5 printquery %}
 
 will show:
 

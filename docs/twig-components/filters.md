@@ -72,7 +72,7 @@ inquit, vitae beatum et eundem supremum diem, scribebamus haec. Duo Reges: const
 
 ## image
 
-Use this modifier to create a link to an image of your choosing. 
+Use this modifier to create a link to an image of your choosing.
 
 For details, see [extras][extras].
 
@@ -84,7 +84,7 @@ Encodes the given array of records into json.
 
 This method parses a string with JSON into an array / object. It is the opposite of `json_encode`:
 
-Example: 
+Example:
 
 ```twig
 {% set json_string = '{"selected":"search","zoom":"10","search":"Vienna, Austria","lat":48.2081743,"long":16.3738189}' %}
@@ -94,12 +94,12 @@ Example:
 {% else %}
     <code>json_string</code> is not valid JSON
 {% endif %}
-```    
-   
+```
+
 ## json_encode
 
 This method renders an array into a JSON string. It is the opposite of `json_decode`.
-  
+
 Example:
 
 ```twig
@@ -176,7 +176,7 @@ or:
 
 ```twig
 {# get the 10 latest entries by date, but sort them on the title and subtitle fields #}
-{% setcontent entries = "entries/latest/10" %}
+{% setcontent entries = "entries" latest limit 10 %}
 
 <ul>
 {% for entry in entries|order('title', 'subtitle') %}
@@ -401,8 +401,8 @@ You can specify two parameters: strict mode and extrachars.
 ## showimage
 
 Use this filter to insert an image in the HTML. You can optionally provide the
-width and height parameters, like you can do with the `thumbnail` filter. The 
-parsed image will be cropped using the 'contain' mode. 
+width and height parameters, like you can do with the `thumbnail` filter. The
+parsed image will be cropped using the 'contain' mode.
 
 ```twig
 {{ record.photo|showimage(800, 600) }}
@@ -508,9 +508,9 @@ To render an inlined svg, and a standard `<img>` tag otherwise, use this:
     {{ content.photo|showimage }}
 {% endif %}
 ```
-<p class="note"><strong>Note:</strong>Bolt renders the code inside the .svg file 
-"as is". If your site uses multiple inline .svg's on one page that use the same 
-`id` names, this will make the outputted HTML invalid and may lead to unexpected 
+<p class="note"><strong>Note:</strong>Bolt renders the code inside the .svg file
+"as is". If your site uses multiple inline .svg's on one page that use the same
+`id` names, this will make the outputted HTML invalid and may lead to unexpected
 results.</p>
 
 ## taxonomies
