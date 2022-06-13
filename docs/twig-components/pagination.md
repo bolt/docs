@@ -23,17 +23,17 @@ Splits `records` into pages with a pager using the an optional `template`,
 
 For example:
 ```twig
-{{ pager(records='blogposts', template = 'helpers/_pager_basic.html.twig', class='awesome-posts', surround=5) }}
+{{ pager(records=blogposts, template = 'helpers/_pager_basic.html.twig', class='awesome-posts', surround=5) }}
 ```
 
-If you use all of the available options, then you can omit the arguments, like this:
+If you use all of the available options, then you can omit the names of the arguments, like this:
 ```twig
-{{ pager(blogposts, template = 'helpers/_pager_basic.html.twig', 'awesome-posts', 5) }}
+{{ pager(blogposts, 'helpers/_pager_basic.html.twig', 'awesome-posts', 5) }}
 ```
 
-If you need just one of the options, you need to add the argument, for example:
+If you need just one of the options, you need to add the named argument, for example:
 ```twig
-{{ pager(records='blogposts', surround=5) }}
+{{ pager(records=blogposts, surround=5) }}
 ```
 
 You can define the template used for the pager yourself, or use one of the
