@@ -36,7 +36,7 @@ search_results_template: listing.twig
 search_results_records: 10
 ```
 
-In the template you have access to three variables:
+In the template you have access to two variables:
 
   - **records** - the search result records
   - **searchTerm** - the sanitized search query
