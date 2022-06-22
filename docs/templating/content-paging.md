@@ -73,6 +73,19 @@ parameter to the `pager` function:
 {{ pager(template='mypager.twig') }}
 ```
 
+### Pager previous and next classes
+
+The pagination next and previous link classes can be customized by passing the relevant parameters to the `pager()` function.
+
+To customize the previous link class use 
+```
+{{ pager(previous_link_class="my-custom-previous-class") }}
+```
+To customize the next link class use 
+```
+{{ pager(next_link_class="my-custom-next-class") }}
+```
+
 ### Pager options
 
 | Parameter      | Description |
@@ -80,6 +93,8 @@ parameter to the `pager` function:
 | `records` <small>optional</small> | The records to paginate. Default on a listing page are the listing records. |
 | `template` <small>optional</small> | The twig template used to render the pager. By default, use Bolt's basic pager.  |
 | `class` <small>optional</small> | An optional class name. Default is `pagination`. |
+| `previous_link_class` <small>optional</small> | An optional class for the previous link. Default is `previous`. |
+| `next_link_class` <small>optional</small> | An optional class for the next link. Default is `next`. |
 | `surround` <small>optional</small> | Specifies how many items to show around the current page. Default is `3`.
 
 [listing-page]: ../contenttypes/content-in-templates#record-listing-pages
