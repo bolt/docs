@@ -24,12 +24,15 @@ are installed by default, and Bolt should work out-of-the-box.
   - openssl
   - curl
   - gd
+  - dom
   - intl (optional but recommended)
   - json
   - mbstring (optional but recommended)
   - opcache (optional but recommended)
   - posix
   - xml
+  - simplexml
+  - tokenizer
   - fileinfo
   - exif
   - zip
