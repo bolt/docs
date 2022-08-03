@@ -22,24 +22,24 @@ We aim to comply with [PSR-12][psr12].
 
 Testing
 ----------
-We use [PHPUnit][phpunit] for unit testing, and [Cypress][cypress] for
+We use [PHPUnit][phpunit] for unit testing, and [Codeception][codeception] for
 acceptance and functional testing.
 
 Continuous Integration and Continuous Inspection
 ------------------------------------------------
 For automatically running our unit tests and checking against various PHP
-versions, we use [Github CI][githubci]. The configuration is located in the
-[.github][dotgithub] folder. The code standard, as well as some other helpful
+versions, we use [Travis CI][travis]. The configuration is located in the
+[.travis.yml][t.yml] file. The code standard, as well as some other helpful
 tools to get metrics about the codebase are run by
-[Easy Coding Standard][ecs]. The configuration is located in
-[ecs.php][ecs.php]
+[Scrutinizer CI][scrutinizer]. The configuration is located in
+[.scrutinizer.yml][s.yml]
 
 
 [composer]: http://getcomposer.org
-[cypress]: https://www.cypress.io/
-[psr12]: https://www.php-fig.org/psr/psr-12/
+[psr12]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-12-extended-coding-style-guide.md
 [phpunit]: https://github.com/sebastianbergmann/phpunit
-[githubci]: https://docs.github.com/en/actions/automating-builds-and-tests/about-continuous-integration
-[dotgithub]: https://github.com/bolt/core/tree/master/.github
-[ecs]: https://tomasvotruba.com/blog/2017/05/03/combine-power-of-php-code-sniffer-and-php-cs-fixer-in-3-lines/
-[ecs.php]: https://github.com/bolt/core/blob/master/ecs.php
+[codeception]: http://codeception.com/
+[travis]: https://travis-ci.org
+[t.yml]: https://github.com/bolt/bolt/blob/master/.travis.yml
+[scrutinizer]: https://scrutinizer-ci.com
+[s.yml]: https://github.com/bolt/bolt/blob/master/.scrutinizer.yml
