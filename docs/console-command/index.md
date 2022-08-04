@@ -5,7 +5,6 @@ pages:
     - introduction
     - cache
     - extensions
-    - log
     - server
     - setup
     - user
