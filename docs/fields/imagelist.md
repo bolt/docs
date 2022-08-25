@@ -33,12 +33,20 @@ The field has one option to change the functionality of the field:
   with certain file extensions
 * `upload` Allows you to upload files for this field into a specified directory
   so they remain grouped. See also the [`upload_location` setting][upload_location].
+* `extra` (Since Bolt 5.2) Allows you to set additional fields similar to `alt`.
+  You can specify a `label` and a `placeholder` for each.
 
 ```yaml
         gallery:
             type: imagelist
             extensions: [ gif, jpg, png ]
             upload: portfolio
+            extra:
+              title:
+                label: Title
+                placeholder: This is the placeholder for the title
+              caption:
+                label: Caption
 ```
 
 <!--
