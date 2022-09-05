@@ -32,7 +32,7 @@ is to use subscribers, unless you have a good reason for preferring listeners.</
 
 Each subscriber has two required components:
 
-* An event or events it subscribers to (i.e., in when does your custom code execute)
+* An event or events it subscribes to (i.e., in when does your custom code execute)
 * A handler or handlers that contain the custom code in response to the triggered event.
 
 The list of available events is available by running `php bin/console debug:event-dispatcher`
