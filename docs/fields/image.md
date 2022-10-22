@@ -81,7 +81,7 @@ Image:
     {{ dump(record.image|media) }}
 ```
 
-The ouput is a Media object, holding all the Metadata
+The output is a Media object, holding all the Metadata
 
 ```
 Bolt\Entity\Media {#13211 ▼

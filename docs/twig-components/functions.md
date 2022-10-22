@@ -16,7 +16,7 @@ external source. In the below example, the editor can provide either
 ```
 
 See also [Linking in templates][linkintpl], with a detailed
-description of a good usecase.
+description of a good use case.
 
 
 ## absolute_url
@@ -24,7 +24,7 @@ description of a good usecase.
 Use `absolute_url` to create a full link with scheme and domain name from a link
 
 See also [Linking in templates][linkintpl], with a detailed
-description of a good usecase.
+description of a good use case.
 
 
 ## all_related_content()

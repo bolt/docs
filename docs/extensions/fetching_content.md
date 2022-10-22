@@ -3,11 +3,11 @@ Fetching Content
 
 This page describes how to fetch existing Content from the database in code. Not to be confused with [fetching Content][fetching] in your (frontend) templates.
 
-## Fetching content programatically in `setcontent`-like format.
+## Fetching content programmatically in `setcontent`-like format.
 
 <p class="note">This is the recommended and easy way of fetching Content
 in Bolt. Alternatively, you can use Bolt's built-in repository and/or write
-your own Doctirne repositories for special cases. See below for more info.</p>
+your own Doctrine repositories for special cases. See below for more info.</p>
 
 Bolt provides the `Query` class, which is a Symfony service that allows you to query
 and fetch content much like you would do in Twig templates using `setcontent`.
@@ -128,7 +128,7 @@ class ExampleFetcherFromRepository
            'contentType' => 'entries'
         ]);
 
-        // Search records programatically, for records that include 'apples', page 1, 100 per page
+        // Search records programmatically, for records that include 'apples', page 1, 100 per page
         $searchResults = iterator_to_array(
             $this->contentRepository->searchNaive('apples', 1, 100)
         );

@@ -117,7 +117,7 @@ This credential provider first checks in order:
 For information on the `Aws\Credentials` classes, see Amazon's ApiGen
 documentation for [AWS Credentials][s3-api-creds].
 
-If using an IAM policy, you'll need to attach the follwoing to the IAM user
+If using an IAM policy, you'll need to attach the following to the IAM user
 role:
 
 ```json
@@ -164,7 +164,7 @@ If using `\Bolt\Filesystem\Filesystem` as your `FilesystemInterface` object,
 you first need to construct an `\Bolt\Filesystem\Adapter\S3` adapter class.
 
 Your adapter can then be passed to the `$app['filesystem.cache_factory']`
-callable, and the return value used as the adpater parameter to construct
+callable, and the return value used as the adapter parameter to construct
 `Filesystem`.
 
 
@@ -183,8 +183,8 @@ you need to next override the desired package in the package group with a
 `Symfony\Component\Asset\UrlPackage` object that defines your base Amazon S3
 bucket URL.
 
-This is achived by extending `$app['asset.packages']`, and adding your specific
-`UrlPackage` object to he desired package pool name.
+This is achieved by extending `$app['asset.packages']`, and adding your specific
+`UrlPackage` object to the desired package pool name.
 
 
 ### Example Provider

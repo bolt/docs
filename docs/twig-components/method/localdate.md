@@ -1,6 +1,6 @@
 # localdate
 
-`localdate(format = null, locale = null, timezone = null)` is a Twig filter to uutput a localized, readable version of a timestamp.
+`localdate(format = null, locale = null, timezone = null)` is a Twig filter to output a localized, readable version of a timestamp.
 
 |Parameter	|Description
 |---|---

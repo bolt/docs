@@ -98,7 +98,7 @@ Finally you can pass filters to the query using the filter option. For a full
 reference of what can be passed to a where filter you can see the content
 fetching documentation.
 
-In adition to filters on the ContentType values, you can use taxonomy
+In addition to filters on the ContentType values, you can use taxonomy
 conditions, as in the following example:
 
 ```yaml

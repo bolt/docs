@@ -9,5 +9,5 @@ default, `|next` finds the right adjacent element for the same contenttype using
 
 |Parameter | Description 
 |---|---|
-|`byColumn` | Sort records based on the passsed column's value. Default is `id` 
+|`byColumn` | Sort records based on the passed column's value. Default is `id` 
 |`sameContentType` | If set to `true`, it only sorts records of the same contenttype. Default is `true`

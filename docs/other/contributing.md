@@ -135,7 +135,7 @@ terminal.
   `$ git branch issue-123-create-login-form`
 
   You're now working in a branch. Any commit you do while you're in this branch
-  will be commited to this branch only.
+  will be committed to this branch only.
 
 - Step 6: When you're done fixing, you can push your branch to a **new** branch
   in your GitHub repository by pushing your branch 'issue-123-create-login-form'
@@ -163,7 +163,7 @@ terminal.
 Pull Request Details (PR)
 -------------------------
 
-Details of your changes should be susinctly documented in the pull request. For
+Details of your changes should be succinctly documented in the pull request. For
 new features it should include a short use case and justification.
 
 Along with notating any issues the PR fixes, it should include mentions of any

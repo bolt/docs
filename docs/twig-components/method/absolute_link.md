@@ -8,6 +8,6 @@ the below example, the editor can provide either page/about, or https://boltcms.
 ```
 
 See also [Linking in templates](https://docs.bolt.cm/4.0/templating/linking-in-templates), with a detailed description
-of a good usecase.
+of a good use case.
 
 Source: Bolt

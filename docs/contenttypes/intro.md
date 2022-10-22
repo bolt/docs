@@ -163,7 +163,7 @@ be an array of arrays. I.e. `{{ page.title }}` for the title of a page or
 <p class="note"><strong>Tip:</strong> Although it's possible to access an array
 of records by its index number, this is not used very often in practice. It's
 much more common to use a loop like <code>{% for event in events %}</code>, to
-iterate over all of the <code>events</code>, and then use them seperately as a
+iterate over all of the <code>events</code>, and then use them separately as a
 single <code>event</code>.</p>
 
 If you're building a template and are unsure of what a certain variable contains

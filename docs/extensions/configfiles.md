@@ -11,7 +11,7 @@ configuration file, where the people using your extension will configure
 how the extension behaves.
 
 By default, Bolt will parse a yaml configuration file available for use in 
-the soure code of your extension, similar to Bolt's own `config.yaml`.
+the source code of your extension, similar to Bolt's own `config.yaml`.
 To use this, simply create a `config/config.yaml` file.
 
 The config will then be available in any class in your extension, for example:

@@ -86,7 +86,7 @@ After making this change you can reference your assets like this if you've copie
 ```
 
 Here 'my-site' refers to the 'my-site' under packages in `assets.yaml`[^1].
-[^1]: Note, somes packaged "names" are reserved (because already defined by bolt), like : "bolt", "theme", "public" and "files"
+[^1]: Note, some packaged "names" are reserved (because already defined by bolt), like : "bolt", "theme", "public" and "files"
 
 
 Build your files using encore (yarn ...), and refresh the page!

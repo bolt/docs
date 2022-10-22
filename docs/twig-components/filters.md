@@ -258,7 +258,7 @@ same contenttype using the record's database id.
 
 | Parameter         | Description |
 |-------------------|-------------|
-| `byColumn`        | Sort records based on the passsed column's value. Default is `id` |
+| `byColumn`        | Sort records based on the passed column's value. Default is `id` |
 | `sameContentType` | If set to `true`, it only sorts records of the same contenttype. Default is `true` |
 
 ### next
@@ -273,7 +273,7 @@ same contenttype using the record's database id.
 
 | Parameter         | Description |
 |-------------------|-------------|
-| `byColumn`        | Sort records based on the passsed column's value. Default is `id` |
+| `byColumn`        | Sort records based on the passed column's value. Default is `id` |
 | `sameContentType` | If set to `true`, it only sorts records of the same contenttype. Default is `true` |
 
 
@@ -579,7 +579,7 @@ The Title filter creates a short, text-only, title of a record. It'll produce
 a suitable title-like output that can be used for overview pages, listings, et
 cetera. It does this, regardless of the actual structure of the ContentType. It
 looks at fields named 'title' or 'heading', or at the fields used in the slug,
-but as long as there's any text fields, you'll get a consistent and useable
+but as long as there's any text fields, you'll get a consistent and usable
 output.
 
 | Parameter  | Description |

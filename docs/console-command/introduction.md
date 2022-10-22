@@ -11,7 +11,7 @@ Bolt provides a powerful command line tool, based on the Symfony
 merely a convenient tool for those that do prefer the command line. Its use is
 not required for normal use.</p>
 
-Console is usualy located at `{site root}/bin/console`, and can be executed using your
+Console is usually located at `{site root}/bin/console`, and can be executed using your
 PHP binary, for example to execute the `cache:clear` Console command:
 
 ```bash
