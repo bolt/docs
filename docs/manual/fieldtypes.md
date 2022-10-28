@@ -27,7 +27,7 @@ paragraphs in length.
 A Markdown field. Markdown allows you to write using an easy-to-read,
 easy-to-write plain text format, which then converts to valid HTML for viewing
 on the frontend. Often used when text needs minimal custom styling but still
-needs to be able to be sectioned or formatted. Highly reccomended if you feel
+needs to be able to be sectioned or formatted. Highly recommended if you feel
 comfortable using it.
 
 ### HTML
@@ -322,7 +322,7 @@ options:
 
 #### Publication date
 
-This will determine when the record will be published if used in conjuction
+This will determine when the record will be published if used in conjunction
 with the status "Timed publish". 
 
 #### Depublication date
@@ -345,9 +345,9 @@ Relations and taxonomy
 
 <a href="https://user-images.githubusercontent.com/7093518/90906874-8e676700-e3d2-11ea-92b7-928514f576b9.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/90906874-8e676700-e3d2-11ea-92b7-928514f576b9.png"></a><br>
 
-Relations allows you to tie a record to another record of either the same or a
+Relations allow you to tie a record to another record of either the same or a
 different ContentType for usage in your templates. An example of this is often
-seen on ecommerece websites that have a "related products" section.
+seen on ecommerce websites that have a "related products" section.
 
 ### Taxonomy
 

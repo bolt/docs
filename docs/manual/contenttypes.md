@@ -25,9 +25,9 @@ contain different fields for you to enter content in. By default these are:
   connected to a page via a relation, a concept we will touch on later.
 * **Showcases** - An example ContentType meant to show all the different fields
   that bolt can use in a ContentType. You probably do not want to use this on a
-  real site, but it can be very useful to see the possiblities that Bolt gives
+  real site, but it can be very useful to see the possibilities that Bolt gives
   you.
   
-Let's move on to how to handle files,  hover over "File Managment" in the left
-menu and click "Uploaded files" to procceed to the next
+Let's move on to how to handle files,  hover over "File Management" in the left
+menu and click "Uploaded files" to proceed to the next
 [step](uploaded-files)...

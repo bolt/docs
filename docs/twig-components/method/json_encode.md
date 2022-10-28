@@ -1,6 +1,6 @@
 # json_encode
 
-`json_encode(options, depth)` is a Twig filter to Treturn the JSON representation of a value:
+`json_encode(options, depth)` is a Twig filter to return the JSON representation of a value:
 
 ```twig
 {{ data|json_encode() }}

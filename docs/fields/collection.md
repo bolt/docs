@@ -34,7 +34,7 @@ within a collection, there are a few that are not supported.
 
 <a href="/files/collection.png" class="popup"><img src="/files/collection.png" width="590"></a><br>
 
-<p class="note"><strong>Note:</strong> Collections are useable with most of the
+<p class="note"><strong>Note:</strong> Collections are usable with most of the
 available field types, except where
 it simply does not make sense to have more than one of. In short, do
 <strong>not</strong> use <code>type: slug</code>, <code>type: collection</code> or

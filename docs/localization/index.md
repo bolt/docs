@@ -132,7 +132,7 @@ localization:
     fallback_when_missing: true # When set to true, fields with empty values will fallback to the default locale's value.	
 ```
 
-Similarly, to disable this behaviour, set the `fallback_when_missing` configurattion to `false`.	
+Similarly, to disable this behaviour, set the `fallback_when_missing` configuration to `false`.	
 In those cases when the field is not available in the current locale, the field values will be empty.	
 
 [locales-page]: ./localization/locales

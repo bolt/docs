@@ -81,7 +81,7 @@ over what will be displayed in the widget itself.
 
 At the same time, we urge widget developers to not override used fonts, colors
 and text styles unless absolutely necessary. The less you change in the CSS,
-the more seemless the widget will integrate in websites. When it comes to
+the more seamless the widget will integrate in websites. When it comes to
 widgets in the frontend, there are not many options to influence what they will
 look like, by design:
 

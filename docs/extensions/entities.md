@@ -5,7 +5,7 @@ Read more about this topic in Doctrine's official documentation: [Doctrine ORM][
 
 ## What are Entities?
 
-Entities are, simply put, PHP objects that allow CRUD (create-read-udpate-delete) operations
+Entities are, simply put, PHP objects that allow CRUD (create-read-update-delete) operations
 with the database.
 
 Thinking of traditional SQL databases, you can think of an Entity as a row in a table in the database.
@@ -92,7 +92,7 @@ class ColorField extends Field implements Excerptable, FieldInterface, RawPersis
 }
 ```
 
-Then, make sure the entity is properly mapped by Doctrine, by addding to your `services.yaml`:
+Then, make sure the entity is properly mapped by Doctrine, by adding to your `services.yaml`:
 
 ```yaml
 ### Map entities

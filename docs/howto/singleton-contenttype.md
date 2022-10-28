@@ -23,7 +23,7 @@ to its configuration in `contenttypes.yml`.
 ### Example: A "settings" singleton
 
 In this example we'll run you through creating a settings ContentType, here you
-can allow your site manager to edit things like social media URL's, non-page
+can allow your site manager to edit things like social media URLs, non-page
 specific content, and anything you feel a user should be able to manage
 independent of the template designer.
 

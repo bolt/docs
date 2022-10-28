@@ -131,7 +131,7 @@ environment. See the Symfony docs on [Managing Multiple .env Files][sf-env].
 
 #### Example
 
-If you've added a setting to your environment, you can make it avaliable for
+If you've added a setting to your environment, you can make it available for
 use in Bolt (both for extensions, as well as in templates), by adding it to
 `config.yaml`. It might sound like a bit of extra work, but this way you have
 the benefit of using an ENV variable, but ease of use of a normal configuration

@@ -1,12 +1,12 @@
 Creating (and updating) Content
 ===============================
 
-Sometimes you will need to create content programatically. For example,
+Sometimes you will need to create content programmatically. For example,
 there may be an API of events that need to be managed in Bolt.
 
 ## Creating content in PHP
 
-The recommended way for creating Content programatically in Bolt
+The recommended way for creating Content programmatically in Bolt
 is using the provided ContentFactory methods.
 
 ### Creating content using `ContentFactory::create`
@@ -34,7 +34,7 @@ class ExampleContentCreator
         $data = [
             [
                 'title' => 'My first entry',
-                'teaser' => 'Read more about programatically making content',
+                'teaser' => 'Read more about programmatically making content',
                 'body' => 'Bla bla bla bla bla...'
             ],
             [
@@ -121,7 +121,7 @@ class ExampleContentCreator
         $data = [
             [
                 'title' => 'My first entry',
-                'teaser' => 'Read more about programatically making content',
+                'teaser' => 'Read more about programmatically making content',
                 'body' => 'Bla bla bla bla bla...'
             ],
             [
@@ -164,7 +164,7 @@ you can also use a static method.
 <p class="Note">As the <code>createStatic</code> method does NOT use Symfony
 autoloading and autowiring, it is limited in the checks and initialisations
 that it can do. Only use it if you cannot autoload and autowire the 
-<code>ContentFactroy</code>.</p>
+<code>ContentFactory</code>.</p>
 
 ## Creating content in the API
 

@@ -24,7 +24,7 @@ print it to you. Unlike with the login page, no e-mail is sent and a shadow pass
 Customizing the email
 ---
 
-Bolt allows customizating the email through configuration. In your `config.yaml` file, search the (self-explanatory) section `reset_password_settings`.
+Bolt allows customizing the email through configuration. In your `config.yaml` file, search the (self-explanatory) section `reset_password_settings`.
 
 For full cusomization, you can [decorate](https://symfony.com/doc/current/service_container/service_decoration.html) `ResetPasswordController` through Symfony's container.
 

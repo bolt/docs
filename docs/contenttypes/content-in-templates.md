@@ -38,7 +38,7 @@ also a variable with the singular name of the ContentType available, like
 
 In pages that are used for listings, there's always a variable `{{ records }}`
 available, regardless of the ContentType. Similar to the single record pages,
-there's also a more semanticly named variable with the plural name of the
+there's also a more semantically named variable with the plural name of the
 ContentType, like `{{ pages }}`, `{{ entries }}` or `{{ events }}`.
 
 Note: This is the case for all normal listings, but also for taxonomy overview
@@ -68,7 +68,7 @@ homepage: entries
 Then you would have `{{ records }}` available, as well as a variable with the
 name of the ContentType. In this case, it would be `{{ pages }}`.
 
-Otherwise, if you want a homepage withour a `{{ record }}` or `{{ records }}`,
+Otherwise, if you want a homepage without a `{{ record }}` or `{{ records }}`,
 you can do so like this:
 
 ```yaml
