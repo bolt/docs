@@ -129,7 +129,7 @@ Create a `composer.json`, like this:
 
 Make sure the `"name"` is set correctly. This is _often_ the same as the last
 part of where it's hosted at Github or Gitlab, but it doesn't have to be. In
-fact, it's the vendow name plus the project name. The vendor name is mandatory
+fact, it's the vendor name plus the project name. The vendor name is mandatory
 and should be unique to your projects. The namespaces used in the
 `autoload/psr-4` and `extra/entrypoint` attributes should also be unique, and
 match the `name`. The notation is different, though: the `name` must be
@@ -180,7 +180,7 @@ If all went well, you can confirm the next step, and you'll now have published
 your extension-to-be on Packagist. If it didn't go through, Packagist will most 
 likely tell you why it didn't, enabling you to fix the error and to try again.
 
-<p class="note"><strong>Note:</strong> You're submitting our package to
+<p class="note"><strong>Note:</strong> You're submitting your package to
 Packagist already, but it won't show up on the Bolt Extension website until
 you've tagged a release in your git repository.</p>
 
