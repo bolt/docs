@@ -79,14 +79,14 @@ variables, meaning that the changes are local to the template fragment:
 The cache tag is part of the CacheExtension which is not installed by default. Install it first:
 
 ```twig
-$ composer require twig/cache-extra</pre>
+$ composer require twig/cache-extra
 ```
 
 On Symfony projects, you can automatically enable it by installing the
 twig/extra-bundle:
 
 ```twig
-$ composer require twig/extra-bundle</pre> 
+$ composer require twig/extra-bundle
 ```
 
 Or add the extension explicitly on the Twig environment:
