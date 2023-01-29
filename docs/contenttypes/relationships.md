@@ -68,9 +68,8 @@ This directionality comes into play when fetching related records.
 For example, you may have a contenttype `entries` that has a relation to
 `entries` itself; this allows you to show hand-selected "related posts".
 
-The record in which you've selected another record, in the Relations tab, will
-be the "from" end of the relation. The record you've selected there is the "to"
-end.
+When you edit record A, and select record B as a relation in the Relations tab,
+the relation will be _from_ A _to_ B.
 
 The directionality in relations allows you to either select _all_ records with a
 relation to the current record, in any direction, or you can specify that you
