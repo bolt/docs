@@ -59,3 +59,59 @@ To get the related records in twig, use the _filter_ `related`.
         </ul>
     {% endif %}
 ```
+
+Relations and directions
+------------------------
+Relationships have a direction; they point _from_ a content record _to_ another.
+This directionality comes into play when fetching related records.
+
+For example, you may have a contenttype `entries` that has a relation to
+`entries` itself; this allows you to show hand-selected "related posts".
+
+The record in which you've selected another record, in the Relations tab, will
+be the "from" end of the relation. The record you've selected there is the "to"
+end.
+
+The directionality in relations allows you to either select _all_ records with a
+relation to the current record, in any direction, or you can specify that you
+only want one of the directions.
+
+Let's take this example:
+
+```yaml
+entries:
+    name: Entries
+    singular_name: Entry
+    fields:
+        [..]
+    relations:
+        entries:
+            multiple: true
+            required: false
+            label: Select one or more related entries
+            order: -id
+    [..]
+```
+
+Then, after adding some content and making relations between the entries, we can
+display them in the templates using the `related()` method. If you'd use the
+previous example of Twig code, you'd get _all_ related records for the current
+record, regardless of contenttype or direction.
+
+Using the second parameter of the `related()` method, you can specify which
+relations you want to see. For instance, to only display relations to other
+records of the `entries` contenttype, that the current record is the "from" end
+for, you'd do this:
+
+```twig
+    {% set relatedrecords = record|related("entries", "from") %}
+    {% if relatedrecords is not empty %}
+        <p>Related content:</p>
+        <ul>
+        {% for related in relatedrecords %}
+            <li><a href="{{ related|link }}">{{ related.title }}</a></li>
+        {%  endfor %}
+        </ul>
+    {% endif %}
+```
+

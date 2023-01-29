@@ -295,12 +295,12 @@ add the `raw` modifier.
 
 Returns an array of records that are related to the given record.
 
-| Parameter      | Description |
-|----------------|-------------|
-| `name`         | The related content's name or contenttype. If not set, it will fetch all related records. |
-| `bidirectional`| Performs bidirectional search. Default is `true` |
-| `limit`        | Limits the number of related records that are returned.  |
-| `publishedOnly`| Return only related records that are published. Default is `true` |
+| Parameter        | Description                                                                                                 |
+| ---------------- | -------------                                                                                               |
+| `name`           | The related content's name or contenttype. If not set, it will fetch all related records.                   |
+| `direction`      | Limit relations to a direction. Default is "both"; see [Relations and directions][direction] for more info. |
+| `limit`          | Limits the number of related records that are returned.                                                     |
+| `publishedOnly`  | Return only related records that are published. Default is `true`                                           |
 
 ```twig
 {% set relatedrecords = record|related() %}
@@ -324,21 +324,21 @@ Returns a two-dimensional array of related records, where the first key is the c
     ]
 ```
 
-| Parameter      | Description |
-|----------------|-------------|
-| `bidirectional`| Performs bidirectional search. Default is `true` |
-| `limit`        | Limits the number of related records that are returned.  |
-| `publishedOnly`| Return only related records that are published. Default is `true` |
+| Parameter        | Description                                                                                                 |
+| ---------------- | -------------                                                                                               |
+| `direction`      | Limit relations to a direction. Default is "both"; see [Relations and directions][direction] for more info. |
+| `limit`          | Limits the number of related records that are returned.                                                     |
+| `publishedOnly`  | Return only related records that are published. Default is `true`                                           |
 
 ## related_first
 
 Returns the first of the returned related records.
 
-| Parameter      | Description |
-|----------------|-------------|
-| `name`         | The related content's name or contenttype. If not set, it will fetch all related records. |
-| `bidirectional`| Performs bidirectional search. Default is `true` |
-| `publishedOnly`| Return only related records that are published. Default is `true` |
+| Parameter        | Description                                                                                                 |
+| ---------------- | -------------                                                                                               |
+| `name`           | The related content's name or contenttype. If not set, it will fetch all related records.                   |
+| `direction`      | Limit relations to a direction. Default is "both"; see [Relations and directions][direction] for more info. |
+| `publishedOnly`  | Return only related records that are published. Default is `true`                                           |
 
 ## round, ceil and floor
 
@@ -665,3 +665,4 @@ instead. For example: <code>{{ app.request.get('foo') }}</code>.</p>
 [switch]: http://php.net/manual/en/control-structures.switch.php
 [extras]: ./extras
 [popup_function]: ./functions#popup-magnific-popup
+[direction]: ../contenttypes/relationships#relations-and-directions
