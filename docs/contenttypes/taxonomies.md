@@ -273,7 +273,8 @@ categories:
   ...
   listing_template: category.twig
 ``` 
-Notice the `listing_template` key added above. Same as you can decide the number of records to be shown within this taxonomy page
+Notice the `listing_template` key added above. Similarly,  you can decide the number of records to be shown within this taxonomy page.
+
 ```
   listing_records: 4
 ```
