@@ -265,7 +265,8 @@ If you have a taxonomy with the multiple: true setting you can do something like
 {% endfor %}
 {% endif %}
 ```
-In your taxonomy.yaml file where you have defined your different taxonomies, you can decide which file should be used to display your records for a specific taxonomy (categories for example) if you do not want to stick to the default which is the `listing_template: listing.twig` in `config/bolt/config.yaml`. You can define this under your taxonomy let's say categories here 
+In your `taxonomy.yaml` file, where you have defined your different taxonomies, you can decide which file should be used to display your records for a specific taxonomy (categories for example) if you do not want to stick to the default (which is `listing_template: listing.twig` in `config/bolt/config.yaml`). You can define this under your taxonomy like this: 
+
 ```
 categories:
   name: Categories 
