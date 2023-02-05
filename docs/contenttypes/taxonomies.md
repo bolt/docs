@@ -251,7 +251,7 @@ If you would like to display a list of records with the same taxonomy values, fo
 </ul>
 ```
 
-If you have a taxonomy with the multiple: true setting you cna do something like this:
+If you have a taxonomy with the multiple: true setting you can do something like this:
 
 ```twig
 {% if record|taxonomies.chapters is defined %}
@@ -264,6 +264,19 @@ If you have a taxonomy with the multiple: true setting you cna do something like
 </ul>
 {% endfor %}
 {% endif %}
+```
+In your `taxonomy.yaml` file, where you have defined your different taxonomies, you can decide which file should be used to display your records for a specific taxonomy (categories for example) if you do not want to stick to the default (which is `listing_template: listing.twig` in `config/bolt/config.yaml`). You can define this under your taxonomy like this: 
+
+```
+categories:
+  name: Categories 
+  ...
+  listing_template: category.twig
+``` 
+Notice the `listing_template` key added above. Similarly,  you can decide the number of records to be shown within this taxonomy page.
+
+```
+  listing_records: 4
 ```
 
 Taxonomy Record Listing
