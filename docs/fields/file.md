@@ -16,7 +16,9 @@ Simple file upload/select field.
 ## Example usage in templates:
 
 ```twig
-{{ record.attachment }}
+{{ record.attachment.filename }}
+or
+{{ record.attachment.path }}
 ```
 
 ## Options:
