@@ -236,7 +236,7 @@ The available options are:
 | `sort` <small>(optional)</small> | The default sorting of this ContentType, in the overview in Bolt's backend interface. For example `-datecreated`. |
 | `records_per_page` <small>(optional)</small> | The amount of records shown on each page in the Bolt backend. If there are more records, they will be paginated. |
 | `show_on_dashboard` <small>(optional)</small> | When set to `false` the ContentType will not appear in the 'Recently edited &hellip;' list on the dashboard page. |
-| `show_in_menu` <small>(optional)</small> | When set to `false` the ContentType will show in a submenu instead of as a top level menu. Can also be set to a word or sentence to group ContentTypes under different menus. |
+| `show_in_menu` <small>(optional)</small> | When set to `false` the ContentType will show in a submenu instead of as a top level menu. Can also be set to a word or sentence to group ContentTypes under different menus. The top level menu will use the `icon_many` of its first child. |
 | `default_status` <small>(optional)</small> | Use this to set the default status for new records in this ContentType, i.e. `published`, `held`, `draft` or `timed`. |
 | `searchable` <small>(optional)</small> | A boolean value to determine whether this ContentType should show up in search results. |
 | `viewless` <small>(optional)</small> | When set to `true`, routes will not be set for the ContentType listing, or the records themselves. Useful for creating [Resource ContentTypes][howto-resource-ct]. |
