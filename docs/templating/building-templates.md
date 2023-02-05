@@ -154,7 +154,7 @@ The current default theme contains the following files and folders:
 | `partials/_header.twig` | Helper template that gets included as the header. |
 | `partials/_footer.twig` | Helper template that gets included as the footer. |
 | `partials/_recordfooter.twig` | Footer specifically for ContentType records |
-| `theme.yaml` | A file with configuration related to the theme and how it works with bolt. Can also contain configuration for template specific fields and values for the theme to use in its templates. |
+| `theme.yaml` | A file with configuration related to the theme and how it works with bolt. Can also contain configuration for the theme to use in its templates. |
 | `js/` | Compiled JavaScript files |
 | `css/` | Compiled CSS files |
 

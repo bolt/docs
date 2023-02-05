@@ -303,8 +303,7 @@ Bolt-specific fields
 
 <a href="https://user-images.githubusercontent.com/7093518/91534734-556b4d00-e912-11ea-8b2f-1452ed3204cf.png" class="popup"><img src="https://user-images.githubusercontent.com/7093518/91534734-556b4d00-e912-11ea-8b2f-1452ed3204cf.png"></a><br>
 
-Allows one to choose a specific template for each particular record. Can add
-additional fields by using the feature "Template specific fields".
+Allows one to choose a specific template for each particular record.
 
 ### Slug
 
