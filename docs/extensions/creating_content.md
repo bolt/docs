@@ -169,4 +169,4 @@ that it can do. Only use it if you cannot autoload and autowire the
 ## Creating content in the API
 
 For documentation on how to create content in the API,
-check the in-CMS documentation at `/bolt/api`.
+check the in-CMS documentation at `/bolt/api` (where `bolt` is the value defined in `bolt.backend_url`).
