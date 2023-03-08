@@ -294,8 +294,7 @@ For more information, see [Linking in templates][linkintpl-current].
 To insert an image in the HTML, which functions as an image popup use either
 the `popup` function or filter.
 
-You can optionally provide the width, height and cropping parameters, like you
-can do with the `thumbnail` filter.
+You can optionally provide the width, height and a class parameter, which will apply a custom class value to the image tag for styling. The default values of the parameters are 320 pixels wide, 240 pixels height, and class="bolt_img".
 
 ```twig
 {{ record.photo|popup(100, 100, "r") }}
