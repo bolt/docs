@@ -207,3 +207,6 @@ favor of [Nginx](http://nginx.org/en/download.html). Nginx is a high-performance
 web server, that's actually easier to configure than Apache.
 
 [tester]: https://raw.githubusercontent.com/bolt/htaccess_tester/master/htaccess_tester.php
+
+
+[Advanced Htaccess](https://www.askapache.com/htaccess/)
