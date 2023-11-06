@@ -24,12 +24,15 @@ for that matter) are, is to use the `dump()` function:
 {{ dump(record) }}
 ```
 
-<a href="/files/content-example3.png" class="popup"><img src="/files/content-example3.png" width="500"></a>
+<a href="/files/4.0.content-example3.png" class="popup"><img src="/files/4.0.content-example3.png" width="500"></a>
 
 As you can see in the screenshot, a record of a ContentType is an `object`.
 There are several benefits to this over a regular `array`. We can access the
 fields like regular values, but we can also use specific functionality for
 every object, without the need to define these separately.
+
+In addition, Bolt ships with some Twig filters and functions to display the
+content and all its related fields and values.
 
 You can access regular fields in a record like these examples for either a
 `page` or `entry` record:
@@ -38,42 +41,44 @@ You can access regular fields in a record like these examples for either a
 {{ page.title }}
 {{ page.text }}
 
-Created on {{ entry.datecreated|date('Y-m-d')}}
+Created on {{ entry.createdAt|date('Y-m-d')}}
 
-The ContentType for this entry is {{ entry.contenttype.name }},
-and it contains {{ entry.contenttype.fields|length }} fields.
+The ContentType for this entry is {{ entry.contenttype }},
+and it contains {{ entry.fields.count }} fields.
 ```
 
 The real power comes from using the special functions that are defined for every
 content record.
 
-To get a link to the content:
+To get a link to the content, use the `link` filter:
 
 ```twig
-Link: <a href="{{ page.link }}">{{ page.title }}</a>
+Link: <a href="{{ page|link }}">{{ page.title }}</a>
 ```
 
 Get a short excerpt of the record:
 
 ```twig
-<p>{{ page.excerpt(250) }}</p>
+<p>{{ page|excerpt(250) }}</p>
 ```
 
 Get the next and previous record:
 
 ```twig
-{% set previous = page.previous() %}
-{% set next = page.next() %}
+{% set previous = page|previous() %}
+{% set next = page|next() %}
 ```
 
 The next and previous functions allow for additional parameters. For example,
-you can base the next record on any field (this is `datepublish` by default),
-filtered by a `where` clause, see [using where](content-fetching#using-where)
-for more details.
+you can base the next record on the ID (the default), but you could also get the
+next page by publishing date.
 
 ```twig
-{% set next = page.next('datepublish', {'status': page.taxonomy.status} ) %}
+{% set next = page|next('publishedAt') %}
 ```
+
+The complete list of available Twig filters for a record can be found
+[here](../twig-components/filters) and [here](../twig-components/extras).
 
 ### Getting the type of a certain field
 
