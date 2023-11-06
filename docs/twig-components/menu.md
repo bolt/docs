@@ -83,14 +83,15 @@ arguments in Twig. For example:
 {{ menu(
     identifier = 'foo',
     template = 'partials/_menu_foo.twig',
-    params = {'withsubmenus': false, 'class': 'myclass'}
+    class = 'myclass'
+    withsubmenus = false
 ) }}
 ```
 
 Which is equivalent to this shorthand version:
 
 ```twig
-{{ menu('foo', 'partials/_menu_foo.twig', {'withsubmenus': false, 'class': 'myclass'}) }}
+{{ menu('foo', 'partials/_menu_foo.twig', 'myclass', false) }}
 ```
 
 Doing this will render the menu `foo`, using the template `_menu_foo.twig`. The
