@@ -19,12 +19,12 @@ along with the definition of the sub fields under the `fields` key.
         features:
             type: collection
             fields:
-                title:
+                featuretitle:
                     type: text
-                image:
+                featureimage:
                     type: image
                     extensions: [ gif, jpg, png ]
-                content:
+                featurecontent:
                     type: html
 ```
 
@@ -78,7 +78,7 @@ fields from the collection by name or by type. Because of the nature of a Collec
 In that light, it's usually good practice to always use a for loop to iterate over them. The examples below will grab the fields named `content` or all of the `type: text` fields. We do this with Twig's [`filter` filter][filter]
 
 ```twig
-{% for feature in record.features|filter(feature => feature.name == 'content') %}
+{% for feature in record.features|filter(feature => feature.name == 'featurecontent') %}
     {{ feature }}
 {% endfor %}
 
@@ -114,12 +114,12 @@ The field has three specific options:
             limit: 3
             collapsible: false
             fields:
-                title:
+                featuretitle:
                     type: text
-                image:
+                featureimage:
                     type: image
                     extensions: [ gif, jpg, png ]
-                content:
+                featurecontent:
                     type: html
 ```
 
@@ -134,23 +134,23 @@ The field has three specific options:
         features:
             type: collection
             fields:
-                title:
+                featuretitle:
                     type: text
-                content:
+                featurecontent:
                     type: html
-                image:
+                featureimage:
                     type: image
             default:
                 0:
-                    field: title
+                    field: featuretitle
                     default: "Lets start with a title"
                 1:
-                    field: image
+                    field: featureimage
                     default:
                         filename: "kitten.jpg"
                         alt: "Picture of a kitten"
                 2:
-                    field: content
+                    field: featurecontent
                     default: "<strong>Finish strong</strong> after the kitten with some content"
 ```
 
