@@ -115,6 +115,12 @@ This is correct:
     <img src="/files/htaccess-1.png" width="660" style="bor"></a><br>
 </div>
 
+Debugging htaccess Variables
+-------------------------------
+
+You can debug and view your mod_rewrite variables with the script here: [HTACCESS Variables Debugger](https://www.askapache.com/htaccess/crazy-advanced-mod_rewrite-tutorial/#PHP_Code_access_Apache_Variables).  This will show you the variables htaccess can view.
+
+
 My htaccess is broken? What do?
 -------------------------------
 
