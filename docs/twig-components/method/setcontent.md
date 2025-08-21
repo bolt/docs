@@ -4,7 +4,7 @@
 records.
 
 Much, much more information about the `setcontent` tag, together with additional query arguments, pagination, sorting 
-and other options you can find in the chapter about [Fetching content](https://docs.bolt.cm/4.0/templating/content-fetching).
+and other options you can find in the chapter about [Fetching content](../templating/content-fetching).
 
 These queries are currently possible:
 
